@@ -43,9 +43,23 @@ nav:
   - Teorie her:
       - teorie/index.md
       - Tvůrčí proces a mindset:
+          - Proč tvořit: teorie/proc-tvorit.md
           - Začátky bez zkušeností: teorie/zacatky-bez-zkusenosti.md
+          - Start projektu: teorie/jak-zacit.md
+          - Kolik kódu na start: teorie/co-se-ucit.md
+          - Žrouti času: teorie/produktivita.md
+          - Idea iceberg: teorie/rady-z-praxe.md
+          - Postmortem ShantyTown: teorie/postmortem-shantytown.md
+      - Nápad, scope a plánování:
+          - Nápad: teorie/napad.md
+          - Scope a malé hry: teorie/scope.md
+          - Prototypování a vertical slice: teorie/prototypovani.md
       - Základy designu:
+          - Engagement a appeal: teorie/zaklady.md
+          - Zábava a flow: teorie/zabava.md
           - Smyčky a řetězce: teorie/smycky-a-retezce.md
+          - Game feel a imerze: teorie/game-feel.md
+          - Příběh a postavy: teorie/pribeh-a-postavy.md
   - Praxe v UE5:
       - praxe/index.md
       - Blueprint vzory:

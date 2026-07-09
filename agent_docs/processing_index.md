@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 5 published (pilot) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 21 published (pilot + batch 1) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -41,34 +41,34 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [All of the Coding You Need to Start Gamedev!](https://www.youtube.com/watch?v=yjiFwz6mS6k) `yjiFwz6mS6k` | Brainless. | 15:41 | auto | 4172 | `co-se-ucit` |  |
-| todo | [How To PROPERLY Start Making A Game](https://www.youtube.com/watch?v=ekOp35B1Bdg) `ekOp35B1Bdg` | Brainless. | 15:19 | auto | 4373 | `jak-zacit` |  |
-| todo | [ShantyTown Final Devlog - From Idea to Launch](https://www.youtube.com/watch?v=84biRLlHJMk) `84biRLlHJMk` | Silk Softworks | 29:18 | auto | 4101 | `postmortem-shantytown` | devlog: nápad → vydání |
-| todo | [Make Something](https://www.youtube.com/watch?v=GELGIhL9mZo) `GELGIhL9mZo` | Sinikick | 30:26 | auto | 5040 | `proc-tvorit` |  |
-| todo | [7 Gamedev Time Wastes](https://www.youtube.com/watch?v=nckLk3qJ-yo) `nckLk3qJ-yo` | BiteMe Games | 20:42 | auto | 4802 | `produktivita` |  |
-| todo | [The Game Dev Advice That Took 10 Years to Discover](https://www.youtube.com/watch?v=12tZyCMIYbg) `12tZyCMIYbg` | Isto Inc. | 16:25 | auto | 3366 | `rady-z-praxe` |  |
+| published | [All of the Coding You Need to Start Gamedev!](https://www.youtube.com/watch?v=yjiFwz6mS6k) `yjiFwz6mS6k` | Brainless. | 15:41 | auto | 4172 | `teorie/co-se-ucit.md` |  |
+| published | [How To PROPERLY Start Making A Game](https://www.youtube.com/watch?v=ekOp35B1Bdg) `ekOp35B1Bdg` | Brainless. | 15:19 | auto | 4373 | `teorie/jak-zacit.md` |  |
+| published | [ShantyTown Final Devlog - From Idea to Launch](https://www.youtube.com/watch?v=84biRLlHJMk) `84biRLlHJMk` | Silk Softworks | 29:18 | auto | 4101 | `teorie/postmortem-shantytown.md` | devlog: nápad → vydání |
+| published | [Make Something](https://www.youtube.com/watch?v=GELGIhL9mZo) `GELGIhL9mZo` | Sinikick | 30:26 | auto | 5040 | `teorie/proc-tvorit.md` |  |
+| published | [7 Gamedev Time Wastes](https://www.youtube.com/watch?v=nckLk3qJ-yo) `nckLk3qJ-yo` | BiteMe Games | 20:42 | auto | 4802 | `teorie/produktivita.md` |  |
+| published | [The Game Dev Advice That Took 10 Years to Discover](https://www.youtube.com/watch?v=12tZyCMIYbg) `12tZyCMIYbg` | Isto Inc. | 16:25 | auto | 3366 | `teorie/rady-z-praxe.md` |  |
 | published | [How to Make Games When You're Bad at Everything](https://www.youtube.com/watch?v=ySZynbrqMRM) `ySZynbrqMRM` | Brainless. | 8:19 | auto | 1805 | `teorie/zacatky-bez-zkusenosti.md` |  |
 
 ### Nápad, scope a plánování · `T-SCOPE` (5)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [The Only Game Idea Guide You’ll Ever Need](https://www.youtube.com/watch?v=d_e9Apys9Dg) `d_e9Apys9Dg` | BiteMe Games | 67:09 | auto | 14746 | `napad` |  |
-| todo | [Your game idea (probably) sucks](https://www.youtube.com/watch?v=RqmHvVabdL0) `RqmHvVabdL0` | BiteMe Games | 18:13 | auto | 4138 | `napad` |  |
-| todo | [Prototyping, Vertical Slices, and Planning a Complex Game](https://www.youtube.com/watch?v=atUsa3BE7t0) `atUsa3BE7t0` | Indie Game Clinic | 22:26 | auto | 4489 | `prototypovani` | vertical slice |
-| todo | [Develop Better Games, Faster, with "Design by Constraint"](https://www.youtube.com/watch?v=sk4mpNuFGeE) `sk4mpNuFGeE` | Indie Game Clinic | 49:31 | auto | 9830 | `scope` | design by constraint |
-| todo | [What does "Make Small Games" really mean?](https://www.youtube.com/watch?v=xenwRup_sC4) `xenwRup_sC4` | BiteMe Games | 15:50 | auto | 3670 | `scope` | v playlistu 2× |
+| published | [The Only Game Idea Guide You’ll Ever Need](https://www.youtube.com/watch?v=d_e9Apys9Dg) `d_e9Apys9Dg` | BiteMe Games | 67:09 | auto | 14746 | `teorie/napad.md` |  |
+| published | [Your game idea (probably) sucks](https://www.youtube.com/watch?v=RqmHvVabdL0) `RqmHvVabdL0` | BiteMe Games | 18:13 | auto | 4138 | `teorie/napad.md` |  |
+| published | [Prototyping, Vertical Slices, and Planning a Complex Game](https://www.youtube.com/watch?v=atUsa3BE7t0) `atUsa3BE7t0` | Indie Game Clinic | 22:26 | auto | 4489 | `teorie/prototypovani.md` | vertical slice |
+| published | [Develop Better Games, Faster, with "Design by Constraint"](https://www.youtube.com/watch?v=sk4mpNuFGeE) `sk4mpNuFGeE` | Indie Game Clinic | 49:31 | auto | 9830 | `teorie/scope.md` | design by constraint |
+| published | [What does "Make Small Games" really mean?](https://www.youtube.com/watch?v=xenwRup_sC4) `xenwRup_sC4` | BiteMe Games | 15:50 | auto | 3670 | `teorie/scope.md` | v playlistu 2× |
 
 ### Základy designu · `T-DESIGN` (6)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [The Trick I Used to Make Combat Fun! \| Devlog](https://www.youtube.com/watch?v=6BrZryMz-ac) `6BrZryMz-ac` | Game Endeavor | 8:12 | manual | 1942 | `combat-feel` |  |
-| todo | [This Made My Game 10X More IMMERSIVE](https://www.youtube.com/watch?v=4t3B5brFui4) `4t3B5brFui4` | Its Rascal | 9:35 | auto | 2161 | `game-feel` | devlog o imerzi |
-| todo | [Story in Games: Characters & Dialogue 🗣️](https://www.youtube.com/watch?v=orvZIxC54NU) `orvZIxC54NU` | Indie Game Clinic | 39:41 | auto | 7898 | `pribeh-a-postavy` |  |
+| published | [The Trick I Used to Make Combat Fun! \| Devlog](https://www.youtube.com/watch?v=6BrZryMz-ac) `6BrZryMz-ac` | Game Endeavor | 8:12 | manual | 1942 | `teorie/game-feel.md` |  |
+| published | [This Made My Game 10X More IMMERSIVE](https://www.youtube.com/watch?v=4t3B5brFui4) `4t3B5brFui4` | Its Rascal | 9:35 | auto | 2161 | `teorie/game-feel.md` | devlog o imerzi |
+| published | [Story in Games: Characters & Dialogue 🗣️](https://www.youtube.com/watch?v=orvZIxC54NU) `orvZIxC54NU` | Indie Game Clinic | 39:41 | auto | 7898 | `teorie/pribeh-a-postavy.md` |  |
 | published | [Gameplay Loops Are Out, Chains Are In](https://www.youtube.com/watch?v=6SYX17NzNqE) `6SYX17NzNqE` | Indie Game Clinic | 11:01 | manual | 1987 | `teorie/smycky-a-retezce.md` |  |
-| todo | [How to Make Anything Fun](https://www.youtube.com/watch?v=bMwfH8hJtRc) `bMwfH8hJtRc` | Jonas Tyroller | 73:31 | auto | 13817 | `zabava` |  |
-| todo | [Your Game Must Do These 2 Things](https://www.youtube.com/watch?v=rTxKsBclbxk) `rTxKsBclbxk` | Indie Game Clinic | 23:38 | auto | 4824 | `zaklady` |  |
+| published | [How to Make Anything Fun](https://www.youtube.com/watch?v=bMwfH8hJtRc) `bMwfH8hJtRc` | Jonas Tyroller | 73:31 | auto | 13817 | `teorie/zabava.md` |  |
+| published | [Your Game Must Do These 2 Things](https://www.youtube.com/watch?v=rTxKsBclbxk) `rTxKsBclbxk` | Indie Game Clinic | 23:38 | auto | 4824 | `teorie/zaklady.md` |  |
 
 ### Level design · `T-LEVEL` (5)
 

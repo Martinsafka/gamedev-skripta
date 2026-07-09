@@ -15,6 +15,16 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-07-09 — Phase 3 batch 1: Teorie — mindset + nápad/scope + základy designu (Claude Code)
+
+**What:** 16 videos synthesized into **13 new teorie chapters** (~15k words of Czech): T-MIND — `proc-tvorit`, `jak-zacit`, `co-se-ucit`, `produktivita`, `rady-z-praxe`, `postmortem-shantytown`; T-SCOPE — `napad` (2 videos), `scope` (2 videos), `prototypovani`; T-DESIGN — `zaklady`, `zabava`, `game-feel` (2 videos merged), `pribeh-a-postavy`. Rejstřík +27 terms in both layers (tooltips now 52 lines); `mkdocs.yml` nav grouped into the 3 témata; `teorie/index.md` rewritten; processing index: 16 rows → `published` (stats: 21 published), pilot chapters gained back-links to new chapters. `mkdocs build --strict` green; all internal anchor fragments additionally validated by a slugify-checker script (0 errors — strict doesn't check anchors).
+
+**Why:** Phase 3 batch 1 per roadmap; user go-ahead „pokračuj batchem 1".
+
+**How:** Chapter map = approved index slugs, with one editorial deviation: `combat-feel` + `game-feel` (two ~2k-word devlogs about the same idea — „pocit ze hry") merged into one chapter with two entries; separate files would have been too thin. Timestamp workflow worth keeping: paragraph markers in clean transcripts give the neighborhood, then grep the raw SRT for the exact cue second of each key phrase — precise deep links at ~1 bash call per chapter. The listicle video (7 Time Wastes) was reorganized by failure *mechanism* into 4 entries rather than mirroring its 1–7 list (licensing rule). Entries synthesizing two sources carry both credit blocks. Auto-caption garbles fixed from context (Chants of Sennaar, Raph Koster, Csíkszentmihályi, Fields of Mistria, Megabonk…); one game name ("Moonsh…") was unverifiable → described generically instead of guessing. Tooltip terms kept Capitalized per existing convention — Czech inflection limits tooltip hits regardless; the rejstřík page is the primary layer.
+
+**Follow-ups:** Batch 2 proposed in roadmap: finish Teorie — Level design (4) + Vydání a marketing (4) + Rešerše mytologie (3 EN; the CS video waits on the cs-subtitle pipeline extension, a Later item). Two low-priority beginner-course videos stay `todo`. When the praxe „AI a chování NPC" batch lands, cross-link it from `game-feel.md` (context steering).
+
 ### 2026-07-09 — Phase 2 closed: téma tree approved (Claude Code)
 
 **What:** User approved the téma tree as proposed (6+17 témat), the mythology-as-Rešerše decision, and the skip/low-priority flags (5 news/promo → `skip`, 2 beginner courses stay `todo` low-priority). Index updated accordingly; Phase 2 ticked off; Phase 3 batch 1 agreed: **Teorie — mindset + scope + design (~17 todo videos)**.

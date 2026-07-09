@@ -18,7 +18,7 @@ Odtud plyne autorova výtka smyčkám [(1:40)](https://www.youtube.com/watch?v=6
 
 > **Pozn.:** Tohle je dobrý test na jakýkoli design pojem: *co by musela hra dělat, aby pod něj nespadala?* Pokud nic, je to slovník, ne teorie. Slovník je užitečný — jen od něj nečekej predikce.
 
-**Souvislosti:** [Řetězce a emoce](#retezec-nese-emocni-oblouk) níže · [Rejstřík: gameplay loop](../rejstrik.md#gameplay-loop) · [Rejstřík: core loop](../rejstrik.md#core-loop)
+**Souvislosti:** [Řetězce a emoce](#retezec-nese-emocni-oblouk) níže · [Zábava a flow](zabava.md) · [Základy: engagement a appeal](zaklady.md) · [Rejstřík: gameplay loop](../rejstrik.md#gameplay-loop) · [Rejstřík: core loop](../rejstrik.md#core-loop)
 
 ---
 
@@ -38,4 +38,4 @@ Odtud plyne autorova výtka smyčkám [(1:40)](https://www.youtube.com/watch?v=6
 
 > **Pozn.:** Pro stealth adventuru je tajný řetězec obzvlášť zajímavý: žánr stojí na pozorování prostředí, takže hráč už má „skenovací" návyk, na který jde zavěsit objevitelské řetězce. A hodnotový řetězec je zase přesný popis toho, proč inventářové puzzly fungují — předmět bez známého použití je šum, předmět s tušeným použitím je motivace.
 
-**Souvislosti:** [Design teorie jako metafory](#design-teorie-je-sada-metafor-ne-fyzikalni-zakony) výše · budoucí kapitoly o level designu a puzzle designu · [Rejstřík: value chain](../rejstrik.md#value-chain) · [Rejstřík: roguelike](../rejstrik.md#roguelike)
+**Souvislosti:** [Design teorie jako metafory](#design-teorie-je-sada-metafor-ne-fyzikalni-zakony) výše · [Postmortem ShantyTown: účel jako soudce](postmortem-shantytown.md#hra-ti-rika-cim-chce-byt-ucel-jako-designovy-soudce) · budoucí kapitoly o level designu · [Rejstřík: value chain](../rejstrik.md#value-chain) · [Rejstřík: roguelike](../rejstrik.md#roguelike)

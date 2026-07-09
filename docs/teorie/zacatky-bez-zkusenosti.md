@@ -20,7 +20,7 @@ Druhá polovina videa řeší, co dělat, když výsledky zpočátku nutně vypa
 
 > **Pozn.:** Tahle kapitola sousedí s Dunning-Krugerovým efektem, i když ho video nejmenuje: začátečník neumí posoudit, jak daleko je od cíle, a právě proto je „magnum opus first" tak lákavé. Malé projekty fungují i jako kalibrace sebehodnocení — rychle a levně ti ukážou, kde skutečně jsi.
 
-**Souvislosti:** [Sdílení práce jako nástroj](#sdileni-prace-neni-marketing-je-to-nastroj-uceni) níže · [Rejstřík: scope](../rejstrik.md#scope) · [Rejstřík: game jam](../rejstrik.md#game-jam)
+**Souvislosti:** [Sdílení práce jako nástroj](#sdileni-prace-neni-marketing-je-to-nastroj-uceni) níže · [Scope a malé hry](scope.md) · [Proč tvořit](proc-tvorit.md) · [Rejstřík: scope](../rejstrik.md#scope) · [Rejstřík: game jam](../rejstrik.md#game-jam)
 
 ---
 
@@ -40,4 +40,4 @@ S tím souvisí dvojice pojmů, kterou autor odděluje [(5:30)](https://www.yout
 
 > **Pozn.:** Video zmiňuje i „pravidlo 10 000 hodin" — s oprávněnou skepsí. Popularizovaná verze (Gladwell) je zkreslením původního výzkumu K. A. Ericssona o *záměrném tréninku*: nejde o odsezené hodiny, ale o cílenou práci na slabinách se zpětnou vazbou. Což mimochodem podporuje pointu celé kapitoly — sdílení práce *je* forma zpětné vazby, bez které se hodiny nepočítají.
 
-**Souvislosti:** [Malý rozsah](#maly-rozsah-neni-kompromis-je-to-strategie-preziti) výše · budoucí kapitola o produktivitě a dokončování · [Rejstřík: playtest](../rejstrik.md#playtest)
+**Souvislosti:** [Malý rozsah](#maly-rozsah-neni-kompromis-je-to-strategie-preziti) výše · [Žrouti času](produktivita.md) · [Idea iceberg: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Rejstřík: playtest](../rejstrik.md#playtest)

@@ -41,7 +41,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 
 - [ ] Themed batches processed per the index; glossary grows with each batch; every batch = dev log entry + green `--strict` build.
 - [ ] Processing index kept current (status column: `todo / drafted / published`).
-- [ ] **Batch 1 agreed:** Teorie — Tvůrčí proces a mindset + Nápad, scope a plánování + Základy designu (~17 todo videos). Loop per `workflow.md`: read transcripts → propose chapter map → synthesize → glossary → nav → log.
+- [x] **Batch 1 done** _(2026-07-09)_: Teorie — Tvůrčí proces a mindset + Nápad, scope a plánování + Základy designu. 16 videos → **13 new chapters**, rejstřík +27 terms, `--strict` green. Editorial merge: combat-feel + game-feel → one chapter (`game-feel.md`).
+- [ ] **Batch 2 proposal:** Teorie dokončení — Level design (4) + Vydání a marketing (4) + Rešerše: slovanská mytologie (3 EN; 1 CS video čeká na cs-subtitle rozšíření pipeline). ~11 videos → Teorie document complete (minus low-priority items).
 
 ### Phase 4 — Zápisky
 
