@@ -1,0 +1,19 @@
+# AGENTS.md boundaries — creators' raw material and personal sources.
+# Never commit these; adding them to the repo is never the fix (see AGENTS.md).
+transcripts/
+transcripts_clean/
+inbox/*
+!inbox/.gitkeep
+pilot/
+
+# MkDocs build output
+site/
+
+# IDE / OS
+.idea/
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/

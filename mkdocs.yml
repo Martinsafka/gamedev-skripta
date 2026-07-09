@@ -1,0 +1,59 @@
+site_name: gamedev skripta
+site_description: Studijní skripta herního vývoje — teorie her, praxe v UE5, zápisky z vlastních projektů.
+site_url: https://martinsafka.github.io/gamedev-skripta/
+repo_url: https://github.com/Martinsafka/gamedev-skripta
+
+theme:
+  name: material
+  language: cs
+  palette:
+    scheme: default        # světlé pozadí, tmavý font — projektový požadavek
+    primary: black
+    accent: deep orange
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - toc.follow
+    - content.tooltips
+
+plugins:
+  - search:
+      lang:
+        - cs
+        - en
+
+markdown_extensions:
+  - abbr                    # *[Term]: definice → hover tooltip
+  - attr_list
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md   # tooltipy na každé stránce
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+nav:
+  - Úvod: index.md
+  - Teorie her:
+      - teorie/index.md
+      - Začátky bez zkušeností: teorie/zacatky-bez-zkusenosti.md
+      - Smyčky a řetězce: teorie/smycky-a-retezce.md
+  - Praxe v UE5:
+      - praxe/index.md
+      - Interakce bez Event Ticku: praxe/interakce-bez-event-ticku.md
+      - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
+      - Tipy do editoru: praxe/editor-tipy.md
+  - Zápisky:
+      - zapisky/index.md
+  - Rejstřík: rejstrik.md
+
+validation:
+  links:
+    absolute_links: warn
+    unrecognized_links: warn
