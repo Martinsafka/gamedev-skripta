@@ -15,6 +15,19 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-07-09 — Phase 2 closed: téma tree approved (Claude Code)
+
+**What:** User approved the téma tree as proposed (6+17 témat), the mythology-as-Rešerše decision, and the skip/low-priority flags (5 news/promo → `skip`, 2 beginner courses stay `todo` low-priority). Index updated accordingly; Phase 2 ticked off; Phase 3 batch 1 agreed: **Teorie — mindset + scope + design (~17 todo videos)**.
+**Why:** Approval gate before batch synthesis, per roadmap.
+**How:** Decisions captured via structured questions; index edits mechanical (`skip?` → `skip`, header note). Bez-přepisu handling: Czech mythology video waits for cs-subtitle pipeline extension (Later item); 2 GASP cover-shooter parts will be covered from series context during the MM/GASP batch; rest decided per-topic.
+
+### 2026-07-09 — Phase 2: taxonomy — processing index + téma tree proposal (Claude Code)
+
+**What:** Classified all 210 videos and generated `agent_docs/processing_index.md` (status, video+link, channel, duration, track, word count, téma, chapter slug, notes; grouped by document → téma). Proposed téma tree: Teorie 6 topics / 31 videos, Praxe 17 topics / 179 videos (counts in the index header).
+**Why:** Phase 2 deliverable — the map that batch synthesis (Phase 3) will follow; user approves the tree before any batch starts.
+**How:** Metadata extracted from `info.json` into a TSV; classification from titles/channels with transcript peeks for 4 ambiguous videos (RE9 video = wall-stop locomotion tweak; „10X immersive" = game-feel devlog → teorie). Assignments authored as a compact TSV (id → téma/slug/note) and joined by a generator script — the index is regenerable. Notable clusters: Motion Matching/GASP is the biggest praxe topic (21, matches the author's locomotion work); a 4-video **Slavic mythology** cluster (game-setting research, not gamedev craft) got a provisional téma „Rešerše: slovanská mytologie" under Teorie — flagged for user decision. Flagged 7 videos as skip?/low-priority (news/promo/beginner courses). 7 videos bez přepisu noted (1 is Czech — cs-subtitle fetch is a Later roadmap item).
+**Follow-ups:** User to approve/adjust the tree + decide: mythology section, skip-flagged videos, handling of bez-přepisu videos. After approval: tick the roadmap box, then plan Phase 3 batch #1 (proposal: „Teorie kompletní" or „Motion Matching a GASP" first).
+
 ### 2026-07-09 — Phase 1: pilot review → collapsible topic navigation (Claude Code)
 
 **What:** User verdict on the pilot: content approved; concern that a flat chapter list becomes unreadable at 200+ videos. Implemented a collapsible nav tree **document → téma → kapitola**: `mkdocs.yml` features swap (`navigation.sections` → `navigation.indexes`), nav restructured with provisional topic groups (Teorie: „Tvůrčí proces a mindset", „Základy designu"; Praxe: „Blueprint vzory", „Terén a svět", „Editor a workflow"), document index pages regrouped by topic. Content model in `architecture.md` gains the `téma` level.

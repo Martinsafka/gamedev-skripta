@@ -31,16 +31,17 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] User reviews the 5 pilot chapters against expectations (structure, tone, depth, timestamp usefulness). Verdict: content approved; concern raised that a flat chapter list won't scale to 200+ videos.
 - [x] Structure adjusted per feedback: collapsible navigation tree (document → téma → kapitola) via `navigation.indexes`; convention recorded in `architecture.md` (chapters stay flat on disk, topic grouping lives only in nav). Pilot topics provisional until taxonomy.
 
-### ▶ NEXT UP — Phase 2: Taxonomy _(one heavy session)_
+### ✅ Phase 2: Taxonomy _(done 2026-07-09)_
 
 - [x] Full playlist fetched (210 unique videos; done in Phase 0) and cleaned (203 transcripts; 7 videos lack an English track).
-- [ ] `agent_docs/processing_index.md` created: table of every video (id, title, channel, duration, track quality) with proposed document + chapter assignment.
-- [ ] Chapter skeleton (téma tree) for both documents proposed and approved by user (nav structure in `mkdocs.yml`).
+- [x] `agent_docs/processing_index.md` created: table of every video (id, title, channel, duration, track quality) with proposed document + téma + chapter-slug assignment.
+- [x] Chapter skeleton (téma tree) proposed and **approved by user 2026-07-09**: Teorie 6 témat (incl. „Rešerše: slovanská mytologie") / Praxe 17 témat; 5 news/promo videos → skip, 2 beginner courses → low priority.
 
-### Phase 3 — Batch synthesis _(the long haul)_
+### ▶ NEXT UP — Phase 3: Batch synthesis _(the long haul)_
 
 - [ ] Themed batches processed per the index; glossary grows with each batch; every batch = dev log entry + green `--strict` build.
 - [ ] Processing index kept current (status column: `todo / drafted / published`).
+- [ ] **Batch 1 agreed:** Teorie — Tvůrčí proces a mindset + Nápad, scope a plánování + Základy designu (~17 todo videos). Loop per `workflow.md`: read transcripts → propose chapter map → synthesize → glossary → nav → log.
 
 ### Phase 4 — Zápisky
 
