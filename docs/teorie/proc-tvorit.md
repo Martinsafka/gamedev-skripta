@@ -40,7 +40,7 @@ Poslední argument je dobová příležitost: nikdy nebylo snazší se platformo
 
 > **Pozn.:** Pro nás velmi konkrétní: rešeršní téma „slovanská mytologie" v těchhle skriptech je přesně tenhle nástroj — podklad pro setting, ne akademický cíl sám o sobě. Až začne bobtnat, připomenout si (11:21).
 
-**Souvislosti:** [Nápad](napad.md) · budoucí téma „Rešerše: slovanská mytologie" · [Rejstřík: scope](../rejstrik.md#scope)
+**Souvislosti:** [Nápad](napad.md) · [Rešerše: bestiář slovanské mytologie](slovanska-monstra.md) · [Rejstřík: scope](../rejstrik.md#scope)
 
 ---
 

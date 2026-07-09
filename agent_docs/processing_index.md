@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 21 published (pilot + batch 1) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 32 published (pilot + batch 1–2) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -74,29 +74,29 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [How AAA Level Designers Create Gameplay Moments](https://www.youtube.com/watch?v=tRBGGuh1ajY) `tRBGGuh1ajY` | Gabriel Fuentes | 4:44 | auto | 766 | `gameplay-momenty` |  |
-| todo | [Map Boundary in Level Design \| Tips for Solo Game Devs \| Unity \| Unreal](https://www.youtube.com/watch?v=tcXGVyy4Mm8) `tcXGVyy4Mm8` | Seta - Level Design | 6:55 | manual | 1083 | `hranice-mapy` |  |
-| todo | [How Level Designers Build Caves in UE5](https://www.youtube.com/watch?v=lSrDXaTwvNU) `lSrDXaTwvNU` | Gabriel Fuentes | 5:11 | auto | 810 | `jeskyne` |  |
-| todo | [Recall Priming as a Level Design Technique](https://www.youtube.com/watch?v=Y2QBzdaMAAI) `Y2QBzdaMAAI` | timdoesleveldesign (TimDoesLevelDesign) | 4:40 | manual | 801 | `recall-priming` |  |
+| published | [How AAA Level Designers Create Gameplay Moments](https://www.youtube.com/watch?v=tRBGGuh1ajY) `tRBGGuh1ajY` | Gabriel Fuentes | 4:44 | auto | 766 | `teorie/vedeni-hrace.md` |  |
+| published | [Map Boundary in Level Design \| Tips for Solo Game Devs \| Unity \| Unreal](https://www.youtube.com/watch?v=tcXGVyy4Mm8) `tcXGVyy4Mm8` | Seta - Level Design | 6:55 | manual | 1083 | `teorie/prostor-a-hranice.md` |  |
+| published | [How Level Designers Build Caves in UE5](https://www.youtube.com/watch?v=lSrDXaTwvNU) `lSrDXaTwvNU` | Gabriel Fuentes | 5:11 | auto | 810 | `teorie/prostor-a-hranice.md` |  |
+| published | [Recall Priming as a Level Design Technique](https://www.youtube.com/watch?v=Y2QBzdaMAAI) `Y2QBzdaMAAI` | timdoesleveldesign (TimDoesLevelDesign) | 4:40 | manual | 801 | `teorie/vedeni-hrace.md` |  |
 | skip | [Epic Just Dropped a FREE Level Design Project (Unreal Engine 5)](https://www.youtube.com/watch?v=A7CNW9y0-UI) `A7CNW9y0-UI` | Unreal University  | 3:34 | auto | 686 | `zdroje` | novinka o free projektu — přeskočit? |
 
 ### Vydání a marketing · `T-MARKET` (4)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [What Sells on Steam: You Don't Need a Hook](https://www.youtube.com/watch?v=uiBDyZ-Pf2M) `uiBDyZ-Pf2M` | Jonas Tyroller | 15:20 | auto | 3192 | `co-prodava` |  |
-| todo | [The Problem with Indie Game Devlogs on Youtube](https://www.youtube.com/watch?v=48C9hYoLMis) `48C9hYoLMis` | Inbound Shovel | 15:10 | auto | 3620 | `devlogy` |  |
-| todo | [Your Game's First Impression Is Ruined By These Three Things](https://www.youtube.com/watch?v=s9VOnhQU1hE) `s9VOnhQU1hE` | Game Dev Guide | 7:24 | auto | 1711 | `prvni-dojem` |  |
-| todo | [Everything you need to make a great Steam page](https://www.youtube.com/watch?v=cYvV_RLwKJ8) `cYvV_RLwKJ8` | BiteMe Games | 35:54 | auto | 7956 | `steam-stranka` |  |
+| published | [What Sells on Steam: You Don't Need a Hook](https://www.youtube.com/watch?v=uiBDyZ-Pf2M) `uiBDyZ-Pf2M` | Jonas Tyroller | 15:20 | auto | 3192 | `teorie/co-prodava.md` |  |
+| published | [The Problem with Indie Game Devlogs on Youtube](https://www.youtube.com/watch?v=48C9hYoLMis) `48C9hYoLMis` | Inbound Shovel | 15:10 | auto | 3620 | `teorie/devlogy.md` |  |
+| published | [Your Game's First Impression Is Ruined By These Three Things](https://www.youtube.com/watch?v=s9VOnhQU1hE) `s9VOnhQU1hE` | Game Dev Guide | 7:24 | auto | 1711 | `teorie/prvni-dojem.md` |  |
+| published | [Everything you need to make a great Steam page](https://www.youtube.com/watch?v=cYvV_RLwKJ8) `cYvV_RLwKJ8` | BiteMe Games | 35:54 | auto | 7956 | `teorie/steam-stranka.md` |  |
 
 ### Rešerše: slovanská mytologie · `T-MYTH` (4)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Terrible creatures of Slavic mythology](https://www.youtube.com/watch?v=D23Tl7a2q0k) `D23Tl7a2q0k` | Slavique | 19:38 | auto | 2935 | `slovanska-monstra` |  |
+| published | [Terrible creatures of Slavic mythology](https://www.youtube.com/watch?v=D23Tl7a2q0k) `D23Tl7a2q0k` | Slavique | 19:38 | auto | 2935 | `teorie/slovanska-monstra.md` |  |
 | todo | [Slovanské pohanství – Mytologie, bohové, rituály a nadpřirozené bytosti](https://www.youtube.com/watch?v=uPwV7dgokOQ) `uPwV7dgokOQ` | Nerdopolis | 27:02 | — | — | `slovanske-pohanstvi` | bez přepisu — české video, zkusit cs titulky |
-| todo | [Every Winter Slavs Perform These Strange Rituals...](https://www.youtube.com/watch?v=csgkkrNf4PE) `csgkkrNf4PE` | Slavique | 18:28 | auto | 2718 | `slovanske-ritualy` |  |
-| todo | [Slavic folklore: Baba Yaga and Vasilisa the Beautiful \| Folktales and legends for a scary world](https://www.youtube.com/watch?v=O6L71XNYqys) `O6L71XNYqys` | Tales by Alma | 19:05 | auto | 3523 | `slovansky-folklor` | Baba Yaga |
+| published | [Every Winter Slavs Perform These Strange Rituals...](https://www.youtube.com/watch?v=csgkkrNf4PE) `csgkkrNf4PE` | Slavique | 18:28 | auto | 2718 | `teorie/slovanske-ritualy.md` |  |
+| published | [Slavic folklore: Baba Yaga and Vasilisa the Beautiful \| Folktales and legends for a scary world](https://www.youtube.com/watch?v=O6L71XNYqys) `O6L71XNYqys` | Tales by Alma | 19:05 | auto | 3523 | `teorie/slovansky-folklor.md` | Baba Yaga |
 
 
 ## Praxe v UE5

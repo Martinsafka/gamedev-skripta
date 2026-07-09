@@ -27,3 +27,21 @@ Témata a kapitoly:
 - **[Smyčky a řetězce](smycky-a-retezce.md)** — dva základní tvary herního designu: co smyčka vysvětluje, co už ne, a proč řetězce nesou emoce.
 - **[Game feel a imerze](game-feel.md)** — souboj dělá zábavným pohyb nepřátel a svět je skutečný, teprve když na hráče odpovídá.
 - **[Příběh a postavy](pribeh-a-postavy.md)** — příběh jako feature s cenovkou: čtyři typy protagonisty, rejstříky dialogů a hádka o tvůj svět.
+
+**Level design**
+
+- **[Vedení hráče](vedeni-hrace.md)** — scripted events dávkují momenty ve správný čas a recall priming chystá vzpomínky, než budou potřeba.
+- **[Prostor a hranice](prostor-a-hranice.md)** — landmark napřed, blockout s metrikami, navigace světlem — a hranice mapy, kterých si hráč nevšimne.
+
+**Vydání a marketing**
+
+- **[Co prodává](co-prodava.md)** — hráči nekupují mechaniky, kupují zážitky: čtyři pilíře a sedm cest k appealu podle Jonase Tyrollera.
+- **[Steam stránka](steam-stranka.md)** — checklist před zveřejněním: capsule, short description, trailer s cold openem, screenshoty a neviditelná mašinerie algoritmu.
+- **[První dojem](prvni-dojem.md)** — prvních deset vteřin po spuštění: splash, prázdná bootovací scéna a menu, které žije.
+- **[Devlogy](devlogy.md)** — devlog jako řemeslo: scénář psaný nahlas, showcase vs. story a záběry starých verzí z commit historie.
+
+**Rešerše: slovanská mytologie**
+
+- **[Bestiář](slovanska-monstra.md)** — od Baby Jagy po Kostěje: bytosti jako systémy s pravidly, obětinami a tabu.
+- **[Zimní rituály](slovanske-ritualy.md)** — masopust napříč slovanským světem: kukeri, zvončari, hořící šípy a pohřeb basy.
+- **[Vasilisa a Baba Jaga](slovansky-folklor.md)** — anatomie pohádky: panenka, nemožné úkoly a útěk, ve kterém se vracejí rozdané laskavosti.

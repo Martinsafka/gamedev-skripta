@@ -15,6 +15,16 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-07-09 — Phase 3 batch 2: Teorie dokončení — level design + marketing + mytologie (Claude Code)
+
+**What:** 11 videos → **9 new teorie chapters**: T-LEVEL — `vedeni-hrace` (scripted events + recall priming), `prostor-a-hranice` (cave blockout + map boundaries); T-MARKET — `co-prodava` (Tyroller: experience > hook, 4 pilíře, 7 strategií), `steam-stranka` (BiteMe checklist ve 3 vrstvách), `prvni-dojem`, `devlogy`; T-MYTH — `slovanska-monstra` (bestiář, 11 bytostí), `slovanske-ritualy` (masopust East/South/West), `slovansky-folklor` (Vasilisa — anatomie pohádky). Rejstřík +15 terms (affordance, blockout, capsule, cold open, recall priming, trigger volume, soft boundary…), tooltips now 67 lines. Nav +3 témata; processing index 11 rows → published (32 total); „budoucí téma/kapitola" placeholdery z batche 1 nahrazeny reálnými odkazy (proc-tvorit, pribeh-a-postavy, smycky-a-retezce). `--strict` + anchor-check green. **Teorie document complete** (zbývá 1 CS video na cs-titulky, 1 skip).
+
+**Why:** Phase 3 batch 2 per roadmap; user go-ahead.
+
+**How:** Dvě editorial merges: 4 drobná level-design videa (766–1083 slov) → 2 kapitoly po 2 myšlenkách, párované funkčně (vedení v čase × práce s prostorem) — samostatné kapitoly by byly příliš tenké; index ukazuje na sdílené soubory. T-MYTH psáno jako rešerše settingu: standardní šablona entry, ale s „designovýma očima" (bytosti jako stavové automaty s pravidly; rituály jako dramaturgie festivalu; pohádkový útěk jako reciprocity mechanika). Auto-titulky slovanská jména masakrují („Lei"→lešij, „Kashet"→Kostěj, „Pudnit"→polednice, „Zmegarinich"→Zmej Gorynyč…) — opraveno z kontextu, v kapitole na to upozorněno. **Rozhodnutí: T-MYTH nepřidává rejstříkové termíny** — rejstřík je craft terminologie (EN termín + CZ výklad); mytologické bytosti by ho ředily a bestiář kapitola sama je doménová reference. Nav klíč s dvojtečkou („Rešerše: slovanská mytologie") vyžaduje quotovaný YAML klíč.
+
+**Follow-ups:** Batch 3 = první Praxe batch; navrženy dvě varianty (Blueprint architektura — foundational, vs. Motion Matching/GASP — autorovo těžiště, 2 videa bez přepisu pokryjí se z kontextu série). U MM/GASP batche počítat s delšími transkripty (2× Inside Unreal, 150+ min). CS video mytologie stále čeká na cs-subtitle rozšíření fetch pipeline (Later item v roadmapě).
+
 ### 2026-07-09 — Phase 3 batch 1: Teorie — mindset + nápad/scope + základy designu (Claude Code)
 
 **What:** 16 videos synthesized into **13 new teorie chapters** (~15k words of Czech): T-MIND — `proc-tvorit`, `jak-zacit`, `co-se-ucit`, `produktivita`, `rady-z-praxe`, `postmortem-shantytown`; T-SCOPE — `napad` (2 videos), `scope` (2 videos), `prototypovani`; T-DESIGN — `zaklady`, `zabava`, `game-feel` (2 videos merged), `pribeh-a-postavy`. Rejstřík +27 terms in both layers (tooltips now 52 lines); `mkdocs.yml` nav grouped into the 3 témata; `teorie/index.md` rewritten; processing index: 16 rows → `published` (stats: 21 published), pilot chapters gained back-links to new chapters. `mkdocs build --strict` green; all internal anchor fragments additionally validated by a slugify-checker script (0 errors — strict doesn't check anchors).

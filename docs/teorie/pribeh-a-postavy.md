@@ -81,4 +81,4 @@ Forma je volná: scénář, tabulka, první hodina v Twine/Ren'Py, klidně samom
 
 > **Pozn.:** Pro projekt se slovanskou mytologií v zásobníku je tohle cvičení připravené k okamžitému použití: dvě postavy se přou, jestli se má vesnice držet starých rituálů — a najednou víš, jak se v tom světě mluví o bozích, kdo věří, kdo se bojí, a o čem vlastně hra je.
 
-**Souvislosti:** [Základy: appeal — testuj koncepty brzy](zaklady.md#appeal-centralni-fantazie-a-mix-ktery-nejde-zaradit) · budoucí téma „Rešerše: slovanská mytologie" · [Rejstřík: narrative design](../rejstrik.md#narrative-design)
+**Souvislosti:** [Základy: appeal — testuj koncepty brzy](zaklady.md#appeal-centralni-fantazie-a-mix-ktery-nejde-zaradit) · [Rešerše: Vasilisa a Baba Jaga](slovansky-folklor.md) · [Rejstřík: narrative design](../rejstrik.md#narrative-design)

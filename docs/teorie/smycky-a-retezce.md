@@ -38,4 +38,4 @@ Odtud plyne autorova výtka smyčkám [(1:40)](https://www.youtube.com/watch?v=6
 
 > **Pozn.:** Pro stealth adventuru je tajný řetězec obzvlášť zajímavý: žánr stojí na pozorování prostředí, takže hráč už má „skenovací" návyk, na který jde zavěsit objevitelské řetězce. A hodnotový řetězec je zase přesný popis toho, proč inventářové puzzly fungují — předmět bez známého použití je šum, předmět s tušeným použitím je motivace.
 
-**Souvislosti:** [Design teorie jako metafory](#design-teorie-je-sada-metafor-ne-fyzikalni-zakony) výše · [Postmortem ShantyTown: účel jako soudce](postmortem-shantytown.md#hra-ti-rika-cim-chce-byt-ucel-jako-designovy-soudce) · budoucí kapitoly o level designu · [Rejstřík: value chain](../rejstrik.md#value-chain) · [Rejstřík: roguelike](../rejstrik.md#roguelike)
+**Souvislosti:** [Design teorie jako metafory](#design-teorie-je-sada-metafor-ne-fyzikalni-zakony) výše · [Postmortem ShantyTown: účel jako soudce](postmortem-shantytown.md#hra-ti-rika-cim-chce-byt-ucel-jako-designovy-soudce) · [Vedení hráče](vedeni-hrace.md) · [Rejstřík: value chain](../rejstrik.md#value-chain) · [Rejstřík: roguelike](../rejstrik.md#roguelike)

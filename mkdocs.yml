@@ -60,6 +60,18 @@ nav:
           - Smyčky a řetězce: teorie/smycky-a-retezce.md
           - Game feel a imerze: teorie/game-feel.md
           - Příběh a postavy: teorie/pribeh-a-postavy.md
+      - Level design:
+          - Vedení hráče: teorie/vedeni-hrace.md
+          - Prostor a hranice: teorie/prostor-a-hranice.md
+      - Vydání a marketing:
+          - Co prodává: teorie/co-prodava.md
+          - Steam stránka: teorie/steam-stranka.md
+          - První dojem: teorie/prvni-dojem.md
+          - Devlogy: teorie/devlogy.md
+      - "Rešerše: slovanská mytologie":
+          - Bestiář: teorie/slovanska-monstra.md
+          - Zimní rituály: teorie/slovanske-ritualy.md
+          - Vasilisa a Baba Jaga: teorie/slovansky-folklor.md
   - Praxe v UE5:
       - praxe/index.md
       - Blueprint vzory:
