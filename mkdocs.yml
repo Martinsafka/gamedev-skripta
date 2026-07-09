@@ -74,9 +74,16 @@ nav:
           - Vasilisa a Baba Jaga: teorie/slovansky-folklor.md
   - Praxe v UE5:
       - praxe/index.md
-      - Blueprint vzory:
+      - Blueprint architektura a organizace projektu:
+          - Principy architektury: praxe/principy-architektury.md
+          - Komunikace Blueprintů: praxe/komunikace-blueprintu.md
           - Interakce bez Event Ticku: praxe/interakce-bez-event-ticku.md
-      - Terén a svět:
+          - Gameplay Tags: praxe/gameplay-tags.md
+          - Organizace projektu: praxe/organizace-projektu.md
+          - Levely a streaming: praxe/levely-a-streaming.md
+          - Ukládání: praxe/ukladani.md
+          - Telemetrie: praxe/telemetrie.md
+      - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md

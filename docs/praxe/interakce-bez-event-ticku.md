@@ -25,7 +25,7 @@ Dva nenápadné, ale důležité detaily z videa:
 
 > **Pozn.:** K výkonnostnímu tvrzení videa („významně zlepší performance") je fér dodat nuanci: jeden Line Trace za frame je velmi levná operace a trvalý overlap má vlastní, nenulovou cenu. Skutečný přínos je **architektonický** — event-driven kód se spouští při změnách, škáluje lépe (deset triggerů nestojí 10× tick) a hlavně drží logiku mimo Event Tick, což je v Blueprintech dobrá hygiena bez ohledu na mikrobenchmarky. Kdo potřebuje přesnost paprsku (např. míření na malé cíle), pro toho zůstává trace správný nástroj — jen ať ho spouští event nebo timer, ne Tick.
 
-**Souvislosti:** [Blueprint Interface](#blueprint-interface-volani-bez-castu) níže · [Rejstřík: Event Tick](../rejstrik.md#event-tick) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: collision preset](../rejstrik.md#collision-preset)
+**Souvislosti:** [Blueprint Interface](#blueprint-interface-volani-bez-castu) níže · [Principy architektury](principy-architektury.md) · [Rejstřík: Event Tick](../rejstrik.md#event-tick) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: collision preset](../rejstrik.md#collision-preset)
 
 ---
 
@@ -45,4 +45,4 @@ Proč je to lepší než `Cast To DestroyDoor`: cast vytváří **tvrdou závisl
 
 > **Pozn.:** Ve videu jde o dveře, které interakcí zaniknou. U objektů, které přežívají (páky, terminály), dává interface dvojice Interact/StopInteract navíc prostor pro UI — begin overlap zobrazí prompt „[E] Použít", end overlap ho schová. Stejná kostra, žádný kód navíc.
 
-**Souvislosti:** [Overlap trigger](#overlap-trigger-misto-trasovani-v-ticku) výše · [Rejstřík: Blueprint Interface](../rejstrik.md#blueprint-interface) · [Rejstřík: cast](../rejstrik.md#cast) · [Rejstřík: garbage collection](../rejstrik.md#garbage-collection)
+**Souvislosti:** [Overlap trigger](#overlap-trigger-misto-trasovani-v-ticku) výše · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Rejstřík: Blueprint Interface](../rejstrik.md#blueprint-interface) · [Rejstřík: cast](../rejstrik.md#cast) · [Rejstřík: garbage collection](../rejstrik.md#garbage-collection)

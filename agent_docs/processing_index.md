@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 32 published (pilot + batch 1–2) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 44 published (pilot + batch 1–3) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -106,19 +106,19 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
 | todo | [Learn Blueprints for Unreal Engine 5 in ONE VIDEO - Beginner Tutorial](https://www.youtube.com/watch?v=dB-pS8PHALY) `dB-pS8PHALY` | Cobra Code | 75:39 | auto | 16852 | `blueprint-zaklady` | kurz pro začátečníky (76 min) — nízká priorita |
-| todo | [Everything You Need to Know About Gameplay Tags \| UE5 Tutorial](https://www.youtube.com/watch?v=UNDbcAMMJwk) `UNDbcAMMJwk` | Ali Elzoheiry | 49:53 | auto | 8411 | `gameplay-tags` |  |
+| published | [Everything You Need to Know About Gameplay Tags \| UE5 Tutorial](https://www.youtube.com/watch?v=UNDbcAMMJwk) `UNDbcAMMJwk` | Ali Elzoheiry | 49:53 | auto | 8411 | `praxe/gameplay-tags.md` |  |
 | published | [How to Line Trace Without Event Tick - UE5 Tutorial](https://www.youtube.com/watch?v=rCd36pNqCeo) `rCd36pNqCeo` | Doppelganger Studios | 16:43 | auto | 1883 | `praxe/interakce-bez-event-ticku.md` |  |
-| todo | [All 3 Blueprint Communication Methods in Unreal Engine Explained in Under 18 Minutes](https://www.youtube.com/watch?v=ZSRSktpezII) `ZSRSktpezII` | Unreal University  | 17:41 | auto | 3163 | `komunikace-blueprintu` | 3 metody |
-| todo | [Unreal Engine: Boost Game Perf with Smart Broadcasts! #shorts](https://www.youtube.com/watch?v=dIXGXiB9Okc) `dIXGXiB9Okc` | Taken Grace | 1:23 | auto | 329 | `komunikace-blueprintu` | short |
-| todo | [How to CORRECTLY Load Levels in Unreal Engine!](https://www.youtube.com/watch?v=mwyJ7rKUqKE) `mwyJ7rKUqKE` | DevEdge Studio | 22:37 | auto | 5250 | `levely-a-streaming` |  |
-| todo | [How Resident Evil Requiem Hides Loading and Level Instancing \| Game Dev Breakdown](https://www.youtube.com/watch?v=l_U0enrB9IY) `l_U0enrB9IY` | HALbot Studios | 19:07 | auto | 3237 | `levely-a-streaming` | breakdown (RE Requiem) |
-| todo | [Why Your UE5 Projects Are Messy (And How to Fix It)](https://www.youtube.com/watch?v=0-xB4P2yYN8) `0-xB4P2yYN8` | Taken Grace | 11:17 | auto | 2598 | `organizace-projektu` |  |
-| todo | [9 Tips To Better Organize Your Unreal Engine  Projects](https://www.youtube.com/watch?v=S7TwnS2wAZQ) `S7TwnS2wAZQ` | Unreal University  | 6:21 | auto | 1230 | `organizace-projektu` | 9 tipů |
-| todo | [The ONLY Way to Build Scalable Systems in Unreal Engine 5](https://www.youtube.com/watch?v=zTsJM9T0NjM) `zTsJM9T0NjM` | Taken Grace | 80:47 | auto | 16859 | `principy-architektury` | 81 min |
-| todo | [3 Principles Every Game Programmer Needs to Know in Unreal Engine](https://www.youtube.com/watch?v=RhKqtQRy_j0) `RhKqtQRy_j0` | Ali Elzoheiry | 18:09 | auto | 2934 | `principy-architektury` |  |
-| todo | [Unreal Engine 5 Tutorial -  Stats and Achievements Part 1: Activity Tracker](https://www.youtube.com/watch?v=9iWSVZoADpo) `9iWSVZoADpo` | Ryan Laley | 12:53 | auto | 1915 | `telemetrie` | stats+achievementy |
-| todo | [How to Track Player Behavior in Unreal Engine 5 (TrackEdge + Post Hog)](https://www.youtube.com/watch?v=o0HlCeQXxAQ) `o0HlCeQXxAQ` | DevEdge Studio | 12:33 | auto | 2913 | `telemetrie` | PostHog |
-| todo | [How to Easily Save Games with SaveGame Objects in Unreal Engine (Demo and Guide)](https://www.youtube.com/watch?v=-0111fuUPz8) `-0111fuUPz8` | Unreal University  | 14:02 | auto | 2694 | `ukladani` | SaveGame objekty |
+| published | [All 3 Blueprint Communication Methods in Unreal Engine Explained in Under 18 Minutes](https://www.youtube.com/watch?v=ZSRSktpezII) `ZSRSktpezII` | Unreal University  | 17:41 | auto | 3163 | `praxe/komunikace-blueprintu.md` | 3 metody |
+| published | [Unreal Engine: Boost Game Perf with Smart Broadcasts! #shorts](https://www.youtube.com/watch?v=dIXGXiB9Okc) `dIXGXiB9Okc` | Taken Grace | 1:23 | auto | 329 | `praxe/komunikace-blueprintu.md` | short |
+| published | [How to CORRECTLY Load Levels in Unreal Engine!](https://www.youtube.com/watch?v=mwyJ7rKUqKE) `mwyJ7rKUqKE` | DevEdge Studio | 22:37 | auto | 5250 | `praxe/levely-a-streaming.md` |  |
+| published | [How Resident Evil Requiem Hides Loading and Level Instancing \| Game Dev Breakdown](https://www.youtube.com/watch?v=l_U0enrB9IY) `l_U0enrB9IY` | HALbot Studios | 19:07 | auto | 3237 | `praxe/levely-a-streaming.md` | breakdown (RE Requiem) |
+| published | [Why Your UE5 Projects Are Messy (And How to Fix It)](https://www.youtube.com/watch?v=0-xB4P2yYN8) `0-xB4P2yYN8` | Taken Grace | 11:17 | auto | 2598 | `praxe/organizace-projektu.md` |  |
+| published | [9 Tips To Better Organize Your Unreal Engine  Projects](https://www.youtube.com/watch?v=S7TwnS2wAZQ) `S7TwnS2wAZQ` | Unreal University  | 6:21 | auto | 1230 | `praxe/organizace-projektu.md` | 9 tipů |
+| published | [The ONLY Way to Build Scalable Systems in Unreal Engine 5](https://www.youtube.com/watch?v=zTsJM9T0NjM) `zTsJM9T0NjM` | Taken Grace | 80:47 | auto | 16859 | `praxe/principy-architektury.md` | 81 min |
+| published | [3 Principles Every Game Programmer Needs to Know in Unreal Engine](https://www.youtube.com/watch?v=RhKqtQRy_j0) `RhKqtQRy_j0` | Ali Elzoheiry | 18:09 | auto | 2934 | `praxe/principy-architektury.md` |  |
+| published | [Unreal Engine 5 Tutorial -  Stats and Achievements Part 1: Activity Tracker](https://www.youtube.com/watch?v=9iWSVZoADpo) `9iWSVZoADpo` | Ryan Laley | 12:53 | auto | 1915 | `praxe/telemetrie.md` | stats+achievementy |
+| published | [How to Track Player Behavior in Unreal Engine 5 (TrackEdge + Post Hog)](https://www.youtube.com/watch?v=o0HlCeQXxAQ) `o0HlCeQXxAQ` | DevEdge Studio | 12:33 | auto | 2913 | `praxe/telemetrie.md` | PostHog |
+| published | [How to Easily Save Games with SaveGame Objects in Unreal Engine (Demo and Guide)](https://www.youtube.com/watch?v=-0111fuUPz8) `-0111fuUPz8` | Unreal University  | 14:02 | auto | 2694 | `praxe/ukladani.md` | SaveGame objekty |
 
 ### Herní systémy a interakce · `P-SYS` (12)
 
