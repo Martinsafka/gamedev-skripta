@@ -17,25 +17,25 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 
 ---
 
-### ▶ NEXT UP — Phase 0: Scaffold verification _(first Claude Code session)_
+### ✅ Phase 0: Scaffold verification _(done 2026-07-09)_
 
 - [x] Repo initialized from the delivered skeleton; `pilot/` raw files moved under `transcripts/` (gitignored), `.gitignore` created & verified against `AGENTS.md` boundaries.
 - [x] mkdocs-material installed (project `.venv` — Homebrew Python is PEP-668 managed); `mkdocs build --strict` passes locally (0 warnings); tooltips verified in built HTML. Visual `mkdocs serve` eyeball folds into Phase 1 review.
 - [x] `scripts/fetch_transcripts.sh`: real `PLAYLIST_URL` set; full playlist fetched (210 unique videos, 0 errors, all with `info.json`); `clean_transcripts.py` → 203 clean transcripts (7 videos lack an English track).
 - [x] **`TODO` credit placeholders filled** in all 5 pilot chapters from `info.json` (channel names + URLs).
-- [ ] GitHub Pages enabled (Settings → Pages → GitHub Actions); deploy workflow green; site live.
+- [x] GitHub Pages enabled (Settings → Pages → GitHub Actions); deploy workflow green; site live: https://martinsafka.github.io/gamedev-skripta/
 - [x] Dev log entry.
 
-### Phase 1 — Pilot review _(user + chat-Claude)_
+### ✅ Phase 1: Pilot review _(done 2026-07-09)_
 
-- [ ] User reviews the 5 pilot chapters against expectations (structure, tone, depth, timestamp usefulness).
-- [ ] Template/conventions adjusted per feedback; changes land in `content_conventions.md`.
+- [x] User reviews the 5 pilot chapters against expectations (structure, tone, depth, timestamp usefulness). Verdict: content approved; concern raised that a flat chapter list won't scale to 200+ videos.
+- [x] Structure adjusted per feedback: collapsible navigation tree (document → téma → kapitola) via `navigation.indexes`; convention recorded in `architecture.md` (chapters stay flat on disk, topic grouping lives only in nav). Pilot topics provisional until taxonomy.
 
-### Phase 2 — Taxonomy _(one heavy session)_
+### ▶ NEXT UP — Phase 2: Taxonomy _(one heavy session)_
 
-- [ ] Full playlist fetched (delta on top of pilot); cleaned.
+- [x] Full playlist fetched (210 unique videos; done in Phase 0) and cleaned (203 transcripts; 7 videos lack an English track).
 - [ ] `agent_docs/processing_index.md` created: table of every video (id, title, channel, duration, track quality) with proposed document + chapter assignment.
-- [ ] Chapter skeleton for both documents proposed and approved by user (nav structure in `mkdocs.yml`).
+- [ ] Chapter skeleton (téma tree) for both documents proposed and approved by user (nav structure in `mkdocs.yml`).
 
 ### Phase 3 — Batch synthesis _(the long haul)_
 

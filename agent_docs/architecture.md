@@ -7,7 +7,9 @@ How the repo, the site, and the content model fit together. Authoritative for **
 ```
 myšlenka (idea entry)  →  the atomic unit. Named after the idea, not the video.
 kapitola (chapter)     →  one .md file in teorie/ or praxe/; groups 1–n related entries.
-dokument (document)    →  teorie/ | praxe/ | zapisky/ — a nav section of chapters.
+téma (topic block)     →  collapsible nav group of related chapters inside a document.
+                          Defined ONLY in mkdocs.yml nav — files stay flat per document folder.
+dokument (document)    →  teorie/ | praxe/ | zapisky/ — a top-level collapsible nav section.
 rejstřík (glossary)    →  central term registry + per-page tooltips.
 ```
 
@@ -18,7 +20,7 @@ rejstřík (glossary)    →  central term registry + per-page tooltips.
 ## Site (MkDocs Material)
 
 - Theme: Material, **default light palette** (light background, dark text — a project requirement), built-in client-side full-text search. Config asks for `lang: [cs, en]`, but lunr has no Czech stemmer — cs falls back to en (search over Czech text works, just without Czech word-form folding).
-- Navigation mirrors the three documents + rejstřík; `mkdocs.yml` `nav:` is the single source of ordering. New chapter = add file + nav entry.
+- Navigation is a collapsible tree (Material `navigation.indexes`; `navigation.sections` deliberately off): **document → téma → kapitola**. `mkdocs.yml` `nav:` is the single source of ordering *and topic grouping* — chapters live flat in their document folder, so re-assigning a chapter to another téma is a nav-only change that never moves files or breaks relative links. Each document's `index.md` is bound to its section (clicking the document name opens the overview page). New chapter = add file + nav entry under its téma + a line in the document index. Pilot topics are provisional until the Phase 2 taxonomy.
 - **Build check:** `mkdocs build --strict` must pass (fails on broken internal links / missing nav files). This is the "typecheck" of this repo.
 - Deploy: GitHub Actions (`.github/workflows/deploy.yml`) — every push to `main` runs `mkdocs build --strict` and publishes the built site via the native Pages artifact flow (`actions/upload-pages-artifact` + `actions/deploy-pages`). No `gh-pages` branch exists; the one-time repo setting is Settings → Pages → Source: **GitHub Actions**.
 

@@ -2,7 +2,7 @@
 
 Studijní skripta herního vývoje psaná samoukem pro samouky — destilát znalostí z rozsáhlého studijního playlistu a z deníků vlastních projektů.
 
-**Web:** _(doplní se po nasazení GitHub Pages)_
+**Web:** <https://martinsafka.github.io/gamedev-skripta/>
 
 ## Co tu je
 

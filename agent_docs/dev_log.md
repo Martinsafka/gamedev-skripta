@@ -15,6 +15,19 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-07-09 — Phase 1: pilot review → collapsible topic navigation (Claude Code)
+
+**What:** User verdict on the pilot: content approved; concern that a flat chapter list becomes unreadable at 200+ videos. Implemented a collapsible nav tree **document → téma → kapitola**: `mkdocs.yml` features swap (`navigation.sections` → `navigation.indexes`), nav restructured with provisional topic groups (Teorie: „Tvůrčí proces a mindset", „Základy designu"; Praxe: „Blueprint vzory", „Terén a svět", „Editor a workflow"), document index pages regrouped by topic. Content model in `architecture.md` gains the `téma` level.
+**Why:** Findability at scale — the core concern before batch synthesis starts.
+**How:** Key decision: **topics exist only in `mkdocs.yml` nav; chapter files stay flat** in their document folder. Re-assigning a chapter to another téma is a nav-only change — no file moves, no broken relative links (matters for rejstřík anchors and cross-chapter links). Verified in built HTML: document titles link to their index pages inside nested collapsible items; `--strict` green. Pilot topics are provisional — the real téma tree is the Phase 2 taxonomy deliverable, approved by the user.
+**Follow-ups:** `inbox/` material is currently unstructured (distilled Claude-conversation threads); future devlogs will arrive pre-sorted per project.
+
+### 2026-07-09 — Phase 0 complete: site live (Claude Code)
+
+**What:** User pushed, enabled Pages (Source: GitHub Actions), workflow green, site live. Live URL added to `README.md`; last Phase 0 checkbox ticked; roadmap ▶ NEXT UP moved to Phase 1 (pilot review).
+**Why:** Closes Phase 0 — the whole scaffold now runs end-to-end, from fetch to published site.
+**How:** Trivial edits only. Reminded the user that raw personal material for Zápisky belongs in `inbox/` (gitignored — never pushed).
+
 ### 2026-07-09 — Phase 0 part 2: full fetch, clean, pilot credits (Claude Code)
 
 **What:** Real `PLAYLIST_URL` set (derived clean playlist URL from user's watch link). Full playlist fetched in a background task: 211 playlist entries → **210 unique videos** (id `xenwRup_sC4` is in the playlist twice), 0 yt-dlp errors, `info.json` for all; `scripts/fetched.txt` = 210 ids. `pilot/` raws moved under `transcripts/<id>/` beforehand (fresh fetch overwrote them under identical names — no duplicates). Cleaned → **203 transcripts** in `transcripts_clean/`; 7 videos have no English track (flag `bez přepisu` in the taxonomy phase): 1xj3nPEmHPw, 67-W5lCSD_0, Hd0od7sQdds, TZ-lhSHQjPU, kfu4jKyazzU, uPwV7dgokOQ, xYGz-oGAGkk. All 8 credit placeholders in the 5 pilot chapters filled from `info.json` (Brainless. / Indie Game Clinic / Doppelganger Studios / Matt Aspland / Aziel Arts). `REPLACE_GITHUB_USERNAME` replaced in `mkdocs.yml` (remote exists: Martinsafka). mkdocs-material installed into project `.venv` (Homebrew Python is PEP-668 externally managed; `.venv/` gitignored). `mkdocs build --strict`: exit 0, 0 warnings; abbr tooltips verified in built HTML.
