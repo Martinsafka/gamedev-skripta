@@ -1,6 +1,6 @@
 # Motion Matching: základy
 
-Motion Matching je největší změna v herní animaci od state machines — a od 5.4 je v UE k dispozici všem, včetně 500+ animací z Game Animation Sample. Kapitola skládá osm zdrojů do čtyř vrstev: **co MM dělá** (koncept), **jak ho postavit od nuly**, **kolik animací doopravdy potřebuješ** (spoiler: 13) a **jak ho doladit z „funguje" na „vypadá skvěle"**. GASP samotnému se bude věnovat navazující kapitola.
+Motion Matching je největší změna v herní animaci od state machines — a od 5.4 je v UE k dispozici všem, včetně 500+ animací z Game Animation Sample. Kapitola skládá osm zdrojů do čtyř vrstev: **co MM dělá** (koncept), **jak ho postavit od nuly**, **kolik animací doopravdy potřebuješ** (spoiler: 13) a **jak ho doladit z „funguje" na „vypadá skvěle"**. GASP samotnému se věnuje [samostatná kapitola](gasp.md).
 
 ---
 
@@ -24,9 +24,9 @@ Motion Matching je největší změna v herní animaci od state machines — a o
 - **Pose History**: uzel, který sbírá kostní data a trajektorii pro schema — bez něj se nedá ptát „odkud jdu".
 - **Continuing pose** [(17:29)](https://www.youtube.com/watch?v=tNw9lD2PW3U&t=1049s): „co by hrálo dál, kdybych nic neměnil" — kandidát, kterého musí každá nová animace *porazit cenou*. Klíč k celému ladění.
 
-> **Pozn.:** MM není zadarmo: GASP používá ~500–900 animací jen na locomotion a DevEdge správně varuje, že s combat systémy poroste váha dál [(41:01)](https://www.youtube.com/watch?v=9BWLj98pekM&t=2461s) — ale Fortnite s MM shipuje na všech platformách včetně mobilů a hlavně: **nepotřebuješ stovky animací** (viz sparse set níže). DevEdge navíc ukazuje 5.7 novinky (Mover pawn místo CMC, procedurální Locomotor, hybridní blend stack + state machine) — to pokryjí budoucí kapitoly o Moveru a GASP.
+> **Pozn.:** MM není zadarmo: GASP používá ~500–900 animací jen na locomotion a DevEdge správně varuje, že s combat systémy poroste váha dál [(41:01)](https://www.youtube.com/watch?v=9BWLj98pekM&t=2461s) — ale Fortnite s MM shipuje na všech platformách včetně mobilů a hlavně: **nepotřebuješ stovky animací** (viz sparse set níže). DevEdge navíc ukazuje 5.7 novinky (Mover pawn místo CMC, procedurální Locomotor, hybridní blend stack + state machine) — to pokrývá [kapitola o GASP](gasp.md).
 
-**Souvislosti:** budoucí kapitola GASP *(část B batche)* · [Rejstřík: motion matching](../rejstrik.md#motion-matching) · [Rejstřík: trajektorie](../rejstrik.md#trajektorie) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database)
+**Souvislosti:** [GASP: Game Animation Sample](gasp.md) · [Rejstřík: motion matching](../rejstrik.md#motion-matching) · [Rejstřík: trajektorie](../rejstrik.md#trajektorie) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database)
 
 ---
 

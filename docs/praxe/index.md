@@ -19,6 +19,7 @@ Témata a kapitoly:
 
 - **[Motion Matching základy](mm-zaklady.md)** — dotaz místo grafu stavů: trajektorie, databáze, schema a chooser; setup od nuly, sparse set (13 animací stačí) a procedurální uzly.
 - **[Systémy nad MM](mm-systemy.md)** — combat přes montáže a choosery, traversal a cover komponenty se state managerem, a nescriptované interakce z Witcher 4 dema.
+- **[GASP: Game Animation Sample](gasp.md)** — anatomie Epicova vzorového projektu: capsule-driven autoring animací, řízení výběru, traversal pod kapotou, Mover, NPC přes State Tree, Control Rig vrstva a zbraně přes overlay.
 
 **Terén a krajina**
 

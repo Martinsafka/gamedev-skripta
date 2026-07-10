@@ -86,6 +86,7 @@ nav:
       - Motion Matching a GASP:
           - Motion Matching základy: praxe/mm-zaklady.md
           - Systémy nad MM: praxe/mm-systemy.md
+          - "GASP: Game Animation Sample": praxe/gasp.md
       - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:

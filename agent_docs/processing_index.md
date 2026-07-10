@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 59 published (pilot + batch 1–4A) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 65 published (pilot + batch 1–4B) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -155,12 +155,12 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [GASP - It's Mover! Game Animation Sample Updates + Q&A \| Inside Unreal](https://www.youtube.com/watch?v=i27eY7LbRzc) `i27eY7LbRzc` | Unreal Engine | 181:00 | auto | 30277 | `gasp` | 181 min, + Mover |
-| todo | [Game Animation Sample Walkthrough \| Inside Unreal](https://www.youtube.com/watch?v=mhVp_cC9MLc) `mhVp_cC9MLc` | Unreal Engine | 154:00 | auto | 26831 | `gasp` | 154 min, Inside Unreal |
-| todo | [Unreal Engine 5 GASP Cover Shooter Series Tutorial 1 (Setup Layer System)](https://www.youtube.com/watch?v=kfu4jKyazzU) `kfu4jKyazzU` | Make A Real One | 34:24 | — | — | `gasp` | bez přepisu; cover shooter 1 |
-| todo | [GASP Adding New Weapon Animations and Pose Search Database's](https://www.youtube.com/watch?v=fXNahVSGssg) `fXNahVSGssg` | Zero2GameDev | 28:04 | auto | 3780 | `gasp` | zbraně |
-| todo | [Unreal Engine 5 GASP Cover Shooter Series Tutorial 2 (Add Layer Curves)](https://www.youtube.com/watch?v=1xj3nPEmHPw) `1xj3nPEmHPw` | Make A Real One | 17:23 | — | — | `gasp` | bez přepisu; cover shooter 2 |
-| todo | [Different Overlay States for GASP/ Motion Matching in Unreal Engine!](https://www.youtube.com/watch?v=tqVbYSEJLBE) `tqVbYSEJLBE` | DevEdge Studio | 8:01 | auto | 1817 | `gasp` | overlay states |
+| published | [GASP - It's Mover! Game Animation Sample Updates + Q&A \| Inside Unreal](https://www.youtube.com/watch?v=i27eY7LbRzc) `i27eY7LbRzc` | Unreal Engine | 181:00 | auto | 30277 | `praxe/gasp.md` | 181 min, + Mover |
+| published | [Game Animation Sample Walkthrough \| Inside Unreal](https://www.youtube.com/watch?v=mhVp_cC9MLc) `mhVp_cC9MLc` | Unreal Engine | 154:00 | auto | 26831 | `praxe/gasp.md` | 154 min, Inside Unreal |
+| published | [Unreal Engine 5 GASP Cover Shooter Series Tutorial 1 (Setup Layer System)](https://www.youtube.com/watch?v=kfu4jKyazzU) `kfu4jKyazzU` | Make A Real One | 34:24 | — | — | `praxe/gasp.md` | bez přepisu; cover shooter 1 — kryto z kontextu série |
+| published | [GASP Adding New Weapon Animations and Pose Search Database's](https://www.youtube.com/watch?v=fXNahVSGssg) `fXNahVSGssg` | Zero2GameDev | 28:04 | auto | 3780 | `praxe/gasp.md` | zbraně |
+| published | [Unreal Engine 5 GASP Cover Shooter Series Tutorial 2 (Add Layer Curves)](https://www.youtube.com/watch?v=1xj3nPEmHPw) `1xj3nPEmHPw` | Make A Real One | 17:23 | — | — | `praxe/gasp.md` | bez přepisu; cover shooter 2 — kryto z kontextu série |
+| published | [Different Overlay States for GASP/ Motion Matching in Unreal Engine!](https://www.youtube.com/watch?v=tqVbYSEJLBE) `tqVbYSEJLBE` | DevEdge Studio | 8:01 | auto | 1817 | `praxe/gasp.md` | overlay states |
 | published | [Unreal Engine 5.4: Combining Attack Animations with Motion Matching in Custom Characters \| Tutorial](https://www.youtube.com/watch?v=BDjGNdMlEAg) `BDjGNdMlEAg` | The Epic Singh | 33:30 | auto | 3782 | `praxe/mm-systemy.md` | combat, vlastní postavy |
 | published | [Unreal Engine 5  Motionmatching ParkourSystem and Motionmatching Cover System Component Setup](https://www.youtube.com/watch?v=bxKzYbA50l0) `bxKzYbA50l0` | Make A Real One | 26:07 | auto | 1698 | `praxe/mm-systemy.md` | parkour+cover |
 | published | [Unreal Engine 5 MotionMatching Cover System Component Setup](https://www.youtube.com/watch?v=vm5aPoXgtWM) `vm5aPoXgtWM` | Make A Real One | 23:27 | auto | 1954 | `praxe/mm-systemy.md` | cover |

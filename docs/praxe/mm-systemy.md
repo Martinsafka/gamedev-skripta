@@ -53,8 +53,8 @@ Motion Matching řeší locomotion — ale hra potřebuje i útoky, krytí, špl
 
 Tržní scéna z dema: Ciri vrazí do nosiče, ten upustí jablko, kluk ho sebere, prasata se seběhnou [(2:22)](https://www.youtube.com/watch?v=dd35tkF-5io&t=142s) — řetěz reakcí, žádný skript. Pod kapotou (video cituje Unreal Fest talk CDPR): **pose search interaction data assety** [(4:46)](https://www.youtube.com/watch?v=dd35tkF-5io&t=286s) — MM databáze pro *interakce mezi postavami*: vrážení do stojících NPC z různých úhlů a s různými pózami [(3:04)](https://www.youtube.com/watch?v=dd35tkF-5io&t=184s), pozdravy dvou jdoucích NPC, funkční i na svahu. Stejný princip jako locomotion matching, jen dotaz zahrnuje dvě postavy — přesně ta „multi-character MM" budoucnost, kterou Epic avizoval na [Unreal Festu](mm-zaklady.md#od-70-ke-100-ladeni-biasy-a-proceduralni-uzly).
 
-Co z toho pro nás: Epic naznačuje, že ukázka podobného systému dorazí do budoucí verze Game Animation Sample; a od 5.6 jdou zapnout **UAF (Unreal Animation Framework)** pluginy [(5:51)](https://www.youtube.com/watch?v=dd35tkF-5io&t=351s) — základ nové animační architektury, zatím bez dokumentace. Sledovat, nestavět na tom.
+Co z toho pro nás: Epic naznačuje, že ukázka podobného systému dorazí do budoucí verze [Game Animation Sample](gasp.md); a od 5.6 jdou zapnout **UAF (Unreal Animation Framework)** pluginy [(5:51)](https://www.youtube.com/watch?v=dd35tkF-5io&t=351s) — základ nové animační architektury, zatím bez dokumentace. Sledovat, nestavět na tom.
 
 > **Pozn.:** Tohle video je spíš ochutnávka než návod — jeho hodnota je orientační: říká, *kterým směrem* se MM ekosystém hýbe (interakce, davy, více postav) a že GASP je platforma, kam tyhle věci budou přistávat. Pro stealth adventuru je „vrážení do NPC" mimochodem přesně ten druh systémové drobnosti, která dělá [imerzi](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida).
 
-**Souvislosti:** [MM základy](mm-zaklady.md) · [Game feel a imerze](../teorie/game-feel.md) · budoucí kapitola GASP *(část B batche)*
+**Souvislosti:** [MM základy](mm-zaklady.md) · [Game feel a imerze](../teorie/game-feel.md) · [GASP: Game Animation Sample](gasp.md)
