@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 87 published (pilot + batch 1–6) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 99 published (pilot + batch 1–7) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -124,18 +124,18 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Surface-Based Footprint Decals in Unreal Engine 5 (Dynamic & Fading)](https://www.youtube.com/watch?v=buQ6JvwvHuw) `buQ6JvwvHuw` | Tank Control Games | 32:38 | auto | 6114 | `footsteps` | stopy (decals) |
-| todo | [Footstep Sounds by Surface Type in Unreal Engine 5 (MetaSounds)](https://www.youtube.com/watch?v=e2N0dRLHsGY) `e2N0dRLHsGY` | Tank Control Games | 28:02 | auto | 5025 | `footsteps` | MetaSounds |
-| todo | [Unreal Engine 5.7 - Smart Footstep System (Physical Materials) - Tutorial](https://www.youtube.com/watch?v=6E-l9tWSCt4) `6E-l9tWSCt4` | Unreal - X - Tutorials | 11:31 | auto | 1587 | `footsteps` | physical materials |
-| todo | [Complete Unreal Footsteps System Using Niagara Data Channel!](https://www.youtube.com/watch?v=sGJ8cqe94ps) `sGJ8cqe94ps` | Grid & Node | 9:38 | auto | 962 | `footsteps` | Niagara Data Channel |
-| todo | [Fall Guys Hex-A-Gon Tutorial Unreal Engine 4](https://www.youtube.com/watch?v=ANWzAitL0Jg) `ANWzAitL0Jg` | Unreal University  | 6:20 | auto | 1177 | `herni-mechaniky` | Hex-A-Gon (UE4) |
-| todo | [Game Dev Secrets: A Simple Hitbox Trick! #indiegamedev #gamedev](https://www.youtube.com/watch?v=X0jy94VP_Ko) `X0jy94VP_Ko` | Inbound Shovel | 1:01 | auto | 233 | `herni-mechaniky` | hitbox trik, short |
-| todo | [How To Create Pickup And Drop System In Unreal Engine 5 Full Tutorial #subscribe #subscribeme](https://www.youtube.com/watch?v=Hd0od7sQdds) `Hd0od7sQdds` | Overlook Games | 16:58 | — | — | `interakce-predmety` | bez přepisu |
-| todo | [Throwing Objects System And Projectile Path Trajectory \| Unreal Engine 5](https://www.youtube.com/watch?v=B4W9lKbGeIc) `B4W9lKbGeIc` | Vercion Games | 12:25 | auto | 2885 | `interakce-predmety` | házení + trajektorie |
-| todo | [UE5 - TUTORİAL İnteractive World [FREE PLUGIN]](https://www.youtube.com/watch?v=xYGz-oGAGkk) `xYGz-oGAGkk` | REFORCH | 4:38 | — | — | `interakce-predmety` | bez přepisu — promo pluginu? |
-| todo | [3D Platformer Tutorial UE5  - Episode 5 - TRAPS!!!](https://www.youtube.com/watch?v=47d_s2e-RlM) `47d_s2e-RlM` | Shane_Gamedev | 23:28 | auto | 4139 | `pasti` |  |
-| todo | [Moving Obstacles (Swinging Axes) Unreal engine 5 Traps Tutorial](https://www.youtube.com/watch?v=RdItM2xmF5M) `RdItM2xmF5M` | Zero2GameDev | 21:46 | auto | 2547 | `pasti` | kyvadlové sekery |
-| todo | [Hide Inside Locker Almirah \| Unreal Engine 5](https://www.youtube.com/watch?v=nLjUs8_5QBI) `nLjUs8_5QBI` | Vercion Games | 17:19 | auto | 3774 | `stealth-ukryty` | skříň/lokr |
+| published | [Surface-Based Footprint Decals in Unreal Engine 5 (Dynamic & Fading)](https://www.youtube.com/watch?v=buQ6JvwvHuw) `buQ6JvwvHuw` | Tank Control Games | 32:38 | auto | 6114 | `praxe/footsteps.md` | stopy (decals) |
+| published | [Footstep Sounds by Surface Type in Unreal Engine 5 (MetaSounds)](https://www.youtube.com/watch?v=e2N0dRLHsGY) `e2N0dRLHsGY` | Tank Control Games | 28:02 | auto | 5025 | `praxe/footsteps.md` | MetaSounds |
+| published | [Unreal Engine 5.7 - Smart Footstep System (Physical Materials) - Tutorial](https://www.youtube.com/watch?v=6E-l9tWSCt4) `6E-l9tWSCt4` | Unreal - X - Tutorials | 11:31 | auto | 1587 | `praxe/footsteps.md` | physical materials |
+| published | [Complete Unreal Footsteps System Using Niagara Data Channel!](https://www.youtube.com/watch?v=sGJ8cqe94ps) `sGJ8cqe94ps` | Grid & Node | 9:38 | auto | 962 | `praxe/footsteps.md` | Niagara Data Channel |
+| published | [Fall Guys Hex-A-Gon Tutorial Unreal Engine 4](https://www.youtube.com/watch?v=ANWzAitL0Jg) `ANWzAitL0Jg` | Unreal University  | 6:20 | auto | 1177 | `praxe/pasti-a-mechaniky.md` | Hex-A-Gon (UE4); merge herni-mechaniky+pasti |
+| published | [Game Dev Secrets: A Simple Hitbox Trick! #indiegamedev #gamedev](https://www.youtube.com/watch?v=X0jy94VP_Ko) `X0jy94VP_Ko` | Inbound Shovel | 1:01 | auto | 233 | `praxe/pasti-a-mechaniky.md` | hitbox trik, short |
+| published | [How To Create Pickup And Drop System In Unreal Engine 5 Full Tutorial #subscribe #subscribeme](https://www.youtube.com/watch?v=Hd0od7sQdds) `Hd0od7sQdds` | Overlook Games | 16:58 | — | — | `praxe/interakce-predmety.md` | bez přepisu — jen krátká zmínka (popis nic nedává) |
+| published | [Throwing Objects System And Projectile Path Trajectory \| Unreal Engine 5](https://www.youtube.com/watch?v=B4W9lKbGeIc) `B4W9lKbGeIc` | Vercion Games | 12:25 | auto | 2885 | `praxe/interakce-predmety.md` | házení + trajektorie |
+| published | [UE5 - TUTORİAL İnteractive World [FREE PLUGIN]](https://www.youtube.com/watch?v=xYGz-oGAGkk) `xYGz-oGAGkk` | REFORCH | 4:38 | — | — | `praxe/footsteps.md` | bez přepisu — kryto z popisu; přeřazeno k footsteps (snow trails/mud) |
+| published | [3D Platformer Tutorial UE5  - Episode 5 - TRAPS!!!](https://www.youtube.com/watch?v=47d_s2e-RlM) `47d_s2e-RlM` | Shane_Gamedev | 23:28 | auto | 4139 | `praxe/pasti-a-mechaniky.md` |  |
+| published | [Moving Obstacles (Swinging Axes) Unreal engine 5 Traps Tutorial](https://www.youtube.com/watch?v=RdItM2xmF5M) `RdItM2xmF5M` | Zero2GameDev | 21:46 | auto | 2547 | `praxe/pasti-a-mechaniky.md` | kyvadlové sekery |
+| published | [Hide Inside Locker Almirah \| Unreal Engine 5](https://www.youtube.com/watch?v=nLjUs8_5QBI) `nLjUs8_5QBI` | Vercion Games | 17:19 | auto | 3774 | `praxe/interakce-predmety.md` | skříň/lokr; merge stealth-ukryty→interakce |
 
 ### AI a chování NPC · `P-AI-NPC` (9)
 

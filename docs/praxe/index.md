@@ -33,6 +33,12 @@ Témata a kapitoly:
 - **[AI vnímání](ai-vnimani.md)** — Pawn Sensing vs. AI Perception vs. trigger; kužel zraku, object permanence, lose sight radius a přesný timing ztráty zájmu.
 - **[State Trees](state-trees.md)** — kompletní nepřítel: patrola po spline, tři smysly jedné percepce, Report eventy, přechody přes gameplay tagy a event dispatchery.
 
+**Herní systémy a interakce**
+
+- **[Kroky a povrchy](footsteps.md)** — physical materials, trace vs. anim notify, MetaSounds s hlasitostí podle rychlosti, stopy jako decaly s rozpadem a Niagara Data Channel optimalizace.
+- **[Pasti a arénové mechaniky](pasti-a-mechaniky.md)** — kostra pasti (overlap → damage → launch), kyvadlové sekery s pivotem a per-instance chováním, mizející podlaha à la Fall Guys a férovost hitboxů.
+- **[Interakce s předměty a úkryty](interakce-predmety.md)** — házení s predikcí trajektorie (Predict Projectile Path + spline mesh) a úkryt ve skříni s choreografií přes montage notifies.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.

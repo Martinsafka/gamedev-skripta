@@ -54,6 +54,14 @@ Nad Motion Matchingem je montáž základ combatu: spodní tělo matchuje locomo
 
 Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md)
 
+### Anim Notify
+
+**Značka na časové ose animace, která v daném framu spustí logiku — zvuk, efekt, gameplay event.**
+
+Vestavěné (Play Sound) i vlastní blueprint třídy (override Receive Notify) s instance editable parametry — notify pak nese data (která noha, který moment hodu). Notify state je varianta s trváním (od–do framu): motion warping okna, Pose Search Branch In. Pozor v blend space: Notify Trigger Mode default spouští jen nejváženější animaci.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Systémy nad MM](praxe/mm-systemy.md)
+
 ### Asset pack
 
 **Balík hotových assetů — modely, zvuky, UI, shadery — připravený k okamžitému použití.**
@@ -254,6 +262,14 @@ Damage, animace, zvuky ani cooldowny nepatří natvrdo do grafu — patří do d
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset)
 
+### Decal
+
+**Materiál promítnutý na povrch světa — otisky, cákance, graffiti; spawnuje se za běhu bez úpravy podkladu.**
+
+`Spawn Decal at Location` s velikostí a rotací; materiál v režimu deferred decal (translucent). Umístění: bod dopadu + normála × malý offset proti z-fightingu; rotace z normály povrchu, ať decal „leží". S dynamic material instancí jde per decal řídit texturu, barvu i fade-out v čase.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
 ### Design by constraint
 
 **Metoda hledání nápadů: nejdřív si zvol omezení, která řežou scope, a nápad nech vzniknout uvnitř nich.**
@@ -277,6 +293,14 @@ Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](
 Skládá se ze dvou složek: novelty (učení nového) a mastery (zvládání naučeného). Šachy mají novelty nafrontovanou na začátek; hry často volí pilový tvar — s každou novou mechanikou schválně klesnou nároky na mastery, aby zbyla kapacita na učení. Doplňkové nástroje: matchmaking, automatické přizpůsobení, skill gates (těžší vstup filtruje nepřipravené) a rubber banding.
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
+
+### Dynamic Material Instance
+
+**Kopie materiálu vytvořená za běhu (`Create Dynamic Material Instance`), jejíž parametry jdou měnit z kódu.**
+
+Scalar/vector/texture parametry pojmenované v materiálu se nastavují uzly Set Parameter Value — jména musí sedět do písmene. Základ všeho, co se vizuálně mění za hry: slábnoucí stopy, zabarvení zásahu, progres přebíjení. MID žije per objekt — změna jedné instance neovlivní ostatní.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 
 ### Event dispatcher
 
@@ -518,6 +542,14 @@ První krok k objektivitě proti zamilovanosti do vlastního nápadu. Prakticky:
 
 Kde se s tím potkáš: [Idea iceberg](teorie/rady-z-praxe.md) · [Nápad: yoink & twist](teorie/napad.md)
 
+### MetaSounds
+
+**Grafový audio systém UE5 — nástupce Sound Cues: procedurální zvuk s parametry měnitelnými za běhu.**
+
+Graf jako AnimBP: wave playery, randomizace, matematika nad audiem. Vstupní parametry (float, trigger…) se nastavují přes audio komponentu — `Spawn Sound at Location` ji vrací (Play Sound ne!), pak `Set Float Parameter`. Typické použití: jeden asset kroků, kde rychlost postavy řídí hlasitost i pitch.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
 ### Modifier stack
 
 **Vrstvené nedestruktivní úpravy: každá operace zůstává živým objektem, který lze dodatečně měnit, přesouvat, přeskládat nebo smazat.**
@@ -590,6 +622,14 @@ Klienti posílají jen vstupy s časem simulace; server je bufferuje, konzumuje 
 
 Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
+### Niagara Data Channel
+
+**Kanál, do kterého gameplay jen zapisuje data (pozice, normála…) a jediný běžící Niagara systém z nich spawnuje částice.**
+
+Řeší nešvar „nový particle systém per událost": sto kroků = sto zápisů do kanálu, ne sto systémů. Emitter čte přes Spawn from Data Channel; typ gameplay boost (5.7) umí při zápisu přepnout, který systém se spawne. NDC referenci ukládej jako system value.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
 ### Overlay state
 
 **Enum-řízená vrstva pózy horního těla přes locomotion — drž pistoli, luk nebo pochodeň bez vlastních pohybových animací.**
@@ -629,6 +669,14 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 Hráč, GameMode i stav přežívají, protože se nikdy nemění celý level — jen sub-levely uvnitř. Nejde unloadnout; chceš-li „vyměnit svět", drž persistent prázdný a veškerý obsah měj v sub-levelech. Objekty, které mají spouštět streaming (volumes, trigger boxy), musí ležet v persistentu — jinak jsou schované spolu s levelem, který mají nahrát.
 
 Kde se s tím potkáš: [Levely a streaming](praxe/levely-a-streaming.md)
+
+### Physical Material
+
+**Asset nesoucí fyzikální vlastnosti povrchu — včetně Surface Type, přes který systémy poznají, po čem stojíš.**
+
+Surface typy se definují v Project Settings (Physical Surface, až 62 + Default). Přiřazení: v materiálu/instanci (všechny meshe s ním automaticky) nebo per-mesh override v levelu. Čtení: hit result → Get Surface Type → Switch on EPhysicalSurface, nebo mapa physical material → data v data assetu. Krom povrchových systémů nese i friction/restituci (gumový míč).
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md)
 
 ### Pitch deck
 
@@ -838,6 +886,14 @@ Pět vzorů: narativní (most se zřítí, postava odmítne jít dál), countdow
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
 
+### Sound Cue
+
+**Klasický zvukový asset UE: graf uzlů nad wave soubory — random variace, mixování, attenuace.**
+
+Multi-select wave souborů → Create Sound Cue vloží Random uzel automaticky (variace kroků jedním klikem). Pro pokročilejší práci (parametry za běhu, procedurální audio) je nástupcem MetaSounds; Sound Cue zůstává nejrychlejší cesta k „přehraj náhodnou variaci".
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
 ### Sparse set
 
 **Minimální sada animací pro Motion Matching: ~13 klipů bez strafu, ~26 se strafem, ~60–80 se stavy.**
@@ -852,7 +908,7 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
 Body se tahají přímo v levelu (Alt + tažení duplikuje); kód čte Get Location at Spline Point / Get Number of Spline Points — pozor na coordinate space (typicky World). V AI definuje patrol trasy, v traversal systémech značí hrany překážek, u coveru tvar krytí.
 
-Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md)
+Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Interakce s předměty](praxe/interakce-predmety.md)
 
 ### Square hole
 
@@ -925,6 +981,14 @@ Kde se s tím potkáš: [Telemetrie](praxe/telemetrie.md) · [Idea iceberg](teor
 V Mesh Terrainu ve dvou podobách: adaptivní teselace texture modifieru (zjemní síť tam, kde height mapa nese detail, řízeno error tolerancí) a Tessellate režim remesh modifieru. Protiklad k uniformnímu remeshi: adaptivní přístup šetří trojúhelníky, ale hůř se predikuje výsledný tvar. Obecná rada z praxe: hrubé tvarování s teselací vypnutou, detail zapínat cíleně na konci.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+
+### Timeline
+
+**Blueprint uzel s křivkami v čase: Play/Reverse/Finished — animace hodnot bez animačního assetu.**
+
+Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, Auto = ease); looping track 0→360 = rotace. Ping-pong vzor: na Finished přečti Direction enum a zavolej Reverse/Play. Set Timeline Length za běhu mění tempo — délka nad poslední klíč vyrábí pauzu v krajní poloze. Latentní uzel — jen v event graphu, ne ve funkcích.
+
+Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md)
 
 ### Trajektorie
 

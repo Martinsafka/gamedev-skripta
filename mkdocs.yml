@@ -95,6 +95,10 @@ nav:
           - Základy nepřátelské AI: praxe/ai-zaklady.md
           - AI vnímání: praxe/ai-vnimani.md
           - State Trees: praxe/state-trees.md
+      - Herní systémy a interakce:
+          - Kroky a povrchy: praxe/footsteps.md
+          - Pasti a arénové mechaniky: praxe/pasti-a-mechaniky.md
+          - Interakce s předměty a úkryty: praxe/interakce-predmety.md
       - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:

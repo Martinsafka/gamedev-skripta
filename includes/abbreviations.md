@@ -4,6 +4,7 @@
 *[AI Perception]: Percepční systém UE: smysly (sight, hearing, damage) jedné komponenty; cíl musí mít Stimuli Source.
 *[ALS]: Advanced Locomotion System — komunitní locomotion framework; jeho autor dnes v Epicu vede design GASP.
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
+*[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
 *[Behavior Tree]: Rozhodovací strom AI: selectory a sequence volí tasky podle Blackboardu; decoratory hlídají podmínky.
@@ -29,9 +30,11 @@
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
 *[Data-driven design]: Hodnoty a konfigurace žijí v datech (data assety); logika je jen čte.
+*[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
+*[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
 *[Event dispatcher]: Rádio mezi Blueprinty: vlastník zavolá, všichni bindnutí posluchači dostanou event.
 *[Event Tick]: Blueprint event volaný každý snímek; polling, kterému se dobrý návrh vyhýbá.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
@@ -63,6 +66,7 @@
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
 *[Market research]: Průzkum trhu: žánrové výdělky (medián!), tagy, recenze konkurence — objektivita proti zamilovanosti.
+*[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
 *[Motion Warping]: Ohnutí root motion animace, aby trefila cílový transform; okno řídí notify state v montáži.
@@ -72,11 +76,13 @@
 *[Narrative design]: Návrh vyprávění integrovaný s herním designem — ne „spisovatel dopíše cutscény".
 *[Nav Mesh]: Navigační síť, ve které AI počítá cesty; do levelu jako Nav Mesh Bounds Volume, náhled klávesou P.
 *[Network Prediction]: Rollback framework UE — síťová větev Moveru: klient posílá jen vstupy, rollback celého okolí naráz.
+*[Niagara Data Channel]: Gameplay zapisuje data do kanálu, jediný Niagara systém z nich spawnuje částice — ne systém per událost.
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
 *[Pawn Sensing]: Jednoduchá smyslová komponenta (kužel zraku + sluch) s gizmem ve viewportu; event On See Pawn.
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
 *[Persistent level]: Hlavní level, pod kterým žijí streamované sub-levely; nejde unloadnout.
+*[Physical Material]: Asset s vlastnostmi povrchu vč. Surface Type — systémy přes něj poznají, po čem stojíš.
 *[Pitch deck]: Prezentace hry, která ještě neexistuje; simuluje první kontakt zákazníka s nápadem.
 *[Placeholder]: Provizorní asset držící místo finálnímu; schválně ošklivý, aby nesváděl k ladění.
 *[Player State]: Objekt s daty jednoho hráče (inventář, skóre) nezávisle na pawnovi; v multiplayeru se replikuje.
@@ -103,6 +109,7 @@
 *[Signal-to-noise ratio]: Poměr užitečné informace k šumu; flow kanál je pásmo nejlepšího signálu pro učení.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
+*[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.
 *[Square hole]: Chyba balancu: univerzální nástroj, který řeší každou situaci, a tím zabíjí rozhodování.
@@ -114,6 +121,7 @@
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
+*[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).
 *[Traversal]: Překonávání překážek (vault, mantle, hurdle): detekce hran + chooser + montáž s motion warpingem.
 *[Trigger volume]: Neviditelná zóna v levelu, která při vstupu spustí událost — základ skriptovaných momentů.
