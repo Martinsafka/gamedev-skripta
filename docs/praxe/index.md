@@ -15,6 +15,11 @@ Témata a kapitoly:
 - **[Ukládání](ukladani.md)** — SaveGame objekty, sloty a vzor Game Instance + function library pro save dostupný odkudkoli.
 - **[Telemetrie](telemetrie.md)** — activity tracker z gameplay tagů a vzdálená analytika (TrackEdge + PostHog).
 
+**Motion Matching a GASP**
+
+- **[Motion Matching základy](mm-zaklady.md)** — dotaz místo grafu stavů: trajektorie, databáze, schema a chooser; setup od nuly, sparse set (13 animací stačí) a procedurální uzly.
+- **[Systémy nad MM](mm-systemy.md)** — combat přes montáže a choosery, traversal a cover komponenty se state managerem, a nescriptované interakce z Witcher 4 dema.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.

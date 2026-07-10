@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 44 published (pilot + batch 1–3) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 59 published (pilot + batch 1–4A) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -161,21 +161,21 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 | todo | [GASP Adding New Weapon Animations and Pose Search Database's](https://www.youtube.com/watch?v=fXNahVSGssg) `fXNahVSGssg` | Zero2GameDev | 28:04 | auto | 3780 | `gasp` | zbraně |
 | todo | [Unreal Engine 5 GASP Cover Shooter Series Tutorial 2 (Add Layer Curves)](https://www.youtube.com/watch?v=1xj3nPEmHPw) `1xj3nPEmHPw` | Make A Real One | 17:23 | — | — | `gasp` | bez přepisu; cover shooter 2 |
 | todo | [Different Overlay States for GASP/ Motion Matching in Unreal Engine!](https://www.youtube.com/watch?v=tqVbYSEJLBE) `tqVbYSEJLBE` | DevEdge Studio | 8:01 | auto | 1817 | `gasp` | overlay states |
-| todo | [Unreal Engine 5.4: Combining Attack Animations with Motion Matching in Custom Characters \| Tutorial](https://www.youtube.com/watch?v=BDjGNdMlEAg) `BDjGNdMlEAg` | The Epic Singh | 33:30 | auto | 3782 | `mm-systemy` | combat, vlastní postavy |
-| todo | [Unreal Engine 5  Motionmatching ParkourSystem and Motionmatching Cover System Component Setup](https://www.youtube.com/watch?v=bxKzYbA50l0) `bxKzYbA50l0` | Make A Real One | 26:07 | auto | 1698 | `mm-systemy` | parkour+cover |
-| todo | [Unreal Engine 5 MotionMatching Cover System Component Setup](https://www.youtube.com/watch?v=vm5aPoXgtWM) `vm5aPoXgtWM` | Make A Real One | 23:27 | auto | 1954 | `mm-systemy` | cover |
-| todo | [🎮 Master Motion Matching: Climb Everywhere & Export Like a Pro](https://www.youtube.com/watch?v=N60w1Nk0sKU) `N60w1Nk0sKU` | Mask Devlog | 11:52 | manual | 1478 | `mm-systemy` | climb |
-| todo | [Motion Matching \| Flexible Combat System \| Unreal Engine 5](https://www.youtube.com/watch?v=V1I9gdJD45g) `V1I9gdJD45g` | Beardgames | 11:12 | auto | 1577 | `mm-systemy` | combat |
-| todo | [How To Set Up Combat Using Choosers - Unreal Engine 5](https://www.youtube.com/watch?v=G41RGiXLhnE) `G41RGiXLhnE` | Clydiie | 9:08 | auto | 1819 | `mm-systemy` | choosers |
-| todo | [Unscripted Motion Matching Interactions In The Witcher 4](https://www.youtube.com/watch?v=dd35tkF-5io) `dd35tkF-5io` | Clydiie | 6:49 | auto | 1115 | `mm-systemy` | interakce (Witcher 4) |
-| todo | [Motion Matching Explained (State Machines to GASP ) in Unreal Engine 5!](https://www.youtube.com/watch?v=9BWLj98pekM) `9BWLj98pekM` | DevEdge Studio | 58:40 | auto | 12652 | `mm-zaklady` | state machines → GASP |
-| todo | [UE5 \| Motion Matching Breakdown \| Part-1](https://www.youtube.com/watch?v=-r4nafTJI5c) `-r4nafTJI5c` | TechAnim Studios | 53:57 | auto | 5896 | `mm-zaklady` | breakdown |
-| todo | [Embracing Motion Matching: Using a Little to Get a Lot \| Unreal Fest Bali 2025](https://www.youtube.com/watch?v=FLDXtAV7qsw) `FLDXtAV7qsw` | Unreal Engine | 47:44 | auto | 8792 | `mm-zaklady` | Unreal Fest |
-| todo | [Motion Matching and the Game Animation Sample in UE 5.4 \| Unreal Fest 2024](https://www.youtube.com/watch?v=tNw9lD2PW3U) `tNw9lD2PW3U` | Unreal Engine | 41:28 | auto | 6725 | `mm-zaklady` | Unreal Fest |
-| todo | [Understand Motion Matching in Unreal Engine 5 - Part 2](https://www.youtube.com/watch?v=q-Ag6iYalAo) `q-Ag6iYalAo` | Ryan Laley | 17:39 | auto | 2648 | `mm-zaklady` | part 2 |
-| todo | [Understand Motion Matching in Unreal Engine 5 - Part 1](https://www.youtube.com/watch?v=YtIxWtMPYQE) `YtIxWtMPYQE` | Ryan Laley | 15:29 | auto | 2486 | `mm-zaklady` | part 1 |
-| todo | [Unreal Engine 5.4 Motion Matching in 13 Minutes \| 2024](https://www.youtube.com/watch?v=LJi_vPAuTv4) `LJi_vPAuTv4` | Reality Forge | 13:40 | auto | 2775 | `mm-zaklady` |  |
-| todo | [Unreal Engine 5.4 Tutorial - Motion Matching](https://www.youtube.com/watch?v=HxY0WWQe_XA) `HxY0WWQe_XA` | Unreal University  | 8:14 | auto | 1464 | `mm-zaklady` |  |
+| published | [Unreal Engine 5.4: Combining Attack Animations with Motion Matching in Custom Characters \| Tutorial](https://www.youtube.com/watch?v=BDjGNdMlEAg) `BDjGNdMlEAg` | The Epic Singh | 33:30 | auto | 3782 | `praxe/mm-systemy.md` | combat, vlastní postavy |
+| published | [Unreal Engine 5  Motionmatching ParkourSystem and Motionmatching Cover System Component Setup](https://www.youtube.com/watch?v=bxKzYbA50l0) `bxKzYbA50l0` | Make A Real One | 26:07 | auto | 1698 | `praxe/mm-systemy.md` | parkour+cover |
+| published | [Unreal Engine 5 MotionMatching Cover System Component Setup](https://www.youtube.com/watch?v=vm5aPoXgtWM) `vm5aPoXgtWM` | Make A Real One | 23:27 | auto | 1954 | `praxe/mm-systemy.md` | cover |
+| published | [🎮 Master Motion Matching: Climb Everywhere & Export Like a Pro](https://www.youtube.com/watch?v=N60w1Nk0sKU) `N60w1Nk0sKU` | Mask Devlog | 11:52 | manual | 1478 | `praxe/mm-systemy.md` | climb |
+| published | [Motion Matching \| Flexible Combat System \| Unreal Engine 5](https://www.youtube.com/watch?v=V1I9gdJD45g) `V1I9gdJD45g` | Beardgames | 11:12 | auto | 1577 | `praxe/mm-systemy.md` | combat |
+| published | [How To Set Up Combat Using Choosers - Unreal Engine 5](https://www.youtube.com/watch?v=G41RGiXLhnE) `G41RGiXLhnE` | Clydiie | 9:08 | auto | 1819 | `praxe/mm-systemy.md` | choosers |
+| published | [Unscripted Motion Matching Interactions In The Witcher 4](https://www.youtube.com/watch?v=dd35tkF-5io) `dd35tkF-5io` | Clydiie | 6:49 | auto | 1115 | `praxe/mm-systemy.md` | interakce (Witcher 4) |
+| published | [Motion Matching Explained (State Machines to GASP ) in Unreal Engine 5!](https://www.youtube.com/watch?v=9BWLj98pekM) `9BWLj98pekM` | DevEdge Studio | 58:40 | auto | 12652 | `praxe/mm-zaklady.md` | state machines → GASP |
+| published | [UE5 \| Motion Matching Breakdown \| Part-1](https://www.youtube.com/watch?v=-r4nafTJI5c) `-r4nafTJI5c` | TechAnim Studios | 53:57 | auto | 5896 | `praxe/mm-zaklady.md` | breakdown |
+| published | [Embracing Motion Matching: Using a Little to Get a Lot \| Unreal Fest Bali 2025](https://www.youtube.com/watch?v=FLDXtAV7qsw) `FLDXtAV7qsw` | Unreal Engine | 47:44 | auto | 8792 | `praxe/mm-zaklady.md` | Unreal Fest |
+| published | [Motion Matching and the Game Animation Sample in UE 5.4 \| Unreal Fest 2024](https://www.youtube.com/watch?v=tNw9lD2PW3U) `tNw9lD2PW3U` | Unreal Engine | 41:28 | auto | 6725 | `praxe/mm-zaklady.md` | Unreal Fest |
+| published | [Understand Motion Matching in Unreal Engine 5 - Part 2](https://www.youtube.com/watch?v=q-Ag6iYalAo) `q-Ag6iYalAo` | Ryan Laley | 17:39 | auto | 2648 | `praxe/mm-zaklady.md` | part 2 |
+| published | [Understand Motion Matching in Unreal Engine 5 - Part 1](https://www.youtube.com/watch?v=YtIxWtMPYQE) `YtIxWtMPYQE` | Ryan Laley | 15:29 | auto | 2486 | `praxe/mm-zaklady.md` | part 1 |
+| published | [Unreal Engine 5.4 Motion Matching in 13 Minutes \| 2024](https://www.youtube.com/watch?v=LJi_vPAuTv4) `LJi_vPAuTv4` | Reality Forge | 13:40 | auto | 2775 | `praxe/mm-zaklady.md` |  |
+| published | [Unreal Engine 5.4 Tutorial - Motion Matching](https://www.youtube.com/watch?v=HxY0WWQe_XA) `HxY0WWQe_XA` | Unreal University  | 8:14 | auto | 1464 | `praxe/mm-zaklady.md` |  |
 
 ### Animace: nástroje a mocap · `P-ANIMTOOLS` (5)
 

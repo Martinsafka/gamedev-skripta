@@ -44,7 +44,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] **Batch 1 done** _(2026-07-09)_: Teorie — Tvůrčí proces a mindset + Nápad, scope a plánování + Základy designu. 16 videos → **13 new chapters**, rejstřík +27 terms, `--strict` green. Editorial merge: combat-feel + game-feel → one chapter (`game-feel.md`).
 - [x] **Batch 2 done** _(2026-07-09)_: Teorie dokončení — Level design + Vydání a marketing + Rešerše: slovanská mytologie. 11 videos → **9 new chapters**, rejstřík +15 terms, `--strict` green. Editorial merges: 4 level-design videa → 2 kapitoly (vedeni-hrace, prostor-a-hranice). **Teorie document is now complete** except: 1 CS video (čeká na cs-subtitle pipeline), 1 skip (news). T-MYTH adds no glossary terms (rejstřík = craft terminology; bestiář chapter is the domain reference).
 - [x] **Batch 3 done** _(2026-07-09)_: Praxe — Blueprint architektura a organizace projektu. 12 videos → **7 new chapters**, rejstřík +19 terms, praxe nav restructured to approved taxonomy (pilot chapters re-homed), `--strict` green. Low-priority 76min beginner course (`dB-pS8PHALY`) stays todo.
-- [ ] **Batch 4 proposal:** „Motion Matching a GASP" (19 todo + 2 bez přepisu, covered from series context; incl. 2× Inside Unreal 150+ min — largest batch yet). Alternative: smaller „Herní systémy a interakce" (11 todo + 1 bez přepisu). User picks.
+- [x] **Batch 4A done** _(2026-07-10)_: Motion Matching část — mm-zaklady (8 videí → 1 kapitola, 4 myšlenky) + mm-systemy (7 videí → 1 kapitola, 3 myšlenky). Rejstřík +13 MM terms, praxe nav +téma „Motion Matching a GASP", `--strict` green. Batch rozdělen na dvě sezení na žádost uživatele.
+- [ ] **Batch 4B next:** GASP téma — 4 videa s přepisem (vč. 2× Inside Unreal, 181 + 154 min, ~57k slov) + 2 bez přepisu (cover shooter série — dokrýt z kontextu). → `praxe/gasp.md`; poté doplnit odkazy na gasp.md z mm-zaklady/mm-systemy (teď jen plain-text zmínky).
 
 ### Phase 4 — Zápisky
 
