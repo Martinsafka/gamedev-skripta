@@ -54,6 +54,14 @@ Pravidlo devlogů: na obrazovce má být hra, pořád — ideálně přesně to,
 
 Kde se s tím potkáš: [Devlogy](teorie/devlogy.md)
 
+### Blend Space
+
+**Asset, který míchá animace podle hodnot na osách grafu — 1D (rychlost) nebo 2D (rychlost × směr).**
+
+Klipy se rozmístí na osu (idle 0, walk 300, run 600…) a vstupní hodnota určuje mix. Klipy různých délek synchronizují sync markery — bez nich se kroky rozjedou. Blend spacy jdou vkládat i do Motion Matching databází a GASP animace jsou na to fázovány.
+
+Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md) · [MM základy](praxe/mm-zaklady.md)
+
 ### Blend stack
 
 **Anim uzel, který při každé změně animační proměnné přidá nový blend do zásobníku — bez state machine.**
@@ -422,6 +430,14 @@ V layer setupu se uvádí jméno kosti (přesný spelling!), od které blend pů
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md)
 
+### Layered move
+
+**Dočasný zdroj pohybu v Moveru — nástupce root motion sources: dash, naváděný útok, skok.**
+
+Na rozdíl od movement módů jich může běžet víc naráz; každý generuje rychlost, mixují se nebo přepisují podle priority a výsledek vykoná aktivní mód. Animation root motion přichází jako obyčejný layered move — a proto jde konečně míchat s řízeným pohybem (v CMC platilo buď–anebo).
+
+Kde se s tím potkáš: [Mover](praxe/mover.md)
+
 ### Level streaming
 
 **Načítání a uvolňování částí světa za běhu — místo výměny celého levelu přes Open Level.**
@@ -500,7 +516,7 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-syst
 
 Proti CMC, kde režimy byly zadrátované v komponentě, si módy skládáš: child mód přepíše generate-move funkci, zavolá parenta a upraví parametry (sprint = přepiš max speed podle custom input structu). Společná data módů řeší shared settings; blueprint proměnné módu se objeví v details panelu komponenty a replikují se samy.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 ### Mover
 
@@ -508,7 +524,7 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 
 Klíčové rozdíly proti CMC: replikují se inputy (i vlastní blueprint structy) místo výsledků pohybu, rotace je zcela volná (spin transitions, twin-stick intent) a predikce trajektorie pro Motion Matching spouští skutečný simulační kód včetně custom módů. V GASP od 5.7 výchozí; CMC postava zůstává jako legacy. Pozor na frame zpoždění vstupu (network prediction tiká před pawnem) — kameru a AnimBP krmit post-sim hodnotami.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 ### Nanite
 
@@ -525,6 +541,14 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 Pojem posledních ~20 let; zahrnuje volbu typu protagonisty, směr dialogů, rejstříky řeči i vyprávěcí prostředky, které mají jen hry (flavor texty, prostředí, mechaniky). Pro malé týmy začíná třemi branami: kolik implementace vyprávění přinese, jaká je tvá spisovatelská praxe a jaké příběhy ti nabízejí tvoje nástroje.
 
 Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
+
+### Network Prediction
+
+**Generalizovaný rollback framework UE — jedna ze dvou síťových větví Moveru (druhá je Chaos networked physics).**
+
+Klienti posílají jen vstupy s časem simulace; server je bufferuje, konzumuje podle svých hodin a vysílá stav — chyby detekuje a řeší klient. Rollback je „unified": vrací se a přehrává celé okolí naráz, takže korekce bývá jedna. Prakticky: režim interpolated + Sync Inputs for Sim Proxy řeší klepání simulated proxies; pozor na frame zpoždění vstupu (tiká před pawnem).
+
+Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 ### Overlay state
 
@@ -774,6 +798,14 @@ Podle memu „it goes in the square hole". Vzniká z balancování jedinou osou 
 
 Kde se s tím potkáš: [Zábava: balanc rozhodnutí](teorie/zabava.md)
 
+### State alias
+
+**Zástupný uzel ve state machine, který reprezentuje všechny zaškrtnuté stavy — jedno přechodové pravidlo místo N.**
+
+Alias „to crouch" zastupující idle i walk/run znamená jediný přechod do podřepu místo přechodu z každého stavu zvlášť. S rostoucím počtem stavů drží graf čitelný; pravidla se píší jednou a platí pro všechny zastoupené stavy.
+
+Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md)
+
 ### State Tree
 
 **Hierarchický stavový automat UE pro AI i obecnou logiku — sesterský systém behavior tree.**
@@ -806,6 +838,14 @@ Nemusíš ho spawnovat ani registrovat — engine ho vytvoří a drží podle ty
 
 Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Principy architektury](praxe/principy-architektury.md)
 
+### Sync marker
+
+**Značka v animaci (typicky došlap L/R), podle které se synchronizují klipy různých délek při blendování.**
+
+Bez markerů se walk/run/sprint v blend space fázově rozjedou a mix „plave". Markery musí mít **stejná jména** napříč klipy (L, R) — stažené animace je často nemají a je potřeba je doplnit ručně podle došlapů.
+
+Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md)
+
 ### Telemetrie
 
 **Sběr dat o tom, co hráči ve hře skutečně dělají — lokálně (čítače, achievementy) i vzdáleně (analytický backend).**
@@ -836,7 +876,7 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
 Vzor z GASP: spline/trace detekce překážky → chooser (hurdle/vault/mantle podle typu a výšky) → montáž s Pose Search Branch In oknem + motion warping na hranu (get-to-bone, interaction transform přes blueprint channel ve schématu). Funguje jen na Traversable blocích; komunitní komponenty (AC_TraceTraversal) ho naučí šplhat i na běžnou geometrii — zákaz per objekt tagem.
 
-Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md)
+Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [GASP](praxe/gasp.md) · [Parkour postaru](praxe/parkour-vault.md) · [MM základy](praxe/mm-zaklady.md)
 
 ### Trigger volume
 

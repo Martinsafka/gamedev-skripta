@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 65 published (pilot + batch 1–4B) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 78 published (pilot + batch 1–5) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -191,19 +191,19 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [An Introduction to the Mover Plugin \| Unreal Fest 2024](https://www.youtube.com/watch?v=P4IKS5k47Wg) `P4IKS5k47Wg` | Unreal Engine | 42:13 | auto | 7191 | `mover` | Unreal Fest |
-| todo | [Unreal Engine 5 Mover Component Setup For Character (5.7) Part 1](https://www.youtube.com/watch?v=7Uu3ocESVIE) `7Uu3ocESVIE` | Make A Real One | 23:15 | auto | 1608 | `mover` | setup |
-| todo | [Unreal Engine 5 Mover Component Add Sprinting and Crouch For Character (5.7) Part 2](https://www.youtube.com/watch?v=-aYbOp65EvQ) `-aYbOp65EvQ` | Make A Real One | 17:42 | auto | 1130 | `mover` | sprint+crouch |
-| todo | [How To Make Better Looking Locomotion in Mover 2.0](https://www.youtube.com/watch?v=gFDxFskLtck) `gFDxFskLtck` | Zero2GameDev | 10:19 | auto | 1838 | `mover` | Mover 2.0 |
-| todo | [How To Make Perfect Ledge Grabs Every Time - Unreal Engine](https://www.youtube.com/watch?v=gzb356i0Fqk) `gzb356i0Fqk` | DEVenestration | 34:01 | auto | 4061 | `parkour-vault` | ledge grab |
-| todo | [Vaulting & Climbing (Parkour) Part 1 - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=6hPArmWkKJQ) `6hPArmWkKJQ` | Matt Aspland | 24:27 | auto | 5464 | `parkour-vault` |  |
-| todo | [Make Advance Vaulting System in Unreal Engine!](https://www.youtube.com/watch?v=TZ-lhSHQjPU) `TZ-lhSHQjPU` | DevEdge Studio | 12:55 | — | — | `parkour-vault` | bez přepisu |
-| todo | [How To Add A Crouch And Prone Mechanic With Animations In Unreal Engine 5 - Beginners Tutorial](https://www.youtube.com/watch?v=7yRKF-_hMok) `7yRKF-_hMok` | H2 Unreal | 14:02 | auto | 1761 | `pohyb-zaklady` | crouch+prone |
-| todo | [Epic Games Didn’t Fix This😒, So I Had To Fix Myself \| Resident Evil 9 Style \| UE5 \| Easy Tutorial](https://www.youtube.com/watch?v=83eC8TtVZTw) `83eC8TtVZTw` | Hydra | 13:45 | auto | 1714 | `pohyb-zaklady` | wall-stop à la RE9 |
-| todo | [Unreal Engine 5 Tutorial -  Charged Jump Part 1: The Jump](https://www.youtube.com/watch?v=CKvTgBf-9Ss) `CKvTgBf-9Ss` | Ryan Laley | 12:08 | auto | 2015 | `pohyb-zaklady` | charged jump |
-| todo | [Unreal Engine 5 Tutorial - Walk, Run, and Sprint Toggle](https://www.youtube.com/watch?v=f-NEj00qprs) `f-NEj00qprs` | The Real Unreal | 7:46 | auto | 937 | `pohyb-zaklady` | walk/run/sprint |
-| todo | [Unreal Engine 5 Tutorial - How to Crouch](https://www.youtube.com/watch?v=0DQJkzLqCLk) `0DQJkzLqCLk` | The Real Unreal | 6:40 | auto | 809 | `pohyb-zaklady` | crouch |
-| todo | [Using Floor Angle to Determine Walk Speed \| #ue5](https://www.youtube.com/watch?v=K87dmHB1M54) `K87dmHB1M54` | DEVenestration | 5:25 | auto | 753 | `pohyb-zaklady` | rychlost dle sklonu |
+| published | [An Introduction to the Mover Plugin \| Unreal Fest 2024](https://www.youtube.com/watch?v=P4IKS5k47Wg) `P4IKS5k47Wg` | Unreal Engine | 42:13 | auto | 7191 | `praxe/mover.md` | Unreal Fest |
+| published | [Unreal Engine 5 Mover Component Setup For Character (5.7) Part 1](https://www.youtube.com/watch?v=7Uu3ocESVIE) `7Uu3ocESVIE` | Make A Real One | 23:15 | auto | 1608 | `praxe/mover.md` | setup |
+| published | [Unreal Engine 5 Mover Component Add Sprinting and Crouch For Character (5.7) Part 2](https://www.youtube.com/watch?v=-aYbOp65EvQ) `-aYbOp65EvQ` | Make A Real One | 17:42 | auto | 1130 | `praxe/mover.md` | sprint+crouch |
+| published | [How To Make Better Looking Locomotion in Mover 2.0](https://www.youtube.com/watch?v=gFDxFskLtck) `gFDxFskLtck` | Zero2GameDev | 10:19 | auto | 1838 | `praxe/mover.md` | Mover 2.0 |
+| published | [How To Make Perfect Ledge Grabs Every Time - Unreal Engine](https://www.youtube.com/watch?v=gzb356i0Fqk) `gzb356i0Fqk` | DEVenestration | 34:01 | auto | 4061 | `praxe/parkour-vault.md` | ledge grab |
+| published | [Vaulting & Climbing (Parkour) Part 1 - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=6hPArmWkKJQ) `6hPArmWkKJQ` | Matt Aspland | 24:27 | auto | 5464 | `praxe/parkour-vault.md` |  |
+| published | [Make Advance Vaulting System in Unreal Engine!](https://www.youtube.com/watch?v=TZ-lhSHQjPU) `TZ-lhSHQjPU` | DevEdge Studio | 12:55 | — | — | `praxe/parkour-vault.md` | bez přepisu — kryto z kontextu (popis) |
+| published | [How To Add A Crouch And Prone Mechanic With Animations In Unreal Engine 5 - Beginners Tutorial](https://www.youtube.com/watch?v=7yRKF-_hMok) `7yRKF-_hMok` | H2 Unreal | 14:02 | auto | 1761 | `praxe/pohyb-zaklady.md` | crouch+prone |
+| published | [Epic Games Didn’t Fix This😒, So I Had To Fix Myself \| Resident Evil 9 Style \| UE5 \| Easy Tutorial](https://www.youtube.com/watch?v=83eC8TtVZTw) `83eC8TtVZTw` | Hydra | 13:45 | auto | 1714 | `praxe/pohyb-zaklady.md` | wall-stop à la RE9 |
+| published | [Unreal Engine 5 Tutorial -  Charged Jump Part 1: The Jump](https://www.youtube.com/watch?v=CKvTgBf-9Ss) `CKvTgBf-9Ss` | Ryan Laley | 12:08 | auto | 2015 | `praxe/pohyb-zaklady.md` | charged jump; part 2 mimo playlist |
+| published | [Unreal Engine 5 Tutorial - Walk, Run, and Sprint Toggle](https://www.youtube.com/watch?v=f-NEj00qprs) `f-NEj00qprs` | The Real Unreal | 7:46 | auto | 937 | `praxe/pohyb-zaklady.md` | walk/run/sprint |
+| published | [Unreal Engine 5 Tutorial - How to Crouch](https://www.youtube.com/watch?v=0DQJkzLqCLk) `0DQJkzLqCLk` | The Real Unreal | 6:40 | auto | 809 | `praxe/pohyb-zaklady.md` | crouch |
+| published | [Using Floor Angle to Determine Walk Speed \| #ue5](https://www.youtube.com/watch?v=K87dmHB1M54) `K87dmHB1M54` | DEVenestration | 5:25 | auto | 753 | `praxe/pohyb-zaklady.md` | rychlost dle sklonu |
 
 ### Fyzika: ragdoll, lana, simulace · `P-PHYS` (8)
 

@@ -87,6 +87,10 @@ nav:
           - Motion Matching základy: praxe/mm-zaklady.md
           - Systémy nad MM: praxe/mm-systemy.md
           - "GASP: Game Animation Sample": praxe/gasp.md
+      - Pohyb postavy (locomotion):
+          - Základy pohybu: praxe/pohyb-zaklady.md
+          - Parkour postaru: praxe/parkour-vault.md
+          - Mover: praxe/mover.md
       - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:

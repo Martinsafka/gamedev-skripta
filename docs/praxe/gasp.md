@@ -120,7 +120,7 @@ GASP je Epicův „živý projekt" pro gameplay animaci — 500+ animací, hotov
 
 > **Pozn.:** Verzní realita z Q&A: network prediction plugin nutí Mover tikat před pawnem → **vstup má frame zpoždění**; kameru a AnimBP proto krmit post-sim hodnotami z interface, ať jsou s Moverem v synchronu [(2:45:48)](https://www.youtube.com/watch?v=i27eY7LbRzc&t=9948s). Síť: vždy testuj s network emulation; fixed-tick režim se z vysoké latence zatím neumí „smrsknout" zpět [(2:48:55)](https://www.youtube.com/watch?v=i27eY7LbRzc&t=10135s). Kombinace s GAS je zatím DIY [(2:40:21)](https://www.youtube.com/watch?v=i27eY7LbRzc&t=9621s). Upgrade GASP mezi verzemi = migrace contentu + console variables + pluginy; plugin verze projektu je „na radaru" [(2:52:03)](https://www.youtube.com/watch?v=i27eY7LbRzc&t=10323s). A analogová rychlost? Záměrně „převodovka" walk/run podle výchylky páčky — plně analogová rychlost rozbíjí výběr stopů [(2:54:21)](https://www.youtube.com/watch?v=i27eY7LbRzc&t=10461s).
 
-**Souvislosti:** [MM základy: dotaz místo grafu](mm-zaklady.md#dotaz-misto-grafu-jak-motion-matching-vybira-pozy) (trajektorie a intent) · [Rejstřík: Mover](../rejstrik.md#mover) · [Rejstřík: movement mode](../rejstrik.md#movement-mode) · [Rejstřík: blend stack](../rejstrik.md#blend-stack)
+**Souvislosti:** [Mover: nový pohybový systém](mover.md) (architektura pluginu a setup od nuly) · [MM základy: dotaz místo grafu](mm-zaklady.md#dotaz-misto-grafu-jak-motion-matching-vybira-pozy) (trajektorie a intent) · [Rejstřík: Mover](../rejstrik.md#mover) · [Rejstřík: movement mode](../rejstrik.md#movement-mode) · [Rejstřík: blend stack](../rejstrik.md#blend-stack)
 
 ---
 

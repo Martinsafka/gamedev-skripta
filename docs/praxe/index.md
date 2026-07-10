@@ -21,6 +21,12 @@ Témata a kapitoly:
 - **[Systémy nad MM](mm-systemy.md)** — combat přes montáže a choosery, traversal a cover komponenty se state managerem, a nescriptované interakce z Witcher 4 dema.
 - **[GASP: Game Animation Sample](gasp.md)** — anatomie Epicova vzorového projektu: capsule-driven autoring animací, řízení výběru, traversal pod kapotou, Mover, NPC přes State Tree, Control Rig vrstva a zbraně přes overlay.
 
+**Pohyb postavy (locomotion)**
+
+- **[Základy pohybu](pohyb-zaklady.md)** — gaity přes Max Walk Speed a blend spacy, podřep a plazení, rychlost podle sklonu, nabíjený skok s křivkou a zastavení u zdi à la RE9.
+- **[Parkour postaru](parkour-vault.md)** — vault a výlez přes tři trace s root motion montážemi; ledge grab se zarovnáním na libovolný mesh přes Get Actor Bounds.
+- **[Mover](mover.md)** — proč nahrazuje CMC: modulární movement modes, layered moves, replikace vstupů, dvě síťové větve; setup od nuly v 5.7 a oprava strafu na osm směrů.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.

@@ -46,7 +46,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] **Batch 3 done** _(2026-07-09)_: Praxe — Blueprint architektura a organizace projektu. 12 videos → **7 new chapters**, rejstřík +19 terms, praxe nav restructured to approved taxonomy (pilot chapters re-homed), `--strict` green. Low-priority 76min beginner course (`dB-pS8PHALY`) stays todo.
 - [x] **Batch 4A done** _(2026-07-10)_: Motion Matching část — mm-zaklady (8 videí → 1 kapitola, 4 myšlenky) + mm-systemy (7 videí → 1 kapitola, 3 myšlenky). Rejstřík +13 MM terms, praxe nav +téma „Motion Matching a GASP", `--strict` green. Batch rozdělen na dvě sezení na žádost uživatele.
 - [x] **Batch 4B done** _(2026-07-10)_: GASP téma — 6 videí (2× Inside Unreal 181+154 min, zbraně/overlay, 2 bez přepisu kryté z kontextu série) → **1 kapitola `praxe/gasp.md` (8 myšlenek)**, rejstřík +13 termínů, zpětné odkazy z mm-zaklady/mm-systemy doplněny (5 míst), `--strict` + anchor-check green. **Téma „Motion Matching a GASP" kompletní (21/21).**
-- [ ] **Batch 5 next (návrh):** Pohyb postavy (locomotion) — 13 videí, přirozeně navazuje na MM/GASP. Alternativa: AI a chování NPC (9 videí; State Tree už má v `gasp.md` předpolí a rejstříkový termín).
+- [x] **Batch 5 done** _(2026-07-10)_: Pohyb postavy (locomotion) — 13 videí (1 bez přepisu kryto z popisu) → **3 kapitoly** (`pohyb-zaklady` 5 myšlenek, `parkour-vault` 2, `mover` 3), nové praxe téma v nav, rejstřík +5 termínů, zpětné odkazy gasp↔mover, `--strict` + anchor-check green. **Téma P-MOVE kompletní (13/13).**
+- [ ] **Batch 6 next (návrh):** AI a chování NPC — 9 videí (State Tree má předpolí v `gasp.md`). Alternativa: Herní systémy a interakce (12 videí, 2 bez přepisu).
 
 ### Phase 4 — Zápisky
 
