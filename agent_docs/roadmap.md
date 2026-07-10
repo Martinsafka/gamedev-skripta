@@ -47,7 +47,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] **Batch 4A done** _(2026-07-10)_: Motion Matching část — mm-zaklady (8 videí → 1 kapitola, 4 myšlenky) + mm-systemy (7 videí → 1 kapitola, 3 myšlenky). Rejstřík +13 MM terms, praxe nav +téma „Motion Matching a GASP", `--strict` green. Batch rozdělen na dvě sezení na žádost uživatele.
 - [x] **Batch 4B done** _(2026-07-10)_: GASP téma — 6 videí (2× Inside Unreal 181+154 min, zbraně/overlay, 2 bez přepisu kryté z kontextu série) → **1 kapitola `praxe/gasp.md` (8 myšlenek)**, rejstřík +13 termínů, zpětné odkazy z mm-zaklady/mm-systemy doplněny (5 míst), `--strict` + anchor-check green. **Téma „Motion Matching a GASP" kompletní (21/21).**
 - [x] **Batch 5 done** _(2026-07-10)_: Pohyb postavy (locomotion) — 13 videí (1 bez přepisu kryto z popisu) → **3 kapitoly** (`pohyb-zaklady` 5 myšlenek, `parkour-vault` 2, `mover` 3), nové praxe téma v nav, rejstřík +5 termínů, zpětné odkazy gasp↔mover, `--strict` + anchor-check green. **Téma P-MOVE kompletní (13/13).**
-- [ ] **Batch 6 next (návrh):** AI a chování NPC — 9 videí (State Tree má předpolí v `gasp.md`). Alternativa: Herní systémy a interakce (12 videí, 2 bez přepisu).
+- [x] **Batch 6 done** _(2026-07-10)_: AI a chování NPC — 9 videí → **3 kapitoly** (`ai-zaklady` 4 myšlenky, `ai-vnimani` 3, `state-trees` 3), rejstřík +8 termínů, editorial merge ai-patrola→ai-zaklady, cross-links gasp↔state-trees + game-feel→ai-zaklady (follow-up z batche 1 splněn), `--strict` + anchor-check green. **Téma P-AI-NPC kompletní (9/9).**
+- [ ] **Batch 7 next (návrh):** Herní systémy a interakce — 12 videí (2 bez přepisu). Alternativa: Animace: nástroje a mocap (5 videí, menší batch).
 
 ### Phase 4 — Zápisky
 

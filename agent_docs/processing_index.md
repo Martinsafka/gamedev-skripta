@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 78 published (pilot + batch 1–5) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 87 published (pilot + batch 1–6) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -141,15 +141,15 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [How to Make an AI Follow a Waypoint Path Patrol in Unreal Engine 5](https://www.youtube.com/watch?v=WqcDNlWEgsI) `WqcDNlWEgsI` | Gorka Games | 11:17 | auto | 2066 | `ai-patrola` | waypointy |
-| todo | [Create Smarter AI With These 3 Easy Detection Methods in Unreal Engine 5](https://www.youtube.com/watch?v=XgOEkcnJT0M) `XgOEkcnJT0M` | Gorka Games | 9:15 | auto | 1740 | `ai-vnimani` | 3 metody detekce |
-| todo | [AI Sight Detection And Chase - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=tKrBdxm4uxI) `tKrBdxm4uxI` | Matt Aspland | 7:33 | auto | 1728 | `ai-vnimani` | sight+chase |
-| todo | [Terrifying AI Chase System in Unreal Engine 5 – Learn in Minutes!](https://www.youtube.com/watch?v=GMYfVNftR-U) `GMYfVNftR-U` | Ugur Batur GameDev | 6:39 | auto | 664 | `ai-vnimani` | chase |
-| todo | [AI: Easy chasing player setup - Tutorial Unreal Engine 5](https://www.youtube.com/watch?v=EeN65RxmCak) `EeN65RxmCak` | LeafBranchGames | 27:12 | auto | 4523 | `ai-zaklady` | chase |
-| todo | [The Easiest Way to Make a Simple Enemy AI in Unreal Engine 5](https://www.youtube.com/watch?v=xm-7m5Fw1HU) `xm-7m5Fw1HU` | Gorka Games | 15:40 | auto | 2249 | `ai-zaklady` |  |
-| todo | [How To Create A Basic AI Enemy That Follows You - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=sVV32qivy1A) `sVV32qivy1A` | Pitchfork Academy | 14:32 | auto | 2022 | `ai-zaklady` |  |
-| todo | [Unreal Engine 5 AI Patrol and Chase Tutorial](https://www.youtube.com/watch?v=lbqZS-cgcQs) `lbqZS-cgcQs` | Pixel Helmet | 12:36 | auto | 2383 | `ai-zaklady` | patrol+chase |
-| todo | [Build Smart AI with State Trees in UE5 (Full Tutorial)](https://www.youtube.com/watch?v=UuqKC0AgeXU) `UuqKC0AgeXU` | HardcastleGames | 39:30 | auto | 6598 | `state-trees` |  |
+| published | [How to Make an AI Follow a Waypoint Path Patrol in Unreal Engine 5](https://www.youtube.com/watch?v=WqcDNlWEgsI) `WqcDNlWEgsI` | Gorka Games | 11:17 | auto | 2066 | `praxe/ai-zaklady.md` | waypointy — editorial merge do ai-zaklady |
+| published | [Create Smarter AI With These 3 Easy Detection Methods in Unreal Engine 5](https://www.youtube.com/watch?v=XgOEkcnJT0M) `XgOEkcnJT0M` | Gorka Games | 9:15 | auto | 1740 | `praxe/ai-vnimani.md` | 3 metody detekce |
+| published | [AI Sight Detection And Chase - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=tKrBdxm4uxI) `tKrBdxm4uxI` | Matt Aspland | 7:33 | auto | 1728 | `praxe/ai-vnimani.md` | sight+chase |
+| published | [Terrifying AI Chase System in Unreal Engine 5 – Learn in Minutes!](https://www.youtube.com/watch?v=GMYfVNftR-U) `GMYfVNftR-U` | Ugur Batur GameDev | 6:39 | auto | 664 | `praxe/ai-vnimani.md` | chase |
+| published | [AI: Easy chasing player setup - Tutorial Unreal Engine 5](https://www.youtube.com/watch?v=EeN65RxmCak) `EeN65RxmCak` | LeafBranchGames | 27:12 | auto | 4523 | `praxe/ai-zaklady.md` | chase, BT/BB architektura |
+| published | [The Easiest Way to Make a Simple Enemy AI in Unreal Engine 5](https://www.youtube.com/watch?v=xm-7m5Fw1HU) `xm-7m5Fw1HU` | Gorka Games | 15:40 | auto | 2249 | `praxe/ai-zaklady.md` |  |
+| published | [How To Create A Basic AI Enemy That Follows You - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=sVV32qivy1A) `sVV32qivy1A` | Pitchfork Academy | 14:32 | auto | 2022 | `praxe/ai-zaklady.md` | + ragdoll bonus |
+| published | [Unreal Engine 5 AI Patrol and Chase Tutorial](https://www.youtube.com/watch?v=lbqZS-cgcQs) `lbqZS-cgcQs` | Pixel Helmet | 12:36 | auto | 2383 | `praxe/ai-zaklady.md` | patrol+chase |
+| published | [Build Smart AI with State Trees in UE5 (Full Tutorial)](https://www.youtube.com/watch?v=UuqKC0AgeXU) `UuqKC0AgeXU` | HardcastleGames | 39:30 | auto | 6598 | `praxe/state-trees.md` |  |
 
 ### Motion Matching a GASP · `P-ANIM` (21)
 

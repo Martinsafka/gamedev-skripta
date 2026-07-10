@@ -20,7 +20,7 @@ Druhá půlka téže lekce je **wandering** [(5:32)](https://www.youtube.com/wat
 
 > **Pozn.:** Bonusová lekce o emergenci: když autor zapnul faction systém, nepřátelé se začali mlátit mezi sebou v „battle royale" [(7:25)](https://www.youtube.com/watch?v=6BrZryMz-ac&t=445s) — a ten nečekaně skvělý pohled ho přesvědčil přitlačit na plánovaný pet-taming systém [(7:33)](https://www.youtube.com/watch?v=6BrZryMz-ac&t=453s). Systémy, které spolu mluví, občas vygenerují design zadarmo — stojí za to si takových nehod všímat, místo je „opravovat".
 
-**Souvislosti:** [Jak udělat cokoli zábavným](zabava.md) · budoucí praxe téma „AI a chování NPC" · [Rejstřík: context steering](../rejstrik.md#context-steering) · [Rejstřík: game feel](../rejstrik.md#game-feel)
+**Souvislosti:** [Jak udělat cokoli zábavným](zabava.md) · [Základy nepřátelské AI](../praxe/ai-zaklady.md) · [Rejstřík: context steering](../rejstrik.md#context-steering) · [Rejstřík: game feel](../rejstrik.md#game-feel)
 
 ---
 

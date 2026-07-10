@@ -22,6 +22,22 @@ Pojem z designové psychologie (Gibson, Norman): klika říká „stiskni", ří
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Vedení hráče](teorie/vedeni-hrace.md)
 
+### AI Controller
+
+**Mozek AI postavy: posedne pawna (tělo) a rozhoduje — kam jít, kdy útočit; tělo řeší pohyb a animace.**
+
+Oddělení mozku od těla umožňuje znovupoužít logiku napříč postavami. Controller typicky spouští Behavior Tree nebo State Tree (`Run Behavior Tree` / StateTreeAI komponenta) a nese AI Perception. Postava ho dostane přes `AI Controller Class` + `Auto Possess AI`.
+
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](praxe/state-trees.md)
+
+### AI Perception
+
+**Percepční systém UE: smysly (sight, hearing, damage) jako konfigurace jedné komponenty, události při změně vjemu.**
+
+Mocnější nástupce Pawn Sensingu: víc smyslů, stárnutí vjemů, lose sight radius (hystereze ztrácení cíle). Dva zádrhely: cíl musí mít AI Perception Stimuli Source komponentu a každý sense config potřebuje zaškrtnout Detect Enemies/Neutrals/Friendlies. Sluch a damage se hlásí přes Report Noise/Damage Event — signály pro AI, ne herní zvuk či poškození.
+
+Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [State Trees](praxe/state-trees.md) · [Základy AI](praxe/ai-zaklady.md)
+
 ### ALS
 
 **Advanced Locomotion System — komunitní locomotion framework pro UE; jeho autor dnes v Epicu designově vede GASP.**
@@ -53,6 +69,22 @@ Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Nápad](teor
 Pravidlo devlogů: na obrazovce má být hra, pořád — ideálně přesně to, o čem zrovna mluvíš, jinak aspoň obecný B-roll. Chytrý zdroj záběrů starších verzí hry: version control — checkout starého commitu a natoč, co potřebuješ.
 
 Kde se s tím potkáš: [Devlogy](teorie/devlogy.md)
+
+### Behavior Tree
+
+**Klasický rozhodovací strom AI v UE: selectory a sequence uzly volí tasky podle podmínek z Blackboardu.**
+
+Strom běží na AI controlleru a čte sdílenou tabuli (Blackboard); decoratory hlídají podmínky a s „observer aborts" přerušují běžící větve při změně dat. Vlastní tasky se píší v blueprintu (Receive Execute AI → Finish Execute). Pro nové projekty Epic tlačí State Trees — koncepty se ale přenášejí.
+
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md)
+
+### Blackboard
+
+**Sdílená tabule AI: pojmenované klíče (vector, object, bool…), přes které si percepce, tasky a strom předávají data.**
+
+Klíč typu Object→Actor umí Move To průběžně sledovat (žádné přepočítávání cíle); Blackboard decorator větví strom podle „Is Set / Is Not Set" a observer aborts okamžitě přepne chování při změně. Zápis z blueprintu: Set Blackboard Value as Bool/Vector/Object — jméno klíče musí sedět do písmene.
+
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md)
 
 ### Blend Space
 
@@ -542,6 +574,14 @@ Pojem posledních ~20 let; zahrnuje volbu typu protagonisty, směr dialogů, rej
 
 Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
 
+### Nav Mesh
+
+**Navigační síť: oblast, ve které AI umí počítat cesty — bez ní se žádné AI MoveTo nepohne.**
+
+Do levelu se přidává jako Nav Mesh Bounds Volume; klávesa P zobrazí zeleně pochozí plochy. Vygenerovaný RecastNavMesh má v Generation nastavení jako Agent Radius (odstup cest od stěn — lék na zasekávání o rohy) nebo výšku kroku. Body pro pohyb dodávají uzly typu Get Random Location in Navigable Radius.
+
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](praxe/state-trees.md)
+
 ### Network Prediction
 
 **Generalizovaný rollback framework UE — jedna ze dvou síťových větví Moveru (druhá je Chaos networked physics).**
@@ -565,6 +605,14 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 Nástroj režie levelů i celých her: scripted events doručují momenty „ve správnou chvíli", struktura levelu střídá zúžení a otevření, obtížnostní křivka střídá novelty a mastery. Špatný pacing má dva póly — monotónní nuda a únavný nonstop tlak; dobrý pacing je dramaturgie.
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Zábava a flow](teorie/zabava.md)
+
+### Pawn Sensing
+
+**Jednoduchá smyslová komponenta: kužel zraku + rádius sluchu, viditelné jako gizmo přímo ve viewportu.**
+
+Event On See Pawn pálí každý sensing interval (default 0,5 s), dokud cíl vidí — logiku přechodu proto obal Do Once a ztrátu zájmu řeš Retriggerable Delay delším než interval. Přes zdi s kolizí nevidí. Pro víc smyslů a jemnější kontrolu je nástupce AI Perception.
+
+Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [Základy AI](praxe/ai-zaklady.md)
 
 ### PCG
 
@@ -686,6 +734,14 @@ Důvod, proč „prázdné" složky nejdou smazat — a proč force delete rozbi
 
 Kde se s tím potkáš: [Organizace projektu](praxe/organizace-projektu.md)
 
+### Retriggerable Delay
+
+**Delay, který se každým dalším spuštěním restartuje od nuly — doběhne až po klidu na vstupu.**
+
+Ideální „ztráta zájmu" AI: dokud percepce cíl hlásí (a event se opakuje), odpočet se resetuje; jakmile hlásit přestane, delay doběhne a vrátí AI k patrole. Délka musí být větší než interval, kterým se vstup opakuje (u Pawn Sensingu > 0,5 s), jinak doběhne i mezi dvěma hlášeními.
+
+Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [Základy AI](praxe/ai-zaklady.md)
+
 ### Rewind Debugger
 
 **Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to Motion Matching vybral, jak rozhodoval State Tree.**
@@ -790,6 +846,14 @@ Epicův recept proti mýtu „potřebuju 500 animací jako GASP": idle, run forw
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
+### Spline
+
+**Komponenta s křivkou z tažitelných bodů — trasa, po které se dá vést pohyb, geometrie nebo obsah.**
+
+Body se tahají přímo v levelu (Alt + tažení duplikuje); kód čte Get Location at Spline Point / Get Number of Spline Points — pozor na coordinate space (typicky World). V AI definuje patrol trasy, v traversal systémech značí hrany překážek, u coveru tvar krytí.
+
+Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md)
+
 ### Square hole
 
 **Chyba balancu: univerzální nástroj či strategie, která řeší každou situaci — a tím zabíjí všechna rozhodnutí.**
@@ -810,9 +874,9 @@ Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md)
 
 **Hierarchický stavový automat UE pro AI i obecnou logiku — sesterský systém behavior tree.**
 
-Vyhodnocuje se shora dolů, stavy nesou tasky a přechody podle úspěchu/selhání; umí linkované podstromy (patrol) i stromy injektované zvenčí (smart objects). Tasků má z krabice málo — píšou se per projekt. V síti běží pro NPC jen na serveru: animaci klientům přehrává zvlášť komponenta (vzor „mozek na serveru, motor v komponentě").
+Vyhodnocuje se shora dolů, stavy nesou tasky a přechody podle úspěchu/selhání; umí linkované podstromy (patrol) i stromy injektované zvenčí (smart objects). Přechody spouští i eventy s gameplay tagy (Send State Tree Event); Finish Task končí celý stav, context injektuje taskům AI controller. Tasků má z krabice málo — píšou se per projekt.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md)
 
 ### Steam Next Fest
 

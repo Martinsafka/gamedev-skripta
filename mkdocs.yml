@@ -91,6 +91,10 @@ nav:
           - Základy pohybu: praxe/pohyb-zaklady.md
           - Parkour postaru: praxe/parkour-vault.md
           - Mover: praxe/mover.md
+      - AI a chování NPC:
+          - Základy nepřátelské AI: praxe/ai-zaklady.md
+          - AI vnímání: praxe/ai-vnimani.md
+          - State Trees: praxe/state-trees.md
       - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:

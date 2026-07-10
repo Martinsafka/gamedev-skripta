@@ -27,6 +27,12 @@ Témata a kapitoly:
 - **[Parkour postaru](parkour-vault.md)** — vault a výlez přes tři trace s root motion montážemi; ledge grab se zarovnáním na libovolný mesh přes Get Actor Bounds.
 - **[Mover](mover.md)** — proč nahrazuje CMC: modulární movement modes, layered moves, replikace vstupů, dvě síťové větve; setup od nuly v 5.7 a oprava strafu na osm směrů.
 
+**AI a chování NPC**
+
+- **[Základy nepřátelské AI](ai-zaklady.md)** — minimální nepřítel (Pawn Sensing + AI MoveTo + nav mesh), patrola náhodně i po waypointech, chase se ztrátou zájmu, a totéž přes AI Controller + Behavior Tree + Blackboard.
+- **[AI vnímání](ai-vnimani.md)** — Pawn Sensing vs. AI Perception vs. trigger; kužel zraku, object permanence, lose sight radius a přesný timing ztráty zájmu.
+- **[State Trees](state-trees.md)** — kompletní nepřítel: patrola po spline, tři smysly jedné percepce, Report eventy, přechody přes gameplay tagy a event dispatchery.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.
