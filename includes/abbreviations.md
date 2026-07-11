@@ -15,6 +15,7 @@
 *[Blueprint Function Library]: Sbírka funkcí volatelných z libovolného blueprintu v projektu.
 *[Blueprint Interface]: Sada funkcí bez implementace — kontrakt mezi Blueprinty, volání zprávou bez znalosti třídy.
 *[Boolean]: Geometrická operace kombinující dvě tělesa: sjednocení (union), rozdíl (subtract), průnik.
+*[Cable Component]: Vestavěné simulované lano/kabel; konce jdou ukotvit, částice čte Get Cable Particle Locations.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
 *[Capsule]: Náhledový obrázek hry na Steamu — nejdůležitější kus grafiky celé stránky.
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
@@ -82,13 +83,18 @@
 *[Pawn Sensing]: Jednoduchá smyslová komponenta (kužel zraku + sluch) s gizmem ve viewportu; event On See Pawn.
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
 *[Persistent level]: Hlavní level, pod kterým žijí streamované sub-levely; nejde unloadnout.
+*[Physical Animation Component]: Motory kloubů táhnou simulované kosti k animované póze — základ active ragdollu.
 *[Physical Material]: Asset s vlastnostmi povrchu vč. Surface Type — systémy přes něj poznají, po čem stojíš.
+*[Physics Asset]: Fyzikální kostra meshe: kolizní těla per kost + constrainty s limity — bez něj není ragdoll.
+*[Physics Constraint]: Kloub mezi fyzikálními těly: linear/angular limity + motory; v assetu i jako actor ve scéně.
+*[Physics Control]: Komponenta držící simulovaná tělesa u cíle laditelnou pružinou — fyzikální, ale ovladatelné.
 *[Pitch deck]: Prezentace hry, která ještě neexistuje; simuluje první kontakt zákazníka s nápadem.
 *[Placeholder]: Provizorní asset držící místo finálnímu; schválně ošklivý, aby nesváděl k ladění.
 *[Player State]: Objekt s daty jednoho hráče (inventář, skóre) nezávisle na pawnovi; v multiplayeru se replikuje.
 *[Playtest]: Testování hry skutečnými hráči za účelem zpětné vazby.
 *[Pose Search Database]: PSD — kolekce animací jednoho typu pohybu, ve které Motion Matching hledá pózy.
 *[Pose Search Schema]: Definice, co MM měří: kanály (trajektorie, kosti) s vahami; ladí se experimentem.
+*[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
 *[Postmortem]: Ohlédnutí za dokončeným projektem: co fungovalo, co ne a proč — nejhutnější studijní žánr gamedevu.
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.

@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 99 published (pilot + batch 1–7) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 107 published (pilot + batch 1–8) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -209,14 +209,14 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Create Dynamic Cable Systems in UE5.7, Attach Any Mesh Procedurally #unrealengine #cable #blueprint](https://www.youtube.com/watch?v=hGz_TWoez0M) `hGz_TWoez0M` | PolyBoost | 10:42 | auto | 841 | `lana-kabely` |  |
-| todo | [How to Simulate Ropes And Cables In Unreal Engine 5](https://www.youtube.com/watch?v=uVYaJNUjL2Y) `uVYaJNUjL2Y` | Unreal ART With Alireza  | 5:18 | auto | 843 | `lana-kabely` |  |
-| todo | [UE5.2 - Physics Control Component - Let's build a character interactive raft in the water (Subtitle)](https://www.youtube.com/watch?v=A_NMmn-Do38) `A_NMmn-Do38` | Yepkoo | 8:09 | manual | 794 | `physics-control` | raft na vodě |
-| todo | [UE5 Ragdoll Physics Tutorial: Active Ragdoll, Stand Up & Moving Platforms (Complete Guide)](https://www.youtube.com/watch?v=R5o2CjPb3Tk) `R5o2CjPb3Tk` | LocoDev | 61:56 | auto | 7799 | `ragdoll` | komplet průvodce |
-| todo | [Advanced Seamless Ragdoll mode enter/exit, UE 5 tutorial](https://www.youtube.com/watch?v=-mHfpyBn_UQ) `-mHfpyBn_UQ` | DK 3D | 53:07 | auto | 5334 | `ragdoll` |  |
-| todo | [UE5 Ragdoll Deep Dive Guide: Active Ragdoll, Tricks, and Getting Up](https://www.youtube.com/watch?v=ZpcOYg1Qfm4) `ZpcOYg1Qfm4` | frinky | 39:48 | auto | 7031 | `ragdoll` | deep dive |
-| todo | [How to Make an Active Ragdoll (like Gang Beasts) in Unreal Engine 5](https://www.youtube.com/watch?v=l4nfL9RHcA4) `l4nfL9RHcA4` | Gorka Games | 6:30 | auto | 1235 | `ragdoll` | active ragdoll |
-| todo | [Unreal Engine 5 Tutorial - Ragdoll](https://www.youtube.com/watch?v=ZHgnfFj7pco) `ZHgnfFj7pco` | The Real Unreal | 3:32 | auto | 433 | `ragdoll` |  |
+| published | [Create Dynamic Cable Systems in UE5.7, Attach Any Mesh Procedurally #unrealengine #cable #blueprint](https://www.youtube.com/watch?v=hGz_TWoez0M) `hGz_TWoez0M` | PolyBoost | 10:42 | auto | 841 | `praxe/lana-kabely.md` |  |
+| published | [How to Simulate Ropes And Cables In Unreal Engine 5](https://www.youtube.com/watch?v=uVYaJNUjL2Y) `uVYaJNUjL2Y` | Unreal ART With Alireza  | 5:18 | auto | 843 | `praxe/lana-kabely.md` |  |
+| published | [UE5.2 - Physics Control Component - Let's build a character interactive raft in the water (Subtitle)](https://www.youtube.com/watch?v=A_NMmn-Do38) `A_NMmn-Do38` | Yepkoo | 8:09 | manual | 794 | `praxe/lana-kabely.md` | raft; merge physics-control→lana-kabely |
+| published | [UE5 Ragdoll Physics Tutorial: Active Ragdoll, Stand Up & Moving Platforms (Complete Guide)](https://www.youtube.com/watch?v=R5o2CjPb3Tk) `R5o2CjPb3Tk` | LocoDev | 61:56 | auto | 7799 | `praxe/ragdoll.md` | komplet průvodce (nad GASP 5.5) |
+| published | [Advanced Seamless Ragdoll mode enter/exit, UE 5 tutorial](https://www.youtube.com/watch?v=-mHfpyBn_UQ) `-mHfpyBn_UQ` | DK 3D | 53:07 | auto | 5334 | `praxe/ragdoll.md` |  |
+| published | [UE5 Ragdoll Deep Dive Guide: Active Ragdoll, Tricks, and Getting Up](https://www.youtube.com/watch?v=ZpcOYg1Qfm4) `ZpcOYg1Qfm4` | frinky | 39:48 | auto | 7031 | `praxe/ragdoll.md` | deep dive |
+| published | [How to Make an Active Ragdoll (like Gang Beasts) in Unreal Engine 5](https://www.youtube.com/watch?v=l4nfL9RHcA4) `l4nfL9RHcA4` | Gorka Games | 6:30 | auto | 1235 | `praxe/ragdoll.md` | active ragdoll |
+| published | [Unreal Engine 5 Tutorial - Ragdoll](https://www.youtube.com/watch?v=ZHgnfFj7pco) `ZHgnfFj7pco` | The Real Unreal | 3:32 | auto | 433 | `praxe/ragdoll.md` |  |
 
 ### Voda · `P-WATER` (10)
 

@@ -49,7 +49,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] **Batch 5 done** _(2026-07-10)_: Pohyb postavy (locomotion) — 13 videí (1 bez přepisu kryto z popisu) → **3 kapitoly** (`pohyb-zaklady` 5 myšlenek, `parkour-vault` 2, `mover` 3), nové praxe téma v nav, rejstřík +5 termínů, zpětné odkazy gasp↔mover, `--strict` + anchor-check green. **Téma P-MOVE kompletní (13/13).**
 - [x] **Batch 6 done** _(2026-07-10)_: AI a chování NPC — 9 videí → **3 kapitoly** (`ai-zaklady` 4 myšlenky, `ai-vnimani` 3, `state-trees` 3), rejstřík +8 termínů, editorial merge ai-patrola→ai-zaklady, cross-links gasp↔state-trees + game-feel→ai-zaklady (follow-up z batche 1 splněn), `--strict` + anchor-check green. **Téma P-AI-NPC kompletní (9/9).**
 - [x] **Batch 7 done** _(2026-07-10)_: Herní systémy a interakce — 12 videí (2 bez přepisu kryta z popisů) → **3 kapitoly** (`footsteps` 4 myšlenky, `pasti-a-mechaniky` 4, `interakce-predmety` 2), rejstřík +8 termínů, editorial merges (herni-mechaniky+pasti, stealth-ukryty→interakce, Interactive World přeřazen k footsteps), `--strict` + anchor-check green. **Téma P-SYS kompletní (12/12).**
-- [ ] **Batch 8 next (návrh):** Fyzika: ragdoll, lana, simulace — 8 videí. Alternativa: Animace: nástroje a mocap (5 videí, menší batch).
+- [x] **Batch 8 done** _(2026-07-11)_: Fyzika: ragdoll, lana, simulace — 8 videí → **2 kapitoly** (`ragdoll` 4 myšlenky — syntéza 3 velkých průvodců, `lana-kabely` 3 vč. merge physics-control), rejstřík +6 termínů, cross-link ai-zaklady↔ragdoll, `--strict` + anchor-check green. **Téma P-PHYS kompletní (8/8); 107/210 published — přes polovinu playlistu.**
+- [ ] **Batch 9 next (návrh):** Voda — 10 videí (navazuje na Physics Control vor a Water plugin). Alternativa: Animace: nástroje a mocap (5 videí, menší batch).
 
 ### Phase 4 — Zápisky
 

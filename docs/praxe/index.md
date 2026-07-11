@@ -39,6 +39,11 @@ Témata a kapitoly:
 - **[Pasti a arénové mechaniky](pasti-a-mechaniky.md)** — kostra pasti (overlap → damage → launch), kyvadlové sekery s pivotem a per-instance chováním, mizející podlaha à la Fall Guys a férovost hitboxů.
 - **[Interakce s předměty a úkryty](interakce-predmety.md)** — házení s predikcí trajektorie (Predict Projectile Path + spline mesh) a úkryt ve skříni s choreografií přes montage notifies.
 
+**Fyzika: ragdoll, lana, simulace**
+
+- **[Ragdoll](ragdoll.md)** — od minutového přepínače po plnou smyčku: physics asset s ALS triky, active ragdoll s motory řízenými rychlostí, pose snapshot a auto-vstávání správným směrem.
+- **[Kabely, lana a Physics Control](lana-kabely.md)** — Cable Component, dynamický kabel s instancovanými meshi po délce a vor na Physics Control pružině.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.

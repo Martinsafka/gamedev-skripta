@@ -21,7 +21,7 @@ Nepřítel, který hlídkuje, všimne si tě, honí tě a zase to vzdá — to j
 
 > **Pozn.:** Oba autoři poctivě ukazují hlavní slabinu: stačí si stoupnout za záda a AI o tobě neví [(4:56)](https://www.youtube.com/watch?v=sVV32qivy1A&t=296s) — a jakmile tě jednou vidí, honí tě navždy. Obojí řeší vzory z dalších myšlenek (ztráta zájmu, paměť). Pro rychlý prototyp nepřítele je ale tahle kostra hotová za deset minut.
 
-**Souvislosti:** [AI vnímání](ai-vnimani.md) · [Rejstřík: Pawn Sensing](../rejstrik.md#pawn-sensing) · [Rejstřík: nav mesh](../rejstrik.md#nav-mesh) · [Rejstřík: blend space](../rejstrik.md#blend-space)
+**Souvislosti:** [AI vnímání](ai-vnimani.md) · [Ragdoll](ragdoll.md) (plná smyčka vč. vstávání) · [Rejstřík: Pawn Sensing](../rejstrik.md#pawn-sensing) · [Rejstřík: nav mesh](../rejstrik.md#nav-mesh) · [Rejstřík: blend space](../rejstrik.md#blend-space)
 
 ---
 
