@@ -49,4 +49,4 @@ Validace prostá: **Force Regen** na PCG komponentě — žádný warning znamen
 
 > **Pozn.:** Stejná filozofie jako [Mass Entity crowd u MetaHumanů](metahuman.md#crowd-plugin-tisic-metahumanu-pres-mass): plná simulace jen tam, kde se hráč dívá, zbytek světa v levné reprezentaci. Instanced Actors ji přinášejí obecným objektům — a spolu s PCG z toho je vzor pro celé herní mechaniky (pickupy, dveře, lootovací bedny) rozseté po velkém světě.
 
-**Souvislosti:** [MetaHuman: Crowd plugin](metahuman.md#crowd-plugin-tisic-metahumanu-pres-mass) · [Výřezy a debug PCG](pcg-zaklady.md#vyrezy-podle-kolizi-a-debug-grafu) · [Rejstřík: instanced actors](../rejstrik.md#instanced-actors) · [Rejstřík: Mass Entity](../rejstrik.md#mass-entity)
+**Souvislosti:** [Případovka: Hex-A-Gone z PCG](pcg-hexagone.md) · [MetaHuman: Crowd plugin](metahuman.md#crowd-plugin-tisic-metahumanu-pres-mass) · [Výřezy a debug PCG](pcg-zaklady.md#vyrezy-podle-kolizi-a-debug-grafu) · [Rejstřík: instanced actors](../rejstrik.md#instanced-actors) · [Rejstřík: Mass Entity](../rejstrik.md#mass-entity)

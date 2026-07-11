@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 138 published (pilot + batch 1–13) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 151 published (pilot + batch 1–14) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -250,20 +250,20 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
 | published | [The NEW Instanced Actors Interop in 5.6 is Game Changing!](https://www.youtube.com/watch?v=B9s_1qkTRfI) `B9s_1qkTRfI` | Procedural Minds | 21:46 | auto | 4858 | `instanced-actors` |  |
-| todo | [I Recreated Fall Guy's Hex-A-Gone Game Using PCG. Here's How I Did It!](https://www.youtube.com/watch?v=G5eXYvFbMko) `G5eXYvFbMko` | Procedural Minds | 25:23 | auto | 5807 | `pcg-pripadovky` | Hex-A-Gone |
-| todo | [Spawn Vines On Any Mesh With A Single Click Using PCG Mode in UE5.7](https://www.youtube.com/watch?v=rYLF1up8sc8) `rYLF1up8sc8` | Procedural Minds | 26:27 | auto | 6701 | `pcg-vegetace` | liány na mesh |
-| todo | [Spawn Hanging PCG Vines And More Using This Simple Setup](https://www.youtube.com/watch?v=5bbKHksth9Q) `5bbKHksth9Q` | Procedural Minds | 25:18 | auto | 6205 | `pcg-vegetace` | visící liány |
-| todo | [SpeedTree to Nanite foliage with Wind! Unreal Engine 5.7](https://www.youtube.com/watch?v=67-W5lCSD_0) `67-W5lCSD_0` | lumpy668 | 16:30 | — | — | `pcg-vegetace` | bez přepisu |
-| todo | [Everything You Need to Know About Procedural Vegetation in UE5.8 #tutorial #unrealengine #procedural](https://www.youtube.com/watch?v=DvBECqijNDg) `DvBECqijNDg` | PolyBoost | 14:09 | auto | 1042 | `pcg-vegetace` |  |
-| todo | [How to integrate PCG with landscape layers in Unreal engine 5 - Part 2](https://www.youtube.com/watch?v=hEHF0x22LpY) `hEHF0x22LpY` | Rbnks | 9:50 | auto | 1610 | `pcg-vegetace` | landscape layers |
-| todo | [Unreal Engine 5.7 - Procedural Vegetation - Build Your Own Forest - Tutorial (Part 1/2)](https://www.youtube.com/watch?v=o-kMXZX_oK8) `o-kMXZX_oK8` | Unreal - X - Tutorials | 9:04 | auto | 1235 | `pcg-vegetace` | les 1/2 |
-| todo | [Create a PCG forest with the new Megaplants and Collision in Unreal Engine 5](https://www.youtube.com/watch?v=ryb0sb2SQ-U) `ryb0sb2SQ-U` | Rbnks | 8:25 | auto | 1249 | `pcg-vegetace` | Megaplants |
-| todo | [Unreal Engine 5.7 - Create Forest Clearings & Paths With PCG - Tutorial](https://www.youtube.com/watch?v=8UxAmQfIj5s) `8UxAmQfIj5s` | Unreal - X - Tutorials | 8:20 | auto | 1102 | `pcg-vegetace` | mýtiny a cesty |
-| todo | [Unreal Engine 5.7 - PCG Vegatation - Build Your Own Forest - Tutorial (Part 2/2)](https://www.youtube.com/watch?v=4TZG9fBEiR0) `4TZG9fBEiR0` | Unreal - X - Tutorials | 6:20 | auto | 829 | `pcg-vegetace` | les 2/2 |
-| todo | [Unreal Engine 5.7 - How To Add Collision To PCG Wind Trees - Tutorial](https://www.youtube.com/watch?v=Ag6r2YNtSe0) `Ag6r2YNtSe0` | Unreal - X - Tutorials | 4:42 | auto | 619 | `pcg-vegetace` | kolize větrných stromů |
-| todo | [Unreal Engine 5.7 - Procedural Vegetation Pine Trees - Quick Tip](https://www.youtube.com/watch?v=Wqmr0bSR99U) `Wqmr0bSR99U` | Unreal - X - Tutorials | 1:26 | auto | 173 | `pcg-vegetace` | quick tip |
+| published | [I Recreated Fall Guy's Hex-A-Gone Game Using PCG. Here's How I Did It!](https://www.youtube.com/watch?v=G5eXYvFbMko) `G5eXYvFbMko` | Procedural Minds | 25:23 | auto | 5807 | `pcg-hexagone` | Hex-A-Gone; slug pcg-pripadovky → pcg-hexagone |
+| published | [Spawn Vines On Any Mesh With A Single Click Using PCG Mode in UE5.7](https://www.youtube.com/watch?v=rYLF1up8sc8) `rYLF1up8sc8` | Procedural Minds | 26:27 | auto | 6701 | `pcg-liany` | liány na mesh; slug → pcg-liany |
+| published | [Spawn Hanging PCG Vines And More Using This Simple Setup](https://www.youtube.com/watch?v=5bbKHksth9Q) `5bbKHksth9Q` | Procedural Minds | 25:18 | auto | 6205 | `pcg-liany` | visící liány; slug → pcg-liany |
+| published | [SpeedTree to Nanite foliage with Wind! Unreal Engine 5.7](https://www.youtube.com/watch?v=67-W5lCSD_0) `67-W5lCSD_0` | lumpy668 | 16:30 | — | — | `pcg-vegetace` | bez přepisu — kryto z popisu (Pozn. u stromů) |
+| published | [Everything You Need to Know About Procedural Vegetation in UE5.8 #tutorial #unrealengine #procedural](https://www.youtube.com/watch?v=DvBECqijNDg) `DvBECqijNDg` | PolyBoost | 14:09 | auto | 1042 | `pcg-vegetace` |  |
+| published | [How to integrate PCG with landscape layers in Unreal engine 5 - Part 2](https://www.youtube.com/watch?v=hEHF0x22LpY) `hEHF0x22LpY` | Rbnks | 9:50 | auto | 1610 | `pcg-vegetace` | landscape layers |
+| published | [Unreal Engine 5.7 - Procedural Vegetation - Build Your Own Forest - Tutorial (Part 1/2)](https://www.youtube.com/watch?v=o-kMXZX_oK8) `o-kMXZX_oK8` | Unreal - X - Tutorials | 9:04 | auto | 1235 | `pcg-vegetace` | les 1/2 |
+| published | [Create a PCG forest with the new Megaplants and Collision in Unreal Engine 5](https://www.youtube.com/watch?v=ryb0sb2SQ-U) `ryb0sb2SQ-U` | Rbnks | 8:25 | auto | 1249 | `pcg-vegetace` | Megaplants |
+| published | [Unreal Engine 5.7 - Create Forest Clearings & Paths With PCG - Tutorial](https://www.youtube.com/watch?v=8UxAmQfIj5s) `8UxAmQfIj5s` | Unreal - X - Tutorials | 8:20 | auto | 1102 | `pcg-vegetace` | mýtiny a cesty |
+| published | [Unreal Engine 5.7 - PCG Vegatation - Build Your Own Forest - Tutorial (Part 2/2)](https://www.youtube.com/watch?v=4TZG9fBEiR0) `4TZG9fBEiR0` | Unreal - X - Tutorials | 6:20 | auto | 829 | `pcg-vegetace` | les 2/2 |
+| published | [Unreal Engine 5.7 - How To Add Collision To PCG Wind Trees - Tutorial](https://www.youtube.com/watch?v=Ag6r2YNtSe0) `Ag6r2YNtSe0` | Unreal - X - Tutorials | 4:42 | auto | 619 | `pcg-vegetace` | kolize větrných stromů |
+| published | [Unreal Engine 5.7 - Procedural Vegetation Pine Trees - Quick Tip](https://www.youtube.com/watch?v=Wqmr0bSR99U) `Wqmr0bSR99U` | Unreal - X - Tutorials | 1:26 | auto | 173 | `pcg-vegetace` | quick tip |
 | skip | [SpeedTree 10 to Unreal Engine 5 with Wind Animation (Udemy Course)](https://www.youtube.com/watch?v=Kke6IaV7dc0) `Kke6IaV7dc0` | BlenderToUnreal | 1:23 | auto | 151 | `pcg-vegetace` | promo kurzu (1:23) — přeskočit? |
-| todo | [Unreal Engine 5.7 - Procedural Vegetation - Distance Wind Fix - QuickTip](https://www.youtube.com/watch?v=X_83dlYoZ7w) `X_83dlYoZ7w` | Unreal - X - Tutorials | 0:57 | auto | 120 | `pcg-vegetace` | quick tip |
+| published | [Unreal Engine 5.7 - Procedural Vegetation - Distance Wind Fix - QuickTip](https://www.youtube.com/watch?v=X_83dlYoZ7w) `X_83dlYoZ7w` | Unreal - X - Tutorials | 0:57 | auto | 120 | `pcg-vegetace` | quick tip |
 | published | [Add Scattering To The PCG Mode Brush To Simulate Actual Painting](https://www.youtube.com/watch?v=AYulmKtqhLM) `AYulmKtqhLM` | Procedural Minds | 24:29 | auto | 5953 | `pcg-zaklady` | brush scattering |
 | published | [How To Use the NEW UE5.7 PCG Mode, and Tips To Make It MORE Powerful!](https://www.youtube.com/watch?v=IPwVOhvQ2bo) `IPwVOhvQ2bo` | Procedural Minds | 23:29 | auto | 5451 | `pcg-zaklady` | PCG mode 5.7 (2 myšlenky) |
 | published | [Precise Cutouts Using Collisions in UE5 PCG, And More Tips and Tricks](https://www.youtube.com/watch?v=-G14-4m4-LA) `-G14-4m4-LA` | Procedural Minds | 16:02 | auto | 3812 | `pcg-zaklady` | cutouts |

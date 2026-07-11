@@ -1,6 +1,6 @@
 # PCG: základy a nástroje v editoru
 
-**PCG** (Procedural Content Generation) dospěl: v UE 5.7 plugin opustil betu jako verze 1.0 a přibyl **PCG Mode** — režim editoru, kde se procedurální grafy kreslí přímo do světa splinou, štětcem nebo volumem. Tahle kapitola pokrývá základy ovládání: co nový režim umí a kde má hrany, jak postavit plot přes linear grammar, jak si napsat vlastní štětec se skutečným rozptylem a jak grafy ladit — výřezy podle kolizí, vizualizace atributů a print string. Malování PCG dat přes landscape vrstvy rozebírá [kapitola Landscape tipy](landscape-tipy.md#malovani-dat-paint-layers-ridi-pcg), spolupráci s novým terénem [Mesh Terrain](mesh-terrain.md#kanaly-v-praxi-material-malovani-a-pcg).
+**PCG** (Procedural Content Generation) dospěl: v UE 5.7 plugin opustil betu jako verze 1.0 a přibyl **PCG Mode** — režim editoru, kde se procedurální grafy kreslí přímo do světa splinou, štětcem nebo volumem. Tahle kapitola pokrývá základy ovládání: co nový režim umí a kde má hrany, jak postavit plot přes linear grammar, jak si napsat vlastní štětec se skutečným rozptylem a jak grafy ladit — výřezy podle kolizí, vizualizace atributů a print string. Malování PCG dat přes landscape vrstvy rozebírá [kapitola Landscape tipy](landscape-tipy.md#malovani-dat-paint-layers-ridi-pcg), spolupráci s novým terénem [Mesh Terrain](mesh-terrain.md#kanaly-v-praxi-material-malovani-a-pcg). Téma pokračuje [vegetací a lesem](pcg-vegetace.md), [liánami](pcg-liany.md) a [případovkou Hex-A-Gone](pcg-hexagone.md).
 
 ---
 

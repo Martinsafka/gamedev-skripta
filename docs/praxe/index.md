@@ -67,6 +67,9 @@ Témata a kapitoly:
 
 - **[PCG: základy a nástroje v editoru](pcg-zaklady.md)** — PCG Mode 5.7 (spline, paint, volume), plot přes linear grammar, vlastní štětec se skutečným scatteringem a výřezy podle kolizí + debug uzly.
 - **[Instanced Actors: instance, které ožijí](instanced-actors.md)** — svět z levných instancí, blueprint jen u hráče: setup přes Data Registry, manager pattern pro perzistenci a fyzika s eject prahem.
+- **[PCG vegetace: stromy a les](pcg-vegetace.md)** — Procedural Vegetation editor (5.7/5.8), les přes Instance Skinned Mesh Spawner s větrem, proxy kolize, mýtiny a cesty, a hotový nástroj PCG Forest jako srovnání.
+- **[PCG liány: po povrchu i zavěšené](pcg-liany.md)** — liány lezoucí po meshích (mesh sampler + pathfinding s fitness score) a závěsné křivky mezi dvěma kliky — od lián po vánoční světla.
+- **[Případovka: Hex-A-Gone z PCG](pcg-hexagone.md)** — celá minihra z Fall Guys jedním grafem: hex mřížka aritmetikou řádků a mizející dlaždice přes Instanced Actors s eject trikem.
 
 **Editor a workflow**
 

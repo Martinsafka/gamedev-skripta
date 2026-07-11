@@ -60,9 +60,9 @@ Past je gameplay systém v nejčistší podobě: detekce (overlap) → následek
 
 **Mřížka** [(2:22)](https://www.youtube.com/watch?v=ANWzAitL0Jg&t=142s): spawner se scene komponentou, na BeginPlay for-loop 0–10, pozice = world location + index × 160 na Y → `Spawn Actor from Class` [(3:08)](https://www.youtube.com/watch?v=ANWzAitL0Jg&t=188s). Druhá varianta řady s offsetem +90 [(3:54)](https://www.youtube.com/watch?v=ANWzAitL0Jg&t=234s) a finální spawner: řady po 150 na X, **Flip Flop** střídá rovnou a posunutou řadu — vzniknou zuby hexagonální mřížky [(5:30)](https://www.youtube.com/watch?v=ANWzAitL0Jg&t=330s).
 
-> **Pozn.:** Za pozornost stojí dramaturgie dlaždice: *cuknutí → zbělení → zmizení* je miniaturní [telegraphing](../teorie/game-feel.md) — hráč se učí číst podlahu periferně. Kdo by stavěl celé kolo Fall Guys, přidá respawn vrstvy a Z-ové patra; kostka mechaniky je ale celá tady.
+> **Pozn.:** Za pozornost stojí dramaturgie dlaždice: *cuknutí → zbělení → zmizení* je miniaturní [telegraphing](../teorie/game-feel.md) — hráč se učí číst podlahu periferně. Kdo by stavěl celé kolo Fall Guys, přidá respawn vrstvy a Z-ové patra; kostka mechaniky je ale celá tady. A kdo by chtěl tisíce dlaždic místo stovek, najde v [PCG případovce Hex-A-Gone](pcg-hexagone.md) tutéž hru přes jeden graf a Instanced Actors.
 
-**Souvislosti:** [Game feel](../teorie/game-feel.md) · [Rejstřík: trigger volume](../rejstrik.md#trigger-volume)
+**Souvislosti:** [Případovka: Hex-A-Gone z PCG](pcg-hexagone.md) · [Game feel](../teorie/game-feel.md) · [Rejstřík: trigger volume](../rejstrik.md#trigger-volume)
 
 ---
 

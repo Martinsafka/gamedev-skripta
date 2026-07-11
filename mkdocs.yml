@@ -116,6 +116,9 @@ nav:
       - PCG a procedurální svět:
           - "PCG: základy a nástroje": praxe/pcg-zaklady.md
           - Instanced Actors: praxe/instanced-actors.md
+          - "PCG vegetace: stromy a les": praxe/pcg-vegetace.md
+          - PCG liány: praxe/pcg-liany.md
+          - "Případovka: Hex-A-Gone": praxe/pcg-hexagone.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
   - Zápisky:

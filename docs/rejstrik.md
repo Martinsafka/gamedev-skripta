@@ -524,7 +524,7 @@ Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md)
 
 Swap na blueprint řídí Max Actor Distance, culling samotných instancí Max Instance Distances. Zásadní pravidlo: probuzený actor vzniká pokaždé od nuly — stav (sebraný pickup) musí držet externí manager. Posunutou fyziku vrací na místo, pokud nezapneš Eject on Actor Moved. S PCG spojuje uzel Spawn Instanced Actors (interop od 5.6) a jednorázový setup přes Data Registry.
 
-Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md)
+Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md) · [Případovka Hex-A-Gone](praxe/pcg-hexagone.md)
 
 ### Invisible wall
 
@@ -780,7 +780,7 @@ Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [Základy AI](pr
 
 Grafem definuješ pravidla (sampluj povrch, filtruj podle sklonu či namalované vrstvy, rozmísti stromy s hustotou X) a engine je aplikuje na libovolnou plochu. Typický řetěz: Get Landscape Data / Mesh Partition Query → Surface Sampler → Filter → Transform Points → Spawner. S Mesh Terrainem spolupracuje přes interop plugin — v beta fázi s beta mírou spolehlivosti (spolehlivější je World Ray Hit Query). V 5.7 plugin opustil betu (verze 1.0) a přibyl PCG Mode — kreslení grafů přímo v editoru.
 
-Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Instanced Actors](praxe/instanced-actors.md) · [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Instanced Actors](praxe/instanced-actors.md) · [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md)
 
 ### PCG Mode
 
@@ -925,6 +925,14 @@ Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md)
 Novinář, který o hře chce napsat, potřebuje assety hned — press kit mu šetří mailování a tobě zvyšuje šanci na pokrytí. Nástroj presskit() ho vygeneruje zdarma za odpoledne; odkaz na něj plní roli webu, dokud web není. Patří k němu press release při velkých beatech (zveřejnění stránky, datum vydání) — rozesílá se např. přes GamesPress.
 
 Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md)
+
+### Procedural Vegetation
+
+**Editor procedurálních stromů v enginu (5.7+): strom je graf uzlů — od presetu či od nuly po export static/skeletal meshe s Nanite foliage.**
+
+Preset Loader nebo Grower dá strukturu, žluté modifiery (carve, gravity, slope) tvarují point cloud před Mesh Builderem, foliage palette + distributor olistí (ethylene threshold = plnost) a bone reduction ladí cenu větru. Vítr běží jen na instancích (wind transform provider + BP Global Foliage Actor). Presety Mega Plants dává Quixel zdarma na Fabu zhruba měsíčně; 5.8 přidává extract to mesh (procedurální strom z existující geometrie) a object interaction.
+
+Kde se s tím potkáš: [PCG vegetace](praxe/pcg-vegetace.md)
 
 ### Quad
 
@@ -1101,6 +1109,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 Body se tahají přímo v levelu (Alt + tažení duplikuje); kód čte Get Location at Spline Point / Get Number of Spline Points — pozor na coordinate space (typicky World). V AI definuje patrol trasy, v traversal systémech značí hrany překážek, u coveru tvar krytí.
 
 Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Interakce s předměty](praxe/interakce-predmety.md)
+
+### Spline mesh
+
+**Mesh procedurálně natažený a ohnutý podél segmentu splinu — křivka se stává viditelnou geometrií.**
+
+Každý segment dostane instanci meshe zdeformovanou mezi počátečním a koncovým bodem (Set Start and End v Blueprintu, spline mesh spawner v PCG). Na orientaci záleží: forward axis musí odpovídat ose meshe, jinak se geometrie kroutí. Liány a lana z obyčejného válce, oblouk předpovězené dráhy hodu z tenkého průsvitného válce.
+
+Kde se s tím potkáš: [PCG liány](praxe/pcg-liany.md) · [Interakce s předměty](praxe/interakce-predmety.md)
 
 ### Square hole
 

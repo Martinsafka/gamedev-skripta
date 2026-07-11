@@ -114,6 +114,7 @@
 *[Postmortem]: Ohlédnutí za dokončeným projektem: co fungovalo, co ne a proč — nejhutnější studijní žánr gamedevu.
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
+*[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
@@ -136,6 +137,7 @@
 *[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.
+*[Spline mesh]: Mesh natažený podél segmentu splinu — liány, lana, oblouky drah; pozor na forward axis.
 *[Square hole]: Chyba balancu: univerzální nástroj, který řeší každou situaci, a tím zabíjí rozhodování.
 *[State alias]: Zástupný uzel state machine reprezentující víc stavů — jedno přechodové pravidlo místo N.
 *[State machine]: Stavový automat AnimBP: stavy = animace, přechody = pravidla; MM ho nahrazuje, hybridy kombinují.
