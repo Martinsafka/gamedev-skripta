@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 173 published (pilot + batch 1–16) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 180 published (pilot + batch 1–17) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -311,13 +311,13 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [DLSS 4.5 Setup Guide for UE 5.7 Projects](https://www.youtube.com/watch?v=y80hX4IlzmI) `y80hX4IlzmI` | DK 3D | 25:10 | auto | 3078 | `dlss` |  |
-| todo | [How to use Nanite Voxelization (like in the Witcher Demo)](https://www.youtube.com/watch?v=q2T4ni7UPfI) `q2T4ni7UPfI` | DK 3D | 11:25 | auto | 1467 | `nanite` | voxelizace |
-| todo | [LOD or Nanite in UE5? \| Unreal Engine 5 Optimization Tutorial for Beginners](https://www.youtube.com/watch?v=-FmFOiqTO-8) `-FmFOiqTO-8` | Sergey Maryshev | 8:58 | manual | 1569 | `nanite` | LOD vs Nanite |
-| todo | [Foliage Optimization Done Right (UE 5.7)](https://www.youtube.com/watch?v=QvE_EUuGFm4) `QvE_EUuGFm4` | Dallas Drapeau | 54:47 | auto | 8236 | `optimalizace-foliage` |  |
-| todo | [Why your levels are Slow in Unreal Engine 5](https://www.youtube.com/watch?v=4fjTSbDaeYQ) `4fjTSbDaeYQ` | Taken Grace | 34:16 | auto | 7923 | `optimalizace-levelu` |  |
-| todo | [Stop Shipping 4K Textures — Right-Size Everything in UE5 (Surface Forge)](https://www.youtube.com/watch?v=WnHgLJcmhTM) `WnHgLJcmhTM` | Arghanion's Puzzlebox | 20:14 | auto | 4092 | `textury-optimalizace` |  |
-| todo | [Virtual Textures vs Atlases: The Truth about UE5 Optimization](https://www.youtube.com/watch?v=_fUzAKlxiQg) `_fUzAKlxiQg` | Sergey Maryshev | 7:42 | manual | 1386 | `textury-optimalizace` | virtual textures |
+| published | [DLSS 4.5 Setup Guide for UE 5.7 Projects](https://www.youtube.com/watch?v=y80hX4IlzmI) `y80hX4IlzmI` | DK 3D | 25:10 | auto | 3078 | `textury-a-dlss` | slug → textury-a-dlss |
+| published | [How to use Nanite Voxelization (like in the Witcher Demo)](https://www.youtube.com/watch?v=q2T4ni7UPfI) `q2T4ni7UPfI` | DK 3D | 11:25 | auto | 1467 | `optimalizace` | voxelizace; slug → optimalizace |
+| published | [LOD or Nanite in UE5? \| Unreal Engine 5 Optimization Tutorial for Beginners](https://www.youtube.com/watch?v=-FmFOiqTO-8) `-FmFOiqTO-8` | Sergey Maryshev | 8:58 | manual | 1569 | `optimalizace` | LOD vs Nanite; slug → optimalizace |
+| published | [Foliage Optimization Done Right (UE 5.7)](https://www.youtube.com/watch?v=QvE_EUuGFm4) `QvE_EUuGFm4` | Dallas Drapeau | 54:47 | auto | 8236 | `optimalizace` | 55 min (2 myšlenky); slug → optimalizace |
+| published | [Why your levels are Slow in Unreal Engine 5](https://www.youtube.com/watch?v=4fjTSbDaeYQ) `4fjTSbDaeYQ` | Taken Grace | 34:16 | auto | 7923 | `optimalizace` | slug → optimalizace |
+| published | [Stop Shipping 4K Textures — Right-Size Everything in UE5 (Surface Forge)](https://www.youtube.com/watch?v=WnHgLJcmhTM) `WnHgLJcmhTM` | Arghanion's Puzzlebox | 20:14 | auto | 4092 | `textury-a-dlss` | slug → textury-a-dlss |
+| published | [Virtual Textures vs Atlases: The Truth about UE5 Optimization](https://www.youtube.com/watch?v=_fUzAKlxiQg) `_fUzAKlxiQg` | Sergey Maryshev | 7:42 | manual | 1386 | `textury-a-dlss` | virtual textures; slug → textury-a-dlss |
 
 ### MetaHuman · `P-MH` (5)
 

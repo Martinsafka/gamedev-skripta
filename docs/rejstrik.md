@@ -286,6 +286,14 @@ V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blu
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md)
 
+### Data layer
+
+**Kontejner aktorů ve world-partition světě se třemi stavy: Unloaded / Loaded (v paměti, neviditelné) / Activated.**
+
+Aktory se přiřazují výběrem + right-clickem ve data layer outlineru, vrstvy se dají parentovat (celé patro jedním přepnutím) a aktor smí do víc vrstev. Za běhu je řídí Get Data Layer Manager → Set Data Layer Runtime State — typicky z trigger boxu s počítadlem hráčů. Pro interiéry uvnitř world-partition buňky a stavy „načti až po odemčení"; velké venkovní světy nech streamovat World Partition samotný.
+
+Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md) · [Levely a streaming](praxe/levely-a-streaming.md)
+
 ### Data Registry
 
 **Centrální registr konfiguračních dat: pojmenovaný prostor, do kterého se agregují data tables a curve tables.**
@@ -333,6 +341,14 @@ Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](
 Skládá se ze dvou složek: novelty (učení nového) a mastery (zvládání naučeného). Šachy mají novelty nafrontovanou na začátek; hry často volí pilový tvar — s každou novou mechanikou schválně klesnou nároky na mastery, aby zbyla kapacita na učení. Doplňkové nástroje: matchmaking, automatické přizpůsobení, skill gates (těžší vstup filtruje nepřipravené) a rubber banding.
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
+
+### DLSS
+
+**NVIDIA upscaler: hra se renderuje v nižším rozlišení a AI ji dopočítá do nativního — víc FPS, u 4.5 i stabilnější obraz.**
+
+Do projektu přes plugin z NVIDIA developer webu (složky do engine Plugins). Blueprint vzor: Query Support → Set Mode (quality = 66 % rozlišení, ultra performance = 33 %); k tomu Frame Generation (násobení snímků) a Reflex (nižší latence). Nezapomeň kompenzovat mip/LOD bias — engine při nižším interním rozlišení potichu sníží kvalitu textur i Nanite. Multiplatformní alternativa v enginu je TSR.
+
+Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
 
 ### Draw call
 
@@ -598,6 +614,14 @@ Na rozdíl od movement módů jich může běžet víc naráz; každý generuje 
 
 Kde se s tím potkáš: [Mover](praxe/mover.md)
 
+### Level instance
+
+**Znovupoužitelný sub-level: skupina aktorů (klidně s blueprinty) zabalená do jednoho celku, který se dá rozmístit vícekrát.**
+
+Vytváří se výběrem aktorů → right-click → Level → Create Level Instance; sourozenec Packed Level Actor dělá totéž jen pro static meshe a převádí je na instance (jeden draw call, ideální pro modulární budovy). Editace se propíše všem kopiím — varianta se dělá z duplikátu. Vzor „dům z Warzone": jednou postavit, šestkrát položit.
+
+Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md)
+
 ### Level streaming
 
 **Načítání a uvolňování částí světa za běhu — místo výměny celého levelu přes Open Level.**
@@ -710,6 +734,14 @@ Graf jako AnimBP: wave playery, randomizace, matematika nad audiem. Vstupní par
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 
+### Mip mapa
+
+**Řetěz zmenšených kopií textury (4K → 2K → 1K → …), ze kterého GPU vybírá podle vzdálenosti a velikosti na obrazovce.**
+
+Mip bias výběr posouvá: +1 = poloviční hrana (čtvrtina paměti), −1 = detailnější. Ladí se per textura (LOD Bias v editoru), per materiál (Mip Value Mode = MipBias) nebo hromadně přes property matrix. Prakticky: base color snese bias klidně +5 — dojem detailu nese normal mapa; a při DLSS/upscalingu je potřeba bias kompenzovat záporně.
+
+Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
+
 ### Modifier stack
 
 **Vrstvené nedestruktivní úpravy: každá operace zůstává živým objektem, který lze dodatečně měnit, přesouvat, přeskládat nebo smazat.**
@@ -797,6 +829,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 2D grid simulace mělké vody: postava a objekty s tagy „collider" (actor i component tag, case-sensitive) dělají vlny. Ladicí trio: Velocity Dissipation (dozvuk vln), Delta Time Multiplier (tempo), Collision Velocity Multiplier (síla vstupu). Od 5.6 totéž zapíná Water Advanced plugin checkboxem (shallow water subsystem).
 
 Kde se s tím potkáš: [Interaktivní voda](praxe/interaktivni-voda.md)
+
+### Overdraw
+
+**Tentýž pixel vykreslený vícekrát, protože se geometrie překrývá — tichý zabiják výkonu hustých scén.**
+
+Typicky listí, masky a průhlednost; vizualizuje ho Nanite overdraw view (jasné/bílé plochy = zle). Léčba: redukovat překryvy — voxelizace vzdálené vegetace, plná geometrie místo masek, menší footprint assetů, mazat zakopanou geometrii. Nikdy nebude nula; loví se největší viníci vypínáním spawnerů jednoho po druhém.
+
+Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md) · [PCG vegetace](praxe/pcg-vegetace.md)
 
 ### Overlay state
 
@@ -1357,6 +1397,14 @@ Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.
 Sleduje transform zdrojové kosti vůči jiné; typické použití: IK cíle (foot IK pro skeleton, který IK kosti nemá — MetaHuman) a odvozené sockety. Rychlá cesta, jak cizímu skeletonu doplnit, co rig očekává.
 
 Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
+### Virtual texture
+
+**Textura rozsekaná na stránky, které se streamují jen tam, kam se kamera dívá — „Nanite pro textury".**
+
+Pevný pool stránek ve VRAM: při přeplnění nejhůř rozmazání, nikdy out-of-memory. Ulevuje CPU (méně unikátních materiálů) i paměti, daní je page table indirekce — extra GPU čas na každý přístup, takže ne na všechno. Ideální pro obří plochy s kritickým detailem; runtime virtual textures navíc pohánějí blending terénu.
+
+Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md) · [Breakdowny](praxe/env-breakdowny.md)
 
 ### Volumetric fog
 

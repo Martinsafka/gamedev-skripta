@@ -33,12 +33,14 @@
 *[Control Rig]: Grafový rigging a procedurální animace v enginu — běží i za runtime, bez rekompilace.
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
+*[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
 *[Data Registry]: Registr konfiguračních dat (data tables) — systémy se ptají jménem místo tvrdých odkazů na tabulky.
 *[Data-driven design]: Hodnoty a konfigurace žijí v datech (data assety); logika je jen čte.
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
+*[DLSS]: NVIDIA upscaler: render v nižším rozlišení + AI dopočet; s Frame Generation a Reflex; kompenzuj mip bias.
 *[Draw call]: Příkaz CPU pro GPU „vykresli tohle"; šetří se instancingem a sdílením materiálů (trim sheety).
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
@@ -73,6 +75,7 @@
 *[Landscape]: Klasický terén UE: height mapa, jen nahoru/dolů; produkční volba, dokud Mesh Terrain nedozraje.
 *[Layered Blend Per Bone]: Anim uzel míchající dvě pózy od zadané kosti nahoru — vrstvení horního těla přes locomotion.
 *[Layered move]: Dočasný zdroj pohybu v Moveru (dash, skok) — nástupce root motion sources; víc jich běží naráz.
+*[Level instance]: Znovupoužitelný sub-level; Packed Level Actor = totéž pro static meshe (převod na instance).
 *[Level streaming]: Načítání a uvolňování částí světa za běhu; persistent level je rám, sub-levely obsah.
 *[Line Trace]: Raycast — neviditelný paprsek hledající kolize na své dráze.
 *[Linear grammar]: Gramatika PCG: string symbolů řídí rytmus modulů podél splinu — sekvence, počty, opakování.
@@ -87,6 +90,7 @@
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
+*[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
 *[Motion Warping]: Ohnutí root motion animace, aby trefila cílový transform; okno řídí notify state v montáži.
@@ -98,6 +102,7 @@
 *[Network Prediction]: Rollback framework UE — síťová větev Moveru: klient posílá jen vstupy, rollback celého okolí naráz.
 *[Niagara Data Channel]: Gameplay zapisuje data do kanálu, jediný Niagara systém z nich spawnuje částice — ne systém per událost.
 *[Niagara Fluids]: Plugin simulačních šablon; Grid 2D SW Particle Collisions = interaktivní hladina s collider tagy.
+*[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
 *[Parallax occlusion mapping]: Pixel-shader hloubka: posun UV dle kamery a height mapy; bez geometrie, siluety neumí.
@@ -168,6 +173,7 @@
 *[Version control]: Verzování projektu (Git): návratové body a historie jako deník pokroku; commituj malé celky.
 *[Vertical slice]: Reprezentativní výsek hry ve finální kvalitě; brána mezi prototypem a plnou produkcí.
 *[Virtual bone]: Kost existující jen v enginu (Add Virtual Bone) — IK cíle a sockety bez re-exportu z DCC.
+*[Virtual texture]: Textura streamovaná po stránkách jen kam se kamera dívá; pevný pool, daň = page table.
 *[Volumetric fog]: Objemová mlha na height fogu — paprsky a atmosféra; kvalita přes GridPixelSize/GridSizeZ.
 *[Water Body]: Actor Water pluginu (ocean/lake/river/island) tvarovaný splinami; řeka má rychlost proudu per point.
 *[Wishlist]: Přání na Steamu; před vydáním hlavní měřítko zájmu a palivo algoritmu viditelnosti.

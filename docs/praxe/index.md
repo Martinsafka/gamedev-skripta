@@ -84,6 +84,11 @@ Témata a kapitoly:
 
 - **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu a rychlé triky.
 
+**Rendering a optimalizace**
+
+- **[Optimalizace scény: draw cally, Nanite a foliage](optimalizace.md)** — proč jsou levely pomalé (ISM → packed level actors → data layers), Nanite vs. LODy bez ideologie, voxelizace proti overdraw a dvoudílná foliage optimalizace v kontextu hry.
+- **[Textury a DLSS: paměť a rozlišení](textury-a-dlss.md)** — right-sizing textur (normálka nese detail), unikátní textury vs. atlas vs. virtual textures a DLSS 4.5 s kompenzací mip biasu.
+
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — drobné triky, které šetří minuty každý den.

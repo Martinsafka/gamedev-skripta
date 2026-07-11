@@ -126,6 +126,9 @@ nav:
           - Materiály: praxe/materialy.md
       - Osvětlení a atmosféra:
           - Osvětlení: praxe/osvetleni.md
+      - Rendering a optimalizace:
+          - Optimalizace scény: praxe/optimalizace.md
+          - Textury a DLSS: praxe/textury-a-dlss.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
   - Zápisky:
