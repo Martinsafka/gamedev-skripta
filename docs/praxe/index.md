@@ -89,6 +89,11 @@ Témata a kapitoly:
 - **[Optimalizace scény: draw cally, Nanite a foliage](optimalizace.md)** — proč jsou levely pomalé (ISM → packed level actors → data layers), Nanite vs. LODy bez ideologie, voxelizace proti overdraw a dvoudílná foliage optimalizace v kontextu hry.
 - **[Textury a DLSS: paměť a rozlišení](textury-a-dlss.md)** — right-sizing textur (normálka nese detail), unikátní textury vs. atlas vs. virtual textures a DLSS 4.5 s kompenzací mip biasu.
 
+**AI nástroje ve vývoji**
+
+- **[AI agenti: Claude Code a MCP v enginu](claude-code-ue.md)** — nativní MCP v 5.8 (setup a první testy), komunitní cesta s endless runner stress testem, agent v Blenderu a ComfyUI, 72hodinová hra jako mapa dělby člověk–AI, produkty okolo a Convai NPC.
+- **[AI assety: z obrázku po postavu v enginu](ai-assety.md)** — bezplatná pipeline za hodinu, srovnání Tripo/Hunyuan/Rodin s cenami, hratelná postava v tandemu, modulární systém s AccuRigem, konverze na MetaHumana v 5.8 a AI animace Kimodo + 2D PixelLab.
+
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.

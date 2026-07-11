@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 188 published (pilot + batch 1–18) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 202 published (pilot + batch 1–19) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses). **Phase 3 komplet — zbývá: 2 low-priority kurzy + 1 CS video (čeká na cs-subtitle pipeline).**
 
 ## Proposed téma tree
 
@@ -333,20 +333,20 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [AI Animation Just Got a Revolution — NVIDIA Kimodo](https://www.youtube.com/watch?v=CVA4jGHAbnA) `CVA4jGHAbnA` | Stefan 3D AI | 6:47 | manual | 1211 | `ai-animace` | NVIDIA Kimodo |
-| todo | [From AI to Metahuman - Best New UE 5.8 Workflow for Custom Character](https://www.youtube.com/watch?v=4w7oA4oJMqs) `4w7oA4oJMqs` | Stefan 3D AI | 28:22 | manual | 5415 | `ai-assets` | → MetaHuman |
-| todo | [I Built a Modular Character with AI (Full Workflow)](https://www.youtube.com/watch?v=gZIxrX1n2D4) `gZIxrX1n2D4` | Stefan 3D AI | 26:54 | manual | 5047 | `ai-assets` | modulární postava |
-| todo | [Claude Took Over ComfyUI + Blender: Here's What Happened](https://www.youtube.com/watch?v=KdYv_TT-ZnQ) `KdYv_TT-ZnQ` | PixelArtistry | 23:07 | auto | 4860 | `ai-assets` | ComfyUI+Blender |
-| todo | [From AI to Playable 3D Character in Unreal Engine](https://www.youtube.com/watch?v=k1xBERhXtHA) `k1xBERhXtHA` | Stefan 3D AI | 22:04 | manual | 4195 | `ai-assets` |  |
-| todo | [Next-Gen 3D AI Is Here (5-Second Game-Ready Models)](https://www.youtube.com/watch?v=mXjUz3viYmQ) `mXjUz3viYmQ` | Stefan 3D AI | 19:48 | manual | 3282 | `ai-assets` |  |
-| todo | [Complete Free AI Workflow for Game-Ready 3D Characters](https://www.youtube.com/watch?v=TkP-_LyacMI) `TkP-_LyacMI` | Stefan 3D AI | 12:09 | manual | 2316 | `ai-assets` |  |
-| todo | [Make infinite characters in the SAME style!](https://www.youtube.com/watch?v=LcJQQwltQ2Q) `LcJQQwltQ2Q` | PixelLab | 11:06 | auto | 1744 | `ai-assets` | konzistentní styl |
-| todo | [From Dialogue to Action: Create Scene-Aware AI Characters That Act AND React \| Convai Unreal Engine](https://www.youtube.com/watch?v=lB5_KRWdg_w) `lB5_KRWdg_w` | Convai | 5:20 | auto | 889 | `ai-npc-dialogy` | produktové demo (Convai) |
-| todo | [I Built My Dream Game in 72 Hours — Assets by AI, Gameplay by Claude Code](https://www.youtube.com/watch?v=k9cbm5jSOxk) `k9cbm5jSOxk` | Stefan 3D AI | 35:14 | manual | 5619 | `claude-code-ue` | hra za 72 h |
-| todo | [Claude Code Took Over Unreal Engine 5 and Built a Game](https://www.youtube.com/watch?v=iRcrZjOt5H8) `iRcrZjOt5H8` | Stefan 3D AI | 16:45 | manual | 3136 | `claude-code-ue` |  |
-| todo | [NEW Unreal Engine 5.8 MCP Tutorial (QuickStart Guide)](https://www.youtube.com/watch?v=PqrKqhkj3gQ) `PqrKqhkj3gQ` | Smart Poly | 12:21 | auto | 2579 | `claude-code-ue` | MCP |
-| todo | [This AI builds blueprints for you in Unreal Engine](https://www.youtube.com/watch?v=Kzy7isA2xO0) `Kzy7isA2xO0` | TUF | 7:42 | auto | 1048 | `claude-code-ue` | AI staví blueprinty |
-| todo | [How to Setup Claude Code in Unreal Engine 5.8 (Easy)](https://www.youtube.com/watch?v=0tzXVwDxzt8) `0tzXVwDxzt8` | Unreal University  | 5:51 | auto | 1066 | `claude-code-ue` | setup |
+| published | [AI Animation Just Got a Revolution — NVIDIA Kimodo](https://www.youtube.com/watch?v=CVA4jGHAbnA) `CVA4jGHAbnA` | Stefan 3D AI | 6:47 | manual | 1211 | `ai-assety` | NVIDIA Kimodo; slug → ai-assety |
+| published | [From AI to Metahuman - Best New UE 5.8 Workflow for Custom Character](https://www.youtube.com/watch?v=4w7oA4oJMqs) `4w7oA4oJMqs` | Stefan 3D AI | 28:22 | manual | 5415 | `ai-assety` | → MetaHuman 5.8 |
+| published | [I Built a Modular Character with AI (Full Workflow)](https://www.youtube.com/watch?v=gZIxrX1n2D4) `gZIxrX1n2D4` | Stefan 3D AI | 26:54 | manual | 5047 | `ai-assety` | modulární postava |
+| published | [Claude Took Over ComfyUI + Blender: Here's What Happened](https://www.youtube.com/watch?v=KdYv_TT-ZnQ) `KdYv_TT-ZnQ` | PixelArtistry | 23:07 | auto | 4860 | `claude-code-ue` | ComfyUI+Blender; slug → claude-code-ue |
+| published | [From AI to Playable 3D Character in Unreal Engine](https://www.youtube.com/watch?v=k1xBERhXtHA) `k1xBERhXtHA` | Stefan 3D AI | 22:04 | manual | 4195 | `ai-assety` | hratelná postava tandem |
+| published | [Next-Gen 3D AI Is Here (5-Second Game-Ready Models)](https://www.youtube.com/watch?v=mXjUz3viYmQ) `mXjUz3viYmQ` | Stefan 3D AI | 19:48 | manual | 3282 | `ai-assety` | Tripo vs Hunyuan vs Rodin |
+| published | [Complete Free AI Workflow for Game-Ready 3D Characters](https://www.youtube.com/watch?v=TkP-_LyacMI) `TkP-_LyacMI` | Stefan 3D AI | 12:09 | manual | 2316 | `ai-assety` | free pipeline |
+| published | [Make infinite characters in the SAME style!](https://www.youtube.com/watch?v=LcJQQwltQ2Q) `LcJQQwltQ2Q` | PixelLab | 11:06 | auto | 1744 | `ai-assety` | 2D styl konzistence (PixelLab) |
+| published | [From Dialogue to Action: Create Scene-Aware AI Characters That Act AND React \| Convai Unreal Engine](https://www.youtube.com/watch?v=lB5_KRWdg_w) `lB5_KRWdg_w` | Convai | 5:20 | auto | 889 | `claude-code-ue` | produkt Convai; slug → claude-code-ue |
+| published | [I Built My Dream Game in 72 Hours — Assets by AI, Gameplay by Claude Code](https://www.youtube.com/watch?v=k9cbm5jSOxk) `k9cbm5jSOxk` | Stefan 3D AI | 35:14 | manual | 5619 | `claude-code-ue` | hra za 72 h (capstone) |
+| published | [Claude Code Took Over Unreal Engine 5 and Built a Game](https://www.youtube.com/watch?v=iRcrZjOt5H8) `iRcrZjOt5H8` | Stefan 3D AI | 16:45 | manual | 3136 | `claude-code-ue` | endless runner stress test |
+| published | [NEW Unreal Engine 5.8 MCP Tutorial (QuickStart Guide)](https://www.youtube.com/watch?v=PqrKqhkj3gQ) `PqrKqhkj3gQ` | Smart Poly | 12:21 | auto | 2579 | `claude-code-ue` | MCP 5.8 setup |
+| published | [This AI builds blueprints for you in Unreal Engine](https://www.youtube.com/watch?v=Kzy7isA2xO0) `Kzy7isA2xO0` | TUF | 7:42 | auto | 1048 | `claude-code-ue` | produkt Blueprint AI |
+| published | [How to Setup Claude Code in Unreal Engine 5.8 (Easy)](https://www.youtube.com/watch?v=0tzXVwDxzt8) `0tzXVwDxzt8` | Unreal University  | 5:51 | auto | 1066 | `claude-code-ue` | Claude Code setup |
 
 ### Editor a workflow · `P-EDITOR` (12)
 

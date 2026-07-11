@@ -710,6 +710,14 @@ Se vstupem a výstupem typu material attributes funguje jako vrstva: materiál p
 
 Kde se s tím potkáš: [Materiály](praxe/materialy.md)
 
+### MCP
+
+**Model Context Protocol — standard, kterým AI agent (Claude Code, Codex, Gemini…) mluví s nástroji; od 5.8 nativně v Unrealu.**
+
+Trojice pluginů Unreal MCP + Terminal + Editor Toolset dá agentovi kontext projektu a kontrolu nad editorem: blueprinty, materiály, PCG, level design. Config per agent generuje konzolový příkaz (.mcp.json). Stejný protokol propojuje agenty s Blenderem i ComfyUI. Zlaté pravidlo: obecný prompt = obecný výsledek — rozepsaná logika a detailní zadání dělají rozdíl.
+
+Kde se s tím potkáš: [AI agenti: Claude Code a MCP](praxe/claude-code-ue.md)
+
 ### Mesh distance field
 
 **Předpočítané pole vzdáleností k nejbližšímu povrchu meshe — shader se může kdykoli zeptat „jak daleko je geometrie?".**
@@ -869,6 +877,14 @@ Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 Event On See Pawn pálí každý sensing interval (default 0,5 s), dokud cíl vidí — logiku přechodu proto obal Do Once a ztrátu zájmu řeš Retriggerable Delay delším než interval. Přes zdi s kolizí nevidí. Pro víc smyslů a jemnější kontrolu je nástupce AI Perception.
 
 Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [Základy AI](praxe/ai-zaklady.md)
+
+### PBR
+
+**Physically Based Rendering: materiály popsané fyzikálními vlastnostmi (albedo, roughness, metallic, normal) místo „namalovaného" vzhledu.**
+
+Standard herních materiálů — povrch reaguje na libovolné světlo správně, protože mapy nesou vlastnosti, ne výsledek. Proto dobrá textura nemá zapečené světlo ani stíny z reference (světlo dodá engine) a proto se AI generátorům PBR dogenerování vyplatí. Mapy nemusí sdílet rozlišení: roughness snese polovinu albeda.
+
+Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [Textury a DLSS](praxe/textury-a-dlss.md)
 
 ### PCG
 
@@ -1077,6 +1093,14 @@ Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md)
 Důvod, proč „prázdné" složky nejdou smazat — a proč force delete rozbije projekt (reference vedou do prázdna). Správně: pravý klik → Update Redirector References (odkazy se přepíšou natrvalo), pak Delete Unreferenced Redirectors, pak teprve mazat složku. Stěhuj po jedné složce — hromadné přesuny editor shazují.
 
 Kde se s tím potkáš: [Organizace projektu](praxe/organizace-projektu.md)
+
+### Retopologie
+
+**Přestavba geometrie na čistší síť: z milionů neuspořádaných trojúhelníků (sculpt, sken, AI generát) použitelný mesh pro rig a animaci.**
+
+AI pipeline ji řeší třemi cestami: decimace + normal bake (rychlá, „topologie pro start"), smart low poly režimy generátorů (pečou normal mapu z HD verze), nebo nástroje jako Quad Remesher. Na čem záleží: deformující se části (klouby, obličej) chtějí pořádnou topologii, rekvizity snesou decimát.
+
+Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [AI agenti](praxe/claude-code-ue.md)
 
 ### Retriggerable Delay
 

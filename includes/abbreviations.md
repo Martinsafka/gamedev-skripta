@@ -87,6 +87,7 @@
 *[Market research]: Průzkum trhu: žánrové výdělky (medián!), tagy, recenze konkurence — objektivita proti zamilovanosti.
 *[Mass Entity]: ECS framework pro tisíce entit (davy, doprava) — City Sample i MetaHuman Crowd; entity nejsou actory.
 *[Material function]: Znovupoužitelný blok materiálové logiky; s material attributes I/O funguje jako vrstva.
+*[MCP]: Model Context Protocol — AI agent s kontextem a kontrolou editoru; od 5.8 nativně v UE (3 pluginy).
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
@@ -107,6 +108,7 @@
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
 *[Parallax occlusion mapping]: Pixel-shader hloubka: posun UV dle kamery a height mapy; bez geometrie, siluety neumí.
 *[Pawn Sensing]: Jednoduchá smyslová komponenta (kužel zraku + sluch) s gizmem ve viewportu; event On See Pawn.
+*[PBR]: Physically Based Rendering — materiál z vlastností (albedo, roughness, metallic), bez zapečeného světla.
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
 *[PCG Mode]: Editorový režim (5.7): kreslení PCG grafů přímo do světa splinou, štětcem nebo volumem.
 *[Persistent level]: Hlavní level, pod kterým žijí streamované sub-levely; nejde unloadnout.
@@ -133,6 +135,7 @@
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
 *[Redirector]: Ghost soubor po přesunu assetu; před smazáním složky spusť Update Redirector References.
+*[Retopologie]: Přestavba geometrie na čistou síť pro rig/animaci; AI cesty: decimace+bake, smart low poly, remesher.
 *[Retriggerable Delay]: Delay restartovaný každým dalším spuštěním — doběhne až po klidu; „ztráta zájmu" AI.
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
 *[Roguelike]: Žánr postavený na opakovaných bězích, smrti jako součásti smyčky a procedurální generaci.
