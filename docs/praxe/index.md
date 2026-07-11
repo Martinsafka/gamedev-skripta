@@ -71,6 +71,11 @@ Témata a kapitoly:
 - **[PCG liány: po povrchu i zavěšené](pcg-liany.md)** — liány lezoucí po meshích (mesh sampler + pathfinding s fitness score) a závěsné křivky mezi dvěma kliky — od lián po vánoční světla.
 - **[Případovka: Hex-A-Gone z PCG](pcg-hexagone.md)** — celá minihra z Fall Guys jedním grafem: hex mřížka aritmetikou řádků a mizející dlaždice přes Instanced Actors s eject trikem.
 
+**Prostředí a environment art**
+
+- **[Breakdowny: jak se staví herní světy](env-breakdowny.md)** — San Francisco 1:1 od jednoho člověka, The Ascent (4 artisti, jeden shader), TLOU trim sheety, RE Requiem vrstvy realismu a detektivka kolem Crimson Desert.
+- **[Stavba prostředí: od kompozice po render](env-tvorba.md)** — chiaroscuro test před settingy, 132minutová lesní pěšina v PCG (vegetace, decaly, fyzikální světlo, MRQ), temný les za odpoledne a zvuk + listí jako finální vrstva.
+
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — drobné triky, které šetří minuty každý den.

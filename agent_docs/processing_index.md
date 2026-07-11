@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 151 published (pilot + batch 1–14) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 161 published (pilot + batch 1–15) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -273,16 +273,16 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [This Developer Recreated San Francisco 1:1 in Unreal Engine 5](https://www.youtube.com/watch?v=TBGPbs9yjMM) `TBGPbs9yjMM` | Gorka Games | 36:19 | auto | 6875 | `env-breakdowny` | San Francisco 1:1 |
-| todo | [How 4 Artists Built a AAA World](https://www.youtube.com/watch?v=a78WoZeZGqI) `a78WoZeZGqI` | Next Level Game Art | 21:53 | auto | 3678 | `env-breakdowny` |  |
-| todo | [Why Resident Evil Requiem Looks So Real \| Graphics Breakdown](https://www.youtube.com/watch?v=utYMtJwGxiM) `utYMtJwGxiM` | Next Level Game Art | 17:33 | auto | 2201 | `env-breakdowny` | RE Requiem |
-| todo | [The ''Fake'' Geometry of Crimson Desert: How it Really Works](https://www.youtube.com/watch?v=44PT8XRZRGA) `44PT8XRZRGA` | Next Level Game Art | 13:30 | auto | 2025 | `env-breakdowny` | Crimson Desert |
-| todo | [The Environment Art Tricks Behind TLOU Part 1](https://www.youtube.com/watch?v=EJcqhvylH50) `EJcqhvylH50` | Next Level Game Art | 10:15 | auto | 1709 | `env-breakdowny` | TLOU |
-| todo | [How Crimson Desert Fakes Realism (It’s Genius)](https://www.youtube.com/watch?v=TUAyiCswYt4) `TUAyiCswYt4` | Next Level Game Art | 9:48 | auto | 1587 | `env-breakdowny` | Crimson Desert |
-| todo | [Forest Path Environment in UE5 \| Step-by-Step Tutorial](https://www.youtube.com/watch?v=WrjgH4sRja8) `WrjgH4sRja8` | Hoj Dee Studio | 131:44 | auto | 11297 | `env-tvorba` | 132 min |
-| todo | [How to create Cinematic dark Forest scene in Unreal Engine 5.5.4 \| Full Tutorial](https://www.youtube.com/watch?v=Eh8QgGhjxyg) `Eh8QgGhjxyg` | World Of VFX | 16:47 | auto | 3302 | `env-tvorba` | temný les |
-| todo | [Use this Technique to take your Environments to the next Level](https://www.youtube.com/watch?v=R9yr1ksLlmY) `R9yr1ksLlmY` | UNF Games | 14:54 | auto | 2282 | `env-tvorba` |  |
-| todo | [Unreal Engine 5.7 - Forest Atmosphere: Dynamic Audio & Falling Leaves - Tutorial](https://www.youtube.com/watch?v=ItHOm_BJpCM) `ItHOm_BJpCM` | Unreal - X - Tutorials | 14:20 | auto | 1839 | `env-tvorba` | audio + padající listí |
+| published | [This Developer Recreated San Francisco 1:1 in Unreal Engine 5](https://www.youtube.com/watch?v=TBGPbs9yjMM) `TBGPbs9yjMM` | Gorka Games | 36:19 | auto | 6875 | `env-breakdowny` | San Francisco 1:1 |
+| published | [How 4 Artists Built a AAA World](https://www.youtube.com/watch?v=a78WoZeZGqI) `a78WoZeZGqI` | Next Level Game Art | 21:53 | auto | 3678 | `env-breakdowny` |  |
+| published | [Why Resident Evil Requiem Looks So Real \| Graphics Breakdown](https://www.youtube.com/watch?v=utYMtJwGxiM) `utYMtJwGxiM` | Next Level Game Art | 17:33 | auto | 2201 | `env-breakdowny` | RE Requiem |
+| published | [The ''Fake'' Geometry of Crimson Desert: How it Really Works](https://www.youtube.com/watch?v=44PT8XRZRGA) `44PT8XRZRGA` | Next Level Game Art | 13:30 | auto | 2025 | `env-breakdowny` | Crimson Desert |
+| published | [The Environment Art Tricks Behind TLOU Part 1](https://www.youtube.com/watch?v=EJcqhvylH50) `EJcqhvylH50` | Next Level Game Art | 10:15 | auto | 1709 | `env-breakdowny` | TLOU |
+| published | [How Crimson Desert Fakes Realism (It’s Genius)](https://www.youtube.com/watch?v=TUAyiCswYt4) `TUAyiCswYt4` | Next Level Game Art | 9:48 | auto | 1587 | `env-breakdowny` | Crimson Desert |
+| published | [Forest Path Environment in UE5 \| Step-by-Step Tutorial](https://www.youtube.com/watch?v=WrjgH4sRja8) `WrjgH4sRja8` | Hoj Dee Studio | 131:44 | auto | 11297 | `env-tvorba` | 132 min |
+| published | [How to create Cinematic dark Forest scene in Unreal Engine 5.5.4 \| Full Tutorial](https://www.youtube.com/watch?v=Eh8QgGhjxyg) `Eh8QgGhjxyg` | World Of VFX | 16:47 | auto | 3302 | `env-tvorba` | temný les |
+| published | [Use this Technique to take your Environments to the next Level](https://www.youtube.com/watch?v=R9yr1ksLlmY) `R9yr1ksLlmY` | UNF Games | 14:54 | auto | 2282 | `env-tvorba` |  |
+| published | [Unreal Engine 5.7 - Forest Atmosphere: Dynamic Audio & Falling Leaves - Tutorial](https://www.youtube.com/watch?v=ItHOm_BJpCM) `ItHOm_BJpCM` | Unreal - X - Tutorials | 14:20 | auto | 1839 | `env-tvorba` | audio + padající listí |
 | skip | [DASH 1.12 - IMPROVED UE5 WORLD BUILDING TOOLS](https://www.youtube.com/watch?v=ZvTJBAkx_lY) `ZvTJBAkx_lY` | Polygonflow Dash | 6:40 | auto | 671 | `nastroje-treti-strany` | changelog nástroje — přeskočit? |
 
 ### Materiály a VFX · `P-MAT` (6)

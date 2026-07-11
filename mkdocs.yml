@@ -119,6 +119,9 @@ nav:
           - "PCG vegetace: stromy a les": praxe/pcg-vegetace.md
           - PCG liány: praxe/pcg-liany.md
           - "Případovka: Hex-A-Gone": praxe/pcg-hexagone.md
+      - Prostředí a environment art:
+          - "Breakdowny: herní světy": praxe/env-breakdowny.md
+          - Stavba prostředí: praxe/env-tvorba.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
   - Zápisky:

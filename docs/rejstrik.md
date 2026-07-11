@@ -334,6 +334,14 @@ Skládá se ze dvou složek: novelty (učení nového) a mastery (zvládání na
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 
+### Draw call
+
+**Příkaz CPU pro GPU „vykresli tohle" — každý unikátní objekt s unikátním materiálem znamená jeden navíc.**
+
+Tisíce draw calls zahltí CPU dřív, než GPU vůbec začne kreslit. Léky: instancing (stejný mesh + materiál = jeden call pro všechny výskyty), trim sheety a atlasy (víc objektů sdílí materiál) a auto-instancing enginu — v UE4 vázaný i na stejnou lightmapu (trik The Ascent: větší lightmapy = −10 % calls). Pro artistu metrika číslo jedna: šetří se návrhem assetů, ne až profilerem.
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
+
 ### Dynamic Material Instance
 
 **Kopie materiálu vytvořená za běhu (`Create Dynamic Material Instance`), jejíž parametry jdou měnit z kódu.**
@@ -349,6 +357,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 Nástroje pracují s aktuálně vybranou vrstvou: copy/paste gizmo kopíruje jen z ní (jinak prázdno), water bodies si vytvářejí vlastní vrstvu. Zhruba totéž, co v Mesh Terrainu dělají modifiery — jen bez 3D volnosti a přeskládávání priorit.
 
 Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Voda a buoyancy](praxe/voda-a-buoyancy.md)
+
+### Environmental storytelling
+
+**Vyprávění prostorem: rozmístění objektů říká, co se tu stalo, dřív než padne jediné slovo.**
+
+Převrácená židle, otevřený šuplík a stopy používání (edge wear, škrábance u dveří, prach v koutech) skládají historii místa. Funguje i kompozičně — stopa předmětů vede hráče ke dveřím — a v hororu buduje napětí dřív, než se cokoli stane. Opak: sterilně čisté a symetrické prostory, které křičí „kulisa".
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Vedení hráče](teorie/vedeni-hrace.md)
 
 ### Event dispatcher
 
@@ -766,6 +782,14 @@ Nástroj režie levelů i celých her: scripted events doručují momenty „ve 
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Zábava a flow](teorie/zabava.md)
 
+### Parallax occlusion mapping
+
+**Pixel-shader iluze hloubky: UV se posouvají podle úhlu kamery a height mapy — reliéf bez jediného vertexu navíc.**
+
+Levnější než displacement (žádná tessellace), ale na hraně meshe „uřízne" — siluetu neumí; varianty silhouette POM a screen space displacement to řeší až přepisem hloubky v Z-bufferu. Základ kamenných zdí Crimson Desert i kované brány v TLOU (geometrii má jen rám, ornament je textura). Cena: flickering a wobble při ostrých úhlech kamery.
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
+
 ### Pawn Sensing
 
 **Jednoduchá smyslová komponenta: kužel zraku + rádius sluchu, viditelné jako gizmo přímo ve viewportu.**
@@ -869,6 +893,14 @@ Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
 Nejmenší funkční forma je „ukaž rozdělanou věc kamarádovi": i to je zpětnovazební smyčka, bez které se cvičné hodiny nepočítají. Klíčová dovednost je kalibrace publika podle fáze — shovívavé publikum pro motivaci na začátku, kritické pro růst později. A čti chování, ne slova: playtesteři, kteří si o nový build říkají sami, jsou jiný signál než zdvořilé „je to hezký" (the gap).
 
 Kde se s tím potkáš: [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Idea iceberg: the Gap](teorie/rady-z-praxe.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
+
+### POM
+
+**Zkratka pro parallax occlusion mapping — viz [Parallax occlusion mapping](#parallax-occlusion-mapping).**
+
+Pixel-shader trik hloubky bez geometrie; v breakdownech a diskusích se běžně používá jen zkratka.
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
 ### Pose Search Database
 
@@ -1062,6 +1094,14 @@ Učení je budování prediktivního modelu světa a potřebuje data, ze kterýc
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 
+### Silueta
+
+**Obrys tvaru — nejrychlejší nosič identity a čitelnosti; poznáš z ní postavu i prostředí bez jediného detailu.**
+
+V prostředí siluety vyrábí kontrast světla a stínu (chiaroscuro): žádný kontrast = žádné tvary = „proč to vypadá špatně, když mám Nanite?". Test: screenshot → odbarvit → levels stáhnout na černobílou; když nezbydou čitelné plochy světla a tmy, žádný setting scénu nezachrání. U assetů rozhoduje silueta o rozpoznatelnosti víc než textury.
+
+Kde se s tím potkáš: [Stavba prostředí](praxe/env-tvorba.md) · [Breakdowny](praxe/env-breakdowny.md)
+
 ### Single Layer Water
 
 **Shading model pro vodu: translucence a kaustika za cenu jednoho průchodu — de facto standard v UE.**
@@ -1229,6 +1269,14 @@ Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [GASP](praxe/g
 Základní nástroj skriptovaných momentů: rozhovor NPC na tržišti, změna hudby, otevření cesty, cinematika na správném místě. Designové pravidlo: nejdřív otázky „jaký zážitek, jaká emoce, jaká informace, jaká další akce?" — trigger je jen doručovací mechanismus. V UE odpovídá trigger box/volume s overlap eventy (viz praxe: interakce bez Event Ticku).
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
+
+### Trim sheet
+
+**Sdílená textura z pásů detailů (římsy, sokly, hrany), po kterých se mapují UV mnoha různých assetů.**
+
+Jedna textura obslouží stovky modelů — draw calls i VRAM klesají řádově. Varianta baked bevel (TLOU): modely hard-edge v 90° úhlech a všechno zaoblení dodá normal mapa trimu. Bonusové triky: UV přeložené přes roh trimu = falešný bevel bez geometrie, bílý trim + color parametr = přebarvitelnost. Základ produkce od The Ascent po San Francisco 1:1.
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
 ### TSR
 

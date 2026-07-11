@@ -40,4 +40,4 @@ Jak dostat hráče z levelu do levelu, aniž by hra ztuhla — a jak to dělají
 
 > **Pozn.:** Nejcennější lekce breakdownu: *nic z toho hráč nevidí, a přesně proto to funguje.* Zapadá do sebe s [imerzí](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) (fake > simulace) i s [hranicemi mapy](../teorie/prostor-a-hranice.md#hranice-mapy-hrac-se-ma-rozhodnout-sam-ze-dal-nepujde) — pohledová zátka je tvrdá hranice s dokonalým alibi. Do vlastní stealth adventury: cutscény a dveře jako loading kryty jsou dosažitelné i pro sólo projekt.
 
-**Souvislosti:** [Streaming výše](#open-level-zamrzne-hru-streaming-ji-drzi-zivou) · [Game feel a imerze](../teorie/game-feel.md) · [Prostor a hranice](../teorie/prostor-a-hranice.md) · [Rejstřík: level streaming](../rejstrik.md#level-streaming)
+**Souvislosti:** [Streaming výše](#open-level-zamrzne-hru-streaming-ji-drzi-zivou) · [Breakdowny: RE Requiem realismus](env-breakdowny.md#re-requiem-realismus-je-vrstveni) · [Game feel a imerze](../teorie/game-feel.md) · [Prostor a hranice](../teorie/prostor-a-hranice.md) · [Rejstřík: level streaming](../rejstrik.md#level-streaming)
