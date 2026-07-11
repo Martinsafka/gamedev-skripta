@@ -44,6 +44,12 @@ Témata a kapitoly:
 - **[Ragdoll](ragdoll.md)** — od minutového přepínače po plnou smyčku: physics asset s ALS triky, active ragdoll s motory řízenými rychlostí, pose snapshot a auto-vstávání správným směrem.
 - **[Kabely, lana a Physics Control](lana-kabely.md)** — Cable Component, dynamický kabel s instancovanými meshi po délce a vor na Physics Control pružině.
 
+**Voda**
+
+- **[Voda a buoyancy](voda-a-buoyancy.md)** — water bodies a jejich spliny, napojení na terén, buoyancy přes pontoony i novou 5.7 cestu s physical materialem.
+- **[Interaktivní voda](interaktivni-voda.md)** — vlnky za postavou: 5.6 shallow water subsystem checkboxem, nebo ručně Niagara Fluids šablonou s collider tagy.
+- **[Nástroje: EasyWaterscape](nastroje-voda.md)** — Faucherův nástroj jako kontext + přenositelné lekce: Single Layer Water limity, TSR rozmazání, výkonové páky.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.

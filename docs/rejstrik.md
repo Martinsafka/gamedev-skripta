@@ -142,6 +142,14 @@ Pojmenováno po booleovské logice — tělesa se skládají jako množiny bodů
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
+### Buoyancy
+
+**Vztlak: systém Water pluginu, který nechá simulovaná tělesa plavat na vodních tělesech.**
+
+Dvě cesty: klasicky Buoyancy komponenta s pontoony (body vztlaku — 4 rohy lodi; debug `r.water.debug.buoyancy 1`), od 5.7 stačí Physical Material Override → Default Buoyancy Physics Material + na water body kolize Query and Probe s Block na Physics Body. Objekt musí startovat nad hladinou a simulovat fyziku; ladí se mass, damping, center of mass.
+
+Kde se s tím potkáš: [Voda a buoyancy](praxe/voda-a-buoyancy.md) · [Nástroje: EasyWaterscape](praxe/nastroje-voda.md)
+
 ### Cable Component
 
 **Vestavěná komponenta simulovaného lana/kabelu — fyzika z krabice, konce jdou ukotvit na objekty.**
@@ -638,6 +646,14 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 
+### Niagara Fluids
+
+**Plugin s šablonami fyzikálních simulací — pro interaktivní hladinu šablona Grid 2D SW Particle Collisions.**
+
+2D grid simulace mělké vody: postava a objekty s tagy „collider" (actor i component tag, case-sensitive) dělají vlny. Ladicí trio: Velocity Dissipation (dozvuk vln), Delta Time Multiplier (tempo), Collision Velocity Multiplier (síla vstupu). Od 5.6 totéž zapíná Water Advanced plugin checkboxem (shallow water subsystem).
+
+Kde se s tím potkáš: [Interaktivní voda](praxe/interaktivni-voda.md)
+
 ### Overlay state
 
 **Enum-řízená vrstva pózy horního těla přes locomotion — drž pistoli, luk nebo pochodeň bez vlastních pohybových animací.**
@@ -918,6 +934,14 @@ Učení je budování prediktivního modelu světa a potřebuje data, ze kterýc
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 
+### Single Layer Water
+
+**Shading model pro vodu: translucence a kaustika za cenu jednoho průchodu — de facto standard v UE.**
+
+Zásadní limit: stíny přijímá jen z primárního directional lightu — scéna svícená spotlighty se na hladině rozpadne. Řešení per záběr: přepnout materiál na Default Lit (+ metallic 1 pro tmavou hlubokou vodu) tam, kde translucenci nepotřebuješ. Žádný z modelů není univerzálně lepší.
+
+Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md)
+
 ### Smart Object
 
 **Objekt světa, který inzeruje interakce: sloty k zabrání a chování (State Tree), které se po claimu spustí na postavě.**
@@ -1062,6 +1086,14 @@ Základní nástroj skriptovaných momentů: rozhovor NPC na tržišti, změna h
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
 
+### TSR
+
+**Temporal Super Resolution — upscaler UE5; nejčastější viník „rozmazané" vody a jemných pohyblivých detailů.**
+
+Viewport typicky běží na 80–90 % screen percentage a TSR dopočítává — pohyblivá hladina pak ghostuje a smearuje. Diagnóza: screen percentage 100 % (či 125–200 %) a porovnat. Léčba: jiná AA metoda přes console variable, tonemapper sharpen 0,5–1, a hlavně vyhnout se upscalingu, kde to jde.
+
+Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md)
+
 ### Value chain
 
 **Hodnotový řetězec (Dan Cook): smysl a zábavnost sběrné činnosti nedává činnost sama, ale její zamýšlené použití dál v řetězci.**
@@ -1085,6 +1117,14 @@ Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md)
 Ne nutně začátek hry: libovolných 5–60 minut zážitku, na kterém se poprvé potkají mechaniky z prototypu, art style a tón. Otázka, na kterou odpovídá: nadchne lidi reprezentativní ukázka natolik, aby se vyplatilo vyrábět zbytek obsahu? U komplexních her se skládá z ~60 % žánrových standardů a ~40 % inovací — testovat jde jen to nové.
 
 Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.md) · [Základy designu](teorie/zaklady.md)
+
+### Water Body
+
+**Actor Water pluginu: ocean, lake, river, island — vodní tělesa tvarovaná splinami, vzájemně propojitelná.**
+
+Klávesa G ukáže spline pointy; řeka má rychlost proudu per point (alt+tažení přidává body). Vztah k terénu řeší Edge Offset / Channel Edge Offset a falloff mode (Angle→Width proti hřebeni u břehu); landscape drž ~1 cm nad nulou. Vestavěné: waterline efekt kamery a podvodní post-process.
+
+Kde se s tím potkáš: [Voda a buoyancy](praxe/voda-a-buoyancy.md) · [Interaktivní voda](praxe/interaktivni-voda.md)
 
 ### Wishlist
 

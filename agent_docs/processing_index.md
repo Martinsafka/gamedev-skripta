@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 107 published (pilot + batch 1–8) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 117 published (pilot + batch 1–9) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -222,16 +222,16 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [How to Make a Boat Float in Unreal Engine 5 - Buoyancy Tutorial](https://www.youtube.com/watch?v=KwPnb8CglDY) `KwPnb8CglDY` | Gorka Games | 6:41 | auto | 1302 | `buoyancy` |  |
-| todo | [Unreal Engine 5 (works in UE4) Floating objects a.k.a. Buoyancy](https://www.youtube.com/watch?v=Wg3lP8zW3HI) `Wg3lP8zW3HI` | ArtFX 3D | 2:50 | auto | 332 | `buoyancy` |  |
-| todo | [Objects NOT Floating in UE5? 😱 FIX Water Buoyancy in Unreal Engine 5 (EASY METHOD)](https://www.youtube.com/watch?v=JgWaK3OYqg4) `JgWaK3OYqg4` | World Of VFX | 2:11 | auto | 459 | `buoyancy` | fix |
-| todo | [Unreal Engine 5.7 - Buoyancy in Shallow Water - Quick Tip](https://www.youtube.com/watch?v=qeG0OxBFwzk) `qeG0OxBFwzk` | Unreal - X - Tutorials | 1:41 | auto | 190 | `buoyancy` | mělká voda |
-| todo | [How To Enable Water Interaction - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=EUbSj2hEMCE) `EUbSj2hEMCE` | Pitchfork Academy | 11:21 | auto | 2192 | `interaktivni-voda` |  |
-| todo | [How To Make Interactive Water Simulation (Just Like The Witcher 4) - Unreal Engine 5.6 Tutorial](https://www.youtube.com/watch?v=kkwXxeys8JE) `kkwXxeys8JE` | MakeCodeSimple_Unreal | 6:54 | auto | 566 | `interaktivni-voda` | à la Witcher 4 |
-| todo | [Unreal 5 - Realistic Interactive Water in 5 Minutes](https://www.youtube.com/watch?v=i9Bfg5H_fKM) `i9Bfg5H_fKM` | renderBucket | 6:31 | auto | 1089 | `interaktivni-voda` |  |
-| todo | [Making Interactive Water in Unreal Engine](https://www.youtube.com/watch?v=QdwKSsVjYo8) `QdwKSsVjYo8` | sappydev | 5:46 | auto | 885 | `interaktivni-voda` |  |
-| todo | [Create INSANE Realistic & Interactive Water in 5 minutes in Unreal 5.5](https://www.youtube.com/watch?v=FqkS6Ke0ouE) `FqkS6Ke0ouE` | LearningTheWires | 4:52 | auto | 668 | `interaktivni-voda` |  |
-| todo | [Introducing EasyWaterscape for Unreal Engine 5](https://www.youtube.com/watch?v=dXuwb4PpodQ) `dXuwb4PpodQ` | William Faucher | 25:07 | auto | 4678 | `nastroje-voda` | produktové video |
+| published | [How to Make a Boat Float in Unreal Engine 5 - Buoyancy Tutorial](https://www.youtube.com/watch?v=KwPnb8CglDY) `KwPnb8CglDY` | Gorka Games | 6:41 | auto | 1302 | `praxe/voda-a-buoyancy.md` |  |
+| published | [Unreal Engine 5 (works in UE4) Floating objects a.k.a. Buoyancy](https://www.youtube.com/watch?v=Wg3lP8zW3HI) `Wg3lP8zW3HI` | ArtFX 3D | 2:50 | auto | 332 | `praxe/voda-a-buoyancy.md` |  |
+| published | [Objects NOT Floating in UE5? 😱 FIX Water Buoyancy in Unreal Engine 5 (EASY METHOD)](https://www.youtube.com/watch?v=JgWaK3OYqg4) `JgWaK3OYqg4` | World Of VFX | 2:11 | auto | 459 | `praxe/voda-a-buoyancy.md` | fix (5.7 physical material) |
+| published | [Unreal Engine 5.7 - Buoyancy in Shallow Water - Quick Tip](https://www.youtube.com/watch?v=qeG0OxBFwzk) `qeG0OxBFwzk` | Unreal - X - Tutorials | 1:41 | auto | 190 | `praxe/voda-a-buoyancy.md` | mělká voda |
+| published | [How To Enable Water Interaction - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=EUbSj2hEMCE) `EUbSj2hEMCE` | Pitchfork Academy | 11:21 | auto | 2192 | `praxe/interaktivni-voda.md` | + water bodies část ve voda-a-buoyancy.md |
+| published | [How To Make Interactive Water Simulation (Just Like The Witcher 4) - Unreal Engine 5.6 Tutorial](https://www.youtube.com/watch?v=kkwXxeys8JE) `kkwXxeys8JE` | MakeCodeSimple_Unreal | 6:54 | auto | 566 | `praxe/interaktivni-voda.md` | à la Witcher 4 |
+| published | [Unreal 5 - Realistic Interactive Water in 5 Minutes](https://www.youtube.com/watch?v=i9Bfg5H_fKM) `i9Bfg5H_fKM` | renderBucket | 6:31 | auto | 1089 | `praxe/interaktivni-voda.md` |  |
+| published | [Making Interactive Water in Unreal Engine](https://www.youtube.com/watch?v=QdwKSsVjYo8) `QdwKSsVjYo8` | sappydev | 5:46 | auto | 885 | `praxe/interaktivni-voda.md` |  |
+| published | [Create INSANE Realistic & Interactive Water in 5 minutes in Unreal 5.5](https://www.youtube.com/watch?v=FqkS6Ke0ouE) `FqkS6Ke0ouE` | LearningTheWires | 4:52 | auto | 668 | `praxe/interaktivni-voda.md` |  |
+| published | [Introducing EasyWaterscape for Unreal Engine 5](https://www.youtube.com/watch?v=dXuwb4PpodQ) `dXuwb4PpodQ` | William Faucher | 25:07 | auto | 4678 | `praxe/nastroje-voda.md` | produktové video — psáno s tímto vědomím |
 
 ### Terén a krajina · `P-TERRAIN` (7)
 

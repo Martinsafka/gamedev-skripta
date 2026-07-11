@@ -102,6 +102,10 @@ nav:
       - "Fyzika: ragdoll, lana, simulace":
           - Ragdoll: praxe/ragdoll.md
           - Kabely, lana a Physics Control: praxe/lana-kabely.md
+      - Voda:
+          - Voda a buoyancy: praxe/voda-a-buoyancy.md
+          - Interaktivní voda: praxe/interaktivni-voda.md
+          - "Nástroje: EasyWaterscape": praxe/nastroje-voda.md
       - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:
