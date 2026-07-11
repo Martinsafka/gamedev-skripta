@@ -63,6 +63,11 @@ Témata a kapitoly:
 - **[Landscape tipy](landscape-tipy.md)** — klasický terén: Nanite displacement, skrytý copy/paste gizmo nástroj, malování PCG dat štětcem a anti-tiling technika dvou měřítek.
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels — nově s praxí kanálů, malování a PCG.
 
+**PCG a procedurální svět**
+
+- **[PCG: základy a nástroje v editoru](pcg-zaklady.md)** — PCG Mode 5.7 (spline, paint, volume), plot přes linear grammar, vlastní štětec se skutečným scatteringem a výřezy podle kolizí + debug uzly.
+- **[Instanced Actors: instance, které ožijí](instanced-actors.md)** — svět z levných instancí, blueprint jen u hráče: setup přes Data Registry, manager pattern pro perzistenci a fyzika s eject prahem.
+
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — drobné triky, které šetří minuty každý den.

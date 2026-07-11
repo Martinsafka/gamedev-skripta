@@ -54,7 +54,7 @@ Než Mesh Terrain dozraje z experimentu, klasický **Landscape** zůstává prod
 
 **PCG graf** [(4:45)](https://www.youtube.com/watch?v=REpMPdptKWQ&t=285s): `Get Landscape Data` → `Surface Sampler` (hustota bodů dle vrstvy — tráva 10/m²) → **`Filter Attribute Elements`**: target attribute = **přesné jméno vrstvy**, operátor greater than, constant threshold 0,2 → `Transform Points` (rotace Z 360°, scale 0,5–1) → `Static Mesh Spawner`. Per vrstva se řetěz duplikuje s jinými hodnotami [(6:20)](https://www.youtube.com/watch?v=REpMPdptKWQ&t=380s). Váhy vrstev se sčítají do 1 — threshold 0,2 dovolí vrstvy **míchat** (tráva pod stromy) [(5:33)](https://www.youtube.com/watch?v=REpMPdptKWQ&t=333s).
 
-> **Pozn.:** Přesně ten vzor, který se vrátí ve velkém v PCG tématu — a jeho Mesh Terrain dvojče je v [rozšířené Mesh Terrain kapitole](mesh-terrain.md). Prakticky: tohle je level-designové UX snů — art directing vegetace štětcem, s procedurální disciplínou pod povrchem.
+> **Pozn.:** Přesně ten vzor, který se vrací ve velkém v [PCG tématu](pcg-zaklady.md) — a jeho Mesh Terrain dvojče je v [rozšířené Mesh Terrain kapitole](mesh-terrain.md). Prakticky: tohle je level-designové UX snů — art directing vegetace štětcem, s procedurální disciplínou pod povrchem.
 
 **Souvislosti:** [Mesh Terrain: kanály v praxi](mesh-terrain.md) · [Rejstřík: PCG](../rejstrik.md#pcg) · [Rejstřík: landscape](../rejstrik.md#landscape)
 

@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 133 published (pilot + batch 1–12) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 138 published (pilot + batch 1–13) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -249,7 +249,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [The NEW Instanced Actors Interop in 5.6 is Game Changing!](https://www.youtube.com/watch?v=B9s_1qkTRfI) `B9s_1qkTRfI` | Procedural Minds | 21:46 | auto | 4858 | `instanced-actors` |  |
+| published | [The NEW Instanced Actors Interop in 5.6 is Game Changing!](https://www.youtube.com/watch?v=B9s_1qkTRfI) `B9s_1qkTRfI` | Procedural Minds | 21:46 | auto | 4858 | `instanced-actors` |  |
 | todo | [I Recreated Fall Guy's Hex-A-Gone Game Using PCG. Here's How I Did It!](https://www.youtube.com/watch?v=G5eXYvFbMko) `G5eXYvFbMko` | Procedural Minds | 25:23 | auto | 5807 | `pcg-pripadovky` | Hex-A-Gone |
 | todo | [Spawn Vines On Any Mesh With A Single Click Using PCG Mode in UE5.7](https://www.youtube.com/watch?v=rYLF1up8sc8) `rYLF1up8sc8` | Procedural Minds | 26:27 | auto | 6701 | `pcg-vegetace` | liány na mesh |
 | todo | [Spawn Hanging PCG Vines And More Using This Simple Setup](https://www.youtube.com/watch?v=5bbKHksth9Q) `5bbKHksth9Q` | Procedural Minds | 25:18 | auto | 6205 | `pcg-vegetace` | visící liány |
@@ -264,10 +264,10 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 | todo | [Unreal Engine 5.7 - Procedural Vegetation Pine Trees - Quick Tip](https://www.youtube.com/watch?v=Wqmr0bSR99U) `Wqmr0bSR99U` | Unreal - X - Tutorials | 1:26 | auto | 173 | `pcg-vegetace` | quick tip |
 | skip | [SpeedTree 10 to Unreal Engine 5 with Wind Animation (Udemy Course)](https://www.youtube.com/watch?v=Kke6IaV7dc0) `Kke6IaV7dc0` | BlenderToUnreal | 1:23 | auto | 151 | `pcg-vegetace` | promo kurzu (1:23) — přeskočit? |
 | todo | [Unreal Engine 5.7 - Procedural Vegetation - Distance Wind Fix - QuickTip](https://www.youtube.com/watch?v=X_83dlYoZ7w) `X_83dlYoZ7w` | Unreal - X - Tutorials | 0:57 | auto | 120 | `pcg-vegetace` | quick tip |
-| todo | [Add Scattering To The PCG Mode Brush To Simulate Actual Painting](https://www.youtube.com/watch?v=AYulmKtqhLM) `AYulmKtqhLM` | Procedural Minds | 24:29 | auto | 5953 | `pcg-zaklady` | brush scattering |
-| todo | [How To Use the NEW UE5.7 PCG Mode, and Tips To Make It MORE Powerful!](https://www.youtube.com/watch?v=IPwVOhvQ2bo) `IPwVOhvQ2bo` | Procedural Minds | 23:29 | auto | 5451 | `pcg-zaklady` | PCG mode 5.7 |
-| todo | [Precise Cutouts Using Collisions in UE5 PCG, And More Tips and Tricks](https://www.youtube.com/watch?v=-G14-4m4-LA) `-G14-4m4-LA` | Procedural Minds | 16:02 | auto | 3812 | `pcg-zaklady` | cutouts |
-| todo | [UE5.7 Just Upgraded PCG! Here’s How to Use the New Editor Tools](https://www.youtube.com/watch?v=fjuCUJ1r-Wk) `fjuCUJ1r-Wk` | All things GAME! | 15:03 | auto | 1585 | `pcg-zaklady` |  |
+| published | [Add Scattering To The PCG Mode Brush To Simulate Actual Painting](https://www.youtube.com/watch?v=AYulmKtqhLM) `AYulmKtqhLM` | Procedural Minds | 24:29 | auto | 5953 | `pcg-zaklady` | brush scattering |
+| published | [How To Use the NEW UE5.7 PCG Mode, and Tips To Make It MORE Powerful!](https://www.youtube.com/watch?v=IPwVOhvQ2bo) `IPwVOhvQ2bo` | Procedural Minds | 23:29 | auto | 5451 | `pcg-zaklady` | PCG mode 5.7 (2 myšlenky) |
+| published | [Precise Cutouts Using Collisions in UE5 PCG, And More Tips and Tricks](https://www.youtube.com/watch?v=-G14-4m4-LA) `-G14-4m4-LA` | Procedural Minds | 16:02 | auto | 3812 | `pcg-zaklady` | cutouts |
+| published | [UE5.7 Just Upgraded PCG! Here’s How to Use the New Editor Tools](https://www.youtube.com/watch?v=fjuCUJ1r-Wk) `fjuCUJ1r-Wk` | All things GAME! | 15:03 | auto | 1585 | `pcg-zaklady` |  |
 
 ### Prostředí a environment art · `P-ENV` (11)
 

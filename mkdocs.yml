@@ -113,6 +113,9 @@ nav:
       - Terén a krajina:
           - Landscape tipy: praxe/landscape-tipy.md
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
+      - PCG a procedurální svět:
+          - "PCG: základy a nástroje": praxe/pcg-zaklady.md
+          - Instanced Actors: praxe/instanced-actors.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
   - Zápisky:
