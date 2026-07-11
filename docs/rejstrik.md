@@ -190,6 +190,14 @@ Channels se definují v data assetu partition definice 1:1 podle vrstev materiá
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
+### Chaos Cloth
+
+**Realtime fyzika látek přes Cloth Asset graf: import meshe → skin weights z těla → weight mapa → config → collider.**
+
+Weight mapa (uzel MaxDistance) maluje, co simulovat a co nechat animaci; kolider dodává kopie physics assetu postavy. Ladicí trojúhelník: mapa × collider koule × config (stiffness, iteration/subdivision count = kvalita vs. CPU). Do postavy se zapojuje Chaos Cloth komponentou; aerodynamics config přidá vítr.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
 ### Chooser
 
 **Datová tabulka „když platí tyhle podmínky, vyber tenhle asset" — v MM přepíná databáze, obecně vybírá cokoli.**
@@ -438,6 +446,14 @@ Správné použití: testování mechanik a metrik (gameplay prototyp, level blo
 
 Kde se s tím potkáš: [Prototypování](teorie/prototypovani.md) · [Nápad: prototyp do týdne](teorie/napad.md) · [Prostor a hranice](teorie/prostor-a-hranice.md)
 
+### Groom
+
+**Systém vlasů a srsti z jednotlivých pramenů (strands) — MetaHuman vlasy, obočí i řasy.**
+
+Groom komponenty mají vlastní LODy — při skládání postavy z komponent je drží pohromadě LOD Sync komponenta (bez ní se vlasy rozbijí; hlavní postavě typicky Force LOD 0). Dražší než mesh vlasy; v dálce se groomy přepínají na karty.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
 ### Hard coding
 
 **Hodnoty napsané natvrdo přímo v kódu místo v proměnné či konfiguraci.**
@@ -590,13 +606,21 @@ První krok k objektivitě proti zamilovanosti do vlastního nápadu. Prakticky:
 
 Kde se s tím potkáš: [Idea iceberg](teorie/rady-z-praxe.md) · [Nápad: yoink & twist](teorie/napad.md)
 
+### Mass Entity
+
+**ECS framework UE pro simulaci tisíců entit — davy, doprava; pohání City Sample i MetaHuman Crowd.**
+
+Entity nejsou actory: data žijí ve fragmentech zpracovávaných hromadně, proto škálování na tisíce NPC s navigací a vyhýbáním. Pro viditelnost se kombinuje s instancovanými meshi a streamováním plných actorů u kamery.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
 ### MetaHuman
 
 **Epicův systém fotorealistických postav: creator, rig obličeje i těla a nástroje (Animator, Performance) kolem.**
 
 Od 5.8 žije tvorba přímo v enginu (MetaHuman Creator plugin; Core Data při instalaci enginu). MetaHuman Performance asset zpracuje capture data na animaci — s Body Trackingem tělo i obličej (blend shapes). První rig vyžaduje potvrzení licence na webu. Výstup jde retargetovat na libovolný skeleton — MetaHuman může sloužit jen jako mocap prostředník.
 
-Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Animační nástroje](praxe/animace-nastroje.md) · [GASP](praxe/gasp.md)
 
 ### MetaSounds
 
@@ -829,6 +853,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 Klíč k plynulému vstávání z ragdollu: tělo leží v póze, kterou žádná animace nezná — snapshot ji zachytí a Pose Snapshot uzel (stejné jméno!) z ní nechá blendovat do vstávací montáže. Alternativa: timeline nad Physics Blend Weight (postupné předání fyziky animaci).
 
 Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md)
+
+### Post-process AnimBP
+
+**Animation blueprint přiřazený meshi (ne postavě), který se vyhodnocuje po hlavní animaci — vždy poslední.**
+
+Ideální pro vrstvení: look-at hlavy a očí, korekce, cloth logika — cokoli, co se má aplikovat „přes" libovolnou animaci. Vázaný na skeleton (nový skeleton = duplikát + Assign Skeleton) a sdílený všemi instancemi meshe — logika pro víc postav se větví přes Get Owning Actor.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 
 ### Postmortem
 
@@ -1165,6 +1197,14 @@ Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md)
 Ne nutně začátek hry: libovolných 5–60 minut zážitku, na kterém se poprvé potkají mechaniky z prototypu, art style a tón. Otázka, na kterou odpovídá: nadchne lidi reprezentativní ukázka natolik, aby se vyplatilo vyrábět zbytek obsahu? U komplexních her se skládá z ~60 % žánrových standardů a ~40 % inovací — testovat jde jen to nové.
 
 Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.md) · [Základy designu](teorie/zaklady.md)
+
+### Virtual bone
+
+**Kost existující jen v enginu — přidá se na skeleton (Add Virtual Bone) bez re-exportu z DCC nástroje.**
+
+Sleduje transform zdrojové kosti vůči jiné; typické použití: IK cíle (foot IK pro skeleton, který IK kosti nemá — MetaHuman) a odvozené sockety. Rychlá cesta, jak cizímu skeletonu doplnit, co rig očekává.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 
 ### Water Body
 

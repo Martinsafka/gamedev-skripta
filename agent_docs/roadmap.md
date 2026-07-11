@@ -53,7 +53,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] **Batch 9 done** _(2026-07-11)_: Voda — 10 videí → **3 kapitoly** (`voda-a-buoyancy` 3 myšlenky, `interaktivni-voda` 2, `nastroje-voda` 2 — Faucher framován jako produktové video s přenositelnými lekcemi), rejstřík +5 termínů, Pitchfork video rozděleno mezi 2 kapitoly, `--strict` + anchor-check green. **Téma P-WATER kompletní (10/10); 117/210 published.**
 - [x] **Batch 10 done** _(2026-07-11)_: Animace: nástroje a mocap — 5 videí → **1 kapitola** `animace-nastroje.md` (3 myšlenky; merge 3 tenkých slugů), rejstřík +4 termíny, zpětný odkaz gasp↔Locomotor, `--strict` + anchor-check green. **Téma P-ANIMTOOLS kompletní (5/5); animační blok uzavřen; 122/210 published.**
 - [x] **Batch 11 done** _(2026-07-11)_: Terén a krajina — 6 videí → **1 kapitola** `landscape-tipy.md` (4 myšlenky) + **rozšíření pilotní `mesh-terrain.md`** o myšlenku „Kanály v praxi" (Sensei komplementy + DK materiál/PCG; překryvy se stávající kapitolou vědomě zahozeny), rejstřík +2 termíny, `--strict` + anchor-check green. **Téma P-TERRAIN kompletní (7/7); 128/210 published.**
-- [ ] **Batch 12 next (návrh):** MetaHuman — 5 videí (malý, naváže na mocap z batche 10). Alternativa: začít PCG (18 videí — rozdělit na 2 sezení).
+- [x] **Batch 12 done** _(2026-07-11)_: MetaHuman — 5 videí → **1 kapitola** `metahuman.md` (5 myšlenek; merge 4 slugů): hratelná postava s virtual bones, look-at přes post-process ABP, Chaos Cloth, Crowd plugin (Mass Entity), Metapipe framován jako placený nástroj s přenositelnými lekcemi. Rejstřík +5 termínů, `--strict` + anchor-check green (checker nově i same-page anchory). **Téma P-MH kompletní (5/5); 133/210 published.**
+- [ ] **Batch 13 next (návrh):** PCG a procedurální svět, část A — největší zbývající téma (18 videí, rozdělit na 2 sezení). Alternativa: Materiály a VFX + Osvětlení (6+6, menší).
 
 ### Phase 4 — Zápisky
 

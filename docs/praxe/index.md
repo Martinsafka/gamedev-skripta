@@ -54,6 +54,10 @@ Témata a kapitoly:
 
 - **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (video → animace přes MetaHuman Performance) a procedurální pavouk na Locomotoru.
 
+**MetaHuman**
+
+- **[MetaHuman v praxi](metahuman.md)** — hratelná postava (retarget jedním klikem, virtual bones foot IK), look-at systém přes post-process AnimBP, Chaos Cloth oblečení, Crowd plugin s Mass Entity a lekce z optimalizace obličeje.
+
 **Terén a krajina**
 
 - **[Landscape tipy](landscape-tipy.md)** — klasický terén: Nanite displacement, skrytý copy/paste gizmo nástroj, malování PCG dat štětcem a anti-tiling technika dvou měřítek.

@@ -108,6 +108,8 @@ nav:
           - "Nástroje: EasyWaterscape": praxe/nastroje-voda.md
       - "Animace: nástroje a mocap":
           - Animační nástroje: praxe/animace-nastroje.md
+      - MetaHuman:
+          - MetaHuman v praxi: praxe/metahuman.md
       - Terén a krajina:
           - Landscape tipy: praxe/landscape-tipy.md
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md

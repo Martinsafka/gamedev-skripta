@@ -21,6 +21,7 @@
 *[Capsule]: Náhledový obrázek hry na Steamu — nejdůležitější kus grafiky celé stránky.
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
+*[Chaos Cloth]: Realtime fyzika látek: Cloth Asset graf s weight mapou, configem a colliderem z physics assetu.
 *[Chooser]: Datová tabulka „za těchto podmínek vyber tenhle asset“; v MM přepíná databáze.
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
@@ -53,6 +54,7 @@
 *[GDD]: Game design document — dokument s návrhem hry; funguje, jen když se do něj skutečně vracíš.
 *[God class]: Antipattern: třída, do které se postupně nastěhuje logika všech ostatních.
 *[Graybox]: Prototyp/blockout ze šedých primitiv — správný pro testování mechanik, špatný pro testování prodejnosti.
+*[Groom]: Vlasy/srst z pramenů (strands); vlastní LODy — při skládání postavy je drží LOD Sync komponenta.
 *[Hard coding]: Hodnoty zadrátované přímo v kódu; v produkci antipattern, v prototypu ctnost.
 *[Hard reference]: Přímý odkaz, který s sebou tahá vše, co cíl referencuje — do paměti i do buildů.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
@@ -72,6 +74,7 @@
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
 *[Market research]: Průzkum trhu: žánrové výdělky (medián!), tagy, recenze konkurence — objektivita proti zamilovanosti.
+*[Mass Entity]: ECS framework pro tisíce entit (davy, doprava) — City Sample i MetaHuman Crowd; entity nejsou actory.
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
@@ -102,6 +105,7 @@
 *[Pose Search Database]: PSD — kolekce animací jednoho typu pohybu, ve které Motion Matching hledá pózy.
 *[Pose Search Schema]: Definice, co MM měří: kanály (trajektorie, kosti) s vahami; ladí se experimentem.
 *[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
+*[Post-process AnimBP]: AnimBP meshe vyhodnocovaný po hlavní animaci — vrstvení look-atu a korekcí; vázaný na skeleton.
 *[Postmortem]: Ohlédnutí za dokončeným projektem: co fungovalo, co ne a proč — nejhutnější studijní žánr gamedevu.
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
@@ -144,6 +148,7 @@
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Version control]: Verzování projektu (Git): návratové body a historie jako deník pokroku; commituj malé celky.
 *[Vertical slice]: Reprezentativní výsek hry ve finální kvalitě; brána mezi prototypem a plnou produkcí.
+*[Virtual bone]: Kost existující jen v enginu (Add Virtual Bone) — IK cíle a sockety bez re-exportu z DCC.
 *[Water Body]: Actor Water pluginu (ocean/lake/river/island) tvarovaný splinami; řeka má rychlost proudu per point.
 *[Wishlist]: Přání na Steamu; před vydáním hlavní měřítko zájmu a palivo algoritmu viditelnosti.
 *[World Partition]: Streamovací systém UE5 — svět v buňkách nahrávaných podle potřeby.

@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 128 published (pilot + batch 1–11) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 133 published (pilot + batch 1–12) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -323,11 +323,11 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [New Unreal Engine 5.8 Metahuman Crowd Plugin](https://www.youtube.com/watch?v=bJIPlvmoTVw) `bJIPlvmoTVw` | Smart Poly | 9:04 | auto | 1756 | `metahuman-crowd` |  |
-| todo | [Unreal Engine 5.7 - Turn Your Metahuman Into A Player Character - Tutorial](https://www.youtube.com/watch?v=cARn14Ec14w) `cARn14Ec14w` | Unreal - X - Tutorials | 6:07 | auto | 778 | `metahuman-hratelny` |  |
-| todo | [Optimize Metahuman Facial Performance \| Metapipe 3.3 Nitrous](https://www.youtube.com/watch?v=TE9NJHHVHsM) `TE9NJHHVHsM` | Arts and Spells | 12:05 | auto | 1994 | `metahuman-oblicej` |  |
-| todo | [Unreal Engine 5.7 - Metahuman Cinematic Look At System - Tutorial](https://www.youtube.com/watch?v=UBSNmxXurkk) `UBSNmxXurkk` | Unreal - X - Tutorials | 9:08 | auto | 1247 | `metahuman-vzhled` | look-at |
-| todo | [Unreal Engine 5.6 - Chaos Cloth for Metahuman - Tutorial](https://www.youtube.com/watch?v=RXq1X8q04Dk) `RXq1X8q04Dk` | Unreal - X - Tutorials | 6:48 | auto | 790 | `metahuman-vzhled` | Chaos Cloth |
+| published | [New Unreal Engine 5.8 Metahuman Crowd Plugin](https://www.youtube.com/watch?v=bJIPlvmoTVw) `bJIPlvmoTVw` | Smart Poly | 9:04 | auto | 1756 | `praxe/metahuman.md` | merge 4 slugů do 1 kapitoly |
+| published | [Unreal Engine 5.7 - Turn Your Metahuman Into A Player Character - Tutorial](https://www.youtube.com/watch?v=cARn14Ec14w) `cARn14Ec14w` | Unreal - X - Tutorials | 6:07 | auto | 778 | `praxe/metahuman.md` |  |
+| published | [Optimize Metahuman Facial Performance \| Metapipe 3.3 Nitrous](https://www.youtube.com/watch?v=TE9NJHHVHsM) `TE9NJHHVHsM` | Arts and Spells | 12:05 | auto | 1994 | `praxe/metahuman.md` | placený Maya nástroj — psáno s tímto vědomím |
+| published | [Unreal Engine 5.7 - Metahuman Cinematic Look At System - Tutorial](https://www.youtube.com/watch?v=UBSNmxXurkk) `UBSNmxXurkk` | Unreal - X - Tutorials | 9:08 | auto | 1247 | `praxe/metahuman.md` | look-at |
+| published | [Unreal Engine 5.6 - Chaos Cloth for Metahuman - Tutorial](https://www.youtube.com/watch?v=RXq1X8q04Dk) `RXq1X8q04Dk` | Unreal - X - Tutorials | 6:48 | auto | 790 | `praxe/metahuman.md` | Chaos Cloth |
 
 ### AI nástroje ve vývoji · `P-AITOOLS` (14)
 
