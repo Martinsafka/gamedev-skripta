@@ -22,7 +22,7 @@ Katalog selhání, poskládaný z obou videí podle toho, který kruh porušují
 
 > **Pozn.:** Venn diagram cituje i [idea iceberg](rady-z-praxe.md) — je to zjevně sdílená mentální výbava téhle generace indie vývojářů. Iceberg přidává hloubkový rozměr (jak moc vidíš pod hladinu), Venn šířkový (které podmínky musí platit najednou).
 
-**Souvislosti:** [Idea iceberg](rady-z-praxe.md) · [Co znamená „dělej malé hry"](scope.md) · [Žrouti času](produktivita.md)
+**Souvislosti:** [Idea iceberg](rady-z-praxe.md) · [Co znamená „dělej malé hry"](scope.md) · [Žrouti času](produktivita.md) · [Zápisky: derivační řetěz IZBY](../zapisky/derivace-izby.md) *(odvození nápadu v plné délce z praxe)*
 
 ---
 

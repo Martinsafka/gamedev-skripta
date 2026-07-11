@@ -66,10 +66,11 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 
 **19 batchů, 202/210 videí published** (~30 kapitol Praxe + 22 Teorie, rejstřík ~200 termínů). Mimo scope zůstávají: 2 low-priority beginner kurzy (`dB-pS8PHALY`, `0yBSEiMldo0` — rozhodnutí Phase 2), 1 CS video (čeká na cs-subtitle pipeline, viz Later), 5 skipů (news/promo).
 
-### Phase 4 — Zápisky
+### ▶ Phase 4 — Zápisky _(běží)_
 
-- [ ] `inbox/` workflow exercised end-to-end: first devlog/summary distilled, anonymized, cross-linked.
-- [ ] Standing cadence agreed (zápisky added as material arrives).
+- [x] `inbox/` workflow exercised end-to-end _(2026-07-11)_: **vlna 1 = 5 zápisků** z prvních 7 podkladů (selhávat citelně a čitelně; karta selhání: packaging; dokumentace jako audit; derivační řetěz IZBY; lom, ne hřbitov) — anonymizované, cross-linkované oběma směry (mm-zaklady, napad, zacatky-bez-zkusenosti), `--strict` + anchor-check green (782 fragmentů).
+- [ ] **Vlna 2 (7 podkladů ve frontě):** pixin devlog jako mapa · CLS 70/30 + pravidlo extrakce · GDD review · vertical slice cut line + pivot · audit vlastního tónu · kvízový protokol · Evan Lowe finále (oblouk formou).
+- [ ] Standing cadence: nový inbox soubor → zápisek v nejbližším sezení; vlna = max ~5 zápisků kvůli kvalitě. (Návrh — potvrdit s uživatelem.)
 
 ### Later / ideas
 

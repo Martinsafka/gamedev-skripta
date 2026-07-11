@@ -136,6 +136,11 @@ nav:
           - Tipy do editoru: praxe/editor-tipy.md
   - Zápisky:
       - zapisky/index.md
+      - Selhávat citelně a čitelně: zapisky/selhavat-citelne-a-citelne.md
+      - "Karta selhání: packaging": zapisky/karta-selhani-packaging.md
+      - Dokumentace jako audit: zapisky/dokumentace-jako-audit.md
+      - Derivační řetěz IZBY: zapisky/derivace-izby.md
+      - Lom, ne hřbitov: zapisky/lom-ne-hrbitov.md
   - Rejstřík: rejstrik.md
 
 validation:

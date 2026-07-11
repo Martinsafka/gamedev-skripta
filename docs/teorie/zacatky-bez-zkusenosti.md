@@ -40,4 +40,4 @@ S tím souvisí dvojice pojmů, kterou autor odděluje [(5:30)](https://www.yout
 
 > **Pozn.:** Video zmiňuje i „pravidlo 10 000 hodin" — s oprávněnou skepsí. Popularizovaná verze (Gladwell) je zkreslením původního výzkumu K. A. Ericssona o *záměrném tréninku*: nejde o odsezené hodiny, ale o cílenou práci na slabinách se zpětnou vazbou. Což mimochodem podporuje pointu celé kapitoly — sdílení práce *je* forma zpětné vazby, bez které se hodiny nepočítají.
 
-**Souvislosti:** [Malý rozsah](#maly-rozsah-neni-kompromis-je-to-strategie-preziti) výše · [Žrouti času](produktivita.md) · [Idea iceberg: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Rejstřík: playtest](../rejstrik.md#playtest)
+**Souvislosti:** [Malý rozsah](#maly-rozsah-neni-kompromis-je-to-strategie-preziti) výše · [Žrouti času](produktivita.md) · [Idea iceberg: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Zápisky: selhávat citelně a čitelně](../zapisky/selhavat-citelne-a-citelne.md) *(smyčka je motor, nadšení palivo)* · [Rejstřík: playtest](../rejstrik.md#playtest)
