@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 180 published (pilot + batch 1–17) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 188 published (pilot + batch 1–18) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -352,15 +352,15 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [5 Years Of Unreal Engine Experience In 9 Minutes](https://www.youtube.com/watch?v=BHY46bPmsXY) `BHY46bPmsXY` | Unreal University  | 9:14 | auto | 1805 | `editor-tipy` | 5 let zkušeností |
-| todo | [UE5 for Beginners: 5 Tips I Wish I Knew Sooner](https://www.youtube.com/watch?v=jxEfh8_zfdk) `jxEfh8_zfdk` | Sergey Maryshev | 0:48 | manual | 148 | `editor-tipy` | short |
-| todo | [Change Your Mesh's Pivot Point in the Engine! #unrealengine5 #modelingmode #pivot #ue5 #blender](https://www.youtube.com/watch?v=f50yoTWThnw) `f50yoTWThnw` | Druid Mechanics | 0:41 | auto | 192 | `editor-tipy` | short |
-| todo | [The Secret 3D Box-Select Tool in UE5! 🤯 #unrealengine #indiedev #gamedev](https://www.youtube.com/watch?v=HprvvfEzrNI) `HprvvfEzrNI` | Matt Aspland | 0:30 | auto | 100 | `editor-tipy` | short |
-| todo | [Stop Deleting Blueprint Nodes Like This! #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=Pt1tFh4UqJk) `Pt1tFh4UqJk` | Matt Aspland | 0:28 | auto | 98 | `editor-tipy` | short |
+| published | [5 Years Of Unreal Engine Experience In 9 Minutes](https://www.youtube.com/watch?v=BHY46bPmsXY) `BHY46bPmsXY` | Unreal University  | 9:14 | auto | 1805 | `praxe/editor-tipy.md` | 5 let zkušeností |
+| published | [UE5 for Beginners: 5 Tips I Wish I Knew Sooner](https://www.youtube.com/watch?v=jxEfh8_zfdk) `jxEfh8_zfdk` | Sergey Maryshev | 0:48 | manual | 148 | `praxe/editor-tipy.md` | short (5 tipů) |
+| published | [Change Your Mesh's Pivot Point in the Engine! #unrealengine5 #modelingmode #pivot #ue5 #blender](https://www.youtube.com/watch?v=f50yoTWThnw) `f50yoTWThnw` | Druid Mechanics | 0:41 | auto | 192 | `praxe/editor-tipy.md` | short — pivot |
+| published | [The Secret 3D Box-Select Tool in UE5! 🤯 #unrealengine #indiedev #gamedev](https://www.youtube.com/watch?v=HprvvfEzrNI) `HprvvfEzrNI` | Matt Aspland | 0:30 | auto | 100 | `praxe/editor-tipy.md` | short — box select |
+| published | [Stop Deleting Blueprint Nodes Like This! #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=Pt1tFh4UqJk) `Pt1tFh4UqJk` | Matt Aspland | 0:28 | auto | 98 | `praxe/editor-tipy.md` | short — Shift+Delete |
 | published | [Select EVERY Copy of an Asset Instantly in UE5! 🤯 #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=De2fXs2JZxw) `De2fXs2JZxw` | Matt Aspland | 0:27 | auto | 102 | `praxe/editor-tipy.md` |  |
-| todo | [5 Unreal Engine Tricks Every Beginner Misses #unrealengine #indiedev #gamedev](https://www.youtube.com/watch?v=kSHz_V79eCk) `kSHz_V79eCk` | Matt Aspland | 0:26 | auto | 81 | `editor-tipy` | short |
-| todo | [The Secret to Realistic Level Design in UE5 #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=qo-LYeeKMr4) `qo-LYeeKMr4` | Matt Aspland | 0:26 | auto | 88 | `editor-tipy` | short — physics placement |
-| todo | [How To Fix Editor Lag In 30 Seconds! #unrealengine5 #indiedev](https://www.youtube.com/watch?v=U0nC8-882a0) `U0nC8-882a0` | Matt Aspland | 0:22 | auto | 73 | `editor-tipy` | short |
+| published | [5 Unreal Engine Tricks Every Beginner Misses #unrealengine #indiedev #gamedev](https://www.youtube.com/watch?v=kSHz_V79eCk) `kSHz_V79eCk` | Matt Aspland | 0:26 | auto | 81 | `praxe/editor-tipy.md` | short (5 triků) |
+| published | [The Secret to Realistic Level Design in UE5 #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=qo-LYeeKMr4) `qo-LYeeKMr4` | Matt Aspland | 0:26 | auto | 88 | `praxe/editor-tipy.md` | short — physics placement |
+| published | [How To Fix Editor Lag In 30 Seconds! #unrealengine5 #indiedev](https://www.youtube.com/watch?v=U0nC8-882a0) `U0nC8-882a0` | Matt Aspland | 0:22 | auto | 73 | `praxe/editor-tipy.md` | short — editor lag |
 | todo | [Unreal Engine 5.7.1 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi](https://www.youtube.com/watch?v=0yBSEiMldo0) `0yBSEiMldo0` | Magnet VFX | 97:40 | auto | 13268 | `kurzy` | kurz pro začátečníky (98 min) — nízká priorita |
 | skip | [Unreal Engine 5.8 JUST DROPPED (Mesh Terrain, Control Rig, Physics, AI)](https://www.youtube.com/watch?v=sDLYd2keSwA) `sDLYd2keSwA` | Proj Prod | 12:44 | manual | 2188 | `novinky` | novinkové video — přeskočit? |
 | skip | [Unreal Engine 5.8 Feature Highlights](https://www.youtube.com/watch?v=ExFF5gXVhDU) `ExFF5gXVhDU` | Unreal Engine | 3:26 | manual | 359 | `novinky` | novinkové video — přeskočit? |

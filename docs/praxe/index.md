@@ -91,4 +91,4 @@ Témata a kapitoly:
 
 **Editor a workflow**
 
-- **[Tipy do editoru](editor-tipy.md)** — drobné triky, které šetří minuty každý den.
+- **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.
