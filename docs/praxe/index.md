@@ -50,6 +50,10 @@ Témata a kapitoly:
 - **[Interaktivní voda](interaktivni-voda.md)** — vlnky za postavou: 5.6 shallow water subsystem checkboxem, nebo ručně Niagara Fluids šablonou s collider tagy.
 - **[Nástroje: EasyWaterscape](nastroje-voda.md)** — Faucherův nástroj jako kontext + přenositelné lekce: Single Layer Water limity, TSR rozmazání, výkonové páky.
 
+**Animace: nástroje a mocap**
+
+- **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (video → animace přes MetaHuman Performance) a procedurální pavouk na Locomotoru.
+
 **Terén a krajina**
 
 - **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.

@@ -106,6 +106,8 @@ nav:
           - Voda a buoyancy: praxe/voda-a-buoyancy.md
           - Interaktivní voda: praxe/interaktivni-voda.md
           - "Nástroje: EasyWaterscape": praxe/nastroje-voda.md
+      - "Animace: nástroje a mocap":
+          - Animační nástroje: praxe/animace-nastroje.md
       - Terén a krajina:
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:

@@ -51,7 +51,8 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 - [x] **Batch 7 done** _(2026-07-10)_: Herní systémy a interakce — 12 videí (2 bez přepisu kryta z popisů) → **3 kapitoly** (`footsteps` 4 myšlenky, `pasti-a-mechaniky` 4, `interakce-predmety` 2), rejstřík +8 termínů, editorial merges (herni-mechaniky+pasti, stealth-ukryty→interakce, Interactive World přeřazen k footsteps), `--strict` + anchor-check green. **Téma P-SYS kompletní (12/12).**
 - [x] **Batch 8 done** _(2026-07-11)_: Fyzika: ragdoll, lana, simulace — 8 videí → **2 kapitoly** (`ragdoll` 4 myšlenky — syntéza 3 velkých průvodců, `lana-kabely` 3 vč. merge physics-control), rejstřík +6 termínů, cross-link ai-zaklady↔ragdoll, `--strict` + anchor-check green. **Téma P-PHYS kompletní (8/8); 107/210 published — přes polovinu playlistu.**
 - [x] **Batch 9 done** _(2026-07-11)_: Voda — 10 videí → **3 kapitoly** (`voda-a-buoyancy` 3 myšlenky, `interaktivni-voda` 2, `nastroje-voda` 2 — Faucher framován jako produktové video s přenositelnými lekcemi), rejstřík +5 termínů, Pitchfork video rozděleno mezi 2 kapitoly, `--strict` + anchor-check green. **Téma P-WATER kompletní (10/10); 117/210 published.**
-- [ ] **Batch 10 next (návrh):** Animace: nástroje a mocap — 5 videí (malý, uzavře animační blok). Alternativa: Terén a krajina (6 videí, doplní Mesh Terrain z pilotu).
+- [x] **Batch 10 done** _(2026-07-11)_: Animace: nástroje a mocap — 5 videí → **1 kapitola** `animace-nastroje.md` (3 myšlenky; merge 3 tenkých slugů), rejstřík +4 termíny, zpětný odkaz gasp↔Locomotor, `--strict` + anchor-check green. **Téma P-ANIMTOOLS kompletní (5/5); animační blok uzavřen; 122/210 published.**
+- [ ] **Batch 11 next (návrh):** Terén a krajina — 6 videí (doplní pilotní Mesh Terrain kapitolu). Alternativa: MetaHuman (5 videí, naváže na mocap).
 
 ### Phase 4 — Zápisky
 

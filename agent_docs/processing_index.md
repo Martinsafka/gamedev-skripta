@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 117 published (pilot + batch 1–9) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 122 published (pilot + batch 1–10) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -181,11 +181,11 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [How To Animate Your Character In Unreal Engine 5 With Animation Blueprint And Blendspace (Tutorial)](https://www.youtube.com/watch?v=BuoeWNQOe0Y) `BuoeWNQOe0Y` | Matt Aspland | 17:02 | auto | 3706 | `animbp-zaklady` | blendspace |
-| todo | [The Fastest "Video to Animation" Tutorial in UE5.8](https://www.youtube.com/watch?v=SHP5fBaTPJQ) `SHP5fBaTPJQ` | Kartoon Develop Tips | 6:30 | auto | 1058 | `mocap` | video→animace |
-| todo | [MetaHuman Markerless Mocap Tutorial FREE in Unreal 5.8](https://www.youtube.com/watch?v=iJXJO-J7z3g) `iJXJO-J7z3g` | Thomas Halpin | 5:12 | auto | 484 | `mocap` | MetaHuman, zdarma |
-| todo | [Unreal Engine 5.8 NEW Markerless Motion Capture Tutorial](https://www.youtube.com/watch?v=kxsncXh8hhM) `kxsncXh8hhM` | World Of VFX | 4:51 | auto | 942 | `mocap` | markerless 5.8 |
-| todo | [EASY Procedural Spider Animation in UE5 \| Locomotor + Control Rig Tutorial](https://www.youtube.com/watch?v=uhjN4jf3q6k) `uhjN4jf3q6k` | Tank Control Games | 11:18 | auto | 2287 | `proceduralni-animace` | pavouk, Control Rig |
+| published | [How To Animate Your Character In Unreal Engine 5 With Animation Blueprint And Blendspace (Tutorial)](https://www.youtube.com/watch?v=BuoeWNQOe0Y) `BuoeWNQOe0Y` | Matt Aspland | 17:02 | auto | 3706 | `praxe/animace-nastroje.md` | blendspace; merge 3 slugů do 1 kapitoly |
+| published | [The Fastest "Video to Animation" Tutorial in UE5.8](https://www.youtube.com/watch?v=SHP5fBaTPJQ) `SHP5fBaTPJQ` | Kartoon Develop Tips | 6:30 | auto | 1058 | `praxe/animace-nastroje.md` | video→animace |
+| published | [MetaHuman Markerless Mocap Tutorial FREE in Unreal 5.8](https://www.youtube.com/watch?v=iJXJO-J7z3g) `iJXJO-J7z3g` | Thomas Halpin | 5:12 | auto | 484 | `praxe/animace-nastroje.md` | MetaHuman, zdarma |
+| published | [Unreal Engine 5.8 NEW Markerless Motion Capture Tutorial](https://www.youtube.com/watch?v=kxsncXh8hhM) `kxsncXh8hhM` | World Of VFX | 4:51 | auto | 942 | `praxe/animace-nastroje.md` | markerless 5.8 |
+| published | [EASY Procedural Spider Animation in UE5 \| Locomotor + Control Rig Tutorial](https://www.youtube.com/watch?v=uhjN4jf3q6k) `uhjN4jf3q6k` | Tank Control Games | 11:18 | auto | 2287 | `praxe/animace-nastroje.md` | pavouk, Control Rig |
 
 ### Pohyb postavy (locomotion) · `P-MOVE` (13)
 

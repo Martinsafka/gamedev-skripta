@@ -172,7 +172,7 @@ GASP je Epicův „živý projekt" pro gameplay animaci — 500+ animací, hotov
 
 > **Pozn.:** Autor grafu sám říká, že to není „unicorn control rig", co vyřeší foot placement každé hře — je to startovní bod a dogfooding směru, kterým Epic míří: **RigVM/UAF budoucnost, kde animační systémy jsou vizuální a ohebné** [(1:13:17)](https://www.youtube.com/watch?v=i27eY7LbRzc&t=4397s). Pro nás je tahle myšlenka hlavně katalog *problémů*, které foot placement řeší — až budeme ladit vlastní postavu na nerovném terénu, tady je checklist.
 
-**Souvislosti:** [MM základy: procedurální uzly](mm-zaklady.md#od-70-ke-100-ladeni-biasy-a-proceduralni-uzly) · [Rejstřík: Control Rig](../rejstrik.md#control-rig) · [Rejstřík: contact curve](../rejstrik.md#contact-curve) · [Rejstřík: foot placement](../rejstrik.md#foot-placement)
+**Souvislosti:** [MM základy: procedurální uzly](mm-zaklady.md#od-70-ke-100-ladeni-biasy-a-proceduralni-uzly) · [Animační nástroje: Locomotor pavouk](animace-nastroje.md#proceduralni-pavouk-locomotor-foot-sets-a-fazove-offsety) · [Rejstřík: Control Rig](../rejstrik.md#control-rig) · [Rejstřík: contact curve](../rejstrik.md#contact-curve) · [Rejstřík: foot placement](../rejstrik.md#foot-placement)
 
 ---
 
