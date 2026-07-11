@@ -94,7 +94,7 @@ GASP je Epicův „živý projekt" pro gameplay animaci — 500+ animací, hotov
 
 > **Pozn.:** Stream obsahuje i poctivé živé debugování diváckého bugu (montáž → idle poskočení): příčinou nebyl blend-out notify, ale `Enable Auto Blend Out` — trigger time −1 znamená „blenduj před koncem", nastavení na 0 bug opravilo [(2:07:17)](https://www.youtube.com/watch?v=mhVp_cC9MLc&t=7637s). Ukázkový postup: rewind debugger → najít frame → otevřít asset → hypotéza → oprava naživo. V 5.7 navíc traversal chooser přešel na pose match sloupec (viz NPC myšlenka níže) a k dispozici je **precomputed warp** s odděleným oknem pro translaci a rotaci.
 
-**Souvislosti:** [MM základy: Pose Search Branch In a Motion Match funkce](mm-zaklady.md#od-70-ke-100-ladeni-biasy-a-proceduralni-uzly) · [Systémy nad MM: traversal komunitně](mm-systemy.md) · [Rejstřík: traversal](../rejstrik.md#traversal) · [Rejstřík: motion warping](../rejstrik.md#motion-warping) · [Rejstřík: rewind debugger](../rejstrik.md#rewind-debugger)
+**Souvislosti:** [MM základy: Pose Search Branch In a Motion Match funkce](mm-zaklady.md#od-70-ke-100-ladeni-biasy-a-proceduralni-uzly) · [Systémy nad MM: traversal komunitně](mm-systemy.md) · [Zápisky: pravidlo 70/30](../zapisky/pravidlo-70-30.md) *(PoseSearchColumn a mezery traversalu z pohledu vlastní komponenty)* · [Rejstřík: traversal](../rejstrik.md#traversal) · [Rejstřík: motion warping](../rejstrik.md#motion-warping) · [Rejstřík: rewind debugger](../rejstrik.md#rewind-debugger)
 
 ---
 

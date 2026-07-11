@@ -332,7 +332,7 @@ Kde se s tím potkáš: [Scope: malé hry a design by constraint](teorie/scope.m
 
 Dvě funkční podoby: showcase (rozbor jedné feature: proč → proces → výsledek → limity) a story (příběh vývoje, včetně slepých uliček); nejlepší devlogy obojí mísí. Klíč ke kvalitě je scénář — psaný nahlas, ne jako sloh — a hra na obrazovce po celou dobu. Devlog není povinnost: dělá se, když tě baví videa, ne pro automatické wishlisty.
 
-Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
+Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Zápisky: devlog jako mapa](zapisky/devlog-jako-mapa.md) *(devlog jako interní nástroj, ne marketing)*
 
 ### Difficulty curve
 
@@ -349,6 +349,14 @@ Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 Do projektu přes plugin z NVIDIA developer webu (složky do engine Plugins). Blueprint vzor: Query Support → Set Mode (quality = 66 % rozlišení, ultra performance = 33 %); k tomu Frame Generation (násobení snímků) a Reflex (nižší latence). Nezapomeň kompenzovat mip/LOD bias — engine při nižším interním rozlišení potichu sníží kvalitu textur i Nanite. Multiplatformní alternativa v enginu je TSR.
 
 Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
+
+### Dogfooding
+
+**Používání vlastního produktu jako jeho první a nejpřísnější zákazník.**
+
+Nejlevnější test, že nástroj, komponenta nebo engine unese reálnou práci: postav na něm vlastní věc dřív, než ho dáš ostatním. Náklady vložené do dogfoodingu (hra na vlastním frameworku, demo na vlastním enginu) se konvertují do hodnoty produktu — nálezy přicházejí dřív než support tickety a roadmapa nástroje dostává tvar podle skutečného konzumenta, ne podle domněnek.
+
+Kde se s tím potkáš: [Zápisky: pravidlo 70/30](zapisky/pravidlo-70-30.md) · [Zápisky: devlog jako mapa](zapisky/devlog-jako-mapa.md)
 
 ### Draw call
 
@@ -428,7 +436,7 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.
 
 Klasická podoba (slohová práce v akademickém formátu) u sólo vývojářů umírá nedopsaná a nečtená. Funkční alternativa je vizuální nástěnka: reference s důvody, levely jako sekvence, mechaniky jako GIFy, centrální to-do. Jediná metrika kvality GDD je, jestli je *živý* — forma je vedlejší.
 
-Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md)
+Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md) · [Zápisky: GDD review](zapisky/gdd-review.md)
 
 ### Game feel
 
@@ -837,6 +845,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 2D grid simulace mělké vody: postava a objekty s tagy „collider" (actor i component tag, case-sensitive) dělají vlny. Ladicí trio: Velocity Dissipation (dozvuk vln), Delta Time Multiplier (tempo), Collision Velocity Multiplier (síla vstupu). Od 5.6 totéž zapíná Water Advanced plugin checkboxem (shallow water subsystem).
 
 Kde se s tím potkáš: [Interaktivní voda](praxe/interaktivni-voda.md)
+
+### One-way door
+
+**Rozhodnutí drahé nebo nemožné na reverz — dělá se pomalu, vědomě a s jasným vlastníkem; opak je two-way door.**
+
+Metafora dělí rozhodnutí na dva druhy: jednosměrné dveře (žánr hry, veřejné API, volba enginu) chtějí rozmysl, vyslovené premisy a datovaný zápis; obousměrné dveře (mechanika uvnitř žánru, interní refactor) jsou levné experimenty, kde rychlost přebíjí jistotu. Premisy jednosměrného rozhodnutí se znovu otevírají jen v sankcionovaném okně (preprodukce, gate s vertical slicem) — ne pokaždé, když má projekt špatný den. Po gate platí disagree & commit.
+
+Kde se s tím potkáš: [Zápisky: derivační řetěz IZBY](zapisky/derivace-izby.md) · [Zápisky: cut line](zapisky/cut-line.md)
 
 ### Overdraw
 
@@ -1428,7 +1444,7 @@ Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md)
 
 Ne nutně začátek hry: libovolných 5–60 minut zážitku, na kterém se poprvé potkají mechaniky z prototypu, art style a tón. Otázka, na kterou odpovídá: nadchne lidi reprezentativní ukázka natolik, aby se vyplatilo vyrábět zbytek obsahu? U komplexních her se skládá z ~60 % žánrových standardů a ~40 % inovací — testovat jde jen to nové.
 
-Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.md) · [Základy designu](teorie/zaklady.md)
+Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.md) · [Základy designu](teorie/zaklady.md) · [Zápisky: cut line](zapisky/cut-line.md)
 
 ### Virtual bone
 

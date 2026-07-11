@@ -69,7 +69,7 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 ### ▶ Phase 4 — Zápisky _(běží)_
 
 - [x] `inbox/` workflow exercised end-to-end _(2026-07-11)_: **vlna 1 = 5 zápisků** z prvních 7 podkladů (selhávat citelně a čitelně; karta selhání: packaging; dokumentace jako audit; derivační řetěz IZBY; lom, ne hřbitov) — anonymizované, cross-linkované oběma směry (mm-zaklady, napad, zacatky-bez-zkusenosti), `--strict` + anchor-check green (782 fragmentů).
-- [ ] **Vlna 2 (7 podkladů ve frontě):** pixin devlog jako mapa · CLS 70/30 + pravidlo extrakce · GDD review · vertical slice cut line + pivot · audit vlastního tónu · kvízový protokol · Evan Lowe finále (oblouk formou).
+- [x] **Vlna 2 done** _(2026-07-11)_: 7 podkladů → **7 zápisků** (`devlog-jako-mapa`, `pravidlo-70-30`, `gdd-review`, `cut-line`, `audit-vlastniho-tonu`, `kvizovy-protokol`, `oblouk-formou`), rejstřík +2 termíny (Dogfooding; One-way door — druhý výskyt dle plánu z vlny 1), cross-linky oběma směry do 8 kapitol (mm-zaklady, mm-systemy, gasp, claude-code-ue, editor-tipy, prototypovani, smycky-a-retezce, pribeh-a-postavy) i mezi zápisky, `--strict` + anchor-check green (802 fragmentů). **Inbox fronta prázdná — všech 14 podkladů zpracováno.**
 - [ ] Standing cadence: nový inbox soubor → zápisek v nejbližším sezení; vlna = max ~5 zápisků kvůli kvalitě. (Návrh — potvrdit s uživatelem.)
 
 ### Later / ideas

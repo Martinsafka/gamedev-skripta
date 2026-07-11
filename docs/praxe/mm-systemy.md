@@ -39,7 +39,7 @@ Motion Matching řeší locomotion — ale hra potřebuje i útoky, krytí, špl
 
 > **Pozn.:** Oba kanály staví na vzorech z [batche o architektuře](principy-architektury.md): komponenty s jedinou zodpovědností, state manager jako rozhodčí, tagy jako kontrakt. Videa Make A Real One jsou spíš „follow-along" k jeho placeným komponentám než výuka — cenné jsou hlavně ty opravy okrajových případů (slot skupiny, mirror data, rotace po šplhu), na které jinak narazíš sám.
 
-**Souvislosti:** [Principy architektury](principy-architektury.md) · [MM základy](mm-zaklady.md) · [Rejstřík: linked anim graph](../rejstrik.md#linked-anim-graph) · [Rejstřík: traversal](../rejstrik.md#traversal)
+**Souvislosti:** [Principy architektury](principy-architektury.md) · [MM základy](mm-zaklady.md) · [Zápisky: pravidlo 70/30](../zapisky/pravidlo-70-30.md) *(mechanism vs. policy u vlastní locomotion komponenty)* · [Rejstřík: linked anim graph](../rejstrik.md#linked-anim-graph) · [Rejstřík: traversal](../rejstrik.md#traversal)
 
 ---
 

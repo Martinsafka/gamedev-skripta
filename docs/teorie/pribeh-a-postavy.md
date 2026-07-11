@@ -63,7 +63,7 @@ Praktické pravidlo z videa: umíš psát → fixní postava; neumíš psát, al
 
 **Test začerněných jmen** [(30:51)](https://www.youtube.com/watch?v=orvZIxC54NU&t=1851s): vezmi scénu, smaž jména mluvčích — poznáš, kdo mluví? Když ne, postavy nemají hlasy, jen repliky. Hlasy se liší vzorci (slovní vata, délka vět, slovník podle původu: mág nemluví jako barbar) a hry umí i vlastní triky [(30:25)](https://www.youtube.com/watch?v=orvZIxC54NU&t=1825s): rychlost vypisování textu, zvuk, font (Smrť v Zeměploše mluví KAPITÁLKAMI [(30:32)](https://www.youtube.com/watch?v=orvZIxC54NU&t=1832s)).
 
-**Souvislosti:** [Rejstřík: narrative design](../rejstrik.md#narrative-design) · budoucí kapitoly o dialozích v praxi (UE)
+**Souvislosti:** [Zápisky: oblouk se potvrzuje formou](../zapisky/oblouk-formou.md) *(posun rejstříku řeči jako důkaz oblouku)* · [Rejstřík: narrative design](../rejstrik.md#narrative-design) · budoucí kapitoly o dialozích v praxi (UE)
 
 ---
 

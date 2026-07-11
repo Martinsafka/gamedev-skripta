@@ -41,6 +41,7 @@
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
 *[DLSS]: NVIDIA upscaler: render v nižším rozlišení + AI dopočet; s Frame Generation a Reflex; kompenzuj mip bias.
+*[Dogfooding]: Používání vlastního produktu jako jeho první zákazník — nejlevnější test, že unese reálnou práci.
 *[Draw call]: Příkaz CPU pro GPU „vykresli tohle"; šetří se instancingem a sdílením materiálů (trim sheety).
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
@@ -103,6 +104,7 @@
 *[Network Prediction]: Rollback framework UE — síťová větev Moveru: klient posílá jen vstupy, rollback celého okolí naráz.
 *[Niagara Data Channel]: Gameplay zapisuje data do kanálu, jediný Niagara systém z nich spawnuje částice — ne systém per událost.
 *[Niagara Fluids]: Plugin simulačních šablon; Grid 2D SW Particle Collisions = interaktivní hladina s collider tagy.
+*[One-way door]: Rozhodnutí drahé na reverz (žánr, API, engine) — dělá se vědomě, s premisami; opak: two-way door.
 *[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.

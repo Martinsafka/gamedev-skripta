@@ -40,7 +40,7 @@ Rok 2026 přinesl do Unrealu **agentní AI**: 5.8 má nativní **MCP** (Model Co
 
 > **Pozn.:** Debugging přes screenshoty funguje (bug s game over při úkroku, mezery mezi dlaždicemi) [(14:38)](https://www.youtube.com/watch?v=iRcrZjOt5H8&t=878s) — ale vizuální kontrola stojí tokeny; viz [72hodinová hra](#72-hodin-delba-prace-clovekai) pro dotažení téhle ekonomie.
 
-**Souvislosti:** [72 hodin: dělba práce](#72-hodin-delba-prace-clovekai) · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: version control](../rejstrik.md#version-control)
+**Souvislosti:** [72 hodin: dělba práce](#72-hodin-delba-prace-clovekai) · [Zápisky: devlog jako mapa](../zapisky/devlog-jako-mapa.md) *(stavba celého enginu s agentem z první ruky: verifikační hranice, devlog jako paměť agenta)* · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: version control](../rejstrik.md#version-control)
 
 ---
 
