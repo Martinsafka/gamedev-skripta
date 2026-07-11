@@ -109,6 +109,7 @@ nav:
       - "Animace: nástroje a mocap":
           - Animační nástroje: praxe/animace-nastroje.md
       - Terén a krajina:
+          - Landscape tipy: praxe/landscape-tipy.md
           - Mesh Terrain (UE 5.8): praxe/mesh-terrain.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md

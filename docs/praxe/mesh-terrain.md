@@ -1,8 +1,8 @@
 # Mesh Terrain (UE 5.8)
 
-Epic v UE 5.8 představil Mesh Terrain — nové pojetí terénu, které má výhledově nahradit klasický Landscape. Tahle kapitola destiluje 47minutový deep dive do systému: proč vznikl, jak se zakládá, jak funguje jeho nedestruktivní modifier stack a co znamená, že je celý postavený na partitioned Nanite meshi.
+Epic v UE 5.8 představil Mesh Terrain — nové pojetí terénu, které má výhledově nahradit klasický Landscape. Kapitola destiluje 47minutový deep dive do systému (proč vznikl, jak se zakládá, nedestruktivní modifier stack, partitioned Nanite mesh) a v závěrečné myšlence ho doplňuje o praktické workflow kanálů, malování a PCG ze dvou dalších zdrojů. Klasický Landscape pokrývají [Landscape tipy](landscape-tipy.md).
 
-**Zdroj celé kapitoly:** [Unreal Engine 5.8 Mesh Terrain — Full Deep Dive](https://www.youtube.com/watch?v=JzQrUAVPmr4) · [Aziel Arts](https://www.youtube.com/channel/UCxGoreKfZxDBxJzirLWuOuw) · ~47 min, praktický deep dive (záznam z koučovacího callu)
+**Zdroj prvních čtyř myšlenek:** [Unreal Engine 5.8 Mesh Terrain — Full Deep Dive](https://www.youtube.com/watch?v=JzQrUAVPmr4) · [Aziel Arts](https://www.youtube.com/channel/UCxGoreKfZxDBxJzirLWuOuw) · ~47 min, praktický deep dive (záznam z koučovacího callu)
 
 !!! warning "Beta stav"
     Autor videa opakovaně zdůrazňuje [(7:02)](https://www.youtube.com/watch?v=JzQrUAVPmr4&t=422s): systém je raná beta — padá, některé operace jsou pomalé a **nepatří do projektů mířících k vydání**. Ukládej často. Kapitola popisuje stav v UE 5.8; u beta systému čekej změny mezi verzemi.
@@ -88,3 +88,26 @@ Nejzajímavější je **weight channel na modifierech** [(43:30)](https://www.yo
 > **Pozn.:** Migrace pro existující projekty se nabízí sama: height mapa Landscape se dá importovat jako startovní tvar Mesh Terrainu. Ale dokud je systém beta, dává smysl spíš druhý směr — prototypovat v něm dovednosti a workflow, produkci nechat na Landscape. Video v tom mluví jasně.
 
 **Souvislosti:** [Proč Mesh Terrain existuje](#proc-mesh-terrain-existuje-limity-landscape) výše · [Rejstřík: channel](../rejstrik.md#channel) · [Rejstřík: data asset](../rejstrik.md#data-asset)
+
+---
+
+## Kanály v praxi: materiál, malování a PCG
+
+**Zdroj:** [How to use Mesh terrain layers? Material + PCG](https://www.youtube.com/watch?v=LWhQwVILHMk) · [DK 3D](https://www.youtube.com/channel/UC3fGhbgSpR2BSSeTls3R6Sg) · ~28 min, tutoriál ·
+[How to Use Unreal Engine's New Landscape System - Mesh Terrain Tutorial](https://www.youtube.com/watch?v=Lhj2LutYNjA) · [Unreal Sensei](https://www.youtube.com/channel/UCue7TFlrt9FxXarpsl872Dg) · ~66 min, tutoriál
+
+**Shrnutí:** Předchozí myšlenka popsala kanály koncepčně — tahle je zapojuje do praxe: **jak je materiál čte** (dvojice uzlů Mesh Partition Resource + Channel Sample), na co si dát pozor při **malování** (vrstvy leží doslova na sobě) a jak nad terénem rozjet **PCG** včetně nových nanite foliage stromů.
+
+### Rozpad myšlenky
+
+**Materiál čte kanály dvěma uzly** [(15:21)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=921s): `Mesh Partition Resource` → **`Get Mesh Partition Channel Sample`** (vybereš MPD a kanál) → výstup řídí lerp mezi vrstvami materiálu. Nejrychlejší start: zkopírovat si `M_MeshPartitionDefault` + `MPD_Default` z Engine → Plugins → Mesh Partition do projektu [(12:11)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=731s), v kopii MPD nadefinovat vlastní Channel Descriptions [(14:34)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=874s) a přiřadit ji partition actoru.
+
+**Malování — tři pasti (Sensei):** paint brush modifier patří **nahoru** stacku, ať maluje na všechny vertexy vyrobené pod ním [(39:41)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=2381s). Vrstvy leží **doslova na sobě** — základní vrstva nemá „štětec": chceš-li zpátky trávu, musíš vrstvy nad ní odmazat (`Ctrl`), jednu po druhé [(43:36)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=2616s); na auto-vrstvy ze sklonu je zvláštní kanál remove auto material. A **value slider ≠ strength**: value 0 znamená „maluju nulu" a přepisuje, co už namalované je [(42:48)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=2568s) — sílu ředit strengthem, hodnotu nechat na 1.
+
+**PCG nad terénem:** DK používá **`Mesh Partition Query`** [(20:02)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=1202s) — s klíčovou volbou **Layer = Final**: default vrací základní vrstvu *před* modifikacemi a body plavou ve vzduchu [(20:48)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=1248s). Do query jde přidat namalovaný kanál a filtrovat `Point Filter > 0,5` [(21:36)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=1296s) — stejný vzor jako [malování PCG dat na Landscape](landscape-tipy.md#malovani-dat-paint-layers-ridi-pcg). Sensei k témuž uzlu poznamenává, že je zatím glitchy, a jako spolehlivou cestu doporučuje **`World Ray Hit Query`** [(1:01:42)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=3702s) — dvě cesty, vyber podle verze a chování. Důležité obecně: **foliage mode se s editem terénu neaktualizuje** (stromy zůstanou viset) — Epic pro Mesh Terrain doporučuje vegetaci přes PCG [(1:00:54)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=3654s).
+
+**Nanite foliage stromy** [(23:10)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=1390s): po zapnutí Nanite Foliage v project settings a pluginu Procedural Vegetation Editor jsou k dispozici skinned mesh stromy (vítr řídí global foliage actor). V PCG je spawnuje **`Instance Skinned Mesh Spawner`** s atributem typu soft object path [(24:45)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=1485s) — a před ním `Transform Points` s **absolutní Z rotací** 0–360°, jinak stromy rostou po normále svahu [(25:33)](https://www.youtube.com/watch?v=LWhQwVILHMk&t=1533s).
+
+> **Pozn.:** Sensei navíc ukazuje migrační cestu, kterou deep dive neměl: starý Landscape → `Export Selected` jako FBX → import → **Convert** na Mesh Terrain [(1:04:48)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=3888s) — s původní geometrií, hned Nanite. K tomu dvě workflow pravidla pro remesh: **tessellate před sculptem** oblasti, o které víš, že ponese detail, a **remesh po extrémním sculptu**, který natáhl quady [(18:42)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=1122s). Virtual texture blending s terénem funguje (TP_VirtualTexture v definici) [(1:02:29)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=3749s) a Sensei rozdává zdarma svůj terrain master materiál (auto-slope vrstvy, cell bombing, distance blend) [(0:49)](https://www.youtube.com/watch?v=Lhj2LutYNjA&t=49s) — dobrá učebnice, jak Mesh Terrain materiály stavět.
+
+**Souvislosti:** [Landscape tipy: malování PCG dat](landscape-tipy.md#malovani-dat-paint-layers-ridi-pcg) · [Rejstřík: channel](../rejstrik.md#channel) · [Rejstřík: PCG](../rejstrik.md#pcg) · [Rejstřík: Nanite](../rejstrik.md#nanite)

@@ -56,7 +56,8 @@ Témata a kapitoly:
 
 **Terén a krajina**
 
-- **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels.
+- **[Landscape tipy](landscape-tipy.md)** — klasický terén: Nanite displacement, skrytý copy/paste gizmo nástroj, malování PCG dat štětcem a anti-tiling technika dvou měřítek.
+- **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels — nově s praxí kanálů, malování a PCG.
 
 **Editor a workflow**
 

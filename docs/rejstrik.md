@@ -318,6 +318,14 @@ Scalar/vector/texture parametry pojmenované v materiálu se nastavují uzly Set
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 
+### Edit layer
+
+**Vrstva úprav Landscape terénu — sculpt i paint žijí v pojmenovaných vrstvách, které jdou zapínat a mazat.**
+
+Nástroje pracují s aktuálně vybranou vrstvou: copy/paste gizmo kopíruje jen z ní (jinak prázdno), water bodies si vytvářejí vlastní vrstvu. Zhruba totéž, co v Mesh Terrainu dělají modifiery — jen bez 3D volnosti a přeskládávání priorit.
+
+Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Voda a buoyancy](praxe/voda-a-buoyancy.md)
+
 ### Event dispatcher
 
 **Rádio mezi Blueprinty: vlastník dispatcher zavolá, všichni přihlášení posluchači dostanou event.**
@@ -493,6 +501,14 @@ Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
 V postupu „landmark napřed": startovní bod hráče a hlavní point of interest jsou první dvě rozhodnutí návrhu levelu, ještě před blockoutem — dávají měřítko, směr a osu pro pacing a vertikalitu. Cestou k landmarku pak vedou funneling (zúžení prostoru), leading lines a světlo.
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+
+### Landscape
+
+**Klasický terénní systém UE: „papírově tenká" plocha deformovaná height mapou — jen nahoru a dolů, žádné převisy.**
+
+Pořád produkční volba, dokud Mesh Terrain nedozraje. Klíčové nástroje: sculpt/paint módy s edit layers, copy/paste gizmo (patche a import height map do zón), paint vrstvy jako data pro PCG, Nanite displacement pro reliéf z materiálu. Limity řeší nástupce Mesh Terrain (skutečná mesh geometrie).
+
+Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md)
 
 ### Layered Blend Per Bone
 
@@ -706,9 +722,9 @@ Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [Základy AI](pr
 
 **Procedural Content Generation — UE framework pro procedurální osazování a generování obsahu světa.**
 
-Grafem definuješ pravidla (sampluj povrch, filtruj podle sklonu, rozmísti stromy s hustotou X) a engine je aplikuje na libovolnou plochu. S Mesh Terrainem spolupracuje přes interop plugin (Mesh Partition PCG Interop) — v beta fázi s beta mírou spolehlivosti.
+Grafem definuješ pravidla (sampluj povrch, filtruj podle sklonu či namalované vrstvy, rozmísti stromy s hustotou X) a engine je aplikuje na libovolnou plochu. Typický řetěz: Get Landscape Data / Mesh Partition Query → Surface Sampler → Filter → Transform Points → Spawner. S Mesh Terrainem spolupracuje přes interop plugin — v beta fázi s beta mírou spolehlivosti (spolehlivější je World Ray Hit Query).
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md)
 
 ### Persistent level
 

@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 122 published (pilot + batch 1–10) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 128 published (pilot + batch 1–11) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -237,13 +237,13 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Unreal Engine Landscape creation for beginners \| Full Tutorial](https://www.youtube.com/watch?v=gNLL1jFmWjQ) `gNLL1jFmWjQ` | World Of VFX | 13:08 | auto | 2413 | `landscape-tipy` | pro začátečníky |
-| todo | [Secret Copy/Paste Tool for Landscapes in Unreal Engine 5](https://www.youtube.com/watch?v=1ySwXsKR4VM) `1ySwXsKR4VM` | Aziel Arts | 12:05 | auto | 2666 | `landscape-tipy` |  |
-| todo | [Unreal Engine 5.7 - Procedural Landscape Painting - Tutorial](https://www.youtube.com/watch?v=REpMPdptKWQ) `REpMPdptKWQ` | Unreal - X - Tutorials | 7:33 | auto | 1026 | `landscape-tipy` | procedurální malování |
-| todo | [Unreal Engine 5.7 - Fix Repeating Landscape Textures - Tutorial](https://www.youtube.com/watch?v=A1P8LK7POuM) `A1P8LK7POuM` | Unreal - X - Tutorials | 5:49 | auto | 802 | `landscape-tipy` | opakující se textury |
-| todo | [How to Use Unreal Engine’s New Landscape System - Mesh Terrain Tutorial](https://www.youtube.com/watch?v=Lhj2LutYNjA) `Lhj2LutYNjA` | Unreal Sensei | 66:18 | auto | 12472 | `mesh-terrain` |  |
+| published | [Unreal Engine Landscape creation for beginners \| Full Tutorial](https://www.youtube.com/watch?v=gNLL1jFmWjQ) `gNLL1jFmWjQ` | World Of VFX | 13:08 | auto | 2413 | `praxe/landscape-tipy.md` | pro začátečníky |
+| published | [Secret Copy/Paste Tool for Landscapes in Unreal Engine 5](https://www.youtube.com/watch?v=1ySwXsKR4VM) `1ySwXsKR4VM` | Aziel Arts | 12:05 | auto | 2666 | `praxe/landscape-tipy.md` |  |
+| published | [Unreal Engine 5.7 - Procedural Landscape Painting - Tutorial](https://www.youtube.com/watch?v=REpMPdptKWQ) `REpMPdptKWQ` | Unreal - X - Tutorials | 7:33 | auto | 1026 | `praxe/landscape-tipy.md` | procedurální malování |
+| published | [Unreal Engine 5.7 - Fix Repeating Landscape Textures - Tutorial](https://www.youtube.com/watch?v=A1P8LK7POuM) `A1P8LK7POuM` | Unreal - X - Tutorials | 5:49 | auto | 802 | `praxe/landscape-tipy.md` | opakující se textury |
+| published | [How to Use Unreal Engine’s New Landscape System - Mesh Terrain Tutorial](https://www.youtube.com/watch?v=Lhj2LutYNjA) `Lhj2LutYNjA` | Unreal Sensei | 66:18 | auto | 12472 | `praxe/mesh-terrain.md` | doplněno do pilotní kapitoly (nová myšlenka) |
 | published | [Unreal Engine 5.8 Mesh Terrain — Full Deep Dive](https://www.youtube.com/watch?v=JzQrUAVPmr4) `JzQrUAVPmr4` | Aziel Arts | 47:55 | auto | 9304 | `praxe/mesh-terrain.md` |  |
-| todo | [How to use Mesh terrain layers? Material + PCG](https://www.youtube.com/watch?v=LWhQwVILHMk) `LWhQwVILHMk` | DK 3D | 28:05 | auto | 3552 | `mesh-terrain-materialy` | +PCG |
+| published | [How to use Mesh terrain layers? Material + PCG](https://www.youtube.com/watch?v=LWhQwVILHMk) `LWhQwVILHMk` | DK 3D | 28:05 | auto | 3552 | `praxe/mesh-terrain.md` | merge mesh-terrain-materialy → mesh-terrain (nová myšlenka) |
 
 ### PCG a procedurální svět · `P-PCG` (19)
 
