@@ -122,6 +122,10 @@ nav:
       - Prostředí a environment art:
           - "Breakdowny: herní světy": praxe/env-breakdowny.md
           - Stavba prostředí: praxe/env-tvorba.md
+      - Materiály a VFX:
+          - Materiály: praxe/materialy.md
+      - Osvětlení a atmosféra:
+          - Osvětlení: praxe/osvetleni.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
   - Zápisky:

@@ -64,7 +64,7 @@ Praktická strana environment artu: nejdřív **proč scéna vypadá dobře** (d
 
 > **Pozn.:** Sort order decalů je přesně vrstvení z Photoshopu přenesené do levelu — mech pod vším, čerstvé listí navrch. Stojí za to zkopírovat i pracovní návyk z videa: každá sekce grafu končí comment boxem a uložením; ve dvouhodinové stavbě je to jediná cesta, jak se neztratit.
 
-**Souvislosti:** [Lesní pěšina I](#lesni-pesina-i-cesta-a-vegetace-v-pcg) · [Kroky a povrchy: decaly stop](footsteps.md) · [Rejstřík: decal](../rejstrik.md#decal) · [Rejstřík: draw call](../rejstrik.md#draw-call)
+**Souvislosti:** [Lesní pěšina I](#lesni-pesina-i-cesta-a-vegetace-v-pcg) · [Osvětlení: PBL workflow](osvetleni.md#pbl-svitit-podle-skutecnych-hodnot) · [Kroky a povrchy: decaly stop](footsteps.md) · [Rejstřík: decal](../rejstrik.md#decal) · [Rejstřík: draw call](../rejstrik.md#draw-call)
 
 ---
 

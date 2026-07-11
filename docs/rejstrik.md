@@ -366,6 +366,14 @@ Převrácená židle, otevřený šuplík a stopy používání (edge wear, škr
 
 Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Vedení hráče](teorie/vedeni-hrace.md)
 
+### EV100
+
+**Jednotka expozice: kolik světla pustí kamera do obrazu — EV100 = 1 odpovídá modré hodině, interiér ~5–7, slunečný den ~13.**
+
+Zamčení min = max EV100 v post-process volume vypne auto-exposure a jas scény řídíš ty. Pozor na kopírovaný recept „nastav 1/1": jednička sedí jen velmi tmavým scénám — hodnota se volí podle scénáře a podle toho, pro co exponuješ (slunce, nebo stíny). Vyšší číslo = tmavší obraz.
+
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
+
 ### Event dispatcher
 
 **Rádio mezi Blueprinty: vlastník dispatcher zavolá, všichni přihlášení posluchači dostanou event.**
@@ -501,6 +509,14 @@ Kde se s tím potkáš: [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md
 Vzniká castem, class referencí, přiřazeným meshem. Diagnóza: pravý klik na asset → Reference Viewer (kdo na kom závisí) a Size Map (kolik paměti reference stáhne). Následky: dlouhé loady, provázané levely, křehké systémy. Léky: abstraktní datový master, interfacy, event dispatchery, broadcast kanály — a u assetů soft reference, které se načítají až na vyžádání.
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Organizace projektu](praxe/organizace-projektu.md)
+
+### HDRI
+
+**Panoramatická fotografie s vysokým dynamickým rozsahem — obloha a světlo skutečného místa v jednom assetu.**
+
+HDRI Backdrop plugin ji promítne na kupoli a skylight z téže mapy vezme indirect — konzistentní intenzita oblohy i odrazů. Alternativa bez pluginu: obří sphere s Unlit materiálem a isSky checkboxem. Zdroje: Poly Haven, locationtextures.com (s časem a místem pořízení — hodí se pro fyzikální kalibraci světla).
+
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
 
 ### Height mapa
 
@@ -661,6 +677,22 @@ Kde se s tím potkáš: [Idea iceberg](teorie/rady-z-praxe.md) · [Nápad: yoink
 Entity nejsou actory: data žijí ve fragmentech zpracovávaných hromadně, proto škálování na tisíce NPC s navigací a vyhýbáním. Pro viditelnost se kombinuje s instancovanými meshi a streamováním plných actorů u kamery.
 
 Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
+### Material function
+
+**Znovupoužitelný blok materiálové logiky — funkce, kterou vložíš do libovolného materiálu v projektu.**
+
+Se vstupem a výstupem typu material attributes funguje jako vrstva: materiál postavy → funkce (decay, sníh, mokro) → výstup. Uvnitř Get/Set Material Attributes upraví jen vybrané atributy, zbytek proteče beze změny. Jedna funkce pro celý projekt znamená i opravy na jednom místě.
+
+Kde se s tím potkáš: [Materiály](praxe/materialy.md)
+
+### Mesh distance field
+
+**Předpočítané pole vzdáleností k nejbližšímu povrchu meshe — shader se může kdykoli zeptat „jak daleko je geometrie?".**
+
+Zapíná se v project settings, kontroluje vizualizačním viewmodem. Uzel Distance to Nearest Surface na něm staví efekty obtékající objekty: mlha plazící se po zdech, sníh u stěn, ohořelé okraje. Stejná data pohání distance field stíny a AO.
+
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md)
 
 ### MetaHuman
 
@@ -1246,6 +1278,14 @@ Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, A
 
 Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md)
 
+### Toon shading
+
+**Stylizované stínování v ostrých pásech (cel shading) — od 5.8 vestavěný shading model přes Substrate Toon BSDF.**
+
+Toon Profile asset řídí diffuse/specular rampu (počet, pozice a tvrdost pásů) a offset textury (halftone, malířský rozpad). Není to post-process — nasazuje se per materiál; největší výhoda proti ručním cel shaderům: správně reaguje na barevná světla, více světel i Lumen.
+
+Kde se s tím potkáš: [Materiály](praxe/materialy.md)
+
 ### Trajektorie
 
 **V Motion Matchingu spočítaná historie a predikce pohybu postavy — modrá budoucnost, červená minulost.**
@@ -1317,6 +1357,14 @@ Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.
 Sleduje transform zdrojové kosti vůči jiné; typické použití: IK cíle (foot IK pro skeleton, který IK kosti nemá — MetaHuman) a odvozené sockety. Rychlá cesta, jak cizímu skeletonu doplnit, co rig očekává.
 
 Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
+### Volumetric fog
+
+**Objemová mlha: světlo se rozptyluje v „hustotě vzduchu" — paprsky, god rays a atmosféra s hloubkou.**
+
+Zapíná se na Exponential Height Fog; tvar řídí scattering distribution, start distance a height falloff. Materiály s domain Volume do ní kreslí vlastní objemy (mlha Silent Hill 2). Kvalita: r.VolumetricFog.GridPixelSize (default 8, nižší = jemnější) a GridSizeZ (128 → 256/512, ten dražší).
+
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
 
 ### Water Body
 

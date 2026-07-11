@@ -76,6 +76,14 @@ Témata a kapitoly:
 - **[Breakdowny: jak se staví herní světy](env-breakdowny.md)** — San Francisco 1:1 od jednoho člověka, The Ascent (4 artisti, jeden shader), TLOU trim sheety, RE Requiem vrstvy realismu a detektivka kolem Crimson Desert.
 - **[Stavba prostředí: od kompozice po render](env-tvorba.md)** — chiaroscuro test před settingy, 132minutová lesní pěšina v PCG (vegetace, decaly, fyzikální světlo, MRQ), temný les za odpoledne a zvuk + listí jako finální vrstva.
 
+**Materiály a VFX**
+
+- **[Materiály: sdílení, displacement, decay a toon](materialy.md)** — master material se sdílenými texturami, Nanite displacement malovaný vertex colorem, procedurální decay systém (krev/špína/toxin jednou material function + zóny s timeline) a toon shading z 5.8.
+
+**Osvětlení a atmosféra**
+
+- **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu a rychlé triky.
+
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — drobné triky, které šetří minuty každý den.

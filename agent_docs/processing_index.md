@@ -4,7 +4,7 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 161 published (pilot + batch 1–15) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
+**Stats:** 210 videos (31 Teorie, 179 Praxe) · 173 published (pilot + batch 1–16) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses).
 
 ## Proposed téma tree
 
@@ -289,23 +289,23 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Smart Master Material Workflow in Unreal Engine 5 #tutorial  #unrealengine #substance_painter](https://www.youtube.com/watch?v=xLlFljzdLF4) `xLlFljzdLF4` | PolyBoost | 15:34 | auto | 918 | `master-materialy` |  |
-| todo | [Easy Nanite Displacement in UE5 - Create Stunning Detail](https://www.youtube.com/watch?v=pLl25FaqCiI) `pLl25FaqCiI` | duongunreal | 30:09 | manual | 585 | `nanite-displacement` |  |
-| todo | [Unreal Engine 5.4 Preview Nanite Cliff Tessellation RTX 4090](https://www.youtube.com/watch?v=CdyLdkRmFA0) `CdyLdkRmFA0` | Gorka Games | 2:19 | auto | 432 | `nanite-displacement` | preview (2:19) |
-| todo | [How To Create A Procedural Decay System - Unreal Engine 5 Material Tutorial](https://www.youtube.com/watch?v=OCgrHAHKmuM) `OCgrHAHKmuM` | Pitchfork Academy | 85:23 | auto | 13694 | `proceduralni-materialy` | 85 min |
-| todo | [Stop Stretching Textures in UE5 #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=kJgRLfyqjL0) `kJgRLfyqjL0` | Matt Aspland | 0:32 | auto | 107 | `textury-tipy` | short |
-| todo | [How To Use Toon Shading New In UE5.8 - Unreal Engine 5.8 Materials Tutorial](https://www.youtube.com/watch?v=iMJJYXHMw4o) `iMJJYXHMw4o` | Pitchfork Academy | 31:15 | auto | 5671 | `toon-shading` |  |
+| published | [Smart Master Material Workflow in Unreal Engine 5 #tutorial  #unrealengine #substance_painter](https://www.youtube.com/watch?v=xLlFljzdLF4) `xLlFljzdLF4` | PolyBoost | 15:34 | auto | 918 | `materialy` | slug → materialy |
+| published | [Easy Nanite Displacement in UE5 - Create Stunning Detail](https://www.youtube.com/watch?v=pLl25FaqCiI) `pLl25FaqCiI` | duongunreal | 30:09 | manual | 585 | `materialy` | slug → materialy |
+| published | [Unreal Engine 5.4 Preview Nanite Cliff Tessellation RTX 4090](https://www.youtube.com/watch?v=CdyLdkRmFA0) `CdyLdkRmFA0` | Gorka Games | 2:19 | auto | 432 | `materialy` | preview (2:19); slug → materialy |
+| published | [How To Create A Procedural Decay System - Unreal Engine 5 Material Tutorial](https://www.youtube.com/watch?v=OCgrHAHKmuM) `OCgrHAHKmuM` | Pitchfork Academy | 85:23 | auto | 13694 | `materialy` | 85 min (2 myšlenky); slug → materialy |
+| published | [Stop Stretching Textures in UE5 #unrealengine #gamedev #indiedev](https://www.youtube.com/watch?v=kJgRLfyqjL0) `kJgRLfyqjL0` | Matt Aspland | 0:32 | auto | 107 | `materialy` | short; slug → materialy |
+| published | [How To Use Toon Shading New In UE5.8 - Unreal Engine 5.8 Materials Tutorial](https://www.youtube.com/watch?v=iMJJYXHMw4o) `iMJJYXHMw4o` | Pitchfork Academy | 31:15 | auto | 5671 | `materialy` | slug → materialy |
 
 ### Osvětlení a atmosféra · `P-LIGHT` (6)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Recreating Silent Hill 2 Fog in Unreal Engine 5](https://www.youtube.com/watch?v=96sheL5UqJQ) `96sheL5UqJQ` | Dallas Drapeau | 36:10 | auto | 4985 | `atmosfera-mlha` | Silent Hill 2 |
-| todo | [Realistic and Physical Lighting in UE5: The PBL Workflow](https://www.youtube.com/watch?v=GsE0mDtxtiQ) `GsE0mDtxtiQ` | arthur tasquin | 28:39 | manual | 5022 | `fyzikalni-osvetleni` |  |
-| todo | [Create a horror lighting in Unreal Engine.](https://www.youtube.com/watch?v=0w3SBb5ktlg) `0w3SBb5ktlg` | Karim aboushousha | 16:12 | auto | 1793 | `hororove-osvetleni` |  |
-| todo | [How to make a simple night scene in Unreal Engine 5](https://www.youtube.com/watch?v=YHhRTjD_P2A) `YHhRTjD_P2A` | UE5 Poseidon | 8:28 | auto | 958 | `nocni-scena` |  |
-| todo | [Game Dev Secrets: How does light work? #indiegamedev #indiedev](https://www.youtube.com/watch?v=rzm8v5gx7l0) `rzm8v5gx7l0` | Inbound Shovel | 1:00 | auto | 254 | `osvetleni-zaklady` | short |
-| todo | [UE5 Lighting Tricks You Need to Know](https://www.youtube.com/watch?v=9PFrFDjVXHM) `9PFrFDjVXHM` | Sergey Maryshev | 0:51 | manual | 142 | `osvetleni-zaklady` | short |
+| published | [Recreating Silent Hill 2 Fog in Unreal Engine 5](https://www.youtube.com/watch?v=96sheL5UqJQ) `96sheL5UqJQ` | Dallas Drapeau | 36:10 | auto | 4985 | `osvetleni` | Silent Hill 2; slug → osvetleni |
+| published | [Realistic and Physical Lighting in UE5: The PBL Workflow](https://www.youtube.com/watch?v=GsE0mDtxtiQ) `GsE0mDtxtiQ` | arthur tasquin | 28:39 | manual | 5022 | `osvetleni` | slug → osvetleni |
+| published | [Create a horror lighting in Unreal Engine.](https://www.youtube.com/watch?v=0w3SBb5ktlg) `0w3SBb5ktlg` | Karim aboushousha | 16:12 | auto | 1793 | `osvetleni` | slug → osvetleni |
+| published | [How to make a simple night scene in Unreal Engine 5](https://www.youtube.com/watch?v=YHhRTjD_P2A) `YHhRTjD_P2A` | UE5 Poseidon | 8:28 | auto | 958 | `osvetleni` | slug → osvetleni |
+| published | [Game Dev Secrets: How does light work? #indiegamedev #indiedev](https://www.youtube.com/watch?v=rzm8v5gx7l0) `rzm8v5gx7l0` | Inbound Shovel | 1:00 | auto | 254 | `osvetleni` | short (2D normal mapy); slug → osvetleni |
+| published | [UE5 Lighting Tricks You Need to Know](https://www.youtube.com/watch?v=9PFrFDjVXHM) `9PFrFDjVXHM` | Sergey Maryshev | 0:51 | manual | 142 | `osvetleni` | short (3 triky); slug → osvetleni |
 
 ### Rendering a optimalizace · `P-PERF` (7)
 
