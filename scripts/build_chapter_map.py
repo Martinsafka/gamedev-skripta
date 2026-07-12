@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Generate the Concept Audit Skill's chapter map from mkdocs.yml + docs/.
+"""Generate the skills' chapter map from mkdocs.yml + docs/.
 
-Output: .claude/skills/concept-audit/references/chapter-map.md
+Outputs (one identical copy per skill):
+  .claude/skills/concept-audit/references/chapter-map.md
+  .claude/skills/mechanic-mentor/references/chapter-map.md
 Run after adding chapters (see architecture.md → Public URL contract):
 
     .venv/bin/python scripts/build_chapter_map.py
@@ -20,7 +22,10 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
-OUT = ROOT / ".claude" / "skills" / "concept-audit" / "references" / "chapter-map.md"
+OUTS = [
+    ROOT / ".claude" / "skills" / "concept-audit" / "references" / "chapter-map.md",
+    ROOT / ".claude" / "skills" / "mechanic-mentor" / "references" / "chapter-map.md",
+]
 
 DOCUMENTS = ["Teorie her", "Praxe v UE5", "Zápisky"]  # nav sections to include
 
@@ -137,9 +142,10 @@ def main() -> None:
         lines.append(f"- [{term}]({url})")
     lines.append("")
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text("\n".join(lines), encoding="utf-8")
-    print(f"Wrote {OUT.relative_to(ROOT)} ({len(lines)} lines)")
+    for out in OUTS:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text("\n".join(lines), encoding="utf-8")
+        print(f"Wrote {out.relative_to(ROOT)} ({len(lines)} lines)")
 
 
 if __name__ == "__main__":

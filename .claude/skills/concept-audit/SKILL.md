@@ -53,7 +53,7 @@ Reference the published structures; don't restate their theory at length.
 
 ## Output contract
 
-- Every finding is a triple: **what → why it matters → where next** (chapter URL and/or cheapest experiment with kill criterion), closed by **a question the author must answer themselves**. The question is the audit's sharpest tool.
+- Every finding is a triple: **what → why it matters → where next** (chapter URL and/or cheapest experiment with kill criterion), closed by **a question the author must answer themselves**. The question is the audit's sharpest tool. The link must let the author answer the closing question, not merely illustrate the finding; a question with no route is an incomplete finding.
 - **Recognize strengths explicitly.** A well-derived decision is reported as established. Do not invent problems to appear thorough — a finding-free section is a legitimate result.
 - Keep findings tight (3–6 sentences each). Depth belongs to the linked chapters.
 - Close with: **Test plan** (per untested premise: premise → cheapest test → kill criterion), **Library gaps**, the offer of templates for the author's next iteration, and the offer to save the audit to a file.
@@ -65,6 +65,7 @@ After delivering the audit, offer to save it verbatim as a Markdown file so the 
 ## Routing rules
 
 - Chapter links come from `${CLAUDE_SKILL_DIR}/references/chapter-map.md` — read it before auditing. Link; **never embed chapter content** in the audit. The library grows underneath; the skill must not go stale.
+- **Emit links as visible URLs, never hidden-label Markdown.** The audit is read in a terminal and saved as plain Markdown, where `[label](url)` shows only the label — the address is neither visible nor reliably clickable. Write each chapter link as a short descriptor followed by the bare URL in angle brackets: `Cut line — <https://martinsafka.github.io/gamedev-skripta/zapisky/cut-line/>`. The chapter map lists links in `[label](url)` form for its own readability; **convert them to the visible form when emitting into the audit.** (Only the long pre-filled library-gap issue URLs may stay as a labeled link, since showing them bare is unreadable.)
 - Unsure a URL or anchor exists → verify against the live site before citing it.
 - No fitting chapter → a Library gaps entry, not a forced reference.
 
