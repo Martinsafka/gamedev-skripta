@@ -31,6 +31,10 @@ rejstřík (glossary)    →  central term registry + per-page tooltips.
 
 Anchor convention: lowercase, hyphenated (`#line-trace`, `#blueprint-interface`).
 
+## Public URL contract (slugs & anchors are API)
+
+Effective 2026-07-11 (Phase 5, Concept Audit Skill): **published URLs are public API.** Chapter slugs (`docs/<dokument>/<slug>.md` → `/<dokument>/<slug>/`) and heading anchors — including rejstřík term anchors — are **never renamed, only added.** External consumers (the skill's chapter map in `.claude/skills/concept-audit/references/`, later installed plugin copies) route findings to these URLs; a rename silently breaks every installed copy. Escape hatch if a heading's wording must change: `attr_list` is enabled, so pin the old anchor explicitly — `## Nové znění {#stary-anchor}`. After adding chapters, regenerate the skill's chapter map: `scripts/build_chapter_map.py`.
+
 ## Data flow
 
 ```

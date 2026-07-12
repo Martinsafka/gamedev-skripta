@@ -66,14 +66,30 @@ After finishing a phase chunk, the agent **proposes the next step** and **ticks 
 
 **19 batchů, 202/210 videí published** (~30 kapitol Praxe + 22 Teorie, rejstřík ~200 termínů). Mimo scope zůstávají: 2 low-priority beginner kurzy (`dB-pS8PHALY`, `0yBSEiMldo0` — rozhodnutí Phase 2), 1 CS video (čeká na cs-subtitle pipeline, viz Later), 5 skipů (news/promo).
 
-### ▶ Phase 4 — Zápisky _(běží)_
+### ✅ Phase 4 — Zápisky _(done 2026-07-11)_
 
 - [x] `inbox/` workflow exercised end-to-end _(2026-07-11)_: **vlna 1 = 5 zápisků** z prvních 7 podkladů (selhávat citelně a čitelně; karta selhání: packaging; dokumentace jako audit; derivační řetěz IZBY; lom, ne hřbitov) — anonymizované, cross-linkované oběma směry (mm-zaklady, napad, zacatky-bez-zkusenosti), `--strict` + anchor-check green (782 fragmentů).
 - [x] **Vlna 2 done** _(2026-07-11)_: 7 podkladů → **7 zápisků** (`devlog-jako-mapa`, `pravidlo-70-30`, `gdd-review`, `cut-line`, `audit-vlastniho-tonu`, `kvizovy-protokol`, `oblouk-formou`), rejstřík +2 termíny (Dogfooding; One-way door — druhý výskyt dle plánu z vlny 1), cross-linky oběma směry do 8 kapitol (mm-zaklady, mm-systemy, gasp, claude-code-ue, editor-tipy, prototypovani, smycky-a-retezce, pribeh-a-postavy) i mezi zápisky, `--strict` + anchor-check green (802 fragmentů). **Inbox fronta prázdná — všech 14 podkladů zpracováno.**
-- [ ] Standing cadence: nový inbox soubor → zápisek v nejbližším sezení; vlna = max ~5 zápisků kvůli kvalitě. (Návrh — potvrdit s uživatelem.)
+- [x] Standing cadence **potvrzena uživatelem** _(2026-07-11)_: nový inbox soubor → zápisek v nejbližším sezení; vlna = max ~5 zápisků kvůli kvalitě. Platí průběžně i po uzavření fáze.
 
-### Later / ideas
+### ▶ Phase 5 — Concept Audit Skill _(běží od 2026-07-11)_
 
-- [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source).
-- [ ] Per-chapter "co si vyzkoušet" exercise blocks.
-- [ ] Czech-video support check (`--sub-langs` extension) if the playlist gains Czech sources.
+Plán: `agent_docs/concept_audit_skill.md` — aktivační podmínky splněny vlnou 2 zápisků (knihovna + auditní struktury publikovány). **Mechanic Mentor** (`agent_docs/mechanic_mentor_skill.md`) je druhý v pořadí a čeká na složenou kalibraci audit skillu. Schválený přístup (2026-07-11): generovaný chapter-map + regenerační skript; SKILL.md anglicky, šablony česky, dialog zrcadlí uživatele; slash i auto-trigger; v0 čistě pro Claude Code.
+
+- [x] Krok 0 _(2026-07-11)_: slug/anchor invariant v `architecture.md` (escape hatch: `attr_list` `{#stary-anchor}`) · issue template `.github/ISSUE_TEMPLATE/library-gap.md` · Phase 5 v roadmapě.
+- [x] Krok 1 _(2026-07-11)_: v0 skillu v `.claude/skills/concept-audit/` — SKILL.md (EN, auto-trigger description CZ+EN) + 3 šablony CZ (intake, design-rationale, pillars) + `references/chapter-map.md` (266 odkazů, generovaný) + `scripts/build_chapter_map.py` (validuje anchory proti buildu).
+- [x] Krok 2 _(2026-07-11)_: kalibrace na 3 případech (IZBA-GDD / adventura-živý / přerostlý koncept) s **předregistrovanými kritérii** — vše prošlo; 1 zachycený vzor (měkký výrok o autorovi) → pravidlo 5 v SKILL.md zpřísněno. Kontaminace přiznána — jen kalibrační evidence, ne důkaz.
+- [x] **Společná kalibrace na reálném dokumentu** _(2026-07-11)_: uživatel vložil skutečné GDD v2.0 přes `/concept-audit` (audit nastudeno, výhradně z textu) — **verdikt uživatele: prošel** (potvrzeny známé nálezy + nové reálné: herní doba natahovaná smrtmi, third-person vs. first-person reference, detekční pásmo 100–300, panenka na dvou místech). Dva zásahy z běhu do SKILL.md: intake gate zpřesněn (plný GDD bez derivace nestopuje — derivace je nález), přidána sekce „Saving the audit" (nabídka uložení výstupu do souboru). Výstup: `inbox/concept-audit-izba-gdd-2026-07-11.md` (gitignored).
+- [x] **Kalibrační trojice na reálných dokumentech dokončena** _(2026-07-12)_: Obscura (GDD v1.0 + sprint plán + marketingová koláž) a Evan Lowe (bible série 1) přes `/concept-audit` nastudeno — **verdikt uživatele: oba prošly** („pokládá správné otázky… všechny tři audity trochu bolí — nachytal jsem se na ‚to se přeci domyslí'; co není zapsané, není rozhodnuté a nepředává se dál"). Nová konvence: výstupy do gitignored `audits/` (uživatel založil, IZBA audit přesunul; SKILL.md „Saving the audit" aktualizován inbox→audits). Druhá úprava: intake formulář se nově nabízí i jako soubor k vyplnění. Kumulativní library-gaps signál: detektivní mechaniky 3×, serializované vyprávění 2×, tuning/balanc 2×, + citlivá témata/rating, lokalizace hlasu.
+- [ ] Krok 3: held-out testy — uživatel dodá syrové nápady ze šuplíku přímo v dialogu.
+- [ ] Krok 4: balení jako plugin (`.claude-plugin/marketplace.json`, repo = vlastní marketplace) — až si to v0 zaslouží.
+
+### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
+
+- [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_
+- [ ] Czech-video support (`--sub-langs` extension) + CS mytologie video (`kfu4jKyazzU`). _(Odloženo uživatelem 2026-07-11.)_
+- [ ] 2 low-priority beginner kurzy (`dB-pS8PHALY`, `0yBSEiMldo0`) — zůstávají todo, rozhodnutí Phase 2 trvá.
+
+### Nerozhodnuto _(záměrně na konci — vrátit se, až bude jasno)_
+
+- [ ] Per-chapter „co si vyzkoušet" exercise blocks — zatím nevíme, jak se k tomu postavit (jednorázový průchod ~50 kapitolami vs. postupně při otevření kapitoly). _(Přesunuto na konec 2026-07-11.)_

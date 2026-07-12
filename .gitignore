@@ -5,6 +5,7 @@ transcripts_clean/
 inbox/*
 !inbox/.gitkeep
 pilot/
+audits/*
 
 # MkDocs build output
 site/
@@ -17,3 +18,4 @@ site/
 __pycache__/
 *.py[cod]
 .venv/
+/audits/
