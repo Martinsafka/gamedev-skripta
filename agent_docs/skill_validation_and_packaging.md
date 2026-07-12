@@ -10,6 +10,8 @@
 
 ## Úkol A — held-out validace concept-audit (Phase 5, krok 3)
 
+> ✅ **HOTOVO 2026-07-12 (Opus 4.8).** Tři held-out dokumenty přes `/concept-audit` prošly (KYRRÖ nekompletní nástřel; The Seeker Mount Stupid + právní/platformní catch; Race'n'Chase reálný DMA doc 1995 → GTA). Tři opravy zapracované do skillů (čeština „proč na tom záleží"; otázka nese vlastní routing; viditelné URL místo `[label](url)` — i v mechanic-mentoru). Audity v gitignored `audits/`. Detaily v `dev_log.md`. **Úkoly B a C vědomě odloženy — projekt zakonzervován.**
+
 1. Uživatel vloží syrový nápad ze šuplíku (přímo v dialogu, přes `/concept-audit`). Nijak ho předem nečisti.
 2. Řiď se výhradně SKILL.md — sekce v pevném pořadí, nálezy jako trojice + otázka, síly explicitně, žádné verdikty,
    žádné autorování. Odkazy jen z `references/chapter-map.md` (nejsi-li si jistý, ověř proti živému webu).

@@ -90,8 +90,8 @@ Plán: `agent_docs/mechanic_mentor_skill.md`. Aktivační podmínky splněny (au
 
 - [x] **v0 postaveno** _(2026-07-12)_: `.claude/skills/mechanic-mentor/` — SKILL.md (8 hard rules vč. human-write/agent-read, smyčka 0–9, session devlog s počítadly, exit gate counterfactuals, seams-over-ceremony bez pattern banů), šablony CZ (mechanic-intake, session-devlog s Intent sekcí), `references/review-queries.md` (10 standardních read-only dotazů s routingem — mrtvé dráty, write-only, ne-defaultní write-path, cross-boundary casty, tagy, prahy v datech, jeden datový kontrakt, tick polling, interface úplnost, pose-matched vstupy), chapter-map sdílená s auditem (generátor přepnut na dvojí výstup). Otevřené otázky briefu rozhodnuty: standalone intake přijímán (pipeline doporučena), review = standardní sada + 2–4 dotazy odvozené z intentu, understanding log NE (Follow-ups v devlogu stačí — scope creep), jeden plugin se dvěma skilly (doporučení pro krok balení).
 - [x] **Lehká kalibrace** _(2026-07-12)_: sonda „schovat se pod postel" (kroky 0–3) proti předregistrovaným kritériím — 6/6 (principy s odkazy; fáze/hranice/mechanism-vs-policy formou otázek; nula autorování; review-queries kryjí 5 švů z pravidlo-70-30). Kontaminace přiznána — plná validace na Opus 4.8 s reálnou mechanikou.
-- [ ] Validace pod Opus 4.8 (reálná mechanika, uživatel soudce) — protokol v `agent_docs/skill_validation_and_packaging.md`.
-- [ ] Po validaci: společné balení s concept-audit (Phase 5 krok 4).
+- [ ] Validace pod Opus 4.8 (reálná mechanika, uživatel soudce) — protokol v `agent_docs/skill_validation_and_packaging.md`. **Vědomě odloženo 2026-07-12** (uživatel dnes bez UE energie; projekt zakonzervován). Vhodné vstupy až přijde čas: naznačené IZBA mechaniky pro návrhovou půlku (kroky 1–5, 8, bez nástrojů) + CLS_MM pro artefaktovou review (krok 7, potřebuje MCP/živý projekt, kontaminace přiznána).
+- [ ] Po validaci: společné balení s concept-audit (Phase 5 krok 4) — **taky po pauze, gate-nuto úspěšným B**.
 
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 
