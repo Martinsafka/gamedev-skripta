@@ -1,5 +1,12 @@
 # Design Rationale — skeleton derivačního řetězu
 
+> **Jak s tímhle dokumentem pracovat**
+>
+> - **K čemu slouží:** Záznam uvažování za konceptem (rozhodnutí → alternativy → proč zamítnuty). Bez něj se hotový GDD čte jako objednávka, s ním jako uvažování kolegy.
+> - **Kdy:** Po intake (nebo po auditu, který ukázal díry v řetězu). Hlavní učební artefakt. *(Pořadí: intake → **design-rationale** → pillars; audit = periodická kontrola.)*
+> - **Jak:** Jedna karta na rozhodnutí. Zamítnuté alternativy se nemažou. Datuj větší revize — je to snímek v čase, ne živá wiki.
+> - **Návaznost:** Čerpá ze zadání v `intake.md`; odkazuje na `pillars.md` jako akceptační kritéria řetězu.
+
 Záznam uvažování, které vedlo ke konceptu — psaný pro čtenáře, který u toho nebyl (včetně tvého budoucího já). **Hotový dokument maže vlastní historii:** bez derivace se čte jako objednávka, s derivací jako uvažování kolegy. Ukázkový hotový řetěz: [Derivační řetěz: od zadání k žánru](https://martinsafka.github.io/gamedev-skripta/zapisky/derivace-izby/).
 
 ## Zadání

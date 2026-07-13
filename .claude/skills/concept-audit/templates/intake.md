@@ -1,5 +1,12 @@
 # Vstupní formulář konceptu (intake)
 
+> **Jak s tímhle dokumentem pracovat**
+>
+> - **K čemu slouží:** Krok nula — dostat na papír, co hra je, jaký má cíl a v jakých omezeních vzniká. Nutí k derivaci, kterou většina konceptů přeskočí.
+> - **Kdy:** Jako první — nebo přeskoč, pokud tvůj GDD identitu (co / cíl / omezení) už pevně pokrývá. *(Pořadí: **intake** → design-rationale → pillars; audit = periodická kontrola.)*
+> - **Jak:** Syrově, neleštit. Prázdné pole je taky data. Nevyplňuj „aby to vypadalo dobře" — audituje se napsané, ne to v hlavě.
+> - **Návaznost:** Zadání odsud jde do `design-rationale.md`; „čeho se odmítáš vzdát" (§4) jsou kandidáti do `pillars.md`.
+
 Vyplň vlastními slovy a **syrově — neleštit.** Nedokončené odpovědi jsou taky data: prázdné pole říká, kde koncept ještě odpověď nemá, a audit s tím umí pracovat. Co naopak nefunguje, je formulář vyplněný „aby vypadal dobře" — audituje se to, co je napsané, ne to, co máš v hlavě.
 
 ## 1. Co to je
