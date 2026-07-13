@@ -12,6 +12,7 @@ Kde se s teorií a praxí rozcházejí, říkají to nahlas — reálná zkušen
 - **[Devlog jako mapa](devlog-jako-mapa.md)** — 205 záznamů ze čtrnácti dní stavby enginu: verifikační hranice posouvaná nástrojem, ságy s licencí na kapitulaci a bugy, které chodí ve třídách.
 - **[Audit vlastního tónu](audit-vlastniho-tonu.md)** — obvinění, které záznam nepotvrdil, a nelichotivý vzorec, který místo něj našel: „to není problém" jako nejdražší věta technických debat.
 - **[Kvízový protokol: znalost vs. automatizace](kvizovy-protokol.md)** — dvě různé mezery, dva různé tréninky; chyby se jmény a počítadly; příprava na roli, ne na událost.
+- **[Nářadí, ne archiv: co s dokumenty po konceptu](naradi-ne-archiv.md)** — čtyři dokumenty z auditu a jejich různá životnost: intake je lešení, rationale živý decision log, pilíře denní filtr, audit opakovaná událost; domov dokumentu se řídí frekvencí použití.
 
 **Projekty a rozhodnutí**
 
