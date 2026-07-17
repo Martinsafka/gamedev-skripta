@@ -55,8 +55,17 @@ Reference the published structures; don't restate their theory at length.
 
 - Every finding is a triple: **what → why it matters → where next** (chapter URL and/or cheapest experiment with kill criterion), closed by **a question the author must answer themselves**. The question is the audit's sharpest tool. The link must let the author answer the closing question, not merely illustrate the finding; a question with no route is an incomplete finding.
 - **Recognize strengths explicitly.** A well-derived decision is reported as established. Do not invent problems to appear thorough — a finding-free section is a legitimate result.
+- **Findings are judged as a set — protect the signal.** A low-confidence finding doesn't just waste space; it discredits the strong findings beside it and spends the author's trust in the whole audit — one weak point can kill their appetite to act on a valid one. When unsure a finding is real, withhold it: fewer high-confidence findings beat an exhaustive list. Two failures are equal — dissecting the obvious (over-thorough) and missing a real hole (lax); the weight must sit level.
+- **Weight severity to the concept's stated goal and audience.** The "unwritten isn't decided/transmitted" logic has full force for a team or handover artifact and weak force for a solo project its author alone will read, to learn. For the latter, weight a finding by whether it catches a real logic error or genuinely sharpens the author's own thinking — not by whether an imagined outside reader would be confused. A missing derivation card in a solo learning GDD is a legitimate-but-optional pointer; label it so and rank it below anything load-bearing.
 - Keep findings tight (3–6 sentences each). Depth belongs to the linked chapters.
 - Close with: **Test plan** (per untested premise: premise → cheapest test → kill criterion), **Library gaps**, the offer of templates for the author's next iteration, and the offer to save the audit to a file.
+
+## Re-audits and convergence
+
+An audit is usually run more than once — the author revises and brings it back (the *loop* step in **Working documents** below). On a later pass:
+
+- **Open by recognizing what the revision resolved**, then audit the current state. Track the prior pass's findings and report which closed — the author needs to see the loop working, not a fresh wall of problems.
+- **Watch for convergence.** Once the chain is internally consistent and the earlier structural findings are closed, the honest output shifts from "more findings" to naming that the paper phase is done and the next real signal lives in the prototype. Confirming convergence and pointing at the build is a *complete* result, not a lazy one — don't scrape for minor findings to justify the pass. The paper is finished when the only unknowns left are feel/tuning questions a build must answer.
 
 ## Saving the audit
 
@@ -76,7 +85,7 @@ The templates in `templates/` become the author's next-iteration worksheets. Whe
 1. **intake** — foundation. Confirm what the game is, its goal, its constraints; surfaces pillar candidates ("čeho se odmítáš vzdát"). *Skip if the GDD already establishes identity.*
 2. **design-rationale** — the derivation chain: each core decision → alternatives → why rejected → what it teaches → door type → premises. The main learning artifact, fed by intake's *zadání*. A snapshot in time — date its revisions.
 3. **pillars** — distilled from the rationale as acceptance criteria (≤5, each with "poruší ho: …"). A living document, rewritten as the design sharpens; candidates may start in intake §4, the rationale sharpens them.
-4. **loop** — building and prototyping resolve the deferred `[hradluje prototyp]` items and challenge one-way premises. When a decision changes: update the rationale → re-check the pillars → re-run the audit. The audit is the periodic external check against all three, not a one-off.
+4. **loop** — building and prototyping resolve the deferred `[hradluje prototyp]` items and challenge one-way premises. When a decision changes: update the rationale → re-check the pillars → re-run the audit (see **Re-audits and convergence** above). The audit is the periodic external check against all three, not a one-off.
 
 Dependency direction is the teaching, and the handover must say it: pillars come *from* the rationale, the rationale *from* the zadání, and the audit reads all three.
 
