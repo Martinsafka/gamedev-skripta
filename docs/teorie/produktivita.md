@@ -20,7 +20,7 @@ Vývoj hry trvá dlouho i bez chyb — od tří měsíců po roky. Studio BiteMe
 
 > **Pozn.:** Společný test všech tří: „mám důkaz, že na tomhle záleží?" Pokud důkaz neexistuje, nejlevnější další krok není práce, ale získání důkazu. Souvisí s [the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) — i validace má své pasti.
 
-**Souvislosti:** [Rady z praxe: idea iceberg](rady-z-praxe.md) · [Postmortem ShantyTown](postmortem-shantytown.md#kruhy-logaritmicky-pokrok-a-systemy-ktere-jen-bavilo-stavet) · [Rejstřík: premature optimization](../rejstrik.md#premature-optimization)
+**Souvislosti:** [Rady z praxe: idea iceberg](rady-z-praxe.md) · [Postmortem ShantyTown](postmortem-shantytown.md#kruhy-logaritmicky-pokrok-a-systemy-ktere-jen-bavilo-stavet) · [Rejstřík: premature optimization](../rejstrik.md#premature-optimization) · [Hudba a zvuk: začít a vydržet](../hudba/zacit-a-vydrzet.md) *(hudba jako odkládaná disciplína)*
 
 ---
 

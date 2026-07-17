@@ -27,7 +27,7 @@ OUTS = [
     ROOT / ".claude" / "skills" / "mechanic-mentor" / "references" / "chapter-map.md",
 ]
 
-DOCUMENTS = ["Teorie her", "Praxe v UE5", "Zápisky"]  # nav sections to include
+DOCUMENTS = ["Teorie her", "Praxe v UE5", "Hudba a zvuk", "Zápisky"]  # nav sections to include
 
 
 def slugify(text: str) -> str:

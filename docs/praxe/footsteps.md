@@ -20,7 +20,7 @@ Kroky jsou nejčastější zvuk i nejčastější vizuální otisk hry — a př
 
 > **Pozn.:** Trace-based vs. notify-based je stejný spor jako u [foot placementu v GASP](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor): notify (nebo contact curve) ví *přesně*, kdy animace došlapuje; trace to jen odhaduje z pozice kosti — zato funguje s čímkoli. Pro MM projekt bych volil trace nebo contact curves; pro ručně vyladěnou sadu animací jsou notifies přesnější (viz další myšlenka — obě cesty se nevylučují).
 
-**Souvislosti:** [Rejstřík: physical material](../rejstrik.md#physical-material) · [Rejstřík: sound cue](../rejstrik.md#sound-cue) · [GASP: contact curves](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor)
+**Souvislosti:** [Rejstřík: physical material](../rejstrik.md#physical-material) · [Rejstřík: sound cue](../rejstrik.md#sound-cue) · [GASP: contact curves](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) · [Hudba a zvuk: sound design ve hře](../hudba/sound-design-ve-hre.md) *(principy za herním zvukem)*
 
 ---
 

@@ -40,4 +40,4 @@ Obecná lekce pod tím: imerze není počet polygonů, ale **smyčka akce → ot
 
 > **Pozn.:** Stejný vzorec „poslední 10 % dělá celý dojem" jako u [over-polishingu](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) — ale tady jde o jádro fantazie hry („jsi balvan"), takže to *je* to správné místo pro hyper-polish. Kritérium zůstává: leštit, co sytí hlavní fantazii, ne co je zrovna po ruce.
 
-**Souvislosti:** [Nápad: core DNA a emoce](napad.md#core-dna-a-ctyri-emoce) · [Žrouti času: over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · budoucí praxe témata „Materiály a VFX", „PCG a procedurální svět" · [Rejstřík: game feel](../rejstrik.md#game-feel)
+**Souvislosti:** [Nápad: core DNA a emoce](napad.md#core-dna-a-ctyri-emoce) · [Žrouti času: over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · budoucí praxe témata „Materiály a VFX", „PCG a procedurální svět" · [Rejstřík: game feel](../rejstrik.md#game-feel) · [Hudba a zvuk: sound design ve hře](../hudba/sound-design-ve-hre.md) *(zvuk jako vrstva imerze)*

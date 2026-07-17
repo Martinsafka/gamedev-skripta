@@ -45,7 +45,7 @@ Kontinuum hráčských postav — od Trevora z GTA V (plně napsaný, na hráči
 
 Praktické pravidlo z videa: umíš psát → fixní postava; neumíš psát, ale umíš vyrobit cool věci → cipher. A hlavně: **vyber si polohu vědomě** — hra, která mezi typy nerozhodně pluje, působí zmateně.
 
-**Souvislosti:** [Základy: engagement a appeal](zaklady.md) · [Rejstřík: cipher](../rejstrik.md#cipher) · [Rejstřík: narrative design](../rejstrik.md#narrative-design)
+**Souvislosti:** [Základy: engagement a appeal](zaklady.md) · [Rejstřík: cipher](../rejstrik.md#cipher) · [Rejstřík: narrative design](../rejstrik.md#narrative-design) · [Hudba a zvuk: leitmotiv](../hudba/tvorba-soundtracku.md#leitmotiv-hudba-propojuje-svet) *(hudební téma postavy)*
 
 ---
 

@@ -93,7 +93,19 @@ Plán: `agent_docs/mechanic_mentor_skill.md`. Aktivační podmínky splněny (au
 - [ ] Validace pod Opus 4.8 (reálná mechanika, uživatel soudce) — protokol v `agent_docs/skill_validation_and_packaging.md`. **Vědomě odloženo 2026-07-12** (uživatel dnes bez UE energie; projekt zakonzervován). Vhodné vstupy až přijde čas: naznačené IZBA mechaniky pro návrhovou půlku (kroky 1–5, 8, bez nástrojů) + CLS_MM pro artefaktovou review (krok 7, potřebuje MCP/živý projekt, kontaminace přiznána).
 - [ ] Po validaci: společné balení s concept-audit (Phase 5 krok 4) — **taky po pauze, gate-nuto úspěšným B**.
 
+### ✅ Phase 7 — Hudba a zvuk _(hotovo 2026-07-17)_
+
+Nová top-level sekce `docs/hudba/` z 17videového playlistu **Gamedev-music** (tvorba hudby a zvuku) — první nový dokument od scaffoldu, v nav mezi Praxe a Zápisky. Taxonomie **schválena uživatelem 2026-07-17**: 5 témat / 12 kapitol; oblouk teorie → skladba → sound design → produkce → cesta skladatele. **12/12 kapitol, 33 myšlenek, 17/17 videí published, rejstřík +47 termínů.** Psáno ve 3 dávkách po 4 kapitolách, každá = zelený `--strict` + anchor-check + dev_log.
+
+- [x] **Fetch + clean** _(2026-07-17)_: `fetch_transcripts.sh` nově drží obě URL (pole `PLAYLIST_URLS`); 17 hudebních videí staženo, všech 17 s trackem.
+- [x] **Dávka A done** _(2026-07-17)_: „Základy hudební teorie" (`fyzika-souzvuku`, `hudebni-teorie-zaklady`) + část „Skladba" (`melodie`, `akordy-a-harmonie`). 8 videí → **4 kapitoly / 12 myšlenek**, rejstřík +23, nav + index, `build_chapter_map.py` nově zná „Hudba a zvuk" (`DOCUMENTS`).
+- [x] **Dávka B done** _(2026-07-17)_: dokončení „Skladba" (`aranz`, `zanry-a-styl`) + „Sound design a zvuk ve hře" (`synteza-zvuku`, `sound-design-ve-hre`). 5 videí → **4 kapitoly / 11 myšlenek**, rejstřík +17.
+- [x] **Dávka C done** _(2026-07-17)_: „Hudba pro tvou hru" (`tvorba-soundtracku`, `nastroje-zdarma-a-game-jam`) + „Cesta skladatele" (`cesta-skladatele`, `zacit-a-vydrzet`). 4 videa → **4 kapitoly / 10 myšlenek**, rejstřík +7.
+- [x] **Wrap done** _(2026-07-17)_: 8 dopředných odkazů povýšeno na plné, 9 zpětných odkazů z existujících kapitol do hudby, `processing_index.md` sekce „Hudba a zvuk", full-tree anchor-check 928/0.
+
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
+
+- [ ] **Hlavní playlist narostl 210 → 327 (+116 videí)** — staženo + vyčištěno při music fetchi (`fetch_transcripts.sh` drží oba playlisty), leží v gitignored `transcripts_clean/`, `fetched.txt` je obsahuje. Zatím **nezpracováno a mimo `processing_index`** — samostatná budoucí synteční dávka/dávky (rozřadit do témat jako Phase 2). _(Objeveno 2026-07-17.)_
 
 - [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_
 - [ ] Czech-video support (`--sub-langs` extension) + CS mytologie video (`kfu4jKyazzU`). _(Odloženo uživatelem 2026-07-11.)_

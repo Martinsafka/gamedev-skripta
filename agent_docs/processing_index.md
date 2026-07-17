@@ -4,7 +4,11 @@ Per-video status tracker for the whole playlist — created in the Phase 2 taxon
 
 Legend: status `todo / drafted / published / skip` · track `manual / auto / —` (— = no English subtitle track, "bez přepisu") · slova = word count of the cleaned transcript.
 
-**Stats:** 210 videos (31 Teorie, 179 Praxe) · 202 published (pilot + batch 1–19) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses). **Phase 3 komplet — zbývá: 2 low-priority kurzy + 1 CS video (čeká na cs-subtitle pipeline).**
+**Stats (hlavní playlist):** 210 videos (31 Teorie, 179 Praxe) · 202 published (pilot + batch 1–19) · 7 bez přepisu · 5 skip (news/promo) + 2 low-priority (beginner courses). **Phase 3 komplet — zbývá: 2 low-priority kurzy + 1 CS video (čeká na cs-subtitle pipeline).**
+
+**Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
+
+**⚠ Hlavní playlist mezitím narostl na 327** (+116 videí staženo + vyčištěno 2026-07-17 při music fetchi; leží v gitignored `transcripts_clean/`, `fetched.txt` je obsahuje). **Zatím nezařazeno do tohoto indexu ani zpracováno** — samostatná budoucí synteční dávka/dávky (viz roadmap → Later).
 
 ## Proposed téma tree
 
@@ -364,3 +368,29 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 | todo | [Unreal Engine 5.7.1 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi](https://www.youtube.com/watch?v=0yBSEiMldo0) `0yBSEiMldo0` | Magnet VFX | 97:40 | auto | 13268 | `kurzy` | kurz pro začátečníky (98 min) — nízká priorita |
 | skip | [Unreal Engine 5.8 JUST DROPPED (Mesh Terrain, Control Rig, Physics, AI)](https://www.youtube.com/watch?v=sDLYd2keSwA) `sDLYd2keSwA` | Proj Prod | 12:44 | manual | 2188 | `novinky` | novinkové video — přeskočit? |
 | skip | [Unreal Engine 5.8 Feature Highlights](https://www.youtube.com/watch?v=ExFF5gXVhDU) `ExFF5gXVhDU` | Unreal Engine | 3:26 | manual | 359 | `novinky` | novinkové video — přeskočit? |
+
+---
+
+## Hudba a zvuk · Phase 7 _(samostatný playlist „Gamedev-music")_
+
+Nový top-level dokument z 17videového playlistu o tvorbě hudby a zvuku (ne hlavní studijní playlist). Taxonomie schválena uživatelem 2026-07-17; 5 témat / 12 kapitol; **všech 17 videí published** v dávkách A–C (2026-07-17). Video `P_GLkYNBhBY` živí dvě kapitoly (melodická a akordová půlka).
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [The Physics Of Dissonance](https://www.youtube.com/watch?v=tCsl6ZcY9ag) `tCsl6ZcY9ag` | minutephysics | 27:58 | auto | 5874 | `hudba/fyzika-souzvuku.md` | dávka A |
+| published | [Music Theory Basics Explained \|\| Music for Games is Easy](https://www.youtube.com/watch?v=K74fbAxO0wg) `K74fbAxO0wg` | Seraphin | 9:20 | auto | 1316 | `hudba/hudebni-teorie-zaklady.md` | dávka A |
+| published | [how to actually write good melodies](https://www.youtube.com/watch?v=0BYBNSHMA0o) `0BYBNSHMA0o` | flowerhead | 13:05 | auto | 1942 | `hudba/melodie.md` | dávka A |
+| published | [Rhythm Rule for Better Melodies](https://www.youtube.com/watch?v=WTj-b6oD-Ks) `WTj-b6oD-Ks` | Hack Music Theory | 5:58 | auto | 852 | `hudba/melodie.md` | dávka A |
+| published | [Give me 12 minutes… chords & melodies](https://www.youtube.com/watch?v=P_GLkYNBhBY) `P_GLkYNBhBY` | Arcade | 12:13 | auto | 1759 | `hudba/melodie.md` + `hudba/akordy-a-harmonie.md` | dávka A — 2 kapitoly |
+| published | [Why Avicii's Melodies Are So Good](https://www.youtube.com/watch?v=qSjmVBXHuJo) `qSjmVBXHuJo` | Alex Rome | 15:37 | auto | 1698 | `hudba/melodie.md` | dávka A — případovka |
+| published | [How to Make Emotional Chord Patterns (10 Ways)](https://www.youtube.com/watch?v=U5QucXeCiwU) `U5QucXeCiwU` | Alex Rome | 17:14 | auto | 2197 | `hudba/akordy-a-harmonie.md` | dávka A |
+| published | [An Insanely Simple Arrangement System](https://www.youtube.com/watch?v=ZkRds6iTfhQ) `ZkRds6iTfhQ` | Alex Rome | 12:54 | auto | 1689 | `hudba/aranz.md` | dávka B |
+| published | [Analyzing 20 Genres And Their Unique Melodies](https://www.youtube.com/watch?v=0vLNybDXh2g) `0vLNybDXh2g` | Servida Music | 19:40 | auto | 3824 | `hudba/zanry-a-styl.md` | dávka B |
+| published | [How To Make Any Sound From Scratch](https://www.youtube.com/watch?v=p1-WmITJqBk) `p1-WmITJqBk` | Alex Rome | 24:04 | auto | 3039 | `hudba/synteza-zvuku.md` | dávka B |
+| published | [So You Wanna Make Games?? Ep. 8: Sound Design](https://www.youtube.com/watch?v=KcorIwJscFA) `KcorIwJscFA` | Riot Games | 14:31 | manual | 1844 | `hudba/sound-design-ve-hre.md` | dávka B |
+| published | [Why Indie Games Have The Best Sound Design](https://www.youtube.com/watch?v=VJ6ENLakB2g) `VJ6ENLakB2g` | Marshall McGee | 10:14 | auto | 1936 | `hudba/sound-design-ve-hre.md` | dávka B |
+| published | [How to Make a Video Game Soundtrack (from scratch)](https://www.youtube.com/watch?v=1qPfH95ry84) `1qPfH95ry84` | Jaies | 43:23 | auto | 5822 | `hudba/tvorba-soundtracku.md` | dávka C |
+| published | [A Guide to Making Video Game Music](https://www.youtube.com/watch?v=dMkTdYmOgiQ) `dMkTdYmOgiQ` | Zectro | 10:35 | auto | 1577 | `hudba/tvorba-soundtracku.md` | dávka C |
+| published | [How To Make Music FAST and FREE for your Indie Games!](https://www.youtube.com/watch?v=2jLeuviQ7Ho) `2jLeuviQ7Ho` | Madbook | 15:59 | auto | 2924 | `hudba/nastroje-zdarma-a-game-jam.md` | dávka C |
+| published | [The Composer Roadmap I Wish I Had at 18](https://www.youtube.com/watch?v=1E1EjqIrZD4) `1E1EjqIrZD4` | Inside the Score | 28:01 | auto | 5734 | `hudba/cesta-skladatele.md` | dávka C |
+| published | [My ROUGH Gamedev Music Experience](https://www.youtube.com/watch?v=3uvJQWxFX4Y) `3uvJQWxFX4Y` | Brainless. | 19:28 | auto | 3434 | `hudba/zacit-a-vydrzet.md` | dávka C — kapitola, ne zápisek |

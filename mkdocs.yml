@@ -134,6 +134,25 @@ nav:
           - AI assety: praxe/ai-assety.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
+  - Hudba a zvuk:
+      - hudba/index.md
+      - Základy hudební teorie:
+          - Fyzika souzvuku: hudba/fyzika-souzvuku.md
+          - Základy hudební teorie: hudba/hudebni-teorie-zaklady.md
+      - "Skladba: melodie, harmonie, aranž":
+          - Jak psát melodie: hudba/melodie.md
+          - Akordy a harmonie: hudba/akordy-a-harmonie.md
+          - Aranžmá z loopu: hudba/aranz.md
+          - Žánry a jejich melodie: hudba/zanry-a-styl.md
+      - Sound design a zvuk ve hře:
+          - Syntéza zvuku od nuly: hudba/synteza-zvuku.md
+          - Sound design ve hře: hudba/sound-design-ve-hre.md
+      - Hudba pro tvou hru:
+          - Tvorba herního soundtracku: hudba/tvorba-soundtracku.md
+          - "Zdarma a rychle: nástroje a game jam": hudba/nastroje-zdarma-a-game-jam.md
+      - Cesta skladatele:
+          - Sedm pilířů skladatele: hudba/cesta-skladatele.md
+          - Začít a vydržet: hudba/zacit-a-vydrzet.md
   - Zápisky:
       - zapisky/index.md
       - Selhávat citelně a čitelně: zapisky/selhavat-citelne-a-citelne.md

@@ -20,7 +20,7 @@ Poslední argument je dobová příležitost: nikdy nebylo snazší se platformo
 
 > **Pozn.:** Tohle video je dobré mít po ruce na dny, kdy tvůrčí energie chybí — je to v podstatě motivační infrastruktura. Praktické techniky, jak z paralýzy ven, jsou v následující myšlence; tahle dává důvod.
 
-**Souvislosti:** [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Produktivita](produktivita.md)
+**Souvislosti:** [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Produktivita](produktivita.md) · [Hudba a zvuk: piš, piš, piš](../hudba/cesta-skladatele.md#pis-pis-pis) *(týž ethos „dělej" v hudbě)*
 
 ---
 

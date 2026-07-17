@@ -18,7 +18,7 @@ Odtud plyne autorova výtka smyčkám [(1:40)](https://www.youtube.com/watch?v=6
 
 > **Pozn.:** Tohle je dobrý test na jakýkoli design pojem: *co by musela hra dělat, aby pod něj nespadala?* Pokud nic, je to slovník, ne teorie. Slovník je užitečný — jen od něj nečekej predikce.
 
-**Souvislosti:** [Řetězce a emoce](#retezec-nese-emocni-oblouk) níže · [Zábava a flow](zabava.md) · [Základy: engagement a appeal](zaklady.md) · [Rejstřík: gameplay loop](../rejstrik.md#gameplay-loop) · [Rejstřík: core loop](../rejstrik.md#core-loop)
+**Souvislosti:** [Řetězce a emoce](#retezec-nese-emocni-oblouk) níže · [Zábava a flow](zabava.md) · [Základy: engagement a appeal](zaklady.md) · [Rejstřík: gameplay loop](../rejstrik.md#gameplay-loop) · [Rejstřík: core loop](../rejstrik.md#core-loop) · [Hudba a zvuk: aranžmá z loopu](../hudba/aranz.md) *(opakování a proměna v aranži)*
 
 ---
 
