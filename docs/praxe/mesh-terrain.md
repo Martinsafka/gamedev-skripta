@@ -27,7 +27,7 @@ K velikosti: Landscape narážel podle RAM na praktický strop kolem 8–16 km; 
 
 > **Pozn.:** Floating point problém stojí za vlastní vysvětlení, protože video ho jen zmíní: 32bitový float má pevný počet platných číslic, takže čím větší souřadnice, tím hrubší nejmenší reprezentovatelný krok — daleko od originu se objekty začnou „třást" a přesné operace selhávat. Velké světy to řeší technikami typu origin shifting / Large World Coordinates, ne větším terénem.
 
-**Souvislosti:** [Založení a partitions](#zalozeni-terenu-partitions-a-rozliseni) níže · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: World Partition](../rejstrik.md#world-partition) · [Rejstřík: height mapa](../rejstrik.md#height-mapa)
+**Souvislosti:** [Založení a partitions](#zalozeni-terenu-partitions-a-rozliseni) níže · [Přehled algoritmů: marching cubes](../teorie/algoritmy-prehled.md#algoritmy-ktere-stavi-herni-svety) *(klasika převodu objemu na mesh)* · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: World Partition](../rejstrik.md#world-partition) · [Rejstřík: height mapa](../rejstrik.md#height-mapa)
 
 ---
 

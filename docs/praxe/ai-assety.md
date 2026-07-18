@@ -20,7 +20,7 @@ Pipeline roku 2026: obrázková AI vyrobí referenci, **image-to-3D** model (Tri
 
 > **Pozn.:** Poctivý disclaimer pro 3D artisty přímo z videa: „topologie" je decimovaný high-poly s normal bake — pro start OK, čistší retopologii umí AI nástroje zvlášť [(11:32)](https://www.youtube.com/watch?v=TkP-_LyacMI&t=692s). Ocas u nestandardní postavy chce ruční doladění vah — viz [weights v MetaHuman kapitole](metahuman.md).
 
-**Souvislosti:** [Nástroje a ceny](#nastroje-a-ceny-tripo-hunyuan-rodin) · [Rejstřík: retopologie](../rejstrik.md#retopologie) · [Rejstřík: PBR](../rejstrik.md#pbr)
+**Souvislosti:** [Nástroje a ceny](#nastroje-a-ceny-tripo-hunyuan-rodin) · [Přehled algoritmů: diffusion](../teorie/algoritmy-prehled.md#algoritmy-ktere-stavi-herni-svety) *(jak generátory obrázků fungují uvnitř)* · [Rejstřík: retopologie](../rejstrik.md#retopologie) · [Rejstřík: PBR](../rejstrik.md#pbr)
 
 ---
 

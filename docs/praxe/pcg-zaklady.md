@@ -118,4 +118,4 @@ Složením vzniknou rytmy jako `[A,B]2 A3 B*` — dvakrát pár, tři plaňky, s
 
 > **Pozn.:** Create Collision Data + Difference je obecný vzor „respektuj, co už stojí" — stejně vyřízneš trávu kolem ručně postavených budov nebo cest. A dvojice debug uzlů řeší dva různé světy: Visualize Attribute pro editor (co graf spočítal), Print String pro runtime (jestli vůbec běžel).
 
-**Souvislosti:** [Instanced Actors](instanced-actors.md) · [Rejstřík: self pruning](../rejstrik.md#self-pruning) · [Rejstřík: PCG](../rejstrik.md#pcg)
+**Souvislosti:** [Instanced Actors](instanced-actors.md) · [Přehled algoritmů: wave function collapse](../teorie/algoritmy-prehled.md#algoritmy-ktere-stavi-herni-svety) *(klasika dlaždicové generace mimo PCG framework)* · [Markovovy řetězce](../teorie/markovovy-retezce.md) *(pravděpodobnostní generace)* · [Rejstřík: self pruning](../rejstrik.md#self-pruning) · [Rejstřík: PCG](../rejstrik.md#pcg)

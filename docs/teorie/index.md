@@ -14,6 +14,19 @@ Témata a kapitoly:
 - **[Idea iceberg](rady-z-praxe.md)** — deset let zkušeností o síle nápadu: vrstvy pod hladinou, pracuj zpátky, pitch decky a the gap.
 - **[Postmortem ShantyTown](postmortem-shantytown.md)** — tři roky sólo vývoje od výběru prototypu přes škrty a půjčky po ticho po launchi.
 
+**Programátorské myšlení**
+
+- **[Programátorské myšlení](programatorske-mysleni.md)** — common sense éry AI: rovnítko je sloveso, akumulátor patří ven ze smyčky, hodnota vs. reference a čtyři koncepty z vyšší ligy.
+- **[Programátorské návyky](programatorske-navyky.md)** — commit každý večer, TIL.md, nemožné projekty a spánek: malé věci, které se rok skládají úrokem.
+- **[Design patterns](design-patterns.md)** — slovník osvědčených řešení podle Gang of Four — a jejich překlad do UE: dispatcher je observer, movement mode je strategy.
+
+**Matematika a algoritmy**
+
+- **[Matematika pro gamedev](matematika-pro-gamedev.md)** — lerp, goniometrie, vektory, dot product a rotace bez strachu; k tomu legendární odmocnina z Quake 3.
+- **[Lineární algebra vizuálně](linearni-algebra-vizualne.md)** — matice jako pohyb teček: od identity přes eigenvektory po SVD, rozklad, který vládne všem.
+- **[Markovovy řetězce a Monte Carlo](markovovy-retezce.md)** — stavy, přechody a memoryless vlastnost: od Puškina přes jadernou bombu po PageRank a LLM.
+- **[Přehled algoritmů](algoritmy-prehled.md)** — nápadník od wave function collapse po boids: algoritmy, které staví světy a pěstují chování.
+
 **Nápad, scope a plánování**
 
 - **[Nápad](napad.md)** — od záblesku k validované hře: Venn diagram, test 300 znaků, core DNA a čtyři emoce, yoink & twist, prototyp do týdne.

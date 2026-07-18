@@ -26,7 +26,7 @@ K tomu jeden nástroj zdarma: `print` vypíše hodnotu do konzole — nejlevněj
 
 > **Pozn.:** Převod do UE5 Blueprintů je 1:1 — proměnné jsou proměnné, if je uzel `Branch`, funkce jsou funkce/eventy, smyčky `ForLoop`/`WhileLoop`, třída je Blueprint sám. Jen pozor: obdobou physics processu je v UE `Event Tick`, volaný každý snímek — a ten se u nás v praxi učíme spíš *nepoužívat* (viz [Interakce bez Event Ticku](../praxe/interakce-bez-event-ticku.md)).
 
-**Souvislosti:** [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Rejstřík: Event Tick](../rejstrik.md#event-tick)
+**Souvislosti:** [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Programátorské myšlení](programatorske-mysleni.md) *(hlubší mentální modely týchž kostek)* · [Rejstřík: Event Tick](../rejstrik.md#event-tick)
 
 ---
 

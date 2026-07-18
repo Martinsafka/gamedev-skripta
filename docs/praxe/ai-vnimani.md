@@ -20,7 +20,7 @@ Detekce hráče je pro stealth hru gameplay sám o sobě — kdy si mě stráž 
 
 > **Pozn.:** Praktické pravidlo z videa: začni s Pawn Sensingem a přejdi na AI Perception, až budeš potřebovat víc smyslů nebo jemnější kontrolu [(8:34)](https://www.youtube.com/watch?v=XgOEkcnJT0M&t=514s) — přesně to dělá [State Trees kapitola](state-trees.md#jedna-percepce-tri-smysly-a-report-eventy), kde jedna perception obsluhuje zrak, sluch i damage. Trigger nezavrhuj: kombinace „trigger zóna + teprve pak drahá percepce" je legitimní optimalizace.
 
-**Souvislosti:** [Základy AI](ai-zaklady.md) · [State Trees: smysly](state-trees.md#jedna-percepce-tri-smysly-a-report-eventy) · [Rejstřík: Pawn Sensing](../rejstrik.md#pawn-sensing) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: trigger volume](../rejstrik.md#trigger-volume)
+**Souvislosti:** [Základy AI](ai-zaklady.md) · [State Trees: smysly](state-trees.md#jedna-percepce-tri-smysly-a-report-eventy) · [Matematika pro gamedev: dot product](../teorie/matematika-pro-gamedev.md#vektory-a-dot-product-poloha-pohyb-a-zorne-pole) *(zorné pole je cos-práh nad dot productem)* · [Rejstřík: Pawn Sensing](../rejstrik.md#pawn-sensing) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: trigger volume](../rejstrik.md#trigger-volume)
 
 ---
 

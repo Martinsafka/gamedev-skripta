@@ -103,9 +103,16 @@ Nová top-level sekce `docs/hudba/` z 17videového playlistu **Gamedev-music** (
 - [x] **Dávka C done** _(2026-07-17)_: „Hudba pro tvou hru" (`tvorba-soundtracku`, `nastroje-zdarma-a-game-jam`) + „Cesta skladatele" (`cesta-skladatele`, `zacit-a-vydrzet`). 4 videa → **4 kapitoly / 10 myšlenek**, rejstřík +7.
 - [x] **Wrap done** _(2026-07-17)_: 8 dopředných odkazů povýšeno na plné, 9 zpětných odkazů z existujících kapitol do hudby, `processing_index.md` sekce „Hudba a zvuk", full-tree anchor-check 928/0.
 
-### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
+### ▶ Phase 8 — Druhá vlna hlavního playlistu (+116 videí) _(taxonomie navržena 2026-07-18)_
 
-- [ ] **Hlavní playlist narostl 210 → 327 (+116 videí)** — staženo + vyčištěno při music fetchi (`fetch_transcripts.sh` drží oba playlisty), leží v gitignored `transcripts_clean/`, `fetched.txt` je obsahuje. Zatím **nezpracováno a mimo `processing_index`** — samostatná budoucí synteční dávka/dávky (rozřadit do témat jako Phase 2). _(Objeveno 2026-07-17.)_
+Hlavní playlist narostl 210 → 327; přepisy stažené a vyčištěné od 2026-07-17. Postup zrcadlí Phase 2 → 3: taxonomie → schválení stromu uživatelem → tematické dávky (10–25 videí, každá = zelený `--strict` + anchor-check + dev_log). Kompletní tabulky a plán dávek: `processing_index.md` → sekce „Druhá vlna".
+
+- [x] **Taxonomie navržena** _(2026-07-18)_: všech 116 videí klasifikováno (86 Teorie / 27 Praxe / 3 Hudba; ~512k slov; 2 bez přepisu; 2 nové low-priority kurzy). 6 nových témat: T-LEARN Učení a růst v éře AI (8) · T-PROG Programátorské myšlení (4) · T-MATH Matematika a algoritmy (7) · T-BIZ Byznys, data a kariéra (6) · T-ART Herní umění a vizuál (13; Riot série — E8 už published v hudbě) · P-ASSET Tvorba assetů mimo engine/Blender (4). Zbytek rozšiřuje existující témata/kapitoly. Navrženo 11 dávek (20–30).
+- [x] **Strom schválen uživatelem** _(2026-07-18: „schvaluji")_. Dílčí rozhodnutí: (a) T-DESIGN **rozdělit** — nové nav téma „Design do hloubky" `T-DEEP`, (b) 2 beginner kurzy **low-priority potvrzeno**, (c) start **dávkou 20** (Matematika a programátorské myšlení).
+- [x] **Dávka 20 done** _(2026-07-18)_: Matematika a programátorské myšlení — 11 videí (~46k slov) → **7 kapitol / 22 myšlenek ve 2 nových témat** (T-MATH: `matematika-pro-gamedev`, `linearni-algebra-vizualne`, `markovovy-retezce`, `algoritmy-prehled`; T-PROG: `programatorske-mysleni`, `programatorske-navyky`, `design-patterns`), rejstřík +28 termínů, 11 zpětných odkazů, chapter map regen (408 řádků), `--strict` + anchor-check green (984 fragmentů). **11/116 published.**
+- [ ] Dávky 21–30 dle plánu; index průběžně aktualizován; po dokončení promítnout počty do stromu v hlavičce indexu.
+
+### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 
 - [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_
 - [ ] Czech-video support (`--sub-langs` extension) + CS mytologie video (`kfu4jKyazzU`). _(Odloženo uživatelem 2026-07-11.)_

@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**⚠ Hlavní playlist mezitím narostl na 327** (+116 videí staženo + vyčištěno 2026-07-17 při music fetchi; leží v gitignored `transcripts_clean/`, `fetched.txt` je obsahuje). **Zatím nezařazeno do tohoto indexu ani zpracováno** — samostatná budoucí synteční dávka/dávky (viz roadmap → Later).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **11/116 published (dávka 20)**, 103 todo + 2 todo-lp.
 
 ## Proposed téma tree
 
@@ -394,3 +394,272 @@ Nový top-level dokument z 17videového playlistu o tvorbě hudby a zvuku (ne hl
 | published | [How To Make Music FAST and FREE for your Indie Games!](https://www.youtube.com/watch?v=2jLeuviQ7Ho) `2jLeuviQ7Ho` | Madbook | 15:59 | auto | 2924 | `hudba/nastroje-zdarma-a-game-jam.md` | dávka C |
 | published | [The Composer Roadmap I Wish I Had at 18](https://www.youtube.com/watch?v=1E1EjqIrZD4) `1E1EjqIrZD4` | Inside the Score | 28:01 | auto | 5734 | `hudba/cesta-skladatele.md` | dávka C |
 | published | [My ROUGH Gamedev Music Experience](https://www.youtube.com/watch?v=3uvJQWxFX4Y) `3uvJQWxFX4Y` | Brainless. | 19:28 | auto | 3434 | `hudba/zacit-a-vydrzet.md` | dávka C — kapitola, ne zápisek |
+
+---
+
+## Druhá vlna hlavního playlistu (+116) · Phase 8 _(strom schválen 2026-07-18; dávka 20 published)_
+
+Hlavní playlist narostl 210 → 327 (uživatel přidával průběžně; staženo + vyčištěno 2026-07-17 při music fetchi). Klasifikace z titulů + kanálů s nahlédnutím do ~30 přepisů (hraniční případy). **Celkem 116 videí, ~512k slov.** Po schválení se počty promítnou do stromu v hlavičce a tabulky níže se stanou ostrými řádky indexu (statusy se aktualizují na místě).
+
+**Co je ve vlně jiného než v první:** těžiště se přesunulo k Teorii (86/116). Dominují: **Indie Game Clinic (36 videí!)** — systematický design-theory korpus (zábava, obtížnost, žánry, GDD, playtesting, marketing); **Riot „So You Wanna Make Games??"** (9 dílů — E8 Sound Design už je published v `hudba/sound-design-ve-hre.md`, série se novou vlnou kompletuje); matematicko-programátorský blok (Visual Kernel, SimonDev, Veritasium, Fireship); byznys podcasty (3× 95–103 min). Praxe UE tvoří jen 27 videí — většina jde jako **rozšíření existujících kapitol** (Elzoheiry → Blueprint kapitoly, 5.8 novinky → MM/MetaHuman/AI nástroje).
+
+**Navrhovaná nová témata (6):**
+
+- **Teorie** — Učení a růst v éře AI `T-LEARN` (8) · Programátorské myšlení `T-PROG` (4) · Matematika a algoritmy `T-MATH` (7) · Byznys, data a kariéra `T-BIZ` (6) · Herní umění a vizuál `T-ART` (13)
+- **Praxe** — Tvorba assetů mimo engine (Blender) `P-ASSET` (4)
+
+Zbytek jde do existujících témat; 3 videa do dokumentu Hudba a zvuk. **Rozhodnuto uživatelem 2026-07-18:** T-DESIGN se v nav rozdělí na „Základy designu" (zaklady, zabava, game-feel, pribeh-a-postavy + rozšíření z vlny) a nové téma **„Design do hloubky" `T-DEEP`** (obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera — vše nové kapitoly z vlny 2); nav-only změna, provede se s první kapitolou T-DEEP. Oba nové beginner kurzy potvrzeny jako **low-priority** (konzistentně s Phase 2).
+
+**Navrhované dávky (pokračování číslování; 10–25 videí / dávka):**
+
+| dávka | téma | videí | ~slov |
+|---|---|---|---|
+| 20 | Matematika a programátorské myšlení (T-MATH + T-PROG) | 11 | 46k |
+| 21 | Mindset a učení (T-MIND + T-LEARN) | 17 | 47k |
+| 22 | Design I: základy, zábava, obtížnost, systémy | 10 | 45k |
+| 23 | Design II: žánry, případovky, horor, kamera (vč. Tynan 95 min) | 8 | 57k |
+| 24 | Scope, GDD a playtesting (T-SCOPE) | 11 | 51k |
+| 25 | Herní umění a vizuál (T-ART) | 13 | 34k |
+| 26 | Level design + Vydání a marketing (T-LEVEL + T-MARKET) | 10 | 56k |
+| 27 | Byznys, data a kariéra (T-BIZ; 3 dlouhé podcasty) | 6 | 59k |
+| 28 | Praxe: architektura, AI, animace, pohyb (P-BP, P-AI-NPC, P-ANIM…) | 12 | 44k |
+| 29 | Praxe: vizuál, optimalizace, AI nástroje, editor | 9 | 21k |
+| 30 | Blender assety + rozšíření Hudby (P-ASSET + H-EXT) | 7 | 11k |
+
+_(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
+
+### Tvůrčí proces a mindset · `T-MIND` (+9)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [You Can Make Other Things](https://www.youtube.com/watch?v=rv4okZp-mk0) `rv4okZp-mk0` | Indie Game Clinic | 7:49 | auto | 1688 | `teorie/proc-tvorit.md` | rozšíření kapitoly |
+| todo | [Why “Motivation” is Overrated](https://www.youtube.com/watch?v=kUTFNgESEUg) `kUTFNgESEUg` | Indie Game Clinic | 21:07 | auto | 4322 | `teorie/produktivita.md` | rozšíření: motivace vs. systém |
+| todo | [Why 99% of Devs Never Ship Their First Game (I Have the Data)](https://www.youtube.com/watch?v=2PKTvinv-oo) `2PKTvinv-oo` | Gorka Games | 6:59 | auto | 1168 | `teorie/produktivita.md` | data o dokončování; pozor: promo challenge |
+| todo | [Stop Looking For Game Dev "Advice"](https://www.youtube.com/watch?v=d5VdFScmXcM) `d5VdFScmXcM` | Indie Game Clinic | 18:53 | auto | 3399 | `teorie/rady-z-praxe.md` | meta: rozšíření — kdy rady nefungují |
+| todo | [The Game Dev Advice You Actually Need (Ft. AIA, Goodgis, and more...)](https://www.youtube.com/watch?v=n3fjdwJ5eQk) `n3fjdwJ5eQk` | Juniper Dev | 14:27 | auto | 3068 | `teorie/rady-z-praxe.md` | kompilace rad více tvůrců |
+| todo | [I Wasted 6 Years Making Games...](https://www.youtube.com/watch?v=jDPxHf_6KuI) `jDPxHf_6KuI` | Sunny Gamedev | 6:29 | — | — | `teorie/rady-z-praxe.md` | bez přepisu — krýt z popisu |
+| todo | [How To Make A Game Alone](https://www.youtube.com/watch?v=my8euq9bzFQ) `my8euq9bzFQ` | Dog's Dream | 26:13 | auto | 3859 | `teorie/solo-vyvoj.md` |  |
+| todo | [Creativity isn't a gift, it's a system](https://www.youtube.com/watch?v=_QVYfPnNOg4) `_QVYfPnNOg4` | Perry Daniels | 13:07 | manual | 2470 | `teorie/tvurci-zasek.md` | kreativita jako systém |
+| todo | [Hayao Miyazaki's wisdom for stuck artists](https://www.youtube.com/watch?v=RT-SJvjw8xQ) `RT-SJvjw8xQ` | Adam Westbrook | The Long Game | 9:21 | auto | 1738 | `teorie/tvurci-zasek.md` |  |
+
+### Učení a růst v éře AI · `T-LEARN` (+8) ⭐ NOVÉ TÉMA
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Coding is Hard Until You Learn This](https://www.youtube.com/watch?v=gaCY4QxfSzA) `gaCY4QxfSzA` | Phillip Choi | 19:28 | auto | 3240 | `teorie/jak-se-ucit-kodovat.md` |  |
+| todo | [Why You Struggle to Learn Game Coding](https://www.youtube.com/watch?v=SU8d0c9aAQo) `SU8d0c9aAQo` | Indie Game Clinic | 14:32 | auto | 2785 | `teorie/jak-se-ucit-kodovat.md` | IGC: proč se herní kód učí špatně |
+| todo | [How to Actually LEARN from YouTube Tutorials!](https://www.youtube.com/watch?v=APwQFdaH0eY) `APwQFdaH0eY` | Brainless. | 8:56 | auto | 2314 | `teorie/jak-se-ucit-kodovat.md` | cross-link: tutorial hell v editor-tipy |
+| todo | [3 Projects for Beginners: Game Design and Art Fundamentals](https://www.youtube.com/watch?v=cf9xDdPXOA0) `cf9xDdPXOA0` | Indie Game Clinic | 37:19 | manual | 7753 | `teorie/prvni-projekty.md` | 3 projekty pro začátečníky (IGC, univerzitní kurz) |
+| todo | [The New Way of Being a Software Engineer In the Age of AI](https://www.youtube.com/watch?v=mYzbbjA3smY) `mYzbbjA3smY` | Phillip Choi | 16:02 | auto | 2777 | `teorie/uceni-v-ere-ai.md` | role inženýra v éře AI |
+| todo | [How To Become Dangerously Self-Educated (with AI)](https://www.youtube.com/watch?v=VeU6gScy92s) `VeU6gScy92s` | Sandeep Swadia | 17:41 | auto | 2757 | `teorie/uceni-v-ere-ai.md` | sebevzdělávání s AI |
+| todo | [A CS Professor on Why Slow Learning Wins in the AI Era \| CU Boulder, Tom Yeh](https://www.youtube.com/watch?v=BAgxGp2WEu4) `BAgxGp2WEu4` | EO | 12:38 | auto | 2342 | `teorie/uceni-v-ere-ai.md` | pomalé učení, CU Boulder |
+| todo | [The Art Of Winning In Tech](https://www.youtube.com/watch?v=4MAupwjl3pc) `4MAupwjl3pc` | Lattice | 6:24 | auto | 1496 | `teorie/uceni-v-ere-ai.md` | kariérní pohled, spíš SW obecně |
+
+### Programátorské myšlení · `T-PROG` (+4) ⭐ NOVÉ TÉMA
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [7 Design Patterns EVERY Developer Should Know](https://www.youtube.com/watch?v=BJatgOiiht4) `BJatgOiiht4` | ForrestKnight | 22:01 | auto | 4139 | `teorie/design-patterns.md` | cross-link: komunikace-blueprintu (observer…) · dávka 20 |
+| published | [Programming Thinking](https://www.youtube.com/watch?v=KtBefDeECVU) `KtBefDeECVU` | Visual Kernel | 129:56 | auto | 19488 | `teorie/programatorske-mysleni.md` | 130 min — kotva tématu · dávka 20 |
+| published | [Programming Concepts Only the TOP 0.1% Know](https://www.youtube.com/watch?v=5xSQR5shQYk) `5xSQR5shQYk` | Shade of Code | 3:49 | auto | 834 | `teorie/programatorske-mysleni.md` | krátké — koncepty · dávka 20 |
+| published | [15 Tiny Coding Hacks That Got Me In Amazon](https://www.youtube.com/watch?v=Z36-xqUv3W8) `Z36-xqUv3W8` | Manware | 9:44 | auto | 1833 | `teorie/programatorske-navyky.md` | drobné návyky; mimo gamedev kontext · dávka 20 |
+
+### Matematika a algoritmy · `T-MATH` (+7) ⭐ NOVÉ TÉMA
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [10 weird algorithms every developer should know](https://www.youtube.com/watch?v=SmyPTnlqhlk) `SmyPTnlqhlk` | Fireship | 9:05 | auto | 1981 | `teorie/algoritmy-prehled.md` | Fireship — 10 algoritmů · dávka 20 |
+| published | [SVD Visualized, Singular Value Decomposition explained \| SEE Matrix , Chapter 3 #SoME2](https://www.youtube.com/watch?v=vSczTbgc8Rc) `vSczTbgc8Rc` | Visual Kernel | 16:27 | auto | 2312 | `teorie/linearni-algebra-vizualne.md` | SEE Matrix ch.3 — SVD · dávka 20 |
+| published | [Visualize Spectral Decomposition \| SEE Matrix, Chapter 2](https://www.youtube.com/watch?v=mhy-ZKSARxI) `mhy-ZKSARxI` | Visual Kernel | 15:55 | auto | 2083 | `teorie/linearni-algebra-vizualne.md` | SEE Matrix ch.2 — spektrální rozklad · dávka 20 |
+| published | [Visualize Different Matrices part1 \| SEE Matrix, Chapter 1](https://www.youtube.com/watch?v=7Gtxd-ew4lk) `7Gtxd-ew4lk` | Visual Kernel | 14:51 | auto | 1871 | `teorie/linearni-algebra-vizualne.md` | SEE Matrix ch.1 · dávka 20 |
+| published | [The Strange Math That Predicts (Almost) Anything](https://www.youtube.com/watch?v=KZeIEiBrT_w) `KZeIEiBrT_w` | Veritasium | 32:32 | manual | 5631 | `teorie/markovovy-retezce.md` | Veritasium; most k AI/PCG · dávka 20 |
+| published | [What Kind of Math Should Game Developers Know?](https://www.youtube.com/watch?v=eRVRioN4GwA) `eRVRioN4GwA` | SimonDev | 19:39 | auto | 3657 | `teorie/matematika-pro-gamedev.md` | SimonDev — jaká matika je potřeba · dávka 20 |
+| published | [The Math Hack That Made Quake 3 Possible](https://www.youtube.com/watch?v=coU_o6L5XZI) `coU_o6L5XZI` | Dr. Pavel Vlašánek | 17:10 | manual | 2621 | `teorie/matematika-pro-gamedev.md` | případovka: fast inverse sqrt (Quake 3) · dávka 20 |
+
+### Nápad, scope a plánování · `T-SCOPE` (+11)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [What Do "Professional" Game Design Documents Look Like? 📜](https://www.youtube.com/watch?v=fk-rQlrNYZ8) `fk-rQlrNYZ8` | Indie Game Clinic | 41:21 | auto | 7826 | `teorie/gdd.md` | jak vypadají profesionální GDD |
+| todo | [Game Design Documents - a Minimalist Approach 🧘🏽](https://www.youtube.com/watch?v=uBxYGFRi-S4) `uBxYGFRi-S4` | Indie Game Clinic | 37:44 | manual | 7296 | `teorie/gdd.md` | minimalistický přístup; cross-link zápisek gdd-review |
+| todo | [How to find amazing game ideas](https://www.youtube.com/watch?v=0m60QbT85Tc) `0m60QbT85Tc` | Game Maker's Toolkit | 27:09 | manual | 4856 | `teorie/napad.md` | rozšíření (GMTK) |
+| todo | [The Secret to GOOD Game Ideas 💡 [Practical Ideation Methods Explained]](https://www.youtube.com/watch?v=LMOCQNcMleg) `LMOCQNcMleg` | Indie Game Clinic | 24:29 | auto | 4622 | `teorie/napad.md` | rozšíření (IGC ideation) |
+| todo | [Manage Your GameDev Projects with Trello/Kanban](https://www.youtube.com/watch?v=-SqcrlAarGo) `-SqcrlAarGo` | Indie Game Clinic | 22:33 | auto | 4741 | `teorie/planovani-nastroje.md` | Trello/Kanban |
+| todo | [The ULTIMATE Playtest Guide](https://www.youtube.com/watch?v=zXNRJuc48Ek) `zXNRJuc48Ek` | Indie Game Clinic | 39:27 | auto | 7549 | `teorie/playtesting.md` | pozn. sponzor GameMaker segment |
+| todo | [GameDev as an Iterative Spiral](https://www.youtube.com/watch?v=9L6XX9kDQyA) `9L6XX9kDQyA` | Indie Game Clinic | 12:30 | auto | 2656 | `teorie/prototypovani.md` | rozšíření: iterační spirála |
+| todo | [9 Months of Dev… Pivot or Perish?](https://www.youtube.com/watch?v=CbWpsNs7nrg) `CbWpsNs7nrg` | Indie Game Clinic | 28:57 | auto | 6003 | `teorie/scope.md` | pivot po 9 měsících |
+| todo | [Stopping Scope Creep without Crushing Creativity (Stream Highlights)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ) `Xyl3tsZx4wQ` | Indie Game Clinic | 10:02 | auto | 2113 | `teorie/scope.md` | rozšíření: scope creep |
+| todo | [How I Made A Steam Game In Only 1 Month](https://www.youtube.com/watch?v=7naIKclU1A4) `7naIKclU1A4` | Zoteling | 6:53 | auto | 1470 | `teorie/scope.md` | devlog: hra za měsíc |
+| todo | [How To Make Small Games \| Indie Game Dev Tutorial](https://www.youtube.com/watch?v=U-j91fw648Q) `U-j91fw648Q` | RETRODEAD | 5:27 | auto | 1399 | `teorie/scope.md` | malé hry |
+
+### Základy designu · `T-DESIGN` (+18)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Tynan Sylvester - Designing Games, A Guide to Engineering Experiences (GDL ep07)](https://www.youtube.com/watch?v=RFSxLRBht14) `RFSxLRBht14` | Indie Game Clinic | 95:02 | auto | 20346 | `teorie/engineering-experiences.md` | Tynan Sylvester — kniha Designing Games (95 min) |
+| todo | [INDIE Game DevLog - Why GOOD Combat Is So HARD To Make (June 2026)](https://www.youtube.com/watch?v=NYqyAL7FKYg) `NYqyAL7FKYg` | SILKROAD Project | 15:20 | manual | 2843 | `teorie/game-feel.md` | devlog: proč je dobrý combat těžký |
+| todo | [10 Ways to Improve Game Feel](https://www.youtube.com/watch?v=qCj9CZoAvFY) `qCj9CZoAvFY` | Design Diary | 10:37 | auto | 2078 | `teorie/game-feel.md` | rozšíření: 10 způsobů |
+| todo | [How To Create A Horror Game That SCARES](https://www.youtube.com/watch?v=JVTWbRMHYeY) `JVTWbRMHYeY` | Devilish Inks | 37:17 | auto | 8040 | `teorie/horor-design.md` | jak vyvolat strach |
+| todo | [How Metroidvania Cameras are Shockingly Different than Platformer Cameras](https://www.youtube.com/watch?v=drbatB2KWlo) `drbatB2KWlo` | Inbound Shovel | 20:33 | auto | 4929 | `teorie/kamera.md` | metroidvania vs. platformer kamery |
+| todo | [LUDOTHEMATICS: Harmony and Dissonance in Game Design](https://www.youtube.com/watch?v=uG-RPNilP-8) `uG-RPNilP-8` | Indie Game Clinic | 39:24 | auto | 7769 | `teorie/ludonarativni-soulad.md` | ludothematics: harmonie a disonance |
+| todo | [Challenge & Difficulty in Game Design](https://www.youtube.com/watch?v=FLCet4Z7zew) `FLCet4Z7zew` | Indie Game Clinic | 49:58 | auto | 9741 | `teorie/obtiznost.md` | challenge & difficulty (IGC, 50 min) |
+| todo | [This Puzzle Platformer Has a Unique Approach to Difficulty [Octojump]](https://www.youtube.com/watch?v=IcSD7w-fdJ8) `IcSD7w-fdJ8` | Indie Game Clinic | 6:28 | auto | 1172 | `teorie/obtiznost.md` | případovka Octojump |
+| todo | [Indie Soulsborne "Fade: The First Chapter" - Game Design Deep-Dive](https://www.youtube.com/watch?v=cIi-mgZUELE) `cIi-mgZUELE` | Indie Game Clinic | 28:09 | auto | 4574 | `teorie/pripadovky-designu.md` | soulsborne Fade deep-dive |
+| todo | [I Played 150 of Your Games; Common Problems (and Solutions!)](https://www.youtube.com/watch?v=8bYnlOE_pl0) `8bYnlOE_pl0` | Indie Game Clinic | 21:26 | manual | 4078 | `teorie/pripadovky-designu.md` | 150 her — časté problémy |
+| todo | [Game Mechanics & Systems Thinking](https://www.youtube.com/watch?v=nkLmjJK3vOw) `nkLmjJK3vOw` | Indie Game Clinic | 40:49 | auto | 7443 | `teorie/systemy-a-mechaniky.md` | cross-link smycky-a-retezce |
+| todo | [What is Fun? A Game Design Introduction](https://www.youtube.com/watch?v=56ENqlUST9U) `56ENqlUST9U` | Indie Game Clinic | 31:10 | manual | 4766 | `teorie/zabava.md` | rozšíření: What is Fun (IGC) |
+| todo | [Game Design Theory: A Guided Tour](https://www.youtube.com/watch?v=TATKLd1Q6ho) `TATKLd1Q6ho` | Indie Game Clinic | 31:14 | auto | 5423 | `teorie/zaklady.md` | přehled teorií designu (IGC) |
+| todo | [How To Think Like A Game Designer](https://www.youtube.com/watch?v=iIOIT3dCy5w) `iIOIT3dCy5w` | Game Maker's Toolkit | 13:06 | manual | 2245 | `teorie/zaklady.md` | rozšíření (GMTK) |
+| todo | [The 10 Basic Principles of Game Design Every Indie Dev Should Know](https://www.youtube.com/watch?v=5Fk7p-f2ymY) `5Fk7p-f2ymY` | NOBL Games | 12:18 | auto | 1822 | `teorie/zaklady.md` | 10 principů |
+| todo | [Game Genres - a Design Perspective](https://www.youtube.com/watch?v=3KJbYdNP5js) `3KJbYdNP5js` | Indie Game Clinic | 38:00 | auto | 7937 | `teorie/zanry.md` | žánry očima designu |
+| todo | [Indie Game Genres & Subtractive Design](https://www.youtube.com/watch?v=RkcmljWlvrs) `RkcmljWlvrs` | Indie Game Clinic | 21:41 | manual | 3713 | `teorie/zanry.md` | subtraktivní design |
+| todo | [Become a Game Dev NECROMANCER!!!](https://www.youtube.com/watch?v=nN5VEvl9fik) `nN5VEvl9fik` | Indie Game Clinic | 16:03 | auto | 3179 | `teorie/zanry.md` | mrtvé žánry (nekromancie) |
+
+### Level design · `T-LEVEL` (+4)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Level Design Approaches for Solo Devs](https://www.youtube.com/watch?v=OLXn6YYAk7M) `OLXn6YYAk7M` | Indie Game Clinic | 20:45 | auto | 4162 | `teorie/level-design-solo.md` | přístupy pro sólo vývojáře |
+| todo | [Game vs Level Design [explained with Golf and Robots]](https://www.youtube.com/watch?v=R7N1XUKL5JE) `R7N1XUKL5JE` | Indie Game Clinic | 19:40 | auto | 3301 | `teorie/level-design-solo.md` | game design vs. level design |
+| todo | [Creating an In-Game Level Editor \| Indie Devlog #9](https://www.youtube.com/watch?v=nAXMHOWliAA) `nAXMHOWliAA` | Game Endeavor | 8:12 | manual | 2063 | `teorie/nastroje-na-levely.md` | devlog in-game editor; tenké — merge kandidát |
+| todo | [Environmental Storytelling Explained [Stray, Gone Home, Amnesia, Unpacking, Minit]](https://www.youtube.com/watch?v=sSFs61IF2Rs) `sSFs61IF2Rs` | Indie Game Clinic | 23:06 | auto | 4568 | `teorie/prostor-vypravi.md` | environmental storytelling; cross-link env-breakdowny |
+
+### Vydání a marketing · `T-MARKET` (+6)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Game Marketing Advice with Chris Z](https://www.youtube.com/watch?v=O7GoWKwEwIk) `O7GoWKwEwIk` | Indie Game Clinic | 49:07 | auto | 10853 | `teorie/co-prodava.md` | rozšíření: rozhovor Chris Z (49 min) |
+| todo | [What Makes a Successful Game?](https://www.youtube.com/watch?v=nO9HMnuZO78) `nO9HMnuZO78` | Indie Game Clinic | 11:23 | auto | 2507 | `teorie/co-prodava.md` | rozšíření: co dělá hru úspěšnou |
+| todo | [Roasting Steam Pages with a Marketing Expert](https://www.youtube.com/watch?v=8gY9SU9ShOw) `8gY9SU9ShOw` | Indie Game Clinic | 68:45 | auto | 14515 | `teorie/steam-stranka.md` | rozšíření: roasting s marketérem (69 min) |
+| todo | [How To Write Marketing Copy For Your Game](https://www.youtube.com/watch?v=m5X_ZYXVpQE) `m5X_ZYXVpQE` | Indie Game Clinic | 24:59 | auto | 5246 | `teorie/steam-stranka.md` | rozšíření: marketingová copy |
+| todo | [What nobody tells you about releasing a game on Steam...](https://www.youtube.com/watch?v=uQnIkK6BOLQ) `uQnIkK6BOLQ` | BiteMe Games | 21:34 | auto | 4874 | `teorie/vydani-hry.md` | co nikdo neřekne o vydání na Steamu |
+| todo | [Most Steam Demos Suck; Here's Why](https://www.youtube.com/watch?v=1vtqBTX2Lzc) `1vtqBTX2Lzc` | Indie Game Clinic | 18:35 | auto | 3540 | `teorie/vydani-hry.md` | proč většina dem nefunguje |
+
+### Byznys, data a kariéra · `T-BIZ` (+6) ⭐ NOVÉ TÉMA
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [I Analysed 62,000 Indie Developers. Here's What Actually Predicts Success](https://www.youtube.com/watch?v=WueQ75GP1wc) `WueQ75GP1wc` | Game Oracle | 16:07 | auto | 2660 | `teorie/data-o-uspechu.md` | 62k vývojářů — co predikuje úspěch |
+| todo | [I Scraped the Entire Steam Catalog, Here’s the Data](https://www.youtube.com/watch?v=qiNv3qv-YbU) `qiNv3qv-YbU` | Newbie Indie Game Dev | 11:28 | manual | 2101 | `teorie/data-o-uspechu.md` | scrape celého Steam katalogu |
+| todo | [Ultimate gamedev funding tierlist](https://www.youtube.com/watch?v=qjyPRnzlx8A) `qjyPRnzlx8A` | BiteMe Games | 40:06 | auto | 9139 | `teorie/financovani.md` | tierlist zdrojů financování (40 min) |
+| todo | [How To Make Indie Games In 2026 w/ Jonathan Blow — Full Time Game Dev Podcast Ep. 061](https://www.youtube.com/watch?v=yNdRv5LFuQk) `yNdRv5LFuQk` | Thomas Brush | 96:41 | auto | 20137 | `teorie/indie-kariera.md` | podcast Jonathan Blow (97 min) |
+| todo | [When is an Indie Game Not an Indie Game?](https://www.youtube.com/watch?v=CyX41iR08Pc) `CyX41iR08Pc` | Indie Game Clinic | 9:58 | auto | 2040 | `teorie/indie-kariera.md` | kdy indie není indie |
+| todo | [How BiteMe Games Survived 4 Years Without a Viral Game](https://www.youtube.com/watch?v=KehpqxUfz60) `KehpqxUfz60` | Dev Dream Pod with Blake Gocey | 103:20 | auto | 22461 | `teorie/prezit-jako-studio.md` | podcast BiteMe 4 roky (103 min) |
+
+### Herní umění a vizuál · `T-ART` (+13) ⭐ NOVÉ TÉMA
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [How we made our Isometric Game Art! ★ \|\| GOLEMBERT Devlog #12](https://www.youtube.com/watch?v=UYBzqCldDDI) `UYBzqCldDDI` | Studio Firlefanz | 9:25 | auto | 1646 | `teorie/2d-perspektivy.md` | isometrická grafika (devlog); tenké — merge kandidát |
+| todo | [So You Wanna Make Games?? \| Episode 10: Game Design](https://www.youtube.com/watch?v=yYYtBFSxoCg) `yYYtBFSxoCg` | Riot Games | 14:50 | manual | 2649 | `teorie/art-pipeline.md` | Riot E10: game design (pro artisty; en-cs track!) |
+| todo | [So You Wanna Make Games?? \| Episode 2: Concept Art](https://www.youtube.com/watch?v=FqX-UMVTLHI) `FqX-UMVTLHI` | Riot Games | 12:39 | manual | 2069 | `teorie/art-pipeline.md` | Riot E2: concept art |
+| todo | [So You Wanna Make Games?? \| Episode 3: Character Art](https://www.youtube.com/watch?v=PfpE5dNTWeI) `PfpE5dNTWeI` | Riot Games | 12:10 | manual | 1969 | `teorie/art-pipeline.md` | Riot E3: character art |
+| todo | [So You Wanna Make Games?? \| Episode 5: Technical Art](https://www.youtube.com/watch?v=kr7XYXMM7-U) `kr7XYXMM7-U` | Riot Games | 12:44 | manual | 1885 | `teorie/art-pipeline.md` | Riot E5: technical art |
+| todo | [So You Wanna Make Games?? \| Episode 4: Environment Art](https://www.youtube.com/watch?v=37LVhP15zGw) `37LVhP15zGw` | Riot Games | 12:54 | manual | 1858 | `teorie/art-pipeline.md` | Riot E4: environment art |
+| todo | [So You Wanna Make Games?? \| Episode 6: Character Animation](https://www.youtube.com/watch?v=VmNUAX2V8JQ) `VmNUAX2V8JQ` | Riot Games | 13:11 | manual | 1840 | `teorie/art-pipeline.md` | Riot E6: character animation |
+| todo | [So You Wanna Make Games?? \| Episode 1: Intro to Game Art](https://www.youtube.com/watch?v=RqRoXLLwJ8g) `RqRoXLLwJ8g` | Riot Games | 11:28 | manual | 1817 | `teorie/art-pipeline.md` | Riot E1: intro to game art |
+| todo | [So You Wanna Make Games?? \| Episode 9: User Interface Design](https://www.youtube.com/watch?v=sc3h5JXtIzw) `sc3h5JXtIzw` | Riot Games | 12:29 | manual | 1776 | `teorie/art-pipeline.md` | Riot E9: UI design |
+| todo | [So You Wanna Make Games?? \| Episode 7: Game VFX](https://www.youtube.com/watch?v=3QKK2o5rWSQ) `3QKK2o5rWSQ` | Riot Games | 11:50 | manual | 1750 | `teorie/art-pipeline.md` | Riot E7: game VFX |
+| todo | [Typography Basics Every Game Dev Should Know](https://www.youtube.com/watch?v=QuNNdPrVMm0) `QuNNdPrVMm0` | Indie Game Clinic | 40:08 | auto | 8060 | `teorie/typografie.md` | typografie pro vývojáře (40 min) |
+| todo | [Visual Communication: Why Game Art Matters](https://www.youtube.com/watch?v=SV1BBtD3hY4) `SV1BBtD3hY4` | Indie Game Clinic | 20:49 | manual | 3673 | `teorie/vizualni-komunikace.md` | proč na artu záleží |
+| todo | [You Don't Need to Be an Artist to Make Great Game Art](https://www.youtube.com/watch?v=3eg5Lp3pGNk) `3eg5Lp3pGNk` | TechDad Impact | 13:36 | manual | 2665 | `teorie/vizualni-komunikace.md` | nemusíš být umělec |
+
+### Blueprint architektura a organizace projektu · `P-BP` (+6)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Why Dependencies are Bad and How To Avoid Them In Unreal Engine \| UE5 Mediator Pattern Explained](https://www.youtube.com/watch?v=y4fE2JdFdvY) `y4fE2JdFdvY` | Ali Elzoheiry | 26:39 | auto | 4490 | `praxe/komunikace-blueprintu.md` | rozšíření: mediator pattern |
+| todo | [Why Use "Interfaces" & "Event Dispatchers" in Unreal Engine \| UE5 Explained](https://www.youtube.com/watch?v=EQfml2D9hwE) `EQfml2D9hwE` | Ali Elzoheiry | 21:54 | auto | 4020 | `praxe/komunikace-blueprintu.md` | rozšíření: proč interfaces/dispatchery |
+| todo | [The Most Common Mistake Beginners Make in Unreal Engine \| UE5 Observer Pattern Explained](https://www.youtube.com/watch?v=YFtLd-bKl-U) `YFtLd-bKl-U` | Ali Elzoheiry | 12:17 | auto | 2190 | `praxe/komunikace-blueprintu.md` | rozšíření: observer pattern |
+| todo | [The Power of Git in Unreal Engine: a Step-by-Step Guide \| UE5](https://www.youtube.com/watch?v=zf_44hN4Lkg) `zf_44hN4Lkg` | Ali Elzoheiry | 18:48 | auto | 3494 | `praxe/organizace-projektu.md` | rozšíření: Git v UE |
+| todo | [Understanding "Components" in Unreal Engine \| UE5 Explained](https://www.youtube.com/watch?v=xo0sbSeWKe4) `xo0sbSeWKe4` | Ali Elzoheiry | 28:11 | auto | 5326 | `praxe/principy-architektury.md` | rozšíření: komponenty |
+| todo | [The ultimate guide \| How to Save & Load your unreal engine 5 game \| ue5](https://www.youtube.com/watch?v=H6rqJbwjRIk) `H6rqJbwjRIk` | Ali Elzoheiry | 49:59 | auto | 8148 | `praxe/ukladani.md` | rozšíření: ultimate save/load guide (50 min) |
+
+### AI a chování NPC · `P-AI-NPC` (+2)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [UE5 AI Sight Detection & Chasing With Behaviour Trees!](https://www.youtube.com/watch?v=JF5hIBcycPc) `JF5hIBcycPc` | Matt Aspland | 14:51 | auto | 3191 | `praxe/ai-vnimani.md` | rozšíření: sight + behavior tree chase |
+| todo | [What is Utility AI? \| Smarter AI Design in Unreal Engine 5](https://www.youtube.com/watch?v=LF81fxuQeF8) `LF81fxuQeF8` | D3kryption | 18:40 | auto | 4042 | `praxe/ai-zaklady.md` | rozšíření: Utility AI |
+
+### Motion Matching a GASP · `P-ANIM` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [EASY Directional Hit Reactions in Unreal Engine 5 (Using Choosers)](https://www.youtube.com/watch?v=d6icw1-KPwI) `d6icw1-KPwI` | Tank Control Games | 20:48 | auto | 4375 | `praxe/mm-systemy.md` | rozšíření: hit reactions přes choosery |
+
+### Animace: nástroje a mocap · `P-ANIMTOOLS` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [New FREE Animation Tool in Unreal Engine 5.8 \| (S.A.M) Solo Animation Mode](https://www.youtube.com/watch?v=-mcMxpVmnAM) `-mcMxpVmnAM` | Proj Prod | 12:42 | auto | 2343 | `praxe/animace-nastroje.md` | rozšíření: SAM (Solo Animation Mode) 5.8 |
+
+### Pohyb postavy (locomotion) · `P-MOVE` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [I Created THE LAST OF US PART - 2 Style Wall Detection System \| And It's AMAZING 😎\| UE 5.8](https://www.youtube.com/watch?v=EL4s7sHAFV8) `EL4s7sHAFV8` | Hydra | 12:08 | auto | 1126 | `praxe/parkour-vault.md` | rozšíření: TLOU2 wall detection 5.8 |
+
+### MetaHuman · `P-MH` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [UE 5.8 - Any Mesh To MetaHuman - Tutorial](https://www.youtube.com/watch?v=ZmiTuYglaRI) `ZmiTuYglaRI` | Unreal - X - Tutorials | 13:58 | auto | 1714 | `praxe/metahuman.md` | rozšíření: any mesh → MetaHuman 5.8 |
+
+### Osvětlení a atmosféra · `P-LIGHT` (+3)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Understanding Expanse for Unreal Engine \| Complete Beginner Tutorial](https://www.youtube.com/watch?v=rky_GNM0EZs) `rky_GNM0EZs` | SARKAMARI | 23:44 | auto | 3435 | `praxe/osvetleni.md` | rozšíření: Expanse — volumetrická obloha (EVDB) |
+| todo | [Lighting Hacks Got My Project Featured on Unreal Engine 5 Page 😯 \| Tips & Tricks You Should Know](https://www.youtube.com/watch?v=H2Jfs7nDKh0) `H2Jfs7nDKh0` | Karim Yasser | 15:22 | manual | 2484 | `praxe/osvetleni.md` | rozšíření: lighting hacky |
+| todo | [How I Made My Horror Game Look 10x Better \| DEVLOG](https://www.youtube.com/watch?v=D4n7BeKNOtg) `D4n7BeKNOtg` | AkulDev | 8:30 | auto | 1954 | `praxe/osvetleni.md` | devlog horor vzhled; naváže na entry o hororu ve vrstvách |
+
+### Materiály a VFX · `P-MAT` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [VFX Texture Creation: The ULTIMATE guide](https://www.youtube.com/watch?v=dMthnzpR-eU) `dMthnzpR-eU` | Le Lu | 28:46 | auto | 4089 | `praxe/materialy.md` | rozšíření: VFX textury (29 min) |
+
+### Prostředí a environment art · `P-ENV` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [How Naughty Dog Automates AAA Art (TLOU Part 1)](https://www.youtube.com/watch?v=dqfvgA7oKC4) `dqfvgA7oKC4` | Next Level Game Art | 11:42 | auto | 1922 | `praxe/env-breakdowny.md` | rozšíření: Naughty Dog shader pipeline (TLOU už v kapitole) |
+
+### Rendering a optimalizace · `P-PERF` (+1)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Game Dev Secrets: Multithreaded Optimization! #indiegamedev #gamedev](https://www.youtube.com/watch?v=44hfu7ELgVc) `44hfu7ELgVc` | Inbound Shovel | 1:46 | auto | 480 | `praxe/optimalizace.md` | short 1:46 — multithreading; drobnost/Pozn. |
+
+### AI nástroje ve vývoji · `P-AITOOLS` (+2)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [NVIDIA ARDY: The Real-Time Leap in AI Animation (Open-Source)](https://www.youtube.com/watch?v=xLf27GC0-hE) `xLf27GC0-hE` | Stefan 3D AI | 6:18 | manual | 1158 | `praxe/ai-assety.md` | rozšíření: NVIDIA ARDY — AI animace real-time |
+| todo | [Claude And New UE 5.8 MCP is Crazy Good (But I made it better)](https://www.youtube.com/watch?v=I5WLl4MdK28) `I5WLl4MdK28` | Stefan 3D AI | 16:46 | manual | 3263 | `praxe/claude-code-ue.md` | rozšíření: MCP v UE 5.8 (Stefan 3D AI) |
+
+### Editor a workflow · `P-EDITOR` (+3)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [The Best Way To Learn Unreal Engine in 2026!](https://www.youtube.com/watch?v=Nn9F341Vwy0) `Nn9F341Vwy0` | Unreal University | 11:02 | auto | 2295 | `praxe/editor-tipy.md` | rozšíření: jak se učit UE (2026) |
+| todo-lp | [Unreal Engine 5 \| Blueprint For Beginners (2026)](https://www.youtube.com/watch?v=c6qW2NP8TP4) `c6qW2NP8TP4` | Smart Poly | 159:31 | manual | 29574 | — | LOW-PRIORITY: beginner kurz 160 min (jako dB-pS8PHALY) |
+| todo-lp | [Unreal Engine 5.8 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi](https://www.youtube.com/watch?v=FAo9nfWYPSE) `FAo9nfWYPSE` | Magnet VFX | 88:12 | auto | 11655 | — | LOW-PRIORITY: starter kurz 88 min |
+
+### Tvorba assetů mimo engine (Blender) · `P-ASSET` (+4) ⭐ NOVÉ TÉMA
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Turn Any Photo into a Game Asset (Fast & Easy Blender Tutorial)](https://www.youtube.com/watch?v=ZR_X2OhsteQ) `ZR_X2OhsteQ` | Grant Abbitt (Gabbitt) | 22:21 | auto | 5301 | `praxe/foto-do-assetu.md` | Blender: fotka → herní asset |
+| todo | [How to make PS1 style models in Blender \| Part 1: Textures and UV Mapping \| Tutorial](https://www.youtube.com/watch?v=8--xYWCY_bc) `8--xYWCY_bc` | hacktic | 4:33 | auto | 1005 | `praxe/ps1-estetika.md` | Blender: PS1 modely, textury/UV |
+| todo | [How to make PS1 Graphics in 4 minutes](https://www.youtube.com/watch?v=A25NTdPGNaw) `A25NTdPGNaw` | binbun3D | 3:49 | auto | 631 | `praxe/ps1-estetika.md` | PS1 grafika ve 4 minutách (Blender) |
+| todo | [Environment in PS1 style. (Blender Timelapse)](https://www.youtube.com/watch?v=d9GUXlnwRGk) `d9GUXlnwRGk` | Summer 85 | 7:03 | — | — | `praxe/ps1-estetika.md` | bez přepisu — timelapse; krýt z popisu |
+
+### Hudba a zvuk (rozšíření dokumentu) · `H-EXT` (+3)
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Making an Indie Pop Banger from Scratch w/ Lyncs (Cook Up)](https://www.youtube.com/watch?v=X6RMUest2sw) `X6RMUest2sw` | Splice | 18:58 | auto | 1418 | `hudba/aranz.md` | rozšíření: cook-up Splice — track od nuly v praxi |
+| todo | [The most insane sound design tool nobody's heard of (is free)](https://www.youtube.com/watch?v=TGczsxuAm1I) `TGczsxuAm1I` | mylarmelodies | 14:50 | manual | 2028 | `hudba/nastroje-zdarma-a-game-jam.md` | rozšíření: CDP (alt. synteza-zvuku) |
+| todo | [How to Make a 3D Sound in Unreal Engine 5](https://www.youtube.com/watch?v=dttUv6--1nA) `dttUv6--1nA` | Gorka Games | 3:43 | auto | 572 | `hudba/sound-design-ve-hre.md` | rozšíření: 3D zvuk v UE |

@@ -20,7 +20,7 @@ Důležité rozlišení, které z toho padá [(8:10)](https://www.youtube.com/wa
 
 > **Pozn.:** Tyroller ke stejné tezi došel nezávisle na Raphu Kosterovi (*A Theory of Fun for Game Design*, 2004 — „fun is learning") a přiznává to ve videu; základem obou je Csíkszentmihályiho *Flow* (1990). Tři nezávislé cesty ke stejnému závěru jsou slušný signál, že na něm něco je.
 
-**Souvislosti:** [Smyčky a řetězce](smycky-a-retezce.md) · [Základy: engagement](zaklady.md) · [Rejstřík: flow](../rejstrik.md#flow)
+**Souvislosti:** [Smyčky a řetězce](smycky-a-retezce.md) · [Základy: engagement](zaklady.md) · [Přehled algoritmů: simulated annealing](algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) *(explore/exploit jako optimalizační nástroj)* · [Rejstřík: flow](../rejstrik.md#flow)
 
 ---
 

@@ -50,6 +50,15 @@ nav:
           - Žrouti času: teorie/produktivita.md
           - Idea iceberg: teorie/rady-z-praxe.md
           - Postmortem ShantyTown: teorie/postmortem-shantytown.md
+      - Programátorské myšlení:
+          - Programátorské myšlení: teorie/programatorske-mysleni.md
+          - Programátorské návyky: teorie/programatorske-navyky.md
+          - Design patterns: teorie/design-patterns.md
+      - Matematika a algoritmy:
+          - Matematika pro gamedev: teorie/matematika-pro-gamedev.md
+          - Lineární algebra vizuálně: teorie/linearni-algebra-vizualne.md
+          - Markovovy řetězce a Monte Carlo: teorie/markovovy-retezce.md
+          - Přehled algoritmů: teorie/algoritmy-prehled.md
       - Nápad, scope a plánování:
           - Nápad: teorie/napad.md
           - Scope a malé hry: teorie/scope.md

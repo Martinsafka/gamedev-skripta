@@ -52,4 +52,4 @@ Video to pojmenovává přesně [(20:02)](https://www.youtube.com/watch?v=atUsa3
 
 Působí to jako ztráta času („vždyť se nedotýkám enginu!") a přesně proto se to přeskakuje — stejná psychologie jako u [world buildingu](produktivita.md#unik-k-snadne-tvorbe-world-building-a-dokonaly-toolset), jen obráceně: tady *užitečná* práce nevypadá jako práce.
 
-**Souvislosti:** [Žrouti času](produktivita.md) · [Nápad: core DNA](napad.md#core-dna-a-ctyri-emoce)
+**Souvislosti:** [Žrouti času](produktivita.md) · [Nápad: core DNA](napad.md#core-dna-a-ctyri-emoce) · [Markovovy řetězce: Monte Carlo](markovovy-retezce.md#monte-carlo-zahraj-to-tisickrat-misto-vypoctu) *(totéž s počítačem — balanc simulací)*
