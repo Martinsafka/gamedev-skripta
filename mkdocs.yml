@@ -69,6 +69,9 @@ nav:
           - Nápad: teorie/napad.md
           - Scope a malé hry: teorie/scope.md
           - Prototypování a vertical slice: teorie/prototypovani.md
+          - GDD: teorie/gdd.md
+          - Plánovací nástroje: teorie/planovani-nastroje.md
+          - Playtesting: teorie/playtesting.md
       - Základy designu:
           - Engagement a appeal: teorie/zaklady.md
           - Zábava a flow: teorie/zabava.md

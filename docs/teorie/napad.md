@@ -1,6 +1,6 @@
 # Nápad: od záblesku k validované hře
 
-Dvě videa od BiteMe Games — krátká diagnóza pěti nemocí herních nápadů a 67minutový „kurz" celého procesu od záblesku po validovaný prototyp. Společné jádro: **vymyslet nápad je snadné, validovat ho je práce.** Kapitola jde po téhle práci krok za krokem: proč nápady umírají, jak je testovat za hodinu, jak jim vybrat emoci, jak se poměřit s konkurencí a kdy prototyp zabít.
+Čtyři videa od tří tvůrců — BiteMe Games (diagnóza nemocí nápadů + 67minutový „kurz" celého procesu), Game Maker's Toolkit (kde se nápady berou a jak je hodnotit) a Indie Game Clinic (osm technik ideace včetně SCAMPER). Společné jádro: **vymyslet nápad je snadné, validovat ho je práce.** Kapitola jde po téhle práci krok za krokem: kde nápady vznikají, proč umírají, jak je testovat za hodinu, jak jim vybrat emoci a kdy prototyp zabít.
 
 ---
 
@@ -106,3 +106,63 @@ A nakonec **momentum bar** [(58:14)](https://www.youtube.com/watch?v=d_e9Apys9Dg
 > **Pozn.:** Graybox vs. asset packy není dogma, ale spor o to, *co testuješ*: mechanickou hloubku (graybox ji izoluje — tak pracuje [prototypování podle Indie Game Clinic](prototypovani.md)), nebo prodejnost a vibe (tam graybox lže). Odpověz si, kterou otázku zrovna klade tvůj prototyp, a vyber podle toho.
 
 **Souvislosti:** [Prototypování a vertical slice](prototypovani.md) · [Idea iceberg: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Rejstřík: game feel](../rejstrik.md#game-feel) · [Rejstřík: asset pack](../rejstrik.md#asset-pack)
+
+---
+
+## Čtyři zdroje nápadů — a evaluace: hook, anchor, appeal
+
+**Zdroj:** [How to find amazing game ideas](https://www.youtube.com/watch?v=0m60QbT85Tc) · [Game Maker's Toolkit](https://www.youtube.com/channel/UCqJ-Xo29CKyLTjn6z2XwYAw) · ~27 min, 1. díl série Game Dev 101
+
+**Shrnutí:** Mark Brown po vydání Mind Over Magnet přiznává, že jeho největší chybou byla neznalost produkční pipeline — a začíná sérii o ní od úplného začátku: kde se berou nápady. Odpověď má čtyři šuplíky (existující hra, žánr, nová mechanika, zážitek) a druhou půlku, na kterou se zapomíná častěji: jak poznat, jestli nápad stojí za roky práce. Tam nastupují tři slova — hook, anchor, appeal.
+
+### Rozpad myšlenky
+
+**Čtyři zdroje nápadů:**
+
+1. **Existující hra jako odraziště** [(2:24)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=144s): posuň perspektivu (Factorio z první osoby = Satisfactory), téma (Minecraft pod vodou = Subnautica), médium (společenská hra Werewolf → Among Us), nebo vzkřis mrtvou sérii (Stardew Valley vznikl, protože Harvest Moon podle Barona „postupně upadal"). Nápad navíc projde filtrem tvého vkusu: z her japonského tvůrce Ikiki vzešel nevydaný klon, z klonu po přidání vibu Dennise Wedina Hotline Miami [(3:14)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=194s) — a ta zase inspirovala celou generaci. Terry Cavanagh to říká bez okolků: **everything is a remix** — tvorba nevzniká ve vakuu [(4:50)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=290s).
+2. **Žánr jako recept** [(5:37)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=337s): oprav, co tě na žánru štve (RNG nefér roguelike → rytmický Crypt of the NecroDancer; city builder s bobtnající složitostí → Islanders), zkombinuj dva žánry (Spelunky), odeber core mechaniku (Captain Toad neumí skákat [(6:27)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=387s)), nebo vyměň metaforu: FPS je v jádru zaměřování — místo zbraně foťák = Pokémon Snap, wapka = PowerWash Simulator [(7:15)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=435s). Žánr ber co nejvolněji: vyvař ho na DNA a stav od ní.
+3. **Mechanika z reálného světa** [(8:06)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=486s): pasová kontrola → Papers, Please; zahradničení → Pikmin; ovládání jako zdroj (swipe = seknutí mečem → Fruit Ninja; analogové triggery GameCubu připomněly Koizumimu vodní pistolky → Mario Sunshine [(9:44)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=584s)); nebo izoluj mechaniku cizí hry a vypěstuj z ní celou svou (rewind z Prince of Persia → Braid; downthrust ze Zeldy 2 → Shovel Knight [(10:32)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=632s)). Tomuhle směru se říká **bottom-up**: mechaniky napřed, téma potom — Splatoon začal jako bloky tofu schovávající se v inkoustu [(11:21)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=681s).
+4. **Zážitek napřed = top-down** [(12:09)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=729s): FTL nevznikl ze systémů, ale z fantazie „jsi kapitán Picard a řveš na inženýry, ať nahodí štíty"; Thronefall z power fantasy vládce miniaturního království; Spiritfarer z touhy mluvit o smrti útulně [(12:55)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=775s). Mechaniky se hledají až k obrazu.
+
+**Příběh není herní nápad — a jedna mechanika taky ne** [(13:43)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=823s). Test hratelnosti: co je win state, co překážka, co fail state a co hráč *dělá* — Crazy Taxi na tyhle čtyři otázky odpoví jednou větou [(14:32)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=872s).
+
+**Evaluace** — protože udělat první nápad, co tě napadne, je podle Jonase Tyrollera ruská ruleta [(19:17)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1157s):
+
+- **Zvládneš to ty?** Jonasovo pravidlo palce: gameplay prototyp za 1–2 dny → hra za 1–2 roky; prototyp za dva týdny → projekt na velmi dlouho [(20:04)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1204s). Scope jde ohnout: Firewatch neměl rozpočet na 3D postavy, tak celý příběh přesunul do vysílačky [(20:52)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1252s).
+- **Vynikne?** **Hook** = informace, která nutí hru zkusit nebo o ní mluvit (Ryan Clark) [(21:40)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1300s). Headline test: „Darkest Dungeon je lovecraftovský dungeon crawler o psychické dani dobrodružství" — kliknul bys? Ale pozor na přestřelení: příliš originální hra budí nedůvěru — mezoamerické RPG Arco s „bullet-hell-ish real-time turn-based combatem" kritika chválila a prodeje nepřišly [(23:14)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1394s). Proto **anchor**: povědomý prvek, který hráče ukotví (známé mechaniky, žánr, značka). Vzorec Zacharyho Richmana: **simple, with something unexpected** — tower defense, kde tě zraní vlastní kulky; jednoduché otevře dveře, nečekané zahákne [(24:03)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1443s).
+- **Přitahuje?** Jonasův **appeal** = síla, která táhne ke hře před hraním: fantasy appeal („chci tohle být"), exploration appeal („chci to prozkoumat"), toy appeal („chci na to sahat") [(24:49)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1489s). Test: Lucas Pope u každého nápadu zkouší v hlavě sestříhat trailer — když nejde, nápad zahodí [(25:37)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1537s); Tom Francis doporučuje vymyslet název a capsule art dřív, než padne první řádek kódu.
+- **Baví to?** Nezjistíš přemýšlením: **mozek je mizerný simulátor videoher** — v hlavě zní skvěle skoro všechno [(26:25)](https://www.youtube.com/watch?v=0m60QbT85Tc&t=1585s). Jediná odpověď je prototyp.
+
+> **Pozn.:** Anchor je totéž, co v [scope kapitole](scope.md#omezeni-potrebuje-herni-alibi) dělá „herní alibi" pro omezení — povědomost jako most k novince. A Jonasovo pravidlo 1–2 dnů ladí s BiteMe [prototypem do týdne](#prototyp-do-tydne-a-momentum-bar): oba měří totéž — kolik hry se dá ověřit, než jí uvěříš.
+
+**Souvislosti:** [Co prodává: appeal](co-prodava.md#ctyri-pilire-a-sedm-cest-k-appealu) · [Yoink & twist](#yoink-twist-lepsi-nebo-dost-jina) · [Test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) · [Rejstřík: hook](../rejstrik.md#hook) · [Rejstřík: anchor](../rejstrik.md#anchor-marketing)
+
+---
+
+## Ideace jako řemeslo: skills audit, věta s cílem a SCAMPER
+
+**Zdroj:** [The Secret to GOOD Game Ideas — Practical Ideation Methods](https://www.youtube.com/watch?v=LMOCQNcMleg) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~24 min, osm technik
+
+**Shrnutí:** Kreativní člověk má nápadů víc, než unese — problém je systematicky je třídit a mít i takové, které jde *provést*. Osm technik Joea Baxtera-Webba se dělí na generování (život, ne-hry, omezení) a hodnocení (věta s cílem, momenty) — a končí formálním generátorem SCAMPER, který umí obojí.
+
+### Rozpad myšlenky
+
+**Ze života, ne ze Skyrimu** [(0:48)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=48s): roznášel jsi noviny, hlídal děti, dělal ve skladu? O všem existují úspěšné hry — zatímco trh přetéká zombíky, fantasy a vesmírem [(1:34)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=94s). Všední téma má skrytý bonus: **nutí tě skutečně designovat** — combat a crafting si poskládáš z tisíců hotových vzorů, hru o hlídání dětí musíš vymyslet sám [(2:21)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=141s). A jsi jeden ze sta autorů her o pekárně místo jednoho z deseti milionů o zombících.
+
+**Interakce z ne-her** [(3:07)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=187s): Reigns je vláda královstvím přes swipe rozhraní Tinderu; Mini Metro je vláčková hračka; prak v Angry Birds je objekt z reálného světa — i úplně sváteční hráč okamžitě ví, co se stane [(3:53)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=233s). Designér má být zvědavý na „design všedních věcí": hračky, fidget cube, appky — všechno jsou katalogy interakcí [(4:41)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=281s).
+
+**Skills audit** [(5:27)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=327s): nováčci přestřelují scope, protože nevědí, co nevědí. Sedni si a sepiš: co umím, co neumím, co napůl — je to inventura zdrojů projektu. Máš ilustrátora, ale ne animátora? Hra s mluvícími portréty místo chodících postav. Zní to jako prohra, dokud si nevzpomeneš, že Dredge nemá walk cycle a Mini Metro nemá ani postavy [(6:13)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=373s). Omezení vyřadí 90 % nápadů — a zbydou ty proveditelné; když navíc u zbylých máš osobní zkušenost (lodě a plachtění), získáváš nefér výhodu [(7:01)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=421s).
+
+**Find the fun & retheme** [(7:48)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=468s): nebuď ženatý s tématem. Gabe Cuzzillo dělal top-down ninja stealth, ale bavilo ho chytání a strkání nepřátel — tak z ninji udělal gorilu, z nepřátel křehké střelce a vznikl Ape Out, „nejlepší ultranásilná jazzová gorilí hra roku 2019" [(8:34)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=514s).
+
+**Oprav vnímaný problém** [(8:34)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=514s): Plants vs. Zombies řešil zadání „tower defense pro lidi, co tower defense nikdy nehráli" [(9:21)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=561s). Cvičení: vezmi žánr, který *nemáš rád*, a zjisti, co by se muselo změnit, abys ho rád měl — problem statement navíc míří na trh, který nikdo neobsluhuje [(10:07)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=607s).
+
+**Pitch jednou větou: cíl + akce** [(10:30)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=630s): „hra o teenagerských superhrdinech" není nápad na hru, jen na setting. Věta musí říct, o co hráč usiluje a co pro to dělá: Into the Breach — zachraňuješ města tím, že ničíš kaiju a vylepšuješ mechy [(11:16)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=676s); Stardew — buduješ farmu chovem, pěstováním a přátelstvím s městečkem [(12:04)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=724s). Nejde-li věta napsat, máš nápad na příběh, ne na hru [(12:50)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=770s) — projeď tímhle sítem celý seznam nápadů; a mimochodem přesně takhle se píše marketing copy.
+
+**Design pro momenty** [(13:37)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=817s): deskovkový designér Eric Lang si představí hráče v krámě, jak líčí, co se jim v partii stalo — a pak navrhne hru, která ty vzpomínky vyrábí [(14:24)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=864s). Player-centered myšlení: obsahu můžeš mít tuny, ale hra bez zapamatovatelných momentů se zapomene. Když vybíráš z deseti nápadů, ber ten, u kterého vidíš radost hráčů [(15:11)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=911s).
+
+**SCAMPER** [(15:58)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=958s) — formální technika, která rozhýbe zaseknutý nápad i vygeneruje nový z oblíbené hry: **S**ubstitute (vyměň téma nebo mechaniku), **C**ombine (kombinuj — pozor na složitost; elegantní verze: XP a zlato jako jedna měna = Dark Souls [(17:33)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=1053s)), **A**dapt (jiný kontext: Resident Evil pro děti, se stejným přístupem k lekání), **M**agnify (zazoomuj na nejzábavnější prvek — celá hra o upírově slabosti na slunce místo „všeho o upírech" [(18:21)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=1101s)), **P**urpose (co kdyby hra byla výuková, terapeutická, historický záznam? [(19:07)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=1147s)), **E**liminate (generátor „hra bez X": Skyrim bez magie, Fortnite bez stavění; GTA minimalizuje vězení, protože neslouží fantazii [(19:53)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=1193s)), **R**earrange (hráč padouchem v žánru hrdinů, příběh od starého hrdiny [(21:28)](https://www.youtube.com/watch?v=LMOCQNcMleg&t=1288s)).
+
+> **Pozn.:** Skills audit je měkčí sourozenec řemeslnických otázek z [rozpočtu pozornosti](scope.md#proc-male-rozpocet-pozornosti-ne-jen-dokoncitelnost) („co neumím tak, že to do projektu nesmí?") — a Ape Out příklad si autor o rok později naordinoval sám: viz [pivot Golem Gourmet](scope.md#pivot-kdyz-hra-nasla-jadro-jinde-nez-jsi-planoval). Magnify z SCAMPER je totéž co „malá hra = jedna mechanika" řečené generátorem.
+
+**Souvislosti:** [Scope: design by constraint](scope.md#design-by-constraint-krabice-napred-napad-dovnitr) · [Test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) · [Systémy a mechaniky](systemy-a-mechaniky.md) · [Rejstřík: SCAMPER](../rejstrik.md#scamper) · [Rejstřík: skills audit](../rejstrik.md#skills-audit)

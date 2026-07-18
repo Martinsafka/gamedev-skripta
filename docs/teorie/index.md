@@ -37,9 +37,12 @@ Témata a kapitoly:
 
 **Nápad, scope a plánování**
 
-- **[Nápad](napad.md)** — od záblesku k validované hře: Venn diagram, test 300 znaků, core DNA a čtyři emoce, yoink & twist, prototyp do týdne.
-- **[Scope a malé hry](scope.md)** — malá hra = jedna mechanika; rozpočet pozornosti, design by constraint a omezení s herním alibi.
-- **[Prototypování a vertical slice](prototypovani.md)** — tři brány rané fáze vývoje, žánrové standardy vs. inovace a ekonomika na papíře.
+- **[Nápad](napad.md)** — od záblesku k validované hře: Venn diagram, test 300 znaků, core DNA, yoink & twist — a čtyři zdroje nápadů, hook/anchor/appeal a SCAMPER.
+- **[Scope a malé hry](scope.md)** — malá hra = jedna mechanika; rozpočet pozornosti, design by constraint, omezení s herním alibi — a scope v pohybu: creep, pivot, hry z praxe.
+- **[Prototypování a vertical slice](prototypovani.md)** — tři brány rané fáze vývoje, žánrové standardy vs. inovace, ekonomika na papíře a iterační spirála.
+- **[GDD](gdd.md)** — dokument jako způsob myšlení: minimalistická skica všech oblastí, will/should/could — a muzeum dokumentů od Diabla po Monaco.
+- **[Plánovací nástroje](planovani-nastroje.md)** — kanban pro gamedev: karty s jedním vlastníkem, WIP limit, In Review a backlog — a proč je tohle práce producenta.
+- **[Playtesting](playtesting.md)** — hra je skutečná až před hráči: moderovaný test a čtení chování, tři vlny, RITE, road test před stress testem.
 
 **Základy designu**
 

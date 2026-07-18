@@ -1,6 +1,6 @@
 # Prototypování a vertical slice
 
-Mezi „mám nápad" a „dělám hru" leží dvě brány, které indie vývojáři rádi přeskakují — a průmysl ne: gameplay prototyp a vertical slice. Indie Game Clinic je vysvětluje na nejtěžším případu, jaký existuje: jak prototypovat city builder, jehož jádrem je komplexní ekonomika.
+Mezi „mám nápad" a „dělám hru" leží dvě brány, které indie vývojáři rádi přeskakují — a průmysl ne: gameplay prototyp a vertical slice. Indie Game Clinic je vysvětluje na nejtěžším případu, jaký existuje: jak prototypovat city builder, jehož jádrem je komplexní ekonomika. A přidává metaforu pro všechno, co následuje po první bráně: vývoj jako spirála, po které se ke středu jede přes všechny části hry — ne rychlým pruhem té, která ti jde.
 
 ---
 
@@ -53,3 +53,32 @@ Video to pojmenovává přesně [(20:02)](https://www.youtube.com/watch?v=atUsa3
 Působí to jako ztráta času („vždyť se nedotýkám enginu!") a přesně proto se to přeskakuje — stejná psychologie jako u [world buildingu](produktivita.md#unik-k-snadne-tvorbe-world-building-a-dokonaly-toolset), jen obráceně: tady *užitečná* práce nevypadá jako práce.
 
 **Souvislosti:** [Žrouti času](produktivita.md) · [Nápad: core DNA](napad.md#core-dna-a-ctyri-emoce) · [Markovovy řetězce: Monte Carlo](markovovy-retezce.md#monte-carlo-zahraj-to-tisickrat-misto-vypoctu) *(totéž s počítačem — balanc simulací)*
+
+---
+
+## Iterační spirála: ke středu nevede rychlý pruh
+
+**Zdroj:** [GameDev as an Iterative Spiral](https://www.youtube.com/watch?v=9L6XX9kDQyA) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~12 min, metafora + vlastní projekt
+
+**Shrnutí:** „Začít mechanikami, nebo tématem?" je špatná otázka — brilantní hry vznikly oběma cestami. Podstatné je, co následuje: ať začneš kdekoli, projdeš všemi ostatními částmi hry, a to opakovaně. Vývoj je spirála: ve středu leží dokonalá verze hry, která nikdy nemůže existovat, a blíž k ní se dostaneš jen tak, že objedeš celé kolo — art, kód, mechaniky, téma — znovu a znovu.
+
+### Rozpad myšlenky
+
+Kruh se dělí na části hry — poslouží [elemental tetrad](../rejstrik.md#elemental-tetrad) Jesseho Schella: estetika, mechaniky, technologie, příběh/téma [(0:48)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=48s). Ve středu spirály je platónský ideál tvé hry [(2:22)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=142s) — nedosažitelný („umění se nedokončuje, jen opouští"); každé kolo iterace tě přiblíží, a v nějakém bodě řekneš „to stačí" a vydáš [(3:09)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=189s). Proč spirála, a ne kruh: **na další patro se dostaneš jen objetím celého kola** [(3:09)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=189s).
+
+Jak vypadá jedno kolo na jeho vlastním projektu (golem hra, viz [pivot](scope.md#pivot-kdyz-hra-nasla-jadro-jinde-nez-jsi-planoval)):
+
+- **Technologie + art s nízkou laťkou, záměrně** [(3:56)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=236s): šablona projektu, 24×24px grid, sprity jedna barva + černá. „Vím, že umím lepší art — ale teď mě zajímá rychlá jízda po spirále." Nízké laťky v silných oblastech kupují rychlost iterace těm slabým.
+- **Mechaniky**: room drafting z Blue Prince zkřížený s platformerem — protože v Terrarii ho baví *tvořit*, ale nebaví piplat jednotlivé bloky; drafting = tvoření v hrubých tazích [(4:42)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=282s).
+- **Technologie podruhé**: fyzikální bugy + tisk před-renderovaných pokojů do mapy → knihovna z komunitního Discordu; chybějící zrcadlení pokojů → stal se testerem nové verze knihovny [(6:14)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=374s). (A překonaná „fobie z knihoven": nejde o pýchu, chce kódu rozumět.)
+- **Téma**: proč postavený svět zase mizí? → efekt roztrhání levelu při teleportu domů — narativní ospravedlnění mechaniky, které si vyžádalo naučit se particle systém enginu [(7:48)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=468s).
+
+Tři měsíce, asi pět kol [(8:34)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=514s) — a v každém kole se v každé oblasti něco nového naučil.
+
+**Diagnóza her bez budoucnosti** [(8:34)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=514s): většina her, které autor recenzuje a „nemají budoucnost", vznikla opačně — autor má jednu dvě oblasti jako komfortní zónu a v té lajně se hrne ke středu: nádherné assety, které se nehýbou a mechaniky nechutnají; nebo skvělé mechaniky v nehratelně zabugované hře [(9:21)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=561s). Sólo vývojář je nejohroženější druh. Jenže dokonalá verze hry ve středu **není zabugovaná, má mechaniky, které sedí, téma, které dává smysl, a vypadá přitažlivě** — třeba minimalisticky, ale přitažlivě [(10:07)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=607s). Vlastní lajnou se k ní nepřiblížíš ani o milimetr.
+
+Praktický korolár [(10:54)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=654s): máš-li oblast, které se bojíš a ignoruješ ji (placeholder assety, mdlé barvy), týden soustředěný jen na ni — art direction, paleta, shadery, ne „umět kreslit" — může hru posunout víc než měsíc v komfortní zóně. A tvrdý závěr [(11:40)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=700s): kdo se o některé části hry starat *nemíní* („bugy neřeším, víc neumím"), ať dělá jednodušší hru, která jeho dovednosti využije líp — aby hru chtěl někdo aspoň playtestovat, natož koupit, musí se jet po celé spirále.
+
+> **Pozn.:** Tohle je jemnozrnný pohled dovnitř [tří bran](#tri-brany-gameplay-prototyp-vertical-slice-produkce): brány říkají, *kdy* smíš dál, spirála říká, *jak* se mezi nimi jede. A „komfortní lajna" je totéž, co [únik k snadné tvorbě](produktivita.md#unik-k-snadne-tvorbe-world-building-a-dokonaly-toolset) — jen viděná z ptačí perspektivy celého projektu.
+
+**Souvislosti:** [Žrouti času: únik k snadné tvorbě](produktivita.md#unik-k-snadne-tvorbe-world-building-a-dokonaly-toolset) · [Sólo vývoj](solo-vyvoj.md) · [Scope: pivot](scope.md#pivot-kdyz-hra-nasla-jadro-jinde-nez-jsi-planoval) · [Rejstřík: elemental tetrad](../rejstrik.md#elemental-tetrad) · [Rejstřík: iterace](../rejstrik.md#iterace)

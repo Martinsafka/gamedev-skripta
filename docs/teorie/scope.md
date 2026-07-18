@@ -1,6 +1,6 @@
 # Scope: malé hry a design by constraint
 
-„Dělej malé hry" je nejčastější rada v indie prostoru — a nejčastěji špatně pochopená. Dva pohledy, které se doplňují: BiteMe Games (kteří malé hry reálně shipují) vysvětlují, co malá hra *je* a co není, a Indie Game Clinic dodává metodu, jak na malé nápady vůbec přijít: design by constraint — navrhování z omezení.
+„Dělej malé hry" je nejčastější rada v indie prostoru — a nejčastěji špatně pochopená. Základ kapitoly tvoří dva pohledy, které se doplňují: BiteMe Games (kteří malé hry reálně shipují) vysvětlují, co malá hra *je* a co není, a Indie Game Clinic dodává metodu, jak na malé nápady vůbec přijít: design by constraint — navrhování z omezení. Druhá vlna přidává scope v pohybu: co dělat, když rozsah bobtná (scope creep), když hra našla těžiště jinde, než jsi plánoval (pivot) — a jak vypadají malé hry v praxi, od učebního projektu po hru vydanou za měsíc.
 
 ---
 
@@ -102,3 +102,73 @@ Nuance, kterou video zdůrazňuje [(37:19)](https://www.youtube.com/watch?v=sk4m
 Indie Game Clinic dodává, *jak* se ta opakování počítají [(46:15)](https://www.youtube.com/watch?v=sk4mpNuFGeE&t=2775s): hry jsou repetitivní — dokud hra nemá **zábavných pět minut**, nepotřebuje být hodinová, natož desetihodinová. Cyklus je udělej → otestuj s publikem → uprav → znovu; roky ladění bez playtestů nejsou vývoj, ale [leštění bez validace](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem). A k publiku [(45:19)](https://www.youtube.com/watch?v=sk4mpNuFGeE&t=2719s): najdi lidi se stejnými standardy, kteří ti řeknou, že něco stojí za nic — YouTube komentáře „looks nice" nejsou playtest [(44:30)](https://www.youtube.com/watch?v=sk4mpNuFGeE&t=2670s); vývoj hry a design hry nejsou totéž a to druhé bez hráčů neexistuje.
 
 **Souvislosti:** [Rady z praxe: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Začátky bez zkušeností](zacatky-bez-zkusenosti.md#sdileni-prace-neni-marketing-je-to-nastroj-uceni) · [Žrouti času](produktivita.md)
+
+---
+
+## Scope creep: nápad zaparkuj, nezabíjej
+
+**Zdroj:** [Stopping Scope Creep without Crushing Creativity](https://www.youtube.com/watch?v=Xyl3tsZx4wQ) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~10 min, odpověď ze streamu
+
+**Shrnutí:** Dotaz z chatu: „jak bojovat s nutkáním zvětšovat scope — hlavně když se přidali artisti a tlačí další nápady do dohodnutého plánu?" Odpověď není „říkej ne". Je to systém: **každý nápad zapiš, kategorizuj a nech ho čekat** — o tom, co se bude dělat, se rozhoduje v pravidelném rytmu proti pilířům hry, ne v zápalu brainstormu.
+
+### Rozpad myšlenky
+
+Nástroj je obyčejná tabulka featur [(0:47)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=47s): řádek = feature (ne task), sloupec = **rationale** — proč to ve hře má být. Korporátní/F2P studia sem píší KPI (engagement, retention, monetization [(1:33)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=93s)); premium indie hra má místo toho **pilíře projektu** — a featura, která žádný nesytí, se pozná na první pohled. K tomu kategorie (core gameplay vs. feedback & juice…) a barevné statusy in progress / on hold / done [(2:21)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=141s).
+
+Proces: **všechny nápady dovnitř** — i cizí, i ty, kterým nevěříš [(3:08)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=188s). Nepřetahuj se o ně v momentě, kdy zazní; ulož je. Pak v pravidelném rytmu (indie tempo: měsíční bloky, klidně 3 týdny práce + týden playtestů a review) projdi seznam a vyber, co jde do dalšího buildu [(3:55)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=235s). Důvody, proč parkovat místo zabíjet:
+
+- Některý z odložených nápadů je **secret sauce** — a dnes to nevidíš; za měsíc, s hrou o kus dál, najednou ano [(3:55)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=235s).
+- Artisti, kteří nosí gameplay nápady, jsou **požehnání v přestrojení** [(4:42)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=282s) — video je nemilosrdné k opačnému typu: work-for-hire spolupracovník, kterého zajímá jen jeho asset, je cesta ke stagnaci. Systém ti dovolí říct „nápad je slyšen a zapsán" místo „ne".
+- Improvizační pravidlo **yes-and** [(8:34)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=514s): kdo blokuje každý nápad, naučí tým nápady nenosit. Jenže samé „jo" je scope creep — systém je třetí cesta: „jo, zapisuju — a ve čtvrtek to zvážíme proti cíli."
+
+Kategorie se dají rovnou svázat s pilíři z GDD [(7:02)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=422s): „zvuky při kliknutí na předměty" spadne pod imerzi — a pak jde udělat celý měsíc fokusovaný na imerzi, kdy tým sype zvuky a VFX do už hotových věcí [(7:48)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=468s). Jediné riziko systému: člověk, jehož nápady nikdy neprojdou, si toho všimne [(9:21)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ&t=561s) — ale i tak dostal vážné zvážení, ne reflexivní „ne".
+
+> **Pozn.:** Tohle je týmová verze BiteMe rady „nápad okamžitě zapiš a zavři do šuplíku" z [testu 300 znaků](napad.md#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) — stejný mechanismus (zápis vyplaví nápad z hlavy a hra přežije), povýšený na proces s pilíři a kadencí.
+
+**Souvislosti:** [Žrouti času: scope creep](produktivita.md#scope-creep-a-michani-zanru-dvojsecna-past) · [Plánovací nástroje: kanban](planovani-nastroje.md) · [Zábava: taxonomie a pilíře](zabava.md#zabava-neni-jedna-vec-taxonomie-a-pilire) · [Rejstřík: scope creep](../rejstrik.md#scope-creep) · [Rejstřík: backlog](../rejstrik.md#backlog)
+
+---
+
+## Pivot: když hra našla jádro jinde, než jsi plánoval
+
+**Zdroj:** [9 Months of Dev… Pivot or Perish?](https://www.youtube.com/watch?v=CbWpsNs7nrg) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~28 min, devlog z první ruky
+
+**Shrnutí:** Devět měsíců vývoje: platformer ve stylu Spelunky (emergentní ničení, házení předmětů) zkřížený s room-draftingem po vzoru Blue Prince — „stavíš si vlastní Metroidvanii z balíčku pokojů". A pak pivot: pryč s plánovaným příběhem o golemovi a zlém čaroději, hrou se stává vaření. Nejcennější na videu je poctivá anatomie toho, *jak* se takové rozhodnutí pozná a udělá.
+
+### Rozpad myšlenky
+
+**Jak se pivot ohlásí.** Části projektu, kterým autor rozuměl, se dělaly snadno a s chutí; a pak tu byl chuchvalec „příběh + progrese + motivace postavy" — **„monstrum v rohu místnosti, na které jsem se snažil nedívat"** [(13:05)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=785s). To je diagnostický signál: když se nějaké oblasti hry systematicky vyhýbáš a není to technickou neschopností, možná není špatně ta oblast, ale hra kolem ní.
+
+**Co rozhodlo.** Tři zdroje najednou [(8:23)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=503s): sebereflexe (co dokončení vyžaduje a v čem jsem silný), hraní a recenzování cizích rozdělaných her — u Vampire-Survivors-like hry z komunity si uvědomil „proč tu je ten dialog? tenhle typ her nehraju kvůli příběhu" [(10:45)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=645s) — a fakt, že co ve vlastní hře fungovalo nejlíp, byla moment-to-moment groteska, ne velké vyprávění [(12:19)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=739s). Výjimky jako Hades (sassy dialogy, nádherné postavy, mytologie) mají výhody, které tvoje hra nejspíš nemá [(10:45)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=645s).
+
+**Kam pivotovat: k tomu, co už funguje.** Vaření bylo ve hře jako vedlejší subsystém — ale jediný, který spojoval oba pilíře hry (platformové výpravy pro suroviny × stavění pokojů podle toho, co v nich roste) do smysluplných mini-questů [(15:13)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=913s). Pivot = udělat z nejlépe fungujícího subsystému jádro: Golem Gourmet. Nový loop vyřešil i „bezcílné runy": zákazníci s objednávkami jsou **drzý quest systém** [(23:41)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=1421s) — jako připnutý recept v Subnautice, který v open worldu supluje questy [(24:28)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=1468s). A nese to i ekonomiku: tip podle typu strávníka (kovář přihodí klíč, druid pokoj do balíčku) → hráč se učí řetězit odměny jako v deskovce [(17:32)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=1052s).
+
+**Test a poctivost.** Rychlý prototyp zákazníků, zahrát, verdikt: **„je to jiná hra, ale lepší"** [(25:14)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=1514s). A vzácně upřímná poznámka o post-racionalizaci: zpětně se snadno tvrdí „všechno byl záměr" — ve skutečnosti šlo o „nechci psát narativ, vaření funguje, lidem se líbí roztomilá postava", a ostatní výhody se dostavily jako vedlejší produkt [(24:28)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=1468s). Výsledek rozhodnutí navíc: **poprvé vidí, jak vysoká je hora** — celkový objem zbývající práce byl před pivotem neodhadnutelný, protože chuchvalec neměl tvar [(14:27)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=867s).
+
+> **Pozn.:** V polovině videa je žertovný blok „reklamy" na autorův Patreon [(13:52)](https://www.youtube.com/watch?v=CbWpsNs7nrg&t=832s). — Srovnej s [„hra ti říká, čím chce být"](postmortem-shantytown.md#hra-ti-rika-cim-chce-byt-ucel-jako-designovy-soudce): ShantyTown škrtal podle účelu, tady se podle nejsilnějšího subsystému **překreslilo těžiště celé hry**. A je to autorova vlastní medicína: [find the fun & retheme](napad.md#ideace-jako-remeslo-skills-audit-veta-s-cilem-a-scamper) učil na Ape Out — teď to udělal vlastní hře.
+
+**Souvislosti:** [Prototypování: iterační spirála](prototypovani.md#iteracni-spirala-ke-stredu-nevede-rychly-pruh) *(stejný projekt o pár měsíců dřív)* · [Žánry očima designéra](zanry.md#zanr-mod-nalada-pyramida-ktera-se-stavi-zdola) · [Ludotematický soulad](ludonarativni-soulad.md) · [Rejstřík: pivot (design)](../rejstrik.md#pivot-design)
+
+---
+
+## Malé hry v praxi: hra na učení a hra za měsíc
+
+**Zdroj:** [How To Make Small Games](https://www.youtube.com/watch?v=U-j91fw648Q) · [RETRODEAD](https://www.youtube.com/channel/UCE8DuYxjPeRbgTitr7du2ZQ) · ~5 min, průvodce začátečníka ·
+[How I Made A Steam Game In Only 1 Month](https://www.youtube.com/watch?v=7naIKclU1A4) · [Zoteling](https://www.youtube.com/channel/UC47TyIztmJvfpZiHh5s4lqQ) · ~7 min, soutěžní sprint
+
+**Shrnutí:** Dvě malé hry ze dvou opačných konců spektra: Ascent Flora je učební platformer, kde se škrtá všechno, co nesouvisí s testovanou mechanikou — a Gun Frog hra vyrobená za tři soutěžní týdny a vydaná na Steamu, kde malost umožnily dvě věci: playtest každý den a levný art style. Společný jmenovatel: **u malé hry rozhoduje, proč ji děláš — škrty se řídí účelem.**
+
+### Rozpad myšlenky
+
+**Proč-otázka jako kompas škrtů** [(0:02)](https://www.youtube.com/watch?v=U-j91fw648Q&t=2s): RETRODEAD začíná plánování otázkou „proč tuhle hru dělám?" — první hra, nová technologie, konkrétní mechanika? Každý důvod platí, ale musíš ho znát, protože **až přijde na škrtání, škrtá se podle něj** [(0:48)](https://www.youtube.com/watch?v=U-j91fw648Q&t=48s). Jeho proč: otestovat trinket systém a exploraci. Důsledek: žádné animace (prosté snímky), žádné zvuky, art z free packů — a jádro odečítáním: odebírej features, dokud nezbyde esence [(0:48)](https://www.youtube.com/watch?v=U-j91fw648Q&t=48s). Find-the-fun indikátor: zábava je nalezená, když se přistihneš, že si s barebones mechanikou hraješ jen tak — u něj lezení, „chtěl jsem vylézt na všechno" [(2:21)](https://www.youtube.com/watch?v=U-j91fw648Q&t=141s). A poctivá retrospektiva na závěr: stejně moc řešil vzhled prostředí, ačkoli jádrem byl trinket systém — příště ještě minimálněji [(4:02)](https://www.youtube.com/watch?v=U-j91fw648Q&t=242s). I malá hra ukáže skutečný scope až při dokončování [(3:07)](https://www.youtube.com/watch?v=U-j91fw648Q&t=187s).
+
+**Hra za měsíc: co ji umožnilo** [(0:08)](https://www.youtube.com/watch?v=7naIKclU1A4&t=8s): Zoteling po čtyřech letech na nedokončeném hlavním projektu (a s nastupujícím vyhořením) přijal pozvánku do soutěže Blackthorn Prod: 6 vývojářů, 3 týdny, eliminace každý týden, téma „momentum". Dvě rozhodnutí nesla celý sprint:
+
+- **Playtest každý den** [(0:54)](https://www.youtube.com/watch?v=7naIKclU1A4&t=54s) — přístup podle Valve, který poznal na týmové hře: co se dělá zítra, se vždy odvíjí od výsledků dnešního testu. Vidět to je na svatyních: první verze aktivace (obětuj nasbírané mouchy) v testech ukázala, že sbírání much začíná působit jako jádro hry — tak ji přestavěl na tlačítka + vlny nepřátel a mouchy nechal být jen měnou [(3:09)](https://www.youtube.com/watch?v=7naIKclU1A4&t=189s).
+- **Art style jako scope nástroj** [(2:27)](https://www.youtube.com/watch?v=7naIKclU1A4&t=147s): podle GDC přednášky o A Short Hike — zajímavé shadery + roztomilá jednoduchá grafika místo dřiny na assetech; nedokonalosti = ruční šarm. Díky tomu druhý týden unesl dva nové bossy a dvě oblasti.
+
+Za pozornost stojí i ocas vydání [(5:28)](https://www.youtube.com/watch?v=7naIKclU1A4&t=328s): po výhře ještě týden finalizace (lokalizace přes tabulky kamarádům, controller support, achievementy) — a pak **dva měsíce čekání na založení firmy**, bez které hru na Steam nedostal. Malá hra má administrativní režii velké.
+
+> **Pozn.:** BiteMe teze [„malá hra ≠ shipnutý prototyp"](#mala-hra-jedna-mechanika-ne-zmenseny-skyrim) a RETRODEAD škrty zvuků a animací si zdánlivě protiřečí — rozdíl je v proč-otázce: BiteMe mluví o hrách *na prodej*, Ascent Flora je hra *na učení* (a podle toho taky nešla na Steam). Gun Frog je na prodej — a proto polish v posledním týdnu dostal.
+
+**Souvislosti:** [Playtesting: proč a jak](playtesting.md) · [První projekty](prvni-projekty.md) · [Proč tvořit: tělocvična](proc-tvorit.md#male-projekty-jsou-telocvicna-ne-ustupek) · [Produktivita: kde umírají první hry](produktivita.md#kde-umiraji-prvni-hry-mapa-klifu-z-jedne-vyzvy) · [Rejstřík: find the fun](../rejstrik.md#find-the-fun)

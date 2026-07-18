@@ -1,3 +1,4 @@
+*[A/B test]: Dvě verze hry dvěma skupinám testerů — rozhodne chování, ne názor; testerům se často neříká nic.
 *[Abstract class]: Třída, kterou nejde umístit do světa ani referencovat — existuje jen jako rodič pro děti.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
@@ -10,13 +11,16 @@
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
+*[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
 *[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
+*[Backlog]: Zásobník všeho, co projekt čeká (úkoly i nápady); priority se z něj tahají po dávkách.
 *[Backpressure]: Producent rychlejší než konzument? Nebufferuj, nezahazuj — propaguj tlak zpět, ať zdroj zpomalí.
 *[Barrier to play]: Překážka, kterou designér testovat nechtěl (ovládání, barvy) — dokud existuje, obtížnost neladíš.
 *[Behavior Tree]: Rozhodovací strom AI: selectory a sequence volí tasky podle Blackboardu; decoratory hlídají podmínky.
+*[Beta]: Pozdní testovací verze: obsahově víceméně celá hra, ladí se balanc, bugy a onboarding.
 *[Blackboard]: Sdílená tabule AI: pojmenované klíče, přes které si percepce, tasky a strom předávají data.
 *[Blend Space]: Asset míchající animace podle hodnot na osách (rychlost, směr); klipy synchronizují sync markery.
 *[Blend stack]: Anim uzel: změna animační proměnné = nový blend do zásobníku — bez state machine.
@@ -73,6 +77,8 @@
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
 *[Eigenvektor]: Směr, který transformace nevychýlí — jen natáhne či zkrátí o eigenvalue.
+*[Elemental tetrad]: Schellovy čtyři části hry: estetika, mechaniky, technologie, příběh — iteruj přes všechny.
+*[Elevator pitch]: Popis hry na délku jízdy výtahem, nejčastěji „X meets Y"; nesmí být redundantní ani nespojitelný.
 *[Environmental storytelling]: Vyprávění prostorem: rozmístění objektů a stopy používání říkají, co se tu stalo.
 *[EQ]: Zesílení či potlačení konkrétních frekvencí; čištění šumu a prosazení zvuku v mixu.
 *[Eulerovy úhly]: Rotace jako yaw/pitch/roll v pevném pořadí — intuitivní, ale hrozí gimbal lock.
@@ -80,6 +86,7 @@
 *[Event dispatcher]: Rádio mezi Blueprinty: vlastník zavolá, všichni bindnutí posluchači dostanou event.
 *[Event Tick]: Blueprint event volaný každý snímek; polling, kterému se dobrý návrh vyhýbá.
 *[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
+*[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
@@ -114,8 +121,10 @@
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
 *[Invisible wall]: Neviditelná kolize tam, kde vizuálně nic nebrání — nejhorší způsob ohraničení mapy.
+*[Iterace]: Jedno kolo smyčky uprav → otestuj → vyhodnoť; hry nevznikají tahem, ale koly.
 *[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
 *[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
+*[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
 *[Kontrapunkt]: Skládání nezávislých melodií, které fungují zároveň; odděluje profíky od amatérů.
 *[Kvaternion]: Rotace čtyřmi čísly: bez gimbal locku, hladký slerp — výměnou za nulovou intuici.
@@ -157,6 +166,7 @@
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
 *[Mód hry]: Struktura hraní přes sezení (roguelike, metroidvania) — neříká, co držíš v rukou.
+*[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
@@ -175,6 +185,8 @@
 *[Obrat akordu]: Tentýž akord s jiným pořadím tónů (nota posunutá o oktávu); hladší přechody.
 *[Observer pattern]: Objekty se přihlásí k odběru událostí zdroje; v UE doslova Event Dispatcher.
 *[Oktáva]: Vzdálenost tónu a jeho příštího výskytu; poměr 2:1, nejkonsonantnější interval.
+*[Onboarding]: Prvních pár minut, kdy se hráč učí hru a rozhoduje se, jestli zůstane.
+*[One-pager]: Pitch na jednu stránku: obrázek, co chci vyrobit a jak vypadá úspěch.
 *[One-way door]: Rozhodnutí drahé na reverz (žánr, API, engine) — dělá se vědomě, s premisami; opak: two-way door.
 *[Orchestrace]: Rozdělení hudby mezi nástroje a smíchání do barvy; až po melodii, harmonii a kontrapunktu.
 *[Oscilátor]: Zdroj surového zvuku v synthu; tvar vlny (sinus/pila/obdélník) určuje barvu a alikvóty.
@@ -210,6 +222,8 @@
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
 *[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
+*[Producent]: Ve hrách project manager: timeline, seznam úkolů, kdo co dělá a kdo je volný.
+*[Prokletí znalosti]: Expert na vlastní hru si neumí dát zážitek nováčka — tření vidí až playtest.
 *[Průběžná obtížnost]: Jak moc tě hra tlačí k prohře; vyrábí stres a úlevu. Upgrade zdraví ji snižuje.
 *[Půltón]: Nejmenší vzdálenost dvou sousedních tónů (E–F); stavební jednotka stupnic.
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
@@ -225,6 +239,7 @@
 *[Retriggerable Delay]: Delay restartovaný každým dalším spuštěním — doběhne až po klidu; „ztráta zájmu" AI.
 *[Reverb]: Odraz zvuku od prostředí (dozvuk); slepí zvuky nebo vyjádří prostor (chodba, kaňon).
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
+*[RITE]: Rapid Iterative Testing and Evaluation: jeden tester → oprav vážné problémy → další tester.
 *[Roguelike]: Žánr postavený na opakovaných bězích, smrti jako součásti smyčky a procedurální generaci.
 *[Root motion]: Pohyb uložený v root kosti animace; MM ho vyžaduje (Enable Root Motion + Force Root Lock).
 *[Rovnoměrně temperované ladění]: Oktáva dělená na 12 stejných kroků; čisté intervaly jen přibližuje (equal temperament).
@@ -232,8 +247,10 @@
 *[Rubber duck debugging]: Vysvětli problém nahlas (třeba kachně) — řešení se často ukáže v půlce vysvětlování.
 *[Sampling]: Použití kusu existující nahrávky jako materiálu nové skladby; pozor na práva.
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
+*[SCAMPER]: Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.
 *[Scope]: Rozsah projektu — hlavní páka proveditelnosti a nejčastější příčina nedokončení.
 *[Scope creep]: Plíživé bobtnání rozsahu během vývoje („co kdybychom přidali rybaření?").
+*[Scrum]: Agilní metodika: sprinty s pevným cílem, priority z backlogu na sprint meetinzích.
 *[Seamless loop]: Smyčka, jejíž konec plynule navazuje na začátek bez slyšitelného švu; nutnost herní hudby.
 *[Self Pruning]: PCG uzel mazající překrývající se body podle bounds či kolizí — garance rozestupů checkboxem.
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
@@ -245,6 +262,7 @@
 *[Singleton]: Garantovaná jediná instance s globálním přístupem — a glorifikovaná globální proměnná.
 *[Skill ceiling]: Strop dosažitelné dovednosti — prostor pro mastery.
 *[Skill floor]: Minimum dovednosti, abys vůbec hrál; komplexita ovládání je floor sama o sobě.
+*[Skills audit]: Inventura dovedností před volbou projektu: co umím, co ne, co napůl.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
 *[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
@@ -283,6 +301,8 @@
 *[Two-loop rule]: Každé dva loopy nejvýš dvě změny (přidat/ubrat nástroj či výraz); lešení pro aranžmá.
 *[Type 2 fun]: Bolí teď, těší ve vzpomínce (hora, soulsovka). Pro jiného hráče Type 3 — volba publika.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
+*[User story]: Popis funkce jako kroky uživatele: co vidí a dělá, ne jak je to naprogramované.
+*[USP]: Unique selling point — co má jen tvoje hra; nemusí existovat od začátku (GTA).
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.
 *[Vektor]: Bod v prostoru (pozice), nebo směr s velikostí (velocity) — dvě čtení, nemíchat.
@@ -295,6 +315,7 @@
 *[Volumetric fog]: Objemová mlha na height fogu — paprsky a atmosféra; kvalita přes GridPixelSize/GridSizeZ.
 *[Water Body]: Actor Water pluginu (ocean/lake/river/island) tvarovaný splinami; řeka má rychlost proudu per point.
 *[Wave Function Collapse]: PCG: políčko jako superpozice dlaždic, kolaps dle pravidel sousedství — náhodné, a přitom soudržné.
+*[WIP limit]: Kanban strop rozdělanosti: 1–2 karty v Doing na osobu; víc = těkání.
 *[Wishlist]: Přání na Steamu; před vydáním hlavní měřítko zájmu a palivo algoritmu viditelnosti.
 *[World Partition]: Streamovací systém UE5 — svět v buňkách nahrávaných podle potřeby.
 *[Yoink & twist]: Vzorec nápadu: vezmi žánr s prokázaným publikem (yoink) a přidej vlastní vylepšení či obrat (twist).

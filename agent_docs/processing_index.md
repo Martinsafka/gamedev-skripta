@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **46/116 published (dávky 20–23)**, 68 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **57/116 published (dávky 20–24)**, 57 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -480,17 +480,17 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [What Do "Professional" Game Design Documents Look Like? 📜](https://www.youtube.com/watch?v=fk-rQlrNYZ8) `fk-rQlrNYZ8` | Indie Game Clinic | 41:21 | auto | 7826 | `teorie/gdd.md` | jak vypadají profesionální GDD |
-| todo | [Game Design Documents - a Minimalist Approach 🧘🏽](https://www.youtube.com/watch?v=uBxYGFRi-S4) `uBxYGFRi-S4` | Indie Game Clinic | 37:44 | manual | 7296 | `teorie/gdd.md` | minimalistický přístup; cross-link zápisek gdd-review |
-| todo | [How to find amazing game ideas](https://www.youtube.com/watch?v=0m60QbT85Tc) `0m60QbT85Tc` | Game Maker's Toolkit | 27:09 | manual | 4856 | `teorie/napad.md` | rozšíření (GMTK) |
-| todo | [The Secret to GOOD Game Ideas 💡 [Practical Ideation Methods Explained]](https://www.youtube.com/watch?v=LMOCQNcMleg) `LMOCQNcMleg` | Indie Game Clinic | 24:29 | auto | 4622 | `teorie/napad.md` | rozšíření (IGC ideation) |
-| todo | [Manage Your GameDev Projects with Trello/Kanban](https://www.youtube.com/watch?v=-SqcrlAarGo) `-SqcrlAarGo` | Indie Game Clinic | 22:33 | auto | 4741 | `teorie/planovani-nastroje.md` | Trello/Kanban |
-| todo | [The ULTIMATE Playtest Guide](https://www.youtube.com/watch?v=zXNRJuc48Ek) `zXNRJuc48Ek` | Indie Game Clinic | 39:27 | auto | 7549 | `teorie/playtesting.md` | pozn. sponzor GameMaker segment |
-| todo | [GameDev as an Iterative Spiral](https://www.youtube.com/watch?v=9L6XX9kDQyA) `9L6XX9kDQyA` | Indie Game Clinic | 12:30 | auto | 2656 | `teorie/prototypovani.md` | rozšíření: iterační spirála |
-| todo | [9 Months of Dev… Pivot or Perish?](https://www.youtube.com/watch?v=CbWpsNs7nrg) `CbWpsNs7nrg` | Indie Game Clinic | 28:57 | auto | 6003 | `teorie/scope.md` | pivot po 9 měsících |
-| todo | [Stopping Scope Creep without Crushing Creativity (Stream Highlights)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ) `Xyl3tsZx4wQ` | Indie Game Clinic | 10:02 | auto | 2113 | `teorie/scope.md` | rozšíření: scope creep |
-| todo | [How I Made A Steam Game In Only 1 Month](https://www.youtube.com/watch?v=7naIKclU1A4) `7naIKclU1A4` | Zoteling | 6:53 | auto | 1470 | `teorie/scope.md` | devlog: hra za měsíc |
-| todo | [How To Make Small Games \| Indie Game Dev Tutorial](https://www.youtube.com/watch?v=U-j91fw648Q) `U-j91fw648Q` | RETRODEAD | 5:27 | auto | 1399 | `teorie/scope.md` | malé hry |
+| published | [What Do "Professional" Game Design Documents Look Like? 📜](https://www.youtube.com/watch?v=fk-rQlrNYZ8) `fk-rQlrNYZ8` | Indie Game Clinic | 41:21 | auto | 7826 | `teorie/gdd.md` | jak vypadají profesionální GDD · dávka 24 |
+| published | [Game Design Documents - a Minimalist Approach 🧘🏽](https://www.youtube.com/watch?v=uBxYGFRi-S4) `uBxYGFRi-S4` | Indie Game Clinic | 37:44 | manual | 7296 | `teorie/gdd.md` | minimalistický přístup; cross-link zápisek gdd-review · dávka 24 |
+| published | [How to find amazing game ideas](https://www.youtube.com/watch?v=0m60QbT85Tc) `0m60QbT85Tc` | Game Maker's Toolkit | 27:09 | manual | 4856 | `teorie/napad.md` | rozšíření (GMTK) · dávka 24 |
+| published | [The Secret to GOOD Game Ideas 💡 [Practical Ideation Methods Explained]](https://www.youtube.com/watch?v=LMOCQNcMleg) `LMOCQNcMleg` | Indie Game Clinic | 24:29 | auto | 4622 | `teorie/napad.md` | rozšíření (IGC ideation) · dávka 24 |
+| published | [Manage Your GameDev Projects with Trello/Kanban](https://www.youtube.com/watch?v=-SqcrlAarGo) `-SqcrlAarGo` | Indie Game Clinic | 22:33 | auto | 4741 | `teorie/planovani-nastroje.md` | Trello/Kanban · dávka 24 |
+| published | [The ULTIMATE Playtest Guide](https://www.youtube.com/watch?v=zXNRJuc48Ek) `zXNRJuc48Ek` | Indie Game Clinic | 39:27 | auto | 7549 | `teorie/playtesting.md` | pozn. sponzor GameMaker segment · dávka 24 |
+| published | [GameDev as an Iterative Spiral](https://www.youtube.com/watch?v=9L6XX9kDQyA) `9L6XX9kDQyA` | Indie Game Clinic | 12:30 | auto | 2656 | `teorie/prototypovani.md` | rozšíření: iterační spirála · dávka 24 |
+| published | [9 Months of Dev… Pivot or Perish?](https://www.youtube.com/watch?v=CbWpsNs7nrg) `CbWpsNs7nrg` | Indie Game Clinic | 28:57 | auto | 6003 | `teorie/scope.md` | pivot po 9 měsících · dávka 24 |
+| published | [Stopping Scope Creep without Crushing Creativity (Stream Highlights)](https://www.youtube.com/watch?v=Xyl3tsZx4wQ) `Xyl3tsZx4wQ` | Indie Game Clinic | 10:02 | auto | 2113 | `teorie/scope.md` | rozšíření: scope creep · dávka 24 |
+| published | [How I Made A Steam Game In Only 1 Month](https://www.youtube.com/watch?v=7naIKclU1A4) `7naIKclU1A4` | Zoteling | 6:53 | auto | 1470 | `teorie/scope.md` | devlog: hra za měsíc · dávka 24 |
+| published | [How To Make Small Games \| Indie Game Dev Tutorial](https://www.youtube.com/watch?v=U-j91fw648Q) `U-j91fw648Q` | RETRODEAD | 5:27 | auto | 1399 | `teorie/scope.md` | malé hry · dávka 24 |
 
 ### Základy designu · `T-DESIGN` (+18)
 
