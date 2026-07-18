@@ -6,13 +6,21 @@ Témata a kapitoly:
 
 **Tvůrčí proces a mindset**
 
-- **[Proč tvořit](proc-tvorit.md)** — nové věci vznikají jen tak, že je někdo udělá: prázdné plátno, rešerše bez studu, malé projekty jako tělocvična a péče o tvůrce.
+- **[Proč tvořit](proc-tvorit.md)** — nové věci vznikají jen tak, že je někdo udělá: prázdné plátno, rešerše bez studu, malé projekty jako tělocvična — a nemusíš dělat zrovna hru.
+- **[Tvůrčí zásek](tvurci-zasek.md)** — Miyazakiho metoda (zachyť fragment, začátek nepotřebuješ) a Grail sešit: jeden notes, nulové tření, revize jako motor.
 - **[Začátky bez zkušeností](zacatky-bez-zkusenosti.md)** — jak vůbec začít dělat hry, když neumíš „nic": malý rozsah, sdílení práce, motivace vs. vůle.
 - **[Start projektu](jak-zacit.md)** — od nápadu k prvnímu commitu: test lepicího papírku, živý design dokument, low-fi prototyp, version control a placeholder city.
+- **[Sólo vývoj](solo-vyvoj.md)** — mapa cesty jednoho člověka: platforma a hráč před prvním řádkem, pipeline z cizích assetů, showcase demo a launch bez skoku do tmy.
 - **[Kolik kódu na start](co-se-ucit.md)** — pět konstruktů, ze kterých je slepený herní kód, rozklad problému jako skutečná dovednost a proč se literály mstí.
-- **[Žrouti času](produktivita.md)** — kam mizí měsíce vývoje: práce bez validace, únik k snadné tvorbě, scope creep a mýtus „všechno sám".
-- **[Idea iceberg](rady-z-praxe.md)** — deset let zkušeností o síle nápadu: vrstvy pod hladinou, pracuj zpátky, pitch decky a the gap.
+- **[Žrouti času](produktivita.md)** — kam mizí měsíce vývoje: práce bez validace, únik k snadné tvorbě, scope creep — a proč motivace nestačí na dokončení.
+- **[Rady z praxe](rady-z-praxe.md)** — idea iceberg a meta-pravidla: vrstvy nápadu, pracuj zpátky, the gap — a proč na design žádné recepty nejsou.
 - **[Postmortem ShantyTown](postmortem-shantytown.md)** — tři roky sólo vývoje od výběru prototypu přes škrty a půjčky po ticho po launchi.
+
+**Učení a růst v éře AI**
+
+- **[Učení v éře AI](uceni-v-ere-ai.md)** — odpověď nestačí vlastnit: pomalé učení podle Toma Yeha, čtecí framework ACTOR, surfař vs. divák a čtyři úrovně inženýra.
+- **[Jak se učit kódovat](jak-se-ucit-kodovat.md)** — složitá není řeč, ale zadání: třicet kroků visual novelu, aktivní sledování tutoriálů a ego jako špatný zákazník.
+- **[První projekty](prvni-projekty.md)** — tři hry z univerzitního kurzu: čistý interface (Tamagotchi), čistá akce (shmup bez levelů) a koláž ve dvou z analogových assetů.
 
 **Programátorské myšlení**
 

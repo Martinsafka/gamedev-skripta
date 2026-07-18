@@ -1,6 +1,6 @@
-# Idea iceberg: deset let zkušeností o síle nápadu
+# Rady z praxe: idea iceberg a meta-pravidla
 
-Vývojář z Isto Inc. slaví deset let profesionální tvorby her rekapitulací jedné myšlenky, ke které se propracovával celou dekádu: komerční úspěch hry rozhoduje nápad víc než exekuce — a kvalitu nápadu jde číst jen do hloubky, ve vrstvách jako ledovec. Kapitola sedí vedle [žroutů času](produktivita.md): tam šlo o to nedělat zbytečnou práci, tady o to nedělat skvělou práci na špatném nápadu.
+Kapitola o radách zkušených — a o tom, jak rady číst. Jádro tvoří „idea iceberg" z Isto Inc.: komerční úspěch hry rozhoduje nápad víc než exekuce a kvalitu nápadu jde číst jen do hloubky, ve vrstvách. K němu přibyly dvě novější vrstvy: proč rady na design vlastně nefungují jako recepty (a co místo nich) a kompilace návyků od profíků od Fruit Ninja po sólo devlogery. Kapitola sedí vedle [žroutů času](produktivita.md): tam šlo o to nedělat zbytečnou práci, tady o to nedělat skvělou práci na špatném nápadu — a nečekat, že ti někdo nadiktuje, jak na to.
 
 ---
 
@@ -65,3 +65,43 @@ Pro měřitelnost bez vibes video přidává postup jiného vývojáře [(11:32)
 > **Pozn.:** The gap je protějšek [shovívavého publika](zacatky-bez-zkusenosti.md#sdileni-prace-neni-marketing-je-to-nastroj-uceni) ze začátků: tam jsme si laskavé publikum *přáli* (pro motivaci), tady se ho učíme *diskontovat* (pro rozhodování). Obě dovednosti potřebuješ — každou v jiné fázi.
 
 **Souvislosti:** [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Žrouti času: validace](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · [Rejstřík: playtest](../rejstrik.md#playtest) · [Rejstřík: wishlist](../rejstrik.md#wishlist)
+
+---
+
+## Rady nefungují tam, kde začíná design
+
+**Zdroj:** [Stop Looking For Game Dev "Advice"](https://www.youtube.com/watch?v=d5VdFScmXcM) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~19 min, meta-esej o učení designu
+
+**Shrnutí:** Didaktické učení — někdo ti říká fakta a postupy — funguje skvěle na **hard skills** s měřitelným výstupem (kód, obrázek). Design je ale svazek **soft skills**: úsudek, analýza, empatie [(2:08)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=128s). Ty se učí objevováním — hraním, rozborem, workshopem — a proto hledání „pravidel game designu" vede do slepé uličky: chceš derisknout kreativitu, která se derisknout nedá [(6:06)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=366s).
+
+### Rozpad myšlenky
+
+Past vzniká nenápadně [(1:22)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=82s): začátečník se roky učí engine z tutoriálů (didaktika je tam správný nástroj) a vytvoří si rovnici „vzdělávání = někdo mi říká, co dělat". Když pak někdo učí design nepřímo — otázkami, rozborem, „wafty artsy" řečmi — působí to jako ne-vzdělávání [(4:34)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=274s). Jenže pasivita je pravý opak designérské mentality; autor sám přiznává vlastní fázi hltání teorie a podcastů ze strachu a nejistoty v první studiové práci [(6:06)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=366s).
+
+Tvrdší část: **sólo vývoj je leadership role** [(5:20)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=320s), i v týmu o jednom. Z mentoringu autor vidí pořád totéž — lidem nechybí hard skills, chybí **sebedůvěra udělat rozhodnutí a stát si za ním** [(8:12)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=492s). Říct „chci půl hodiny tvé pozornosti místo knih a dětí" je psychologicky dominantní pozice hostitele [(9:47)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=587s) — a hráči indie her si tu osobní vizi výslovně přejí; kdo o creative direction nestojí, nemá důvod dělat hru sólo [(10:34)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=634s). Zkratka neexistuje: design se učí trial & error a nejblíž zkratce je raná validace a diskuse [(12:08)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=728s).
+
+A jedna okamžitě použitelná rada na závěr [(12:46)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=766s): **fanouškovská kultura tvého žánru je učebnice designu.** Gaming YouTubeři a subreddity rozebírají, co hráče na žánru baví — a spousta nepovedených klonů vznikla jen proto, že vývojář tohle nikdy nečetl [(13:32)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=812s). „Design je empatie" [(14:18)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=858s): extrahovat z diskusí, kde přesně vzniká zábava, je trénink — domácí úkol videa zní najít play-based zdroje svého žánru a dělat si poznámky [(15:05)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=905s).
+
+> **Pozn.:** Pro tahle skripta je to zdravá sebekritika: knihovna je plná didaktiky. Správné použití je jako u [rešerše](proc-tvorit.md#prazdne-platno-zacni-rychle-ale-resersuj-bez-studu) — opora před skokem, ne náhrada skákání. Video je jinak výstavní kus kanálového humoru: obsahuje Patreon tier za 10 000 liber měsíčně, za který autor přestane tvořit obsah [(6:52)](https://www.youtube.com/watch?v=d5VdFScmXcM&t=412s).
+
+**Souvislosti:** [Učení v éře AI](uceni-v-ere-ai.md) · [Jak se učit kódovat](jak-se-ucit-kodovat.md) · [Zábava a flow](zabava.md) · [Rejstřík: Soft skills](../rejstrik.md#soft-skills)
+
+---
+
+## Kompilace od profíků: čti problém za návrhem, ukazuj brzy, ožeň se s hrou
+
+**Zdroj:** [The Game Dev Advice You Actually Need (Ft. AIA, Goodgis, and more...)](https://www.youtube.com/watch?v=n3fjdwJ5eQk) · [Juniper Dev](https://www.youtube.com/channel/UChzRJQ-MbpcIxFT5YLW1R9w) · ~14 min, kompilace rad tvůrců
+
+**Shrnutí:** Sedm tvůrců, sedm návyků — a tři z nich jsou nosné: zpětná vazba hráčů jsou *návrhy skrývající problém*, hru je třeba ukazovat dřív, než je hotová, a jednou vybranému projektu se slibuje věrnost. Zbytek jsou řemeslné drobnosti, které se sčítají: večerní to-do list, ladění „nadoraz", Git a čistý kód tam, kde zrychluje obsah.
+
+### Rozpad myšlenky
+
+**Čti problém za návrhem** (vývojářka Aia, Mana Valley [(0:01)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=1s)): hráči chtěli regeneraci zdraví; místo toho dostala hra léčení mimo souboj po 30 sekundách — průzkum je plynulejší a lektvary zůstaly vzácné [(0:48)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=48s). Obecný vzorec: „postava je pomalá" může znamenat friction, gravitaci nebo skrytý modifikátor, který tester nevidí [(1:34)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=94s) — **testeři výborně identifikují problémy a mizerně navrhují řešení**; řešení má sedět do tvé vize. (Rozšiřuje [the gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat): tam šlo o čtení nadšení, tady o čtení kritiky.)
+
+**Trojice od Luka Muscata** (Fruit Ninja, Jetpack Joyride; 18 let praxe [(1:34)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=94s)): (1) poslední úkon dne = to-do list na zítřek, s krátkou snadnou položkou na rozjezd [(2:20)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=140s); (2) návyk z Halfbrick — při ladění proměnné ji nejdřív změň **10–100×**, ať víš, že ladíš správnou věc [(3:06)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=186s); (3) a největší: **ukazuj hru komukoli, kdykoli, i nehotovou** — „not ready" je výmluva a čím později ukážeš, tím dražší je cokoli měnit; „do not let your game be in the darkness" [(3:52)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=232s).
+
+**Ožeň se s hrou** (Goodgis [(4:38)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=278s)): v prototypové fázi je opouštění projektů zdravé — ale po rozhodnutí platí závazek, protože **dovednosti z dokončování jinde nepotkáš** a dokončení nikdy nelituješ. Až přijde zamilovanost do nového nápadu, „vzpomeň si, že máš prsten". Doplňky ze zbytku kompilace: verzování a cloud zálohy všeho (Challacade; „crash disku je horor" [(6:56)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=416s)); poznámky jako „organizovaný chaos" — nápad na papíře vypadá dokonale, zábavnost ukáže až implementace [(9:17)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=557s); test tématu — „podporuje tahle feature message mé hry?" (horor bez monster, o pocitu invaze do cizího počítače [(10:03)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=603s)); a čistý kód ne jako dogma, ale tam, kde **zrychlí přidávání obsahu** — refactor ability systému na data-driven místo brute-force padesáti schopností [(12:22)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=742s).
+
+> **Pozn.:** Video obsahuje sponzorský segment (Xsolla) [(6:10)](https://www.youtube.com/watch?v=n3fjdwJ5eQk&t=370s) — přeskočen. A poznámka k jednomu bez přepisu: šestiminutová zpověď [I Wasted 6 Years Making Games…](https://www.youtube.com/watch?v=jDPxHf_6KuI) ([Sunny Gamedev](https://www.youtube.com/channel/UCJjOwQWrlEdym9MRIqCXaTA)) říká z opačného konce totéž co Goodgis — autor šest let věřil, že potřebuje větší nápad, lepší grafiku a víc features, a skutečná lekce bylo dokončování. Kryto z popisu videa (anglický přepis není k dispozici), proto bez timestampů.
+
+**Souvislosti:** [Produktivita: motivace a dokončování](produktivita.md) · [Organizace projektu: Git](../praxe/organizace-projektu.md) · [Zápisek: Cut line](../zapisky/cut-line.md) · [Rejstřík: Version control](../rejstrik.md#version-control)

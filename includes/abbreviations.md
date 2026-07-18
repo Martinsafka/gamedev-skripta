@@ -18,12 +18,14 @@
 *[Blend Space]: Asset míchající animace podle hodnot na osách (rychlost, směr); klipy synchronizují sync markery.
 *[Blend stack]: Anim uzel: změna animační proměnné = nový blend do zásobníku — bez state machine.
 *[Blockout]: Hrubá stavba levelu z primitiv — testuje prostor, metriky a flow před finálními assety.
+*[Blue ocean]: Trh bez konkurence — hra vytváří novou poptávku; opak red ocean (přeplněné žánry, boj zdroji).
 *[Blueprint Function Library]: Sbírka funkcí volatelných z libovolného blueprintu v projektu.
 *[Blueprint Interface]: Sada funkcí bez implementace — kontrakt mezi Blueprinty, volání zprávou bez znalosti třídy.
 *[Boids]: Algoritmus hejna: tři pravidla (separation, alignment, cohesion) — chování hejna emerguje samo.
 *[Boolean]: Geometrická operace kombinující dvě tělesa: sjednocení (union), rozdíl (subtract), průnik.
 *[Bounds]: Osově zarovnaný obal objektu či bodu; v PCG pracovní data — výřezy, pruning, bounds modifier.
 *[BPM]: Tempo v dobách za minutu; ukotví žánr a energii dřív než noty (lo-fi ~77, DnB ~170).
+*[Building in public]: Ukazuj pokrok a uvažování průběžně: viditelný pokrok = skončení přestává být neviditelné.
 *[Buoyancy]: Vztlak Water pluginu: pontoony (klasika) nebo od 5.7 Default Buoyancy Physics Material + Query and Probe.
 *[Cable Component]: Vestavěné simulované lano/kabel; konce jdou ukotvit, částice čte Get Cable Particle Locations.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
@@ -91,6 +93,7 @@
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
+*[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
 *[Inheritance]: Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče. Lakmusový test: „is it a?"
 *[Instance]: Konkrétní umístěný výskyt assetu v levelu.
 *[Instanced Actors]: Systém (5.5+): svět z levných instancí; objekty u hráče se swapnou na plné Blueprint actory a zpět.
@@ -115,6 +118,7 @@
 *[Linked anim graph]: Samostatný anim graf připojený jako modul; přes tag na něj sáhnou komponenty zvenčí.
 *[Live Link]: Streamování dat do enginu (mocap, kamery); Live Link Hub od 5.8 zpracuje i offline video na capture data.
 *[Locomotor]: Control Rig uzel procedurální chůze: došlapy počítá dynamicky — foot sets, fázové offsety, žádné klipy.
+*[Locus of control]: Kde hledáš řídicí sílu jednání: uvnitř (rozhoduju sám), či venku (čekám na dotlačení).
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
 *[Low-pass filtr]: Filtr propouštějící nízké frekvence a ubírající vysoké; z bohaté vlny udělá bas/pad.
@@ -137,6 +141,7 @@
 *[Motiv]: Krátká zapamatovatelná dvou- až pětitónová buňka melodie; jde ji opakovat, obrátit, posunout.
 *[Movement Mode]: Modulární objekt Moveru pro jeden režim pohybu; vyměnitelný a rozšiřitelný i v Blueprintu.
 *[Mover]: Nástupce Character Movement Componentu: replikuje vstupy, modulární módy, pravdivá trajektorie pro MM.
+*[MVP]: Minimum Viable Product: nejmenší verze doručující jádro hodnoty — jen core loop, dezert počká.
 *[Nanite]: Virtualizovaná geometrie UE5 — detail meshů se dynamicky přizpůsobuje kameře.
 *[Narrative design]: Návrh vyprávění integrovaný s herním designem — ne „spisovatel dopíše cutscény".
 *[Nav Mesh]: Navigační síť, ve které AI počítá cesty; do levelu jako Nav Mesh Bounds Volume, náhled klávesou P.
@@ -191,6 +196,7 @@
 *[Rekurze]: Funkce volající sama sebe: base case + zmenšování problému + skok důvěry.
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
 *[Retopologie]: Přestavba geometrie na čistou síť pro rig/animaci; AI cesty: decimace+bake, smart low poly, remesher.
+*[Retrieval practice]: Učení vybavováním: odvrať zrak a vzpomínej — poráží opakované čtení.
 *[Retriggerable Delay]: Delay restartovaný každým dalším spuštěním — doběhne až po klidu; „ztráta zájmu" AI.
 *[Reverb]: Odraz zvuku od prostředí (dozvuk); slepí zvuky nebo vyjádří prostor (chodba, kaňon).
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
@@ -198,6 +204,7 @@
 *[Root motion]: Pohyb uložený v root kosti animace; MM ho vyžaduje (Enable Root Motion + Force Root Lock).
 *[Rovnoměrně temperované ladění]: Oktáva dělená na 12 stejných kroků; čisté intervaly jen přibližuje (equal temperament).
 *[Rubber banding]: Umělá podpora hráče pozadu / brzda napřed; opravuje signal-to-noise na okrajích obtížnosti.
+*[Rubber duck debugging]: Vysvětli problém nahlas (třeba kachně) — řešení se často ukáže v půlce vysvětlování.
 *[Sampling]: Použití kusu existující nahrávky jako materiálu nové skladby; pozor na práva.
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
 *[Scope]: Rozsah projektu — hlavní páka proveditelnosti a nejčastější příčina nedokončení.
@@ -213,6 +220,7 @@
 *[Singleton]: Garantovaná jediná instance s globálním přístupem — a glorifikovaná globální proměnná.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
+*[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
 *[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
 *[Sound font]: Kolekce nasamplovaných zvuků nástroje (.sf2); rychlá retro paleta (Undertale, SNES).
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.

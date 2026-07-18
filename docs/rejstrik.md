@@ -166,6 +166,14 @@ Blockout disciplína: grid/metrické materiály (okamžitě vidíš, že vchod j
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Prototypování](teorie/prototypovani.md)
 
+### Blue ocean
+
+**Trh bez konkurence: hra vytváří novou poptávku, místo aby se prala o etablované publikum (red ocean).**
+
+Termín z byznys strategie: red ocean = přeplněné žánry, kde rozhodují zdroje (battle royale, souls-like); blue ocean = unikátní zážitek, který si publikum teprve vyrobí (Minecraft, Undertale). Pro indie bez rozpočtu velkých studií je modrý oceán — unikátní twist — obvykle lepší sázka.
+
+Kde se s tím potkáš: [Sólo vývoj](teorie/solo-vyvoj.md) · [Nápad](teorie/napad.md)
+
 ### Blueprint Function Library
 
 **Sbírka funkcí volatelných z libovolného blueprintu v projektu.**
@@ -213,6 +221,14 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Parkour postaru
 Lo-fi kolem 77, house 120–130, drum and bass kolem 170. Pro náladu scény je tempo první páka — energii nastavíš dřív, než vybereš jediný akord.
 
 Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md)
+
+### Building in public
+
+**Stavět veřejně: průběžně ukazovat pokrok, rozhodnutí a zdi, na které narážíš — ne až hotový výsledek.**
+
+Funguje dvakrát: jako disciplína (když je pokrok vidět, skončení přestává být neviditelné — v datech jedné výzvy přežívali skoro výhradně ti, kdo postovali buildy) a jako důkaz (veřejný záznam toho, jak myslíš, se nedá nafejkovat promptem). Nejcennější je sdílet uvažování, ne screenshoty úspěchů.
+
+Kde se s tím potkáš: [Produktivita](teorie/produktivita.md) · [Učení v éře AI](teorie/uceni-v-ere-ai.md)
 
 ### Buoyancy
 
@@ -742,6 +758,14 @@ Portálové portály, vlak-monstrum z Choo Choo Charles, „staráš se o svoje 
 
 Kde se s tím potkáš: [Základy: engagement a appeal](teorie/zaklady.md) · [Prototypování](teorie/prototypovani.md) · [Nápad](teorie/napad.md)
 
+### Iluze plynulosti
+
+**Pocit „rozumím tomu", který vzniká z plynulého čtení — a zhroutí se při prvním pokusu věc vysvětlit krok za krokem.**
+
+Klasický experiment: lidé si věří, že chápou kolo nebo zip, dokud nemají popsat, jak přesně fungují. Proti iluzi pomáhá vybavování (retrieval practice), učení druhých a psaní vlastními slovy — všechno formy nárazu na realitu.
+
+Kde se s tím potkáš: [Učení v éře AI](teorie/uceni-v-ere-ai.md) · [Zápisek: Kvízový protokol](zapisky/kvizovy-protokol.md)
+
 ### Inheritance
 
 **Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče — základ, na kterém stojí celý UE (Actor → Pawn → Character).**
@@ -934,6 +958,14 @@ Foot sets definují končetiny (fázové offsety = charakter chůze — pavouk 0
 
 Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [GASP](praxe/gasp.md)
 
+### Locus of control
+
+**Kde člověk hledá řídicí sílu svého jednání: uvnitř (sám se rozhoduju), nebo venku (čekám, až mě někdo dotlačí).**
+
+Pojem z psychologie: výchova, kde motivaci vždy dodával někdo zvenčí, pěstuje externí locus — a v dospělosti se čeká na dalšího „dozorce". Tvůrčí dospělost znamená převzít roli disciplinující figury sám nad sebou; vnější závazky (ukázka k datu) jsou legitimní berlička.
+
+Kde se s tím potkáš: [Produktivita](teorie/produktivita.md)
+
 ### Loose coupling
 
 **Princip: třídy na sobě závisejí co nejméně — komunikují přes smlouvy (interfacy) a eventy, ne přes tvrdé reference.**
@@ -1109,6 +1141,14 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 Klíčové rozdíly proti CMC: replikují se inputy (i vlastní blueprint structy) místo výsledků pohybu, rotace je zcela volná (spin transitions, twin-stick intent) a predikce trajektorie pro Motion Matching spouští skutečný simulační kód včetně custom módů. V GASP od 5.7 výchozí; CMC postava zůstává jako legacy. Pozor na frame zpoždění vstupu (network prediction tiká před pawnem) — kameru a AnimBP krmit post-sim hodnotami.
 
 Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
+
+### MVP
+
+**Minimum Viable Product: nejmenší verze produktu, která doručí jádro hodnoty — jen core loop, žádný dezert.**
+
+Ve hrách: přihlas se → udělej věc → viz výsledek; leaderboardy, dark mode a marketplace počkají. Smysl MVP není ošidit kvalitu, ale co nejdřív ověřit, že jádro funguje a někoho zajímá — příbuzný gameplay prototypu a vertical slice.
+
+Kde se s tím potkáš: [Jak se učit kódovat](teorie/jak-se-ucit-kodovat.md) · [Prototypování](teorie/prototypovani.md)
 
 ### Nanite
 
@@ -1542,6 +1582,14 @@ AI pipeline ji řeší třemi cestami: decimace + normal bake (rychlá, „topol
 
 Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [AI agenti](praxe/claude-code-ue.md)
 
+### Retrieval practice
+
+**Učení vybavováním: odvrať zrak a zkus si vzpomenout — poráží opakované čtení, i když se hůř „cítí".**
+
+Opakované čtení buduje známost, ne vlastnictví; vybavování nutí mozek znalost rekonstruovat, a tím ji ukládá. Prakticky: po kapitole ji převyprávěj vlastními slovy, uč druhé (klidně zeď), dej si kvíz. Věda za kvízovým protokolem.
+
+Kde se s tím potkáš: [Učení v éře AI](teorie/uceni-v-ere-ai.md) · [Zápisek: Kvízový protokol](zapisky/kvizovy-protokol.md)
+
 ### Retriggerable Delay
 
 **Delay, který se každým dalším spuštěním restartuje od nuly — doběhne až po klidu na vstupu.**
@@ -1597,6 +1645,14 @@ Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
 Nejde o podvod na hráče, ale o opravu učebního prostředí: kdo je beznadějně pozadu, dostává od hry konstantní „špatně" a nemá se z čeho učit; kdo je nedostižně napřed, dostává konstantní „dobře". Rubber banding oba vrací do pásma, kde akce zase mají čitelné následky. Příbuzné nástroje: hinty, skipy, měkké stavy úspěchu (skóre místo výhra/prohra).
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
+
+### Rubber duck debugging
+
+**Vysvětli problém nahlas — klidně gumové kachně — a řešení se často objeví v půlce vysvětlování.**
+
+Formulace nutí seřadit fakta a předpoklady, a přesně v tom seřazení bývá chyba vidět. Funguje s kachnou, kamarádem i AI; s člověkem má bonus druhé perspektivy („z ptačí vidím díru v úvaze").
+
+Kde se s tím potkáš: [Programátorské návyky](teorie/programatorske-navyky.md)
 
 ### Sampling
 
@@ -1717,6 +1773,14 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 Pět vzorů: narativní (most se zřítí, postava odmítne jít dál), countdown (mráz, plyn, dezerce — tlak času místo kolize), nepřátelská (za hranicí loví něco silnějšího; nemusí zabíjet — stačí probrat se potlučený zpátky), ekonomická (kyslík/palivo nevystačí na návrat) a percepční (ztráta orientace a viditelnosti). Nejlépe fungují kombinované a vždy s fikčním alibi.
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+
+### Soft skills
+
+**Dovednosti bez přímo viditelného výstupu — úsudek, komunikace, analýza, empatie; modifikují kvalitu všeho, co vzniká.**
+
+Protiklad hard skills (kód, obrázek — měřitelný výstup). Zásadní rozdíl pro učení: hard skills se dají učit didakticky (návodem), soft skills jen objevováním — hraním, rozborem, workshopem. Game design je svazek soft skills; proto na něj neexistují recepty.
+
+Kde se s tím potkáš: [Rady z praxe](teorie/rady-z-praxe.md) · [Učení v éře AI](teorie/uceni-v-ere-ai.md)
 
 ### Sound Cue
 

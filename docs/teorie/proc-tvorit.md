@@ -77,3 +77,21 @@ Poslední vrstva je péče o sebe [(23:14)](https://www.youtube.com/watch?v=GELG
 > **Pozn.:** V sólo vývoji je tahle část snadno přehlédnutelná — žádný tým, žádný konflikt, žádný problém, že? Jenže komunity (Discordy, jamy, fóra) jsou pro samouka jediné kolegium, které má. Platí tu všechno výše — včetně toho, že dávat zpětnou vazbu druhým je trénink vlastního vkusu.
 
 **Souvislosti:** [Začátky bez zkušeností](zacatky-bez-zkusenosti.md#sdileni-prace-neni-marketing-je-to-nastroj-uceni) · [Start projektu](jak-zacit.md#prvni-build-je-placeholder-city) *(komunita jako zdroj odblokování)*
+
+---
+
+## Nemusíš dělat hru: dovednosti jsou přenosné, proces je cíl
+
+**Zdroj:** [You Can Make Other Things](https://www.youtube.com/watch?v=rv4okZp-mk0) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~8 min, odpověď na divácký dotaz
+
+**Shrnutí:** Divák: „nemám žádné dovednosti a osm let učení mě demoralizuje — ale chci udělat hru, svět, příběh." Odpověď videa začíná u formulace: „chci *udělat*" je řeč výsledků, ne denního procesu [(0:03)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=3s). A pokračuje osvobozením: **na světy a příběhy nepotřebuješ hru** — herně specifické jsou jen programování a interakční design; psaní, vizuál i hudba jsou přenosné dovednosti, které se dají učit tam, kde je nejmenší tření [(1:35)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=95s).
+
+### Rozpad myšlenky
+
+Praktické důsledky: koho táhne vyprávění, má nejrychlejší cestu přes narativní enginy (Twine, Ren'Py — kód minimální, důraz na text a obraz [(2:22)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=142s)), komiks, nebo klidně tabletop RPG s vlastním settingem — worldbuilding v nejčistší formě, bez kreslení a bez kódu [(4:42)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=282s). Nic z toho není oklika: autor vzpomíná na vlastní nedokončené komiksové scénáře z dvacítek — ze 400stránkové dystopie nikdy nic nevyšlo, ale nápady z ní prosakují do všeho dalšího dodnes; **čas v jedné tvůrčí dovednosti se neztrácí** [(3:55)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=235s).
+
+Druhé pozorování z praxe kanálu: nejlepší hry, které autorovi chodí na feedback streamy, dělají lidé, kteří jsou **napřed umělci a až potom vývojáři** — jedna vybroušená dovednost a hra postavená jednoduše kolem ní [(5:28)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=328s). A rám na závěr: hry jsou interdisciplinární a lidé, kteří sami zvládnou všechno, jsou výjimky [(7:02)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=422s). „Cílem by nikdy nemělo být *stát se game developerem* — dělej tvůrčí věci, které tě baví procesem, a příležitosti si tě najdou" [(6:15)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=375s); kdo neumí dělat věc pro ni samu, neporazí ty, kdo to umí.
+
+> **Pozn.:** Půvabný detail: autor se dívá z okna na větrné turbíny a v hlavě k nim píše post-apokalyptickou mytologii rytířů, kteří je uctívají jako anděly [(2:22)](https://www.youtube.com/watch?v=rv4okZp-mk0&t=142s) — sběr fantazií „do šuplíku" jako trvalý provoz tvůrčí hlavy. Šuplík je Grail sešit z kapitoly o [tvůrčím záseku](tvurci-zasek.md).
+
+**Souvislosti:** [Tvůrčí zásek](tvurci-zasek.md) · [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Scope a malé hry](scope.md)

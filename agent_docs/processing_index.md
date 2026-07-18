@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **11/116 published (dávka 20)**, 103 todo + 2 todo-lp.
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **28/116 published (dávky 20–21)**, 86 todo + 2 todo-lp.
 
 ## Proposed téma tree
 
@@ -397,7 +397,7 @@ Nový top-level dokument z 17videového playlistu o tvorbě hudby a zvuku (ne hl
 
 ---
 
-## Druhá vlna hlavního playlistu (+116) · Phase 8 _(strom schválen 2026-07-18; dávka 20 published)_
+## Druhá vlna hlavního playlistu (+116) · Phase 8 _(strom schválen 2026-07-18; dávky 20–21 published)_
 
 Hlavní playlist narostl 210 → 327 (uživatel přidával průběžně; staženo + vyčištěno 2026-07-17 při music fetchi). Klasifikace z titulů + kanálů s nahlédnutím do ~30 přepisů (hraniční případy). **Celkem 116 videí, ~512k slov.** Po schválení se počty promítnou do stromu v hlavičce a tabulky níže se stanou ostrými řádky indexu (statusy se aktualizují na místě).
 
@@ -432,28 +432,28 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [You Can Make Other Things](https://www.youtube.com/watch?v=rv4okZp-mk0) `rv4okZp-mk0` | Indie Game Clinic | 7:49 | auto | 1688 | `teorie/proc-tvorit.md` | rozšíření kapitoly |
-| todo | [Why “Motivation” is Overrated](https://www.youtube.com/watch?v=kUTFNgESEUg) `kUTFNgESEUg` | Indie Game Clinic | 21:07 | auto | 4322 | `teorie/produktivita.md` | rozšíření: motivace vs. systém |
-| todo | [Why 99% of Devs Never Ship Their First Game (I Have the Data)](https://www.youtube.com/watch?v=2PKTvinv-oo) `2PKTvinv-oo` | Gorka Games | 6:59 | auto | 1168 | `teorie/produktivita.md` | data o dokončování; pozor: promo challenge |
-| todo | [Stop Looking For Game Dev "Advice"](https://www.youtube.com/watch?v=d5VdFScmXcM) `d5VdFScmXcM` | Indie Game Clinic | 18:53 | auto | 3399 | `teorie/rady-z-praxe.md` | meta: rozšíření — kdy rady nefungují |
-| todo | [The Game Dev Advice You Actually Need (Ft. AIA, Goodgis, and more...)](https://www.youtube.com/watch?v=n3fjdwJ5eQk) `n3fjdwJ5eQk` | Juniper Dev | 14:27 | auto | 3068 | `teorie/rady-z-praxe.md` | kompilace rad více tvůrců |
-| todo | [I Wasted 6 Years Making Games...](https://www.youtube.com/watch?v=jDPxHf_6KuI) `jDPxHf_6KuI` | Sunny Gamedev | 6:29 | — | — | `teorie/rady-z-praxe.md` | bez přepisu — krýt z popisu |
-| todo | [How To Make A Game Alone](https://www.youtube.com/watch?v=my8euq9bzFQ) `my8euq9bzFQ` | Dog's Dream | 26:13 | auto | 3859 | `teorie/solo-vyvoj.md` |  |
-| todo | [Creativity isn't a gift, it's a system](https://www.youtube.com/watch?v=_QVYfPnNOg4) `_QVYfPnNOg4` | Perry Daniels | 13:07 | manual | 2470 | `teorie/tvurci-zasek.md` | kreativita jako systém |
-| todo | [Hayao Miyazaki's wisdom for stuck artists](https://www.youtube.com/watch?v=RT-SJvjw8xQ) `RT-SJvjw8xQ` | Adam Westbrook | The Long Game | 9:21 | auto | 1738 | `teorie/tvurci-zasek.md` |  |
+| published | [You Can Make Other Things](https://www.youtube.com/watch?v=rv4okZp-mk0) `rv4okZp-mk0` | Indie Game Clinic | 7:49 | auto | 1688 | `teorie/proc-tvorit.md` | rozšíření kapitoly · dávka 21 |
+| published | [Why “Motivation” is Overrated](https://www.youtube.com/watch?v=kUTFNgESEUg) `kUTFNgESEUg` | Indie Game Clinic | 21:07 | auto | 4322 | `teorie/produktivita.md` | rozšíření: motivace vs. systém · dávka 21 |
+| published | [Why 99% of Devs Never Ship Their First Game (I Have the Data)](https://www.youtube.com/watch?v=2PKTvinv-oo) `2PKTvinv-oo` | Gorka Games | 6:59 | auto | 1168 | `teorie/produktivita.md` | data o dokončování; pozor: promo challenge · dávka 21 |
+| published | [Stop Looking For Game Dev "Advice"](https://www.youtube.com/watch?v=d5VdFScmXcM) `d5VdFScmXcM` | Indie Game Clinic | 18:53 | auto | 3399 | `teorie/rady-z-praxe.md` | meta: rozšíření — kdy rady nefungují · dávka 21 |
+| published | [The Game Dev Advice You Actually Need (Ft. AIA, Goodgis, and more...)](https://www.youtube.com/watch?v=n3fjdwJ5eQk) `n3fjdwJ5eQk` | Juniper Dev | 14:27 | auto | 3068 | `teorie/rady-z-praxe.md` | kompilace rad více tvůrců · dávka 21 |
+| published | [I Wasted 6 Years Making Games...](https://www.youtube.com/watch?v=jDPxHf_6KuI) `jDPxHf_6KuI` | Sunny Gamedev | 6:29 | — | — | `teorie/rady-z-praxe.md` | bez přepisu — krýt z popisu · dávka 21 |
+| published | [How To Make A Game Alone](https://www.youtube.com/watch?v=my8euq9bzFQ) `my8euq9bzFQ` | Dog's Dream | 26:13 | auto | 3859 | `teorie/solo-vyvoj.md` | dávka 21 |
+| published | [Creativity isn't a gift, it's a system](https://www.youtube.com/watch?v=_QVYfPnNOg4) `_QVYfPnNOg4` | Perry Daniels | 13:07 | manual | 2470 | `teorie/tvurci-zasek.md` | kreativita jako systém · dávka 21 |
+| published | [Hayao Miyazaki's wisdom for stuck artists](https://www.youtube.com/watch?v=RT-SJvjw8xQ) `RT-SJvjw8xQ` | Adam Westbrook | The Long Game | 9:21 | auto | 1738 | `teorie/tvurci-zasek.md` | dávka 21 |
 
 ### Učení a růst v éře AI · `T-LEARN` (+8) ⭐ NOVÉ TÉMA
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Coding is Hard Until You Learn This](https://www.youtube.com/watch?v=gaCY4QxfSzA) `gaCY4QxfSzA` | Phillip Choi | 19:28 | auto | 3240 | `teorie/jak-se-ucit-kodovat.md` |  |
-| todo | [Why You Struggle to Learn Game Coding](https://www.youtube.com/watch?v=SU8d0c9aAQo) `SU8d0c9aAQo` | Indie Game Clinic | 14:32 | auto | 2785 | `teorie/jak-se-ucit-kodovat.md` | IGC: proč se herní kód učí špatně |
-| todo | [How to Actually LEARN from YouTube Tutorials!](https://www.youtube.com/watch?v=APwQFdaH0eY) `APwQFdaH0eY` | Brainless. | 8:56 | auto | 2314 | `teorie/jak-se-ucit-kodovat.md` | cross-link: tutorial hell v editor-tipy |
-| todo | [3 Projects for Beginners: Game Design and Art Fundamentals](https://www.youtube.com/watch?v=cf9xDdPXOA0) `cf9xDdPXOA0` | Indie Game Clinic | 37:19 | manual | 7753 | `teorie/prvni-projekty.md` | 3 projekty pro začátečníky (IGC, univerzitní kurz) |
-| todo | [The New Way of Being a Software Engineer In the Age of AI](https://www.youtube.com/watch?v=mYzbbjA3smY) `mYzbbjA3smY` | Phillip Choi | 16:02 | auto | 2777 | `teorie/uceni-v-ere-ai.md` | role inženýra v éře AI |
-| todo | [How To Become Dangerously Self-Educated (with AI)](https://www.youtube.com/watch?v=VeU6gScy92s) `VeU6gScy92s` | Sandeep Swadia | 17:41 | auto | 2757 | `teorie/uceni-v-ere-ai.md` | sebevzdělávání s AI |
-| todo | [A CS Professor on Why Slow Learning Wins in the AI Era \| CU Boulder, Tom Yeh](https://www.youtube.com/watch?v=BAgxGp2WEu4) `BAgxGp2WEu4` | EO | 12:38 | auto | 2342 | `teorie/uceni-v-ere-ai.md` | pomalé učení, CU Boulder |
-| todo | [The Art Of Winning In Tech](https://www.youtube.com/watch?v=4MAupwjl3pc) `4MAupwjl3pc` | Lattice | 6:24 | auto | 1496 | `teorie/uceni-v-ere-ai.md` | kariérní pohled, spíš SW obecně |
+| published | [Coding is Hard Until You Learn This](https://www.youtube.com/watch?v=gaCY4QxfSzA) `gaCY4QxfSzA` | Phillip Choi | 19:28 | auto | 3240 | `teorie/jak-se-ucit-kodovat.md` | dávka 21 |
+| published | [Why You Struggle to Learn Game Coding](https://www.youtube.com/watch?v=SU8d0c9aAQo) `SU8d0c9aAQo` | Indie Game Clinic | 14:32 | auto | 2785 | `teorie/jak-se-ucit-kodovat.md` | IGC: proč se herní kód učí špatně · dávka 21 |
+| published | [How to Actually LEARN from YouTube Tutorials!](https://www.youtube.com/watch?v=APwQFdaH0eY) `APwQFdaH0eY` | Brainless. | 8:56 | auto | 2314 | `teorie/jak-se-ucit-kodovat.md` | cross-link: tutorial hell v editor-tipy · dávka 21 |
+| published | [3 Projects for Beginners: Game Design and Art Fundamentals](https://www.youtube.com/watch?v=cf9xDdPXOA0) `cf9xDdPXOA0` | Indie Game Clinic | 37:19 | manual | 7753 | `teorie/prvni-projekty.md` | 3 projekty pro začátečníky (IGC, univerzitní kurz) · dávka 21 |
+| published | [The New Way of Being a Software Engineer In the Age of AI](https://www.youtube.com/watch?v=mYzbbjA3smY) `mYzbbjA3smY` | Phillip Choi | 16:02 | auto | 2777 | `teorie/uceni-v-ere-ai.md` | role inženýra v éře AI · dávka 21 |
+| published | [How To Become Dangerously Self-Educated (with AI)](https://www.youtube.com/watch?v=VeU6gScy92s) `VeU6gScy92s` | Sandeep Swadia | 17:41 | auto | 2757 | `teorie/uceni-v-ere-ai.md` | sebevzdělávání s AI · dávka 21 |
+| published | [A CS Professor on Why Slow Learning Wins in the AI Era \| CU Boulder, Tom Yeh](https://www.youtube.com/watch?v=BAgxGp2WEu4) `BAgxGp2WEu4` | EO | 12:38 | auto | 2342 | `teorie/uceni-v-ere-ai.md` | pomalé učení, CU Boulder · dávka 21 |
+| published | [The Art Of Winning In Tech](https://www.youtube.com/watch?v=4MAupwjl3pc) `4MAupwjl3pc` | Lattice | 6:24 | auto | 1496 | `teorie/uceni-v-ere-ai.md` | kariérní pohled, spíš SW obecně · dávka 21 |
 
 ### Programátorské myšlení · `T-PROG` (+4) ⭐ NOVÉ TÉMA
 

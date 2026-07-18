@@ -1,6 +1,6 @@
 # Žrouti času: kam mizí měsíce vývoje
 
-Vývoj hry trvá dlouho i bez chyb — od tří měsíců po roky. Studio BiteMe Games sepsalo sedm pastí, ve kterých vývojáři ztrácejí dny až měsíce; tady jsou přeskládané podle toho, *proč* fungují: práce bez validace, únik k snadné tvorbě, bobtnání hry a mýtus „všechno sám". Když poznáš mechanismus pasti, poznáš i její další převleky.
+Vývoj hry trvá dlouho i bez chyb — od tří měsíců po roky. Studio BiteMe Games sepsalo sedm pastí, ve kterých vývojáři ztrácejí dny až měsíce; tady jsou přeskládané podle toho, *proč* fungují: práce bez validace, únik k snadné tvorbě, bobtnání hry a mýtus „všechno sám". Když poznáš mechanismus pasti, poznáš i její další převleky. A protože největší žrout času je projekt, který se nikdy nedokončí, přibyly dvě lekce o dokončování: proč motivace nestačí a kde přesně první hry umírají.
 
 ---
 
@@ -73,3 +73,39 @@ Nákup navíc často zahrnuje podporu: autorovi assetu se dá napsat, co chybí,
 > **Pozn.:** Stejnou lekci říká postmortem ShantyTown z druhé strany: sólo vývojář, který si najal capsule art, zvuk, osvětlení, soundtrack i QA — a hru dokončil. Sólo je o vlastnictví rozhodnutí, ne o vlastnoruční výrobě všeho.
 
 **Souvislosti:** [Postmortem ShantyTown](postmortem-shantytown.md#kruhy-logaritmicky-pokrok-a-systemy-ktere-jen-bavilo-stavet) · [Začátky bez zkušeností](zacatky-bez-zkusenosti.md) · [Rejstřík: asset pack](../rejstrik.md#asset-pack)
+
+---
+
+## Motivace startuje, disciplína dokončuje
+
+**Zdroj:** [Why "Motivation" is Overrated](https://www.youtube.com/watch?v=kUTFNgESEUg) · [Indie Game Clinic](https://www.youtube.com/channel/UC9v7V5PKy-FeB9iVY2T5mMA) · ~21 min, esej na divácké přání
+
+**Shrnutí:** Motivace je nestabilní energie — chodí ve vlnách a kdo jede jen na ni, nikdy nedokončuje [(0:48)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=48s). Disciplína je opačná síla: ploché, konzistentní návyky pro nudné a repetitivní části práce [(3:56)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=236s). Potřebuješ obě — a hack videa zní: **vyrob si vnitřní disciplínu z vnějších závazků.** Ne „řekni lidem o plánu", ale „zavaž se něco konkrétního ukázat ke konkrétnímu datu" [(8:36)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=516s).
+
+### Rozpad myšlenky
+
+**Psychologické podloží — locus of control** [(1:36)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=96s): kdo vyrostl v prostředí, kde ho k práci vždycky někdo dotlačil, má externí locus — a v dospělosti čeká, až ho zase někdo dotlačí. Tvůrčí dospělost = převzít roli disciplinující figury sám nad sebou [(7:01)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=421s). Samouci mívají interní locus, ale jedou nárazově: tvoří, když přijde vlna. Cíle přitom stanovovat umíme — co chybí, jsou **procesy** [(4:42)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=282s): „trénink v úterý a ve čtvrtek", ne „vyhrát ligu". Proces nemusí být optimální, stačí, že existuje; autorův příklad z jamu: hodina artu denně na streamu dala za pět dní víc než pokusy o osmihodinové maratony [(6:15)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=375s).
+
+**Vnější závazky v praxi** [(9:23)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=563s): autorova kapela zkouší jen proto, že má naplánované koncerty — koncert → zkoušíš → píšeš písně, iterační kruh. Herní obdoba jsou **review fáze zapečené do vývoje**: studia je mají zadarmo (agile build každé dva týdny), hobbysta si je musí vyrobit [(10:57)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=657s). Playtest se obvykle prodává přes „hra se zlepší" — stejně cenný je jeho disciplinární efekt: deadline s tváří, kterou nechceš zklamat [(10:10)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=610s). Konkrétní místa, kde závazek sehnat [(11:43)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=703s): přednáška ve škole výměnou za playtest třídy (imposter syndrom zmizí děláním), malé lokální conventions — i deskové a geek akce vývojáře rády vezmou, klidně jako „indie koutek" víc místních tvůrců [(14:04)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=844s) — a gamedev klub; když není, založ ho: měsíční sraz = měsíční deadline [(15:36)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=936s). Vzorový plán: odhadneš slice na tři měsíce → najdeš akci za tři měsíce → z jejích dat stavíš public betu za šest [(16:22)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=982s).
+
+**Bonus, který se přehlíží** [(18:41)](https://www.youtube.com/watch?v=kUTFNgESEUg&t=1121s): iterace s vnějším publikem ti taky říká, **kdy skončit**. Tvůrci milují začátky — a nuda z projektu se umí maskovat jako „ta hra není dobrá". S pravidelným ukazováním rozhoduješ o pauze či konci podle reakcí, ne podle gut feelingu z nudy.
+
+**Souvislosti:** [Začátky bez zkušeností: motivace vs. vůle](zacatky-bez-zkusenosti.md#sdileni-prace-neni-marketing-je-to-nastroj-uceni) · [Rady z praxe: kompilace](rady-z-praxe.md#kompilace-od-profiku-cti-problem-za-navrhem-ukazuj-brzy-ozen-se-s-hrou) · [Devlogy](devlogy.md) · [Rejstřík: Locus of control](../rejstrik.md#locus-of-control)
+
+---
+
+## Kde umírají první hry: mapa klifů z jedné výzvy
+
+**Zdroj:** [Why 99% of Devs Never Ship Their First Game (I Have the Data)](https://www.youtube.com/watch?v=2PKTvinv-oo) · [Gorka Games](https://www.youtube.com/channel/UCv_n9oioNF6OpzR2dt6E4xg) · ~7 min, data z autorovy 7denní výzvy
+
+**Shrnutí:** Z 205 přihlášených do sedmidenní „postav první hru" výzvy pustilo první lekci 44 lidí, první build postavilo 28, přes druhý den (Blueprinty — první samostatné myšlení) prošlo 15 — a dokončil **jeden** [(0:02)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=2s). Anekdota z jednoho běhu, ne věda — ale tvar té mapy sedí na všechno, co o dokončování říkají ostatní kapitoly, a dvě pozorování z ní stojí za zapamatování.
+
+### Rozpad myšlenky
+
+**První klif je na gauči** [(1:38)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=98s): 161 lidí se přihlásilo a nikdy nepustilo ani minutu. Zápis sám o sobě je odměna — mozek zaplatí pocitem pokroku za e-mail ve formuláři. Je to táž past jako hromadění tutoriálů, plánování a kupování kurzů: *feels like game dev, editor never opened*. A úmrtí nejsou dramatická [(3:59)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=239s): nikdo v datech nerage-quitnul — lidé si dali „jednodenní pauzu", která nikdy neskončila. **První hry neumírají výbuchem, umírají na pauze.**
+
+**Vzor přeživších** [(4:45)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=285s): z 28 stavitelů jich 25 postovalo buildy veřejně; ze soukromě stavějících se dál dostal jeden z pěti. Building in public tu není motivační citát, ale mechanismus: **když je pokrok vidět, přestává být skončení neviditelné.** Smyčka vítězů: ukaž se → postav malou věc → postni ji → vrať se zítra; talent, motivace ani titul v ní nefigurují [(4:45)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=285s). A jediný, kdo dokončil, udělal to, co začátečníci fyzicky nesvedou: **seřezal půlku svého snu** (AI dopravu, chodce, celý druhý level), aby hra vyšla [(5:33)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=333s). Každý klif na mapě je rozhodnutí, ne skill check [(6:19)](https://www.youtube.com/watch?v=2PKTvinv-oo&t=379s).
+
+> **Pozn.:** Průhlednost na místě: video je zároveň promo autorovy platformy a další kohorty výzvy — čísla ber jako ilustraci vzoru, ne jako studii. Vzor ale nezávisle potvrzují [data přeživších u Choie](../teorie/uceni-v-ere-ai.md#ctyri-urovne-inzenyra-nahrazuje-se-output-ne-usudek) (build in public jako důkaz) i [Goodgisovo „ožeň se s hrou"](rady-z-praxe.md#kompilace-od-profiku-cti-problem-za-navrhem-ukazuj-brzy-ozen-se-s-hrou). A „seřezat půlku snu" má v knihovně vlastní nástroj: [cut line](../zapisky/cut-line.md).
+
+**Souvislosti:** [Zápisek: Cut line](../zapisky/cut-line.md) · [Učení v éře AI](uceni-v-ere-ai.md) · [Scope a malé hry](scope.md) · [Rejstřík: Building in public](../rejstrik.md#building-in-public)

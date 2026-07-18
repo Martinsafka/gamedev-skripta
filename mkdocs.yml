@@ -44,12 +44,18 @@ nav:
       - teorie/index.md
       - Tvůrčí proces a mindset:
           - Proč tvořit: teorie/proc-tvorit.md
+          - Tvůrčí zásek: teorie/tvurci-zasek.md
           - Začátky bez zkušeností: teorie/zacatky-bez-zkusenosti.md
           - Start projektu: teorie/jak-zacit.md
+          - Sólo vývoj: teorie/solo-vyvoj.md
           - Kolik kódu na start: teorie/co-se-ucit.md
           - Žrouti času: teorie/produktivita.md
-          - Idea iceberg: teorie/rady-z-praxe.md
+          - Rady z praxe: teorie/rady-z-praxe.md
           - Postmortem ShantyTown: teorie/postmortem-shantytown.md
+      - Učení a růst v éře AI:
+          - Učení v éře AI: teorie/uceni-v-ere-ai.md
+          - Jak se učit kódovat: teorie/jak-se-ucit-kodovat.md
+          - První projekty: teorie/prvni-projekty.md
       - Programátorské myšlení:
           - Programátorské myšlení: teorie/programatorske-mysleni.md
           - Programátorské návyky: teorie/programatorske-navyky.md

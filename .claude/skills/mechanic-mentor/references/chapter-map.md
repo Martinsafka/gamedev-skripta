@@ -7,12 +7,19 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 
 ### Tvůrčí proces a mindset
 - [Proč tvořit](https://martinsafka.github.io/gamedev-skripta/teorie/proc-tvorit/) — Nejméně technická kapitola celých skript — a možná ta, ke které se budeš vracet nejčastěji. Zdrojem je půlhodinová video-esej animátora a výtvarníka, ne herního vývojáře; právě proto mluví…
+- [Tvůrčí zásek](https://martinsafka.github.io/gamedev-skripta/teorie/tvurci-zasek/) — Dvě videa, jedna nemoc a dvě doplňkové medicíny. Nemoc: hlava plná fragmentů — postavy bez příběhu, momenty bez začátku — a čekání na „ten správný" kompletní nápad, které se nenápadně mění…
 - [Začátky bez zkušeností](https://martinsafka.github.io/gamedev-skripta/teorie/zacatky-bez-zkusenosti/) — Kapitola o mentální výbavě samouka: jak začít dělat hry, když v den nula neumíš kód pro hry, kreslení, hudbu ani psaní — a proč tohle není překážka, ale výchozí stav skoro každého sólo…
 - [Start projektu](https://martinsafka.github.io/gamedev-skripta/teorie/jak-zacit/) — Autor zdrojového videa rok dělal hru, kterou nakonec zabalil — a většinu pozdějších problémů zpětně stopuje k přeskočené přípravě. Tahle kapitola je jeho náprava: kroky, které se na začátku…
+- [Sólo vývoj](https://martinsafka.github.io/gamedev-skripta/teorie/solo-vyvoj/) — Devět let profesionální praxe (AAA i vlastní indie tituly) zhuštěných do jedné mapy cesty: co rozhodnout, než napíšeš první řádek, jak si postavit pipeline jednoho člověka a jak hru…
 - [Kolik kódu na start](https://martinsafka.github.io/gamedev-skripta/teorie/co-se-ucit/) — Kapitola pro den, kdy tě od první hry dělí strach z programování. Dobrá zpráva: základní stavebnice je překvapivě malá — pár konstruktů, které pochopíš za odpoledne a pak roky prohlubuješ.…
 - [Žrouti času](https://martinsafka.github.io/gamedev-skripta/teorie/produktivita/) — Vývoj hry trvá dlouho i bez chyb — od tří měsíců po roky. Studio BiteMe Games sepsalo sedm pastí, ve kterých vývojáři ztrácejí dny až měsíce; tady jsou přeskládané podle toho, proč fungují…
-- [Idea iceberg](https://martinsafka.github.io/gamedev-skripta/teorie/rady-z-praxe/) — Vývojář z Isto Inc. slaví deset let profesionální tvorby her rekapitulací jedné myšlenky, ke které se propracovával celou dekádu: komerční úspěch hry rozhoduje nápad víc než exekuce — a…
+- [Rady z praxe](https://martinsafka.github.io/gamedev-skripta/teorie/rady-z-praxe/) — Kapitola o radách zkušených — a o tom, jak rady číst. Jádro tvoří „idea iceberg" z Isto Inc.: komerční úspěch hry rozhoduje nápad víc než exekuce a kvalitu nápadu jde číst jen do hloubky…
 - [Postmortem ShantyTown](https://martinsafka.github.io/gamedev-skripta/teorie/postmortem-shantytown/) — Sólo vývojář Eric (Silk Softworks) shrnuje tři roky plné práce na své druhé hře — relaxační stavitelské hře ShantyTown — od výběru prototypu přes designové slepé uličky a shánění peněz až…
+
+### Učení a růst v éře AI
+- [Učení v éře AI](https://martinsafka.github.io/gamedev-skripta/teorie/uceni-v-ere-ai/) — Čtyři pohledy na tutéž otázku: k čemu je učení, když AI zná odpovědi? Profesor informatiky odpovídá „kvůli vlastnictví znalosti" a učí AI matematiku rukou na papíře. Investor odpovídá…
+- [Jak se učit kódovat](https://martinsafka.github.io/gamedev-skripta/teorie/jak-se-ucit-kodovat/) — Tři videa o třech nejčastějších zásecích samouků: pocit, že „programování je moc složité" (není — složité je to, co po počítači chceš); nekonečná smyčka tutoriálů (výstupem je pocit…
+- [První projekty](https://martinsafka.github.io/gamedev-skripta/teorie/prvni-projekty/) — Univerzitní game design kurz řešil problém, který má každý samouk: jak se naučit najednou trochu programovat, trochu dělat vizuál a hlavně designovat — aniž by ses utopil v jedné velké hře.…
 
 ### Programátorské myšlení
 - [Programátorské myšlení](https://martinsafka.github.io/gamedev-skripta/teorie/programatorske-mysleni/) — Visual Kernel ve dvouhodinovém kurzu Programming Thinking neučí Python — učí myslet jako program: co doopravdy dělá rovnítko, proč akumulátor patří ven ze smyčky, kdy se kopíruje hodnota a…
@@ -193,12 +200,14 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Blend Space](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blend-space)
 - [Blend stack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blend-stack)
 - [Blockout](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blockout)
+- [Blue ocean](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blue-ocean)
 - [Blueprint Function Library](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blueprint-function-library)
 - [Blueprint Interface](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blueprint-interface)
 - [Boids](https://martinsafka.github.io/gamedev-skripta/rejstrik/#boids)
 - [Boolean](https://martinsafka.github.io/gamedev-skripta/rejstrik/#boolean)
 - [Bounds](https://martinsafka.github.io/gamedev-skripta/rejstrik/#bounds)
 - [BPM](https://martinsafka.github.io/gamedev-skripta/rejstrik/#bpm)
+- [Building in public](https://martinsafka.github.io/gamedev-skripta/rejstrik/#building-in-public)
 - [Buoyancy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#buoyancy)
 - [Cable Component](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cable-component)
 - [Call to action](https://martinsafka.github.io/gamedev-skripta/rejstrik/#call-to-action)
@@ -265,6 +274,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [HDRI](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hdri)
 - [Height mapa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#height-mapa)
 - [Hook](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hook)
+- [Iluze plynulosti](https://martinsafka.github.io/gamedev-skripta/rejstrik/#iluze-plynulosti)
 - [Inheritance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#inheritance)
 - [Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#instance)
 - [Instanced Actors](https://martinsafka.github.io/gamedev-skripta/rejstrik/#instanced-actors)
@@ -289,6 +299,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Linked anim graph](https://martinsafka.github.io/gamedev-skripta/rejstrik/#linked-anim-graph)
 - [Live Link](https://martinsafka.github.io/gamedev-skripta/rejstrik/#live-link)
 - [Locomotor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locomotor)
+- [Locus of control](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locus-of-control)
 - [Loose coupling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#loose-coupling)
 - [Low-fi prototyp](https://martinsafka.github.io/gamedev-skripta/rejstrik/#low-fi-prototyp)
 - [Low-pass filtr](https://martinsafka.github.io/gamedev-skripta/rejstrik/#low-pass-filtr)
@@ -311,6 +322,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Motiv](https://martinsafka.github.io/gamedev-skripta/rejstrik/#motiv)
 - [Movement Mode](https://martinsafka.github.io/gamedev-skripta/rejstrik/#movement-mode)
 - [Mover](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mover)
+- [MVP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mvp)
 - [Nanite](https://martinsafka.github.io/gamedev-skripta/rejstrik/#nanite)
 - [Narrative design](https://martinsafka.github.io/gamedev-skripta/rejstrik/#narrative-design)
 - [Nav Mesh](https://martinsafka.github.io/gamedev-skripta/rejstrik/#nav-mesh)
@@ -365,6 +377,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Rekurze](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rekurze)
 - [Relativní dur](https://martinsafka.github.io/gamedev-skripta/rejstrik/#relativni-dur)
 - [Retopologie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#retopologie)
+- [Retrieval practice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#retrieval-practice)
 - [Retriggerable Delay](https://martinsafka.github.io/gamedev-skripta/rejstrik/#retriggerable-delay)
 - [Reverb](https://martinsafka.github.io/gamedev-skripta/rejstrik/#reverb)
 - [Rewind Debugger](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rewind-debugger)
@@ -372,6 +385,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Root motion](https://martinsafka.github.io/gamedev-skripta/rejstrik/#root-motion)
 - [Rovnoměrně temperované ladění](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rovnomerne-temperovane-ladeni)
 - [Rubber banding](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rubber-banding)
+- [Rubber duck debugging](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rubber-duck-debugging)
 - [Sampling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sampling)
 - [SaveGame objekt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#savegame-objekt)
 - [Scope](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scope)
@@ -387,6 +401,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Singleton](https://martinsafka.github.io/gamedev-skripta/rejstrik/#singleton)
 - [Smart Object](https://martinsafka.github.io/gamedev-skripta/rejstrik/#smart-object)
 - [Soft boundary](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-boundary)
+- [Soft skills](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-skills)
 - [Sound Cue](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sound-cue)
 - [Sound font](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sound-font)
 - [Sparse set](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sparse-set)
