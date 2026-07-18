@@ -38,4 +38,4 @@ Bonus, který z režisérů vypadl zadarmo: **cinematic framing** [(9:21)](https
 
 > **Pozn.:** Dvě přenositelné lekce nad rámec kamer: „nemožné" featury často stojí na jedné nevyslovené premise (tady: „zoom = zoom kamery") — vyměň premisu a problém zmizí; a **teoretická vada ≠ vnímaná vada** — pixel-perfect dogma neprošlo slepým testem. Měř očima hráče, ne pravidlem. (Video obsahuje sponzorský segment Brilliant [(7:48)](https://www.youtube.com/watch?v=drbatB2KWlo&t=468s) — fakta z něj nečerpám.)
 
-**Souvislosti:** [Vedení hráče](vedeni-hrace.md) · [Game feel a imerze](game-feel.md) · [Rejstřík: Look ahead](../rejstrik.md#look-ahead) · [Rejstřík: Pixel-perfect](../rejstrik.md#pixel-perfect)
+**Souvislosti:** [Vedení hráče](vedeni-hrace.md) · [Game feel a imerze](game-feel.md) · [2D vizuál: pixel art a integer scaling](2d-vizual.md#pixel-art-je-rozhodnuti-ne-nouzove-reseni) *(proč zoom „nešel" — a která tři nastavení to řeší)* · [Rejstřík: Look ahead](../rejstrik.md#look-ahead) · [Rejstřík: Pixel-perfect](../rejstrik.md#pixel-perfect)

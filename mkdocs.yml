@@ -87,6 +87,12 @@ nav:
           - Případovky designu: teorie/pripadovky-designu.md
           - Horor design: teorie/horor-design.md
           - Kamera: teorie/kamera.md
+      - Herní umění a vizuál:
+          - Herní art - pipeline: teorie/art-pipeline.md
+          - Tech art, animace, VFX a UI: teorie/art-specializace.md
+          - Vizuální komunikace: teorie/vizualni-komunikace.md
+          - Typografie: teorie/typografie.md
+          - 2D vizuál - pixel art a izometrie: teorie/2d-vizual.md
       - Level design:
           - Vedení hráče: teorie/vedeni-hrace.md
           - Prostor a hranice: teorie/prostor-a-hranice.md

@@ -46,6 +46,7 @@
 *[Chord generator]: Web generující smysluplnou akordovou progresi (chordchord.com); rychlý start bez teorie.
 *[Chord progression]: Sled akordů tvořící harmonickou kostru; emoci nese pohyb mezi nimi, ne jednotlivé akordy.
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
+*[Closing doors]: Iterace od širokého k úzkému; zavřené dveře se znovu neotevírají.
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
@@ -101,6 +102,7 @@
 *[GASP]: Game Animation Sample — Epicův živý ukázkový projekt gameplay animace: 500+ animací, MM, traversal, Mover.
 *[GDD]: Game design document — dokument s návrhem hry; funguje, jen když se do něj skutečně vracíš.
 *[Genre descoping]: Jeden prvek velkého žánru nafouknutý na celou hru (TD z RTS, backpack z Diabla).
+*[Gestalt]: Psychologie celku: člověk čte celý obraz a z uspořádání odvozuje vztahy mezi částmi.
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
 *[God class]: Antipattern: třída, do které se postupně nastěhuje logika všech ostatních.
 *[Graybox]: Prototyp/blockout ze šedých primitiv — správný pro testování mechanik, špatný pro testování prodejnosti.
@@ -112,16 +114,19 @@
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
+*[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
 *[Inheritance]: Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče. Lakmusový test: „is it a?"
 *[Input buffering]: Vstup těsně před platností se zapamatuje a provede hned, jak to jde (skok před dopadem).
 *[Instance]: Konkrétní umístěný výskyt assetu v levelu.
 *[Instanced Actors]: Systém (5.5+): svět z levných instancí; objekty u hráče se swapnou na plné Blueprint actory a zpět.
+*[Integer scaling]: Zvětšování celými násobky (2x, 3x); jediný způsob, jak udržet pixel art ostrý.
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
 *[Invisible wall]: Neviditelná kolize tam, kde vizuálně nic nebrání — nejhorší způsob ohraničení mapy.
 *[Iterace]: Jedno kolo smyčky uprav → otestuj → vyhodnoť; hry nevznikají tahem, ale koly.
+*[Izometrie]: Perspektiva bez úběžníku — vzdálené objekty se nezmenšují, scéna je čitelná v hloubce.
 *[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
 *[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
@@ -133,12 +138,14 @@
 *[Layered Blend Per Bone]: Anim uzel míchající dvě pózy od zadané kosti nahoru — vrstvení horního těla přes locomotion.
 *[Layered move]: Dočasný zdroj pohybu v Moveru (dash, skok) — nástupce root motion sources; víc jich běží naráz.
 *[Layering]: Vrstvení více zvuků na tutéž linku, aby zněla velce a plně.
+*[Legibilita]: Čitelnost textu: jak snadno oko rozliší písmena a slova. Není to velikost písma.
 *[Leitmotiv]: Melodie svázaná s postavou/místem, která se vrací a mění podle scény; pojivo světa.
 *[Lerp]: Lineární interpolace A + (B − A)·t: plynulý přechod čehokoli, co jde vyjádřit čísly.
 *[Level instance]: Znovupoužitelný sub-level; Packed Level Actor = totéž pro static meshe (převod na instance).
 *[Level streaming]: Načítání a uvolňování částí světa za běhu; persistent level je rám, sub-levely obsah.
 *[LFO]: Pomalý oscilátor otáčející donekonečna zvoleným knobem (vibrato, wobble, pohyb filtru).
 *[Liminální prostor]: Veřejný prostor bez lidí a účelu — skoro normální, a proto zneklidňující.
+*[Line of action]: Pomyslná linie procházející pózou; rovná a čitelná = jasný pohyb.
 *[Line Trace]: Raycast — neviditelný paprsek hledající kolize na své dráze.
 *[Linear grammar]: Gramatika PCG: string symbolů řídí rytmus modulů podél splinu — sekvence, počty, opakování.
 *[Linked anim graph]: Samostatný anim graf připojený jako modul; přes tag na něj sáhnou komponenty zvenčí.
@@ -169,6 +176,7 @@
 *[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
+*[Moodboard]: Sbírka referencí ukazující tón a směr dřív, než vznikne první vlastní kresba.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
 *[Motion Warping]: Ohnutí root motion animace, aby trefila cílový transform; okno řídí notify state v montáži.
 *[Motiv]: Krátká zapamatovatelná dvou- až pětitónová buňka melodie; jde ji opakovat, obrátit, posunout.
@@ -181,7 +189,9 @@
 *[Network Prediction]: Rollback framework UE — síťová větev Moveru: klient posílá jen vstupy, rollback celého okolí naráz.
 *[Niagara Data Channel]: Gameplay zapisuje data do kanálu, jediný Niagara systém z nich spawnuje částice — ne systém per událost.
 *[Niagara Fluids]: Plugin simulačních šablon; Grid 2D SW Particle Collisions = interaktivní hladina s collider tagy.
+*[Normal mapa]: Textura kódující odraz světla — reliéf bez přidání polygonů, obvykle z baku.
 *[Normalizace vektoru]: Zmenšení vektoru na délku 1 se zachováním směru: složky děleno délkou (odmocnina!).
+*[Oblique]: Nakloněná perspektiva: vidíš horní i boční stranu objektů (Stardew Valley).
 *[Obrat akordu]: Tentýž akord s jiným pořadím tónů (nota posunutá o oktávu); hladší přechody.
 *[Observer pattern]: Objekty se přihlásí k odběru událostí zdroje; v UE doslova Event Dispatcher.
 *[Oktáva]: Vzdálenost tónu a jeho příštího výskytu; poměr 2:1, nejkonsonantnější interval.
@@ -194,6 +204,7 @@
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
 *[Parallax occlusion mapping]: Pixel-shader hloubka: posun UV dle kamery a height mapy; bez geometrie, siluety neumí.
+*[Particle system]: Emitter vystřelující sprity či modely a řídící jejich chování v čase.
 *[Pass by reference]: Předání odkazu místo kopie: změny vidí všichni sdílející originál. Kopíruju, nebo sdílím?
 *[Passing chord]: Průchozí akord mezi dvěma hlavními, který přemostí a rozbije jejich tok.
 *[Pawn Sensing]: Jednoduchá smyslová komponenta (kužel zraku + sluch) s gizmem ve viewportu; event On See Pawn.
@@ -239,6 +250,7 @@
 *[Retriggerable Delay]: Delay restartovaný každým dalším spuštěním — doběhne až po klidu; „ztráta zájmu" AI.
 *[Reverb]: Odraz zvuku od prostředí (dozvuk); slepí zvuky nebo vyjádří prostor (chodba, kaňon).
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
+*[Rigging]: Vložení kostry do modelu a nastavení, jak kosti ovládají mesh.
 *[RITE]: Rapid Iterative Testing and Evaluation: jeden tester → oprav vážné problémy → další tester.
 *[Roguelike]: Žánr postavený na opakovaných bězích, smrti jako součásti smyčky a procedurální generaci.
 *[Root motion]: Pohyb uložený v root kosti animace; MM ho vyžaduje (Enable Root Motion + Force Root Lock).
@@ -253,7 +265,10 @@
 *[Scrum]: Agilní metodika: sprinty s pevným cílem, priority z backlogu na sprint meetinzích.
 *[Seamless loop]: Smyčka, jejíž konec plynule navazuje na začátek bez slyšitelného švu; nutnost herní hudby.
 *[Self Pruning]: PCG uzel mazající překrývající se body podle bounds či kolizí — garance rozestupů checkboxem.
+*[Semiotika]: Nauka o tom, co symboly znamenají a proč — u písma dřív, než přečteš obsah.
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
+*[Serif]: Patka na konci tahu písmene; nese historickou asociaci a mírně zpomaluje čtení.
+*[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
 *[Short description]: 300znakový popis hry na Steamu; test 300 znaků = zkus ho napsat v den nula nápadu.
 *[Signal-to-noise ratio]: Poměr užitečné informace k šumu; flow kanál je pásmo nejlepšího signálu pro učení.
 *[Silueta]: Obrys tvaru — nosič identity a čitelnosti; v prostředí ji tvoří kontrast světla a stínu.
@@ -300,9 +315,11 @@
 *[Tutorial hell]: Smyčka „umím zopakovat tutoriál, sám nepostavím nic"; útěk: po každém videu malý vlastní projekt.
 *[Two-loop rule]: Každé dva loopy nejvýš dvě změny (přidat/ubrat nástroj či výraz); lešení pro aranžmá.
 *[Type 2 fun]: Bolí teď, těší ve vzpomínce (hora, soulsovka). Pro jiného hráče Type 3 — volba publika.
+*[Typografie]: Práce s písmem: volba řezů, jejich role v hierarchii textu a pravidla použití.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
 *[User story]: Popis funkce jako kroky uživatele: co vidí a dělá, ne jak je to naprogramované.
 *[USP]: Unique selling point — co má jen tvoje hra; nemusí existovat od začátku (GTA).
+*[UX]: User experience — informační architektura: kde informace bydlí a kolika kroky se k nim dostaneš.
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.
 *[Vektor]: Bod v prostoru (pozice), nebo směr s velikostí (velocity) — dvě čtení, nemíchat.
@@ -310,6 +327,7 @@
 *[Vertical slice]: Reprezentativní výsek hry ve finální kvalitě; brána mezi prototypem a plnou produkcí.
 *[Virtual bone]: Kost existující jen v enginu (Add Virtual Bone) — IK cíle a sockety bez re-exportu z DCC.
 *[Virtual texture]: Textura streamovaná po stránkách jen kam se kamera dívá; pevný pool, daň = page table.
+*[Vizuální hierarchie]: Uspořádání scény tak, aby nejdůležitější informace byla nejsnáze vidět.
 *[Voice leading]: Vedení tónů tak, aby přechody mezi akordy byly co nejjemnější (vedení hlasů).
 *[Voicing]: Jak rozmístíš tóny akordu (pořadí, oktávy); otevřený voicing zní prostorněji.
 *[Volumetric fog]: Objemová mlha na height fogu — paprsky a atmosféra; kvalita přes GridPixelSize/GridSizeZ.

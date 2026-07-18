@@ -62,7 +62,7 @@ Obecná lekce pod tím: imerze není počet polygonů, ale **smyčka akce → ot
 
 > **Pozn.:** Juice je feedback vrstva z [desatera](zaklady.md#desatero-principu-jako-checklist-kostra-puls-duse) dovedená k řemeslu — a teoreticky je to čistý [signal-to-noise](zabava.md#flow-kanal-je-pasmo-nejlepsiho-signalu): každý detail říká hráči, co právě udělal a že to svět zaznamenal. Půlka juice je mimochodem zvuk — viz [sound design ve hře](../hudba/sound-design-ve-hre.md). A pozor na pořadí: juice se leští na jádru, které už baví — jinak je to [over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem).
 
-**Souvislosti:** [Základy: hračky](zaklady.md#engagement-hracky-spojene-zajimavymi-rozhodnutimi) · [Kroky a povrchy](../praxe/footsteps.md) · [Rejstřík: Juice](../rejstrik.md#juice) · [Rejstřík: Squash & stretch](../rejstrik.md#squash-stretch)
+**Souvislosti:** [Základy: hračky](zaklady.md#engagement-hracky-spojene-zajimavymi-rozhodnutimi) · [Vizuální komunikace: mechaniky musí být vidět](vizualni-komunikace.md#mechaniky-funguji-jen-tehdy-kdyz-je-hrac-vidi) *(tytéž triky jako podmínka hratelnosti, ne jen příjemnosti)* · [Kroky a povrchy](../praxe/footsteps.md) · [Rejstřík: Juice](../rejstrik.md#juice) · [Rejstřík: Squash & stretch](../rejstrik.md#squash-stretch)
 
 ---
 

@@ -18,4 +18,4 @@ Druhá půlka je o tónu: splash a menu jsou první obrazovky hry, tak proč z n
 
 > **Pozn.:** Tohle je totéž pravidlo jako [emoce od prvních pěti minut](napad.md#core-dna-a-ctyri-emoce) — jen posunuté ještě před gameplay: emoční nastavení hry začíná ikonou na ploše. V UE je ekvivalent triviální (startup movie a lehká boot mapa v Project Settings); podstata rady je enginově nezávislá.
 
-**Souvislosti:** [Nápad: core DNA a emoce](napad.md#core-dna-a-ctyri-emoce) · [Steam stránka](steam-stranka.md) · [Game feel a imerze](game-feel.md)
+**Souvislosti:** [Nápad: core DNA a emoce](napad.md#core-dna-a-ctyri-emoce) · [Art specializace: UI a pět cílů pohybu](art-specializace.md#ui-a-ux-ekosystem-pravidel-a-pet-cilu-pohybu) *(čím se měří, jestli menu „žije")* · [Steam stránka](steam-stranka.md) · [Game feel a imerze](game-feel.md)

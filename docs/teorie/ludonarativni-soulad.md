@@ -18,7 +18,7 @@ A hlavně: **disonance není inherentně špatná** [(12:25)](https://www.youtub
 
 > **Pozn.:** Pro menší hry bez explicitního příběhu video pojem rozšiřuje z narativu na **téma** (naratologie stejně připouští volnou definici: reprezentace stačí — čarodějův klobouk je „narativní" prvek [(15:31)](https://www.youtube.com/watch?v=uG-RPNilP-8&t=931s)) a razí vlastní termín „ludotematická disonance" — odtud další dvě myšlenky.
 
-**Souvislosti:** [Základy: MDA](zaklady.md#mda-mechaniky-chovani-pocity) · [Příběh a postavy](pribeh-a-postavy.md) · [Rejstřík: Ludonarativní disonance](../rejstrik.md#ludonarativni-disonance)
+**Souvislosti:** [Základy: MDA](zaklady.md#mda-mechaniky-chovani-pocity) · [Příběh a postavy](pribeh-a-postavy.md) · [Herní art: co má artista vědět o designu](art-pipeline.md#co-ma-artista-vedet-o-designu-a-proc-art-neni-podrizeny) *(disonance uvnitř týmu: tank podle designérů, assassin podle artistů)* · [Rejstřík: Ludonarativní disonance](../rejstrik.md#ludonarativni-disonance)
 
 ---
 

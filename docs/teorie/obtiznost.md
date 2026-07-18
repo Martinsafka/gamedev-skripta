@@ -20,7 +20,7 @@ Padesátiminutová esej Indie Game Clinic rozsekává dvojici pojmů, které se 
 
 > **Pozn.:** K tomu jedna profesní teze, kterou video říká natvrdo: **hraní žánru, který děláš, je pracovní povinnost** [(25:46)](https://www.youtube.com/watch?v=FLCet4Z7zew&t=1546s) — studia na research play alokují čas; „produktivita ≠ hodiny s otevřeným enginem". Design naslepo v žánru, kterému nerozumíš, stojí víc než těch 10–30 hodin hraní. Stejnou tezi z jiné strany říká [empatie fanouškovských komunit](rady-z-praxe.md#rady-nefunguji-tam-kde-zacina-design).
 
-**Souvislosti:** [Zábava a flow](zabava.md) · [Prototypování](prototypovani.md) · [Rejstřík: Cognitive load](../rejstrik.md#cognitive-load) · [Rejstřík: Barrier to play](../rejstrik.md#barrier-to-play) · [Rejstřík: Difficulty curve](../rejstrik.md#difficulty-curve)
+**Souvislosti:** [Zábava a flow](zabava.md) · [Prototypování](prototypovani.md) · [Typografie: zločiny proti čitelnosti](typografie.md#ctyri-zlociny-proti-citelnosti-a-proc-zhorsuji-i-hrani) *(nečitelné písmo jako učebnicová bariéra hraní)* · [Rejstřík: Cognitive load](../rejstrik.md#cognitive-load) · [Rejstřík: Barrier to play](../rejstrik.md#barrier-to-play) · [Rejstřík: Difficulty curve](../rejstrik.md#difficulty-curve)
 
 ---
 

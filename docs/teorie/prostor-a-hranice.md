@@ -20,7 +20,7 @@ Navigace bez UI stojí na třech nástrojích: **funneling** [(2:55)](https://ww
 
 > **Pozn.:** „Landmark napřed" je prostorová verze [účelu jako soudce](postmortem-shantytown.md#hra-ti-rika-cim-chce-byt-ucel-jako-designovy-soudce): jedno pevné rozhodnutí, podle kterého se rozhodují všechna další. A blockout z primitiv je [graybox](../rejstrik.md#graybox) v přesně tom smyslu, kdy je šedost správně — testuješ prostor a metriky, ne prodejnost.
 
-**Souvislosti:** [Vedení hráče](vedeni-hrace.md) · [Prototypování](prototypovani.md) · [Rejstřík: blockout](../rejstrik.md#blockout) · [Rejstřík: landmark](../rejstrik.md#landmark)
+**Souvislosti:** [Vedení hráče](vedeni-hrace.md) · [Prototypování](prototypovani.md) · [Herní art: prostředí je 90 % obrazovky](art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) *(co s greyboxem dělá environment artist)* · [Rejstřík: blockout](../rejstrik.md#blockout) · [Rejstřík: landmark](../rejstrik.md#landmark)
 
 ---
 
@@ -46,4 +46,4 @@ Závěrečné pravidlo [(6:10)](https://www.youtube.com/watch?v=tcXGVyy4Mm8&t=37
 
 > **Pozn.:** Tohle je level designová obdoba [alibi pro omezení](scope.md#omezeni-potrebuje-herni-alibi): invisible wall je omezení bez alibi; padlý strom, mráz i kyslík jsou totéž omezení s fikcí, která ho prodá. Stejný princip, jiná měřítka.
 
-**Souvislosti:** [Scope: omezení potřebuje alibi](scope.md#omezeni-potrebuje-herni-alibi) · [Vedení hráče](vedeni-hrace.md) · [Rejstřík: invisible wall](../rejstrik.md#invisible-wall) · [Rejstřík: soft boundary](../rejstrik.md#soft-boundary)
+**Souvislosti:** [Scope: omezení potřebuje alibi](scope.md#omezeni-potrebuje-herni-alibi) · [Vedení hráče](vedeni-hrace.md) · [Vizuální komunikace: afordance](vizualni-komunikace.md#afordance-tvar-predmetu-je-jeho-navod-k-pouziti) *(sutiny přede dveřmi dají důvod, neviditelná zeď ne)* · [Rejstřík: invisible wall](../rejstrik.md#invisible-wall) · [Rejstřík: soft boundary](../rejstrik.md#soft-boundary)

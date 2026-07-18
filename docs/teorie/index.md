@@ -63,6 +63,14 @@ Témata a kapitoly:
 - **[Horor design](horor-design.md)** — monstrum přes představivost, atmosféra jako systém a pětikrokový cyklus napětí s rozpočtem na jump scary.
 - **[Kamera](kamera.md)** — neviditelný designér: falešné hranice pro tajemství, look ahead za pozorností hráče a zoom v pixel artu.
 
+**Herní umění a vizuál**
+
+- **[Herní art: pipeline](art-pipeline.md)** — tři úkoly artu (clarity, satisfaction, style), fokus se dělá ubráním, concept artist jako řešitel problémů, closing doors a prostředí jako 90 % obrazovky.
+- **[Tech art, animace, VFX a UI](art-specializace.md)** — čtyři řemesla, která nejde posoudit na statickém obrázku: rigging a nástroje, line of action a easing, primární/sekundární/terciární efekt, pět cílů pohybu v UI.
+- **[Vizuální komunikace](vizualni-komunikace.md)** — proč art rozhoduje o hratelnosti: gestalt a vizuální hierarchie, mechanika, kterou hráč nevidí, a afordance jako návod v tvaru předmětu.
+- **[Typografie](typografie.md)** — pravidlo dvou fontů, čtyři zločiny proti čitelnosti (a basketbalová studie), semiotika písma a balancování flair vs. funkce.
+- **[2D vizuál](2d-vizual.md)** — pixel art jako rozhodnutí (nearest, 640×360, integer scaling) a izometrie se statickou kamerou: layering podle osy Y a verticalita jako scénografie.
+
 **Level design**
 
 - **[Vedení hráče](vedeni-hrace.md)** — scripted events dávkují momenty ve správný čas a recall priming chystá vzpomínky, než budou potřeba.

@@ -69,7 +69,7 @@ A poslední řemeslná poznámka: dokument nemusí mít jednoho autora [(27:31)]
 
 > **Pozn.:** Uprostřed druhého videa je krátký merch blok (hrnek „playtester tears") [(19:26)](https://www.youtube.com/watch?v=fk-rQlrNYZ8&t=1166s) — kanálový žert, ne sponzoring.
 
-**Souvislosti:** [Devlogy: scénář psaný nahlas](devlogy.md) *(stejné řemeslo, jiné médium)* · [Steam stránka](steam-stranka.md) *(capsule a branding — kam grafický jazyk dorůstá)* · [Rejstřík: GDD](../rejstrik.md#game-design-document) · [Rejstřík: art bible](../rejstrik.md#art-bible)
+**Souvislosti:** [Typografie: balancování flair a funkce](typografie.md#balancovani-flair-pro-atmosferu-cisty-font-pro-funkci) *(týž Diablo font o dvacet let později, už v samotné hře)* · [Devlogy: scénář psaný nahlas](devlogy.md) *(stejné řemeslo, jiné médium)* · [Steam stránka](steam-stranka.md) *(capsule a branding — kam grafický jazyk dorůstá)* · [Rejstřík: GDD](../rejstrik.md#game-design-document) · [Rejstřík: art bible](../rejstrik.md#art-bible)
 
 ---
 

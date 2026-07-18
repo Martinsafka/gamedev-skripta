@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **57/116 published (dávky 20–24)**, 57 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **70/116 published (dávky 20–25)**, 44 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -550,19 +550,19 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [How we made our Isometric Game Art! ★ \|\| GOLEMBERT Devlog #12](https://www.youtube.com/watch?v=UYBzqCldDDI) `UYBzqCldDDI` | Studio Firlefanz | 9:25 | auto | 1646 | `teorie/2d-perspektivy.md` | isometrická grafika (devlog); tenké — merge kandidát |
-| todo | [So You Wanna Make Games?? \| Episode 10: Game Design](https://www.youtube.com/watch?v=yYYtBFSxoCg) `yYYtBFSxoCg` | Riot Games | 14:50 | manual | 2649 | `teorie/art-pipeline.md` | Riot E10: game design (pro artisty; en-cs track!) |
-| todo | [So You Wanna Make Games?? \| Episode 2: Concept Art](https://www.youtube.com/watch?v=FqX-UMVTLHI) `FqX-UMVTLHI` | Riot Games | 12:39 | manual | 2069 | `teorie/art-pipeline.md` | Riot E2: concept art |
-| todo | [So You Wanna Make Games?? \| Episode 3: Character Art](https://www.youtube.com/watch?v=PfpE5dNTWeI) `PfpE5dNTWeI` | Riot Games | 12:10 | manual | 1969 | `teorie/art-pipeline.md` | Riot E3: character art |
-| todo | [So You Wanna Make Games?? \| Episode 5: Technical Art](https://www.youtube.com/watch?v=kr7XYXMM7-U) `kr7XYXMM7-U` | Riot Games | 12:44 | manual | 1885 | `teorie/art-pipeline.md` | Riot E5: technical art |
-| todo | [So You Wanna Make Games?? \| Episode 4: Environment Art](https://www.youtube.com/watch?v=37LVhP15zGw) `37LVhP15zGw` | Riot Games | 12:54 | manual | 1858 | `teorie/art-pipeline.md` | Riot E4: environment art |
-| todo | [So You Wanna Make Games?? \| Episode 6: Character Animation](https://www.youtube.com/watch?v=VmNUAX2V8JQ) `VmNUAX2V8JQ` | Riot Games | 13:11 | manual | 1840 | `teorie/art-pipeline.md` | Riot E6: character animation |
-| todo | [So You Wanna Make Games?? \| Episode 1: Intro to Game Art](https://www.youtube.com/watch?v=RqRoXLLwJ8g) `RqRoXLLwJ8g` | Riot Games | 11:28 | manual | 1817 | `teorie/art-pipeline.md` | Riot E1: intro to game art |
-| todo | [So You Wanna Make Games?? \| Episode 9: User Interface Design](https://www.youtube.com/watch?v=sc3h5JXtIzw) `sc3h5JXtIzw` | Riot Games | 12:29 | manual | 1776 | `teorie/art-pipeline.md` | Riot E9: UI design |
-| todo | [So You Wanna Make Games?? \| Episode 7: Game VFX](https://www.youtube.com/watch?v=3QKK2o5rWSQ) `3QKK2o5rWSQ` | Riot Games | 11:50 | manual | 1750 | `teorie/art-pipeline.md` | Riot E7: game VFX |
-| todo | [Typography Basics Every Game Dev Should Know](https://www.youtube.com/watch?v=QuNNdPrVMm0) `QuNNdPrVMm0` | Indie Game Clinic | 40:08 | auto | 8060 | `teorie/typografie.md` | typografie pro vývojáře (40 min) |
-| todo | [Visual Communication: Why Game Art Matters](https://www.youtube.com/watch?v=SV1BBtD3hY4) `SV1BBtD3hY4` | Indie Game Clinic | 20:49 | manual | 3673 | `teorie/vizualni-komunikace.md` | proč na artu záleží |
-| todo | [You Don't Need to Be an Artist to Make Great Game Art](https://www.youtube.com/watch?v=3eg5Lp3pGNk) `3eg5Lp3pGNk` | TechDad Impact | 13:36 | manual | 2665 | `teorie/vizualni-komunikace.md` | nemusíš být umělec |
+| published | [How we made our Isometric Game Art! ★ \|\| GOLEMBERT Devlog #12](https://www.youtube.com/watch?v=UYBzqCldDDI) `UYBzqCldDDI` | Studio Firlefanz | 9:25 | auto | 1646 | `teorie/2d-vizual.md` | isometrická grafika (devlog); tenké — merge kandidát · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 10: Game Design](https://www.youtube.com/watch?v=yYYtBFSxoCg) `yYYtBFSxoCg` | Riot Games | 14:50 | manual | 2649 | `teorie/art-pipeline.md` | Riot E10: game design (pro artisty; en-cs track!) · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 2: Concept Art](https://www.youtube.com/watch?v=FqX-UMVTLHI) `FqX-UMVTLHI` | Riot Games | 12:39 | manual | 2069 | `teorie/art-pipeline.md` | Riot E2: concept art · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 3: Character Art](https://www.youtube.com/watch?v=PfpE5dNTWeI) `PfpE5dNTWeI` | Riot Games | 12:10 | manual | 1969 | `teorie/art-pipeline.md` | Riot E3: character art · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 5: Technical Art](https://www.youtube.com/watch?v=kr7XYXMM7-U) `kr7XYXMM7-U` | Riot Games | 12:44 | manual | 1885 | `teorie/art-specializace.md` | Riot E5: technical art · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 4: Environment Art](https://www.youtube.com/watch?v=37LVhP15zGw) `37LVhP15zGw` | Riot Games | 12:54 | manual | 1858 | `teorie/art-pipeline.md` | Riot E4: environment art · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 6: Character Animation](https://www.youtube.com/watch?v=VmNUAX2V8JQ) `VmNUAX2V8JQ` | Riot Games | 13:11 | manual | 1840 | `teorie/art-specializace.md` | Riot E6: character animation · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 1: Intro to Game Art](https://www.youtube.com/watch?v=RqRoXLLwJ8g) `RqRoXLLwJ8g` | Riot Games | 11:28 | manual | 1817 | `teorie/art-pipeline.md` | Riot E1: intro to game art · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 9: User Interface Design](https://www.youtube.com/watch?v=sc3h5JXtIzw) `sc3h5JXtIzw` | Riot Games | 12:29 | manual | 1776 | `teorie/art-specializace.md` | Riot E9: UI design · dávka 25 |
+| published | [So You Wanna Make Games?? \| Episode 7: Game VFX](https://www.youtube.com/watch?v=3QKK2o5rWSQ) `3QKK2o5rWSQ` | Riot Games | 11:50 | manual | 1750 | `teorie/art-specializace.md` | Riot E7: game VFX · dávka 25 |
+| published | [Typography Basics Every Game Dev Should Know](https://www.youtube.com/watch?v=QuNNdPrVMm0) `QuNNdPrVMm0` | Indie Game Clinic | 40:08 | auto | 8060 | `teorie/typografie.md` | typografie pro vývojáře (40 min) · dávka 25 |
+| published | [Visual Communication: Why Game Art Matters](https://www.youtube.com/watch?v=SV1BBtD3hY4) `SV1BBtD3hY4` | Indie Game Clinic | 20:49 | manual | 3673 | `teorie/vizualni-komunikace.md` | proč na artu záleží · dávka 25 |
+| published | [You Don't Need to Be an Artist to Make Great Game Art](https://www.youtube.com/watch?v=3eg5Lp3pGNk) `3eg5Lp3pGNk` | TechDad Impact | 13:36 | manual | 2665 | `teorie/2d-vizual.md` | nemusíš být umělec · dávka 25 |
 
 ### Blueprint architektura a organizace projektu · `P-BP` (+6)
 

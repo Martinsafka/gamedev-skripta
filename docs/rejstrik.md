@@ -124,7 +124,7 @@ Kde se s tím potkáš: [Aranžmá: z loopu skladba](hudba/aranz.md)
 
 Vzniká paralelně s gameplay prototypem jako samostatná linka práce — a ve vertical slice se poprvé potká s mechanikami a příběhem. V minimalistickém GDD ji zastupuje pár referenčních obrázků s vytaženou paletou; vlastní dokument si zaslouží, až se tým rozroste nebo styl ustálí.
 
-Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Prototypování](teorie/prototypovani.md)
+Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Prototypování](teorie/prototypovani.md) · [Herní art: concept art](teorie/art-pipeline.md)
 
 ### Aspirační obtížnost
 
@@ -397,6 +397,14 @@ Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md) · [Jak 
 Jeden ze čtyř typů protagonisty (cipher · fixní · customizovatelný · customizovatelný s fixním základem). „Bez osobnosti" není vada: mlčící postava v puzzle hrách (Half-Life, Tunic) nechává znít hlas v hráčově hlavě. Cena: veškerá tíha charakterizace jde do vizuální komunikace — jak postava vypadá a co reprezentuje. Praktické pravidlo: umíš psát → fixní postava; umíš vyrábět cool věci, ale ne psát → cipher.
 
 Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
+
+### Closing doors
+
+**Iterační metoda od širokého k úzkému: každé kolo zavře, co nefunguje, a rozvine, co zaujalo.**
+
+Riotí postup pro concept art, ale funguje na jakoukoli tvůrčí volbu. Stojí a padá s jedním sebeovládáním: zavřené dveře se znovu neotevírají. Bez toho pravidla se tým točí v kruhu a projekt se každé tři měsíce potichu promění v jinou hru. Doplňuje se otázkami na cíl (která z nich působí nejděsivěji?) místo otázek na dojem.
+
+Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Nápad](teorie/napad.md)
 
 ### Cognitive load
 
@@ -766,6 +774,14 @@ Klasická podoba (slohová práce v akademickém formátu) u sólo vývojářů 
 
 Kde se s tím potkáš: [GDD: dokument jako způsob myšlení](teorie/gdd.md) · [Start projektu](teorie/jak-zacit.md) · [Zápisky: GDD review](zapisky/gdd-review.md)
 
+### Gestalt
+
+**Psychologická škola, podle níž člověk vnímá celý obraz a z uspořádání si odvozuje vztahy mezi částmi.**
+
+Do grafického designu se dostala dávno před videohrami a odtud se přelily konvence rozhraní. Pro vývojáře z ní plyne obrácený postup: nezačínej jednotlivým assetem (na který jsi vždy zazoomovaný), ale kompozicí celku, protože hráč uvidí obrazovku najednou. Prakticky: prvky v jedné řadě čteme jako příbuzné, oddělené skupiny jako různé kategorie.
+
+Kde se s tím potkáš: [Vizuální komunikace](teorie/vizualni-komunikace.md) · [Art specializace: UI](teorie/art-specializace.md)
+
 ### Game feel
 
 **Hmatový dojem z ovládání hry: odezva, váha, šťavnatost interakcí — souhrn tisíce drobností, které dělají z klikání požitek.**
@@ -870,6 +886,14 @@ Zní akademicky, funguje jako kompas hranic řešitelnosti: každé „najdeme a
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
 
+### HUD
+
+**Heads-up display: vrstva informací zobrazená přes gameplay — zdraví, munice, minimapa, cíle.**
+
+Jen jedna část UI: patří k němu i mapy, výběr postav, inventář, skill tree a questovní okna. Kolik HUDu hra unese, určuje žánr — karetní hra je z velké části rozhraní, narativní hra si vystačí s minimem. Rozvržení HUDu není dekorace: mozek dělá asociace podle blízkosti, takže pruh vedle jména nepřítele čteme jako jeho zdraví.
+
+Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
+
 ### Hard coding
 
 **Hodnoty napsané natvrdo přímo v kódu místo v proměnné či konfiguraci.**
@@ -950,6 +974,14 @@ Skok zmáčknutý dva framy před dopadem se provede při dopadu — spolu s coy
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Game feel a imerze](teorie/game-feel.md)
 
+### Integer scaling
+
+**Zvětšování obrazu celými násobky (2x, 3x) místo desetinných — jediný způsob, jak udržet pixel art ostrý.**
+
+Neceločíselné zvětšení rozdělí jeden zdrojový pixel mezi dva cílové a hrana se rozmaže. Jde ruku v ruce s filtrováním textur na nearest a se zachováním poměru stran; společně to jsou tři nastavení, na kterých stojí, jestli hra vypadá ostře, nebo jako kaše.
+
+Kde se s tím potkáš: [2D vizuál: pixel art](teorie/2d-vizual.md)
+
 ### Instance
 
 **Konkrétní umístěný výskyt assetu v levelu.**
@@ -998,6 +1030,14 @@ Metafora spirály: ve středu je nedosažitelná dokonalá verze hry a každé k
 
 Kde se s tím potkáš: [Prototypování: iterační spirála](teorie/prototypovani.md) · [Playtesting](teorie/playtesting.md)
 
+### Izometrie
+
+**Perspektiva bez úběžníku: vzdálené objekty se nezmenšují, takže scéna je čitelná v celé hloubce.**
+
+Proto ji volí budovatelské a simulační hry — dává přehled o prostoru a snese hodně detailu, aniž by si prvky překážely. Dvě daně: perspektivu je nutné držet ve všech assetech (jinak se objekty odmítají slučovat s prostředím) a se statickou kamerou musíš řešit, co komu zakrývá výhled — mřížkou, zdí na horním okraji mapy nebo stupňovitým layoutem.
+
+Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
+
 ### Juice
 
 **Vrstva audiovizuálního feedbacku, která prodává akce: screen shake, particles, squash & stretch, flash při zásahu.**
@@ -1013,6 +1053,14 @@ Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
 Trello je značka, kanban je systém (jede i v Jira nebo Notionu). Tři nosná pravidla: karty dost malé, aby šly dokončit; jeden vlastník na kartu — když jsou zodpovědní dva, není zodpovědný nikdo; a nejméně karet je uprostřed, protože Doing je deklarace dnešního fokusu, ne evidence ambicí.
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md)
+
+### Legibilita
+
+**Čitelnost textu: jak snadno oko rozliší písmena a slova — ne totéž co velikost písma.**
+
+Čtyři nejčastější prohřešky ve hrách: celé věty verzálkami (stejná výška písmen ruší tvar slova, nejvíc to dopadá na dyslektiky), zbytečně dekorativní řezy, velké skoky ve velikosti (oko musí přeostřovat) a slabý kontrast, ve hrách vyhrocený tím, že text leží přes pohyblivé pozadí. Není to kosmetika: hůř čitelná instrukce prokazatelně zhoršuje výkon v úkolu, který popisuje.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [První dojem](teorie/prvni-dojem.md)
 
 ### Konsonance
 
@@ -1157,6 +1205,14 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
 Vzor z traversal/cover systémů nad GASP: parkour či overlay logika žije ve vlastním grafu, hlavní AnimBP ji jen linkuje; tag („parkour", „overlay") umožňuje actor komponentám najít anim instanci a řídit ji. Drží AnimBP čitelný a systémy přenositelné mezi projekty.
 
 Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md)
+
+### Line of action
+
+**Pomyslná linie procházející pózou postavy; udává, kam pohyb směřuje.**
+
+Chceš ji rovnou a čitelnou, s částmi těla, které ji následují — zlomená nebo komplikovaná linie ničí účel pózy a pohyb se hůř čte. Spolu s těžištěm (musí padat nad chodidla, pokud zrovna nechceš ukázat ztrátu rovnováhy) je to základ, který stojí před vším ostatním: animace je série póz, takže špatná póza se nedá zachránit časováním.
+
+Kde se s tím potkáš: [Art specializace: animace](teorie/art-specializace.md)
 
 ### Live Link
 
@@ -1374,6 +1430,14 @@ Zrozena z Ulamova Solitaire a neutronů Manhattan Projectu (s von Neumannem a Ma
 
 Kde se s tím potkáš: [Markovovy řetězce a Monte Carlo](teorie/markovovy-retezce.md) · [Prototypování](teorie/prototypovani.md)
 
+### Moodboard
+
+**Sbírka referencí, která ukazuje tón a směr dřív, než vznikne první vlastní kresba.**
+
+Dělá se před kreslením ze dvou důvodů: dá týmu možnost zkorigovat směr s minimem odvedené práce, a nutí autora směr pojmenovat. Smí obsahovat krátké deskriptory (pillars). Příliš obecný nebo roztříštěný moodboard je varovný signál — vede ke zmatku a pivotům později, protože ve skutečnosti žádný směr nedeklaroval.
+
+Kde se s tím potkáš: [Herní art: concept art](teorie/art-pipeline.md) · [GDD](teorie/gdd.md)
+
 ### Motion matching
 
 **Dotazový systém výběru animací: každý frame hledá v databázi pózu, která nejlépe naváže na trajektorii a aktuální pózu.**
@@ -1469,6 +1533,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 2D grid simulace mělké vody: postava a objekty s tagy „collider" (actor i component tag, case-sensitive) dělají vlny. Ladicí trio: Velocity Dissipation (dozvuk vln), Delta Time Multiplier (tempo), Collision Velocity Multiplier (síla vstupu). Od 5.6 totéž zapíná Water Advanced plugin checkboxem (shallow water subsystem).
 
 Kde se s tím potkáš: [Interaktivní voda](praxe/interaktivni-voda.md)
+
+### Normal mapa
+
+**Textura kódující, jak má povrch odrážet světlo — dodá reliéf bez přidání polygonů.**
+
+Vzniká nejčastěji bakem z high-poly modelu na low-poly mesh: detail vysochaný v sochacím programu se promítne do textury. Spolu s height mapou (jak moc části vystupují) a barvou tvoří základní trojici map, ze které se skládá materiál.
+
+Kde se s tím potkáš: [Herní art: character art](teorie/art-pipeline.md) · [Materiály v UE](praxe/materialy.md)
 
 ### Normalizace vektoru
 
@@ -1573,6 +1645,14 @@ Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Zábava a 
 Levnější než displacement (žádná tessellace), ale na hraně meshe „uřízne" — siluetu neumí; varianty silhouette POM a screen space displacement to řeší až přepisem hloubky v Z-bufferu. Základ kamenných zdí Crimson Desert i kované brány v TLOU (geometrii má jen rám, ornament je textura). Cena: flickering a wobble při ostrých úhlech kamery.
 
 Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
+
+### Particle system
+
+**Systém, který z emitteru vystřeluje sprity nebo modely a řídí jejich chování v čase.**
+
+Emitter je neviditelný bod v prostoru; nastavením se z něj stane proud vody reagující na gravitaci i jediný nehybný obrázek. Základní stavební kámen herních VFX, které na rozdíl od filmových musí běžet v reálném čase, a proto se počítají každý snímek.
+
+Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md)
 
 ### Pass by reference
 
@@ -1950,6 +2030,14 @@ Metoda z UX designu pro vývojáře bez velkého poolu testerů: sleduj jednoho 
 
 Kde se s tím potkáš: [Playtesting: kadence a RITE](teorie/playtesting.md)
 
+### Rigging
+
+**Vložení kostry do modelu a nastavení, jak kosti ovládají mesh — bez toho zůstane model socha.**
+
+Následuje weight painting (malování vlivu jednotlivých kostí, aby deformace vypadala přirozeně) a stavba ovladačů, které animátorovi umožní hýbat kostrou jednoduše — jako provázky loutky. Na téhle vrstvě se řeší i to, aby chodidlo drželo na zemi, když se hýbe zbytek těla. Typická práce technického artisty.
+
+Kde se s tím potkáš: [Art specializace: tech art](teorie/art-specializace.md) · [Animace v UE](praxe/animace-nastroje.md)
+
 ### Roguelike
 
 **Žánr postavený na opakovaných bězích: smrt je součást smyčky, svět se generuje procedurálně, znalost hráče je hlavní trvalý pokrok.**
@@ -2038,6 +2126,14 @@ Oproti kanbanu (plynulý tok karet) přidává rytmus: pevné bloky času s jasn
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md) · [Playtesting: kadence](teorie/playtesting.md)
 
+### Semiotika
+
+**Nauka o tom, co symboly znamenají a proč — u písma a tvarů dřív, než přečteš obsah.**
+
+Typografie nese význam třemi cestami: materiálem a nástrojem vzniku (dláto do kamene, brk, tiskový lis), historickou epochou a odkazy na jiná média (filmové plakáty, umělecká hnutí). Proto font sdělí žánr a dobu dřív, než hráč přečte první slovo — a proto hra zasazená do konkrétní éry znamená spoustu práce na cedulích a plakátech ve světě.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [Ludotematický soulad](teorie/ludonarativni-soulad.md)
+
 ### Seamless loop
 
 **Hudební smyčka, jejíž konec plynule navazuje na začátek — bez slyšitelného „švu".**
@@ -2070,6 +2166,14 @@ Zároveň nejlevnější validační nástroj nápadu: „test 300 znaků" = zku
 
 Kde se s tím potkáš: [Nápad: test 300 znaků](teorie/napad.md) · [Scope](teorie/scope.md)
 
+### Serif
+
+**Patka: drobné zakončení na koncích tahů písmene. Nese historickou asociaci a mírně zpomaluje čtení.**
+
+Vznikla v době fyzického tisku, kde bránila rozpíjení inkoustu a opotřebení stroje — proto s patkovým písmem podvědomě spojujeme starší dobu. Praktický důsledek pro hry: dekorativní patkový font se hodí na názvy a nápisy ve světě, ale funkční text (popisy schopností, tutoriály) patří do bezpatkového, protože se čte rychleji.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md)
+
 ### Signal-to-noise ratio
 
 **Poměr užitečné informace (signál) k balastu (šum) — klíčová veličina učení, soustředění i designu obtížnosti.**
@@ -2077,6 +2181,14 @@ Kde se s tím potkáš: [Nápad: test 300 znaků](teorie/napad.md) · [Scope](te
 Učení je budování prediktivního modelu světa a potřebuje data, ze kterých se dá učit. Frustrace = konstantní „špatně" (nulový signál), nuda = konstantní „dobře" (nulový signál); flow kanál je pásmo, kde některé akce fungují a jiné ne — nejlepší signál. Jasné cíle jsou filtr šumu; soustředění je totéž z druhé strany (rozptýlení a vizuální balast = šum).
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
+
+### Shape language
+
+**Standardizace tvarů pro významy napříč celou hrou: plus je zdraví, kruh štít, špičaté tvary poškození.**
+
+Nutnost všude, kde je efektů nebo ikon hodně — konzistentní tvarosloví umožní pochopit funkci prvku bez čtení. Klíčová vlastnost: když jsou barvy podobné, tvar je jediné, co prvky rozliší. Používá se stejně ve VFX i v rozhraní, a spolu s barvou a pozicí tvoří pravidla, kterým se říká vizuální jazyk hry.
+
+Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md) · [Game feel](teorie/game-feel.md)
 
 ### Silueta
 
@@ -2414,6 +2526,14 @@ Sledování není učení. Útěk je vždycky stejný: po každém tutoriálu za
 
 Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md)
 
+### Typografie
+
+**Řemeslo práce s písmem: volba řezů, jejich role v hierarchii textu a pravidla, kdy se který používá.**
+
+Praktické minimum pro hru: dva fonty s jasnou rolí (nadpisy, tělo), a každý další styl — tučné, kurzíva, jiný řez — jen s důvodem, který platí v celé hře. Kurzíva vyhrazená pro flavor text hráči napoví, že tohle nemusí číst kvůli hraní; tučné klíčové slovo naopak říká, že tohle je mechanika.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [Art specializace: UI](teorie/art-specializace.md)
+
 ### Two-loop rule
 
 **Aranžérské pravidlo: každé dva loopy hlavního nástroje uděláš nejvýš dvě změny.**
@@ -2454,6 +2574,14 @@ Uklidňující lekce z historie: USP nemusí existovat od začátku. GTA vyrostl
 
 Kde se s tím potkáš: [GDD: dokument není smlouva](teorie/gdd.md) · [Co prodává](teorie/co-prodava.md)
 
+### UX
+
+**User experience: informační architektura hry — kde informace bydlí a kolika kroky se k nim hráč dostane.**
+
+Předchází UI: nejdřív se mapuje cesta hráče a minimalizuje počet nutných akcí, teprve pak se staví vizuál. U malých týmů je to jedna role, a právě proto se vyplatí držet obě zadání oddělená — jinak se optimalizuje vzhled obrazovky, která neměla vzniknout.
+
+Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
+
 ### Value chain
 
 **Hodnotový řetězec (Dan Cook): smysl a zábavnost sběrné činnosti nedává činnost sama, ale její zamýšlené použití dál v řetězci.**
@@ -2485,6 +2613,14 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 Dvě služby: záchranné lano z každé katastrofy a viditelná historie pokroku (protilék na „nic nestíhám"). Zásada zrnitosti: commituj malé celky s popisnou zprávou — velký commit se špatně popisuje, vrací i slučuje. UE specifika: Blueprinty jsou binární (diff neuvidíš, zpráva je vše), na velké assety Git LFS, v editoru vestavěná integrace Revision Control.
 
 Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md)
+
+### Vizuální hierarchie
+
+**Uspořádání scény tak, aby nejdůležitější informace byla nejsnáze vidět.**
+
+Vzniká kontrastem — v tvaru, velikosti, barvě, saturaci i míře detailu. Kontraintuitivní jádro: fokus se nedělá zvýrazněním jednoho místa, ale potlačením všech ostatních (na šachovnici, kde má stejný kontrast všechno, oko nemá kde přistát). Postup je dvoukrokový: nejdřív informační hierarchie (co je jak důležité), pak její překlad do vizuálních prostředků.
+
+Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Vizuální komunikace](teorie/vizualni-komunikace.md) · [Prostor a hranice](teorie/prostor-a-hranice.md)
 
 ### Vertical slice
 
@@ -2533,6 +2669,14 @@ Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md)
 Zapíná se na Exponential Height Fog; tvar řídí scattering distribution, start distance a height falloff. Materiály s domain Volume do ní kreslí vlastní objemy (mlha Silent Hill 2). Kvalita: r.VolumetricFog.GridPixelSize (default 8, nižší = jemnější) a GridSizeZ (128 → 256/512, ten dražší).
 
 Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
+
+### Oblique
+
+**Perspektiva, ve které je scéna nakloněná tak, že vidíš horní i boční stranu objektů.**
+
+Perspektiva her jako Harvest Moon nebo Stardew Valley — není to čistý pohled shora, ale ani izometrie. Rozdíl proti izometrii je v tom, jak se osy sbíhají; prakticky se volí tam, kde je potřeba čitelný půdorys a zároveň rozpoznatelné postavy zpředu.
+
+Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
 
 ### Water Body
 

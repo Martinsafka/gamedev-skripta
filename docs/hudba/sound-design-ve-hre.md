@@ -22,7 +22,7 @@ Tři role rozdělené podle účelu [(1:07)](https://www.youtube.com/watch?v=Kco
 
 Pro herní hudbu z toho plyne to samé co pro efekty: než něco přidáš, urči úkol. Bojová hudba je emoce a cue zároveň (spustí se při vstupu do soubuje); zvuk sebrání předmětu je feedback. Zvuk bez úkolu je jen hluk.
 
-**Souvislosti:** [Slovník sound designera](#slovnik-sound-designera) · [Fyzika souzvuku: disonance jako emoce](fyzika-souzvuku.md#jine-alikvoty-jine-stupnice) · [Game feel a imerze](../teorie/game-feel.md) · [Kroky a povrchy](../praxe/footsteps.md)
+**Souvislosti:** [Slovník sound designera](#slovnik-sound-designera) · [Herní art: tři úkoly artu](../teorie/art-pipeline.md#art-ma-tri-ukoly-clarity-satisfaction-style) *(tentýž rámec z téže série, aplikovaný na obraz)* · [Fyzika souzvuku: disonance jako emoce](fyzika-souzvuku.md#jine-alikvoty-jine-stupnice) · [Game feel a imerze](../teorie/game-feel.md) · [Kroky a povrchy](../praxe/footsteps.md)
 
 ---
 

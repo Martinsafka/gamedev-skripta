@@ -20,7 +20,7 @@ Tři nástroje pro tři situace: **animation blueprint se state machine** (klasi
 
 > **Pozn.:** Tohle je „stará škola", kterou GASP éra nahrazuje MM uzlem — ale číst state machines je pořád denní chleba (AnimBP šablon, cizích projektů, i [hybridního GASP setupu](gasp.md#mover-pohyb-jako-modularni-blueprintovatelna-simulace)). A pro jednoduchá NPC je state machine se třemi stavy pořád nejlevnější správná odpověď.
 
-**Souvislosti:** [Základy pohybu: blend spacy](pohyb-zaklady.md#tri-rychlosti-walk-run-sprint-pres-max-walk-speed) · [MM základy: proč pryč od state machines](mm-zaklady.md#dotaz-misto-grafu-jak-motion-matching-vybira-pozy) · [Rejstřík: state machine](../rejstrik.md#state-machine) · [Rejstřík: blend space](../rejstrik.md#blend-space)
+**Souvislosti:** [Základy pohybu: blend spacy](pohyb-zaklady.md#tri-rychlosti-walk-run-sprint-pres-max-walk-speed) · [MM základy: proč pryč od state machines](mm-zaklady.md#dotaz-misto-grafu-jak-motion-matching-vybira-pozy) · [Art specializace: animace](../teorie/art-specializace.md#animace-citelnost-vaha-a-osobnost) *(proč state machine vůbec vzniká — a co má animace sdělit)* · [Rejstřík: state machine](../rejstrik.md#state-machine) · [Rejstřík: blend space](../rejstrik.md#blend-space)
 
 ---
 
