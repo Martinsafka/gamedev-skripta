@@ -40,6 +40,7 @@ Pull the relevant doc(s) into context **only when the task needs them**:
 - Vision, audience, what the documents are and aren't → `agent_docs/project_brief.md`.
 - Repo/content architecture, MkDocs setup, glossary mechanism, navigation → `agent_docs/architecture.md`.
 - **How to write content** — chapter/entry template, language rules, credits, timestamps, glossary conventions, Zápisky anonymization → `agent_docs/content_conventions.md`. **Authoritative for every line of `docs/`.**
+- **How to think while synthesizing** — entry depth (four layers of a Rozpad), problem context, linking discipline, timestamp density, per-entry & per-batch checklists → `agent_docs/synthesis_guide.md`. **Read together with content_conventions.md before every synthesis batch.**
 - Transcript acquisition & cleaning (yt-dlp flags, incremental archive, track selection) → `agent_docs/transcript_pipeline.md`.
 - How to approach tasks (the loop) → `agent_docs/workflow.md`.
 - What's been done and why (running log — **append after every task**) → `agent_docs/dev_log.md`.
