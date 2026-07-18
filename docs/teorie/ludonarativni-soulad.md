@@ -34,7 +34,7 @@ Heuristika v akci: abstraktní mechanika „ukážu a kliknu → věc v dálce z
 
 Tohle je přesně místo, kde se potkává design s [appealem](zaklady.md#appeal-centralni-fantazie-a-mix-ktery-nejde-zaradit): téma je první, co hráč přečte — a dobré téma mu zároveň předučí mechaniky dřív, než hru spustí. Sémiotika z [mapy teorie](zaklady.md#teorie-designu-je-mapa-ne-navod) v praxi.
 
-**Souvislosti:** [Základy: engagement a appeal](zaklady.md) · [Obtížnost: případovka Octojump](obtiznost.md#pripadovka-octojump-obtiznost-jako-sluzba-per-level) *(inkoust = téma, schopnost i měna)* · [Rejstřík: Ludonarativní disonance](../rejstrik.md#ludonarativni-disonance) · [Rejstřík: Affordance](../rejstrik.md#affordance)
+**Souvislosti:** [Základy: engagement a appeal](zaklady.md) · [Žánry očima designéra](zanry.md) *(pyramida: mód a nálada nejsou žánr)* · [Obtížnost: případovka Octojump](obtiznost.md#pripadovka-octojump-obtiznost-jako-sluzba-per-level) *(inkoust = téma, schopnost i měna)* · [Rejstřík: Ludonarativní disonance](../rejstrik.md#ludonarativni-disonance) · [Rejstřík: Affordance](../rejstrik.md#affordance)
 
 ---
 

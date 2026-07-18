@@ -8,6 +8,7 @@
 *[ALS]: Advanced Locomotion System — komunitní locomotion framework; jeho autor dnes v Epicu vede design GASP.
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
+*[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
 *[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
@@ -31,6 +32,7 @@
 *[Buoyancy]: Vztlak Water pluginu: pontoony (klasika) nebo od 5.7 Default Buoyancy Physics Material + Query and Probe.
 *[Cable Component]: Vestavěné simulované lano/kabel; konce jdou ukotvit, částice čte Get Cable Particle Locations.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
+*[Camera director]: Objekt vlastnící pravidla kamery pro oblast: hranice, výjimky, plynulé předání řízení.
 *[Capsule]: Náhledový obrázek hry na Steamu — nejdůležitější kus grafiky celé stránky.
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
@@ -44,16 +46,20 @@
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
 *[Contact curve]: Animační křivka 0/1 „chodidlo na zemi" — řídí foot pinning; nahradila foot velocity curves.
+*[Content scheduling]: Kdy a jak často se věci dějí — rytmus obsahu; častá oprava hry, co „má vše a nudí".
 *[Context steering]: Pohyb AI: entita ohodnotí všechny směry vahami a vybere nejlepší proveditelný — nezamrzá u zdi.
 *[Continuing pose]: „Co by hrálo dál“ — kandidát, kterého musí nová animace v MM porazit cenou.
 *[Control Rig]: Grafový rigging a procedurální animace v enginu — běží i za runtime, bez rekompilace.
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
+*[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
 *[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
 *[Data Registry]: Registr konfiguračních dat (data tables) — systémy se ptají jménem místo tvrdých odkazů na tabulky.
 *[Data-driven design]: Hodnoty a konfigurace žijí v datech (data assety); logika je jen čte.
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
+*[Degenerate strategy]: Dominantní postup, po jehož objevení hra přestává bavit; cíl balancu je ho zabít.
+*[Dependency stack]: Strom závislostí systémů: dole core mechaniky, nahoře škrtnutelné obohacení.
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Design pattern]: Pojmenované řešení opakujícího se problému v kódu; katalog Gang of Four (1994), tři rodiny.
 *[Design pillars]: 2–3 pojmy o tom, co má hráč cítit; váha pro každé rozhodnutí. Žánr ani art style pilíř není.
@@ -87,6 +93,7 @@
 *[Garbage collection]: Automatický úklid paměti; zničené objekty jsou dočasně „pending kill".
 *[GASP]: Game Animation Sample — Epicův živý ukázkový projekt gameplay animace: 500+ animací, MM, traversal, Mover.
 *[GDD]: Game design document — dokument s návrhem hry; funguje, jen když se do něj skutečně vracíš.
+*[Genre descoping]: Jeden prvek velkého žánru nafouknutý na celou hru (TD z RTS, backpack z Diabla).
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
 *[God class]: Antipattern: třída, do které se postupně nastěhuje logika všech ostatních.
 *[Graybox]: Prototyp/blockout ze šedých primitiv — správný pro testování mechanik, špatný pro testování prodejnosti.
@@ -98,14 +105,17 @@
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
+*[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
 *[Inheritance]: Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče. Lakmusový test: „is it a?"
+*[Input buffering]: Vstup těsně před platností se zapamatuje a provede hned, jak to jde (skok před dopadem).
 *[Instance]: Konkrétní umístěný výskyt assetu v levelu.
 *[Instanced Actors]: Systém (5.5+): svět z levných instancí; objekty u hráče se swapnou na plné Blueprint actory a zpět.
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
 *[Invisible wall]: Neviditelná kolize tam, kde vizuálně nic nebrání — nejhorší způsob ohraničení mapy.
 *[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
+*[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
 *[Kontrapunkt]: Skládání nezávislých melodií, které fungují zároveň; odděluje profíky od amatérů.
 *[Kvaternion]: Rotace čtyřmi čísly: bez gimbal locku, hladký slerp — výměnou za nulovou intuici.
@@ -119,12 +129,14 @@
 *[Level instance]: Znovupoužitelný sub-level; Packed Level Actor = totéž pro static meshe (převod na instance).
 *[Level streaming]: Načítání a uvolňování částí světa za běhu; persistent level je rám, sub-levely obsah.
 *[LFO]: Pomalý oscilátor otáčející donekonečna zvoleným knobem (vibrato, wobble, pohyb filtru).
+*[Liminální prostor]: Veřejný prostor bez lidí a účelu — skoro normální, a proto zneklidňující.
 *[Line Trace]: Raycast — neviditelný paprsek hledající kolize na své dráze.
 *[Linear grammar]: Gramatika PCG: string symbolů řídí rytmus modulů podél splinu — sekvence, počty, opakování.
 *[Linked anim graph]: Samostatný anim graf připojený jako modul; přes tag na něj sáhnou komponenty zvenčí.
 *[Live Link]: Streamování dat do enginu (mocap, kamery); Live Link Hub od 5.8 zpracuje i offline video na capture data.
 *[Locomotor]: Control Rig uzel procedurální chůze: došlapy počítá dynamicky — foot sets, fázové offsety, žádné klipy.
 *[Locus of control]: Kde hledáš řídicí sílu jednání: uvnitř (rozhoduju sám), či venku (čekám na dotlačení).
+*[Look ahead]: Předsazení kamery za pozorností hráče: směr pohybu, fáze skoku (nad hlavu → pod nohy).
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
 *[Low-pass filtr]: Filtr propouštějící nízké frekvence a ubírající vysoké; z bohaté vlny udělá bas/pad.
@@ -144,6 +156,7 @@
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
+*[Mód hry]: Struktura hraní přes sezení (roguelike, metroidvania) — neříká, co držíš v rukou.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
@@ -184,6 +197,7 @@
 *[Physics Control]: Komponenta držící simulovaná tělesa u cíle laditelnou pružinou — fyzikální, ale ovladatelné.
 *[Pitch deck]: Prezentace hry, která ještě neexistuje; simuluje první kontakt zákazníka s nápadem.
 *[Pivot]: Vztažný bod objektu (rotace, scale, přichytávání); v enginu opravitelný přes modeling mode Edit Pivot.
+*[Pixel-perfect]: Celočíselné škálování pixel artu; ve slepém testu necelé faktory skoro nepoznáš.
 *[Placeholder]: Provizorní asset držící místo finálnímu; schválně ošklivý, aby nesváděl k ladění.
 *[Player State]: Objekt s daty jednoho hráče (inventář, skóre) nezávisle na pawnovi; v multiplayeru se replikuje.
 *[Playtest]: Testování hry skutečnými hráči za účelem zpětné vazby.
@@ -260,6 +274,7 @@
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).
 *[Traversal]: Překonávání překážek (vault, mantle, hurdle): detekce hran + chooser + montáž s motion warpingem.
+*[Tři C]: Character, camera, controls — co žánr definuje; v AAA samostatná designérská role.
 *[Triáda]: Nejzákladnější akord ze tří tónů (základ, tercie, kvinta); rozestupy určí dur/moll/zmenšená.
 *[Trigger volume]: Neviditelná zóna v levelu, která při vstupu spustí událost — základ skriptovaných momentů.
 *[Trim sheet]: Sdílená textura z pásů detailů pro mnoho assetů — řádová úspora draw calls a VRAM.
@@ -269,6 +284,7 @@
 *[Type 2 fun]: Bolí teď, těší ve vzpomínce (hora, soulsovka). Pro jiného hráče Type 3 — volba publika.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
+*[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.
 *[Vektor]: Bod v prostoru (pozice), nebo směr s velikostí (velocity) — dvě čtení, nemíchat.
 *[Version control]: Verzování projektu (Git): návratové body a historie jako deník pokroku; commituj malé celky.
 *[Vertical slice]: Reprezentativní výsek hry ve finální kvalitě; brána mezi prototypem a plnou produkcí.
@@ -282,5 +298,6 @@
 *[Wishlist]: Přání na Steamu; před vydáním hlavní měřítko zájmu a palivo algoritmu viditelnosti.
 *[World Partition]: Streamovací systém UE5 — svět v buňkách nahrávaných podle potřeby.
 *[Yoink & twist]: Vzorec nápadu: vezmi žánr s prokázaným publikem (yoink) a přidej vlastní vylepšení či obrat (twist).
+*[Yomi]: Čtení soupeřovy mysli jako dovednost (fighting hry); hraješ proti mysli, ne proti hodu.
 *[Zázněj]: Pomalé kolísání hlasitosti dvou blízkých frekvencí (beating); příčina pásma nepohody.
 *[Zero indexing]: První prvek má index 0; n-tý sedí na n − 1. Záměna = klasická off-by-one chyba.

@@ -54,6 +54,11 @@ Témata a kapitoly:
 - **[Obtížnost a výzva](obtiznost.md)** — challenge je co, difficulty je kolik: bariéry hraní, tři cesty ke zvednutí obtížnosti, aspirační vs. průběžná — a Octojump jako obtížnost per level.
 - **[Systémy a mechaniky](systemy-a-mechaniky.md)** — pravidla → mechaniky → systémy, hra jako stroj s účelem, expresivní a kognitivní mechaniky.
 - **[Ludotematický soulad](ludonarativni-soulad.md)** — ludonarativní disonance a kdy vadí, téma jako učitel hry a nůžky na scope, fireball wizard problem.
+- **[Žánry očima designéra](zanry.md)** — pyramida žánr/mód/nálada, subtraktivní design (žánry vzniklé škrtáním) a nekromancie mrtvých žánrů.
+- **[Designing Games (Sylvester)](engineering-experiences.md)** — kniha o inženýrství zážitků: události a anticipace, Yomi a balanc, value curves a strom závislostí.
+- **[Případovky designu](pripadovky-designu.md)** — Fade (krása bez úderu) a vzorce ze 150 kritik: scope jako fokus, síla tématu, kopíruj poznámkami.
+- **[Horor design](horor-design.md)** — monstrum přes představivost, atmosféra jako systém a pětikrokový cyklus napětí s rozpočtem na jump scary.
+- **[Kamera](kamera.md)** — neviditelný designér: falešné hranice pro tajemství, look ahead za pozorností hráče a zoom v pixel artu.
 
 **Level design**
 

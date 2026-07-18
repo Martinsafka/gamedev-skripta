@@ -86,6 +86,14 @@ Vestavěné (Play Sound) i vlastní blueprint třídy (override Receive Notify) 
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Systémy nad MM](praxe/mm-systemy.md)
 
+### Apofenie
+
+**Lidský pud vidět vzory a příběhy i tam, kde nikdo žádný nenapsal — motor emergentního narativu.**
+
+Dej hráči reprezentace, postavy a situace, a příběh si složí v hlavě sám (model, na kterém stojí RimWorld). Pro designéra to znamená, že narativ nemusí být autorský text: stačí systémy, jejichž srážky stojí za převyprávění.
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Příběh a postavy](teorie/pribeh-a-postavy.md)
+
 ### Arrangement
 
 **Rozvinutí hudebního loopu do celé skladby — kdy co přidat, ubrat a jak přejít (aranžmá).**
@@ -278,6 +286,14 @@ Nejdůležitější kus grafiky celé stránky. Zásady: žádné AI generované
 
 Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md) · [Co prodává](teorie/co-prodava.md)
 
+### Camera director
+
+**Objekt, který vlastní pravidla kamery pro danou oblast: hranice, čeho si všímat, jak plynule předat řízení dalšímu.**
+
+Každá místnost má výchozího režiséra (hranice nastavené tak, aby tajemství zůstala skrytá) a trigger zóny s vlastními režiséry pro výjimky — tajné chodby, cinematic framing vysokých stropů. Předání se tweenuje; detail, na kterém stojí game feel celé kamery.
+
+Kde se s tím potkáš: [Kamera](teorie/kamera.md)
+
 ### Cast
 
 **Přetypování obecné reference na konkrétní třídu, aby šlo volat její specifické funkce.**
@@ -374,6 +390,14 @@ Hodnota 0 = noha ve vzduchu, 1 = došlap. Proti rychlostním křivkám je konzis
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md)
 
+### Content scheduling
+
+**Kdy a jak často se ve hře věci dějí — rytmus obsahu, ne jeho množství.**
+
+Nejčastější oprava hry, která „má všechno a nudí": nepřidat obsah, ale přeskládat ho v čase. Série dobrých částí bez rytmu je standup, kde každý vtip funguje a routine nedrží pohromadě.
+
+Kde se s tím potkáš: [Případovky designu](teorie/pripadovky-designu.md)
+
 ### Context steering
 
 **Technika pohybu AI: entita průběžně hodnotí všechny směry vahami a vybírá nejlepší proveditelný.**
@@ -405,6 +429,22 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 „Plíž se → pozoruj → proklouzni" nebo „těž → vyrob → prodej". Užitečný pojem při analýze (co hráč *reálně* dělá většinu času?) i při ořezávání scope — co nesytí core loop, je kandidát na vyhození. Zároveň platí výhrada z kapitoly o smyčkách: popisuje strukturu, nevysvětluje kvalitu.
 
 Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md) · [Nápad](teorie/napad.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
+
+### Cyklus napětí
+
+**Pět kroků hororové dramaturgie: setup → očekávání → semínko pochyb → diverze → akce; pak se napětí sbírá znovu.**
+
+Setup a očekávání ustaví normál; anomálie ho nahlodají; diverze („čekáš úder — nic") napětí zdvojnásobí; akce ho vybije. Diverze užívej střídmě, jinak hráč prokoukne rytmus. Obecnější verze téhož: oscilace intenzity rozhodování.
+
+Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
+
+### Degenerate strategy
+
+**Strategie, která hru rozkládá: dominantní postup, po jehož objevení přestává být hra zajímavá.**
+
+V kompetitivním prostředí ničí zážitek ostatním (combo winter v Magicu), v singleplayeru hráč „prokletý znalostí" zkazí hru sám sobě. Balanc existuje hlavně proto, aby žádná cesta nebyla čtvercovou dírou na všechno.
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zábava: balanc](teorie/zabava.md)
 
 ### Data asset
 
@@ -477,6 +517,14 @@ Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Komunik
 Pilíře nejsou žánr ani art style („third person shooter" je popis kamery, ne pilíř) — popisují emoce a zkušenost koncového hráče. God of War 2018: exploration, combat, pouto otce a syna; SOMA: everything is story, trust the player. Šetří rozhodování: co pilíře nesytí, letí.
 
 Kde se s tím potkáš: [Zábava: taxonomie a pilíře](teorie/zabava.md) · [Ludotematický soulad](teorie/ludonarativni-soulad.md)
+
+### Dependency stack
+
+**Diagram závislostí systémů hry: dole core mechaniky, nahoře obohacení, které jde kdykoli škrtnout.**
+
+Rodiny potřebují postavy, místnosti potřebují stavební mechaniku — pořadí práce padá ze stromu samo a škrty se dělají shora. Sdílený spodek stacku je důvod, proč studia vyrábějí variace téže hry (Fallout/Elder Scrolls).
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zápisek: Derivační řetěz IZBY](zapisky/derivace-izby.md)
 
 ### Devlog
 
@@ -710,6 +758,14 @@ Zdarma, blueprint-only. Smysl projektu: zvednout minimální laťku kvality hern
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md)
 
+### Genre descoping
+
+**Vzít jeden příjemný prvek velkého žánru a nafouknout ho na celou hru — vzorec vzniku nových subžánrů.**
+
+Tower defense je RTS bez jednotek a útočení; backpack hry jsou Diablo svařené na inventář. Škrt musí něco přidat (fokus, přístupnost): dobrý nápad řeší dva problémy — méně práce pro vývojáře a ostřejší zážitek pro hráče.
+
+Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md) · [Scope a malé hry](teorie/scope.md)
+
 ### Gimbal lock
 
 **Ztráta stupně volnosti u Eulerových úhlů: prostřední osa na 90° zarovná zbylé dvě a rotace se „slepí".**
@@ -814,6 +870,22 @@ Lakmusový test každého vztahu: „is it a?" — pes *je* mazlíček, dům nen
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
 
+### Idea reservoir
+
+**Zásobník nápadů, které NEJSOU schválené: kanban sloupec před to-do, ze kterého se tahá podle vývoje hry.**
+
+Rozdíl proti klasickému backlogu: nic v rezervoáru není slib. Když se ukáže, co ve hře funguje, taháš nápady, které to sytí — pivot bez přepisování plánu. Protilék na „therapeutic planning": dlouhé dokumenty psané pro dobrý pocit z nejistoty.
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Tvůrčí zásek: Grail metoda](teorie/tvurci-zasek.md)
+
+### Input buffering
+
+**Vstup stisknutý těsně před tím, než je platný, se zapamatuje a provede v první možný moment.**
+
+Skok zmáčknutý dva framy před dopadem se provede při dopadu — spolu s coyote time nejcitovanější výjimka, kterou input systém obsluhuje hráčovo očekávání místo doslovného čtení vstupů. „Input manager nemá slepě překládat stisky."
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Game feel a imerze](teorie/game-feel.md)
+
 ### Instance
 
 **Konkrétní umístěný výskyt assetu v levelu.**
@@ -885,6 +957,14 @@ Kde se s tím potkáš: [Cesta skladatele: sedm pilířů](hudba/cesta-skladatel
 Rozšíření komplexních čísel o tři imaginární složky; násobení skládá rotace. V UE je to typ Quat — engine v něm rotace drží interně, zatímco Rotator (Eulerovy úhly) slouží UI. Chápat přesné vnitřnosti netřeba; vědět, kdy sáhnout po slerpu, ano.
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+
+### Jump scare
+
+**Úleková špička hororu: náhlý audiovizuální úder, který vybije nasbírané napětí.**
+
+Rozpočet žánru: hlasité 2–3 na hodinu, tiché (leknutí bez plného vybití tenze) podle potřeby. Nejlepší scary jsou mini-dramaturgie — oči ve tmě, dohrávající písnička, natažené ticho, teprve pak úder — a monstrum smí jen implikovat.
+
+Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
 ### Landmark
 
@@ -966,6 +1046,14 @@ Zatímco obálka otočí knobem jednou (při notě), LFO ho otáčí pořád dok
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
+### Liminální prostor
+
+**Veřejný prostor zbavený lidí a účelu — mall, škola, letiště v prázdnu; děsí tím, že je skoro normální.**
+
+Repetitivní vzory, dlouhé prázdné chodby, známá infrastruktura bez života: mozek hlásí „tohle znám" i „tady něco nesedí" zároveň, příbuzné uncanny valley. Hororová scéna z něj udělala celý subžánr.
+
+Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
+
 ### Line Trace
 
 **Raycast — neviditelný paprsek vyslaný z bodu daným směrem, který vrátí první (nebo všechny) kolize na dráze.**
@@ -1013,6 +1101,14 @@ Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [GA
 Pojem z psychologie: výchova, kde motivaci vždy dodával někdo zvenčí, pěstuje externí locus — a v dospělosti se čeká na dalšího „dozorce". Tvůrčí dospělost znamená převzít roli disciplinující figury sám nad sebou; vnější závazky (ukázka k datu) jsou legitimní berlička.
 
 Kde se s tím potkáš: [Produktivita](teorie/produktivita.md)
+
+### Look ahead
+
+**Předsazení kamery směrem, kam se hráč dívá nebo poletí — kamera sleduje pozornost, ne sprite.**
+
+Horizontálně podle směru pohybu (v obousměrných hrách se přepíná), vertikálně podle fáze skoku: na zemi nad hlavu (plánuješ skok), v apexu na tělo, při pádu pod nohy. Vedlejší efekty (bump při dopadu) bývají zadarmo a stojí za ponechání.
+
+Kde se s tím potkáš: [Kamera](teorie/kamera.md)
 
 ### Loose coupling
 
@@ -1165,6 +1261,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 Mip bias výběr posouvá: +1 = poloviční hrana (čtvrtina paměti), −1 = detailnější. Ladí se per textura (LOD Bias v editoru), per materiál (Mip Value Mode = MipBias) nebo hromadně přes property matrix. Prakticky: base color snese bias klidně +5 — dojem detailu nese normal mapa; a při DLSS/upscalingu je potřeba bias kompenzovat záporně.
 
 Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
+
+### Mód hry
+
+**Struktura hraní přes sezení: roguelike, metroidvania, souls-like — neříká nic o tom, co držíš v rukou.**
+
+Prostřední patro pyramidy žánr → mód → nálada: žánr je moment-to-moment činnost (platformer), mód je důvod pokračovat (permadeath, mapa, corpse run), nálada jsou vibes (cozy, horor). Spelunky je platformer v roguelike módu — při jednom hraní mód ani nepoznáš.
+
+Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
 
 ### Modifier stack
 
@@ -1477,6 +1581,14 @@ Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md)
 Logika: první krok nákupu hry stejně neobsahuje hraní (trailer, GIF, screenshot) — pitch deck tenhle moment vyrobí bez jediného řádku kódu. Proces: brainstorm → hlasování → u top nápadů popsat smyčku (slabé se rozpadnou samy) → decky → nechat lidi vybírat. Opory: lidé skvěle *vybírají* a mizerně radí, jak zlepšovat; a deck za hodinu se zahazuje bez bolesti — málo vloženého času = málo biasu.
 
 Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) · [Nápad: test 300 znaků](teorie/napad.md)
+
+### Pixel-perfect
+
+**Celočíselné škálování pixel artu, kde každý herní pixel je stejně velká mřížka pixelů monitoru.**
+
+360p se škáluje 3× na 1080p a 4× na 1440p beze zbytku; necelé faktory míchají velikosti pixelů. Dogma s trhlinou: ve slepém testu necelé faktory skoro nikdo nepozná — teoretická vada není automaticky vnímaná vada. Zoom se řeší škálováním finálního renderu, ne kamerou.
+
+Kde se s tím potkáš: [Kamera](teorie/kamera.md)
 
 ### Pivot
 
@@ -2126,6 +2238,14 @@ Viewport typicky běží na 80–90 % screen percentage a TSR dopočítává —
 
 Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md)
 
+### Tři C
+
+**Character, camera, controls — trojice, kterou žánr definuje: koho ovládáš, odkud se díváš, čím to řídíš.**
+
+Průmyslový termín; ve velkých studiích existují vyhraněné 3C designérské role. „Platformer" nebo „RTS" v hlavě okamžitě vykreslí všechny tři C — proto jsou to žánry; „roguelike" nevykreslí žádné — proto je to mód.
+
+Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
+
 ### Tutorial hell
 
 **Smyčka „sleduju tutoriály, umím je zopakovat, ale sám nepostavím nic" — nejčastější past učení enginu.**
@@ -2173,6 +2293,14 @@ Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md)
 Rozlišení užití chrání před nesmysly: pozice + vektor = nová pozice, pozice − pozice = vektor „odsud tam", pozice + pozice = nesmysl. Z pár operací padá celý pohyb (Eulerova integrace: pozice += velocity·dt) i dotazy na svět (dot product).
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+
+### Value curve
+
+**Profil hry přes dimenze appealu: na čem stojí, na čem ne — a s kým se tím pádem vlastně měří.**
+
+Rozepiš, co hru prodává (téma, mechanický hook, atmosféra…), oskóruj důležitost a polož vedle konkurence: klon trefující stejné kolonky nemá důvod existovat. Lepší 1–2 výjimečnosti (jedna neobvyklá) než všechno na sedm z deseti.
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Rady z praxe: idea iceberg](teorie/rady-z-praxe.md)
 
 ### Version control
 
@@ -2261,6 +2389,14 @@ Kde se s tím potkáš: [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 Nahrazuje starší ruční level streaming; open world level je level s aktivním World Partition. Mesh Terrain na něm závisí — terén existuje jako partition chunky viditelné ve World Partition okně, kde jde s regiony pracovat (load/unload) i během editace, což šetří paměť při práci na velkých plochách.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+
+### Yomi
+
+**Čtení soupeřovy mysli jako herní dovednost: vím, že on ví, že já vím — a přesně o tom je vrcholné hraní.**
+
+Termín z fighting her: mind game nad mechanikami. Šachy proti dítěti nebaví, protože Yomi předpokládá sdílené porozumění; skryté karty (Scythe) jsou konfrontačnější než kostky, protože hraješ proti mysli, ne proti hodu.
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md)
 
 ### Yoink & twist
 
