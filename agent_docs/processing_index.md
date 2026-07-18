@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **28/116 published (dávky 20–21)**, 86 todo + 2 todo-lp.
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **38/116 published (dávky 20–22)**, 76 todo + 2 todo-lp. T-DESIGN split proveden: nav téma „Design do hloubky" (obtiznost, systemy-a-mechaniky, ludonarativni-soulad; dávkou 23 přibudou zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -397,7 +397,7 @@ Nový top-level dokument z 17videového playlistu o tvorbě hudby a zvuku (ne hl
 
 ---
 
-## Druhá vlna hlavního playlistu (+116) · Phase 8 _(strom schválen 2026-07-18; dávky 20–21 published)_
+## Druhá vlna hlavního playlistu (+116) · Phase 8 _(strom schválen 2026-07-18; dávky 20–22 published)_
 
 Hlavní playlist narostl 210 → 327 (uživatel přidával průběžně; staženo + vyčištěno 2026-07-17 při music fetchi). Klasifikace z titulů + kanálů s nahlédnutím do ~30 přepisů (hraniční případy). **Celkem 116 videí, ~512k slov.** Po schválení se počty promítnou do stromu v hlavičce a tabulky níže se stanou ostrými řádky indexu (statusy se aktualizují na místě).
 
@@ -497,20 +497,20 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
 | todo | [Tynan Sylvester - Designing Games, A Guide to Engineering Experiences (GDL ep07)](https://www.youtube.com/watch?v=RFSxLRBht14) `RFSxLRBht14` | Indie Game Clinic | 95:02 | auto | 20346 | `teorie/engineering-experiences.md` | Tynan Sylvester — kniha Designing Games (95 min) |
-| todo | [INDIE Game DevLog - Why GOOD Combat Is So HARD To Make (June 2026)](https://www.youtube.com/watch?v=NYqyAL7FKYg) `NYqyAL7FKYg` | SILKROAD Project | 15:20 | manual | 2843 | `teorie/game-feel.md` | devlog: proč je dobrý combat těžký |
-| todo | [10 Ways to Improve Game Feel](https://www.youtube.com/watch?v=qCj9CZoAvFY) `qCj9CZoAvFY` | Design Diary | 10:37 | auto | 2078 | `teorie/game-feel.md` | rozšíření: 10 způsobů |
+| published | [INDIE Game DevLog - Why GOOD Combat Is So HARD To Make (June 2026)](https://www.youtube.com/watch?v=NYqyAL7FKYg) `NYqyAL7FKYg` | SILKROAD Project | 15:20 | manual | 2843 | `teorie/game-feel.md` | devlog: proč je dobrý combat těžký · dávka 22 |
+| published | [10 Ways to Improve Game Feel](https://www.youtube.com/watch?v=qCj9CZoAvFY) `qCj9CZoAvFY` | Design Diary | 10:37 | auto | 2078 | `teorie/game-feel.md` | rozšíření: 10 způsobů · dávka 22 |
 | todo | [How To Create A Horror Game That SCARES](https://www.youtube.com/watch?v=JVTWbRMHYeY) `JVTWbRMHYeY` | Devilish Inks | 37:17 | auto | 8040 | `teorie/horor-design.md` | jak vyvolat strach |
 | todo | [How Metroidvania Cameras are Shockingly Different than Platformer Cameras](https://www.youtube.com/watch?v=drbatB2KWlo) `drbatB2KWlo` | Inbound Shovel | 20:33 | auto | 4929 | `teorie/kamera.md` | metroidvania vs. platformer kamery |
-| todo | [LUDOTHEMATICS: Harmony and Dissonance in Game Design](https://www.youtube.com/watch?v=uG-RPNilP-8) `uG-RPNilP-8` | Indie Game Clinic | 39:24 | auto | 7769 | `teorie/ludonarativni-soulad.md` | ludothematics: harmonie a disonance |
-| todo | [Challenge & Difficulty in Game Design](https://www.youtube.com/watch?v=FLCet4Z7zew) `FLCet4Z7zew` | Indie Game Clinic | 49:58 | auto | 9741 | `teorie/obtiznost.md` | challenge & difficulty (IGC, 50 min) |
-| todo | [This Puzzle Platformer Has a Unique Approach to Difficulty [Octojump]](https://www.youtube.com/watch?v=IcSD7w-fdJ8) `IcSD7w-fdJ8` | Indie Game Clinic | 6:28 | auto | 1172 | `teorie/obtiznost.md` | případovka Octojump |
+| published | [LUDOTHEMATICS: Harmony and Dissonance in Game Design](https://www.youtube.com/watch?v=uG-RPNilP-8) `uG-RPNilP-8` | Indie Game Clinic | 39:24 | auto | 7769 | `teorie/ludonarativni-soulad.md` | ludothematics: harmonie a disonance · dávka 22 |
+| published | [Challenge & Difficulty in Game Design](https://www.youtube.com/watch?v=FLCet4Z7zew) `FLCet4Z7zew` | Indie Game Clinic | 49:58 | auto | 9741 | `teorie/obtiznost.md` | challenge & difficulty (IGC, 50 min) · dávka 22 |
+| published | [This Puzzle Platformer Has a Unique Approach to Difficulty [Octojump]](https://www.youtube.com/watch?v=IcSD7w-fdJ8) `IcSD7w-fdJ8` | Indie Game Clinic | 6:28 | auto | 1172 | `teorie/obtiznost.md` | případovka Octojump · dávka 22 |
 | todo | [Indie Soulsborne "Fade: The First Chapter" - Game Design Deep-Dive](https://www.youtube.com/watch?v=cIi-mgZUELE) `cIi-mgZUELE` | Indie Game Clinic | 28:09 | auto | 4574 | `teorie/pripadovky-designu.md` | soulsborne Fade deep-dive |
 | todo | [I Played 150 of Your Games; Common Problems (and Solutions!)](https://www.youtube.com/watch?v=8bYnlOE_pl0) `8bYnlOE_pl0` | Indie Game Clinic | 21:26 | manual | 4078 | `teorie/pripadovky-designu.md` | 150 her — časté problémy |
-| todo | [Game Mechanics & Systems Thinking](https://www.youtube.com/watch?v=nkLmjJK3vOw) `nkLmjJK3vOw` | Indie Game Clinic | 40:49 | auto | 7443 | `teorie/systemy-a-mechaniky.md` | cross-link smycky-a-retezce |
-| todo | [What is Fun? A Game Design Introduction](https://www.youtube.com/watch?v=56ENqlUST9U) `56ENqlUST9U` | Indie Game Clinic | 31:10 | manual | 4766 | `teorie/zabava.md` | rozšíření: What is Fun (IGC) |
-| todo | [Game Design Theory: A Guided Tour](https://www.youtube.com/watch?v=TATKLd1Q6ho) `TATKLd1Q6ho` | Indie Game Clinic | 31:14 | auto | 5423 | `teorie/zaklady.md` | přehled teorií designu (IGC) |
-| todo | [How To Think Like A Game Designer](https://www.youtube.com/watch?v=iIOIT3dCy5w) `iIOIT3dCy5w` | Game Maker's Toolkit | 13:06 | manual | 2245 | `teorie/zaklady.md` | rozšíření (GMTK) |
-| todo | [The 10 Basic Principles of Game Design Every Indie Dev Should Know](https://www.youtube.com/watch?v=5Fk7p-f2ymY) `5Fk7p-f2ymY` | NOBL Games | 12:18 | auto | 1822 | `teorie/zaklady.md` | 10 principů |
+| published | [Game Mechanics & Systems Thinking](https://www.youtube.com/watch?v=nkLmjJK3vOw) `nkLmjJK3vOw` | Indie Game Clinic | 40:49 | auto | 7443 | `teorie/systemy-a-mechaniky.md` | cross-link smycky-a-retezce · dávka 22 |
+| published | [What is Fun? A Game Design Introduction](https://www.youtube.com/watch?v=56ENqlUST9U) `56ENqlUST9U` | Indie Game Clinic | 31:10 | manual | 4766 | `teorie/zabava.md` | rozšíření: What is Fun (IGC) · dávka 22 |
+| published | [Game Design Theory: A Guided Tour](https://www.youtube.com/watch?v=TATKLd1Q6ho) `TATKLd1Q6ho` | Indie Game Clinic | 31:14 | auto | 5423 | `teorie/zaklady.md` | přehled teorií designu (IGC) · dávka 22 |
+| published | [How To Think Like A Game Designer](https://www.youtube.com/watch?v=iIOIT3dCy5w) `iIOIT3dCy5w` | Game Maker's Toolkit | 13:06 | manual | 2245 | `teorie/zaklady.md` | rozšíření (GMTK) · dávka 22 |
+| published | [The 10 Basic Principles of Game Design Every Indie Dev Should Know](https://www.youtube.com/watch?v=5Fk7p-f2ymY) `5Fk7p-f2ymY` | NOBL Games | 12:18 | auto | 1822 | `teorie/zaklady.md` | 10 principů · dávka 22 |
 | todo | [Game Genres - a Design Perspective](https://www.youtube.com/watch?v=3KJbYdNP5js) `3KJbYdNP5js` | Indie Game Clinic | 38:00 | auto | 7937 | `teorie/zanry.md` | žánry očima designu |
 | todo | [Indie Game Genres & Subtractive Design](https://www.youtube.com/watch?v=RkcmljWlvrs) `RkcmljWlvrs` | Indie Game Clinic | 21:41 | manual | 3713 | `teorie/zanry.md` | subtraktivní design |
 | todo | [Become a Game Dev NECROMANCER!!!](https://www.youtube.com/watch?v=nN5VEvl9fik) `nN5VEvl9fik` | Indie Game Clinic | 16:03 | auto | 3179 | `teorie/zanry.md` | mrtvé žánry (nekromancie) |

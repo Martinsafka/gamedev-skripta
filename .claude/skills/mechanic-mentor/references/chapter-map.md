@@ -38,11 +38,16 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Prototypování a vertical slice](https://martinsafka.github.io/gamedev-skripta/teorie/prototypovani/) — Mezi „mám nápad" a „dělám hru" leží dvě brány, které indie vývojáři rádi přeskakují — a průmysl ne: gameplay prototyp a vertical slice. Indie Game Clinic je vysvětluje na nejtěžším případu…
 
 ### Základy designu
-- [Engagement a appeal](https://martinsafka.github.io/gamedev-skripta/teorie/zaklady/) — Kdyby z celého tématu Základy designu měla zbýt jedna dvojice pojmů, je to tahle. Appeal rozhoduje, jestli si hru někdo vůbec všimne a pustí; engagement rozhoduje, jestli u ní zůstane. Jsou…
+- [Engagement a appeal](https://martinsafka.github.io/gamedev-skripta/teorie/zaklady/) — Kdyby z celého tématu Základy designu měla zbýt jedna dvojice pojmů, je to appeal (jestli si hru někdo pustí) a engagement (jestli u ní zůstane) — různé dovednosti, různá selhání, různé…
 - [Zábava a flow](https://martinsafka.github.io/gamedev-skripta/teorie/zabava/) — Jonas Tyroller (Islanders, Will You Snail?) v 74minutové eseji skládá vlastní teorii zábavy nad klasikou žánru — knihou Flow Mihálye Csíkszentmihályiho — a dochází k jedné větě, která…
 - [Smyčky a řetězce](https://martinsafka.github.io/gamedev-skripta/teorie/smycky-a-retezce/) — Dva základní tvary, kterými design popisuje strukturu hry. Smyčka (loop) je nejcitovanější pojem herního designu — a právě proto stojí za to vědět, kde končí její vysvětlovací síla a co…
-- [Game feel a imerze](https://martinsafka.github.io/gamedev-skripta/teorie/game-feel/) — Dva praktické devlogy o tomtéž cíli z opačných stran: aby hra působila — aby souboj byl živý a svět skutečný. První řeší pohyb nepřátel (nuda vs. tanec), druhý reakci prostředí na hráče…
+- [Game feel a imerze](https://martinsafka.github.io/gamedev-skripta/teorie/game-feel/) — Kapitola o tom, aby hra působila — aby souboj byl živý a svět skutečný. Dva devlogy řeší pohyb nepřátel (nuda vs. tanec) a reakci prostředí na hráče (kulisa vs. svět); katalog juice detailů…
 - [Příběh a postavy](https://martinsafka.github.io/gamedev-skripta/teorie/pribeh-a-postavy/) — Workshop Indie Game Clinic o postavách a dialozích — vedený člověkem, který narrative design učil na univerzitě a psal pro herní studia. Krédo celé kapitoly: příběh ve hře není „něco, co se…
+
+### Design do hloubky
+- [Obtížnost a výzva](https://martinsafka.github.io/gamedev-skripta/teorie/obtiznost/) — Padesátiminutová esej Indie Game Clinic rozsekává dvojici pojmů, které se běžně slévají: challenge (kvalitativní — jaké dovednosti hra testuje) a difficulty (kvantitativní — jak moc). Z…
+- [Systémy a mechaniky](https://martinsafka.github.io/gamedev-skripta/teorie/systemy-a-mechaniky/) — Joe Baxter-Webb (Indie Game Clinic) rozplétá tři pojmy, které se běžně melou dohromady — pravidla, mechaniky, systémy — a staví nad nimi systémové myšlení: hra je stroj se zamýšleným…
+- [Ludotematický soulad](https://martinsafka.github.io/gamedev-skripta/teorie/ludonarativni-soulad/) — „Ludonarativní disonance" zní jako nadávka z herní kritiky — a přesně tam se narodila. Indie Game Clinic pojem rozebírá, obrací a přetavuje do designérsky užitečnější podoby: ludotematika —…
 
 ### Level design
 - [Vedení hráče](https://martinsafka.github.io/gamedev-skripta/teorie/vedeni-hrace/) — Dvě techniky, kterými level designér řídí hráčův zážitek, aniž by mu cokoli řekl napřímo: scripted events rozhodují, kdy se věci stanou, a recall priming rozhoduje, co si hráč v pravou…
@@ -191,10 +196,12 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Anim montage](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-montage)
 - [Anim Notify](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-notify)
 - [Arrangement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#arrangement)
+- [Aspirační obtížnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#aspiracni-obtiznost)
 - [Asset pack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#asset-pack)
 - [Attenuation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation)
 - [B-roll](https://martinsafka.github.io/gamedev-skripta/rejstrik/#b-roll)
 - [Backpressure](https://martinsafka.github.io/gamedev-skripta/rejstrik/#backpressure)
+- [Barrier to play](https://martinsafka.github.io/gamedev-skripta/rejstrik/#barrier-to-play)
 - [Behavior Tree](https://martinsafka.github.io/gamedev-skripta/rejstrik/#behavior-tree)
 - [Blackboard](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blackboard)
 - [Blend Space](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blend-space)
@@ -220,6 +227,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Chord generator](https://martinsafka.github.io/gamedev-skripta/rejstrik/#chord-generator)
 - [Chord progression](https://martinsafka.github.io/gamedev-skripta/rejstrik/#chord-progression)
 - [Cipher](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cipher)
+- [Cognitive load](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cognitive-load)
 - [Cold open](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cold-open)
 - [Collision preset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#collision-preset)
 - [Contact curve](https://martinsafka.github.io/gamedev-skripta/rejstrik/#contact-curve)
@@ -235,6 +243,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Decal](https://martinsafka.github.io/gamedev-skripta/rejstrik/#decal)
 - [Design by constraint](https://martinsafka.github.io/gamedev-skripta/rejstrik/#design-by-constraint)
 - [Design pattern](https://martinsafka.github.io/gamedev-skripta/rejstrik/#design-pattern)
+- [Design pillars](https://martinsafka.github.io/gamedev-skripta/rejstrik/#design-pillars)
 - [Devlog](https://martinsafka.github.io/gamedev-skripta/rejstrik/#devlog)
 - [Difficulty curve](https://martinsafka.github.io/gamedev-skripta/rejstrik/#difficulty-curve)
 - [Disonance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#disonance)
@@ -251,6 +260,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [EV100](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ev100)
 - [Event dispatcher](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-dispatcher)
 - [Event Tick](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-tick)
+- [Expresivní mechanika](https://martinsafka.github.io/gamedev-skripta/rejstrik/#expresivni-mechanika)
 - [Flow](https://martinsafka.github.io/gamedev-skripta/rejstrik/#flow)
 - [Foley](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foley)
 - [Foot placement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foot-placement)
@@ -281,6 +291,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Interval](https://martinsafka.github.io/gamedev-skripta/rejstrik/#interval)
 - [Invariant](https://martinsafka.github.io/gamedev-skripta/rejstrik/#invariant)
 - [Invisible wall](https://martinsafka.github.io/gamedev-skripta/rejstrik/#invisible-wall)
+- [Juice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#juice)
 - [Konsonance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#konsonance)
 - [Kontrapunkt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#kontrapunkt)
 - [Kvaternion](https://martinsafka.github.io/gamedev-skripta/rejstrik/#kvaternion)
@@ -303,6 +314,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Loose coupling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#loose-coupling)
 - [Low-fi prototyp](https://martinsafka.github.io/gamedev-skripta/rejstrik/#low-fi-prototyp)
 - [Low-pass filtr](https://martinsafka.github.io/gamedev-skripta/rejstrik/#low-pass-filtr)
+- [Ludonarativní disonance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ludonarativni-disonance)
+- [Ludus a paidia](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ludus-a-paidia)
 - [Map (dictionary)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#map-dictionary)
 - [Marching cubes](https://martinsafka.github.io/gamedev-skripta/rejstrik/#marching-cubes)
 - [Market research](https://martinsafka.github.io/gamedev-skripta/rejstrik/#market-research)
@@ -311,6 +324,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Material function](https://martinsafka.github.io/gamedev-skripta/rejstrik/#material-function)
 - [Matice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#matice)
 - [MCP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mcp)
+- [MDA framework](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mda-framework)
+- [Mechanika](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mechanika)
 - [Mesh distance field](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mesh-distance-field)
 - [MetaHuman](https://martinsafka.github.io/gamedev-skripta/rejstrik/#metahuman)
 - [MetaSounds](https://martinsafka.github.io/gamedev-skripta/rejstrik/#metasounds)
@@ -367,6 +382,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Premature optimization](https://martinsafka.github.io/gamedev-skripta/rejstrik/#premature-optimization)
 - [Press kit](https://martinsafka.github.io/gamedev-skripta/rejstrik/#press-kit)
 - [Procedural Vegetation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#procedural-vegetation)
+- [Průběžná obtížnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#prubezna-obtiznost)
 - [Půltón](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pulton)
 - [Quad](https://martinsafka.github.io/gamedev-skripta/rejstrik/#quad)
 - [Race condition](https://martinsafka.github.io/gamedev-skripta/rejstrik/#race-condition)
@@ -399,6 +415,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Simulated annealing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#simulated-annealing)
 - [Single Layer Water](https://martinsafka.github.io/gamedev-skripta/rejstrik/#single-layer-water)
 - [Singleton](https://martinsafka.github.io/gamedev-skripta/rejstrik/#singleton)
+- [Skill ceiling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#skill-ceiling)
+- [Skill floor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#skill-floor)
 - [Smart Object](https://martinsafka.github.io/gamedev-skripta/rejstrik/#smart-object)
 - [Soft boundary](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-boundary)
 - [Soft skills](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-skills)
@@ -408,6 +426,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Spline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#spline)
 - [Spline mesh](https://martinsafka.github.io/gamedev-skripta/rejstrik/#spline-mesh)
 - [Square hole](https://martinsafka.github.io/gamedev-skripta/rejstrik/#square-hole)
+- [Squash & stretch](https://martinsafka.github.io/gamedev-skripta/rejstrik/#squash-stretch)
 - [State alias](https://martinsafka.github.io/gamedev-skripta/rejstrik/#state-alias)
 - [State machine](https://martinsafka.github.io/gamedev-skripta/rejstrik/#state-machine)
 - [State Tree](https://martinsafka.github.io/gamedev-skripta/rejstrik/#state-tree)
@@ -433,6 +452,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [TSR](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tsr)
 - [Tutorial hell](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tutorial-hell)
 - [Two-loop rule](https://martinsafka.github.io/gamedev-skripta/rejstrik/#two-loop-rule)
+- [Type 2 fun](https://martinsafka.github.io/gamedev-skripta/rejstrik/#type-2-fun)
 - [Unison](https://martinsafka.github.io/gamedev-skripta/rejstrik/#unison)
 - [Value chain](https://martinsafka.github.io/gamedev-skripta/rejstrik/#value-chain)
 - [Vektor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#vektor)

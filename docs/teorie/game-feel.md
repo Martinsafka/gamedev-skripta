@@ -1,6 +1,6 @@
-# Game feel a imerze: dva devlogy o pocitu ze hry
+# Game feel a imerze: pocit ze hry
 
-Dva praktické devlogy o tomtéž cíli z opačných stran: aby hra *působila* — aby souboj byl živý a svět skutečný. První řeší pohyb nepřátel (nuda vs. tanec), druhý reakci prostředí na hráče (kulisa vs. svět). Společný jmenovatel: pocit nevzniká z čísel v tabulkách, ale z pohybu a odezvy — a skoro vždycky je to chytrý fake, ne simulace.
+Kapitola o tom, aby hra *působila* — aby souboj byl živý a svět skutečný. Dva devlogy řeší pohyb nepřátel (nuda vs. tanec) a reakci prostředí na hráče (kulisa vs. svět); katalog juice detailů ukazuje, jak tytéž mechaniky prodat desetkrát líp; a combat devlog SILKROAD přidává nejtěžší vrstvu — rytmus. Společný jmenovatel: pocit nevzniká z čísel v tabulkách, ale z pohybu, odezvy a načasování — a skoro vždycky je to chytrý fake, ne simulace.
 
 ---
 
@@ -40,4 +40,46 @@ Obecná lekce pod tím: imerze není počet polygonů, ale **smyčka akce → ot
 
 > **Pozn.:** Stejný vzorec „poslední 10 % dělá celý dojem" jako u [over-polishingu](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) — ale tady jde o jádro fantazie hry („jsi balvan"), takže to *je* to správné místo pro hyper-polish. Kritérium zůstává: leštit, co sytí hlavní fantazii, ne co je zrovna po ruce.
 
-**Souvislosti:** [Nápad: core DNA a emoce](napad.md#core-dna-a-ctyri-emoce) · [Žrouti času: over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · budoucí praxe témata „Materiály a VFX", „PCG a procedurální svět" · [Rejstřík: game feel](../rejstrik.md#game-feel) · [Hudba a zvuk: sound design ve hře](../hudba/sound-design-ve-hre.md) *(zvuk jako vrstva imerze)*
+**Souvislosti:** [Nápad: core DNA a emoce](napad.md#core-dna-a-ctyri-emoce) · [Žrouti času: over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · [Materiály](../praxe/materialy.md) · [PCG: základy a nástroje](../praxe/pcg-zaklady.md) · [Rejstřík: game feel](../rejstrik.md#game-feel) · [Hudba a zvuk: sound design ve hře](../hudba/sound-design-ve-hre.md) *(zvuk jako vrstva imerze)*
+
+---
+
+## Katalog juice: deset detailů, které prodávají tutéž mechaniku
+
+**Zdroj:** [10 Ways to Improve Game Feel](https://www.youtube.com/watch?v=qCj9CZoAvFY) · [Design Diary](https://www.youtube.com/channel/UCrIZMp3lvblamWCg21LcPvg) · ~11 min, praktický katalog
+
+**Shrnutí:** Video staví na demu od Sébastiena Bénarda (Deepnight Games, designér Dead Cells), kde jde jednotlivé „juice" detaily vypínat a zapínat — **stejné mechaniky, stejná zbraň, stejný počet kulek**, a bez detailů je to „dull and lifeless" [(0:02)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=2s). Deset tipů tady skládáme do čtyř mechanismů: váha akcí, stopy ve světě, čitelnost zásahů a střídmost.
+
+### Rozpad myšlenky
+
+**Váha akcí:** postava se při výstřelu otřese a pomalu sune vzad — kulky najednou mají zpětný ráz [(0:48)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=48s); rozptyl střel dodá zbrani realističnost [(1:35)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=95s); **squash & stretch** dělá ze skoku pružinu a z nepřátel „želé", které na zásah reaguje [(6:54)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=414s); dash se stejnou rychlostí i vzdáleností *působí* rychlejší, když k němu přidáš deformaci a particles [(7:41)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=461s) — pocit se vyrábí kolem čísel, ne v nich. A **screen shake** při dopadu z výšky prodá tíhu zbroje [(8:28)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=508s).
+
+**Stopy ve světě:** particles (trail střely, muzzle flash) nechávají po akci chvilkové stopy — hráč *vidí, že má na svět vliv* [(2:22)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=142s); dopad na povrch (záblesk + odletující kusy zdi) autor vypichuje jako nejpodceňovanější detail vůbec [(4:34)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=274s) — kulka nesmí prostě zmizet; světelné efekty (halo kolem výstřelu, flash) ukotvují akce do světa [(3:08)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=188s).
+
+**Čitelnost zásahů** [(5:20)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=320s): nepřítel bez reakce = hráč v rychlé hře ani neví, že trefil. Flash při zásahu, knockback škálovaný zbraní (dýka málo, kopí hodně — juice zároveň *diferencuje mechaniky*), krev, která ulpívá — a hlavně **mrtvoly**: odlétnou, dopadnou, zůstanou (nebo explodují v částice); „něco se stát musí, nepřítel nesmí jen zmizet" [(6:06)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=366s).
+
+**Střídmost:** světla i screen shake umí dezorientovat; u shake navíc hrozí motion sickness — patří do nastavení jako vypínatelná volba [(8:28)](https://www.youtube.com/watch?v=qCj9CZoAvFY&t=508s).
+
+> **Pozn.:** Juice je feedback vrstva z [desatera](zaklady.md#desatero-principu-jako-checklist-kostra-puls-duse) dovedená k řemeslu — a teoreticky je to čistý [signal-to-noise](zabava.md#flow-kanal-je-pasmo-nejlepsiho-signalu): každý detail říká hráči, co právě udělal a že to svět zaznamenal. Půlka juice je mimochodem zvuk — viz [sound design ve hře](../hudba/sound-design-ve-hre.md). A pozor na pořadí: juice se leští na jádru, které už baví — jinak je to [over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem).
+
+**Souvislosti:** [Základy: hračky](zaklady.md#engagement-hracky-spojene-zajimavymi-rozhodnutimi) · [Kroky a povrchy](../praxe/footsteps.md) · [Rejstřík: Juice](../rejstrik.md#juice) · [Rejstřík: Squash & stretch](../rejstrik.md#squash-stretch)
+
+---
+
+## Combat je rytmus: každý útok má účel a placeholder je nástroj
+
+**Zdroj:** [INDIE Game DevLog - Why GOOD Combat Is So HARD To Make](https://www.youtube.com/watch?v=NYqyAL7FKYg) · [SILKROAD Project](https://www.youtube.com/channel/UC2t1iUBVNHcK9v1h7E4Q8Ag) · ~15 min, devlog sólo vývojáře (Guedin)
+
+**Shrnutí:** Po roce stavění základů combat systému (companion, větvení komb, reakce nepřátel, juggle) přišel měsíc, kdy se z prototypu měla stát zábava — a nejvíc času nesežraly animace, ale **rytmus**: aby útoky plynuly, každé kombo mělo účel a hráč dělal rozhodnutí místo mačkání [(0:01)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=1s). Devlog je vzácně upřímný záznam toho, jak se „objektivně lepší" změna umí pocitově nevyplatit.
+
+### Rozpad myšlenky
+
+**Každý útok má účel** [(2:27)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=147s): damage? launcher? pobídka vpletát companiona? odhoz při obklíčení? gap closer? bezpečný disengage? „Cool animace nedělá combat zajímavým — každý útok má vybízet k jinému rozhodnutí." Stejná logika platí pro celé combo větve [(7:10)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=430s): dlouhá s velkým damage, ale zranitelná; jiná zavírá vzdálenost; jiná končí úkrokem vzad. Čím víc *různých problémů* jednotlivé routy řeší, tím méně repetitivní boj je — je to [princip „ale"](zaklady.md#engagement-hracky-spojene-zajimavymi-rozhodnutimi) přeložený do útoků.
+
+**Rytmus jako design space** [(3:14)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=194s): u juggle komba autor **záměrně nechává mezeru** mezi dvěma útoky hrdiny — kdo rytmus rozpozná, vloží do ní útok companiona a udrží nepřítele ve vzduchu. Mashující hráč projde; hráč, který se naučí tempo vlastních komb, je odměněn delšími sekvencemi. Nadstavba: charge útoky (commit ve správný moment místo rychlosti prstů [(7:59)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=479s)) a **anime finišery bez vlastního tlačítka** [(8:45)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=525s) — spustíš je jen tím, že jsi kombo řídil správně: nabitý útok na jugglovaného nepřítele. Mistrovství odměněné podívanou, ne QTE.
+
+**Placeholder jako nástroj, dvakrát:** animace prvního roku „nikdy neměly zůstat" — byly to stavební bloky pro prototypování mechanik a svou práci odvedly [(0:50)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=50s). A nové animace dělá autor **záměrně horší** [(4:46)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=286s): minimum keyframes, základní pózy — protože ladění timingu znamená hýbat keyframy pořád dokola a vyleštěná animace by každou iteraci zdražila. „Nejtěžší je se udržet." Vyplatilo se hned: zpomalení útoků kvůli decision-space *mechanicky* fungovalo — a **zabilo intenzitu** [(5:35)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=335s); „změna může být objektivně lepší a celkový pocit horší." Protože je vše placeholder, drastický návrat nebolí. Bonusová lekce z leštění finišerů [(10:21)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=621s): u anime stylu rozhodují **silné pózy a timing víc než hladkost** — a cinematiky-kdekoli si vynutily kompromis „postavy se po finišeru vrátí přesně tam, kde začaly, kolize dočasně vypnuté, kamera triky skryje" [(13:37)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=817s): „dokonalost není cíl — nejlepší řešení vytváří nejméně problémů."
+
+> **Pozn.:** Meta-věta devlogu stojí za vypíchnutí [(14:26)](https://www.youtube.com/watch?v=NYqyAL7FKYg&t=866s): „na začátku jsem stavěl systémy, aby fungovaly; teď se ptám, jestli jsou zábavné — a je to zajímavější fáze. Balanc feature trvá déle než její implementace." To je přesně přechod z [pre-produkce do produkce](obtiznost.md#challenge-je-co-difficulty-je-kolik) viděný zevnitř.
+
+**Souvislosti:** [Obtížnost a výzva](obtiznost.md) · [MM systémy: combat přes choosery](../praxe/mm-systemy.md) · [Zábava: balanc rozhodnutí](zabava.md#balanc-bez-ctvercove-diry-co-dela-rozhodnuti-zabavnym) · [Rejstřík: Juice](../rejstrik.md#juice)

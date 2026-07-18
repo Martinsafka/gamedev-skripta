@@ -43,11 +43,17 @@ Témata a kapitoly:
 
 **Základy designu**
 
-- **[Engagement a appeal](zaklady.md)** — dvě povinnosti hry: hračky spojené zajímavými rozhodnutími a centrální fantazie, která hru prodá.
-- **[Zábava a flow](zabava.md)** — zábava jako odměna za učení: flow kanál, obtížnostní křivky, rubber banding a balanc bez čtvercové díry.
+- **[Engagement a appeal](zaklady.md)** — dvě povinnosti hry, MDA framework, desatero principů jako checklist a mapa teorie designu.
+- **[Zábava a flow](zabava.md)** — zábava jako odměna za učení: flow kanál, obtížnostní křivky, rubber banding — a taxonomie zábavy s design pillars.
 - **[Smyčky a řetězce](smycky-a-retezce.md)** — dva základní tvary herního designu: co smyčka vysvětluje, co už ne, a proč řetězce nesou emoce.
-- **[Game feel a imerze](game-feel.md)** — souboj dělá zábavným pohyb nepřátel a svět je skutečný, teprve když na hráče odpovídá.
+- **[Game feel a imerze](game-feel.md)** — pohyb nepřátel, svět, který odpovídá, katalog juice detailů a combat jako rytmus.
 - **[Příběh a postavy](pribeh-a-postavy.md)** — příběh jako feature s cenovkou: čtyři typy protagonisty, rejstříky dialogů a hádka o tvůj svět.
+
+**Design do hloubky**
+
+- **[Obtížnost a výzva](obtiznost.md)** — challenge je co, difficulty je kolik: bariéry hraní, tři cesty ke zvednutí obtížnosti, aspirační vs. průběžná — a Octojump jako obtížnost per level.
+- **[Systémy a mechaniky](systemy-a-mechaniky.md)** — pravidla → mechaniky → systémy, hra jako stroj s účelem, expresivní a kognitivní mechaniky.
+- **[Ludotematický soulad](ludonarativni-soulad.md)** — ludonarativní disonance a kdy vadí, téma jako učitel hry a nůžky na scope, fireball wizard problem.
 
 **Level design**
 

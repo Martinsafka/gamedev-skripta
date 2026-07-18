@@ -9,10 +9,12 @@
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
+*[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
 *[Backpressure]: Producent rychlejší než konzument? Nebufferuj, nezahazuj — propaguj tlak zpět, ať zdroj zpomalí.
+*[Barrier to play]: Překážka, kterou designér testovat nechtěl (ovládání, barvy) — dokud existuje, obtížnost neladíš.
 *[Behavior Tree]: Rozhodovací strom AI: selectory a sequence volí tasky podle Blackboardu; decoratory hlídají podmínky.
 *[Blackboard]: Sdílená tabule AI: pojmenované klíče, přes které si percepce, tasky a strom předávají data.
 *[Blend Space]: Asset míchající animace podle hodnot na osách (rychlost, směr); klipy synchronizují sync markery.
@@ -38,6 +40,7 @@
 *[Chord generator]: Web generující smysluplnou akordovou progresi (chordchord.com); rychlý start bez teorie.
 *[Chord progression]: Sled akordů tvořící harmonickou kostru; emoci nese pohyb mezi nimi, ne jednotlivé akordy.
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
+*[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
 *[Contact curve]: Animační křivka 0/1 „chodidlo na zemi" — řídí foot pinning; nahradila foot velocity curves.
@@ -53,6 +56,7 @@
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Design pattern]: Pojmenované řešení opakujícího se problému v kódu; katalog Gang of Four (1994), tři rodiny.
+*[Design pillars]: 2–3 pojmy o tom, co má hráč cítit; váha pro každé rozhodnutí. Žánr ani art style pilíř není.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
 *[Disonance]: Dojem napětí či drsnosti při znění tónů; opak konsonance, spojitá páka napětí.
@@ -69,6 +73,7 @@
 *[EV100]: Jednotka expozice; min=max v PPV zamkne auto-exposure. 1 = modrá hodina, interiér 5–7, den ~13.
 *[Event dispatcher]: Rádio mezi Blueprinty: vlastník zavolá, všichni bindnutí posluchači dostanou event.
 *[Event Tick]: Blueprint event volaný každý snímek; polling, kterému se dobrý návrh vyhýbá.
+*[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
@@ -100,6 +105,7 @@
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
 *[Invisible wall]: Neviditelná kolize tam, kde vizuálně nic nebrání — nejhorší způsob ohraničení mapy.
+*[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
 *[Kontrapunkt]: Skládání nezávislých melodií, které fungují zároveň; odděluje profíky od amatérů.
 *[Kvaternion]: Rotace čtyřmi čísly: bez gimbal locku, hladký slerp — výměnou za nulovou intuici.
@@ -122,6 +128,8 @@
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
 *[Low-pass filtr]: Filtr propouštějící nízké frekvence a ubírající vysoké; z bohaté vlny udělá bas/pad.
+*[Ludonarativní disonance]: Nesoulad příběhu a gameplaye (hodný hrdina, stovky mrtvých). Neutrální nástroj — i humor.
+*[Ludus a paidia]: Caillois: hra podle pravidel vs. volné blbnutí. Holá hra = moc ludus, málo paidia.
 *[Map (dictionary)]: Struktura klíč → hodnota: čitelný klíč místo indexu; překlep klíče = tichý bug.
 *[Marching cubes]: Z 3D skalárního pole mesh: krychle z 8 sousedů, 256 případů, předpočítané polygony.
 *[Market research]: Průzkum trhu: žánrové výdělky (medián!), tagy, recenze konkurence — objektivita proti zamilovanosti.
@@ -130,6 +138,8 @@
 *[Material function]: Znovupoužitelný blok materiálové logiky; s material attributes I/O funguje jako vrstva.
 *[Matice]: Lineární transformace: sloupce říkají, kam se přesunou osy; násobení = skládání transformací.
 *[MCP]: Model Context Protocol — AI agent s kontextem a kontrolou editoru; od 5.8 nativně v UE (3 pluginy).
+*[MDA framework]: Mechanics→Dynamics→Aesthetics: kód → chování hráče → pocity; designér sahá jen na první článek.
+*[Mechanika]: Jednotka gameplaye z pravidel: sloveso hráče (skoč, seber) působící na herní svět.
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
@@ -186,6 +196,7 @@
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
 *[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
+*[Průběžná obtížnost]: Jak moc tě hra tlačí k prohře; vyrábí stres a úlevu. Upgrade zdraví ji snižuje.
 *[Půltón]: Nejmenší vzdálenost dvou sousedních tónů (E–F); stavební jednotka stupnic.
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
@@ -218,6 +229,8 @@
 *[Simulated annealing]: Optimalizace žíháním: nejdřív ochota k horším krokům, pak chladnutí k vylepšování.
 *[Single Layer Water]: Shading model vody (translucence, kaustika); stíny jen z directional lightu — jinak Default Lit.
 *[Singleton]: Garantovaná jediná instance s globálním přístupem — a glorifikovaná globální proměnná.
+*[Skill ceiling]: Strop dosažitelné dovednosti — prostor pro mastery.
+*[Skill floor]: Minimum dovednosti, abys vůbec hrál; komplexita ovládání je floor sama o sobě.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
 *[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
@@ -227,6 +240,7 @@
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.
 *[Spline mesh]: Mesh natažený podél segmentu splinu — liány, lana, oblouky drah; pozor na forward axis.
 *[Square hole]: Chyba balancu: univerzální nástroj, který řeší každou situaci, a tím zabíjí rozhodování.
+*[Squash & stretch]: Animační princip: zploštit při dopadu, natáhnout při výskoku — levný juice.
 *[State alias]: Zástupný uzel state machine reprezentující víc stavů — jedno přechodové pravidlo místo N.
 *[State machine]: Stavový automat AnimBP: stavy = animace, přechody = pravidla; MM ho nahrazuje, hybridy kombinují.
 *[State Tree]: Hierarchický stavový automat UE (sestra behavior tree); stavy s tasky, přechody, injektované stromy.
@@ -252,6 +266,7 @@
 *[TSR]: Temporal Super Resolution — upscaler UE5; rozmazaná voda a ghosting jemných detailů = typicky jeho vina.
 *[Tutorial hell]: Smyčka „umím zopakovat tutoriál, sám nepostavím nic"; útěk: po každém videu malý vlastní projekt.
 *[Two-loop rule]: Každé dva loopy nejvýš dvě změny (přidat/ubrat nástroj či výraz); lešení pro aranžmá.
+*[Type 2 fun]: Bolí teď, těší ve vzpomínce (hora, soulsovka). Pro jiného hráče Type 3 — volba publika.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Vektor]: Bod v prostoru (pozice), nebo směr s velikostí (velocity) — dvě čtení, nemíchat.
