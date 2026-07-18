@@ -135,7 +135,7 @@ A nakonec **momentum bar** [(58:14)](https://www.youtube.com/watch?v=d_e9Apys9Dg
 
 > **Pozn.:** Anchor je totéž, co v [scope kapitole](scope.md#omezeni-potrebuje-herni-alibi) dělá „herní alibi" pro omezení — povědomost jako most k novince. A Jonasovo pravidlo 1–2 dnů ladí s BiteMe [prototypem do týdne](#prototyp-do-tydne-a-momentum-bar): oba měří totéž — kolik hry se dá ověřit, než jí uvěříš.
 
-**Souvislosti:** [Co prodává: appeal](co-prodava.md#ctyri-pilire-a-sedm-cest-k-appealu) · [Yoink & twist](#yoink-twist-lepsi-nebo-dost-jina) · [Test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) · [Rejstřík: hook](../rejstrik.md#hook) · [Rejstřík: anchor](../rejstrik.md#anchor-marketing)
+**Souvislosti:** [Co prodává: marketing je celý produkt](co-prodava.md#marketing-neni-reklama-je-to-cely-produkt) *(hook a anchor z pohledu marketéra)* · [Co prodává: appeal](co-prodava.md#ctyri-pilire-a-sedm-cest-k-appealu) · [Yoink & twist](#yoink-twist-lepsi-nebo-dost-jina) · [Test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) · [Rejstřík: hook](../rejstrik.md#hook) · [Rejstřík: anchor](../rejstrik.md#anchor-marketing)
 
 ---
 

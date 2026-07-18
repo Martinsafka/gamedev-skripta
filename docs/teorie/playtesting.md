@@ -102,4 +102,4 @@ Moderátorův závěr [(35:51)](https://www.youtube.com/watch?v=zXNRJuc48Ek&t=21
 
 > **Pozn.:** Steam beta jako marketingový beat patří do rodiny beatů ze [Steam stránky](steam-stranka.md) — playtest a marketing tu splývají v jednu událost. A prokletí znalosti je stejný jev, kvůli kterému [první dojem](prvni-dojem.md) testuješ na lidech, ne na sobě.
 
-**Souvislosti:** [Steam stránka](steam-stranka.md) · [První dojem](prvni-dojem.md) · [Sólo vývoj: ukazuj průběžně](solo-vyvoj.md#ukazuj-prubezne-showcase-demo-vertical-slice-launch-bez-skoku-do-tmy) · [Rejstřík: prokletí znalosti](../rejstrik.md#prokleti-znalosti) · [Rejstřík: beta](../rejstrik.md#beta)
+**Souvislosti:** [Vydání hry: demo prodává, prototyp validuje](vydani-hry.md#demo-prodava-prototyp-validuje) *(kde playtest končí a marketing začíná)* · [Steam stránka](steam-stranka.md) · [První dojem](prvni-dojem.md) · [Sólo vývoj: ukazuj průběžně](solo-vyvoj.md#ukazuj-prubezne-showcase-demo-vertical-slice-launch-bez-skoku-do-tmy) · [Rejstřík: prokletí znalosti](../rejstrik.md#prokleti-znalosti) · [Rejstřík: beta](../rejstrik.md#beta)

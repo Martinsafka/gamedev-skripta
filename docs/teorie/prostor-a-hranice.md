@@ -20,7 +20,7 @@ Navigace bez UI stojí na třech nástrojích: **funneling** [(2:55)](https://ww
 
 > **Pozn.:** „Landmark napřed" je prostorová verze [účelu jako soudce](postmortem-shantytown.md#hra-ti-rika-cim-chce-byt-ucel-jako-designovy-soudce): jedno pevné rozhodnutí, podle kterého se rozhodují všechna další. A blockout z primitiv je [graybox](../rejstrik.md#graybox) v přesně tom smyslu, kdy je šedost správně — testuješ prostor a metriky, ne prodejnost.
 
-**Souvislosti:** [Vedení hráče](vedeni-hrace.md) · [Prototypování](prototypovani.md) · [Herní art: prostředí je 90 % obrazovky](art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) *(co s greyboxem dělá environment artist)* · [Rejstřík: blockout](../rejstrik.md#blockout) · [Rejstřík: landmark](../rejstrik.md#landmark)
+**Souvislosti:** [Vedení hráče](vedeni-hrace.md) · [Prototypování](prototypovani.md) · [Herní art: prostředí je 90 % obrazovky](art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) *(co s greyboxem dělá environment artist)* · [Level design pro sólo vývojáře](level-design-solo.md#graybox-beautiful-corners-a-prvni-level-nakonec) *(kdy graybox opustit a čím ho nahradit)* · [Rejstřík: blockout](../rejstrik.md#blockout) · [Rejstřík: landmark](../rejstrik.md#landmark)
 
 ---
 

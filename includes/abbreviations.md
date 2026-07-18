@@ -19,6 +19,7 @@
 *[Backlog]: Zásobník všeho, co projekt čeká (úkoly i nápady); priority se z něj tahají po dávkách.
 *[Backpressure]: Producent rychlejší než konzument? Nebufferuj, nezahazuj — propaguj tlak zpět, ať zdroj zpomalí.
 *[Barrier to play]: Překážka, kterou designér testovat nechtěl (ovládání, barvy) — dokud existuje, obtížnost neladíš.
+*[Beautiful corner]: Jeden malý kus hry v cílové kvalitě, zbytek v grayboxu — mikro vertical slice.
 *[Behavior Tree]: Rozhodovací strom AI: selectory a sequence volí tasky podle Blackboardu; decoratory hlídají podmínky.
 *[Beta]: Pozdní testovací verze: obsahově víceméně celá hra, ladí se balanc, bugy a onboarding.
 *[Blackboard]: Sdílená tabule AI: pojmenované klíče, přes které si percepce, tasky a strom předávají data.
@@ -51,6 +52,7 @@
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
 *[Contact curve]: Animační křivka 0/1 „chodidlo na zemi" — řídí foot pinning; nahradila foot velocity curves.
+*[Content]: Vše, co jde opakovat s variacemi: levely, nepřátelé, příběh, odemykatelné věci.
 *[Content scheduling]: Kdy a jak často se věci dějí — rytmus obsahu; častá oprava hry, co „má vše a nudí".
 *[Context steering]: Pohyb AI: entita ohodnotí všechny směry vahami a vybere nejlepší proveditelný — nezamrzá u zdi.
 *[Continuing pose]: „Co by hrálo dál“ — kandidát, kterého musí nová animace v MM porazit cenou.
@@ -64,6 +66,7 @@
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Degenerate strategy]: Dominantní postup, po jehož objevení hra přestává bavit; cíl balancu je ho zabít.
+*[Demo]: Veřejná verze hry, jejímž úkolem je prodat — ne otestovat (to dělá playtest build).
 *[Dependency stack]: Strom závislostí systémů: dole core mechaniky, nahoře škrtnutelné obohacení.
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Design pattern]: Pojmenované řešení opakujícího se problému v kódu; katalog Gang of Four (1994), tři rodiny.
@@ -76,6 +79,7 @@
 *[Dot product]: Skalární součin jednotkových vektorů = kosinus úhlu: 1 stejný směr, 0 kolmost, −1 protisměr.
 *[Draw call]: Příkaz CPU pro GPU „vykresli tohle"; šetří se instancingem a sdílením materiálů (trim sheety).
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
+*[Early access]: Placený předběžný přístup k nedokončené hře s příslibem dalšího vývoje.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
 *[Eigenvektor]: Směr, který transformace nevychýlí — jen natáhne či zkrátí o eigenvalue.
 *[Elemental tetrad]: Schellovy čtyři části hry: estetika, mechaniky, technologie, příběh — iteruj přes všechny.
@@ -114,9 +118,11 @@
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
+*[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
+*[Indexical storytelling]: Vyprávění stopami a náznaky; hráč si příběh složí sám (Clara Fernández-Vara).
 *[Inheritance]: Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče. Lakmusový test: „is it a?"
 *[Input buffering]: Vstup těsně před platností se zapamatuje a provede hned, jak to jde (skok před dopadem).
 *[Instance]: Konkrétní umístěný výskyt assetu v levelu.
@@ -165,6 +171,7 @@
 *[Mass Entity]: ECS framework pro tisíce entit (davy, doprava) — City Sample i MetaHuman Crowd; entity nejsou actory.
 *[Material function]: Znovupoužitelný blok materiálové logiky; s material attributes I/O funguje jako vrstva.
 *[Matice]: Lineární transformace: sloupce říkají, kam se přesunou osy; násobení = skládání transformací.
+*[MAYA]: Most Advanced Yet Acceptable — nejpokročilejší varianta, kterou publikum ještě přijme.
 *[MCP]: Model Context Protocol — AI agent s kontextem a kontrolou editoru; od 5.8 nativně v UE (3 pluginy).
 *[MDA framework]: Mechanics→Dynamics→Aesthetics: kód → chování hráče → pocity; designér sahá jen na první článek.
 *[Mechanika]: Jednotka gameplaye z pravidel: sloveso hráče (skoč, seber) působící na herní svět.
@@ -243,6 +250,7 @@
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
 *[Redirector]: Ghost soubor po přesunu assetu; před smazáním složky spusť Update Redirector References.
 *[Referenční transparentnost]: Volání funkce lze nahradit její hodnotou beze změny programu — žádné skryté závislosti.
+*[Refundace]: Vrácení peněz za hru; první srážka z hrubé tržby před podílem obchodu a daněmi.
 *[Rekurze]: Funkce volající sama sebe: base case + zmenšování problému + skok důvěry.
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
 *[Retopologie]: Přestavba geometrie na čistou síť pro rig/animaci; AI cesty: decimace+bake, smart low poly, remesher.
@@ -300,6 +308,7 @@
 *[SVD]: Každá matice = rotace → škálování se změnou dimenze → rotace (A = UΣVᵀ).
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
 *[Synkopa]: Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny melodie.
+*[Tagy]: Štítky hry v obchodě; vstup pro doporučovací algoritmus, ne popis pro zákazníka.
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
@@ -338,5 +347,6 @@
 *[World Partition]: Streamovací systém UE5 — svět v buňkách nahrávaných podle potřeby.
 *[Yoink & twist]: Vzorec nápadu: vezmi žánr s prokázaným publikem (yoink) a přidej vlastní vylepšení či obrat (twist).
 *[Yomi]: Čtení soupeřovy mysli jako dovednost (fighting hry); hraješ proti mysli, ne proti hodu.
+*[Zákon opaků]: Najdi slabinu žánru, odstraň ji a postav na tom svůj marketingový slib.
 *[Zázněj]: Pomalé kolísání hlasitosti dvou blízkých frekvencí (beating); příčina pásma nepohody.
 *[Zero indexing]: První prvek má index 0; n-tý sedí na n − 1. Záměna = klasická off-by-one chyba.

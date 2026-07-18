@@ -18,7 +18,7 @@ Mezi „mám nápad" a „dělám hru" leží dvě brány, které indie vývojá
 
 > **Pozn.:** Pozor na terminologickou kolizi s [BiteMe přístupem](napad.md#prototyp-do-tydne-a-momentum-bar): tam prototyp *nemá* být šedý, protože testuje prodejnost a emoci. Rozpor je zdánlivý — jsou to dva různé testy. Ošklivý gameplay prototyp odpovídá na „funguje mechanika?", asset-packový vibe prototyp na „koupil by to někdo?". Průšvih je jen odpovídat si jedním testem na druhou otázku.
 
-**Souvislosti:** [Nápad: prototyp do týdne](napad.md#prototyp-do-tydne-a-momentum-bar) · [Postmortem ShantyTown: tři prototypy](postmortem-shantytown.md#vyber-projektu-tri-prototypy-tri-vahy) · [Zápisky: cut line](../zapisky/cut-line.md) *(slice přeložený do tvrdé definice na vlastním projektu)* · [Rejstřík: vertical slice](../rejstrik.md#vertical-slice) · [Hudba a zvuk: nástroje a game jam](../hudba/nastroje-zdarma-a-game-jam.md) *(vlastní hudba jako placeholder pro jam)*
+**Souvislosti:** [Vydání hry: vertikální a horizontální řez](vydani-hry.md#vertikalni-a-horizontalni-rez-jak-vybrat-co-do-dema-dat) *(co se z vertical slice stane, když ho ukazuješ zákazníkům)* · [Nápad: prototyp do týdne](napad.md#prototyp-do-tydne-a-momentum-bar) · [Postmortem ShantyTown: tři prototypy](postmortem-shantytown.md#vyber-projektu-tri-prototypy-tri-vahy) · [Zápisky: cut line](../zapisky/cut-line.md) *(slice přeložený do tvrdé definice na vlastním projektu)* · [Rejstřík: vertical slice](../rejstrik.md#vertical-slice) · [Hudba a zvuk: nástroje a game jam](../hudba/nastroje-zdarma-a-game-jam.md) *(vlastní hudba jako placeholder pro jam)*
 
 ---
 

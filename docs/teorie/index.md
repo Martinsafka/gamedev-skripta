@@ -75,13 +75,16 @@ Témata a kapitoly:
 
 - **[Vedení hráče](vedeni-hrace.md)** — scripted events dávkují momenty ve správný čas a recall priming chystá vzpomínky, než budou potřeba.
 - **[Prostor a hranice](prostor-a-hranice.md)** — landmark napřed, blockout s metrikami, navigace světlem — a hranice mapy, kterých si hráč nevšimne.
+- **[Level design pro sólo vývojáře](level-design-solo.md)** — gameplay vs. content, jak číst cizí pravidla (a Romerových osm), graybox a beautiful corners, „finish your first level last" — a jak tě tvaruje nástroj.
+- **[Prostor vypráví](prostor-vypravi.md)** — environmentální storytelling: globální nálada vs. „co se stalo tady", indexical storytelling, interaktivita v hlavě a vyprávění na rozpočet.
 
 **Vydání a marketing**
 
-- **[Co prodává](co-prodava.md)** — hráči nekupují mechaniky, kupují zážitky: čtyři pilíře a sedm cest k appealu podle Jonase Tyrollera.
-- **[Steam stránka](steam-stranka.md)** — checklist před zveřejněním: capsule, short description, trailer s cold openem, screenshoty a neviditelná mašinerie algoritmu.
+- **[Co prodává](co-prodava.md)** — hráči nekupují mechaniky, kupují zážitky: čtyři pilíře a sedm cest k appealu — a marketing jako celý produkt, zákon opaků a strategie místo tweetů.
+- **[Steam stránka](steam-stranka.md)** — checklist před zveřejněním: capsule, short description, trailer, screenshoty a mašinerie algoritmu — plus rozbory cizích stránek: test zakrytého názvu a tagy jako vstup do algoritmu.
 - **[První dojem](prvni-dojem.md)** — prvních deset vteřin po spuštění: splash, prázdná bootovací scéna a menu, které žije.
 - **[Devlogy](devlogy.md)** — devlog jako řemeslo: scénář psaný nahlas, showcase vs. story a záběry starých verzí z commit historie.
+- **[Vydání hry](vydani-hry.md)** — demo prodává a prototyp validuje, vertikální vs. horizontální řez, prvních deset recenzí a rytmus slev — a co ti z hrubé tržby reálně zbyde.
 
 **Rešerše: slovanská mytologie**
 

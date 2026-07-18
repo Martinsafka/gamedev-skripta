@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **70/116 published (dávky 20–25)**, 44 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **80/116 published (dávky 20–26)**, 34 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -519,21 +519,21 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Level Design Approaches for Solo Devs](https://www.youtube.com/watch?v=OLXn6YYAk7M) `OLXn6YYAk7M` | Indie Game Clinic | 20:45 | auto | 4162 | `teorie/level-design-solo.md` | přístupy pro sólo vývojáře |
-| todo | [Game vs Level Design [explained with Golf and Robots]](https://www.youtube.com/watch?v=R7N1XUKL5JE) `R7N1XUKL5JE` | Indie Game Clinic | 19:40 | auto | 3301 | `teorie/level-design-solo.md` | game design vs. level design |
-| todo | [Creating an In-Game Level Editor \| Indie Devlog #9](https://www.youtube.com/watch?v=nAXMHOWliAA) `nAXMHOWliAA` | Game Endeavor | 8:12 | manual | 2063 | `teorie/nastroje-na-levely.md` | devlog in-game editor; tenké — merge kandidát |
-| todo | [Environmental Storytelling Explained [Stray, Gone Home, Amnesia, Unpacking, Minit]](https://www.youtube.com/watch?v=sSFs61IF2Rs) `sSFs61IF2Rs` | Indie Game Clinic | 23:06 | auto | 4568 | `teorie/prostor-vypravi.md` | environmental storytelling; cross-link env-breakdowny |
+| published | [Level Design Approaches for Solo Devs](https://www.youtube.com/watch?v=OLXn6YYAk7M) `OLXn6YYAk7M` | Indie Game Clinic | 20:45 | auto | 4162 | `teorie/level-design-solo.md` | přístupy pro sólo vývojáře · dávka 26 |
+| published | [Game vs Level Design [explained with Golf and Robots]](https://www.youtube.com/watch?v=R7N1XUKL5JE) `R7N1XUKL5JE` | Indie Game Clinic | 19:40 | auto | 3301 | `teorie/level-design-solo.md` | game design vs. level design · dávka 26 |
+| published | [Creating an In-Game Level Editor \| Indie Devlog #9](https://www.youtube.com/watch?v=nAXMHOWliAA) `nAXMHOWliAA` | Game Endeavor | 8:12 | manual | 2063 | `teorie/level-design-solo.md` | devlog in-game editor; tenké — merge kandidát · dávka 26 |
+| published | [Environmental Storytelling Explained [Stray, Gone Home, Amnesia, Unpacking, Minit]](https://www.youtube.com/watch?v=sSFs61IF2Rs) `sSFs61IF2Rs` | Indie Game Clinic | 23:06 | auto | 4568 | `teorie/prostor-vypravi.md` | environmental storytelling; cross-link env-breakdowny · dávka 26 |
 
 ### Vydání a marketing · `T-MARKET` (+6)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Game Marketing Advice with Chris Z](https://www.youtube.com/watch?v=O7GoWKwEwIk) `O7GoWKwEwIk` | Indie Game Clinic | 49:07 | auto | 10853 | `teorie/co-prodava.md` | rozšíření: rozhovor Chris Z (49 min) |
-| todo | [What Makes a Successful Game?](https://www.youtube.com/watch?v=nO9HMnuZO78) `nO9HMnuZO78` | Indie Game Clinic | 11:23 | auto | 2507 | `teorie/co-prodava.md` | rozšíření: co dělá hru úspěšnou |
-| todo | [Roasting Steam Pages with a Marketing Expert](https://www.youtube.com/watch?v=8gY9SU9ShOw) `8gY9SU9ShOw` | Indie Game Clinic | 68:45 | auto | 14515 | `teorie/steam-stranka.md` | rozšíření: roasting s marketérem (69 min) |
-| todo | [How To Write Marketing Copy For Your Game](https://www.youtube.com/watch?v=m5X_ZYXVpQE) `m5X_ZYXVpQE` | Indie Game Clinic | 24:59 | auto | 5246 | `teorie/steam-stranka.md` | rozšíření: marketingová copy |
-| todo | [What nobody tells you about releasing a game on Steam...](https://www.youtube.com/watch?v=uQnIkK6BOLQ) `uQnIkK6BOLQ` | BiteMe Games | 21:34 | auto | 4874 | `teorie/vydani-hry.md` | co nikdo neřekne o vydání na Steamu |
-| todo | [Most Steam Demos Suck; Here's Why](https://www.youtube.com/watch?v=1vtqBTX2Lzc) `1vtqBTX2Lzc` | Indie Game Clinic | 18:35 | auto | 3540 | `teorie/vydani-hry.md` | proč většina dem nefunguje |
+| published | [Game Marketing Advice with Chris Z](https://www.youtube.com/watch?v=O7GoWKwEwIk) `O7GoWKwEwIk` | Indie Game Clinic | 49:07 | auto | 10853 | `teorie/co-prodava.md` | rozšíření: rozhovor Chris Z (49 min) · dávka 26 |
+| published | [What Makes a Successful Game?](https://www.youtube.com/watch?v=nO9HMnuZO78) `nO9HMnuZO78` | Indie Game Clinic | 11:23 | auto | 2507 | `teorie/co-prodava.md` | rozšíření: co dělá hru úspěšnou · dávka 26 |
+| published | [Roasting Steam Pages with a Marketing Expert](https://www.youtube.com/watch?v=8gY9SU9ShOw) `8gY9SU9ShOw` | Indie Game Clinic | 68:45 | auto | 14515 | `teorie/steam-stranka.md` | rozšíření: roasting s marketérem (69 min) · dávka 26 |
+| published | [How To Write Marketing Copy For Your Game](https://www.youtube.com/watch?v=m5X_ZYXVpQE) `m5X_ZYXVpQE` | Indie Game Clinic | 24:59 | auto | 5246 | `teorie/steam-stranka.md` | rozšíření: marketingová copy · dávka 26 |
+| published | [What nobody tells you about releasing a game on Steam...](https://www.youtube.com/watch?v=uQnIkK6BOLQ) `uQnIkK6BOLQ` | BiteMe Games | 21:34 | auto | 4874 | `teorie/vydani-hry.md` | co nikdo neřekne o vydání na Steamu · dávka 26 |
+| published | [Most Steam Demos Suck; Here's Why](https://www.youtube.com/watch?v=1vtqBTX2Lzc) `1vtqBTX2Lzc` | Indie Game Clinic | 18:35 | auto | 3540 | `teorie/vydani-hry.md` | proč většina dem nefunguje · dávka 26 |
 
 ### Byznys, data a kariéra · `T-BIZ` (+6) ⭐ NOVÉ TÉMA
 

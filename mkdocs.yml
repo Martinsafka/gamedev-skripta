@@ -96,11 +96,14 @@ nav:
       - Level design:
           - Vedení hráče: teorie/vedeni-hrace.md
           - Prostor a hranice: teorie/prostor-a-hranice.md
+          - Level design pro sólo vývojáře: teorie/level-design-solo.md
+          - Prostor vypráví: teorie/prostor-vypravi.md
       - Vydání a marketing:
           - Co prodává: teorie/co-prodava.md
           - Steam stránka: teorie/steam-stranka.md
           - První dojem: teorie/prvni-dojem.md
           - Devlogy: teorie/devlogy.md
+          - Vydání hry: teorie/vydani-hry.md
       - "Rešerše: slovanská mytologie":
           - Bestiář: teorie/slovanska-monstra.md
           - Zimní rituály: teorie/slovanske-ritualy.md

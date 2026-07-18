@@ -153,7 +153,7 @@ Nejcennější rada dílu je ale o zpětné vazbě [(10:12)](https://www.youtube
 
 > **Pozn.:** Rada „zašpini místa, kterých se lidé dotýkají" [(10:58)](https://www.youtube.com/watch?v=37LVhP15zGw&t=658s) a věta **„kdokoli umí udělat luxusní láhev tequily — ale musíš postavit celý bar a vidět, jak to spolu funguje"** jsou nejlepší shrnutí rozdílu mezi portfoliovým assetem a herním prostředím: samostatný objekt hodnotíš podle sebe sama, prostředí podle vztahů.
 
-**Souvislosti:** [Prostor a hranice: blockout a metriky](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) *(greybox z druhé strany — očima level designéra)* · [Vedení hráče: scripted events](vedeni-hrace.md#scripted-events-veci-se-maji-stat-ve-spravnou-chvili) · [Tvorba prostředí v UE](../praxe/env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro) · [Rejstřík: environmental storytelling](../rejstrik.md#environmental-storytelling) · [Rejstřík: blockout](../rejstrik.md#blockout)
+**Souvislosti:** [Prostor a hranice: blockout a metriky](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) *(greybox z druhé strany — očima level designéra)* · [Prostor vypráví](prostor-vypravi.md#vypraveni-na-rozpocet-navrhni-objekty-ktere-umi-vypravet) *(jak z týchž assetů dostat příběh)* · [Vedení hráče: scripted events](vedeni-hrace.md#scripted-events-veci-se-maji-stat-ve-spravnou-chvili) · [Tvorba prostředí v UE](../praxe/env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro) · [Rejstřík: environmental storytelling](../rejstrik.md#environmental-storytelling) · [Rejstřík: blockout](../rejstrik.md#blockout)
 
 ---
 
