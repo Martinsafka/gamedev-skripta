@@ -62,7 +62,7 @@ Tři nástroje pro tři situace: **animation blueprint se state machine** (klasi
 
 **Zapojení do hry:** AnimBP = **Sequence Player (idle) → Control Rig uzel** → output pose [(8:21)](https://www.youtube.com/watch?v=uhjN4jf3q6k&t=501s) — idle animace dýchá tělem, rig řídí nohy. BP pavouka = duplikát třetíosobní postavy s vyměněným meshem a anim classou [(9:11)](https://www.youtube.com/watch?v=uhjN4jf3q6k&t=551s); rychlost postavy srazit (~150), ať kapsle neujíždí krokům — nebo zrychlit kroky v rigu [(9:58)](https://www.youtube.com/watch?v=uhjN4jf3q6k&t=598s).
 
-> **Pozn.:** Stejný Locomotor, kterým Epic v [GASP](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) prohání mecha — tady na organickém tvorovi a s návodem krok za krokem. Vzor „idle klip jako podklad + procedurální končetiny" škáluje na cokoli vícenohého (brouci, krabi, mytologičtí pavouci do našeho lesa) a míří přesně tam, kam Epic tlačí celou animaci: RigVM grafy místo klipů.
+> **Pozn.:** Stejný Locomotor, kterým Epic v [GASP](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) prohání mecha — tady na organickém tvorovi a s návodem krok za krokem. Vzor „idle klip jako podklad + procedurální končetiny" škáluje na cokoli vícenohého (brouci, krabi, mytologické potvory) a míří přesně tam, kam Epic tlačí celou animaci: RigVM grafy místo klipů.
 
 **Souvislosti:** [GASP: procedurální vrstva a Locomotor](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) · [Rejstřík: Locomotor](../rejstrik.md#locomotor) · [Rejstřík: Control Rig](../rejstrik.md#control-rig)
 
