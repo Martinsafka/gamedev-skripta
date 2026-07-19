@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **86/116 published (dávky 20–27)**, 28 todo + 2 todo-lp. Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **98/116 published (dávky 20–28)**, 16 todo + 2 todo-lp. Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -564,47 +564,47 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 | published | [Visual Communication: Why Game Art Matters](https://www.youtube.com/watch?v=SV1BBtD3hY4) `SV1BBtD3hY4` | Indie Game Clinic | 20:49 | manual | 3673 | `teorie/vizualni-komunikace.md` | proč na artu záleží · dávka 25 |
 | published | [You Don't Need to Be an Artist to Make Great Game Art](https://www.youtube.com/watch?v=3eg5Lp3pGNk) `3eg5Lp3pGNk` | TechDad Impact | 13:36 | manual | 2665 | `teorie/2d-vizual.md` | nemusíš být umělec · dávka 25 |
 
-### Blueprint architektura a organizace projektu · `P-BP` (+6)
+### Blueprint architektura a organizace projektu · `P-BP` (+6) _(hotovo — dávka 28)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Why Dependencies are Bad and How To Avoid Them In Unreal Engine \| UE5 Mediator Pattern Explained](https://www.youtube.com/watch?v=y4fE2JdFdvY) `y4fE2JdFdvY` | Ali Elzoheiry | 26:39 | auto | 4490 | `praxe/komunikace-blueprintu.md` | rozšíření: mediator pattern |
-| todo | [Why Use "Interfaces" & "Event Dispatchers" in Unreal Engine \| UE5 Explained](https://www.youtube.com/watch?v=EQfml2D9hwE) `EQfml2D9hwE` | Ali Elzoheiry | 21:54 | auto | 4020 | `praxe/komunikace-blueprintu.md` | rozšíření: proč interfaces/dispatchery |
-| todo | [The Most Common Mistake Beginners Make in Unreal Engine \| UE5 Observer Pattern Explained](https://www.youtube.com/watch?v=YFtLd-bKl-U) `YFtLd-bKl-U` | Ali Elzoheiry | 12:17 | auto | 2190 | `praxe/komunikace-blueprintu.md` | rozšíření: observer pattern |
-| todo | [The Power of Git in Unreal Engine: a Step-by-Step Guide \| UE5](https://www.youtube.com/watch?v=zf_44hN4Lkg) `zf_44hN4Lkg` | Ali Elzoheiry | 18:48 | auto | 3494 | `praxe/organizace-projektu.md` | rozšíření: Git v UE |
-| todo | [Understanding "Components" in Unreal Engine \| UE5 Explained](https://www.youtube.com/watch?v=xo0sbSeWKe4) `xo0sbSeWKe4` | Ali Elzoheiry | 28:11 | auto | 5326 | `praxe/principy-architektury.md` | rozšíření: komponenty |
-| todo | [The ultimate guide \| How to Save & Load your unreal engine 5 game \| ue5](https://www.youtube.com/watch?v=H6rqJbwjRIk) `H6rqJbwjRIk` | Ali Elzoheiry | 49:59 | auto | 8148 | `praxe/ukladani.md` | rozšíření: ultimate save/load guide (50 min) |
+| published | [Why Dependencies are Bad and How To Avoid Them In Unreal Engine \| UE5 Mediator Pattern Explained](https://www.youtube.com/watch?v=y4fE2JdFdvY) `y4fE2JdFdvY` | Ali Elzoheiry | 26:39 | auto | 4490 | `praxe/komunikace-blueprintu.md` | rozšíření: mediator pattern + event manager · dávka 28 |
+| published | [Why Use "Interfaces" & "Event Dispatchers" in Unreal Engine \| UE5 Explained](https://www.youtube.com/watch?v=EQfml2D9hwE) `EQfml2D9hwE` | Ali Elzoheiry | 21:54 | auto | 4020 | `praxe/komunikace-blueprintu.md` | rozšíření: interface vs. dispatcher + cena castu · dávka 28 |
+| published | [The Most Common Mistake Beginners Make in Unreal Engine \| UE5 Observer Pattern Explained](https://www.youtube.com/watch?v=YFtLd-bKl-U) `YFtLd-bKl-U` | Ali Elzoheiry | 12:17 | auto | 2190 | `praxe/komunikace-blueprintu.md` | rozšíření: observer pattern · dávka 28 |
+| published | [The Power of Git in Unreal Engine: a Step-by-Step Guide \| UE5](https://www.youtube.com/watch?v=zf_44hN4Lkg) `zf_44hN4Lkg` | Ali Elzoheiry | 18:48 | auto | 3494 | `praxe/organizace-projektu.md` | rozšíření: Git v UE · dávka 28 |
+| published | [Understanding "Components" in Unreal Engine \| UE5 Explained](https://www.youtube.com/watch?v=xo0sbSeWKe4) `xo0sbSeWKe4` | Ali Elzoheiry | 28:11 | auto | 5326 | `praxe/principy-architektury.md` | rozšíření: komponentní vzor · dávka 28 |
+| published | [The ultimate guide \| How to Save & Load your unreal engine 5 game \| ue5](https://www.youtube.com/watch?v=H6rqJbwjRIk) `H6rqJbwjRIk` | Ali Elzoheiry | 49:59 | auto | 8148 | `praxe/ukladani.md` | rozšíření: save/load guide (50 min) — 2 myšlenky · dávka 28 |
 
-### AI a chování NPC · `P-AI-NPC` (+2)
-
-| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
-|---|---|---|---|---|---|---|---|
-| todo | [UE5 AI Sight Detection & Chasing With Behaviour Trees!](https://www.youtube.com/watch?v=JF5hIBcycPc) `JF5hIBcycPc` | Matt Aspland | 14:51 | auto | 3191 | `praxe/ai-vnimani.md` | rozšíření: sight + behavior tree chase |
-| todo | [What is Utility AI? \| Smarter AI Design in Unreal Engine 5](https://www.youtube.com/watch?v=LF81fxuQeF8) `LF81fxuQeF8` | D3kryption | 18:40 | auto | 4042 | `praxe/ai-zaklady.md` | rozšíření: Utility AI |
-
-### Motion Matching a GASP · `P-ANIM` (+1)
+### AI a chování NPC · `P-AI-NPC` (+2) _(hotovo — dávka 28)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [EASY Directional Hit Reactions in Unreal Engine 5 (Using Choosers)](https://www.youtube.com/watch?v=d6icw1-KPwI) `d6icw1-KPwI` | Tank Control Games | 20:48 | auto | 4375 | `praxe/mm-systemy.md` | rozšíření: hit reactions přes choosery |
+| published | [UE5 AI Sight Detection & Chasing With Behaviour Trees!](https://www.youtube.com/watch?v=JF5hIBcycPc) `JF5hIBcycPc` | Matt Aspland | 14:51 | auto | 3191 | `praxe/ai-vnimani.md` | rozšíření: objektový klíč + odklad ztráty cíle · dávka 28 |
+| published | [What is Utility AI? \| Smarter AI Design in Unreal Engine 5](https://www.youtube.com/watch?v=LF81fxuQeF8) `LF81fxuQeF8` | D3kryption | 18:40 | auto | 4042 | `praxe/ai-zaklady.md` | rozšíření: Utility AI · dávka 28 |
 
-### Animace: nástroje a mocap · `P-ANIMTOOLS` (+1)
-
-| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
-|---|---|---|---|---|---|---|---|
-| todo | [New FREE Animation Tool in Unreal Engine 5.8 \| (S.A.M) Solo Animation Mode](https://www.youtube.com/watch?v=-mcMxpVmnAM) `-mcMxpVmnAM` | Proj Prod | 12:42 | auto | 2343 | `praxe/animace-nastroje.md` | rozšíření: SAM (Solo Animation Mode) 5.8 |
-
-### Pohyb postavy (locomotion) · `P-MOVE` (+1)
+### Motion Matching a GASP · `P-ANIM` (+1) _(hotovo — dávka 28)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [I Created THE LAST OF US PART - 2 Style Wall Detection System \| And It's AMAZING 😎\| UE 5.8](https://www.youtube.com/watch?v=EL4s7sHAFV8) `EL4s7sHAFV8` | Hydra | 12:08 | auto | 1126 | `praxe/parkour-vault.md` | rozšíření: TLOU2 wall detection 5.8 |
+| published | [EASY Directional Hit Reactions in Unreal Engine 5 (Using Choosers)](https://www.youtube.com/watch?v=d6icw1-KPwI) `d6icw1-KPwI` | Tank Control Games | 20:48 | auto | 4375 | `praxe/mm-systemy.md` | rozšíření: směrové hit reakce přes choosery · dávka 28 |
 
-### MetaHuman · `P-MH` (+1)
+### Animace: nástroje a mocap · `P-ANIMTOOLS` (+1) _(hotovo — dávka 28)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [UE 5.8 - Any Mesh To MetaHuman - Tutorial](https://www.youtube.com/watch?v=ZmiTuYglaRI) `ZmiTuYglaRI` | Unreal - X - Tutorials | 13:58 | auto | 1714 | `praxe/metahuman.md` | rozšíření: any mesh → MetaHuman 5.8 |
+| published | [New FREE Animation Tool in Unreal Engine 5.8 \| (S.A.M) Solo Animation Mode](https://www.youtube.com/watch?v=-mcMxpVmnAM) `-mcMxpVmnAM` | Proj Prod | 12:42 | auto | 2343 | `praxe/animace-nastroje.md` | rozšíření: SAM (Solo Animation Mode) 5.8 · dávka 28 |
+
+### Pohyb postavy (locomotion) · `P-MOVE` (+1) _(hotovo — dávka 28)_
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [I Created THE LAST OF US PART - 2 Style Wall Detection System \| And It's AMAZING 😎\| UE 5.8](https://www.youtube.com/watch?v=EL4s7sHAFV8) `EL4s7sHAFV8` | Hydra | 12:08 | auto | 1126 | `praxe/pohyb-zaklady.md` | rozšíření: TLOU2 detekce zdi (přesun z parkour-vault) · dávka 28 |
+
+### MetaHuman · `P-MH` (+1) _(hotovo — dávka 28)_
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [UE 5.8 - Any Mesh To MetaHuman - Tutorial](https://www.youtube.com/watch?v=ZmiTuYglaRI) `ZmiTuYglaRI` | Unreal - X - Tutorials | 13:58 | auto | 1714 | `praxe/metahuman.md` | rozšíření: any mesh -> MetaHuman 5.8 · dávka 28 |
 
 ### Osvětlení a atmosféra · `P-LIGHT` (+3)
 

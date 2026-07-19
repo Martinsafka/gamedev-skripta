@@ -65,3 +65,33 @@ Výchozí stav: laser ability nadrátovaná v actor componentě — cooldown, sp
 **Pořadí inicializace:** klíče se při BeginPlay ptají dveří na ID — jenže klíč se může inicializovat dřív než dveře. Klasická **race condition** [(1:03:52)](https://www.youtube.com/watch?v=zTsJM9T0NjM&t=3832s); řešení je event dispatcher `KeyAssigned`, na který se klíč binduje, místo aby ID četl hned. Obecné pravidlo: na data z BeginPlay jiného actora se nespoléhej — nech si je oznámit. A když se něco rozbije, **Blueprint Debugger** [(46:51)](https://www.youtube.com/watch?v=zTsJM9T0NjM&t=2811s) s watch hodnotami a breakpointy je rychlejší než print-string archeologie — workshop to dvakrát předvádí naživo včetně vlastních přehmatů.
 
 **Souvislosti:** [Ukládání](ukladani.md) *(SaveGame jako další „kde co bydlí")* · [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Rejstřík: Player State](../rejstrik.md#player-state) · [Rejstřík: Game Instance](../rejstrik.md#game-instance) · [Rejstřík: race condition](../rejstrik.md#race-condition)
+
+---
+
+## Komponenty místo dědičnosti: skládej místo větvení
+
+**Zdroj:** [Understanding "Components" in Unreal Engine | UE5 Explained](https://www.youtube.com/watch?v=xo0sbSeWKe4) · [Ali Elzoheiry](https://www.youtube.com/channel/UCrrZx9bh7RMYhXvaN8BrbNg) · ~28 min, tutoriál (série o návrhových vzorech)
+
+**Shrnutí:** Hráč i nepřítel potřebují zdraví, útoky a pohyb. Duplikace nepřipadá v úvahu, ale **ani společný rodič není správná odpověď** — a to je ta část, kterou většina tutoriálů přeskočí. Komponentní vzor staví složité aktéry **skládáním malých dílů s jedinou zodpovědností**, a video to dotáhne až k triku, kde si komponenta sama přidá health bar každému, kdo ji použije.
+
+### Rozpad myšlenky
+
+**Proč dědičnost selže dřív, než čekáš** [(0:48)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=48s): *„co když chceš zničitelný objekt, který má zdraví, ale ne útoky ani pohyb? Nebo NPC se zdravím a pohybem, které neumí útočit? Pořád ho musíš udělat potomkem a nacpat mu spoustu funkcí, které nepotřebuje, které mu budou překážet a časem se rozbijí."* Dědičnost odpovídá na otázku „**co to je**", ale schopnosti nejsou identita — a přesně tam se [test „is it a?"](#dedicnost-test-is-it-a-a-rodic-jako-smlouva) láme.
+
+**Analogie, kterou video používá** [(1:35)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=95s), je lidské tělo: srdce pumpuje krev, plíce dýchají, žaludek tráví — a *„stejně jako u softwarových komponent se dá jeden orgán léčit nebo vyměnit izolovaně, aniž to zasáhne celý systém"*.
+
+**Health komponenta** [(3:55)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=235s) je záměrně minimální: proměnná `Health`, funkce `TakeDamage(float)` a **dva dispatchery — `OnDamageTaken` a `OnDeath`**. A s ní přichází pravidlo, které je jádrem celé kapitoly [(6:16)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=376s): **„nikdy nesmíš předpokládat, kdo bude komponentu používat. Hráč zpracuje smrt úplně jinak než nepřítel — u hráče respawn a game over obrazovka, u nepřítele ragdoll a spawn nového."** Komponenta proto smrt **oznamuje**, neprovádí ji.
+
+**Public vs. private** [(7:50)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=470s): zaškrtnutí `Private` u proměnné ji schová zvenku. *„Když jsou veřejné, říkáš uživateli komponenty ‚tyhle smíš měnit'; když soukromé, ‚nesahej na ně, něco bys rozbil'."* Je to nejlevnější forma dokumentace, jakou v Blueprintech máš.
+
+**Trik, kvůli kterému stojí za to video vidět** [(12:34)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=754s): komponenta si v `BeginPlay` sáhne na `GetOwner` a zavolá **`AddComponentByClass(WidgetComponent)`** — tedy **přidá vlastníkovi další komponentu**. Nastaví jí lokaci +100 na Z, draw size, screen space a vypne kolize, vytvoří widget a nastrčí ho dovnitř. Widget se na `EventConstruct` naváže na `OnDamageTaken` vlastníkovy health komponenty a přepočítá progress bar. Výsledek [(15:40)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=940s): přidáš health komponentu nepříteli — a **má health bar, aniž bys udělal cokoli dalšího**; totéž kostka. *„Like magic — všichni tři teď máme zdraví a health bar, který se aktualizuje nezávisle."*
+
+**Jak spolu komponenty mluví** [(17:37)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=1057s): attacks komponenta po zásahu zavolá `GetComponentByClass(HealthComponent)`, ověří platnost a teprve pak `TakeDamage`. Tím vzniká **implicitní pravidlo světa**: *„attacks komponenta ví, že aby šlo aktéra zranit, musí mít health komponentu — a když ji nemá, nejde ho zranit."* Alternativu autor zmíní hned [(18:23)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=1103s): dát `TakeDamage` do interface — *„zpočátku režie navíc, ale nakonec ušetří čas"*.
+
+**Nejlepší důkaz skládání** [(23:51)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=1431s): behavior tree nepřítele čeká jen na to, že aktér má attacks komponentu. Takže **AI controller lze připnout na hráče** a nechat ho ovládat (mind control), nebo naopak **hráčským controllerem posednout nepřítele**. *„Nedělá to rozdíl, jestli je posednutý pawn hráč nebo nepřítel, protože sdílejí tutéž komponentu."* Nic z toho se neprogramuje zvlášť — plyne to z toho, že schopnost není přibitá k identitě.
+
+**Když se přece jen liší** [(24:37)](https://www.youtube.com/watch?v=xo0sbSeWKe4&t=1477s): kostka má mít zdraví, ale ne health bar. Odpověď není větev v komponentě ani nová podtřída, nýbrž **konfigurace** — bool `HideHealthBar` vystavený v detailech. Vzorem je Character Movement komponenta se svou hromadou voleb, *„protože pohyb není jedna velikost pro všechny"*.
+
+> **Pozn.:** Komponentní vzor je v UE tak samozřejmý, že si ho většina lidí neuvědomí jako rozhodnutí — panel Components **je** ten vzor. Pro naši adventuru to znamená konkrétní věc: interakce, inventář a stav dveří patří spíš do komponent než do společného rodiče `BP_InteractableActor`, protože **jinak si zaděláš na strom, ve kterém truhla dědí schopnost mluvit**. Praktický protějšek stejného uvažování je [health komponenta vs. interface](komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) z téže série.
+
+**Souvislosti:** [Dědičnost: test „is it a?"](#dedicnost-test-is-it-a-a-rodic-jako-smlouva) *(kdy naopak rodič dává smysl)* · [Tři principy škálovatelnosti](#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [Interface, nebo dispatcher](komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Design patterns: tři rodiny vzorů](../teorie/design-patterns.md#tri-rodiny-vzoru-tvorba-struktura-chovani) · [Rejstřík: Actor Component](../rejstrik.md#actor-component) · [Rejstřík: separation of concerns](../rejstrik.md#separation-of-concerns)

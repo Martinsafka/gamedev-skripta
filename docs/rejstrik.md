@@ -30,6 +30,14 @@ U base class v Blueprintech se zapíná v `Class Settings → Generate Abstract 
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
 
+### Actor Component
+
+**Znovupoužitelný díl chování, který se připne k libovolnému aktérovi — schopnost bez identity.**
+
+Nemá vlastní reprezentaci ve světě (na rozdíl od scene komponent); nese logiku a data. Klíčové pravidlo: komponenta nikdy nepředpokládá, kdo ji používá — smrt, zásah nebo dokončení jen oznamuje dispatcherem a nechá vlastníka reagovat po svém. Skládání komponent je v UE náhrada za hlubokou dědičnost.
+
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast)
+
 ### ADSR
 
 **Čtyři knoby obálky: Attack, Decay, Sustain, Release — jak zvuk naběhne, klesne, drží a dozní.**
@@ -670,6 +678,14 @@ Do projektu přes plugin z NVIDIA developer webu (složky do engine Plugins). Bl
 
 Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
 
+### DNA soubor
+
+**Popis vyřešené MetaHuman hlavy — topologie a proporce namapované na tvůj mesh.**
+
+Vzniká krokem Save Pose v MetaHuman Creatoru po úspěšném solve a je vstupem pro všechno další: z něj se generuje skeletal mesh pro přenos textury a podle jeho referenční pózy se zarovnávají doplňky, které solver ignoroval (rohy, velké uši). Bez uloženého DNA se pozdější kroky nedají zopakovat.
+
+Kde se s tím potkáš: [MetaHuman: z cizího meshe](praxe/metahuman.md#z-ciziho-meshe-metahuman-solve-prenos-textury-a-prichyceni-rohu)
+
 ### Dogfooding
 
 **Používání vlastního produktu jako jeho první a nejpřísnější zákazník.**
@@ -717,6 +733,14 @@ Kde se s tím potkáš: [Vydání hry](teorie/vydani-hry.md)
 Nástroje pracují s aktuálně vybranou vrstvou: copy/paste gizmo kopíruje jen z ní (jinak prázdno), water bodies si vytvářejí vlastní vrstvu. Zhruba totéž, co v Mesh Terrainu dělají modifiery — jen bez 3D volnosti a přeskládávání priorit.
 
 Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Voda a buoyancy](praxe/voda-a-buoyancy.md)
+
+### Editor Utility Widget
+
+**Blueprint UI, které běží v editoru a automatizuje práci — vlastní nástroj bez psaní pluginu.**
+
+Spouští se pravým klikem → Run Editor Utility Widget a dá se ukotvit vedle ostatních panelů. Typické použití: dávkové přejmenování, kontrola konvencí, přepínání zobrazení scény. Protože je to obyčejný blueprint, jde cizí nástroj otevřít, přečíst a upravit — což je zásadní rozdíl proti zkompilovanému pluginu.
+
+Kde se s tím potkáš: [Animační nástroje: SAM](praxe/animace-nastroje.md#sam-izolace-jednoho-aktera-jako-animatorsky-rezim) · [Editor tipy](praxe/editor-tipy.md)
 
 ### Eigenvektor
 
@@ -894,6 +918,14 @@ Institucionalizovaný „malý rozsah": deadline ořeže scope za tebe a vynutí
 
 Kde se s tím potkáš: [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Scope](teorie/scope.md) · [Idea iceberg](teorie/rady-z-praxe.md)
 
+### Game State
+
+**Objekt se stavem probíhající hry, dostupný všem a replikovaný na server i klienty.**
+
+Zatímco Game Instance přežívá levely a Player State patří jednomu hráči, Game State drží to, co platí pro celou aktuální partii — skóre, fázi kola, počet zbývajících nepřátel. Právě proto je to přirozený domov pro event manager: dispatchery na Game State může kdokoli odebírat, aniž by měl referenci na vysílajícího aktéra.
+
+Kde se s tím potkáš: [Komunikace Blueprintů: mediator](praxe/komunikace-blueprintu.md#mediator-koordinator-uprostred-a-event-manager-v-game-state) · [Principy architektury](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
+
 ### Gameplay loop
 
 **Smyčka činností, kterou hráč opakuje — nejcitovanější popisný nástroj game designu.**
@@ -941,6 +973,22 @@ Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md) · [Scope a
 Důsledek aplikace rotací v pevném pořadí. Vizuálně: tři gimbaly (kroužky), prostřední se otočí o 90° a vnější s vnitřním najednou točí kolem téže osy. Řešení: kvaterniony — proto se v enginech interpoluje přes slerp, ne přes yaw/pitch/roll.
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+
+### Git LFS
+
+**Rozšíření gitu pro velké binární soubory: v repozitáři je jen odkaz, obsah leží zvlášť.**
+
+Bez něj git u každé změny ukládá celý binární soubor znovu, takže repozitář s animacemi a texturami rychle nabobtná. Háček je cena: na GitHubu je zdarma jen první gigabajt úložiště a pak se platí. Rozhodnutí zapnout či nezapnout LFS se dělá na začátku projektu — pozdější migrace je bolestivá.
+
+Kde se s tím potkáš: [Organizace projektu: Git v Unrealu](praxe/organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case)
+
+### GOAP
+
+**Goal-Oriented Action Planning: AI si sama poskládá posloupnost akcí vedoucí k cíli.**
+
+Každá akce má předpoklady a účinky; plánovač hledá řetěz, který ze současného stavu světa dojde k cíli. Proti behavior tree, kde posloupnost napíšeš ty, tady vzniká za běhu — cenou je horší předvídatelnost a ladění. S Utility AI se nevylučuje: utility vrstva vybere cíl, GOAP naplánuje cestu k němu.
+
+Kde se s tím potkáš: [Základy AI: Utility AI](praxe/ai-zaklady.md#utility-ai-rozhodovani-podle-skore-misto-vetveni) · [State Trees](praxe/state-trees.md)
 
 ### God class
 
@@ -1493,6 +1541,14 @@ Kde se s tím potkáš: [Základy designu: MDA](teorie/zaklady.md) · [Systémy 
 Pravidla jsou logika („když tohle, pak tohle"), mechaniky z nich skládají interakce a systémy jsou větší celky, se kterými hráč skrze mechaniky jedná. Stejné sloveso s jinými pravidly je jiný pocit — a pocit jádrové mechaniky je charakter hry.
 
 Kde se s tím potkáš: [Systémy a mechaniky](teorie/systemy-a-mechaniky.md) · [Rejstřík: Core loop](rejstrik.md#core-loop)
+
+### Mediator pattern
+
+**Prostředník, přes kterého aktéři komunikují místo napřímo — každý pak závisí jen na něm.**
+
+Analogie je řízení letového provozu: letadla se nedomlouvají mezi sebou, mluví s věží. V UE typicky aktér v levelu (combat manager koordinující, kdo smí útočit) nebo objekt na Game State (event manager rozesílající události). Kombinuje se s rozhraními: mediátor definuje, co od aktérů potřebuje, a implementaci nechá na nich.
+
+Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#mediator-koordinator-uprostred-a-event-manager-v-game-state) · [Design patterns](teorie/design-patterns.md#tri-rodiny-vzoru-tvorba-struktura-chovani)
 
 ### Mesh distance field
 
@@ -2382,6 +2438,14 @@ Legitimní pro centrální logger či connection pool; nebezpečný jako výmluv
 
 Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Principy architektury](praxe/principy-architektury.md)
 
+### Size Map
+
+**Nástroj editoru, který ukáže, kolik paměti asset zabere i se vším, co s sebou táhne.**
+
+Pravý klik na asset → Size Map → Memory Size. Nejlepší způsob, jak zviditelnit cenu tvrdých referencí: přidání jediného cast uzlu do blueprintu může jeho paměťovou stopu zdvojnásobit, protože cílová třída se od té chvíle nahrává s ním. Diagnostický protějšek Reference Vieweru, který ukazuje vazby, ne velikost.
+
+Kde se s tím potkáš: [Komunikace Blueprintů: kolik stojí cast](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Principy architektury](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data)
+
 ### Skill ceiling
 
 **Maximální dosažitelná úroveň dovednosti ve hře — strop toho, jak dobře se dá hrát.**
@@ -2533,6 +2597,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 „Programování na úrovni rozhraní": cíl jeden, strategií víc, výměna za běhu. Ukázka open-closed principu — nové chování přidáš novou třídou bez sahání do existujícího kódu. V UE: movement modes Moveru, choosery, Blueprint Interface místo kaskády castů.
 
 Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Mover](praxe/mover.md)
+
+### Struct
+
+**Pojmenovaná skupina proměnných, se kterou se zachází jako s jednou hodnotou.**
+
+Místo osmi vstupů do funkce jeden; místo osmi proměnných v SaveGame objektu jedna. Kromě čitelnosti přináší hlavně jedno místo změny: přidáš-li do struktury pole, všechna místa, která ji předávají, fungují dál. V save systémech je to rozdíl mezi rozšiřitelným formátem a rozsypaným seznamem.
+
+Kde se s tím potkáš: [Ukládání: struktury a interface](praxe/ukladani.md#save-system-ktery-prezije-druhy-projekt-struktury-interface-a-async)
 
 ### Stupnice
 
@@ -2749,6 +2821,14 @@ Kde se s tím potkáš: [GDD: dokument není smlouva](teorie/gdd.md)
 Uklidňující lekce z historie: USP nemusí existovat od začátku. GTA vyrostlo z tech dema o streamování velkého města a všechen „GTA flavor" se nastěhoval po letech; unikátnost se do projektu dá dovézt i pivotem nebo škrtem.
 
 Kde se s tím potkáš: [GDD: dokument není smlouva](teorie/gdd.md) · [Co prodává](teorie/co-prodava.md)
+
+### Utility AI
+
+**Rozhodovací rámec, kde si každý úkol spočítá skóre a spustí se ten s nejvyšším.**
+
+Není to plugin ani kód, ale způsob návrhu — a nenahrazuje behavior trees ani state trees, používá je jako výkonnou vrstvu. Skóre není konstanta, ale součet důvodů (počet nepřátel, zdraví, vzdálenost, povaha), takže z týchž úkolů vznikne se zbabělcem jiné chování než s veteránem. Škáluje tam, kde by strom podmínek přestal být čitelný.
+
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md#utility-ai-rozhodovani-podle-skore-misto-vetveni) · [State Trees](praxe/state-trees.md) · [Rejstřík: GOAP](#goap)
 
 ### UX
 

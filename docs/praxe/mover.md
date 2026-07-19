@@ -57,7 +57,7 @@ Mover je nástupce Character Movement Componentu — a tahle kapitola je jeho sa
 
 > **Pozn.:** Follow-along se vším všudy — autor v části replikace sám chvíli tápe („actually I'm not sure how to do that") a řešení hledá naživo. Hodnota není v eleganci, ale v tom, že na kameru narazil na přesně ty problémy, které potkají každého. Checklist z obou videí (Pawn class, Replicate Movement off, replikované vstupy v AnimBP, NP interpolated, Sync Inputs, mesh No Collision) je to, co si z nich odnést.
 
-**Souvislosti:** [GASP: Mover v praxi](gasp.md#mover-pohyb-jako-modularni-blueprintovatelna-simulace) · [Rejstřík: Mover](../rejstrik.md#mover) · [Rejstřík: movement mode](../rejstrik.md#movement-mode) · [Rejstřík: Network Prediction](../rejstrik.md#network-prediction)
+**Souvislosti:** [GASP: Mover v praxi](gasp.md#mover-pohyb-jako-modularni-blueprintovatelna-simulace) · [Základy pohybu: klouzání po zdi](pohyb-zaklady.md#klouzani-po-zdi-misto-zastaveni-dokonceni-predchozi-myslenky) *(komponenta napojená na Get Move Input)* · [Rejstřík: Mover](../rejstrik.md#mover) · [Rejstřík: movement mode](../rejstrik.md#movement-mode) · [Rejstřík: Network Prediction](../rejstrik.md#network-prediction)
 
 ---
 

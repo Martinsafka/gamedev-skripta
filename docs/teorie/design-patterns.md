@@ -25,7 +25,7 @@ A dva structural:
 
 > **Pozn.:** UE překlady: singleton žije v enginu jako **Game Instance** a **Subsystems** — jednu instanci garantuje engine sám a je to správné místo pro „globální" stav ([kde co bydlí](../praxe/principy-architektury.md)); varování o glorifikované globálce platí i tady — co tam nacpeš, to se ti rozleze. Factory je každý **spawner**: `SpawnActor` schovaný za funkcí, která podle typu nepřítele nastaví mesh, statistiky a drop. Facade je dobře navržená **komponenta**: navenek `Interact()`, uvnitř trace, UI, zvuk. Adapter je wrapper Blueprint kolem pluginu, kterému nechceš vydat celý projekt všanc — když plugin vyměníš, přepisuješ jednu třídu.
 
-**Souvislosti:** [Principy architektury](../praxe/principy-architektury.md) · [Rejstřík: Design pattern](../rejstrik.md#design-pattern) · [Rejstřík: Singleton](../rejstrik.md#singleton) · [Rejstřík: God class](../rejstrik.md#god-class)
+**Souvislosti:** [Principy architektury: komponenty místo dědičnosti](../praxe/principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni) *(strukturální vzor, který v UE potkáš první)* · [Rejstřík: Mediator pattern](../rejstrik.md#mediator-pattern) · [Rejstřík: Design pattern](../rejstrik.md#design-pattern) · [Rejstřík: Singleton](../rejstrik.md#singleton) · [Rejstřík: God class](../rejstrik.md#god-class)
 
 ---
 
@@ -43,4 +43,4 @@ A dva structural:
 
 > **Pozn.:** Tady se kruh uzavírá s kapitolou [Komunikace Blueprintů](../praxe/komunikace-blueprintu.md): **Event Dispatcher je observer pattern** — doslova, včetně bind/unbind a notify; „přihlas se u zdroje, nečekej, až tě někdo obejde smyčkou". A strategy pattern v UE potkáš pokaždé, když vyměňuješ chování za společným rozhraním: [movement modes v Moveru](../praxe/mover.md) (každý režim pohybu = zaměnitelná třída), [choosery](../praxe/mm-systemy.md) vybírající animační logiku podle stavu, Blueprint Interface místo kaskády castů. Vzory ti nedávají nové nody — dávají ti jistotu, že tenhle tvar grafu je *správně* a proč.
 
-**Souvislosti:** [Komunikace Blueprintů](../praxe/komunikace-blueprintu.md) · [Mover](../praxe/mover.md) · [Rejstřík: Observer pattern](../rejstrik.md#observer-pattern) · [Rejstřík: Strategy pattern](../rejstrik.md#strategy-pattern) · [Rejstřík: Event dispatcher](../rejstrik.md#event-dispatcher)
+**Souvislosti:** [Komunikace Blueprintů: observer v praxi](../praxe/komunikace-blueprintu.md#observer-pattern-nejcastejsi-chyba-zacatecniku-a-jeji-oprava) · [Komunikace Blueprintů: mediator](../praxe/komunikace-blueprintu.md#mediator-koordinator-uprostred-a-event-manager-v-game-state) · [Mover](../praxe/mover.md) · [Rejstřík: Observer pattern](../rejstrik.md#observer-pattern) · [Rejstřík: Strategy pattern](../rejstrik.md#strategy-pattern) · [Rejstřík: Event dispatcher](../rejstrik.md#event-dispatcher)

@@ -58,3 +58,33 @@ Co z toho pro nás: Epic naznačuje, že ukázka podobného systému dorazí do 
 > **Pozn.:** Tohle video je spíš ochutnávka než návod — jeho hodnota je orientační: říká, *kterým směrem* se MM ekosystém hýbe (interakce, davy, více postav) a že GASP je platforma, kam tyhle věci budou přistávat. Pro stealth adventuru je „vrážení do NPC" mimochodem přesně ten druh systémové drobnosti, která dělá [imerzi](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida).
 
 **Souvislosti:** [MM základy](mm-zaklady.md) · [Game feel a imerze](../teorie/game-feel.md) · [GASP: Game Animation Sample](gasp.md)
+
+---
+
+## Směrové hit reakce: dot product rozhodne odkud, chooser vybere co
+
+**Zdroj:** [EASY Directional Hit Reactions in Unreal Engine 5 (Using Choosers)](https://www.youtube.com/watch?v=d6icw1-KPwI) · [Tank Control Games](https://www.youtube.com/channel/UCoHLpKMSi5LlOMFlxuoR1rA) · ~21 min, tutoriál (UE 5.7)
+
+**Shrnutí:** Aby zásah něco znamenal, musí nepřítel reagovat **odkud** ho trefilo. Úloha se rozpadá na dvě nezávislé části: **spočítat směr** (dva dot producty a jedno chytré porovnání) a **vybrat animaci** (chooser tabulka místo hromady branchů). Ta druhá půlka je zajímavější, protože choosery jsou v UE pořád málo využitý nástroj — a tohle je jejich učebnicový případ.
+
+### Rozpad myšlenky
+
+**Dva enumy jako slovník** [(3:10)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=190s): `E_PunchSide` (left / right / **none**) a `E_HitDirection` (front / back / left / right). Hodnota `none` vypadá zbytečně, ale je to ta, díky které pak tentýž systém obslouží i střelnou zbraň — u kulky žádná „strana pěsti" neexistuje.
+
+**Anim Notify jako spouštěč zásahu** [(3:56)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=236s): vlastní notify s proměnnou typu punch side a **zaškrtnutým Instance Editable** — *„protože to chceme nastavit až v montáži"*. Notify pak v `ReceiveNotify` vezme `GetOwner(MeshComp)`, castne na postavu a zavolá `TraceForHit(punchSide)`. Elegance je v tom, že **stranu nastavuješ v montáži, ne v kódu**: levý úder má notify se `left`, pravý se `right`, logika je jedna.
+
+**Trace z pěsti** [(5:30)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=330s): `Select` podle strany vybere socket `hand_l` nebo `hand_r`, `GetSocketLocation` dá pozici a sphere trace má **start i end na témže bodě** s radiusem 100 — *„jsme dost velkorysí"*. Koule kolem pěsti v okamžiku notify je totiž přesnější model úderu než dráha; a velkorysý radius je tady záměrná laskavost k hráči, ne lenost.
+
+**Dot product jako čtečka směru** [(9:24)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=564s) — a video ho hezky odmýtizuje: *„je to prostě rychlý způsob, jak změřit, jak moc dva směry míří stejným směrem."* Postup: `(pozice hráče − pozice nepřítele).Normalize` (normalizace proto, aby šlo o **směr, ne vzdálenost**), pak dot s `GetActorForwardVector(self)` a dot s `GetActorRightVector(self)`.
+
+Trik je v pořadí vyhodnocení [(10:11)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=611s): **nejdřív porovnej absolutní hodnoty obou** — větší určí, jestli jde o osu předozadní, nebo boční. Teprve pak **znaménko** rozhodne konkrétní stranu (`> 0` = zepředu, resp. zprava). Bez toho prvního kroku bys u diagonálního zásahu dostal dvě „pravdivé" odpovědi zároveň.
+
+**Chooser jako datová tabulka** [(12:31)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=751s) je ta část, kvůli které se video vyplatí: *„choosery jsou v zásadě datově řízené rozhodovací tabulky. Místo psaní hromady branchů nebo switchů v blueprintu dáme chooseru informace a on sám vybere správnou animaci."* Setup: plugin Chooser zapnutý (a případně restart editoru), `Animation Chooser Table` s `Result Class = AnimSequenceBase` a **class parameter nastaveným na `BP_Enemy`** — tím tabulka rovnou nabídne jeho proměnné jako sloupce. Sloupce pak jsou dva enumy: hit direction a punch side.
+
+**Řádky a granularita** [(14:04)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=844s): front+right, front+left, a pak už jen left+**any**, right+any, back+any. Autor to komentuje užitečně: podrobnost si vol podle toho, kolik animací máš — *„můžeš být hodně konkrétní a mít jiné animace podle strany úderu na každé straně nepřítele"*. Poslední řádek je **`Fallback Result`**: *„když nic nesedí, použije se default"* — a právě přes něj se stejná tabulka použije i pro střelbu, kde je punch side `none` [(19:30)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=1170s). **Jedna tabulka obslouží melee i ranged, protože fallback je plnohodnotná odpověď, ne nouzový východ.**
+
+Přehrání je pak jednořádkové [(17:58)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=1078s): `EvaluateChooser` → `PlaySlotAnimationAsDynamicMontage` na `GetAnimInstance` meshe, slot `DefaultSlot`.
+
+> **Pozn.:** Video je **přiznaná placená spolupráce** [(0:01)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=1s) — animace pocházejí z komerčního packu a autor zároveň odkazuje bezplatnou Mixamo alternativu, takže postup jde projít i bez nákupu. Za pozornost stojí jeden výtvarný detail [(16:23)](https://www.youtube.com/watch?v=d6icw1-KPwI&t=983s): při zásahu **pravou pěstí** se volí animace, kde hlava letí **doleva** — *„a i když jde postava doleva, protože ho biješ pravačkou, je to přesně, co chci"*. Směr reakce se řídí směrem síly, ne pozicí útočníka; je to tatáž disciplína jako [combat rytmus](../teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku), jen o patro níž.
+
+**Souvislosti:** [GASP: kontrola výběru přes choosery](gasp.md#kontrola-vyberu-databaze-podle-stavu-nested-choosery-interrupt-mode) *(týž nástroj v roli výběru databáze)* · [Combat nad MM](#combat-nad-mm-horni-telo-v-montazi-spodni-v-matchingu) · [Ragdoll](ragdoll.md) *(druhý způsob, jak zásah zviditelnit)* · [Lineární algebra vizuálně: skalární součin](../teorie/linearni-algebra-vizualne.md) · [Rejstřík: Chooser](../rejstrik.md#chooser) · [Rejstřík: Dot product](../rejstrik.md#dot-product) · [Rejstřík: Anim Notify](../rejstrik.md#anim-notify)

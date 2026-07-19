@@ -72,7 +72,7 @@ GASP je Epicův „živý projekt" pro gameplay animaci — 500+ animací, hotov
 
 > **Pozn.:** Z Q&A stojí za zapamatování: MM jde použít i **uvnitř state machine** — jen na výběr vstupního framu přechodu [(1:20:22)](https://www.youtube.com/watch?v=mhVp_cC9MLc&t=4822s), a do databází jdou vložit i blend spacy [(1:21:54)](https://www.youtube.com/watch?v=mhVp_cC9MLc&t=4914s). Epic tehdy sliboval „celé spektrum mezi state machines a MM" — a v 5.5+ ho dodal jako hybridní setup, který je dnes na Mover pawnovi default (viz Mover níže).
 
-**Souvislosti:** [MM základy: setup od nuly](mm-zaklady.md#setup-od-nuly-root-motion-schema-databaze-chooser) · [Rejstřík: chooser](../rejstrik.md#chooser) · [Rejstřík: continuing pose](../rejstrik.md#continuing-pose) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database)
+**Souvislosti:** [MM základy: setup od nuly](mm-zaklady.md#setup-od-nuly-root-motion-schema-databaze-chooser) · [Systémy nad MM: hit reakce přes chooser](mm-systemy.md#smerove-hit-reakce-dot-product-rozhodne-odkud-chooser-vybere-co) *(tatáž tabulka na jednodušším případu)* · [Rejstřík: chooser](../rejstrik.md#chooser) · [Rejstřík: continuing pose](../rejstrik.md#continuing-pose) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database)
 
 ---
 

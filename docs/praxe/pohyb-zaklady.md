@@ -101,4 +101,28 @@ Trace z pozice postavy 150 jednotek dolů [(0:51)](https://www.youtube.com/watch
 
 > **Pozn.:** Půlvteřinový timer znamená, že stav zdi může být až 0,5 s starý — u pomalé hry v pohodě, u rychlé stáhni interval. A trace jede z **forward vektoru postavy**: ve strafe režimu (postava kouká jinam, než běží) by správně měl jet ze směru *pohybu*. Autor přiznává, že Mover postava má vstup jinde (`Get Move Input` funkce) a adaptaci nechává na příště [(12:05)](https://www.youtube.com/watch?v=83eC8TtVZTw&t=725s). Mimochodem přesně tohle je kategorie problému, kterou Epic plánuje řešit v Moveru trajectory queries s kolizemi — „brace for impact" animace (viz [Mover kapitola](mover.md)).
 
-**Souvislosti:** [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Game feel a imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [Mover](mover.md) · [Rejstřík: Line Trace](../rejstrik.md#line-trace)
+**Souvislosti:** [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Game feel a imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [Klouzání po zdi místo zastavení](#klouzani-po-zdi-misto-zastaveni-dokonceni-predchozi-myslenky) *(pokračování téhož autora — strafe i Mover dořešené)* · [Mover](mover.md) · [Rejstřík: Line Trace](../rejstrik.md#line-trace)
+
+---
+
+## Klouzání po zdi místo zastavení: dokončení předchozí myšlenky
+
+**Zdroj:** [I Created THE LAST OF US PART 2 Style Wall Detection System | UE 5.8](https://www.youtube.com/watch?v=EL4s7sHAFV8) · [Hydra](https://www.youtube.com/channel/UCr_IB7PCjPJvh4dl8UdzH7g) · ~12 min, rozbor a ukázka integrace
+
+**Shrnutí:** Předchozí myšlenka končí dvěma přiznanými dírami — trace jede z forward vektoru postavy (tedy špatně při strafu) a u Mover postavy to autor „nechává na příště". Tohle je to příště. A přináší k tomu **lepší chování než pouhé zastavení**: zeď hráče nezabrzdí, ale **odkloní**, podle toho, jak moc mimo její střed míří.
+
+### Rozpad myšlenky
+
+**Pozorování z hotové hry** [(0:02)](https://www.youtube.com/watch?v=EL4s7sHAFV8&t=2s): *„hrál jsem The Last of Us Part II a všiml si, jak funguje detekce zdi."* Pravidlo, které z toho vyčetl, má dvě polohy. Míří-li vstup **na střed zdi**, pohybový vstup se vynuluje — postava se zastaví, nešlape na místě. Jakmile směr **překročí hranici středu** doleva nebo doprava, zapne se příslušný **boční** vstup a postava po zdi plynule klouže.
+
+Rozdíl proti [zastavení à la RE9](#zastaveni-u-zdi-a-la-resident-evil-9) je designový, ne technický: zastavení je **korektní**, klouzání je **ochotné**. Hráč, který běží podél stěny a mírně do ní tlačí, nechce zastavit — chce běžet dál. Zeď, která ho po sobě sveze, tedy neopravuje jeho chybu, ale **čte jeho záměr**. Proto tenhle vzor uvidíš ve hrách s rychlým pohybem a ten první ve hrách, kde má být kontakt se světem cítit.
+
+**Druhé pozorování** [(2:54)](https://www.youtube.com/watch?v=EL4s7sHAFV8&t=174s) je nezávislé a stejně užitečné: *„když držíš protilehlé vstupy zároveň, pohyb se zastaví — W a S zároveň = nic. Totéž A a D."* Vypadá to jako drobnost, ale je to volba: alternativou je nechat vyhrát poslední stisk. Zastavení je čitelnější.
+
+**Co to opravuje proti předchozí verzi.** Trace **jede podle vstupu a control rotation** [(5:34)](https://www.youtube.com/watch?v=EL4s7sHAFV8&t=334s) — *„což zajišťuje, že systém funguje i pro strafe"*. To je přesně ta výhrada z Pozn. u RE9 myšlenky. A **Mover varianta** [(10:00)](https://www.youtube.com/watch?v=EL4s7sHAFV8&t=600s): Epic dal u Mover postavy pohybovou logiku do **pure funkce `GetMoveInput`**, takže se její obsah smaže, ponechá se `IA_Move`, přidá komponenta a `SetMovementInput` se napojí rovnou na return node. Dvě otevřené věci z minula tedy padly obě.
+
+**Zabalení do komponenty** [(4:40)](https://www.youtube.com/watch?v=EL4s7sHAFV8&t=280s): jedna složka s actor komponentou a enumem, *„díky oddělené složce se snadno migruje a je to plug and play"*. Parametry jsou **vystavené na komponentě** [(6:36)](https://www.youtube.com/watch?v=EL4s7sHAFV8&t=396s), takže se ladí přímo v detailech postavy — což je tentýž princip konfigurace místo větvení jako u [komponentního vzoru](principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni).
+
+> **Pozn.:** Buď si vědom, co tohle video je a co není: **není to build tutoriál**. Je to rozbor mechaniky z cizí hry plus ukázka, jak hotovou komponentu zapojit — samotný systém autor prodává přes Patreon a graf ukazuje jen letmo. Hodnota pro nás je proto v **pozorování a v pravidle**, ne v postupu; obojí se dá naimplementovat podle popisu za odpoledne, protože jádrem je jediné rozhodnutí — porovnat směr vstupu s normálou zdi a podle odchylky vynulovat, nebo přesměrovat. Mimochodem přesně tohle je kategorie problému, kterou Epic plánuje řešit v Moveru přes trajectory queries s kolizemi.
+
+**Souvislosti:** [Zastavení u zdi à la Resident Evil 9](#zastaveni-u-zdi-a-la-resident-evil-9) *(předchozí díl téhož problému)* · [Mover: setup a vstupy](mover.md#setup-od-nuly-v-57-pawn-input-producer-a-sitove-pasti) · [Principy architektury: komponenty](principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Game feel a imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [Rejstřík: Movement Mode](../rejstrik.md#movement-mode)

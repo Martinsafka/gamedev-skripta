@@ -65,3 +65,29 @@ Tři nástroje pro tři situace: **animation blueprint se state machine** (klasi
 > **Pozn.:** Stejný Locomotor, kterým Epic v [GASP](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) prohání mecha — tady na organickém tvorovi a s návodem krok za krokem. Vzor „idle klip jako podklad + procedurální končetiny" škáluje na cokoli vícenohého (brouci, krabi, mytologičtí pavouci do našeho lesa) a míří přesně tam, kam Epic tlačí celou animaci: RigVM grafy místo klipů.
 
 **Souvislosti:** [GASP: procedurální vrstva a Locomotor](gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) · [Rejstřík: Locomotor](../rejstrik.md#locomotor) · [Rejstřík: Control Rig](../rejstrik.md#control-rig)
+
+---
+
+## SAM: izolace jednoho aktéra jako animátorský režim
+
+**Zdroj:** [New FREE Animation Tool in Unreal Engine 5.8 | (S.A.M) Solo Animation Mode](https://www.youtube.com/watch?v=-mcMxpVmnAM) · [Proj Prod](https://www.youtube.com/channel/UCs37G0ljE4hPSddC_gdD_Mw) · ~13 min, představení nástroje
+
+**Shrnutí:** Bezplatný **editor utility widget**, který na jedno kliknutí schová celou scénu kromě vybraného aktéra a nahradí prostředí neutrálním pozadím s rovnoměrným světlem. Vznikl *„po sbírání zpětné vazby od animátorů v různých studiích"* s explicitním cílem **pomoct animátorům přijmout Unreal jako animační nástroj** — a to je zajímavější než sám nástroj: ukazuje, co konkrétně animátorům v UE vadí.
+
+### Rozpad myšlenky
+
+**Co Isolate udělá** [(1:37)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=97s): vyber aktéra → klik → všechno ostatní zmizí a v outlineru se dočasně objeví **tři aktéři: kamera, prostředí a post process volume**. Izolovat jde nejen skeletal meshe, ale i statické meshe, blueprint aktéry a **spawnable aktéry ze sekvenceru** [(4:44)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=284s).
+
+**Světla připnutá na kameru** [(2:24)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=144s) jsou hlavní trik: *„místo abych se spoléhal na směrové světlo levelu a řešil rušivé stíny, nástroj připne vlastní směrová světla přímo na kameru."* Postavu tak posoudíš z jakéhokoli úhlu za stejných podmínek — což je přesně to, co animátor potřebuje a co osvětlení scény systematicky znemožňuje. Volitelně jde světla levelu vrátit (`keep lights`), prostředí vypnout nebo přidat **contact shadows** pro víc hloubky.
+
+**Přepínání na kameru sekvenceru** [(2:24)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=144s) obsahuje detail, který prozrazuje, že autor s tím opravdu pracuje: přepíná se **na camera cuts track**, ne na pilotování cine camera actoru — *„což pomáhá vyhnout se nechtěným klíčům, hlavně když máš zapnutý auto key."* SAM kamera přitom zůstane, kde jsi ji nechal, takže se dá mezi „prohlížím si postavu" a „koukám se záběrem" plynule skákat.
+
+**Silhouette mode** [(5:30)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=330s): plná silueta s volitelnou barvou postavy i pozadí, `G` skryje ovladače. *„Užitečné pro kompozici, ladění záběru a soustředění na celkový tvar a čitelnost animace."* Je to praktická podoba [line of action a siluety](../teorie/art-specializace.md#animace-citelnost-vaha-a-osobnost) — pravidla, které se v barevném viewportu špatně kontroluje.
+
+**Drobnosti, které dělají rozdíl** [(4:44)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=284s): `hide sprites` a `hide camera icons` — ikony blueprintů a kamer v hledáčku při animování ruší a jdou vypnout jedním klikem, aniž zmizí ovládací prvky. A **`Isolate by tag`** [(7:03)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=423s), který izoluje podle actor tagu bez ručního výběru: *„u layoutů se složitým prostředím můžeš označit skupiny a rychle mezi nimi přepínat."* Vedlejším přínosem je **výkon** — izolovaný viewport je u složité scény podstatně lehčí.
+
+**Restore jako designové rozhodnutí** [(3:57)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=237s): jedním klikem se vrátí původní stav a **dočasní aktéři se smažou**; totéž se stane při zavření nástroje. *„To pro mě bylo hodně důležité designové rozhodnutí."* Nástroj, který ti může nechat v levelu odpadky, se totiž na produkčním projektu nepoužívá — bez ohledu na to, co umí.
+
+> **Pozn.:** Pod kapotou jsou to tři triviální věci — kamera s vlastním meshem (aby šla odlišit od běžné), **sky sphere s plochým materiálem** a post process volume — a autor **graf záměrně nechal rozbalený a neuklizený** [(9:23)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=563s): *„mohl jsem přidat víc proměnných a funkcí, aby byla struktura čistší, ale cílem bylo dát vám přístup k celému systému, abyste mu rozuměli a mohli z něj iterovat."* Je to legitimní protiklad k [čistým grafům](organizace-projektu.md#devet-tipu-proti-spagetam-v-grafech): u nástroje určeného k rozebrání je čitelnost pro cizího důležitější než elegance. Funguje v **5.7 i 5.8**.
+
+**Souvislosti:** [Animace: line of action a osobnost](../teorie/art-specializace.md#animace-citelnost-vaha-a-osobnost) *(co silueta kontroluje)* · [Editor tipy](editor-tipy.md) · [Organizace projektu: čisté grafy](organizace-projektu.md#devet-tipu-proti-spagetam-v-grafech) · [Rejstřík: Editor Utility Widget](../rejstrik.md#editor-utility-widget) · [Rejstřík: Silueta](../rejstrik.md#silueta)

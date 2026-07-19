@@ -58,4 +58,28 @@ Detekce hráče je pro stealth hru gameplay sám o sobě — kdy si mě stráž 
 
 > **Pozn.:** Umístění percepce (controller vs. postava — [LeafBranchGames](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) ji dává na postavu) je věc konvence; controller je čistší pro znovupoužití mozku napříč těly a odpovídá tomu, jak to dělá [GASP s NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente). Simple Move to Location je jednodušší příbuzný AI MoveTo — bez acceptance radius a callbacků; pro „doběhni na místo" stačí.
 
-**Souvislosti:** [Základy AI: vyšší liga](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) · [GASP: NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: Blackboard](../rejstrik.md#blackboard)
+**Souvislosti:** [Základy AI: vyšší liga](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) · [GASP: NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Objektový klíč a odklad ztráty cíle](#objektovy-klic-a-odklad-ztraty-cile-percepce-navazana-na-strom) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: Blackboard](../rejstrik.md#blackboard)
+
+---
+
+## Objektový klíč a odklad ztráty cíle: percepce navázaná na strom
+
+**Zdroj:** [UE5 AI Sight Detection & Chasing With Behaviour Trees!](https://www.youtube.com/watch?v=JF5hIBcycPc) · [Matt Aspland](https://www.youtube.com/channel/UC8_RNwftEO4isrX2LJowcpg) · ~15 min, tutoriál
+
+**Shrnutí:** Tatáž úloha jako výše — nepřítel bloumá, uvidí hráče, pronásleduje — ale se dvěma rozhodnutími, která stojí za převzetí. Blackboard nedrží **bool** „vidím", nýbrž **objektový klíč `Target`**, takže „koho honit" a „jestli honit" je jedna informace. A ztráta cíle je **odložená timerem**, takže nepřítel nepřestane pronásledovat v milisekundě, kdy mu hráč zmizí za rohem.
+
+### Rozpad myšlenky
+
+**Jeden klíč místo dvou** [(0:48)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=48s): v blackboardu vznikne jediný klíč `Target` typu **Object** s base class nastavenou na Character. Tím zmizí klasická dvojice „bool vidím + objekt koho" a s ní i možnost, aby se rozešly. K tomu drobnost o pojmenování, která se vyplácí u pátého nepřítele: **kategorizuj podle chování, ne podle nepřítele** — `BB_Chase`, případně `BB_ChaseRandomRoam`, *„abys pak mohl mít jiný pro chase patrol"*.
+
+**Dekorátor, který strom přeruší sám** [(2:20)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=140s) je jádro celého návrhu. Struktura je root → **Selector** → větev „can see player" a větev „random roam". Na první visí **Blackboard dekorátor** hlídající klíč `Target`, a klíčové nastavení je **`Observer Aborts = Both`**: dekorátor pak **přeruší běžící větev v obou směrech** — objeví-li se cíl, ukončí bloumání; zmizí-li, ukončí pronásledování. Chování se tak nepřepíná v kódu, ale **vyplývá z toho, že se změnil jeden údaj v blackboardu**.
+
+**Bloumání jako vlastní task** [(3:53)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=233s): nový BT task přepíše `ReceiveExecuteAI` a udělá `AIMoveTo(ControlledPawn, GetRandomReachablePointInRadius(pozice pawna, 1000))` → na success `FinishExecute(success)`. Za ním v sekvenci `Wait` — *„jakmile AI dojde do náhodného bodu, počká sekundu (nebo kolik nastavíš), než to udělá znovu"*. Jednoduchý rytmus, který od bloumání odliší nervózní pobíhání.
+
+**Percepce na pawnovi** [(6:59)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=419s): komponenta AI Perception s `AI Sight Config` přímo na postavě. Dvě nastavení, na kterých to lidem nejčastěji tiše nefunguje: **v `Detection by Affiliation` zaškrtnout všechny tři** (enemies, neutrals, friendlies) a nastavit **`Dominant Sense = AI Sense Sight`**. Pak `OnTargetPerceptionUpdated` → split struktury `Stimulus` → bool `Successfully Sensed` rozhodne, jestli se klíč nastaví na `Actor`, nebo vyprázdní.
+
+**Odklad ztráty cíle** [(10:06)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=606s) je ta část, která z funkčního systému dělá slušný. Přímé vyprázdnění klíče při ztrátě zraku znamená, že nepřítel **okamžitě** ztratí zájem. Místo toho: na ztrátě se spustí `SetTimerByEvent(2 s)` a teprve jeho event klíč vyprázdní; při opětovném spatření se přes `IsValidTimerHandle` → `ClearAndInvalidateTimerByHandle` timer zruší a pronásledování plynule pokračuje. **Dvě sekundy tolerance jsou rozdíl mezi nepřítelem, který působí pozorně, a nepřítelem, který působí jako spínač.**
+
+> **Pozn.:** Dva provozní detaily, které video zmíní mimochodem a stojí za zapamatování: **Pawn je optimalizovanější než Character** [(6:12)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=372s), *„když jich budeš mít v levelu hodně"* — Character s sebou nese celý Character Movement; a bez **Nav Mesh Bounds Volume** v levelu nepůjde nic, přičemž klávesa **P** zobrazí zeleně, kudy AI smí [(13:14)](https://www.youtube.com/watch?v=JF5hIBcycPc&t=794s). Umístění percepce (tady na pawnovi, výše na controlleru) zůstává věcí konvence — viz Pozn. u předchozí myšlenky.
+
+**Souvislosti:** [AI Perception na controlleru](#ai-perception-na-controlleru-lose-sight-radius-a-blackboard-bool) *(tatáž úloha s boolem místo objektu)* · [Základy AI: chase a ztráta zájmu](ai-zaklady.md#chase-a-ztrata-zajmu-do-once-a-retriggerable-delay) *(týž odklad postavený přes Retriggerable Delay)* · [Utility AI](ai-zaklady.md#utility-ai-rozhodovani-podle-skore-misto-vetveni) · [State Trees](state-trees.md#kostra-state-tree-ai-komponenta-tasky-a-kontext) · [Rejstřík: Behavior Tree](../rejstrik.md#behavior-tree) · [Rejstřík: Blackboard](../rejstrik.md#blackboard)

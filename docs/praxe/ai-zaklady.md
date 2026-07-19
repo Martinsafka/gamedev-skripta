@@ -84,4 +84,32 @@ Nepřítel, který hlídkuje, všimne si tě, honí tě a zase to vzdá — to j
 
 > **Pozn.:** Nejcennější na videu je disciplína: makro třídí *co se stalo*, funkce zapouzdřují *co s tím*, strom rozhoduje *kdy co běží* — tři vrstvy, které jdou měnit nezávisle [(26:35)](https://www.youtube.com/watch?v=EeN65RxmCak&t=1595s). Stejný přístup jako [separace zodpovědností](principy-architektury.md) z Blueprint batche. Epic dnes pro nové projekty tlačí [State Trees](state-trees.md) — koncepty (tasky, sdílená data, přerušitelné větve) se ale přenášejí 1:1, takže tahle investice se neztratí.
 
-**Souvislosti:** [State Trees](state-trees.md) · [Principy architektury](principy-architektury.md) · [Přehled algoritmů: boids](../teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) *(hejna a davy ze tří pravidel)* · [Rejstřík: AI Controller](../rejstrik.md#ai-controller) · [Rejstřík: Behavior Tree](../rejstrik.md#behavior-tree) · [Rejstřík: Blackboard](../rejstrik.md#blackboard) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception)
+**Souvislosti:** [State Trees](state-trees.md) · [Principy architektury](principy-architektury.md) · [Utility AI](#utility-ai-rozhodovani-podle-skore-misto-vetveni) *(vrstva nad stromy, ne jejich náhrada)* · [Přehled algoritmů: boids](../teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) *(hejna a davy ze tří pravidel)* · [Rejstřík: AI Controller](../rejstrik.md#ai-controller) · [Rejstřík: Behavior Tree](../rejstrik.md#behavior-tree) · [Rejstřík: Blackboard](../rejstrik.md#blackboard) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception)
+
+---
+
+## Utility AI: rozhodování podle skóre místo větvení
+
+**Zdroj:** [What is Utility AI? | Smarter AI Design in Unreal Engine 5](https://www.youtube.com/watch?v=LF81fxuQeF8) · [D3kryption](https://www.youtube.com/channel/UCTHlSV8efdPY8jgeHmySKkw) · ~19 min, koncepční vysvětlení
+
+**Shrnutí:** Behavior tree odpovídá na otázku „**v jakém pořadí to zkoušet**". Utility AI odpovídá na jinou: „**co je teď nejdůležitější**". Každý úkol si sám spočítá **skóre**, nejvyšší vyhraje a spustí se — a protože skóre se přepočítává, chování se **nevětví, ale váží**. Zásadní upřesnění hned na začátku: *„Utility AI není kus kódu, není to plugin. Je to způsob návrhu rozhodovacího systému. **Nenahrazuje state trees ani behavior trees ani GOAP — používá je všechny.**"*
+
+### Rozpad myšlenky
+
+**Případovka, která to vysvětlí celé** [(1:34)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=94s): farmář má čtyři úkoly — dojít, farmařit, utéct, zaútočit. Přijdou dva nepřátelé a on musí rozhodnout. Skórování [(2:20)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=140s): *dojít* = 0 (už tam je), *farmařit* = 0,5 (default „technicky bys měl"), *utéct* = 0,5 za přítomnost nepřátel **minus 0,5 za povahu** („je zbabělec? má bojové zkušenosti?") = 0, *zaútočit* = 1, protože brání svou půdu. Vyhrává útok.
+
+Podstatné je, **jak to skóre vzniká** [(3:07)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=187s): *„způsob, jakým to vyrobíš, je říct, co ten úkol vlastně pohání."* Skóre není konstanta přiřazená úkolu, ale **součet důvodů** — počet nepřátel, zdraví, vzdálenost, povaha postavy. A právě proto z toho vzniká osobnost: **tentýž strom úkolů se zbabělcem a s veteránem dopadne jinak, aniž bys napsal jedinou větev navíc.**
+
+**Přepočet místo řetězení** [(4:41)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=281s): jakmile úkol skončí, seznam se projede znovu. Teď vyhraje „dojdi k farmě" (1), po příchodu „farmař". Nikde není napsáno „po boji jdi zpátky" — **plyne to ze skóre**.
+
+**Úkol může být cokoli** [(3:54)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=234s): *„task je jen blueprint, kus kódu — může spustit state tree, behavior tree, náhodný blueprint přehrávající animaci."* Tady se ukazuje, proč to není konkurence stromů: **utility vrstva vybírá, strom provádí.**
+
+**Rozvrh a dynamické úkoly** [(6:15)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=375s): úkoly zabalené do časových období (5–12 h jedna sada, 12–17 h jiná); systém jen mění, které úkoly smí vůbec skórovat. K tomu **dynamické úkoly** [(7:52)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=472s) přidané questem nebo dialogem. A nejhezčí ukázka pružnosti: **shoří farma** — buď úkol z výběru odeber, nebo do jeho skórování přidej podmínku „existuje ta farma?" a vrať nulu. *„A nezáleží na tom, jestli má padesát úkolů — když všechny vrátí nulu, půjde po tom, co mu zbývá."*
+
+**Proč ne prostě ify** [(8:38)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=518s), zodpovězeno bez vytáček: *„ano, dalo by se to udělat spoustou ifů. Ale proč? Když můžeš mít modulární úkoly v samostatných souborech, mnohem snáz se to spravuje a balancuje — všichni jste viděli behavior trees, když narostou."* A dodá měřítko: přidej k farmáři pohyb, farmaření, útěk, útok, návštěvu manželky a stavbu strašáka **i s veškerou vnitřní logikou každého z nich** — strom, který to všechno drží v jednom grafu, je nečitelný dřív, než ho dopíšeš.
+
+**Co z toho vzniklo v praxi** [(16:28)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=988s) je nejužitečnější rám celého videa. Autora k tomu dohnal banální úkol: promluv si s NPC → odejde jinam → další dialog → čekání → sekvence. *„Chtěl jsem to udělat obecně, protože to je lepší způsob kódování. **Když děláš věci obecně, kde to jde, tvoje hra se navrhuje mnohem snáz.**"* Řetězit eventy by znamenalo napsat konkrétní posloupnost; s úkolovým systémem přidá pět úkolů se skóre a je hotovo.
+
+> **Pozn.:** Autorova vlastní implementace rozlišuje tři druhy úkolů [(10:12)](https://www.youtube.com/watch?v=LF81fxuQeF8&t=612s): **scheduled** (v tuhle dobu tohle), **default** („když nemáš co dělat, zvaž tohle") a **dynamic** (přidané questem, s možností **odebrat se po dokončení**). Zajímavé návrhové rozhodnutí: čas si bere přes **přepisovatelnou funkci `GetCurrentTime`**, *„protože jsem si vědom, že nikdo nebude chtít herní světový čas — každý má vlastní systém"*. Video je koncepční, ne stavební — implementaci autor slibuje na sérii a nabízí ji dřív přes **Patreon**; vzor sám je ale plně přenositelný a stojí za zvážení všude, kde by ti [State Tree](state-trees.md) narostl do nečitelna.
+
+**Souvislosti:** [Vyšší liga: AI Controller, Behavior Tree a Blackboard](#vyssi-liga-ai-controller-behavior-tree-a-blackboard) *(vrstva, kterou utility AI řídí)* · [State Trees](state-trees.md#kostra-state-tree-ai-komponenta-tasky-a-kontext) · [GASP: NPC přes State Tree](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Systémy a mechaniky](../teorie/systemy-a-mechaniky.md) *(stroj s účelem — utility AI je jeho rozhodovací podoba)* · [Rejstřík: Utility AI](../rejstrik.md#utility-ai) · [Rejstřík: GOAP](../rejstrik.md#goap)

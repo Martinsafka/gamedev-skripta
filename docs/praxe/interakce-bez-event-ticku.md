@@ -45,4 +45,4 @@ Proč je to lepší než `Cast To DestroyDoor`: cast vytváří **tvrdou závisl
 
 > **Pozn.:** Ve videu jde o dveře, které interakcí zaniknou. U objektů, které přežívají (páky, terminály), dává interface dvojice Interact/StopInteract navíc prostor pro UI — begin overlap zobrazí prompt „[E] Použít", end overlap ho schová. Stejná kostra, žádný kód navíc.
 
-**Souvislosti:** [Overlap trigger](#overlap-trigger-misto-trasovani-v-ticku) výše · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Rejstřík: Blueprint Interface](../rejstrik.md#blueprint-interface) · [Rejstřík: cast](../rejstrik.md#cast) · [Rejstřík: garbage collection](../rejstrik.md#garbage-collection)
+**Souvislosti:** [Overlap trigger](#overlap-trigger-misto-trasovani-v-ticku) výše · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Komunikace Blueprintů: kolik stojí cast](komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) *(změřená cena tvrdé reference)* · [Rejstřík: Blueprint Interface](../rejstrik.md#blueprint-interface) · [Rejstřík: cast](../rejstrik.md#cast) · [Rejstřík: garbage collection](../rejstrik.md#garbage-collection)

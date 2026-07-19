@@ -6,31 +6,31 @@ Témata a kapitoly:
 
 **Blueprint architektura a organizace projektu**
 
-- **[Principy architektury](principy-architektury.md)** — dědičnost a test „is it a?", tři principy škálovatelnosti (separace, volné vazby, data) a kde co v UE bydlí.
-- **[Komunikace Blueprintů](komunikace-blueprintu.md)** — cast, interface, event dispatcher a broadcast kanály: kdo na kom závisí a kdy který použít.
+- **[Principy architektury](principy-architektury.md)** — dědičnost a test „is it a?", tři principy škálovatelnosti (separace, volné vazby, data), kde co v UE bydlí a proč se schopnosti skládají z komponent místo dědění.
+- **[Komunikace Blueprintů](komunikace-blueprintu.md)** — cast, interface, event dispatcher a broadcast kanály: kdo na kom závisí a kdy který použít — plus observer a mediator jako vzory a změřená cena jednoho castu.
 - **[Interakce bez Event Ticku](interakce-bez-event-ticku.md)** — event-driven interakční systém: overlap trigger, Blueprint Interface, tagy a validated gets.
 - **[Gameplay Tags](gameplay-tags.md)** — hierarchický stav místo booleanové špagety: tag manager komponenta, dotazy bez skrytých bugů, pojmenování.
-- **[Organizace projektu](organizace-projektu.md)** — Content Browser podle Epicu (feature foldery, redirectory, 260znakový limit) a devět tipů proti špagetám v grafech.
+- **[Organizace projektu](organizace-projektu.md)** — Content Browser podle Epicu (feature foldery, redirectory, 260znakový limit), devět tipů proti špagetám v grafech a Git přímo z editoru včetně diffu blueprintů.
 - **[Levely a streaming](levely-a-streaming.md)** — proč Open Level zamrzá, level streaming s persistent levelem a breakdown, jak loading schovává Resident Evil Requiem.
-- **[Ukládání](ukladani.md)** — SaveGame objekty, sloty a vzor Game Instance + function library pro save dostupný odkudkoli.
+- **[Ukládání](ukladani.md)** — SaveGame objekty, sloty a vzor Game Instance + function library pro save dostupný odkudkoli — a dál struktury, interface, sync vs. async a ukládání stavu světa.
 - **[Telemetrie](telemetrie.md)** — activity tracker z gameplay tagů a vzdálená analytika (TrackEdge + PostHog).
 
 **Motion Matching a GASP**
 
 - **[Motion Matching základy](mm-zaklady.md)** — dotaz místo grafu stavů: trajektorie, databáze, schema a chooser; setup od nuly, sparse set (13 animací stačí) a procedurální uzly.
-- **[Systémy nad MM](mm-systemy.md)** — combat přes montáže a choosery, traversal a cover komponenty se state managerem, a nescriptované interakce z Witcher 4 dema.
+- **[Systémy nad MM](mm-systemy.md)** — combat přes montáže a choosery, traversal a cover komponenty se state managerem, nescriptované interakce z Witcher 4 dema a směrové hit reakce přes dot product a chooser tabulku.
 - **[GASP: Game Animation Sample](gasp.md)** — anatomie Epicova vzorového projektu: capsule-driven autoring animací, řízení výběru, traversal pod kapotou, Mover, NPC přes State Tree, Control Rig vrstva a zbraně přes overlay.
 
 **Pohyb postavy (locomotion)**
 
-- **[Základy pohybu](pohyb-zaklady.md)** — gaity přes Max Walk Speed a blend spacy, podřep a plazení, rychlost podle sklonu, nabíjený skok s křivkou a zastavení u zdi à la RE9.
+- **[Základy pohybu](pohyb-zaklady.md)** — gaity přes Max Walk Speed a blend spacy, podřep a plazení, rychlost podle sklonu, nabíjený skok s křivkou a dvě řešení zdi: zastavení à la RE9 a klouzání à la TLOU2.
 - **[Parkour postaru](parkour-vault.md)** — vault a výlez přes tři trace s root motion montážemi; ledge grab se zarovnáním na libovolný mesh přes Get Actor Bounds.
 - **[Mover](mover.md)** — proč nahrazuje CMC: modulární movement modes, layered moves, replikace vstupů, dvě síťové větve; setup od nuly v 5.7 a oprava strafu na osm směrů.
 
 **AI a chování NPC**
 
-- **[Základy nepřátelské AI](ai-zaklady.md)** — minimální nepřítel (Pawn Sensing + AI MoveTo + nav mesh), patrola náhodně i po waypointech, chase se ztrátou zájmu, a totéž přes AI Controller + Behavior Tree + Blackboard.
-- **[AI vnímání](ai-vnimani.md)** — Pawn Sensing vs. AI Perception vs. trigger; kužel zraku, object permanence, lose sight radius a přesný timing ztráty zájmu.
+- **[Základy nepřátelské AI](ai-zaklady.md)** — minimální nepřítel (Pawn Sensing + AI MoveTo + nav mesh), patrola náhodně i po waypointech, chase se ztrátou zájmu, totéž přes AI Controller + Behavior Tree + Blackboard, a Utility AI jako rozhodovací vrstva nad tím vším.
+- **[AI vnímání](ai-vnimani.md)** — Pawn Sensing vs. AI Perception vs. trigger; kužel zraku, object permanence, lose sight radius, přesný timing ztráty zájmu a objektový klíč s odloženou ztrátou cíle.
 - **[State Trees](state-trees.md)** — kompletní nepřítel: patrola po spline, tři smysly jedné percepce, Report eventy, přechody přes gameplay tagy a event dispatchery.
 
 **Herní systémy a interakce**
@@ -52,11 +52,11 @@ Témata a kapitoly:
 
 **Animace: nástroje a mocap**
 
-- **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (video → animace přes MetaHuman Performance) a procedurální pavouk na Locomotoru.
+- **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (video → animace přes MetaHuman Performance), procedurální pavouk na Locomotoru a SAM pro izolaci aktéra při animování.
 
 **MetaHuman**
 
-- **[MetaHuman v praxi](metahuman.md)** — hratelná postava (retarget jedním klikem, virtual bones foot IK), look-at systém přes post-process AnimBP, Chaos Cloth oblečení, Crowd plugin s Mass Entity a lekce z optimalizace obličeje.
+- **[MetaHuman v praxi](metahuman.md)** — hratelná postava (retarget jedním klikem, virtual bones foot IK), look-at systém přes post-process AnimBP, Chaos Cloth oblečení, Crowd plugin s Mass Entity, lekce z optimalizace obličeje a převod cizího statického meshe na plnohodnotného MetaHumana.
 
 **Terén a krajina**
 

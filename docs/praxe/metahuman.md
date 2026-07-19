@@ -99,3 +99,36 @@ MetaHuman už není jen „digitální dvojník pro cinematiku" — [markerless 
 > **Pozn.:** Zaznamenáno jako „co existuje": vyžaduje Mayu a placený plugin, pro nás teď mimo pipeline. Kdy dává smysl: hodně mluvících NPC na slabším hardwaru — blend shapes škálují líp než stovky kostí per hlava. Bezplatná odpověď Epicu jde jiným směrem (LODy MetaHuman rigu a [Crowd](#crowd-plugin-tisic-metahumanu-pres-mass) instance).
 
 **Souvislosti:** [Rejstřík: MetaHuman](../rejstrik.md#metahuman) · [Rejstřík: post-process AnimBP](../rejstrik.md#post-process-animbp) · [Animační nástroje: mocap](animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku)
+
+---
+
+## Z cizího meshe MetaHuman: solve, přenos textury a přichycení rohů
+
+**Zdroj:** [UE 5.8 - Any Mesh To MetaHuman - Tutorial](https://www.youtube.com/watch?v=ZmiTuYglaRI) · [Unreal - X - Tutorials](https://www.youtube.com/channel/UCjKg7gsHCEyXtJbZYx2Xu7A) · ~14 min, tutoriál (UE 5.8)
+
+**Shrnutí:** MetaHuman Creator umí vzít **statický mesh cizí hlavy** a udělat z něj plně animovatelného MetaHumana — se všemi jeho výhodami (facial rig, LODy, mocap). Postup má tři fáze: **solve** (obalení hlavy MetaHuman topologií), **přenos textury** přes Blender bake, a **přichycení nelidských částí**, které solver ignoruje. Ta třetí fáze je nejchytřejší a zároveň nejnebezpečnější, protože se při ní dočasně přepisuje referenční póza skeletu.
+
+### Rozpad myšlenky
+
+**Příprava meshe** [(1:38)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=98s): při importu **zapnout `Combine All`**, pak v Modeling Mode oddělit hlavu — `Tri Select` přepnutý z Brush na **„By Material All"** → kliknout na hlavu a oči → **Invert → Delete → Accept**. Následuje krok, který lidé přeskakují a pak se diví: **kontrola měřítka proti referenčnímu MetaHumanovi**. *„MetaHuman Creator používá pro obalení vlastního meshe vždycky tenhle výchozí MetaHuman"*, takže se přes Export → Geometry Export → **Full Skeletal Mesh** vytáhne do levelu, oba se vynulují a porovnají. Nakonec **pivot na nulu** (Modeling → XForm → Edit Pivot).
+
+**Solve** [(2:39)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=159s): v MetaHuman Character → Import → **From Custom Mesh** → model **čelně a vystředěně ke kameře** → Manual Solve Actions → `Trace Facial Features` → `Auto Solve`. Typické selhání má typické řešení [(3:26)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=206s): hláška „Failed to trace facial features" *„se ve většině případů spraví odebráním materiálu ze static meshe"*, případně jiným úhlem kamery.
+
+**`Save Pose` není volitelný krok** [(3:44)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=224s): vytvoří **DNA soubor s vyřešeným postojem**, který budeš potřebovat dvakrát — při přenosu textury i při přichycení rohů. A hned je řečen i limit solveru: *„všechno, co příliš přesahuje lidskou hlavu, solver ignoruje — rohy nebo velké uši."* Tohle je dobré vědět **předem**, protože to určuje, jestli tvůj model do téhle pipeline vůbec patří.
+
+**Přenos textury přes bake** [(4:34)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=274s): z UE se vyexportuje původní hlava i skeletal mesh vygenerovaný z DNA (`Generate Skeletal Mesh`), v obou případech **s vypnutými LODy a kolizemi**. V Blenderu se z DNA meshe oddělí hlava (UV Editing → **Enable UV Sync Selection** → `P` → Separate by Selection), originál dostane materiál s původní texturou a DNA hlava **novou 4096×4096**. Nastavení bake [(6:46)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=406s): render engine **Cycles**, bake type **Diffuse** s vypnutým direct i indirect osvětlením, **Selected to Active**, **Extrusion 0,2** (*„mezi 0,1 a 0,5 podle případu"*). Pořadí výběru je zásadní: **nejdřív originál, pak s Ctrl cílová DNA hlava.** Zpět v UE se výsledek nasadí přes **Texture and Material Overrides** [(7:32)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=452s).
+
+**Přichycení rohů** [(9:05)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=545s) řeší nepříjemnost: rohy sedí na **DNA skeletonu**, ale hotový MetaHuman má jinou referenční pózu, takže nelícují. Trik je **dočasně přenést pózu z DNA skeletonu na MetaHumana**, roh připnout a pózu vrátit:
+
+1. **Napřed zálohuj** [(9:52)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=592s) — duplikovat basis skeleton i body skeletal mesh a přes `Skeleton → Assign Skeleton` je spárovat. *„Nechceme přijít o původní referenční pózu, protože by to mohlo ovlivnit animace."*
+2. Obě okna vedle sebe, **Edit Skeleton** na obou, a kopírovat transformy kostí **od root po head**: *„shift a pravý klik kopíruje, shift a levý klik vkládá."* → Apply to Asset.
+3. Roh → **Convert to Skeletal Mesh** (existující skeletal mesh = tělo, **binding bone = root**).
+4. **Edit Skin Weights** → Faces → vybrat vše → **Flood** → **váha 1 na head bone**, všechny ostatní nula → Apply.
+5. Skeletal roh do MetaHuman blueprintu jako **child body komponenty**.
+6. **Vrátit původní referenční pózu ze zálohy** stejným kopírováním.
+
+Autor u toho přiznává i vadu [(11:46)](https://www.youtube.com/watch?v=ZmiTuYglaRI&t=706s): *„je to trochu zdeformované, protože jsme kopírovali jen řetěz od root po head, ale na zarovnání rohů to stačí."*
+
+> **Pozn.:** Krok 1 je ta část, kterou nepřeskakuj ani ve spěchu: **měníš referenční pózu sdíleného skeletu**, tedy asset, na kterém stojí všechny animace všech MetaHumanů v projektu. Bez zálohy je to jednosměrná operace s nepříjemným poloměrem. Jinak je celá pipeline dobrá zpráva pro každého, kdo má hotový model postavy a nechce psát vlastní facial rig — s tou výhradou, že **cokoli mimo tvar lidské hlavy si musíš přišít ručně**, jak ukazuje krok s rohy. Video používá jako příklad staženou hlavu populární filmové postavy; u vlastního projektu je licence zdrojového modelu první věc ke kontrole. Pokračování (celé tělo, MetaHuman hlava na cizím skeletonu) slibuje autor v druhém dílu.
+
+**Souvislosti:** [Hratelný MetaHuman](#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [Optimalizace obličeje](#optimalizace-obliceje-co-dela-metapipe-nitrous) · [Herní art: character pipeline](../teorie/art-pipeline.md#character-art-od-proxy-k-modelu-ktery-jde-animovat) *(proč se hlava a tělo řeší zvlášť)* · [Rejstřík: MetaHuman](../rejstrik.md#metahuman) · [Rejstřík: Retopologie](../rejstrik.md#retopologie) · [Rejstřík: DNA soubor](../rejstrik.md#dna-soubor)
