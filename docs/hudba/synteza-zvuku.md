@@ -68,4 +68,4 @@ Zvuk, který by měl umět každý [(18:39)](https://www.youtube.com/watch?v=p1-
 
 A hlavní pointa celé kapitoly [(21:49)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=1309s): tohle není jeden zvuk. Když umíš signálový řetězec a modulaci, tentýž postup přeměníš v nekonečno různých zvuků — bas, akordy, melodii, cokoli. Preset je slepá ulička; řetězec je klíč.
 
-**Souvislosti:** [Amp-controlled zvuky a bas](#amp-controlled-zvuky-a-bas) · [Akordy a harmonie: volba zvuku](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Žánry: výběr zvuku dělá žánr](zanry-a-styl.md#zanr-je-recept-ne-magie) · [Rejstřík: LFO](../rejstrik.md#lfo)
+**Souvislosti:** [Amp-controlled zvuky a bas](#amp-controlled-zvuky-a-bas) · [Akordy a harmonie: volba zvuku](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Žánry: výběr zvuku dělá žánr](zanry-a-styl.md#zanr-je-recept-ne-magie) · [CDP a SoundThread](nastroje-zdarma-a-game-jam.md#cdp-a-soundthread-laborator-na-zvuk-zdarma) *(co jde, když nemusíš stíhat reálný čas)* · [Rejstřík: LFO](../rejstrik.md#lfo)

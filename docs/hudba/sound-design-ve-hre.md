@@ -81,3 +81,23 @@ A proč zrovna indie [(0:04)](https://www.youtube.com/watch?v=VJ6ENLakB2g&t=4s):
 > **Pozn.:** „Cti styl" je zvuková obdoba percepčních hranic z designu — dojem vzniká souladem smyslů. Pro herní hudbu i efekty platí: nejdřív si pojmenuj, jaký *pocit* má scéna vyvolávat (a jaký má výtvarný jazyk), a teprv pak vybírej zvuky, které ten pocit zrcadlí. Disonance a syntéza pro hrůzu, čisté alikvóty a akustické nástroje pro klid — viz [fyzika souzvuku](fyzika-souzvuku.md#jine-alikvoty-jine-stupnice).
 
 **Souvislosti:** [Nepředesignovat: méně je víc](#nepredesignovat-mene-je-vic) · [Fyzika souzvuku](fyzika-souzvuku.md#jine-alikvoty-jine-stupnice) · [Tvorba herního soundtracku](tvorba-soundtracku.md) (leitmotiv jako emoční pojivo) · [Game feel a imerze](../teorie/game-feel.md)
+
+---
+
+## Attenuation v praxi: zvuk, který má místo
+
+**Zdroj:** [How to Make a 3D Sound in Unreal Engine 5](https://www.youtube.com/watch?v=dttUv6--1nA) · [Gorka Games](https://www.youtube.com/channel/UCv_n9oioNF6OpzR2dt6E4xg) · ~4 min, tutoriál
+
+**Shrnutí:** [Slovník sound designera](#slovnik-sound-designera) zavádí attenuation jako pojem — útlum se vzdáleností. Tohle je jeho mechanická polovina v Unrealu, a je krátká: **attenuation není nastavení zvuku, ale samostatný asset**, který se zvukům přiřazuje. Dokud ho nepřiřadíš, hraje všechno stejně hlasitě odkudkoli — a to je nejčastější důvod, proč zvuk ve hře „nemá místo".
+
+### Rozpad myšlenky
+
+**Asset, ne parametr** [(0:02)](https://www.youtube.com/watch?v=dttUv6--1nA&t=2s): vytvoří se **Sound Attenuation** asset, ve kterém se nastavuje dosah, náběh útlumu a **tvar křivky (attenuation function)** — autor volí *Natural Sound*, tedy průběh odpovídající tomu, jak hlasitost klesá ve skutečnosti. Že je to samostatný asset, má praktický důsledek: **jeden dosah se sdílí mezi mnoha zvuky** a mění se na jednom místě, přesně jako [master material](../praxe/materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) u textur.
+
+**Zvuk umístěný v levelu** [(0:49)](https://www.youtube.com/watch?v=dttUv6--1nA&t=49s): audio soubor se přetáhne do scény a v jeho **Attenuation Settings** se vybere vytvořený asset. Editor pak dosah rovnou **vykreslí jako kouli** — což je ta nejužitečnější drobnost z celého videa, protože slyšitelnost se najednou dá **rozvrhnout očima jako cokoli jiného v levelu**.
+
+**Zvuk spuštěný z blueprintu** [(1:49)](https://www.youtube.com/watch?v=dttUv6--1nA&t=109s) má vlastní past. Existují dva různé uzly — **Play Sound 2D** a **Play Sound at Location** — a i ten druhý hraje bez přiřazené attenuation všude stejně: autor to demonstruje tak, že se od místa spuštění vzdaluje a hlasitost se nemění [(2:35)](https://www.youtube.com/watch?v=dttUv6--1nA&t=155s). Teprve po dosazení attenuation assetu do parametru uzlu začne zvuk **patřit místu**.
+
+> **Pozn.:** Video je z roku 2022 a je to nejzákladnější možný průchod — moderní UE má pro zvuk podstatně bohatší nástroje ([MetaSounds](../praxe/footsteps.md), spatializace, occlusion, submixy) a u větší hry se attenuation nastavuje spíš v Sound Cue nebo přímo v MetaSoundu. Základní model ale platí dál a stojí za zapamatování hlavně proto, že **spojuje teorii z předchozí myšlenky s tím, kde se to v enginu skutečně nastavuje**. Za doladění stojí jedna věc, kterou tutoriál nezmiňuje: samotný útlum hlasitosti nestačí — **vzdálený zvuk má být i tlumenější ve výškách**, jinak zní jako blízký zvuk ztlumený knoflíkem. Přesně o tom mluví frekvenčně závislý trik ve [slovníku](#slovnik-sound-designera).
+
+**Souvislosti:** [Slovník sound designera](#slovnik-sound-designera) *(attenuation jako pojem)* · [Kroky a povrchy: MetaSounds](../praxe/footsteps.md) · [Tři úkoly herního zvuku](#tri-ukoly-herniho-zvuku) · [Rejstřík: attenuation](../rejstrik.md#attenuation) · [Rejstřík: Sound Cue](../rejstrik.md#sound-cue)

@@ -167,6 +167,10 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 ### Editor a workflow
 - [Tipy do editoru](https://martinsafka.github.io/gamedev-skripta/praxe/editor-tipy/) — Sbírka drobných triků, které nezaslouží vlastní kapitolu, ale šetří minuty každý den — výběry a navigace ve viewportu, oprava pivotu bez Blenderu, rozmisťování fyzikou, rychlejší mazání…
 
+### Tvorba assetů mimo engine (Blender)
+- [Z fotky herní asset](https://martinsafka.github.io/gamedev-skripta/praxe/foto-do-assetu/) — Nejlevnější zdroj detailu, jaký existuje, je fotoaparát v kapse. Tahle kapitola ukazuje pipeline, která z jediné fotky udělá nízkopolygonový model s hotovými UV: narovnat obrázek ve 2D…
+- [PS1 estetika](https://martinsafka.github.io/gamedev-skripta/praxe/ps1-estetika/) — Retro low-poly styl není nostalgická lenost — je to sada omezení, která se dá vyrobit záměrně a která šetří práci na místech, kde by realistický vzhled stál nejvíc. Kapitola shrnuje, co…
+
 ## Hudba a zvuk
 
 ### Základy hudební teorie
@@ -220,6 +224,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Akord](https://martinsafka.github.io/gamedev-skripta/rejstrik/#akord)
 - [Alikvóta](https://martinsafka.github.io/gamedev-skripta/rejstrik/#alikvota)
 - [ALS](https://martinsafka.github.io/gamedev-skripta/rejstrik/#als)
+- [Ambient occlusion](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ambient-occlusion)
 - [Anchor (marketing)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anchor-marketing)
 - [Anim montage](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-montage)
 - [Anim Notify](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-notify)
@@ -336,6 +341,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Git LFS](https://martinsafka.github.io/gamedev-skripta/rejstrik/#git-lfs)
 - [GOAP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#goap)
 - [God class](https://martinsafka.github.io/gamedev-skripta/rejstrik/#god-class)
+- [Granulární syntéza](https://martinsafka.github.io/gamedev-skripta/rejstrik/#granularni-synteza)
 - [Graybox](https://martinsafka.github.io/gamedev-skripta/rejstrik/#graybox)
 - [Groom](https://martinsafka.github.io/gamedev-skripta/rejstrik/#groom)
 - [Halting problem](https://martinsafka.github.io/gamedev-skripta/rejstrik/#halting-problem)
@@ -422,6 +428,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Mover](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mover)
 - [Multithreading](https://martinsafka.github.io/gamedev-skripta/rejstrik/#multithreading)
 - [MVP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mvp)
+- [N-gon](https://martinsafka.github.io/gamedev-skripta/rejstrik/#n-gon)
 - [Nanite](https://martinsafka.github.io/gamedev-skripta/rejstrik/#nanite)
 - [Narrative design](https://martinsafka.github.io/gamedev-skripta/rejstrik/#narrative-design)
 - [Nav Mesh](https://martinsafka.github.io/gamedev-skripta/rejstrik/#nav-mesh)
@@ -551,6 +558,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Synkopa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#synkopa)
 - [Telemetrie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#telemetrie)
 - [Tessellation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tessellation)
+- [Texture atlas](https://martinsafka.github.io/gamedev-skripta/rejstrik/#texture-atlas)
 - [Timeline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#timeline)
 - [Tónina](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tonina)
 - [Toon shading](https://martinsafka.github.io/gamedev-skripta/rejstrik/#toon-shading)
@@ -569,6 +577,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [User story](https://martinsafka.github.io/gamedev-skripta/rejstrik/#user-story)
 - [USP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#usp)
 - [Utility AI](https://martinsafka.github.io/gamedev-skripta/rejstrik/#utility-ai)
+- [UV mapping](https://martinsafka.github.io/gamedev-skripta/rejstrik/#uv-mapping)
 - [UX](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ux)
 - [Value chain](https://martinsafka.github.io/gamedev-skripta/rejstrik/#value-chain)
 - [Vektor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#vektor)

@@ -9,6 +9,7 @@
 *[Akord]: Tři a více tónů zároveň; nejzákladnější je triáda (základ + tercie + kvinta).
 *[Alikvóta]: Vyšší frekvence nad základním tónem; určuje barvu zvuku a to, co ladí (overtone).
 *[ALS]: Advanced Locomotion System — komunitní locomotion framework; jeho autor dnes v Epicu vede design GASP.
+*[Ambient occlusion]: Ztmavení míst, kam se hůř dostane rozptýlené světlo — kouty, spáry, styky ploch.
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
@@ -125,6 +126,7 @@
 *[Git LFS]: Rozšíření gitu pro velké binárky: v repozitáři odkaz, obsah zvlášť; na GitHubu 1 GB zdarma.
 *[GOAP]: Goal-Oriented Action Planning — AI si posloupnost akcí k cíli poskládá sama za běhu.
 *[God class]: Antipattern: třída, do které se postupně nastěhuje logika všech ostatních.
+*[Granulární syntéza]: Rozsekání zvuku na krátká zrna a jejich přeskládání — z jednoho vzorku cokoli.
 *[Graybox]: Prototyp/blockout ze šedých primitiv — správný pro testování mechanik, špatný pro testování prodejnosti.
 *[Groom]: Vlasy/srst z pramenů (strands); vlastní LODy — při skládání postavy je drží LOD Sync komponenta.
 *[Halting problem]: Turing 1936: obecně nejde rozhodnout, zda program skončí — kompas hranic řešitelnosti.
@@ -211,6 +213,7 @@
 *[Mover]: Nástupce Character Movement Componentu: replikuje vstupy, modulární módy, pravdivá trajektorie pro MM.
 *[Multithreading]: Rozdělení práce na víc vláken, aby dlouhý výpočet neblokoval běh hry.
 *[MVP]: Minimum Viable Product: nejmenší verze doručující jádro hodnoty — jen core loop, dezert počká.
+*[N-gon]: Polygon s víc než čtyřmi hranami; na ploché ploše neškodný, na zakřivené zdroj chyb.
 *[Nanite]: Virtualizovaná geometrie UE5 — detail meshů se dynamicky přizpůsobuje kameře.
 *[Narrative design]: Návrh vyprávění integrovaný s herním designem — ne „spisovatel dopíše cutscény".
 *[Nav Mesh]: Navigační síť, ve které AI počítá cesty; do levelu jako Nav Mesh Bounds Volume, náhled klávesou P.
@@ -340,6 +343,7 @@
 *[Tagy]: Štítky hry v obchodě; vstup pro doporučovací algoritmus, ne popis pro zákazníka.
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
+*[Texture atlas]: Jedna textura s povrchy pro mnoho objektů vedle sebe — méně materiálů, méně draw callů.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
 *[Tónina]: Domovská stupnice skladby; v piano rollu scale highlighting schová „špatné" tóny.
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
@@ -358,6 +362,7 @@
 *[User story]: Popis funkce jako kroky uživatele: co vidí a dělá, ne jak je to naprogramované.
 *[USP]: Unique selling point — co má jen tvoje hra; nemusí existovat od začátku (GTA).
 *[Utility AI]: Každý úkol si spočítá skóre, spustí se nejvyšší; nenahrazuje stromy, řídí je.
+*[UV mapping]: Předpis, která část 2D textury se natáhne na kterou plochu modelu.
 *[UX]: User experience — informační architektura: kde informace bydlí a kolika kroky se k nim dostaneš.
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.

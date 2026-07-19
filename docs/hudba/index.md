@@ -15,18 +15,18 @@ Témata a kapitoly:
 
 - **[Jak psát melodie](melodie.md)** — melodie = výška + rytmus a one-note test, dvě cesty ke vzniku (sochař vs. čárová kresba), osm otázek na cizí melodii a případovka na Aviciiho.
 - **[Akordy a harmonie](akordy-a-harmonie.md)** — stavba akordů a progrese v piano rollu, emoce z pohybu akordů (vzestup/sestup, passing chords) a řemeslo voicingu, voice leadingu a prodlev.
-- **[Aranžmá: z loopu skladba](aranz.md)** — pravidlo dvou loopů proti „loop trap", čtyři druhy změn na sekci a proč píseň žije v přechodu.
+- **[Aranžmá: z loopu skladba](aranz.md)** — pravidlo dvou loopů proti „loop trap", čtyři druhy změn na sekci, proč píseň žije v přechodu (test vypršení, rozpočet tahů, transition check) — a natáčená session, kde skladba vzniká od prvních kláves.
 - **[Žánry a jejich melodie](zanry-a-styl.md)** — žánr jako recept (tempo, akordy, rytmus, výběr zvuku) a přenositelné triky napříč žánry: extensions, synkopa, posouvání akordu.
 
 **Sound design a zvuk ve hře**
 
 - **[Syntéza zvuku od nuly](synteza-zvuku.md)** — subtraktivní synth (oscilátor → filtr → obálka), ADSR a stavba basu, modulace přes envelope a LFO. Preset trap versus signálový řetězec.
-- **[Sound design ve hře](sound-design-ve-hre.md)** — tři úkoly herního zvuku (cue/feedback/emoce), slovník (attenuation, EQ, reverb, foley) a indie filozofie „nepředesignovat" a „cti výtvarný styl".
+- **[Sound design ve hře](sound-design-ve-hre.md)** — tři úkoly herního zvuku (cue/feedback/emoce), slovník (attenuation, EQ, reverb, foley), indie filozofie „nepředesignovat" a „cti výtvarný styl" — a attenuation v UE, aby zvuk měl místo.
 
 **Hudba pro tvou hru**
 
 - **[Tvorba herního soundtracku](tvorba-soundtracku.md)** — nejdřív tón scény, pak noty; sound fonty pro retro zvuk; leitmotiv jako pojivo světa; a řemeslo tracku včetně bezešvého loopu.
-- **[Zdarma a rychle: nástroje a game jam](nastroje-zdarma-a-game-jam.md)** — vlastní hudba bez peněz a bez teorie: LMMS, chord generátory a montážní linka drumy → akordy → melodie → bas → loop.
+- **[Zdarma a rychle: nástroje a game jam](nastroje-zdarma-a-game-jam.md)** — vlastní hudba bez peněz a bez teorie: LMMS, chord generátory a montážní linka drumy → akordy → melodie → bas → loop; a CDP se SoundThreadem jako bezplatná laboratoř na nemožné zvuky.
 
 **Cesta skladatele**
 

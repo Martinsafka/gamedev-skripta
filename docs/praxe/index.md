@@ -97,3 +97,8 @@ Témata a kapitoly:
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu i jeho pětikroková metoda s chunkingem a rutinou), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.
+
+**Tvorba assetů mimo engine (Blender)**
+
+- **[Z fotky herní asset](foto-do-assetu.md)** — narovnat fotku ve 2D, obtáhnout ji plochou a promítnout přes Project from View; pak hloubka bez druhé textury (angle-based unwrap na podobná místa) a AO trik, který fotce vrátí stínění.
+- **[PS1 estetika](ps1-estetika.md)** — co dělá retro vzhled retro vzhledem: 128×128 textury, kontrast před zmenšením, indexované barvy a nearest filtrování; ruční UV po stěnách a fotky narovnané do obdélníku.

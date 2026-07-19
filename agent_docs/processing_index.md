@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **107/116 published (dávky 20–29)**, 7 todo + 2 todo-lp. Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **114/116 published (dávky 20–30) — druhá vlna hotová**, 0 todo + 2 todo-lp (beginner kurzy). Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -647,19 +647,19 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 | todo-lp | [Unreal Engine 5 \| Blueprint For Beginners (2026)](https://www.youtube.com/watch?v=c6qW2NP8TP4) `c6qW2NP8TP4` | Smart Poly | 159:31 | manual | 29574 | — | LOW-PRIORITY: beginner kurz 160 min (jako dB-pS8PHALY) |
 | todo-lp | [Unreal Engine 5.8 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi](https://www.youtube.com/watch?v=FAo9nfWYPSE) `FAo9nfWYPSE` | Magnet VFX | 88:12 | auto | 11655 | — | LOW-PRIORITY: starter kurz 88 min |
 
-### Tvorba assetů mimo engine (Blender) · `P-ASSET` (+4) ⭐ NOVÉ TÉMA
+### Tvorba assetů mimo engine (Blender) · `P-ASSET` (+4) ⭐ NOVÉ TÉMA _(hotovo — dávka 30)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Turn Any Photo into a Game Asset (Fast & Easy Blender Tutorial)](https://www.youtube.com/watch?v=ZR_X2OhsteQ) `ZR_X2OhsteQ` | Grant Abbitt (Gabbitt) | 22:21 | auto | 5301 | `praxe/foto-do-assetu.md` | Blender: fotka → herní asset |
-| todo | [How to make PS1 style models in Blender \| Part 1: Textures and UV Mapping \| Tutorial](https://www.youtube.com/watch?v=8--xYWCY_bc) `8--xYWCY_bc` | hacktic | 4:33 | auto | 1005 | `praxe/ps1-estetika.md` | Blender: PS1 modely, textury/UV |
-| todo | [How to make PS1 Graphics in 4 minutes](https://www.youtube.com/watch?v=A25NTdPGNaw) `A25NTdPGNaw` | binbun3D | 3:49 | auto | 631 | `praxe/ps1-estetika.md` | PS1 grafika ve 4 minutách (Blender) |
-| todo | [Environment in PS1 style. (Blender Timelapse)](https://www.youtube.com/watch?v=d9GUXlnwRGk) `d9GUXlnwRGk` | Summer 85 | 7:03 | — | — | `praxe/ps1-estetika.md` | bez přepisu — timelapse; krýt z popisu |
+| published | [Turn Any Photo into a Game Asset (Fast & Easy Blender Tutorial)](https://www.youtube.com/watch?v=ZR_X2OhsteQ) `ZR_X2OhsteQ` | Grant Abbitt (Gabbitt) | 22:21 | auto | 5301 | `praxe/foto-do-assetu.md` | Blender: fotka -> herní asset (2 myšlenky) · dávka 30 |
+| published | [How to make PS1 style models in Blender \| Part 1: Textures and UV Mapping \| Tutorial](https://www.youtube.com/watch?v=8--xYWCY_bc) `8--xYWCY_bc` | hacktic | 4:33 | auto | 1005 | `praxe/ps1-estetika.md` | Blender: PS1 modely, textury a UV · dávka 30 |
+| published | [How to make PS1 Graphics in 4 minutes](https://www.youtube.com/watch?v=A25NTdPGNaw) `A25NTdPGNaw` | binbun3D | 3:49 | auto | 631 | `praxe/ps1-estetika.md` | PS1 grafika ve 4 minutách (Blender) · dávka 30 |
+| published | [Environment in PS1 style. (Blender Timelapse)](https://www.youtube.com/watch?v=d9GUXlnwRGk) `d9GUXlnwRGk` | Summer 85 | 7:03 | — | — | `praxe/ps1-estetika.md` | bez přepisu — timelapse; uveden jako vizuální reference v Pozn. · dávka 30 |
 
-### Hudba a zvuk (rozšíření dokumentu) · `H-EXT` (+3)
+### Hudba a zvuk (rozšíření dokumentu) · `H-EXT` (+3) _(hotovo — dávka 30)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Making an Indie Pop Banger from Scratch w/ Lyncs (Cook Up)](https://www.youtube.com/watch?v=X6RMUest2sw) `X6RMUest2sw` | Splice | 18:58 | auto | 1418 | `hudba/aranz.md` | rozšíření: cook-up Splice — track od nuly v praxi |
-| todo | [The most insane sound design tool nobody's heard of (is free)](https://www.youtube.com/watch?v=TGczsxuAm1I) `TGczsxuAm1I` | mylarmelodies | 14:50 | manual | 2028 | `hudba/nastroje-zdarma-a-game-jam.md` | rozšíření: CDP (alt. synteza-zvuku) |
-| todo | [How to Make a 3D Sound in Unreal Engine 5](https://www.youtube.com/watch?v=dttUv6--1nA) `dttUv6--1nA` | Gorka Games | 3:43 | auto | 572 | `hudba/sound-design-ve-hre.md` | rozšíření: 3D zvuk v UE |
+| published | [Making an Indie Pop Banger from Scratch w/ Lyncs (Cook Up)](https://www.youtube.com/watch?v=X6RMUest2sw) `X6RMUest2sw` | Splice | 18:58 | auto | 1418 | `hudba/aranz.md` | rozšíření: cook-up Splice — skladba od nuly · dávka 30 |
+| published | [The most insane sound design tool nobody's heard of (is free)](https://www.youtube.com/watch?v=TGczsxuAm1I) `TGczsxuAm1I` | mylarmelodies | 14:50 | manual | 2028 | `hudba/nastroje-zdarma-a-game-jam.md` | rozšíření: CDP + SoundThread · dávka 30 |
+| published | [How to Make a 3D Sound in Unreal Engine 5](https://www.youtube.com/watch?v=dttUv6--1nA) `dttUv6--1nA` | Gorka Games | 3:43 | auto | 572 | `hudba/sound-design-ve-hre.md` | rozšíření: attenuation v UE · dávka 30 |

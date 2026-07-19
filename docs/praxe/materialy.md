@@ -22,7 +22,7 @@ Materiálová kapitola pokrývá čtyři různě velké myšlenky: **master mate
 
 > **Pozn.:** Tentýž princip, kterým [The Ascent utáhl 80 % assetů na jedné 4K sadě](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) a [TLOU nahradil tisíce bake trim sheetem](env-breakdowny.md#tlou-trim-sheet-ktery-nahradil-tisice-bake) — tohle je jeho miniaturní, okamžitě použitelná verze. Auto-titulky videa jsou hrubé („CS stack" = sea stack, „black hole" = blockout); postup je ale z obrazu jednoznačný.
 
-**Souvislosti:** [Breakdowny: The Ascent](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance)
+**Souvislosti:** [Breakdowny: The Ascent](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) · [Z fotky herní asset](foto-do-assetu.md#narovnat-obtahnout-promitnout) *(opačný pól: jeden asset, jedna textura)* · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance)
 
 ---
 

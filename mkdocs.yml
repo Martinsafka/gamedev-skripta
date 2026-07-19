@@ -175,6 +175,9 @@ nav:
           - AI assety: praxe/ai-assety.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
+      - "Tvorba assetů mimo engine (Blender)":
+          - "Z fotky herní asset": praxe/foto-do-assetu.md
+          - PS1 estetika: praxe/ps1-estetika.md
   - Hudba a zvuk:
       - hudba/index.md
       - Základy hudební teorie:
