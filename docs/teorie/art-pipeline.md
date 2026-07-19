@@ -22,7 +22,7 @@ Hranice trojlístku je v tom, že se úkoly perou: maximální clarity vede k pl
 
 > **Pozn.:** Trojice je podezřele blízká [třem úkolům herního zvuku](../hudba/sound-design-ve-hre.md#tri-ukoly-herniho-zvuku) (cues, feedback, emoce) z osmého dílu téže série — a to není náhoda: je to jeden studiový rámec aplikovaný na dva smysly. Kdo si ho osvojí, umí se u každého assetu zeptat „který ze tří úkolů tenhle kus plní?" — a poznat ten, který neplní žádný.
 
-**Souvislosti:** [Základy: engagement a appeal](zaklady.md#engagement-drzi-hrace-ve-hre-appeal-ho-k-ni-privede) · [Game feel: katalog juice](game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) *(satisfaction rozepsaná do konkrétních triků)* · [Sound design: tři úkoly zvuku](../hudba/sound-design-ve-hre.md#tri-ukoly-herniho-zvuku) · [Rejstřík: game feel](../rejstrik.md#game-feel)
+**Souvislosti:** [Základy: engagement a appeal](zaklady.md#engagement-drzi-hrace-ve-hre-appeal-ho-k-ni-privede) · [Game feel: katalog juice](game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) *(satisfaction rozepsaná do konkrétních triků)* · [Indie kariéra: vlastní nástroje](indie-kariera.md#vlastni-nastroje-kdy-se-vyplati-a-co-stoji) *(clarity dotažená až k vlastnímu enginu)* · [Sound design: tři úkoly zvuku](../hudba/sound-design-ve-hre.md#tri-ukoly-herniho-zvuku) · [Rejstřík: game feel](../rejstrik.md#game-feel)
 
 ---
 

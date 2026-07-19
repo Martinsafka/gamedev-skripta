@@ -71,7 +71,7 @@ A ještě jedna praktická cesta, jak zájem otestovat dřív [(6:19)](https://w
 
 > **Pozn.:** Rozhovor je zároveň reklamou na Zukowského placený kurz a Indie Game Clinic z něj má podíl přes doporučující odkaz [(42:43)](https://www.youtube.com/watch?v=O7GoWKwEwIk&t=2563s) — obsah rozhovoru to nesnižuje, ale patří to k poctivému čtení zdroje. Za pozornost stojí i to, jak se oba mluvčí navzájem doplňují v tom, co neumí: **Chris o sobě opakovaně říká „nejsem designér", Joe „nejsem marketér"** — a právě tenhle rozdíl dělá rozhovor užitečným.
 
-**Souvislosti:** [Steam stránka](steam-stranka.md#tvar-stranky-capsule-a-short-description) · [Vydání hry: demo prodává](vydani-hry.md#demo-prodava-prototyp-validuje) · [Nápad: hook, anchor, appeal](napad.md#ctyri-zdroje-napadu-a-evaluace-hook-anchor-appeal) · [Rejstřík: wishlist](../rejstrik.md#wishlist) · [Rejstřík: Steam Next Fest](../rejstrik.md#steam-next-fest)
+**Souvislosti:** [Steam stránka](steam-stranka.md#tvar-stranky-capsule-a-short-description) · [Vydání hry: demo prodává](vydani-hry.md#demo-prodava-prototyp-validuje) · [Nápad: hook, anchor, appeal](napad.md#ctyri-zdroje-napadu-a-evaluace-hook-anchor-appeal) · [Přežít jako studio: wishlisty nezaplatí nájem](prezit-jako-studio.md#stesti-dovednost-a-veci-ktere-cisla-neukazou) · [Rejstřík: wishlist](../rejstrik.md#wishlist) · [Rejstřík: Steam Next Fest](../rejstrik.md#steam-next-fest)
 
 ---
 
@@ -121,4 +121,4 @@ A jedna poznámka, která zapadá do celku, i když působí jako odbočka [(28:
 
 > **Pozn.:** Nejlepší obhajobu networkingu má v rozhovoru Joe [(34:12)](https://www.youtube.com/watch?v=O7GoWKwEwIk&t=2052s): stará výtka „ten vývojář se zná s tím novinářem" míjí, jak věci fungují — **„tak přesně vznikají scény; tak vždycky vznikaly hudební scény a nezávislé filmy."** A na námitku „jsem jediný vývojář ve své zemi" odpovídá překvapivě: **možná můžeš další vývojáře ve své zemi vytvořit — být ten, kdo založí místní setkání.**
 
-**Souvislosti:** [Devlogy](devlogy.md#devlog-stoji-a-pada-se-scenarem) · [Steam stránka](steam-stranka.md#neviditelna-masinerie-embeds-lokalizace-tagy-datum) · [Sólo vývoj](solo-vyvoj.md#ukazuj-prubezne-showcase-demo-vertical-slice-launch-bez-skoku-do-tmy) · [Rejstřík: press kit](../rejstrik.md#press-kit)
+**Souvislosti:** [Devlogy](devlogy.md#devlog-stoji-a-pada-se-scenarem) · [Steam stránka](steam-stranka.md#neviditelna-masinerie-embeds-lokalizace-tagy-datum) · [Sólo vývoj](solo-vyvoj.md#ukazuj-prubezne-showcase-demo-vertical-slice-launch-bez-skoku-do-tmy) · [Přežít jako studio: e-maily tvůrcům](prezit-jako-studio.md#stesti-dovednost-a-veci-ktere-cisla-neukazou) *(marketing jako počitatelná práce)* · [Rejstřík: press kit](../rejstrik.md#press-kit)

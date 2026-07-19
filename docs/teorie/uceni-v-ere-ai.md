@@ -20,7 +20,7 @@
 
 A závěrečná ostrá pointa o podvádění: Chegg zabila AI, podvádění zůstalo — obojí jsou **symptomy** systému, který odměňuje artefakty místo učení [(9:34)](https://www.youtube.com/watch?v=BAgxGp2WEu4&t=574s). Při náboru stejně nakonec hledáš work ethic, řešitele problémů a týmové hráče — a takoví si AI osvojí sami [(11:07)](https://www.youtube.com/watch?v=BAgxGp2WEu4&t=667s). „AI cannot change people, but you can change AI" [(11:53)](https://www.youtube.com/watch?v=BAgxGp2WEu4&t=713s).
 
-**Souvislosti:** [Programátorské myšlení](programatorske-mysleni.md) · [Zápisek: Kvízový protokol](../zapisky/kvizovy-protokol.md) · [Matematika pro gamedev](matematika-pro-gamedev.md)
+**Souvislosti:** [Programátorské myšlení](programatorske-mysleni.md) · [Indie kariéra: proč AI neumí velký kód](indie-kariera.md#proc-ai-neumi-velky-kod-argument-o-omezenich) *(mělké vs. hluboké stavové chyby)* · [Zápisek: Kvízový protokol](../zapisky/kvizovy-protokol.md) · [Matematika pro gamedev](matematika-pro-gamedev.md)
 
 ---
 

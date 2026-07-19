@@ -22,7 +22,7 @@ A hranice metody [(34:21)](https://www.youtube.com/watch?v=uBxYGFRi-S4&t=2061s):
 
 > **Pozn.:** V závěru videa autor propaguje vlastní placenou službu review GDD na Fiverru [(35:11)](https://www.youtube.com/watch?v=uBxYGFRi-S4&t=2111s) — obsahu to neubírá, jen vězte, že závěrečná vstřícnost má i obchodní motiv. — Metoda je rozvinutí „nástěnky místo eseje" ze [startu projektu](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje): stejný instinkt (dokument, který skutečně otevřeš), tady dotažený do úplné šablony.
 
-**Souvislosti:** [Start projektu: design dokument](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje) · [Prototypování: tři brány](prototypovani.md#tri-brany-gameplay-prototyp-vertical-slice-produkce) · [Zápisky: GDD review](../zapisky/gdd-review.md) *(vlastní GDD proti téhle laťce)* · [Rejstřík: GDD](../rejstrik.md#game-design-document) · [Rejstřík: one-pager](../rejstrik.md#one-pager)
+**Souvislosti:** [Start projektu: design dokument](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje) · [Prototypování: tři brány](prototypovani.md#tri-brany-gameplay-prototyp-vertical-slice-produkce) · [Zápisky: GDD review](../zapisky/gdd-review.md) *(vlastní GDD proti téhle laťce)* · [Přežít jako studio: rychlost jako strategie](prezit-jako-studio.md#rychlost-jako-strategie-mmo-98-za-sest-tydnu) *(protipól: studio, které dokument u většiny her nepíše vůbec)* · [Rejstřík: GDD](../rejstrik.md#game-design-document) · [Rejstřík: one-pager](../rejstrik.md#one-pager)
 
 ---
 

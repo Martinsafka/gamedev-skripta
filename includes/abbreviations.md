@@ -1,4 +1,5 @@
 *[A/B test]: Dvě verze hry dvěma skupinám testerů — rozhodne chování, ne názor; testerům se často neříká nic.
+*[AAA]: Termín z financí, ne z kvality: největší a nejbezpečnější finanční sázky v oboru.
 *[Abstract class]: Třída, kterou nejde umístit do světa ani referencovat — existuje jen jako rodič pro děti.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
@@ -14,10 +15,12 @@
 *[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
 *[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
+*[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
 *[Backlog]: Zásobník všeho, co projekt čeká (úkoly i nápady); priority se z něj tahají po dávkách.
 *[Backpressure]: Producent rychlejší než konzument? Nebufferuj, nezahazuj — propaguj tlak zpět, ať zdroj zpomalí.
+*[Barbell strategie]: Sázej na oba krajní póly (bezpečné + riskantní), ne na průměr uprostřed.
 *[Barrier to play]: Překážka, kterou designér testovat nechtěl (ovládání, barvy) — dokud existuje, obtížnost neladíš.
 *[Beautiful corner]: Jeden malý kus hry v cílové kvalitě, zbytek v grayboxu — mikro vertical slice.
 *[Behavior Tree]: Rozhodovací strom AI: selectory a sequence volí tasky podle Blackboardu; decoratory hlídají podmínky.
@@ -35,6 +38,7 @@
 *[BPM]: Tempo v dobách za minutu; ukotví žánr a energii dřív než noty (lo-fi ~77, DnB ~170).
 *[Building in public]: Ukazuj pokrok a uvažování průběžně: viditelný pokrok = skončení přestává být neviditelné.
 *[Buoyancy]: Vztlak Water pluginu: pontoony (klasika) nebo od 5.7 Default Buoyancy Physics Material + Query and Probe.
+*[Burn rate]: Kolik peněz projekt spálí za měsíc či rok; krát délka vývoje = cena projektu.
 *[Cable Component]: Vestavěné simulované lano/kabel; konce jdou ukotvit, částice čte Get Cable Particle Locations.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
 *[Camera director]: Objekt vlastnící pravidla kamery pro oblast: hranice, výjimky, plynulé předání řízení.
@@ -51,6 +55,7 @@
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
+*[Constraints]: Nepsané dohody, se kterými musí souhlasit každý nový řádek kódu.
 *[Contact curve]: Animační křivka 0/1 „chodidlo na zemi" — řídí foot pinning; nahradila foot velocity curves.
 *[Content]: Vše, co jde opakovat s variacemi: levely, nepřátelé, příběh, odemykatelné věci.
 *[Content scheduling]: Kdy a jak často se věci dějí — rytmus obsahu; častá oprava hry, co „má vše a nudí".
@@ -86,11 +91,13 @@
 *[Elevator pitch]: Popis hry na délku jízdy výtahem, nejčastěji „X meets Y"; nesmí být redundantní ani nespojitelný.
 *[Environmental storytelling]: Vyprávění prostorem: rozmístění objektů a stopy používání říkají, co se tu stalo.
 *[EQ]: Zesílení či potlačení konkrétních frekvencí; čištění šumu a prosazení zvuku v mixu.
+*[Equity]: Podíl na firmě — nesplácí se jako půjčka, ale už se nikdy nevrátí.
 *[Eulerovy úhly]: Rotace jako yaw/pitch/roll v pevném pořadí — intuitivní, ale hrozí gimbal lock.
 *[EV100]: Jednotka expozice; min=max v PPV zamkne auto-exposure. 1 = modrá hodina, interiér 5–7, den ~13.
 *[Event dispatcher]: Rádio mezi Blueprinty: vlastník zavolá, všichni bindnutí posluchači dostanou event.
 *[Event Tick]: Blueprint event volaný každý snímek; polling, kterému se dobrý návrh vyhýbá.
 *[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
+*[Extremistan]: Prostředí, kde jeden vzorek převáží celý zbytek souboru (prodeje her).
 *[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
@@ -138,6 +145,7 @@
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
 *[Kontrapunkt]: Skládání nezávislých melodií, které fungují zároveň; odděluje profíky od amatérů.
+*[Kumulativní výhoda]: Kdo je vidět, je víc vidět — úspěch se sám zesiluje bez ohledu na kvalitu.
 *[Kvaternion]: Rotace čtyřmi čísly: bez gimbal locku, hladký slerp — výměnou za nulovou intuici.
 *[Landmark]: Výrazný orientační bod levelu; v postupu „landmark napřed" první rozhodnutí návrhu prostoru.
 *[Landscape]: Klasický terén UE: height mapa, jen nahoru/dolů; produkční volba, dokud Mesh Terrain nedozraje.
@@ -172,6 +180,7 @@
 *[Material function]: Znovupoužitelný blok materiálové logiky; s material attributes I/O funguje jako vrstva.
 *[Matice]: Lineární transformace: sloupce říkají, kam se přesunou osy; násobení = skládání transformací.
 *[MAYA]: Most Advanced Yet Acceptable — nejpokročilejší varianta, kterou publikum ještě přijme.
+*[McNamarův klam]: Co jde snadno změřit, se prohlásí za jediné důležité; metriky rostou, věc se prohrává.
 *[MCP]: Model Context Protocol — AI agent s kontextem a kontrolou editoru; od 5.8 nativně v UE (3 pluginy).
 *[MDA framework]: Mechanics→Dynamics→Aesthetics: kód → chování hráče → pocity; designér sahá jen na první článek.
 *[Mechanika]: Jednotka gameplaye z pravidel: sloveso hráče (skoč, seber) působící na herní svět.
@@ -211,6 +220,7 @@
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
 *[Parallax occlusion mapping]: Pixel-shader hloubka: posun UV dle kamery a height mapy; bez geometrie, siluety neumí.
+*[Pareto distribuce]: Mocninné rozdělení: malá menšina případů drží většinu celkové hodnoty.
 *[Particle system]: Emitter vystřelující sprity či modely a řídící jejich chování v čase.
 *[Pass by reference]: Předání odkazu místo kopie: změny vidí všichni sdílející originál. Kopíruju, nebo sdílím?
 *[Passing chord]: Průchozí akord mezi dvěma hlavními, který přemostí a rozbije jejich tok.
@@ -248,6 +258,7 @@
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
 *[Random pitch variation]: Náhodný posun výšky při každém přehrání; ubíjí mechanickou repetici opakovaného zvuku.
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
+*[Recoup]: Splacení investice vydavatele z tržeb, než se vývojáři začne vyplácet jeho podíl.
 *[Redirector]: Ghost soubor po přesunu assetu; před smazáním složky spusť Update Redirector References.
 *[Referenční transparentnost]: Volání funkce lze nahradit její hodnotou beze změny programu — žádné skryté závislosti.
 *[Refundace]: Vrácení peněz za hru; první srážka z hrubé tržby před podílem obchodu a daněmi.
@@ -265,6 +276,7 @@
 *[Rovnoměrně temperované ladění]: Oktáva dělená na 12 stejných kroků; čisté intervaly jen přibližuje (equal temperament).
 *[Rubber banding]: Umělá podpora hráče pozadu / brzda napřed; opravuje signal-to-noise na okrajích obtížnosti.
 *[Rubber duck debugging]: Vysvětli problém nahlas (třeba kachně) — řešení se často ukáže v půlce vysvětlování.
+*[Runway]: Kolik měsíců vydržíš pracovat, než dojdou peníze — ne kolik peněz máš.
 *[Sampling]: Použití kusu existující nahrávky jako materiálu nové skladby; pozor na práva.
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
 *[SCAMPER]: Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.
@@ -305,6 +317,7 @@
 *[Stupnice]: Sada tónů daná vzorcem půltónů a celých tónů; durová a mollová pokryjí většinu.
 *[Subsystem]: Automaticky vytvářený singleton s daným životním cyklem (engine/game instance/world); definice v C++.
 *[Subtraktivní syntéza]: Oscilátor generuje bohatý zvuk, filtr ubírá; řetězec oscilátor → filtr → obálka/LFO.
+*[Survivorship bias]: Vidíš jen ty, kdo přežili; neúspěšné pokusy z dohledu zmizely.
 *[SVD]: Každá matice = rotace → škálování se změnou dimenze → rotace (A = UΣVᵀ).
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
 *[Synkopa]: Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny melodie.

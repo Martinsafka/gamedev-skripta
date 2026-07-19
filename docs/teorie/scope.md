@@ -101,7 +101,7 @@ Nuance, kterou video zdůrazňuje [(37:19)](https://www.youtube.com/watch?v=sk4m
 
 Indie Game Clinic dodává, *jak* se ta opakování počítají [(46:15)](https://www.youtube.com/watch?v=sk4mpNuFGeE&t=2775s): hry jsou repetitivní — dokud hra nemá **zábavných pět minut**, nepotřebuje být hodinová, natož desetihodinová. Cyklus je udělej → otestuj s publikem → uprav → znovu; roky ladění bez playtestů nejsou vývoj, ale [leštění bez validace](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem). A k publiku [(45:19)](https://www.youtube.com/watch?v=sk4mpNuFGeE&t=2719s): najdi lidi se stejnými standardy, kteří ti řeknou, že něco stojí za nic — YouTube komentáře „looks nice" nejsou playtest [(44:30)](https://www.youtube.com/watch?v=sk4mpNuFGeE&t=2670s); vývoj hry a design hry nejsou totéž a to druhé bez hráčů neexistuje.
 
-**Souvislosti:** [Rady z praxe: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Začátky bez zkušeností](zacatky-bez-zkusenosti.md#sdileni-prace-neni-marketing-je-to-nastroj-uceni) · [Žrouti času](produktivita.md)
+**Souvislosti:** [Rady z praxe: the Gap](rady-z-praxe.md#the-gap-rozdil-mezi-to-je-hezky-a-tohle-musim-hrat) · [Přežít jako studio: backlog místo hitu](prezit-jako-studio.md#strategie-malych-her-backlog-misto-sazky-na-hit) *(sčítání malých her jako doložená ekonomika studia)* · [Začátky bez zkušeností](zacatky-bez-zkusenosti.md#sdileni-prace-neni-marketing-je-to-nastroj-uceni) · [Žrouti času](produktivita.md)
 
 ---
 

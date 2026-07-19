@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **80/116 published (dávky 20–26)**, 34 todo + 2 todo-lp. Nav téma „Design do hloubky" kompletní (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **86/116 published (dávky 20–27)**, 28 todo + 2 todo-lp. Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -535,16 +535,16 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 | published | [What nobody tells you about releasing a game on Steam...](https://www.youtube.com/watch?v=uQnIkK6BOLQ) `uQnIkK6BOLQ` | BiteMe Games | 21:34 | auto | 4874 | `teorie/vydani-hry.md` | co nikdo neřekne o vydání na Steamu · dávka 26 |
 | published | [Most Steam Demos Suck; Here's Why](https://www.youtube.com/watch?v=1vtqBTX2Lzc) `1vtqBTX2Lzc` | Indie Game Clinic | 18:35 | auto | 3540 | `teorie/vydani-hry.md` | proč většina dem nefunguje · dávka 26 |
 
-### Byznys, data a kariéra · `T-BIZ` (+6) ⭐ NOVÉ TÉMA
+### Byznys, data a kariéra · `T-BIZ` (+6) ⭐ NOVÉ TÉMA _(hotovo — dávka 27)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [I Analysed 62,000 Indie Developers. Here's What Actually Predicts Success](https://www.youtube.com/watch?v=WueQ75GP1wc) `WueQ75GP1wc` | Game Oracle | 16:07 | auto | 2660 | `teorie/data-o-uspechu.md` | 62k vývojářů — co predikuje úspěch |
-| todo | [I Scraped the Entire Steam Catalog, Here’s the Data](https://www.youtube.com/watch?v=qiNv3qv-YbU) `qiNv3qv-YbU` | Newbie Indie Game Dev | 11:28 | manual | 2101 | `teorie/data-o-uspechu.md` | scrape celého Steam katalogu |
-| todo | [Ultimate gamedev funding tierlist](https://www.youtube.com/watch?v=qjyPRnzlx8A) `qjyPRnzlx8A` | BiteMe Games | 40:06 | auto | 9139 | `teorie/financovani.md` | tierlist zdrojů financování (40 min) |
-| todo | [How To Make Indie Games In 2026 w/ Jonathan Blow — Full Time Game Dev Podcast Ep. 061](https://www.youtube.com/watch?v=yNdRv5LFuQk) `yNdRv5LFuQk` | Thomas Brush | 96:41 | auto | 20137 | `teorie/indie-kariera.md` | podcast Jonathan Blow (97 min) |
-| todo | [When is an Indie Game Not an Indie Game?](https://www.youtube.com/watch?v=CyX41iR08Pc) `CyX41iR08Pc` | Indie Game Clinic | 9:58 | auto | 2040 | `teorie/indie-kariera.md` | kdy indie není indie |
-| todo | [How BiteMe Games Survived 4 Years Without a Viral Game](https://www.youtube.com/watch?v=KehpqxUfz60) `KehpqxUfz60` | Dev Dream Pod with Blake Gocey | 103:20 | auto | 22461 | `teorie/prezit-jako-studio.md` | podcast BiteMe 4 roky (103 min) |
+| published | [I Analysed 62,000 Indie Developers. Here's What Actually Predicts Success](https://www.youtube.com/watch?v=WueQ75GP1wc) `WueQ75GP1wc` | Game Oracle | 16:07 | auto | 2660 | `teorie/data-o-uspechu.md` | vývojářů — Extremistan a křivka přežití · dávka 27 |
+| published | [I Scraped the Entire Steam Catalog, Here’s the Data](https://www.youtube.com/watch?v=qiNv3qv-YbU) `qiNv3qv-YbU` | Newbie Indie Game Dev | 11:28 | manual | 2101 | `teorie/data-o-uspechu.md` | scrape celého Steam katalogu — metodologie · dávka 27 |
+| published | [Ultimate gamedev funding tierlist](https://www.youtube.com/watch?v=qjyPRnzlx8A) `qjyPRnzlx8A` | BiteMe Games | 40:06 | auto | 9139 | `teorie/financovani.md` | tierlist zdrojů financování (40 min) · dávka 27 |
+| published | [How To Make Indie Games In 2026 w/ Jonathan Blow — Full Time Game Dev Podcast Ep. 061](https://www.youtube.com/watch?v=yNdRv5LFuQk) `yNdRv5LFuQk` | Thomas Brush | 96:41 | auto | 20137 | `teorie/indie-kariera.md` | podcast Jonathan Blow (97 min) — 3 myšlenky · dávka 27 |
+| published | [When is an Indie Game Not an Indie Game?](https://www.youtube.com/watch?v=CyX41iR08Pc) `CyX41iR08Pc` | Indie Game Clinic | 9:58 | auto | 2040 | `teorie/indie-kariera.md` | kdy indie není indie · dávka 27 |
+| published | [How BiteMe Games Survived 4 Years Without a Viral Game](https://www.youtube.com/watch?v=KehpqxUfz60) `KehpqxUfz60` | Dev Dream Pod with Blake Gocey | 103:20 | auto | 22461 | `teorie/prezit-jako-studio.md` | podcast BiteMe 4 roky (103 min) — 5 myšlenek · dávka 27 |
 
 ### Herní umění a vizuál · `T-ART` (+13) ⭐ NOVÉ TÉMA
 

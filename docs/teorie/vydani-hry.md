@@ -79,7 +79,7 @@ Video vzniklo z otázky, která se na fórech opakuje každý týden — „zapl
 
 > **Pozn.:** Detail, který se v návodech objevuje málokdy [(6:12)](https://www.youtube.com/watch?v=uQnIkK6BOLQ&t=372s): **dvoutýdenní slevy místo jednotýdenních**. Pauza mezi slevami je stejně dlouhá tak jako tak, takže při delší slevě dostaneš stejnou viditelnost a víc prodejů. Autor to sám nezkusil, ale slyší to od kolegů — a poctivě to jako neověřené označuje.
 
-**Souvislosti:** [Steam stránka](steam-stranka.md#neviditelna-masinerie-embeds-lokalizace-tagy-datum) · [Playtesting: kde brát testery](playtesting.md#moderovany-playtest-divej-se-co-delaji-ne-co-rikaji) *(titíž lidé napíšou první recenze)* · [Postmortem ShantyTown: ticho po launchi](postmortem-shantytown.md#wishlisty-next-fest-a-ticho-po-launchi) · [Rejstřík: wishlist](../rejstrik.md#wishlist)
+**Souvislosti:** [Steam stránka](steam-stranka.md#neviditelna-masinerie-embeds-lokalizace-tagy-datum) · [Playtesting: kde brát testery](playtesting.md#moderovany-playtest-divej-se-co-delaji-ne-co-rikaji) *(titíž lidé napíšou první recenze)* · [Postmortem ShantyTown: ticho po launchi](postmortem-shantytown.md#wishlisty-next-fest-a-ticho-po-launchi) · [Přežít jako studio: rychlost jako strategie](prezit-jako-studio.md#rychlost-jako-strategie-mmo-98-za-sest-tydnu) *(NextFest ze strany studia, které stránku pustilo čtyři dny předem)* · [Rejstřík: wishlist](../rejstrik.md#wishlist)
 
 ---
 
@@ -112,4 +112,4 @@ Závěr je proto varovný: **„nedělej tu chybu, že se podíváš na celkovou
 
 > **Pozn.:** Poslední rada je nečekaně měkká a stojí za citaci [(19:25)](https://www.youtube.com/watch?v=uQnIkK6BOLQ&t=1165s): **„launch je nejdůležitější událost v životním cyklu hry — víc než kterákoli část vývoje nebo cokoli po něm"**, a proto tě poslední týdny pohltí. Jenže pak **musíš uhasit ještě jeden požár: sám sebe.** Dej si týden — a jsi-li typ, který se z nicnedělání zblázní, ať je to **práce s nízkou sázkou**. A hlavně: **nepovažuj první nápad, který po vydání dostaneš, za hru, které dáš dalšího půl roku života.**
 
-**Souvislosti:** [Žrouti času: motivace a dokončování](produktivita.md#motivace-startuje-disciplina-dokoncuje) · [Scope: malé hry se sčítají](scope.md#male-hry-se-scitaji) *(proč je další hra lepší investice než záchrana téhle)* · [Postmortem ShantyTown](postmortem-shantytown.md#wishlisty-next-fest-a-ticho-po-launchi) · [Rejstřík: refundace](../rejstrik.md#refundace)
+**Souvislosti:** [Žrouti času: motivace a dokončování](produktivita.md#motivace-startuje-disciplina-dokoncuje) · [Scope: malé hry se sčítají](scope.md#male-hry-se-scitaji) *(proč je další hra lepší investice než záchrana téhle)* · [Data o úspěchu: křivka přežití](data-o-uspechu.md#krivka-preziti-proc-se-sance-zlepsuji-s-patou-hrou) · [Postmortem ShantyTown](postmortem-shantytown.md#wishlisty-next-fest-a-ticho-po-launchi) · [Rejstřík: refundace](../rejstrik.md#refundace)

@@ -1,4 +1,4 @@
-# Chapter map — generated 2026-07-18 by `scripts/build_chapter_map.py`. Do not edit by hand.
+# Chapter map — generated 2026-07-19 by `scripts/build_chapter_map.py`. Do not edit by hand.
 
 Routing catalog for audit findings. Base URL: https://martinsafka.github.io/gamedev-skripta/
 Slugs and anchors are public API (see agent_docs/architecture.md) — they never get renamed.
@@ -76,6 +76,12 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [První dojem](https://martinsafka.github.io/gamedev-skripta/teorie/prvni-dojem/) — Marketing nekončí kliknutím na „koupit" — první minuta po spuštění hry je pořád ještě první dojem. Tahle malá kapitola pokrývá tři detaily, které oddělují „levnou indie hru" od „hotového…
 - [Devlogy](https://martinsafka.github.io/gamedev-skripta/teorie/devlogy/) — Devlog — video o vývoji vlastní hry — je oblíbený marketingový kanál indie vývojářů a zároveň žánr plný mizerných exemplářů. Autor Isidora's Edge natočil obojí (a měří si to), takže jeho…
 - [Vydání hry](https://martinsafka.github.io/gamedev-skripta/teorie/vydani-hry/) — O tom, jak hru udělat, existují tisíce videí. O tom, co se děje ve chvíli, kdy je hotová, skoro žádná — a přitom právě tam se rozhoduje, jestli si jí někdo všimne. Tahle kapitola spojuje…
+
+### Byznys, data a kariéra
+- [Data o úspěchu](https://martinsafka.github.io/gamedev-skripta/teorie/data-o-uspechu/) — „Pět procent her na Steamu tvoří skoro devadesát procent všech prodejů." Takové číslo se dá číst dvěma způsoby: jako důkaz, že to nemá cenu zkoušet, nebo jako popis mechanismu, který se dá…
+- [Financování](https://martinsafka.github.io/gamedev-skripta/teorie/financovani/) — Dělat hry je zábava, ale jíst se z toho musí taky. Belgické studio BiteMe Games prošlo v tierlistu jedenáct způsobů, jak vývoj zaplatit — a protože většinu z nich sami zkoušeli nebo mluvili…
+- [Indie kariéra](https://martinsafka.github.io/gamedev-skripta/teorie/indie-kariera/) — Slovo „indie" nese dvě věci najednou — způsob financování a druh her, který z něj vzniká — a když se ty dvě věci rozejdou, začnou spory o to, kdo je ještě indie a kdo už ne. Tahle kapitola…
+- [Přežít jako studio](https://martinsafka.github.io/gamedev-skripta/teorie/prezit-jako-studio/) — Většina rozhovorů o indie vývoji je s někým, komu to vyšlo. Tenhle je s někým, komu to zatím nevyšlo velkolepě — a právě proto je nejužitečnější zdroj o penězích v celé knihovně. Tříčlenné…
 
 ### Rešerše: slovanská mytologie
 - [Bestiář](https://martinsafka.github.io/gamedev-skripta/teorie/slovanska-monstra/) — Rešeršní kapitola pro herní setting: přehled bytostí slovanské mytologie tak, jak je shrnuje kanál Slavique — s opravenými jmény (auto-titulky slovanská jména spolehlivě mrzačí) a s…
@@ -203,6 +209,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 
 ## Rejstřík (term → anchor)
 
+- [AAA](https://martinsafka.github.io/gamedev-skripta/rejstrik/#aaa)
 - [A/B test](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ab-test)
 - [Abstract class](https://martinsafka.github.io/gamedev-skripta/rejstrik/#abstract-class)
 - [ADSR](https://martinsafka.github.io/gamedev-skripta/rejstrik/#adsr)
@@ -220,10 +227,12 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Art bible](https://martinsafka.github.io/gamedev-skripta/rejstrik/#art-bible)
 - [Aspirační obtížnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#aspiracni-obtiznost)
 - [Asset pack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#asset-pack)
+- [Astroturfing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#astroturfing)
 - [Attenuation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation)
 - [B-roll](https://martinsafka.github.io/gamedev-skripta/rejstrik/#b-roll)
 - [Backlog](https://martinsafka.github.io/gamedev-skripta/rejstrik/#backlog)
 - [Backpressure](https://martinsafka.github.io/gamedev-skripta/rejstrik/#backpressure)
+- [Barbell strategie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#barbell-strategie)
 - [Barrier to play](https://martinsafka.github.io/gamedev-skripta/rejstrik/#barrier-to-play)
 - [Behavior Tree](https://martinsafka.github.io/gamedev-skripta/rejstrik/#behavior-tree)
 - [Beta](https://martinsafka.github.io/gamedev-skripta/rejstrik/#beta)
@@ -241,6 +250,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [BPM](https://martinsafka.github.io/gamedev-skripta/rejstrik/#bpm)
 - [Building in public](https://martinsafka.github.io/gamedev-skripta/rejstrik/#building-in-public)
 - [Buoyancy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#buoyancy)
+- [Burn rate](https://martinsafka.github.io/gamedev-skripta/rejstrik/#burn-rate)
 - [Cable Component](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cable-component)
 - [Call to action](https://martinsafka.github.io/gamedev-skripta/rejstrik/#call-to-action)
 - [Capsule](https://martinsafka.github.io/gamedev-skripta/rejstrik/#capsule)
@@ -257,6 +267,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Cognitive load](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cognitive-load)
 - [Cold open](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cold-open)
 - [Collision preset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#collision-preset)
+- [Constraints](https://martinsafka.github.io/gamedev-skripta/rejstrik/#constraints)
 - [Content](https://martinsafka.github.io/gamedev-skripta/rejstrik/#content)
 - [Contact curve](https://martinsafka.github.io/gamedev-skripta/rejstrik/#contact-curve)
 - [Content scheduling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#content-scheduling)
@@ -292,11 +303,13 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Elevator pitch](https://martinsafka.github.io/gamedev-skripta/rejstrik/#elevator-pitch)
 - [Environmental storytelling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#environmental-storytelling)
 - [EQ](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eq)
+- [Equity](https://martinsafka.github.io/gamedev-skripta/rejstrik/#equity)
 - [Eulerovy úhly](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eulerovy-uhly)
 - [EV100](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ev100)
 - [Event dispatcher](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-dispatcher)
 - [Event Tick](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-tick)
 - [Expresivní mechanika](https://martinsafka.github.io/gamedev-skripta/rejstrik/#expresivni-mechanika)
+- [Extremistan](https://martinsafka.github.io/gamedev-skripta/rejstrik/#extremistan)
 - [Find the fun](https://martinsafka.github.io/gamedev-skripta/rejstrik/#find-the-fun)
 - [Flow](https://martinsafka.github.io/gamedev-skripta/rejstrik/#flow)
 - [Foley](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foley)
@@ -343,6 +356,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Legibilita](https://martinsafka.github.io/gamedev-skripta/rejstrik/#legibilita)
 - [Konsonance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#konsonance)
 - [Kontrapunkt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#kontrapunkt)
+- [Kumulativní výhoda](https://martinsafka.github.io/gamedev-skripta/rejstrik/#kumulativni-vyhoda)
 - [Kvaternion](https://martinsafka.github.io/gamedev-skripta/rejstrik/#kvaternion)
 - [Jump scare](https://martinsafka.github.io/gamedev-skripta/rejstrik/#jump-scare)
 - [Landmark](https://martinsafka.github.io/gamedev-skripta/rejstrik/#landmark)
@@ -377,6 +391,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Mass Entity](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mass-entity)
 - [Material function](https://martinsafka.github.io/gamedev-skripta/rejstrik/#material-function)
 - [Matice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#matice)
+- [McNamarův klam](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mcnamaruv-klam)
 - [MCP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mcp)
 - [MDA framework](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mda-framework)
 - [Mechanika](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mechanika)
@@ -415,6 +430,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Overlay state](https://martinsafka.github.io/gamedev-skripta/rejstrik/#overlay-state)
 - [Pacing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pacing)
 - [Parallax occlusion mapping](https://martinsafka.github.io/gamedev-skripta/rejstrik/#parallax-occlusion-mapping)
+- [Pareto distribuce](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pareto-distribuce)
 - [Particle system](https://martinsafka.github.io/gamedev-skripta/rejstrik/#particle-system)
 - [Pass by reference](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pass-by-reference)
 - [Passing chord](https://martinsafka.github.io/gamedev-skripta/rejstrik/#passing-chord)
@@ -453,6 +469,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Race condition](https://martinsafka.github.io/gamedev-skripta/rejstrik/#race-condition)
 - [Random pitch variation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#random-pitch-variation)
 - [Recall priming](https://martinsafka.github.io/gamedev-skripta/rejstrik/#recall-priming)
+- [Recoup](https://martinsafka.github.io/gamedev-skripta/rejstrik/#recoup)
 - [Refundace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#refundace)
 - [Redirector](https://martinsafka.github.io/gamedev-skripta/rejstrik/#redirector)
 - [Referenční transparentnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#referencni-transparentnost)
@@ -470,6 +487,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Rovnoměrně temperované ladění](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rovnomerne-temperovane-ladeni)
 - [Rubber banding](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rubber-banding)
 - [Rubber duck debugging](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rubber-duck-debugging)
+- [Runway](https://martinsafka.github.io/gamedev-skripta/rejstrik/#runway)
 - [Sampling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sampling)
 - [SaveGame objekt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#savegame-objekt)
 - [SCAMPER](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scamper)
@@ -510,6 +528,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Stupnice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#stupnice)
 - [Subsystem](https://martinsafka.github.io/gamedev-skripta/rejstrik/#subsystem)
 - [Subtraktivní syntéza](https://martinsafka.github.io/gamedev-skripta/rejstrik/#subtraktivni-synteza)
+- [Survivorship bias](https://martinsafka.github.io/gamedev-skripta/rejstrik/#survivorship-bias)
 - [SVD](https://martinsafka.github.io/gamedev-skripta/rejstrik/#svd)
 - [Sync marker](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sync-marker)
 - [Tagy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tagy)

@@ -63,7 +63,7 @@ Zvolená emoce se pak stává **filtrem na features** [(22:48)](https://www.yout
 
 > **Pozn.:** Čtveřice power/cozy/tension/wonder je zjednodušení (akademické modely emocí ve hrách jsou bohatší — MDA framework mluví o osmi „aesthetics"), ale pro sólo vývojáře je právě proto použitelná: čtyři šuplíky, vyber jeden, drž ho.
 
-**Souvislosti:** [Smyčky a řetězce](smycky-a-retezce.md) · [Jak udělat cokoli zábavným](zabava.md) · [Rejstřík: core loop](../rejstrik.md#core-loop)
+**Souvislosti:** [Smyčky a řetězce](smycky-a-retezce.md) · [Jak udělat cokoli zábavným](zabava.md) · [Přežít jako studio: doručovací brašna](prezit-jako-studio.md#strategie-malych-her-backlog-misto-sazky-na-hit) *(fantazie cvakne beze změny mechaniky)* · [Rejstřík: core loop](../rejstrik.md#core-loop)
 
 ---
 

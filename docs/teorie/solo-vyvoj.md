@@ -18,7 +18,7 @@ Devět let profesionální praxe (AAA i vlastní indie tituly) zhuštěných do 
 
 **Red vs. blue ocean** [(4:47)](https://www.youtube.com/watch?v=my8euq9bzFQ&t=287s): červený oceán = přeplněné žánry s etablovaným publikem (battle royale, souls-like), kde se soutěží zdroji; modrý oceán = prostor bez konkurence, kde hra vytváří novou poptávku (Minecraft, Undertale) [(5:35)](https://www.youtube.com/watch?v=my8euq9bzFQ&t=335s). Indie bez rozpočtu velkých studií má podle autora mířit do modrého — unikátní perspektiva nebo twist [(6:21)](https://www.youtube.com/watch?v=my8euq9bzFQ&t=381s). A scope k tomu: 3–5 hodin obsahu, nebo replayabilita (roguelike, endless) místo dvacetihodinového eposu; první projekt dokončený do roka při práci po večerech [(6:21)](https://www.youtube.com/watch?v=my8euq9bzFQ&t=381s).
 
-**Souvislosti:** [Scope a malé hry](scope.md) · [Rady z praxe](rady-z-praxe.md) · [Co prodává](co-prodava.md) · [Rejstřík: Blue ocean](../rejstrik.md#blue-ocean)
+**Souvislosti:** [Scope a malé hry](scope.md) · [Data o úspěchu: jak číst katalog Steamu](data-o-uspechu.md#jak-cist-katalog-steamu-metodologie-a-hledani-mezer) *(hledání modrého oceánu v datech)* · [Rady z praxe](rady-z-praxe.md) · [Co prodává](co-prodava.md) · [Rejstřík: Blue ocean](../rejstrik.md#blue-ocean)
 
 ---
 
@@ -40,7 +40,7 @@ Devět let profesionální praxe (AAA i vlastní indie tituly) zhuštěných do 
 
 > **Pozn.:** Tohle je třetí nezávislý zdroj v knihovně, který říká „všechno sám neuděláš" — po [BiteMe počtech](produktivita.md#vsechno-sam-neudelas-a-nemas) a ShantyTown praxi. Když se tři praktici shodnou, ber to jako uzavřenou otázku.
 
-**Souvislosti:** [Start projektu](jak-zacit.md) · [Organizace projektu](../praxe/organizace-projektu.md) · [AI assety](../praxe/ai-assety.md) · [Rejstřík: Version control](../rejstrik.md#version-control) · [Rejstřík: Game Design Document](../rejstrik.md#game-design-document)
+**Souvislosti:** [Start projektu](jak-zacit.md) · [Organizace projektu](../praxe/organizace-projektu.md) · [AI assety](../praxe/ai-assety.md) · [Přežít jako studio: assety jako designový prompt](prezit-jako-studio.md#assety-jako-designovy-prompt) *(nakupovat místo najímat — a jak z toho udělat metodu)* · [Rejstřík: Version control](../rejstrik.md#version-control) · [Rejstřík: Game Design Document](../rejstrik.md#game-design-document)
 
 ---
 

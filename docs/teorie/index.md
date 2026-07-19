@@ -86,6 +86,13 @@ Témata a kapitoly:
 - **[Devlogy](devlogy.md)** — devlog jako řemeslo: scénář psaný nahlas, showcase vs. story a záběry starých verzí z commit historie.
 - **[Vydání hry](vydani-hry.md)** — demo prodává a prototyp validuje, vertikální vs. horizontální řez, prvních deset recenzí a rytmus slev — a co ti z hrubé tržby reálně zbyde.
 
+**Byznys, data a kariéra**
+
+- **[Data o úspěchu](data-o-uspechu.md)** — proč se prodeje her nedají průměrovat: Extremistan a tři mechanismy, křivka přežití napříč pěti hrami, McNamarův klam a jak číst katalog Steamu.
+- **[Financování](financovani.md)** — vydavatel jako banka, ne dárce: recoup, granty, inkubátory a equity — a co si udrží kontrolu, když peníze přijdou odjinud.
+- **[Indie kariéra](indie-kariera.md)** — co slovo indie vlastně znamená, ekonomika desetiletého projektu, kdy se vyplatí vlastní nástroje a proč AI neudrží velký kód.
+- **[Přežít jako studio](prezit-jako-studio.md)** — čtyři roky bez hitu zblízka: runway a rozdělené riziko, backlog malých her, rychlost jako strategie a poctivá řeč o štěstí.
+
 **Rešerše: slovanská mytologie**
 
 - **[Bestiář](slovanska-monstra.md)** — od Baby Jagy po Kostěje: bytosti jako systémy s pravidly, obětinami a tabu.
