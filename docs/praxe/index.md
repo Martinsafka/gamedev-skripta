@@ -73,27 +73,27 @@ Témata a kapitoly:
 
 **Prostředí a environment art**
 
-- **[Breakdowny: jak se staví herní světy](env-breakdowny.md)** — San Francisco 1:1 od jednoho člověka, The Ascent (4 artisti, jeden shader), TLOU trim sheety, RE Requiem vrstvy realismu a detektivka kolem Crimson Desert.
-- **[Stavba prostředí: od kompozice po render](env-tvorba.md)** — chiaroscuro test před settingy, 132minutová lesní pěšina v PCG (vegetace, decaly, fyzikální světlo, MRQ), temný les za odpoledne a zvuk + listí jako finální vrstva.
+- **[Breakdowny: jak se staví herní světy](env-breakdowny.md)** — San Francisco 1:1 od jednoho člověka, The Ascent (4 artisti, jeden shader), TLOU trim sheety a Naughty Dog pipeline (shadery místo polygonů, Houdini nástroj místo modelování), RE Requiem vrstvy realismu a detektivka kolem Crimson Desert.
+- **[Stavba prostředí: od kompozice po render](env-tvorba.md)** — chiaroscuro test před settingy, 132minutová lesní pěšina v PCG (vegetace, decaly, fyzikální světlo, MRQ), temný les za odpoledne, zvuk a listí jako finální vrstva — a přestavba hororovky, kterou si vynutila Steam stránka.
 
 **Materiály a VFX**
 
-- **[Materiály: sdílení, displacement, decay a toon](materialy.md)** — master material se sdílenými texturami, Nanite displacement malovaný vertex colorem, procedurální decay systém (krev/špína/toxin jednou material function + zóny s timeline) a toon shading z 5.8.
+- **[Materiály: sdílení, displacement, decay a toon](materialy.md)** — master material se sdílenými texturami, Nanite displacement malovaný vertex colorem, procedurální decay systém (krev/špína/toxin jednou material function + zóny s timeline), toon shading z 5.8 a tvorba VFX textur v Kritě (plus noise vypečený přímo v Unrealu).
 
 **Osvětlení a atmosféra**
 
-- **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu a rychlé triky.
+- **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu, rychlé triky — a proti PBL postavené malování světlem z falešných zdrojů plus volumetrika přes EVDB.
 
 **Rendering a optimalizace**
 
-- **[Optimalizace scény: draw cally, Nanite a foliage](optimalizace.md)** — proč jsou levely pomalé (ISM → packed level actors → data layers), Nanite vs. LODy bez ideologie, voxelizace proti overdraw a dvoudílná foliage optimalizace v kontextu hry.
+- **[Optimalizace scény: draw cally, Nanite a foliage](optimalizace.md)** — proč jsou levely pomalé (ISM → packed level actors → data layers), Nanite vs. LODy bez ideologie, voxelizace proti overdraw, dvoudílná foliage optimalizace v kontextu hry a druhá osa problému: co blokuje hlavní vlákno.
 - **[Textury a DLSS: paměť a rozlišení](textury-a-dlss.md)** — right-sizing textur (normálka nese detail), unikátní textury vs. atlas vs. virtual textures a DLSS 4.5 s kompenzací mip biasu.
 
 **AI nástroje ve vývoji**
 
-- **[AI agenti: Claude Code a MCP v enginu](claude-code-ue.md)** — nativní MCP v 5.8 (setup a první testy), komunitní cesta s endless runner stress testem, agent v Blenderu a ComfyUI, 72hodinová hra jako mapa dělby člověk–AI, produkty okolo a Convai NPC.
-- **[AI assety: z obrázku po postavu v enginu](ai-assety.md)** — bezplatná pipeline za hodinu, srovnání Tripo/Hunyuan/Rodin s cenami, hratelná postava v tandemu, modulární systém s AccuRigem, konverze na MetaHumana v 5.8 a AI animace Kimodo + 2D PixelLab.
+- **[AI agenti: Claude Code a MCP v enginu](claude-code-ue.md)** — nativní MCP v 5.8 (setup a první testy), komunitní cesta s endless runner stress testem, agent v Blenderu a ComfyUI, 72hodinová hra jako mapa dělby člověk–AI, proč nativní MCP samo nestačí (a stavba přes PCG, aby výsledek zůstal ovladatelný), produkty okolo a Convai NPC.
+- **[AI assety: z obrázku po postavu v enginu](ai-assety.md)** — bezplatná pipeline za hodinu, srovnání Tripo/Hunyuan/Rodin s cenami, hratelná postava v tandemu, modulární systém s AccuRigem, konverze na MetaHumana v 5.8, AI animace Kimodo + 2D PixelLab a real-time generace pohybu ovládaná klávesnicí (ARDY).
 
 **Editor a workflow**
 
-- **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.
+- **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu i jeho pětikroková metoda s chunkingem a rutinou), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.

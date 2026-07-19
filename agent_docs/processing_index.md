@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **98/116 published (dávky 20–28)**, 16 todo + 2 todo-lp. Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
+**Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **107/116 published (dávky 20–29)**, 7 todo + 2 todo-lp. Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
 
@@ -610,40 +610,40 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Understanding Expanse for Unreal Engine \| Complete Beginner Tutorial](https://www.youtube.com/watch?v=rky_GNM0EZs) `rky_GNM0EZs` | SARKAMARI | 23:44 | auto | 3435 | `praxe/osvetleni.md` | rozšíření: Expanse — volumetrická obloha (EVDB) |
-| todo | [Lighting Hacks Got My Project Featured on Unreal Engine 5 Page 😯 \| Tips & Tricks You Should Know](https://www.youtube.com/watch?v=H2Jfs7nDKh0) `H2Jfs7nDKh0` | Karim Yasser | 15:22 | manual | 2484 | `praxe/osvetleni.md` | rozšíření: lighting hacky |
-| todo | [How I Made My Horror Game Look 10x Better \| DEVLOG](https://www.youtube.com/watch?v=D4n7BeKNOtg) `D4n7BeKNOtg` | AkulDev | 8:30 | auto | 1954 | `praxe/osvetleni.md` | devlog horor vzhled; naváže na entry o hororu ve vrstvách |
+| published | [Understanding Expanse for Unreal Engine \| Complete Beginner Tutorial](https://www.youtube.com/watch?v=rky_GNM0EZs) `rky_GNM0EZs` | SARKAMARI | 23:44 | auto | 3435 | `praxe/osvetleni.md` | rozšíření: Expanse a EVDB objemy · dávka 29 |
+| published | [Lighting Hacks Got My Project Featured on Unreal Engine 5 Page 😯 \| Tips & Tricks You Should Know](https://www.youtube.com/watch?v=H2Jfs7nDKh0) `H2Jfs7nDKh0` | Karim Yasser | 15:22 | manual | 2484 | `praxe/osvetleni.md` | rozšíření: malování světlem (protipól PBL) · dávka 29 |
+| published | [How I Made My Horror Game Look 10x Better \| DEVLOG](https://www.youtube.com/watch?v=D4n7BeKNOtg) `D4n7BeKNOtg` | AkulDev | 8:30 | auto | 1954 | `praxe/env-tvorba.md` | rozšíření: přestavba kvůli Steam stránce (přesun z osvetleni) · dávka 29 |
 
 ### Materiály a VFX · `P-MAT` (+1)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [VFX Texture Creation: The ULTIMATE guide](https://www.youtube.com/watch?v=dMthnzpR-eU) `dMthnzpR-eU` | Le Lu | 28:46 | auto | 4089 | `praxe/materialy.md` | rozšíření: VFX textury (29 min) |
+| published | [VFX Texture Creation: The ULTIMATE guide](https://www.youtube.com/watch?v=dMthnzpR-eU) `dMthnzpR-eU` | Le Lu | 28:46 | auto | 4089 | `praxe/materialy.md` | rozšíření: VFX textury (29 min) · dávka 29 |
 
 ### Prostředí a environment art · `P-ENV` (+1)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [How Naughty Dog Automates AAA Art (TLOU Part 1)](https://www.youtube.com/watch?v=dqfvgA7oKC4) `dqfvgA7oKC4` | Next Level Game Art | 11:42 | auto | 1922 | `praxe/env-breakdowny.md` | rozšíření: Naughty Dog shader pipeline (TLOU už v kapitole) |
+| published | [How Naughty Dog Automates AAA Art (TLOU Part 1)](https://www.youtube.com/watch?v=dqfvgA7oKC4) `dqfvgA7oKC4` | Next Level Game Art | 11:42 | auto | 1922 | `praxe/env-breakdowny.md` | rozšíření: Naughty Dog shadery a Houdini nástroj · dávka 29 |
 
 ### Rendering a optimalizace · `P-PERF` (+1)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Game Dev Secrets: Multithreaded Optimization! #indiegamedev #gamedev](https://www.youtube.com/watch?v=44hfu7ELgVc) `44hfu7ELgVc` | Inbound Shovel | 1:46 | auto | 480 | `praxe/optimalizace.md` | short 1:46 — multithreading; drobnost/Pozn. |
+| published | [Game Dev Secrets: Multithreaded Optimization! #indiegamedev #gamedev](https://www.youtube.com/watch?v=44hfu7ELgVc) `44hfu7ELgVc` | Inbound Shovel | 1:46 | auto | 480 | `praxe/optimalizace.md` | rozšíření: hlavní vlákno a multithreading (short) · dávka 29 |
 
 ### AI nástroje ve vývoji · `P-AITOOLS` (+2)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [NVIDIA ARDY: The Real-Time Leap in AI Animation (Open-Source)](https://www.youtube.com/watch?v=xLf27GC0-hE) `xLf27GC0-hE` | Stefan 3D AI | 6:18 | manual | 1158 | `praxe/ai-assety.md` | rozšíření: NVIDIA ARDY — AI animace real-time |
-| todo | [Claude And New UE 5.8 MCP is Crazy Good (But I made it better)](https://www.youtube.com/watch?v=I5WLl4MdK28) `I5WLl4MdK28` | Stefan 3D AI | 16:46 | manual | 3263 | `praxe/claude-code-ue.md` | rozšíření: MCP v UE 5.8 (Stefan 3D AI) |
+| published | [NVIDIA ARDY: The Real-Time Leap in AI Animation (Open-Source)](https://www.youtube.com/watch?v=xLf27GC0-hE) `xLf27GC0-hE` | Stefan 3D AI | 6:18 | manual | 1158 | `praxe/ai-assety.md` | rozšíření: NVIDIA ARDY — real-time AI animace · dávka 29 |
+| published | [Claude And New UE 5.8 MCP is Crazy Good (But I made it better)](https://www.youtube.com/watch?v=I5WLl4MdK28) `I5WLl4MdK28` | Stefan 3D AI | 16:46 | manual | 3263 | `praxe/claude-code-ue.md` | rozšíření: proč nativní MCP samo nestačí + PCG metoda · dávka 29 |
 
 ### Editor a workflow · `P-EDITOR` (+3)
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [The Best Way To Learn Unreal Engine in 2026!](https://www.youtube.com/watch?v=Nn9F341Vwy0) `Nn9F341Vwy0` | Unreal University | 11:02 | auto | 2295 | `praxe/editor-tipy.md` | rozšíření: jak se učit UE (2026) |
+| published | [The Best Way To Learn Unreal Engine in 2026!](https://www.youtube.com/watch?v=Nn9F341Vwy0) `Nn9F341Vwy0` | Unreal University | 11:02 | auto | 2295 | `praxe/editor-tipy.md` | rozšíření: pětikroková metoda učení (chunking, rutina) · dávka 29 |
 | todo-lp | [Unreal Engine 5 \| Blueprint For Beginners (2026)](https://www.youtube.com/watch?v=c6qW2NP8TP4) `c6qW2NP8TP4` | Smart Poly | 159:31 | manual | 29574 | — | LOW-PRIORITY: beginner kurz 160 min (jako dB-pS8PHALY) |
 | todo-lp | [Unreal Engine 5.8 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5  #megascans #cgi](https://www.youtube.com/watch?v=FAo9nfWYPSE) `FAo9nfWYPSE` | Magnet VFX | 88:12 | auto | 11655 | — | LOW-PRIORITY: starter kurz 88 min |
 

@@ -111,3 +111,33 @@ Materiálová kapitola pokrývá čtyři různě velké myšlenky: **master mate
 > **Pozn.:** Substrate a toon model jsou čerstvé — chování (např. měkké odrazy při nízké roughness) se může mezi verzemi měnit. Anisotropy vstup existuje (protahuje odlesk jako dno pánve), ale stojí extra a autor ho doporučuje spíš neřešit [(29:37)](https://www.youtube.com/watch?v=iMJJYXHMw4o&t=1777s).
 
 **Souvislosti:** [Decay I: material attributes vzor](#decay-system-i-jedna-material-function-pro-krev-spinu-i-toxin) · [Rejstřík: toon shading](../rejstrik.md#toon-shading) · [Rejstřík: silueta](../rejstrik.md#silueta)
+
+---
+
+## VFX textury: nedělat je, a když už, tak v Kritě
+
+**Zdroj:** [VFX Texture Creation: The ULTIMATE guide](https://www.youtube.com/watch?v=dMthnzpR-eU) · [Le Lu](https://www.youtube.com/channel/UCLYiSRFVyFVq72ZRLzQnSEQ) · ~29 min, přehled nástrojů a technik
+
+**Shrnutí:** Textury jsou podle autora *„tajná ingredience skvělých efektů — je úžasné, jak jediná změna textury dokáže úplně proměnit vzhled a pocit z efektu"*; identita her jako Hades nebo League of Legends stojí i na nich. Nejcennější rada přesto zní **nedělat si je**, dokud nemusíš. A když musíš, stačí k tomu jeden bezplatný program — **Krita** — plus jeden trik, o kterém většina lidí neví: **noise textury si můžeš vypéct přímo v Unrealu.**
+
+### Rozpad myšlenky
+
+**Nejdřív ta rada, která ušetří nejvíc času** [(2:43)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=163s). Autor odkazuje na GDC přednášku Simona Trumplera „jak *ne*dělat textury pro VFX" a shrnuje ji takhle: *„nemusíš si dělat všechny textury pro všechny efekty — hlavně u běžných věcí jako výbuchy, blesky nebo oheň. Ty se dají relativně snadno najít online, i zdarma."* Závěr je rozhodovací pravidlo, ne lenost: **vyrob si jen ty textury, které dělají tvou hru rozpoznatelnou**, zbytek stáhni. Zdroje jmenuje konkrétní: databáze texturových a štětcových packů (většina zdarma, stačí uvést autora) a **online generátory**, kde se posuvníky mění polar conversion, dlaždicovatelnost či normal mapa a výstup jde stáhnout i jako **animovaná textura** [(5:08)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=308s).
+
+**Krita jako jediný nástroj**, pokud si smíš vybrat jen jeden [(1:10)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=70s): *„je úplně zdarma a používám ji pořád."* Ze všech štětců používá čtyři až pět a každý má konkrétní roli [(8:59)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=539s): základní pro tvary, tlakový pro ruční malbu na tabletu, **airbrush** pro měkké přechody, **blending brush** (v F5 se dá stáhnout hustota) pro *„vlny, vítr a pohybové textury"* a **scatter brush**, kterému lze podstrčit vlastní texturu a nastavit rozestup.
+
+Tři techniky, které dělají většinu práce:
+
+- **Symetrie místo kreslení** [(10:33)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=633s): curve tool se zapnutou symetrií udělá **srdce na tři kliknutí**; line tool s horizontální symetrií a výplní **hvězdu na čtyři**. U jednoduchých tvarových textur je tohle celý workflow.
+- **Wrap-around mód** [(11:49)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=709s): zobrazí kresbu opakovaně vedle sebe, takže *„mám kompletní přehled o opakování a můžu ručně opravit všechny problémy"* — dlaždicovatelnost se řeší za chodu, ne dodatečně.
+- **Multibrush** [(13:58)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=838s): tah se promítne symetricky do zvoleného počtu os (autor zkouší osm) a v režimu sněhové vločky vznikají použitelné vzory prakticky improvizací.
+
+**Filtry, které stojí za zapamatování** [(14:26)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=866s): **rozostření na duplikované vrstvě = záře** (*„čím víc vrstev duplikuješ, tím intenzivnější ta záře je"*), a z rozšíření G'MIC-Qt pak deformace, spirálový efekt a **morfologický filtr na rozpouštění**, který autor *„používá hodně pro lávu a oheň"* [(16:48)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=1008s).
+
+**Trik s kanály ve Photoshopu** [(17:35)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=1055s) je jediná věc, kvůli které autor tenhle placený program otevírá: invertovat texturu, v panelu kanálů si přes červený kanál vytáhnout **výběr podle kontrastu** a ten přenést do nové vrstvy. *„Používám to hodně na decaly, poškození, díry po kulkách nebo krev."* Je to nejrychlejší cesta z fotky na alfa masku.
+
+**A pak ta část, kterou většina lidí nezná** [(27:02)](https://www.youtube.com/watch?v=dMthnzpR-eU&t=1622s): *„spousta lidí neví, že některé enginy včetně Unrealu mají vestavěné generátory noise. V material graphu najdeš různé noise a shape uzly — zkombinuješ je a pak přes **render target** vypečeš materiál do textury a vyexportuješ. Takhle většina mých noise textur vznikla."* Pro nás to znamená konkrétní věc: **na noise nepotřebuješ žádný externí nástroj** a výsledek si můžeš ladit tam, kde uvidíš, jak vypadá ve hře.
+
+> **Pozn.:** Zbytek videa je poctivé zhodnocení nástrojů, ze kterého stojí za převzetí hlavně **varování před Blenderem na tenhle účel**: *„technicky v něm textury vyrobit můžeš, ale nemám to rád — renderování simulací trvá věčnost a párkrát mi při bakování výbuchů spadl počítač. Pokud plánuješ péct realistické simulace, ještě dvakrát to zvaž."* Alternativu pro real-time simulace (EmberGen) sám odmítá pro sólo vývojáře jako předraženou a příliš specializovanou. Zmíněné bezplatné drobnosti: **Materialize** (z obrázku vygeneruje height, normal a AO posuvníky) a **OpenToonz** na ručně malované animované efekty.
+
+**Souvislosti:** [Master material](#master-material-pet-textur-nema-mit-kazdy-mesh) · [Nanite displacement](#nanite-displacement-relief-malovany-vertex-colorem) · [Tech art, VFX a UI](../teorie/art-specializace.md#vfx-primarni-sekundarni-terciarni-a-rozpocet-na-okazalost) *(kdy má efekt vůbec vzniknout)* · [Objemy přes EVDB](osvetleni.md#objemy-pres-evdb-mraky-a-mlha-jako-asset) · [Rejstřík: Flipbook](../rejstrik.md#flipbook) · [Rejstřík: Render target](../rejstrik.md#render-target)

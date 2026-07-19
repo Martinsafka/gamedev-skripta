@@ -54,7 +54,7 @@ A na to navazuje pravidlo, které je současně tvůrčí i praktické [(12:29)]
 
 > **Pozn.:** Tohle je nejlepší argument pro to, proč nepsat do hry víc textu, než musíš — a přesný protipól [„show, don't tell"](typografie.md#balancovani-flair-pro-atmosferu-cisty-font-pro-funkci) z typografické strany. Zajímavý dovětek: **kdy se rozhraní stane místem?** Video na to nemá odpověď, jen příklad hry, která celý svět vypráví skrz simulovaný operační systém [(15:34)](https://www.youtube.com/watch?v=sSFs61IF2Rs&t=934s).
 
-**Souvislosti:** [Příběh a postavy](pribeh-a-postavy.md) · [Horor design: monstrum přes představivost](horor-design.md) · [Vizuální komunikace: afordance](vizualni-komunikace.md#afordance-tvar-predmetu-je-jeho-navod-k-pouziti) *(čtení objektů podle vzhledu)* · [Rejstřík: indexical storytelling](../rejstrik.md#indexical-storytelling)
+**Souvislosti:** [Příběh a postavy](pribeh-a-postavy.md) · [Horor design: monstrum přes představivost](horor-design.md) · [Vizuální komunikace: afordance](vizualni-komunikace.md#afordance-tvar-predmetu-je-jeho-navod-k-pouziti) *(čtení objektů podle vzhledu)* · [Praxe: lore pod tapetou](../praxe/env-tvorba.md#prestavba-kvuli-screenshotu-steam-stranka-jako-audit-vizualu) *(stopa odhalovaná časem místo sbíráním)* · [Rejstřík: indexical storytelling](../rejstrik.md#indexical-storytelling)
 
 ---
 

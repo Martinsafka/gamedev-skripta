@@ -119,3 +119,25 @@ Pipeline roku 2026: obrázková AI vyrobí referenci, **image-to-3D** model (Tri
 > **Pozn.:** PixelLab je demo z kanálu výrobce — vzor „style reference + úklid před množením" ale platí pro jakoukoli generativní 2D pipeline. Ke Kimodu: doporučené VRAM v přepisu zní zmateně (auto-titulky) — před lokálním nasazením ověř nároky v oficiální dokumentaci. Světlo do 2D spritů pak dodá trik s [normal mapami z kapitoly Osvětlení](osvetleni.md#drobky-tri-triky-a-svetlo-ve-2d).
 
 **Souvislosti:** [Claude Code: agent v Blenderu](claude-code-ue.md#agent-v-blenderu-a-comfyui-lokalni-pipeline) · [Osvětlení: světlo ve 2D](osvetleni.md#drobky-tri-triky-a-svetlo-ve-2d) · [Animační nástroje](animace-nastroje.md) · [Rejstřík: silueta](../rejstrik.md#silueta)
+
+---
+
+## Animace generovaná v reálném čase: kam se posunulo ARDY
+
+**Zdroj:** [NVIDIA ARDY: The Real-Time Leap in AI Animation (Open-Source)](https://www.youtube.com/watch?v=xLf27GC0-hE) · [Stefan 3D AI](https://www.youtube.com/channel/UCRW08KcTVjXEmBzBsVl7XjA) · ~6 min, přehled a test
+
+**Shrnutí:** Dosavadní AI animace v téhle kapitole byla **generativní** — zadáš prompt, počkáš, dostaneš klip. ARDY posouvá hranici jinam: **generuje pohyb v reálném čase a dá se ovládat klávesnicí**, přičemž vstup z klávesnice funguje jako omezení kombinovatelné s textovým promptem. Model je **open source s publikovanými váhami**, takže se dá spustit lokálně — pokud máš dost VRAM.
+
+### Rozpad myšlenky
+
+**Časová osa, která tomu dává smysl** [(0:46)](https://www.youtube.com/watch?v=xLf27GC0-hE&t=46s), je nejužitečnější část videa, protože zasazuje jednotlivé nástroje do vývoje. **Kimodo** — běží lokálně na nízké VRAM, hodně ovládání, *„ale je hlavně o generování"*. **Motion bricks** — už blíž k enginu, latence kolem dvou milisekund, *„takže se pohyb nejen počítá v reálném čase, ale umí i interagovat s prostředím"*; háček podle autora: **vydaná byla jen pohybová část a slíbené interakční „smart primitives" nikdy nevyšly**. A **ARDY** — kompletní generace pohybu v reálném čase se stejnými ovládáními, omezeními a root motion jako Kimodo, s lepší kvalitou dodržování omezení díky dvoustupňovému denoiseru a **datasetu, který je nově kostní**.
+
+**Co je na tom skutečně nové** [(3:50)](https://www.youtube.com/watch?v=xLf27GC0-hE&t=230s): *„můžeš to ovládat klávesnicí — a ty real-time constrainty můžou fungovat společně s promptem. Takže spustíš skripty, které berou vstup z klávesnice nebo myši jako omezení, a zkombinuješ ho s textovým promptem typu ‚skákej po jedné noze'."* Totéž platí pro root motion: zadáš reprezentaci dráhy a k ní textový popis. **Není to tedy generátor klipů, ale běhová vrstva mezi vstupem a pózou** — což je koncepčně jiná kategorie než všechno ostatní v téhle kapitole.
+
+**Hardware a jak ho obejít** [(2:18)](https://www.youtube.com/watch?v=xLf27GC0-hE&t=138s): demo bylo testované na 24GB kartě, *„minimum je kolem 16 až 18 GB, ale pro reálný běh v reálném čase potřebuješ 24"*. Autor tolik VRAM nemá, takže si **pronajal GPU za zhruba dolar na hodinu**, připojil se přes SSH a instalaci nechal udělat agentem. Poctivě dodává, že se službou nemá nic společného — a pro nás je to hlavně připomínka, že **testování těžkých modelů nevyžaduje koupi hardwaru.**
+
+**Cesta do Unrealu** [(4:36)](https://www.youtube.com/watch?v=xLf27GC0-hE&t=276s): export používá kostru o 27 kostech a jednu standardní reprezentaci, o které autor říká, že *„se dá v Unrealu namapovat a retargetovat"*; modely jsou na Hugging Face a dají se prohodit podle skeletonu, k lokálnímu běhu je potřeba bezplatný token a schválení na stránce jednoho z použitých modelů.
+
+> **Pozn.:** Autorova spekulace na konec stojí za zaznamenání právě jako spekulace [(5:22)](https://www.youtube.com/watch?v=xLf27GC0-hE&t=322s): *„brzo budeme mít hry s úplně procedurálními — vlastně AI generovanými — animacemi. Hráč vede, kam jít, skripty upravují textový prompt a všechno se v reálném čase krmí do modelu."* Proti tomu stojí praktická realita, kterou popisuje zbytek kapitoly: **nároky na VRAM zatím vylučují běh na hráčském stroji vedle samotné hry.** Bližší a zajímavější použití je proto to druhé, které zmiňuje — **režírovaný pohyb pro playblasty a následné zpracování**, tedy nástroj do produkce, ne do buildu. Srovnej s [Motion Matchingem](mm-zaklady.md), který tentýž problém (plynulý pohyb odpovídající vstupu) řeší databází skutečných animací a běží na čemkoli.
+
+**Souvislosti:** [Animace a 2D: Kimodo a PixelLab](#animace-a-2d-kimodo-a-pixellab) *(předchozí generace téhož nástroje)* · [MM základy](mm-zaklady.md#dotaz-misto-grafu-jak-motion-matching-vybira-pozy) *(neAI odpověď na tutéž úlohu)* · [Animační nástroje: markerless mocap](animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [Učení v éře AI](../teorie/uceni-v-ere-ai.md) · [Rejstřík: root motion](../rejstrik.md#root-motion) · [Rejstřík: retargeting](../rejstrik.md#retargeting)

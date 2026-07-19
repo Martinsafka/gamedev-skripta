@@ -109,3 +109,23 @@ Výkonová kapitola od základů po specializaci: **proč jsou levely pomalé** 
 > **Pozn.:** Mega Plants skeletal stromy běží „překvapivě dobře" i podle autora s dekádou foliage praxe — bolest z milionů trianglů v enginu je z velké části už jen zvyk [(43:24)](https://www.youtube.com/watch?v=QvE_EUuGFm4&t=2604s). Celý setup navazuje na [PCG vegetaci](pcg-vegetace.md) (stejné wind providery a spawner vzory) — tahle kapitola je její výkonová druhá půlka.
 
 **Souvislosti:** [Foliage I](#foliage-optimalizace-i-kotva-vykonu-a-velka-trojka) · [PCG vegetace: les](pcg-vegetace.md#les-pcg-graf-se-skeletal-stromy) · [Rejstřík: PCG](../rejstrik.md#pcg) · [Rejstřík: overdraw](../rejstrik.md#overdraw)
+
+---
+
+## Druhá osa optimalizace: co blokuje hlavní vlákno
+
+**Zdroj:** [Game Dev Secrets: Multithreaded Optimization!](https://www.youtube.com/watch?v=44hfu7ELgVc) · [Inbound Shovel](https://www.youtube.com/channel/UCdYwjLVP-98bptdlQFO_5zQ) · ~2 min, short
+
+**Shrnutí:** Zbytek téhle kapitoly řeší **co a jak se vykresluje**. Tenhle dvouminutový klip připomíná druhou osu, na kterou se u vizuálně zaměřené optimalizace snadno zapomene: **kolik času zabere kód, který s vykreslováním nemá nic společného.** Demonstrace je nemilosrdně jednoduchá — přidání drahého výpočtu srazí hru na **10 snímků za sekundu**, přesunutí téhož výpočtu na jiné vlákno ji vrátí na **144**.
+
+### Rozpad myšlenky
+
+**Proč vůbec jeden pomalý výpočet zabije celou hru** [(0:01)](https://www.youtube.com/watch?v=44hfu7ELgVc&t=1s): autor tu otázku sám položí za diváka — *„teoreticky by přece pobíhání postavy po mapě nemělo být ovlivněné matematikou běžící na pozadí, ne?"* A odpoví: **ta matematika na pozadí neběží.** *„Hra běží na tom, čemu se říká hlavní vlákno. A všechen kód, co pro hru píšu — kromě shaderů — běží na tom jediném vlákně."* Tedy pohyb postavy, její stavový automat, systém hitboxů i parallax pozadí. **„Takže když je tam jedna věc, která zabere spoustu času, všechno ostatní na ni musí čekat."**
+
+**Co na jiné vlákno smíš** [(0:47)](https://www.youtube.com/watch?v=44hfu7ELgVc&t=47s) je ta část, kvůli které se multithreading nedá použít všude: *„je to docela komplikované, protože mimo hlavní vlákno spoustu věcí nesmíš."* Konkrétně jmenuje omezení dvou jiných enginů, ale princip je společný — **na herní objekty a scénu smí sahat jen hlavní vlákno**; totéž platí v UE pro Blueprinty a většinu gameplay API.
+
+**Mentální model, který z toho plyne** [(0:47)](https://www.youtube.com/watch?v=44hfu7ELgVc&t=47s), je nejpřenositelnější věta klipu: *„ostatní vlákna jsou dobrá v tom, že si vezmou konkrétní úkol. Pošleš je pryč se všemi daty, která k tomu potřebují, a ona se po čase vrátí s odpovědí."* Z toho plyne i seznam vhodných kandidátů: **hledání cesty, načítání assetů a procedurální generování** — *„dlouho to běží, ale nepotřebuješ průběžné aktualizace."* Naopak nic, co musí každý snímek sáhnout na aktéry ve světě.
+
+> **Pozn.:** Pro naši knihovnu je tenhle klip užitečný hlavně jako **rozcestník**: většina rad o výkonu v UE (Nanite, LODy, foliage, [instance](instanced-actors.md)) míří na GPU a na počet draw callů, ale hra, která se zadrhává při otevření inventáře nebo při generování levelu, má problém jinde. Diagnostika se proto dělá jinými nástroji — profiler ukáže, jestli je snímek limitovaný **game threadem**, nebo renderem, a to rozhodne, kterou půlkou téhle kapitoly se vůbec zabývat. Klip je engine-agnostický (autor pracuje v jiném enginu), ale rozdělení práce mezi vlákna platí všude stejně.
+
+**Souvislosti:** [Proč jsou levely pomalé](#proc-jsou-levely-pomale-od-instanci-po-data-layers) *(druhá osa: co se vykresluje)* · [Interakce bez Event Ticku](interakce-bez-event-ticku.md#overlap-trigger-misto-trasovani-v-ticku) *(příbuzný lék: nedělej to každý snímek)* · [Instanced Actors](instanced-actors.md) · [Programátorské myšlení](../teorie/programatorske-mysleni.md) · [Rejstřík: race condition](../rejstrik.md#race-condition) · [Rejstřík: Multithreading](../rejstrik.md#multithreading)

@@ -37,6 +37,7 @@
 *[Boolean]: Geometrická operace kombinující dvě tělesa: sjednocení (union), rozdíl (subtract), průnik.
 *[Bounds]: Osově zarovnaný obal objektu či bodu; v PCG pracovní data — výřezy, pruning, bounds modifier.
 *[BPM]: Tempo v dobách za minutu; ukotví žánr a energii dřív než noty (lo-fi ~77, DnB ~170).
+*[BRDF]: Model odrazu světla od povrchu — matematický základ toho, jak materiál vypadá.
 *[Building in public]: Ukazuj pokrok a uvažování průběžně: viditelný pokrok = skončení přestává být neviditelné.
 *[Buoyancy]: Vztlak Water pluginu: pontoony (klasika) nebo od 5.7 Default Buoyancy Physics Material + Query and Probe.
 *[Burn rate]: Kolik peněz projekt spálí za měsíc či rok; krát délka vývoje = cena projektu.
@@ -97,11 +98,13 @@
 *[Equity]: Podíl na firmě — nesplácí se jako půjčka, ale už se nikdy nevrátí.
 *[Eulerovy úhly]: Rotace jako yaw/pitch/roll v pevném pořadí — intuitivní, ale hrozí gimbal lock.
 *[EV100]: Jednotka expozice; min=max v PPV zamkne auto-exposure. 1 = modrá hodina, interiér 5–7, den ~13.
+*[EVDB]: Komprimovaný volumetrický asset (Expanse): static mesh, který místo trojúhelníků nese objem.
 *[Event dispatcher]: Rádio mezi Blueprinty: vlastník zavolá, všichni bindnutí posluchači dostanou event.
 *[Event Tick]: Blueprint event volaný každý snímek; polling, kterému se dobrý návrh vyhýbá.
 *[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
 *[Extremistan]: Prostředí, kde jeden vzorek převáží celý zbytek souboru (prodeje her).
 *[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
+*[Flipbook]: Mřížka snímků v jedné textuře, kterou materiál přehrává jako animaci.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
@@ -191,6 +194,7 @@
 *[MDA framework]: Mechanics→Dynamics→Aesthetics: kód → chování hráče → pocity; designér sahá jen na první článek.
 *[Mechanika]: Jednotka gameplaye z pravidel: sloveso hráče (skoč, seber) působící na herní svět.
 *[Mediator pattern]: Prostředník, přes kterého aktéři komunikují místo napřímo (věž místo letadel).
+*[MegaLights]: Systém UE od 5.5, který zlevňuje scény s velkým počtem stínících světel.
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
@@ -205,6 +209,7 @@
 *[Motiv]: Krátká zapamatovatelná dvou- až pětitónová buňka melodie; jde ji opakovat, obrátit, posunout.
 *[Movement Mode]: Modulární objekt Moveru pro jeden režim pohybu; vyměnitelný a rozšiřitelný i v Blueprintu.
 *[Mover]: Nástupce Character Movement Componentu: replikuje vstupy, modulární módy, pravdivá trajektorie pro MM.
+*[Multithreading]: Rozdělení práce na víc vláken, aby dlouhý výpočet neblokoval běh hry.
 *[MVP]: Minimum Viable Product: nejmenší verze doručující jádro hodnoty — jen core loop, dezert počká.
 *[Nanite]: Virtualizovaná geometrie UE5 — detail meshů se dynamicky přizpůsobuje kameře.
 *[Narrative design]: Návrh vyprávění integrovaný s herním designem — ne „spisovatel dopíše cutscény".
@@ -271,6 +276,8 @@
 *[Refundace]: Vrácení peněz za hru; první srážka z hrubé tržby před podílem obchodu a daněmi.
 *[Rekurze]: Funkce volající sama sebe: base case + zmenšování problému + skok důvěry.
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
+*[Render target]: Textura, do které engine vykresluje za běhu — jde do ní i vypéct materiál.
+*[Retargeting]: Přenos animace z jedné kostry na jinou s odlišnými proporcemi (IK Rig + Retargeter).
 *[Retopologie]: Přestavba geometrie na čistou síť pro rig/animaci; AI cesty: decimace+bake, smart low poly, remesher.
 *[Retrieval practice]: Učení vybavováním: odvrať zrak a vzpomínej — poráží opakované čtení.
 *[Retriggerable Delay]: Delay restartovaný každým dalším spuštěním — doběhne až po klidu; „ztráta zájmu" AI.
@@ -358,6 +365,7 @@
 *[Version control]: Verzování projektu (Git): návratové body a historie jako deník pokroku; commituj malé celky.
 *[Vertical slice]: Reprezentativní výsek hry ve finální kvalitě; brána mezi prototypem a plnou produkcí.
 *[Virtual bone]: Kost existující jen v enginu (Add Virtual Bone) — IK cíle a sockety bez re-exportu z DCC.
+*[Virtual Shadow Maps]: Stínový systém UE5 pro Nanite a Lumen — vysoké rozlišení bez ladění kaskád.
 *[Virtual texture]: Textura streamovaná po stránkách jen kam se kamera dívá; pevný pool, daň = page table.
 *[Vizuální hierarchie]: Uspořádání scény tak, aby nejdůležitější informace byla nejsnáze vidět.
 *[Voice leading]: Vedení tónů tak, aby přechody mezi akordy byly co nejjemnější (vedení hlasů).

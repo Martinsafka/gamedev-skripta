@@ -107,3 +107,31 @@ Praktická strana environment artu: nejdřív **proč scéna vypadá dobře** (d
 > **Pozn.:** Trik „efekt před kamerou místo v celém světě" je stejná filozofie jako [Instanced Actors](instanced-actors.md) — simulovat jen tam, kde se hráč dívá. A event smyčka s delay je přesně vzor z [Interakcí bez Event Ticku](interakce-bez-event-ticku.md): 10 aktualizací za sekundu bohatě stačí a tick zůstává čistý.
 
 **Souvislosti:** [PCG vegetace](pcg-vegetace.md) · [Kroky a povrchy: MetaSounds](footsteps.md) · [Voda a buoyancy](voda-a-buoyancy.md) · [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Rejstřík: Sound Cue](../rejstrik.md#sound-cue)
+
+---
+
+## Přestavba kvůli screenshotu: Steam stránka jako audit vizuálu
+
+**Zdroj:** [How I Made My Horror Game Look 10x Better | DEVLOG](https://www.youtube.com/watch?v=D4n7BeKNOtg) · [AkulDev](https://www.youtube.com/channel/UCaApNJmdJ48uynu1L2AOf6w) · ~9 min, devlog
+
+**Shrnutí:** Devlog o kompletní vizuální přestavbě hororové hry — a zajímavý není seznam toho, co autor předělal, nýbrž **co ho k tomu donutilo**. Nebyl to umělecký nápad ani zpětná vazba od hráčů, ale **pokus založit Steam stránku**: *„ve chvíli, kdy jsem začal plánovat Steam stránku, mi došlo, že hra prostě není připravená. Screenshoty nebyly dost působivé."* Nutnost vybrat pět obrázků, které hru prodají, funguje jako **audit, který nejde obejít**.
+
+### Rozpad myšlenky
+
+**Screenshot jako deadline** [(0:01)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=1s): *„když chceš, aby na hru lidi klikli, těch pár prvních screenshotů to musí prodat."* Je to nepříjemně účinný test, protože **nutí posoudit hru zvenčí a bez kontextu** — přesně tak, jak ji uvidí cizí člověk. Vývojář, který na projektu sedí rok, tuhle perspektivu ztrácí; pokus o [Steam stránku](../teorie/steam-stranka.md#screenshoty-musi-splnit-slib-a-tagy-nejsou-pro-lidi) mu ji vrátí. Rozdíl proti běžnému „ještě to vylepším" je v tom, že audit má **konkrétní výstup a termín**.
+
+**Prostor musí obstát jako to, co představuje** [(0:50)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=50s): hra se odehrává v opuštěném hotelu, takže si autor *„udělal rešerši skutečných hotelových půdorysů a schémat"*. Původní mapa byla malá a — jeho slovy — neměla ten vibe. Následné rozhodnutí je designové, ne výtvarné: **chodby s číslovanými pokoji, které se sbíhají k výtahu**, a ten vede do kuchyně, kde se odehrává hlavní hratelnost. Půdorys tedy dělá dvě věci najednou: je uvěřitelný jako hotel a zároveň **soustředí provoz do jednoho místa**.
+
+**Liminalita s texturou, ne prázdno** [(0:50)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=50s) je nejlepší výtvarný postřeh videa: *„chtěl jsem hodně liminální, ale ne jako backrooms, kde jsou jen sterilní prázdné stěny. Spíš náhodné vzory a koberce — pro mě je v tom mnohem víc znepokojivosti."* Prázdná bílá zeď je totiž **abstrakce**; vzorovaný koberec z osmdesátek je **konkrétní místo, kde by měli být lidé a nejsou.**
+
+**Kontrast jako mechanismus bezpečí** [(1:37)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=97s): pokoj hráče má fungovat jako safe room z Resident Evil — *„teplé světlo, míň špíny, celkově příjemnější prostředí"*. Bezpečí není vlastnost místnosti, ale **rozdíl proti tomu, co je za dveřmi**. Doplňkově praktický tip pro každého, kdo shání výzdobu zadarmo [(2:24)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=144s): **staré malby jsou volné dílo**, takže knihovní archivy jsou legální zdroj obrazů na stěny.
+
+**Lore pod tapetou** [(3:11)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=191s) je nejnápaditější kus a stojí za rozebrání, protože řeší běžný problém elegantně. Výchozí námitka autora proti klasickému řešení: *„poznámky rozházené po pokoji by funkčně fungovaly, ale působily by rušivě a herně."* Místo toho vymyslel fikční důvod, proč tam informace **nejsou vidět**: únosce zakrývá bídu čerstvým nátěrem, *„jako ti zlí pronajímatelé z videí, co přemalují rozbité a špinavé věci"*. A z toho plyne mechanika: **jak ve hře ubíhají dny, tapeta se odlupuje a odhaluje staré poznámky.** Vyprávění je tak navázané **na čas, ne na sbírání** — hráč nemusí nic hledat, jen vydržet.
+
+**Rekontextualizace jedním prvkem** [(5:29)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=329s): hráč odevzdával uvařená jídla do kovové bedny, což *„je fajn nápad, ale nepůsobí to realisticky ani děsivě"*. Náhradou je **jáma uprostřed místnosti** (autor přiznaně čerpá z rancoří jámy a sarlaccu ve Star Wars) s roštem, který se odsune. Jeho vlastní shrnutí je přesné: *„jáma uprostřed kuchyně tu místnost úplně rekontextualizovala."* **Jeden objekt změnil význam celého prostoru** — z výdejního okénka se stalo krmení něčeho, co dole žije.
+
+A hned nato lekce z playtestu [(6:15)](https://www.youtube.com/watch?v=D4n7BeKNOtg&t=375s), která jde proti instinktu: *„při testování jsem zjistil, že je to prostě moc velké, tak jsem celou místnost zmenšil a přisunul k sobě jen to podstatné. Je to klaustrofobičtější, soustředěnější a míň se nachodí."* **U hororu i u hratelnosti platí, že zmenšení prostoru přidá intenzitu** — a chůze navíc není obsah.
+
+> **Pozn.:** Devlog je poctivý i v tom, co odložil: vlastní soundtrack zatím nahradil **hudebním packem z itch.io** s dovětkem, že na vlastní hudbu si teprve musí troufnout. To je zdravé pořadí — v téhle fázi je [hudba](../hudba/tvorba-soundtracku.md) věc, která má být *přítomná*, ne autorská. Zajímavý kontrast s [Naughty Dog pipeline](env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani): tam se šetří čas nástrojem, tady rozhodnutím, co ještě nedělat.
+
+**Souvislosti:** [Steam stránka: screenshoty musí splnit slib](../teorie/steam-stranka.md#screenshoty-musi-splnit-slib-a-tagy-nejsou-pro-lidi) *(proč je ten audit tak nemilosrdný)* · [Prostor vypráví: indexical storytelling](../teorie/prostor-vypravi.md#stopy-misto-dopisu-indexical-storytelling-a-interaktivita-v-hlave) *(lore pod tapetou je učebnicový případ)* · [Horor design](../teorie/horor-design.md) · [Horor ve vrstvách](osvetleni.md#horor-ve-vrstvach-od-hdri-po-svetelnou-navigaci) · [Rejstřík: liminální prostor](../rejstrik.md#liminalni-prostor) · [Rejstřík: environmental storytelling](../rejstrik.md#environmental-storytelling)

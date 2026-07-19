@@ -84,7 +84,7 @@ Rada, kterou dostane každý, kdo se ptá, jak se rytmus efektů učí, je neče
 
 > **Pozn.:** Obor nemá skoro žádné formální vzdělávání, a video to řeší otevřeně: **spoj se s komunitou** (fórum RealtimeVFX, Discord, Facebook) a prostuduj ručně kreslenou klasiku *Elemental Magic* od Josepha Gillanda [(10:07)](https://www.youtube.com/watch?v=3QKK2o5rWSQ&t=607s). Za zmínku stojí i historka, že autora na prvním pohovoru okamžitě odmítli a nechápal proč — v sérii, která je jinak náborovým materiálem velkého studia, je to nezvykle upřímné.
 
-**Souvislosti:** [Game feel: katalog juice](game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) *(tytéž principy mimo částicové systémy)* · [Art pipeline: hierarchie kontrastem](art-pipeline.md#vizualni-hierarchie-fokus-vznika-ubranim-ne-pridanim) · [Rejstřík: shape language](../rejstrik.md#shape-language) · [Rejstřík: particle system](../rejstrik.md#particle-system)
+**Souvislosti:** [Game feel: katalog juice](game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) *(tytéž principy mimo částicové systémy)* · [Art pipeline: hierarchie kontrastem](art-pipeline.md#vizualni-hierarchie-fokus-vznika-ubranim-ne-pridanim) · [Praxe: VFX textury](../praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) *(kde je vzít a čím je vyrobit)* · [Rejstřík: shape language](../rejstrik.md#shape-language) · [Rejstřík: particle system](../rejstrik.md#particle-system)
 
 ---
 

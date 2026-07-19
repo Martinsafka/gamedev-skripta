@@ -326,6 +326,14 @@ Lo-fi kolem 77, house 120–130, drum and bass kolem 170. Pro náladu scény je 
 
 Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md)
 
+### BRDF
+
+**Model odrazu světla od povrchu — matematický základ toho, jak materiál vypadá.**
+
+Bidirectional Reflectance Distribution Function popisuje, kolik světla se odrazí kterým směrem podle úhlu pohledu a dopadu. V praxi ho artista potkává jako sadu vstupů (base color, roughness, metallic, normal) a jako rozpad, na kterém se dá ladit jednotlivá složka zvlášť. Podle artistů Naughty Dog je nejpodceňovanější z nich roughness.
+
+Kde se s tím potkáš: [Breakdowny: Naughty Dog](praxe/env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani) · [Rejstřík: PBR](#pbr)
+
 ### Building in public
 
 **Stavět veřejně: průběžně ukazovat pokrok, rozhodnutí a zdi, na které narážíš — ne až hotový výsledek.**
@@ -806,6 +814,14 @@ Zamčení min = max EV100 v post-process volume vypne auto-exposure a jas scény
 
 Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
 
+### EVDB
+
+**Komprimovaný volumetrický asset pluginu Expanse — static mesh, který místo trojúhelníků nese objem.**
+
+Expanse Volume Database drží mrak, kouř nebo oheň ve formě, která zůstává komprimovaná po celou pipeline, takže se dá v levelu duplikovat po stovkách. Rozdíl proti Volume aktéru je tentýž jako mezi static meshem a jeho aktérem: EVDB jsou data, Volume je to, co je zobrazuje. Vzniká konverzí z OpenVDB.
+
+Kde se s tím potkáš: [Osvětlení: objemy přes EVDB](praxe/osvetleni.md#objemy-pres-evdb-mraky-a-mlha-jako-asset)
+
 ### Event dispatcher
 
 **Rádio mezi Blueprinty: vlastník dispatcher zavolá, všichni přihlášení posluchači dostanou event.**
@@ -845,6 +861,14 @@ Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-
 Indikátor nalezení: přistihneš se, že si s barebones mechanikou hraješ mimo pracovní dobu — „chtěl jsem vylézt na všechno, co šlo". Druhá podoba téhož: když tě při vývoji baví něco jiného, než co sis naplánoval, následuj to — Ape Out vznikl z ninja stealth hry, protože strkání nepřátel bavilo víc než plížení.
 
 Kde se s tím potkáš: [Scope: malé hry v praxi](teorie/scope.md) · [Nápad: ideace](teorie/napad.md)
+
+### Flipbook
+
+**Mřížka snímků v jedné textuře, kterou materiál přehrává jako animaci.**
+
+Standardní způsob, jak do hry dostat výbuch, kouř nebo jiskry bez simulace: 4×4 nebo 8×8 políček v jednom obrázku a uzel, který mezi nimi posouvá UV. Levné na paměť i na výkon, ale rozlišení každého snímku je zlomkem textury — proto se hodí na efekty, které hráč vidí krátce a v pohybu.
+
+Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) · [Tech art a VFX](teorie/art-specializace.md#vfx-primarni-sekundarni-terciarni-a-rozpocet-na-okazalost)
 
 ### Flow
 
@@ -1550,6 +1574,14 @@ Analogie je řízení letového provozu: letadla se nedomlouvají mezi sebou, ml
 
 Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#mediator-koordinator-uprostred-a-event-manager-v-game-state) · [Design patterns](teorie/design-patterns.md#tri-rodiny-vzoru-tvorba-struktura-chovani)
 
+### MegaLights
+
+**Systém UE od 5.5, který zlevňuje scény s velkým počtem stínících světel.**
+
+Místo aby každé světlo platilo plnou cenu za stíny a výpočet, MegaLights je vzorkuje sdíleně, takže se desítky až stovky dynamických světel stanou realistickou volbou. Pro workflow, kde se scéna maluje z mnoha malých zdrojů místo jednoho směrového světla, je to zásadní rozdíl.
+
+Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel)
+
 ### Mesh distance field
 
 **Předpočítané pole vzdáleností k nejbližšímu povrchu meshe — shader se může kdykoli zeptat „jak daleko je geometrie?".**
@@ -1661,6 +1693,14 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 Klíčové rozdíly proti CMC: replikují se inputy (i vlastní blueprint structy) místo výsledků pohybu, rotace je zcela volná (spin transitions, twin-stick intent) a predikce trajektorie pro Motion Matching spouští skutečný simulační kód včetně custom módů. V GASP od 5.7 výchozí; CMC postava zůstává jako legacy. Pozor na frame zpoždění vstupu (network prediction tiká před pawnem) — kameru a AnimBP krmit post-sim hodnotami.
 
 Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
+
+### Multithreading
+
+**Rozdělení práce na víc vláken, aby dlouhý výpočet neblokoval běh hry.**
+
+Kód hry běží standardně na jediném hlavním vlákně — pohyb, stavové automaty i kolize. Jedna drahá operace tam zastaví všechno ostatní. Vlákna navíc se hodí na úkoly typu „pošli data, vrať se s výsledkem": hledání cesty, načítání assetů, procedurální generování. Cena je omezení: mimo hlavní vlákno se na aktéry ve scéně obvykle sahat nesmí.
+
+Kde se s tím potkáš: [Optimalizace: co blokuje hlavní vlákno](praxe/optimalizace.md#druha-osa-optimalizace-co-blokuje-hlavni-vlakno) · [Rejstřík: race condition](#race-condition)
 
 ### MVP
 
@@ -2189,6 +2229,22 @@ Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysle
 C dur a A moll mají stejné tóny, liší se domovským tónem. Trik na radost v moll: třetí akord mollové stupnice je tónika relativní durové — kdykoli po něm sáhneš, vlije se do skladby světlo.
 
 Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md) · [Akordy a harmonie](hudba/akordy-a-harmonie.md)
+
+### Render target
+
+**Textura, do které engine vykresluje za běhu — použitelná jako vstup i jako výstup.**
+
+Slouží k obrazovkám kamer, zrcadlům nebo malování do textury za běhu. Šikovné vedlejší použití: materiál složený z noise uzlů se dá do render targetu vypéct a uložit jako obyčejnou texturu — takže na generování šumu nepotřebuješ žádný externí program.
+
+Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite)
+
+### Retargeting
+
+**Přenos animace z jedné kostry na jinou, která má odlišné proporce.**
+
+Bez něj by každá postava potřebovala vlastní sadu animací. V UE se řeší IK Rigem a IK Retargeterem: řekneš, které kosti si odpovídají, a engine dopočítá zbytek. Právě proto je u AI generovaných animací důležité, na jaké standardní kostře model exportuje — mapování na běžný skeleton je rozdíl mezi „použitelné" a „k ničemu".
+
+Kde se s tím potkáš: [AI assety: animace v reálném čase](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy) · [MetaHuman v praxi](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones)
 
 ### Retopologie
 
@@ -2893,6 +2949,14 @@ Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.
 Sleduje transform zdrojové kosti vůči jiné; typické použití: IK cíle (foot IK pro skeleton, který IK kosti nemá — MetaHuman) a odvozené sockety. Rychlá cesta, jak cizímu skeletonu doplnit, co rig očekává.
 
 Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
+### Virtual Shadow Maps
+
+**Stínový systém UE5 navržený pro Nanite a Lumen — vysoké rozlišení bez ručního ladění kaskád.**
+
+Nahrazuje klasické cascaded shadow maps: stíny se počítají po dlaždicích a v rozlišení, které odpovídá tomu, co je vidět. Prakticky to znamená ostré stíny zblízka i v dálce bez typického přeskakování kaskád. Je to doporučené nastavení všude, kde běží Nanite — s nímž si naopak ray traced shadows nerozumí.
+
+Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Rejstřík: Nanite](#nanite)
 
 ### Virtual texture
 

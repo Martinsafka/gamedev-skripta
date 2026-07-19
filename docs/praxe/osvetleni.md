@@ -22,7 +22,7 @@ Světlo od řemesla k náladě: **PBL workflow** (svítit podle skutečných hod
 
 > **Pozn.:** Klíčová věta na závěr: **fyzikálně přesné ≠ vizuálně krásné — je to technicky správný základ, od kterého se kreativně odráží** [(27:03)](https://www.youtube.com/watch?v=GsE0mDtxtiQ&t=1623s). Video staví na autorově placeném pluginu PBL Database (přiznaně; metoda funguje i bez něj — free datové sady linkuje) a učí hlavně návyk: foť, měř levným luxmetrem, srovnávej. Přesně tenhle přístup používá [lesní pěšina](env-tvorba.md#lesni-pesina-ii-decaly-svetlo-a-render) (120 000 luxů + zamčená EV100 10).
 
-**Souvislosti:** [Stavba prostředí: lesní pěšina II](env-tvorba.md#lesni-pesina-ii-decaly-svetlo-a-render) · [Rejstřík: EV100](../rejstrik.md#ev100) · [Rejstřík: HDRI](../rejstrik.md#hdri)
+**Souvislosti:** [Stavba prostředí: lesní pěšina II](env-tvorba.md#lesni-pesina-ii-decaly-svetlo-a-render) · [Malovat světlem](#malovat-svetlem-scena-slozena-z-falesnych-svetel) *(opačná filozofie: skladba záběru místo fyziky)* · [Rejstřík: EV100](../rejstrik.md#ev100) · [Rejstřík: HDRI](../rejstrik.md#hdri)
 
 ---
 
@@ -107,3 +107,68 @@ Světlo od řemesla k náladě: **PBL workflow** (svítit podle skutečných hod
 > **Pozn.:** Light shaft bloom už jednou posloužil [měsíci v noční scéně](#nocni-scena-z-defaultniho-setupu) a IES profily jsou přirozený upgrade [PBL přístupu](#pbl-svitit-podle-skutecnych-hodnot) (skutečná lampa = skutečný tvar světla). 2D lekce má obecnou pointu: světlo potřebuje informaci o směru povrchu — kde chybí geometrie, dodá ji textura.
 
 **Souvislosti:** [Noční scéna](#nocni-scena-z-defaultniho-setupu) · [PBL workflow](#pbl-svitit-podle-skutecnych-hodnot) · [Rejstřík: silueta](../rejstrik.md#silueta)
+
+---
+
+## Malovat světlem: scéna složená z falešných světel
+
+**Zdroj:** [Lighting Hacks Got My Project Featured on Unreal Engine 5 Page](https://www.youtube.com/watch?v=H2Jfs7nDKh0) · [Karim Yasser](https://www.youtube.com/channel/UCHqwHzFqe5MEQxOM8NGRIfg) · ~15 min, breakdown projektu
+
+**Shrnutí:** Breakdown scény, kterou Epic vybral na své oficiální stránky — a je to **přesný opak [PBL přístupu](#pbl-svitit-podle-skutecnych-hodnot)**. Ve scéně **není žádné směrové světlo**; měsíc simulují spotlighty, hrany objektů vykreslují rim lights a hloubku dělají mlžné karty. Autor to neskrývá: *„není umístěné dobře, kdybys hrál v týhle oblasti — ale my se díváme kamerou, je to statický záběr, takže co je dobré pro tuhle kameru, je v pořádku."* Tahle věta je celá filozofie.
+
+### Rozpad myšlenky
+
+**Nejdřív nastavení projektu**, protože bez nich je zbytek zbytečný [(0:00)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=0s): Dynamic Global Illumination **i** Reflection Method na **Lumen**; **Support Hardware Ray Tracing** a „use when available" zapnout (*„softwarový ray tracing je levnější, ale není tak přesný"*); ray lighting mode na **Surface Cache** s tím, že se dá přebít per mapa přes post process volume; high quality translucency reflections zapnout; software RT mode na **detailed tracing**; a od 5.5 **MegaLights**, *„protože ušetří spoustu výkonu, když používáš hodně světelných zdrojů — což já dělám"* [(1:40)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=100s).
+
+Dvě nastavení z toho seznamu stojí za vypíchnutí, protože jdou proti intuici. **Ray Traced Shadows vypnout** [(1:40)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=100s): *„v UE5 mají spoustu problémů s Nanite objekty, takže pokud Nanite používáš, nech to vypnuté"* — a řídit stíny raději per light actor. A **shadow map method na Virtual Shadow Maps**, protože *„s Lumenem a Nanitem se s nimi pracuje mnohem líp"* [(2:31)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=151s). K tomu na platformě Windows **DirectX 12** a **Shader Model 6** [(2:41)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=161s).
+
+**Skylight jako nositel nálady** [(2:50)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=170s) je první skutečné rozhodnutí: *„tohle je nejdůležitější část, která řídí náladu scény — jestli má být dramatická, akční nebo klidná, to všechno pohání obloha a ambientní světlo."* Prakticky: **skybox jako matte painting** místo procedurální oblohy, skylight na **movable** (kvůli dynamickému distance field AO), a **intensity scale klidně až 7** — *„jednička není vůbec dobrá"* [(4:40)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=280s). Souvislost, kterou je snadné přehlédnout: **jas skyboxu přímo řídí sílu skylightu, protože skylight snímá, co je kolem něj.** Barvu skylightu tedy drž blízko barvě oblohy, s mírně modravým nádechem.
+
+**Volumetrická mlha jako plátno** [(5:12)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=312s): u exponential height fog zapnout **volumetric fog** a nastavit velmi nízkou emissive barvu — *„0,013, což je hodně málo"* — protože **zesvětluje černé oblasti**. Zvýšit view distance a pohrát si se **scattering distribution** (default 0,2): *„čím vyšší hodnota, tím víc mlha vychází ze samotného světelného zdroje a odtud se šíří; při nižší je to naopak."*
+
+**A teď to malování** [(7:10)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=430s). Postup je disciplinovaný, i když je výsledek nefyzikální: **začni od zdrojů, které ve scéně opravdu jsou** — lucerny, okna, emisivní plochy — a k nim přidej point light. Nastavení, která rozhodují:
+
+- **movable**, aby zůstalo dynamické;
+- **barvu neladit ručně tam, kde jde odhadnout teplotu** — lucerna je teplý objekt, tedy někde kolem 3500 K [(8:13)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=493s);
+- **indirect light intensity na 20** místo nuly — rozdíl je na scéně vidět;
+- **volumetric scattering intensity kolem 4** [(9:03)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=543s), *„bez toho světlo není zblendované s prostředím"*;
+- **cast volumetric shadow zapnout** — *„respektuje hranice objektů kolem, takže to nevypadá ploché"*.
+
+Nad tím pak přijdou tři vrstvy, které s realitou nemají nic společného. **Rim lights** [(9:45)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=585s) oddělují hrany objektů od pozadí — autor u jednoho ukazuje zapnuto/vypnuto a rozdíl je v čitelnosti scény, ne v realističnosti. **Window lights** simulují svit z oken, i když by tam fyzikálně takhle nesvítilo. A **spotlighty nahrazují měsíc** [(11:29)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=689s) — což je nejradikálnější krok: hlavní světelný zdroj scény vlastně neexistuje, jen se maluje po kusech tam, kde má být vidět.
+
+**Hloubka nakonec** [(13:05)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=785s): **mlžné karty** (fog cards — plochy s mlžnou texturou) prostrkané mezi objekty, *„aby se objekty začaly oddělovat"*; **lokální animovaná mlha** jako obyčejná krychle s volume materiálem a **panovanou texturou** [(13:44)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=824s), aby nebyla statická; a **vlastní lens flares** jako particle actor umístěný na světla [(14:17)](https://www.youtube.com/watch?v=H2Jfs7nDKh0&t=857s) — *„má efekt konvolučního bloomu, ale je levnější a líp se ovládá"*.
+
+> **Pozn.:** Postavit tenhle přístup vedle [PBL workflow](#pbl-svitit-podle-skutecnych-hodnot) je nejužitečnější věc, kterou s touhle kapitolou můžeš udělat — **nejsou to konkurenti, jsou to odpovědi na různé otázky.** PBL řeší „jak dosáhnout důvěryhodného světla, které funguje odkudkoli", malování světlem řeší „jak vypadá tenhle konkrétní záběr co nejlíp". Rozhodovací kritérium je **kde stojí hráč**: u volně prozkoumatelného prostoru se ti rim light z jednoho úhlu vymstí ze tří jiných, u koridorové hororovky s vedeným pohledem je to nejlevnější cesta ke kvalitě. Většina her chce obojí — fyzikální základ pro celek, malovaná světla pro klíčové záběry a scénická místa.
+
+**Souvislosti:** [PBL: svítit podle skutečných hodnot](#pbl-svitit-podle-skutecnych-hodnot) *(opačná filozofie téhož řemesla)* · [Horor ve vrstvách](#horor-ve-vrstvach-od-hdri-po-svetelnou-navigaci) · [Objemy přes EVDB](#objemy-pres-evdb-mraky-a-mlha-jako-asset) · [Stavba prostředí: nejdřív tvary](env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro) · [Vedení hráče](../teorie/vedeni-hrace.md) *(světlo jako navigace)* · [Rejstřík: Virtual Shadow Maps](../rejstrik.md#virtual-shadow-maps) · [Rejstřík: MegaLights](../rejstrik.md#megalights)
+
+---
+
+## Objemy přes EVDB: mraky a mlha jako asset
+
+**Zdroj:** [Understanding Expanse for Unreal Engine | Complete Beginner Tutorial](https://www.youtube.com/watch?v=rky_GNM0EZs) · [SARKAMARI](https://www.youtube.com/channel/UCeMhJ9SijyiDCOlcTAhOHag) · ~24 min, tutoriál
+
+**Shrnutí:** Mrak, který **není Niagara ani obří OpenVDB cache**, a přesto je plně volumetrický, reaguje na světlo scény, vrhá stíny, animuje se a dá se v levelu stokrát zduplikovat. Odpovědí je **EVDB** — komprimovaný volumetrický asset, se kterým se zachází jako se static meshem. Kapitola stojí za pozornost i pro toho, kdo si plugin nekoupí: **ukazuje, jak se o volumetrice přemýšlí jako o assetu, ne jako o efektu.**
+
+### Rozpad myšlenky
+
+**Rozdělení pojmů**, které stojí za převzetí bez ohledu na nástroj [(2:52)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=172s): **EVDB jsou data, Volume je actor, který je v levelu zobrazuje.** Tedy přesně tentýž vztah jako static mesh a static mesh actor. Autor to rozvádí definicí, která je nejlepší větou videa [(3:41)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=221s): *„je to unrealovský ekvivalent static meshe, ale místo trojúhelníků ukládá volumetrická data — mrak, kouř, výbuch nebo oheň."* A podstatná technická vlastnost: **data zůstávají komprimovaná po celou pipeline**, ne že se při načtení rozbalí.
+
+**Kitbashing volumetriky** [(5:14)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=314s): protože je to asset, dá se s ním pracovat jako s kitbashem — vybrat typ z knihovny, duplikovat altem, skládat víc efektů přes sebe. Ovládá se **density**, **animation mode** (static / once / loop) a **time multiplier**, u kterého autor dává konkrétní radu [(6:01)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=361s): *„default je jedna, což je vzhledem k měřítku mého prostředí trochu moc rychlé"* — snížil na 0,4. **Rychlost animace je funkcí měřítka scény**, ne vlastnost efektu.
+
+**Height fog volume** [(8:24)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=504s) mění způsob práce s mlhou: *„nekontroluješ ji dlouhým seznamem falloff parametrů. Místo toho ji tvaruješ stejně jako jakéhokoli jiného aktéra v Unrealu — posuneš, naškáluješ, otočíš a upravíš Z osu."* K tomu **light linking** (kdo na tu mlhu vůbec smí svítit) a density pro sílu záře.
+
+**Medium je materiál pro objem** [(12:17)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=737s) — a tady je fyzika, kterou se vyplatí rozumět i mimo tenhle plugin:
+
+- **albedo** = barva, kterou objem **odráží** (*„natoč albedo do oranžova a mrak bude přirozeně odrážet víc oranžového světla"*);
+- **absorption / extinction color** = barva **pohlcená** světlem procházejícím objemem, tedy ovlivňuje **vnitřek** [(14:35)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=875s). Rozdíl je na demu subtilní: *„uprostřed pořád vidíš trochu bílé, protože se místo odrazu pohlcuje"*;
+- **anisotropy** = *„jak silně se světlo rozptyluje směrem dopředu"*;
+- **emission** [(15:23)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=923s) = **objem sám začne svítit**, což je klíč k ohni, lávě a výbuchům.
+
+**Import vlastních simulací** [(17:14)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=1034s) řeší reálný problém: ukázková sekvence má **720 souborů a 15,6 GB**. Postup je nečekaně prostý — přetáhnout **první** soubor, *„a když jsou očíslované, systém to detekuje jako sekvenci"* a naimportuje celou animaci do jediného assetu. K němu navíc **vytvoří rovnou blueprint už nakonfigurovaný na ten EVDB**, takže se táhne do scény bez ručního nastavování.
+
+**Dva importní parametry, na kterých záleží** [(18:47)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=1127s), zbytek nech na defaultech. **Quality slider** je kompromis mezi věrností a kompresí: *„pro produkci obvykle zůstávám mezi 0,65 a 0,85, nikdy nejdu nad 0,85. Rozhodně ne na jedničku — engine spadne."* A **bit depth** (8 / 4 / 2 bity na voxel) [(19:35)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=1175s), který navzdory názvu neurčuje bitovou hloubku obrazu, ale **přesnost komprimovaných dat**: *„snížení z osmi na čtyři dramaticky sníží velikost — klidně o padesát procent."* Drobnost, která umí překvapit: **up axis se liší podle programu**, ze kterého VDB pochází — Houdini a Maya Y-up, **EmberGen Z-up** [(20:23)](https://www.youtube.com/watch?v=rky_GNM0EZs&t=1223s).
+
+> **Pozn.:** Jde o **placený plugin třetí strany, v době natáčení v betě**, a autor v závěru děkuje jeho tvůrcům za poskytnutý přístup — čti to tedy jako představení nástroje, ne jako nezávislou recenzi. Pro nás jsou přenositelné dvě věci nezávisle na tom, jestli si ho pořídíš: **oddělení „data vs. zobrazovač"** (platí i pro Heterogeneous Volumes v základním enginu) a **parametry média** (albedo / absorpce / anisotropie / emise), které popisují jakoukoli volumetriku — včetně té, kterou si postavíš sám jako [volumetrický materiál v Silent Hill 2 mlze](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy).
+
+**Souvislosti:** [Mlha ze Silent Hill 2](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy) *(tatáž úloha ručně a zdarma)* · [Malovat světlem](#malovat-svetlem-scena-slozena-z-falesnych-svetel) *(mlžné karty jako nejlevnější varianta)* · [Materiály](materialy.md) · [Rejstřík: Volumetric fog](../rejstrik.md#volumetric-fog) · [Rejstřík: EVDB](../rejstrik.md#evdb)
