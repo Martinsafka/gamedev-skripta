@@ -122,6 +122,25 @@ Hlavní playlist narostl 210 → 327; přepisy stažené a vyčištěné od 2026
 - [x] **Dávka 30 done** _(2026-07-19)_: Blender assety + rozšíření Hudby — 7 videí (1 bez přepisu) → **4 myšlenky ve 2 nových kapitolách nového nav tématu „Tvorba assetů mimo engine (Blender)"** (`foto-do-assetu`: narovnat/obtáhnout/promítnout + hloubka bez druhé textury; `ps1-estetika`: textura dělá styl + model a UV po stěnách) **+ 3 myšlenky do Hudby** (`aranz` skladba od nuly, `nastroje-zdarma-a-game-jam` CDP a SoundThread, `sound-design-ve-hre` attenuation v UE) **+ přepsaná myšlenka „Píseň žije v přechodu"** dle follow-upu z d29. Rejstřík +5 termínů (389 celkem), 6 backlinků, `--strict` + anchor-check green (1796 fragmentů). **114/116 published — druhá vlna hotová.**
 - [x] **Phase 8 uzavřena** _(2026-07-19)_: všech 11 dávek (20–30) odbaveno, všech 6 nových témat postaveno. Zbývají **2 low-priority beginner kurzy** (76 a 98 min) a **1 CS video bez přepisu** — vše mimo hlavní proud.
 
+### ▶ Phase 9 — Godot: nová sekce „Praxe v Godotu" _(běží od 2026-07-29)_
+
+Nový samostatný playlist (93 videí, ~351k slov) zaměřený na Godot → **druhý enginový dokument** vedle Praxe v UE5, v nav mezi Praxe a Hudbu. Postup zrcadlí Phase 7/8: fetch → taxonomie → schválení → tematické dávky (každá = zelený `--strict` + anchor-check + dev_log). Kompletní tabulky: `processing_index.md` → sekce „Godot playlist".
+
+- [x] **Fetch + clean** _(2026-07-29)_: `fetch_transcripts.sh` drží nově tři URL (pole `PLAYLIST_URLS`). Staženo 174 nových videí ve všech třech playlistech (Godot 93 · hlavní +61 · hudba +20), 0 chyb; archiv 517 id, 506 čistých přepisů (11 bez EN tracku).
+- [x] **Taxonomie navržena a schválena uživatelem** _(2026-07-29)_: 5 témat / 15 kapitol (G-START 8 · G-CODE 7 · G-ARCH 19 · G-SYS 9 · G-CASE 42) · 5 videí mimo sekci (routing do Teorie/Hudby) · 1 skip (duplikátní re-upload `t6wZiKPJ-g0`) · 2 low-priority mega-kurzy Clear Code (8,9 h + 5,2 h). Dílčí rozhodnutí: (a) Inbound Shovel = **vlastní téma „Případovka: 2D akční platformer"** uvnitř Godot sekce, (b) oba mega-kurzy **low-priority**.
+- [x] **Dávka 31 done** _(2026-07-29)_: G-START + G-CODE — 14 videí (~42k slov) → **3 nové kapitoly / 13 myšlenek** (`zaklady`: nody a scény jako architektura, mapa 2D nodů, co si přinést než otevřeš editor, editor 4.6; `prvni-hra`: znovupoužitelná kill zone, delta a physics process, AnimationPlayer jako časovač, nastavení projektu a export; `gdscript`: gradual typing, call down/signal up, `class_name` jako datový kontrakt, pořádek ve skriptu a inspektoru, keyboard ghosting) **+1 myšlenka do `teorie/jak-se-ucit-kodovat.md`**. Scaffold sekce hotový (index, nav, `docs/index.md` — a při té příležitosti doplněna chybějící Hudba a zvuk, `build_chapter_map.py` → `DOCUMENTS`). Rejstřík +15 termínů (404 celkem), chapter map regen (592 řádků), `--strict` + anchor-check green (1920 fragmentů). Dvě přeřazení proti taxonomii: `74y6zWZfQKk` → G-ARCH (je o kompozici), `N7UgrLFzW08` → mimo sekci do Teorie (engine-agnostická rada o učení). **14/93 published.**
+- [ ] **Dávka 32**: G-ARCH (20, ~51k) → `kompozice`, `resources`, `signaly`, `stavy-a-vzory`, `projekt-a-vykon`.
+- [ ] **Dávka 33**: G-SYS (9, ~20k) → `animace-a-pohyb`, `ui-control`, `2d-svet`, multiplayer (tenké — merge kandidát) + routing 4 videí mimo sekci do Teorie (`game-feel`, `scope` ×2 se staged disagreement, `planovani-nastroje`); Alex Rome odložen do hudební dávky.
+- [ ] **Dávka 34**: případovka A (15, ~36k) → `pripadovka-pohyb`, `pripadovka-kamera`, `pripadovka-nepratele`.
+- [ ] **Dávka 35**: případovka B (27, ~52k) → `pripadovka-level-a-mapa`, `pripadovka-vizual-a-zvuk`, `pripadovka-systemy`, `pripadovka-proces`.
+
+### Phase 10 (čeká) — třetí vlna hlavního playlistu a hudby
+
+Staženo 2026-07-29, **zatím jen zaevidováno** (tabulky v `processing_index.md`). Pořadí dohodnuté s uživatelem: až po dokončení Godotu.
+
+- [ ] Hlavní playlist **+61 videí** (~297k slov). Dominantní shluk: **výkon, profiling a optimalizace v UE5** (~35 videí — 13× Unreal Fest / Inside Unreal, Tom Looman, Dallas Drapeau ×3, Threat Interactive, SimonDev…) → samostatné téma, ne rozšíření `praxe/optimalizace.md`. Dál design/teorie a UE praxe (Ali Elzoheiry inventory 2 díly).
+- [ ] Gamedev-music **+20 videí** (~41k slov). Dominantní shluk: **Strudel a live coding hudby** (11 videí) → nové téma. Dál Alex Rome ×3 (rozšíření `akordy-a-harmonie`, `melodie` — sem patří i `_yw85rAb6cw` z Godot playlistu), rytmus, AI na vokály. Pozor na položky, které jsou performance/mixy, ne tutoriály.
+
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 
 - [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_

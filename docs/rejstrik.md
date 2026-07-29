@@ -182,6 +182,14 @@ Ve stealth hrách často vizualizovaný v UI. Trik: dej vysokým frekvencím kr�
 
 Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
+### Autoload
+
+**Scéna nebo skript zaregistrovaný jako globální — načte se sám a přežije výměnu scén.**
+
+Zdejší podoba singletonu: v nastavení projektu zaregistruješ scénu a Godot ji drží naživu bez ohledu na to, která scéna zrovna běží. Typické použití je hudba (jinak se restartuje při každém načtení levelu), skóre, audio mixer a save data. Platí na něj tytéž výhrady jako na každý globální stav — skvělý sluha, špatný pán: jakmile se z autoloadu stane odkladiště pro všechno, co se nehodí jinam, máš [God class](#god-class).
+
+Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni-hra.md#animationplayer-jako-casovac-sekvence-bez-jedineho-radku-kodu) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
+
 ### B-roll
 
 **Doplňkové záběry, které běží na obrazovce, zatímco mluvíš o něčem obecnějším — ve videích o hrách typicky záběry gameplaye.**
@@ -382,6 +390,14 @@ Formát pro herní trailer: 5–8 vteřin na konci, key art + název + jedna vý
 
 Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md)
 
+### Call down, signal up
+
+**Pravidlo palce pro komunikaci ve stromu scény: rodič smí volat funkce na dětech, dítě má vysílat signály nahoru.**
+
+Formuluje, kdo koho smí znát. Volání směrem dolů je v pořádku, protože rodič své děti vlastní a zná je. Opačný směr — dítě sahající na rodiče — vytváří závislost, která rozbije znovupoužitelnost dítěte. Místo toho dítě vyšle [signál](#signal) a rodič se rozhodne. Sourozenci se propojují přes společného rodiče, obvykle v `_ready()`. Efekt: závislosti kopírují hierarchii a strom scény zůstane čitelný.
+
+Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-down-signal-up-kdo-koho-smi-znat) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#observer-pattern-nejcastejsi-chyba-zacatecniku-a-jeji-oprava)
+
 ### Capsule
 
 **Náhledový obrázek hry na Steamu — miniatura, kterou zákazník vidí ve všech seznamech dřív než cokoli jiného.**
@@ -485,6 +501,14 @@ Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md) · [Zábava 
 Pojem z filmového střihu (a trailerového řemesla Dereka Lieu). Důvod jsou retention grafy: velká část diváků odpadne během první půlminuty — kdo šetří nejlepší záběry na konec, ukáže je prázdnému sálu. Pravidla k tomu: celková délka 30–50 s, žádný záběr přes ~6 vteřin, na konci call to action.
 
 Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md)
+
+### Collision mask
+
+**Nastavení „co mě zajímá" — proti vrstvě, která říká „co jsem".**
+
+Dvojice vrstva/maska je filtr kolizí zapsaný v konfiguraci místo v podmínkách kódu. Objekt patří do jedné či více *vrstev* a jeho *maska* určuje, které vrstvy vůbec zaznamená. Prakticky: dej hráče na vlastní vrstvu a nastav minci masku jen na ni — mince pak přestane reagovat na pohyblivé plošiny, aniž bys napsal jediný `if`. Filtr v konfiguraci se drží na jednom místě; filtr v podmínkách se rozleze do každého skriptu.
+
+Kde se s tím potkáš: [První hra: znovupoužitelná scéna](godot/prvni-hra.md#znovupouzitelna-scena-jedna-kill-zone-pro-propast-i-pro-slimaka) · [Mapa 2D nodů](godot/zaklady.md#mapa-2d-nodu-vyber-tela-je-prvni-designove-rozhodnuti)
 
 ### Collision preset
 
@@ -621,6 +645,14 @@ Kde se s tím potkáš: [Zdarma a rychle: nástroje a game jam](hudba/nastroje-z
 `Spawn Decal at Location` s velikostí a rotací; materiál v režimu deferred decal (translucent). Umístění: bod dopadu + normála × malý offset proti z-fightingu; rotace z normály povrchu, ať decal „leží". S dynamic material instancí jde per decal řídit texturu, barvu i fade-out v čase.
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
+### Delta time
+
+**Čas uplynulý od minulého snímku; násobí se jím každý pohyb, aby nezávisel na výkonu počítače.**
+
+Bez delty znamená `position.x += 1` „jeden pixel za snímek", tedy rychlost svázanou s framerate — na silnějším stroji poletí objekt rychleji. S deltou (`position.x += speed * delta`) je jednotka *za sekundu* a chování je všude stejné. Pravidlo palce: máš-li rychlost, kterou si nastavuješ, nejspíš ji máš násobit deltou. Mez: při velkých výpadcích framerate může být posun za snímek větší než tloušťka kolizního tvaru a objekt „proskočí" — proto se fyzika počítá v pevném rytmu.
+
+Kde se s tím potkáš: [První hra: delta a physics process](godot/prvni-hra.md#delta-a-physics-process-proc-se-rychlost-nasobi-casem)
 
 ### Design by constraint
 
@@ -846,6 +878,14 @@ Kód v Ticku běží 60× i vícekrát za vteřinu, ať se děje cokoli — je t
 
 Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md)
 
+### Export template
+
+**Předkompilované běhové prostředí Godotu pro cílovou platformu; stahuje se zvlášť, není součástí instalace.**
+
+Důvod, proč se Godot vejde do několika desítek megabajtů: engine si s sebou nenese buildy pro Windows, Linux, macOS, web a mobil. Před prvním exportem je proto potřeba je stáhnout (`Editor → Manage Export Templates`). Šablony jsou vázané na verzi enginu — po upgradu se stahují znovu.
+
+Kde se s tím potkáš: [První hra: nastavení projektu](godot/prvni-hra.md#nastaveni-projektu-je-soucast-hry-ne-administrativa)
+
 ### Expresivní mechanika
 
 **Mechanika, která nepomáhá vyhrát, ale mění, jak hra chutná: pohladit kočku, emoty, rozbíjení beden bez lootu.**
@@ -990,6 +1030,14 @@ Zdarma, blueprint-only. Smysl projektu: zvednout minimální laťku kvality hern
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md)
 
+### GDScript
+
+**Skriptovací jazyk Godotu — syntaxí blízký Pythonu, gradually typed, navržený přímo pro strom scény.**
+
+Odsazením strukturovaný, bez středníků, case-sensitive. Klíčové vlastnosti, které ho odlišují od „Pythonu pro hry": [gradual typing](#gradual-typing) (typy jsou volitelné a přidávají se po jedné proměnné), [signály](#signal) jako jazykový prvek, `@export` pro vystavení proměnné do inspektoru a `@onready` pro reference na nody, které v okamžiku načtení skriptu ještě neexistují. Godot umí i C# a C++, ale GDScript je jazyk, kterým je psaná dokumentace i většina komunitního materiálu.
+
+Kde se s tím potkáš: [GDScript](godot/gdscript.md) · [Nody, scény a strom](godot/zaklady.md#nody-a-sceny-strom-ktery-je-zaroven-architekturou)
+
 ### Genre descoping
 
 **Vzít jeden příjemný prvek velkého žánru a nafouknout ho na celou hru — vzorec vzniku nových subžánrů.**
@@ -1029,6 +1077,14 @@ Kde se s tím potkáš: [Základy AI: Utility AI](praxe/ai-zaklady.md#utility-ai
 V dědičnosti vzniká z pohodlnosti („dám to do masteru, ať to mají všichni") — jenže kódový zámek jednoho typu dveří nepatří všem dveřím. Pravidlo: rodič nese jen to, co potřebují všechny děti; specifika bydlí v dětech. Příbuzný jev mimo dědičnost: player character s inventářem, questy a UI v jednom grafu — lék jsou komponenty.
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Organizace projektu](praxe/organizace-projektu.md)
+
+### Gradual typing
+
+**Typový systém, kde jsou typy volitelné a dají se přidávat postupně, proměnnou po proměnné.**
+
+Kompromis mezi dynamickým a statickým typováním: `var x = 5` je dynamické (typ se dá přepsat, chyby vyplavou za běhu), `var x: int = 5` i `var x := 5` jsou statické (chyba se ohlásí v editoru před spuštěním, běh je rychlejší). Praktický důsledek té „postupnosti": nemusíš přepisovat projekt naráz — vyplatí se typovat nejdřív hranice, tedy parametry a návratové typy funkcí a vystavené proměnné, protože právě tam se chyby předávají mezi částmi kódu.
+
+Kde se s tím potkáš: [GDScript: gradual typing](godot/gdscript.md#gradual-typing-kolik-bezpecnosti-si-koupis) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
 
 ### Granulární syntéza
 
@@ -1245,6 +1301,14 @@ Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
 Trello je značka, kanban je systém (jede i v Jira nebo Notionu). Tři nosná pravidla: karty dost malé, aby šly dokončit; jeden vlastník na kartu — když jsou zodpovědní dva, není zodpovědný nikdo; a nejméně karet je uprostřed, protože Doing je deklarace dnešního fokusu, ne evidence ambicí.
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md)
+
+### Keyboard ghosting
+
+**Hardwarové omezení klávesnice: při některých kombinacích současně držených kláves jeden vstup nedorazí do hry.**
+
+Klávesnice nemá vodič ke každé klávese — má matici řádků a sloupců. Při více současných stiscích může signál projít matricí neočekávanou cestou a vypadat jako stisk klávesy, kterou nikdo nezmáčkl (odtud „duch"). Moderní klávesnice tomu předcházejí tím, že místo vymyšlené klávesy jednu skutečnou **zahodí** (*key jamming*). Které kombinace selžou, se liší podle značky a modelu. **Kódem se to opravit nedá** — brání se tomu design ovládání: přemapovatelné klávesy, víc výchozích rozložení, podpora gamepadu, žádné kritické akce na třech současně držených klávesách. Viz [N-key rollover](#n-key-rollover).
+
+Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
 
 ### Legibilita
 
@@ -1734,6 +1798,14 @@ Enginy si při importu vše stejně převedou na trojúhelníky, takže n-gon s�
 
 Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-obtahnout-promitnout) · [PS1 estetika](praxe/ps1-estetika.md#model-a-uv-po-stenach-krychle-quady-a-fotky-narovnane-do-obdelniku)
 
+### N-key rollover
+
+**Schopnost klávesnice správně nahlásit N současně stisknutých kláves; obrana proti [keyboard ghostingu](#keyboard-ghosting).**
+
+Marketingový termín z klávesnic („anti-ghosting", „6-key rollover", „full N-key rollover"), pod kterým je konkrétní hardware — izolační diody v matici, které zabrání falešným cestám signálu. Pro vývojáře je to hlavně připomínka, že **vlastní dobrá klávesnice je nereprezentativní testovací prostředí**: co ti funguje, může u hráče s levnou membránovou klávesnicí selhat.
+
+Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
+
 ### Nanite
 
 **Virtualizovaná geometrie UE5: engine dynamicky přizpůsobuje detail meshů vzdálenosti a velikosti na obrazovce.**
@@ -1757,6 +1829,14 @@ Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
 Do levelu se přidává jako Nav Mesh Bounds Volume; klávesa P zobrazí zeleně pochozí plochy. Vygenerovaný RecastNavMesh má v Generation nastavení jako Agent Radius (odstup cest od stěn — lék na zasekávání o rohy) nebo výšku kroku. Body pro pohyb dodávají uzly typu Get Random Location in Navigable Radius.
 
 Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](praxe/state-trees.md)
+
+### Nearest-neighbor filtering
+
+**Vzorkování textury bez vyhlazování — pixel zůstane pixelem.**
+
+Výchozí *linear* filtrování mezi texely interpoluje, což je žádoucí u fotorealistických textur a katastrofa u pixel artu: přiblížený sprite se rozmaže. Přepnutí na *nearest* (jinde „point sampling") vezme nejbližší texel bez míchání a hrany zůstanou ostré. V Godotu je to `Rendering → Textures → Default Texture Filter`. Patří k témuž rodu rozhodnutí jako [integer scaling](#integer-scaling) a [pixel-perfect](#pixel-perfect) zobrazení.
+
+Kde se s tím potkáš: [První hra: nastavení projektu](godot/prvni-hra.md#nastaveni-projektu-je-soucast-hry-ne-administrativa) · [2D vizuál](teorie/2d-vizual.md#pixel-art-je-rozhodnuti-ne-nouzove-reseni) · [PS1 estetika](praxe/ps1-estetika.md)
 
 ### Network Prediction
 
@@ -2398,6 +2478,22 @@ Formální ideační technika — funguje na vylepšení rozdělané hry i gener
 
 Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md)
 
+### Scene inheritance
+
+**Nová scéna odvozená z existující: převezme celý strom nodů a dovolí přepsat jen to, co se liší.**
+
+Odpověď na duplikování scén. Máš-li základního nepřítele a chceš rychlou, silnou a bossovskou variantu, duplikát znamená, že každou opravu budeš dělat čtyřikrát. Dědičná scéna sdílí základ a přepisuje jen odchylky (rychlost 200 → 400), takže vylepšení základu se propíše do všech potomků. **Nemá to nic společného s dědičností tříd** — dědí se strom nodů, ne skript.
+
+Kde se s tím potkáš: [Editor se prohledává, ne prochází](godot/zaklady.md#editor-se-prohledava-ne-prochazi)
+
+### Scene tree
+
+**Strom nodů a vnořených scén, ze kterého se skládá běžící hra; jeho kořen se jmenuje root.**
+
+Není to jen organizační pomůcka — nese tři věci naráz: **transformace** se dědí po hierarchii (kamera jako dítě hráče ho následuje bez kódu), **pořadí vykreslení** uzlů se stejným [Z indexem](#z-index) odpovídá pořadí ve stromu, a **komunikace** se řídí podle hierarchie (viz [call down, signal up](#call-down-signal-up)). Proto platí rada „nestav hluboké hierarchie": strom scény je architektura, ne složka na soubory.
+
+Kde se s tím potkáš: [Nody, scény a strom](godot/zaklady.md#nody-a-sceny-strom-ktery-je-zaroven-architekturou) · [Praxe v Godotu](godot/index.md)
+
 ### Scope
 
 **Rozsah projektu: kolik obsahu, systémů a ambicí hra obsáhne.**
@@ -2469,6 +2565,14 @@ Kde se s tím potkáš: [Nápad: test 300 znaků](teorie/napad.md) · [Scope](te
 Vznikla v době fyzického tisku, kde bránila rozpíjení inkoustu a opotřebení stroje — proto s patkovým písmem podvědomě spojujeme starší dobu. Praktický důsledek pro hry: dekorativní patkový font se hodí na názvy a nápisy ve světě, ale funkční text (popisy schopností, tutoriály) patří do bezpatkového, protože se čte rychleji.
 
 Kde se s tím potkáš: [Typografie](teorie/typografie.md)
+
+### Signal
+
+**Zpráva, kterou node vyšle, aniž by věděl, kdo ji poslouchá — vestavěný [observer pattern](#observer-pattern).**
+
+Deklaruje se řádkem `signal neco_se_stalo`, vysílá `neco_se_stalo.emit()` a připojit se dá myší v editoru i kódem (`connect` / `disconnect`). Umí nést parametry, takže s událostí cestuje i kontext. Význam je v tom, co odesílatel **neví**: tlačítko netuší, které funkce jsou na jeho signál napojené, takže se dá použít kdekoli. V Unrealu je nejbližší příbuzný [event dispatcher](#event-dispatcher).
+
+Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-down-signal-up-kdo-koho-smi-znat) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#tri-kanaly-a-kdy-ktery-cast-interface-event-dispatcher)
 
 ### Signal-to-noise ratio
 
@@ -2613,6 +2717,14 @@ Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp
 Každý segment dostane instanci meshe zdeformovanou mezi počátečním a koncovým bodem (Set Start and End v Blueprintu, spline mesh spawner v PCG). Na orientaci záleží: forward axis musí odpovídat ose meshe, jinak se geometrie kroutí. Liány a lana z obyčejného válce, oblouk předpovězené dráhy hodu z tenkého průsvitného válce.
 
 Kde se s tím potkáš: [PCG liány](praxe/pcg-liany.md) · [Interakce s předměty](praxe/interakce-predmety.md)
+
+### Sprite sheet
+
+**Jeden obrázek, ve kterém je mřížka jednotlivých snímků animace nebo sada dlaždic.**
+
+Alternativou by byl soubor na každý snímek, což se u animované postavy rychle změní v neudržovatelnou hromadu. Engine si z listu vyřízne buňky podle zadané mřížky a poskládá z nich animaci (v Godotu `AnimatedSprite2D` + `SpriteFrames`) nebo [tile set](#texture-atlas). Vedlejší efekt, kvůli kterému se to dělá i tam, kde by jednotlivé soubory nevadily: všechny snímky jsou v jedné textuře, takže se kreslí z jedné paměti.
+
+Kde se s tím potkáš: [První hra](godot/prvni-hra.md) · [Rejstřík: Flipbook](#flipbook)
 
 ### Square hole
 
@@ -3109,6 +3221,14 @@ Kde se s tím potkáš: [Nápad: yoink & twist](teorie/napad.md) · [Prototypov�
 Vzniká střídavým sčítáním a odečítáním vln („wa-wa-wa"). Čím dál od sebe frekvence, tím rychlejší kolísání, až se z něj stane obecná drsnost — jedna ze dvou příčin pásma nepohody mezi tóny.
 
 Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
+
+### Z index
+
+**Číslo, které určuje pořadí vykreslení 2D objektů nezávisle na jejich pozici ve stromu.**
+
+Ve výchozím stavu mají všechny viditelné nody Z index 0, a proto se kreslí v pořadí, v jakém jsou ve [stromu scény](#scene-tree) — což znamená, že přeuspořádání stromu tiše změní, co je vidět. Nastavit hráči vyšší Z index je explicitní pravidlo („hráč je vždycky vepředu") místo skryté závislosti na pořadí. Obecně platí: kde na překrývání záleží, zapiš to číslem, ne pořadím.
+
+Kde se s tím potkáš: [Nody, scény a strom](godot/zaklady.md#nody-a-sceny-strom-ktery-je-zaroven-architekturou)
 
 ### Zero indexing
 

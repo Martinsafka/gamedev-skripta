@@ -19,7 +19,7 @@ Témata a kapitoly:
 **Učení a růst v éře AI**
 
 - **[Učení v éře AI](uceni-v-ere-ai.md)** — odpověď nestačí vlastnit: pomalé učení podle Toma Yeha, čtecí framework ACTOR, surfař vs. divák a čtyři úrovně inženýra.
-- **[Jak se učit kódovat](jak-se-ucit-kodovat.md)** — složitá není řeč, ale zadání: třicet kroků visual novelu, aktivní sledování tutoriálů a ego jako špatný zákazník.
+- **[Jak se učit kódovat](jak-se-ucit-kodovat.md)** — složitá není řeč, ale zadání: třicet kroků visual novelu, aktivní sledování tutoriálů, ego jako špatný zákazník — a test vlastnictví: když to neumíš vysvětlit, ještě ti to nepatří.
 - **[První projekty](prvni-projekty.md)** — tři hry z univerzitního kurzu: čistý interface (Tamagotchi), čistá akce (shmup bez levelů) a koláž ve dvou z analogových assetů.
 
 **Programátorské myšlení**

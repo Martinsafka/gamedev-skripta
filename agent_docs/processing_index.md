@@ -8,6 +8,8 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
+**Třetí vlna (staženo 2026-07-29):** +174 videí ve třech playlistech — **Godot playlist 93 (nový, samostatná sekce)**, hlavní +61, Gamedev-music +20. Tabulky v sekci „Třetí vlna" na konci souboru; Godot má vlastní sekci s navrženou taxonomií. Pořadí práce: **nejdřív Godot, zbytek potom**.
+
 **Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **114/116 published (dávky 20–30) — druhá vlna hotová**, 0 todo + 2 todo-lp (beginner kurzy). Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
@@ -663,3 +665,266 @@ _(114 videí v dávkách + 2 low-priority kurzy mimo dávky = 116.)_
 | published | [Making an Indie Pop Banger from Scratch w/ Lyncs (Cook Up)](https://www.youtube.com/watch?v=X6RMUest2sw) `X6RMUest2sw` | Splice | 18:58 | auto | 1418 | `hudba/aranz.md` | rozšíření: cook-up Splice — skladba od nuly · dávka 30 |
 | published | [The most insane sound design tool nobody's heard of (is free)](https://www.youtube.com/watch?v=TGczsxuAm1I) `TGczsxuAm1I` | mylarmelodies | 14:50 | manual | 2028 | `hudba/nastroje-zdarma-a-game-jam.md` | rozšíření: CDP + SoundThread · dávka 30 |
 | published | [How to Make a 3D Sound in Unreal Engine 5](https://www.youtube.com/watch?v=dttUv6--1nA) `dttUv6--1nA` | Gorka Games | 3:43 | auto | 572 | `hudba/sound-design-ve-hre.md` | rozšíření: attenuation v UE · dávka 30 |
+
+---
+
+## Třetí vlna — nové přepisy staženy 2026-07-29
+
+Fetch 2026-07-29 přinesl **174 nových videí** ve třech playlistech: **Godot playlist (93, nový)**, **hlavní playlist (+61)**, **Gamedev-music (+20)**. Archiv `scripts/fetched.txt` má 517 id, `transcripts_clean/` 506 souborů (11 videí bez anglického tracku).
+
+Pořadí práce **dohodnuté s uživatelem**: **nejdřív celý Godot** (nová sekce, taxonomie schválena 2026-07-29), teprve pak zbytek. Tabulky hlavního a hudebního playlistu jsou proto zatím **jen evidence** — bez taxonomie, bez přiřazených kapitol.
+
+---
+
+## Godot playlist — nová sekce „Praxe v Godotu" (93 videí)
+
+Samostatný playlist zaměřený na Godot; zrcadlí roli, kterou má hlavní playlist pro UE5. Nový top-level dokument `docs/godot/` v nav mezi „Praxe v UE5" a „Hudba a zvuk".
+
+**Taxonomie schválena uživatelem 2026-07-29.** Rozložení: **86 videí do Godot sekce** (5 témat / 15 kapitol) · **5 mimo sekci** (routing do Teorie a Hudby) · **1 skip** (duplikát) · **2 low-priority** (mega-kurzy Clear Code, 137k slov dohromady). Celkem ~351k slov přepisů, bez mega-kurzů ~215k.
+
+Dvě rozhodnutí uživatele z tohoto dne: (a) **Inbound Shovel dostává vlastní téma uvnitř Godot sekce**, ne rozpuštění do Teorie — 42 videí jednoho autora se čte jako jeden příběh stavby hry; cena je, že část tématu učí 2D řemeslo, ne Godot API. (b) **Oba Clear Code mega-kurzy zůstávají low-priority**, stejně jako UE beginner kurzy.
+
+Plán dávek: **31 ✅ hotová** = G-START + G-CODE · **32** = G-ARCH (20, ~51k, 5 kapitol) · **33** = G-SYS + routing mimo sekci (13, ~30k, 4 kapitoly + rozšíření Teorie) · **34** = případovka A: pohyb, kamera, nepřátelé (15, ~36k, 3 kapitoly) · **35** = případovka B: level a mapa, vizuál a zvuk, systémy, proces (27, ~52k, 4 kapitoly).
+
+**Stav: 14/93 published (dávka 31).** Dvě přeřazení proti původnímu návrhu, obě dole v tabulkách poznamenaná: `74y6zWZfQKk` (Bitlytic, „make your code simpler") je o **kompozici vs. dědičnosti**, ne o jazyce → přesun z G-CODE do G-ARCH; `N7UgrLFzW08` (7 coding tips) je **engine-agnostická rada o učení** → mimo Godot sekci, rozšířilo `teorie/jak-se-ucit-kodovat.md`.
+
+### Godot: začínáme · `G-START` (8)
+
+Co Godot je, jak se v něm orientuje a jak z prázdného projektu vznikne hratelná hra.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [How to make a Video Game - Godot Beginner Tutorial](https://www.youtube.com/watch?v=LOhfqjmasi0) `LOhfqjmasi0` | Brackeys | 77:12 | auto | 14939 | `godot/prvni-hra.md` | páteř kapitoly — 3 myšlenky (kill zone, delta, AnimationPlayer) + export; sponzor přiznán · dávka 31 |
+| published | [Godot 4.6 Tips: 7 Features I Wish I Used Sooner](https://www.youtube.com/watch?v=z-9AI9ZPiLM) `z-9AI9ZPiLM` | DeeRaghooGames | 12:38 | auto | 2122 | `godot/zaklady.md` | dědičnost scén + remote inspector + filtry; **Resource, sub-viewport a terén v tilemapách odloženy do dávek 32/33** · dávka 31 |
+| published | [Do THIS Before You Publish Your Godot Game](https://www.youtube.com/watch?v=3iGHpha-DmE) `3iGHpha-DmE` | StayAtHomeDev | 3:33 | auto | 658 | `godot/prvni-hra.md` | nastavení projektu před vydáním · dávka 31 |
+| published | [Every 2D Node Explained in 9 Minutes !](https://www.youtube.com/watch?v=22VYNOtrcgM) `22VYNOtrcgM` | Lukky | 9:19 | auto | 2150 | `godot/zaklady.md` | mapa 2D nodů — přeskládaná podle řešeného problému · dávka 31 |
+| published | [Before You Use Godot 4.6… Watch This (Beginner Guide 2026)](https://www.youtube.com/watch?v=e5imI_IX6ds) `e5imI_IX6ds` | DeeRaghooGames | 9:38 | auto | 1723 | `godot/zaklady.md` | editor 4.6 jako pracovní plocha · dávka 31 |
+| published | [Godot Beginner Guide 2026: What I Wish I Knew Before Starting](https://www.youtube.com/watch?v=VwbD5_c7Bq0) `VwbD5_c7Bq0` | DeeRaghooGames | 8:40 | auto | 1465 | `godot/zaklady.md` | sloučeno s DevWorm do myšlenky „co si přinést" · dávka 31 |
+| published | [I Wish I Had Known This Before Starting Godot Game Development](https://www.youtube.com/watch?v=TkvRsGstk-w) `TkvRsGstk-w` | DevWorm | 5:54 | auto | 1413 | `godot/zaklady.md` | sloučeno s DeeRaghoo do myšlenky „co si přinést" · dávka 31 |
+| published | [Godot in 100 Seconds](https://www.youtube.com/watch?v=QKgTZWbwD1U) `QKgTZWbwD1U` | Fireship | 2:40 | auto | 613 | `godot/zaklady.md` | Godot ve 100 sekundách — rám pro myšlenku „nody a scény" · dávka 31 |
+
+### GDScript a kód · `G-CODE` (7)
+
+Jazyk, typy, návyky — a jeden problém, který vypadá jako bug v kódu, ale je v klávesnici.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [How to program in Godot - GDScript Tutorial](https://www.youtube.com/watch?v=e1zJS31tr88) `e1zJS31tr88` | Brackeys | 58:09 | manual | 10836 | `godot/gdscript.md` | páteř kapitoly — typování, signály, třídy; sponzor přiznán · dávka 31 |
+| published | [Nobody Tells Beginners These 7 Coding Tips \| learn to code in Godot](https://www.youtube.com/watch?v=N7UgrLFzW08) `N7UgrLFzW08` | DeeRaghooGames | 15:50 | auto | 2661 | `teorie/jak-se-ucit-kodovat.md` | **PŘESUN mimo Godot sekci** — engine-agnostická rada o učení; rozšířilo existující kapitolu Teorie · dávka 31 |
+| published | [Why Your Godot Code Isn't Actually Broken (Keyboard Ghosting)](https://www.youtube.com/watch?v=qA3dnGGC3ow) `qA3dnGGC3ow` | DeeRaghooGames | 11:21 | auto | 1877 | `godot/gdscript.md` | keyboard ghosting — bug mimo kód · dávka 31 |
+| todo | [How You Can Easily Make Your Code Simpler in Godot 4](https://www.youtube.com/watch?v=74y6zWZfQKk) `74y6zWZfQKk` | Bitlytic | 6:59 | manual | 1606 | `godot/kompozice.md` | **PŘESUN z G-CODE do G-ARCH** — video je o kompozici vs. dědičnosti, ne o jazyce; navazuje na class_name díl |
+| published | [Maximize Your Game Development Potential with Classes in Godot (class_name is OP)](https://www.youtube.com/watch?v=y3faMdIb2II) `y3faMdIb2II` | Bitlytic | 4:34 | manual | 1099 | `godot/gdscript.md` | parameter object přes class_name · dávka 31 |
+| published | [5 Tricks For Better GDScript in Godot](https://www.youtube.com/watch?v=p_IvmDm-Ywk) `p_IvmDm-Ywk` | StayAtHomeDev | 2:50 | auto | 511 | `godot/gdscript.md` | sloučeno s „1 Easy Habit" do myšlenky o pořádku · dávka 31 |
+| published | [1 Easy Habit To Level Up Your Godot Game](https://www.youtube.com/watch?v=Ez6BEiGOMCc) `Ez6BEiGOMCc` | StayAtHomeDev | 2:58 | auto | 549 | `godot/gdscript.md` | sloučeno s „5 Tricks" do myšlenky o pořádku · dávka 31 |
+
+### Architektura projektu · `G-ARCH` (19)
+
+Kompozice, Resource jako data, signály, stavové automaty, struktura projektu a výkon. Největší téma sekce.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Mastering Composition for Beginners in Godot](https://www.youtube.com/watch?v=e3H_nw4w5U8) `e3H_nw4w5U8` | Code With Ro | 58:02 | auto | 11914 | `godot/kompozice.md` | kompozice pro začátečníky (58 min) — páteř kapitoly |
+| todo | [Godot Performance Myths Debunked: Does Modular Component Design Actually Slow Down Your Game Part 1](https://www.youtube.com/watch?v=PWHxoAYmyLM) `PWHxoAYmyLM` | DeeRaghooGames | 13:33 | auto | 1939 | `godot/kompozice.md` | mýtus: zpomaluje modulární komponentní design hru? (část 1) |
+| todo | [Using Composition to Make More Scalable Games in Godot](https://www.youtube.com/watch?v=rCu8vQrdDDI) `rCu8vQrdDDI` | Firebelley Games | 10:13 | auto | 2239 | `godot/kompozice.md` | kompozice pro škálovatelné hry |
+| todo | [Stop Using Nodes for Everything in Godot](https://www.youtube.com/watch?v=1PnG3r1rKcs) `1PnG3r1rKcs` | Firebelley Games | 6:10 | manual | 1253 | `godot/kompozice.md` | přestaň používat nody na všechno |
+| todo | [Stop Copying Code! Learn Custom Resources in Godot 4](https://www.youtube.com/watch?v=7dzrc7pEAwE) `7dzrc7pEAwE` | DeeRaghooGames | 13:22 | auto | 2153 | `godot/resources.md` | custom resources místo kopírovaného kódu |
+| todo | [I Rebuilt My Godot Game Using Custom Resources (Here's Why)](https://www.youtube.com/watch?v=uMyxxsMtiOQ) `uMyxxsMtiOQ` | DeeRaghooGames | 12:58 | auto | 2098 | `godot/resources.md` | tatáž hra dvakrát — custom resources část 2 |
+| todo | [How to use Resources in Godot 4](https://www.youtube.com/watch?v=h5vpjCDNa-w) `h5vpjCDNa-w` | Bitlytic | 8:07 | manual | 1845 | `godot/resources.md` | jak používat Resource |
+| todo | [Using Resources and Dictionaries for Godot Game Development](https://www.youtube.com/watch?v=D0uGtnMhB-E) `D0uGtnMhB-E` | DevWorm | 6:15 | auto | 1325 | `godot/resources.md` | resources a dictionaries |
+| todo | [Stop Making Messy Games: Godot Rules For Scalable Projects \| Signals PT2](https://www.youtube.com/watch?v=btCeflqFw4o) `btCeflqFw4o` | DeeRaghooGames | 15:10 | auto | 2548 | `godot/signaly.md` | pravidla pro signály — část 2 (dynamické uzly, event bus) |
+| todo | [Stop Making Messy Games: Godot Rules For Scalable Projects \| Signals PT1](https://www.youtube.com/watch?v=1rvlexb1fCU) `1rvlexb1fCU` | DeeRaghooGames | 14:20 | auto | 2512 | `godot/signaly.md` | pravidla pro signály — část 1 (signal up, call down) |
+| skip | [Stop Making Messy Games: Godot Rules For Scalable Projects \| Signals PT2 better audio](https://www.youtube.com/watch?v=t6wZiKPJ-g0) `t6wZiKPJ-g0` | DeeRaghooGames | 15:10 | auto | 2553 | — | DUPLIKÁT btCeflqFw4o (re-upload „better audio", týž scénář) |
+| todo | [Beginner Game Dev? Stop Making Basic Enemies \|\| Build Enemy Systems Instead](https://www.youtube.com/watch?v=QXbgOX5Wl9E) `QXbgOX5Wl9E` | DeeRaghooGames | 16:11 | auto | 2744 | `godot/stavy-a-vzory.md` | systémy nepřátel místo jednorázových nepřátel |
+| todo | [Finite State Machines in Godot 4 in Under 10 Minutes](https://www.youtube.com/watch?v=ow_Lum-Agbs) `ow_Lum-Agbs` | Bitlytic | 7:16 | manual | 1774 | `godot/stavy-a-vzory.md` | konečné automaty (FSM) v Godotu |
+| todo | [Modular Upgrades Made Easy Using the Strategy Pattern](https://www.youtube.com/watch?v=sZDJJeDNe_M) `sZDJJeDNe_M` | Bitlytic | 6:41 | manual | 1561 | `godot/stavy-a-vzory.md` | strategy pattern pro modulární upgrady |
+| todo | [10 Things I Wish I Knew Before Starting a Large Godot Project (Cost Me Months)](https://www.youtube.com/watch?v=zLdTvkLsmgA) `zLdTvkLsmgA` | Fat Earth Studios | 15:40 | manual | 2993 | `godot/projekt-a-vykon.md` | 10 věcí před velkým projektem (stálo měsíce) |
+| todo | [How to Build Godot Editor Tools Like a Pro](https://www.youtube.com/watch?v=VyTys5oCdN8) `VyTys5oCdN8` | Firebelley Games | 15:13 | auto | 3225 | `godot/projekt-a-vykon.md` | vlastní editorové nástroje |
+| todo | [The Godot Project Setup I Wish I'd Used From the Start](https://www.youtube.com/watch?v=V4SO7foDoW4) `V4SO7foDoW4` | Fat Earth Studios | 13:36 | manual | 2758 | `godot/projekt-a-vykon.md` | struktura projektu od začátku |
+| todo | [8 Godot Tips You've Probably Never Heard Of](https://www.youtube.com/watch?v=P8ssMWWQ1R8) `P8ssMWWQ1R8` | Firebelley Games | 13:59 | manual | 2578 | `godot/projekt-a-vykon.md` | 8 tipů, co jsi nejspíš neslyšel |
+| todo | [Godot Performance Myths Debunked: Stop Putting Heavy Logic in _process() Godot Performance Part 2](https://www.youtube.com/watch?v=ozEtFPIMWeg) `ozEtFPIMWeg` | DeeRaghooGames | 11:18 | auto | 1653 | `godot/projekt-a-vykon.md` | mýtus: těžká logika v _process() (část 2) |
+| todo | [My game is running at 2 FPS](https://www.youtube.com/watch?v=EA4hDMlhN3o) `EA4hDMlhN3o` | Sealubbers | 1:05 | auto | 283 | `godot/projekt-a-vykon.md` | 2 FPS: update rate, batching, culling (short, engine-agnostic) |
+
+### Systémy a nástroje · `G-SYS` (9)
+
+Konkrétní subsystémy: animace a pohyb, UI, 2D svět, multiplayer.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Godot Control Node (UI) Masterclass](https://www.youtube.com/watch?v=5Hog6a0EYa0) `5Hog6a0EYa0` | Karto | 26:25 | auto | 5590 | `godot/ui-control.md` | Control nody — masterclass (26 min) |
+| todo | [How Much Can 2D Lighting Transform a Godot Game?](https://www.youtube.com/watch?v=BXoaRBsmY7o) `BXoaRBsmY7o` | TechDad Impact | 16:26 | manual | 3182 | `godot/2d-svet.md` | 2D světlo a stíny |
+| todo | [How To Pixel Art For Godot](https://www.youtube.com/watch?v=q2bPO4K6r_c) `q2bPO4K6r_c` | Sebbyspoons - Game Dev and Pixel Art | 13:25 | auto | 2458 | `godot/2d-svet.md` | pixel art a jeho import do Godotu |
+| todo | [Draw fewer tiles - by using a Dual-Grid system!](https://www.youtube.com/watch?v=jEWFSv3ivTg) `jEWFSv3ivTg` | jess::codes | 6:21 | manual | 1185 | `godot/2d-svet.md` | dual-grid tilemapy — méně dlaždic |
+| todo | [Why Animation Trees in Godot 4 are Unbelievably Useful](https://www.youtube.com/watch?v=iElHZhOxGYA) `iElHZhOxGYA` | Bitlytic | 7:28 | manual | 1844 | `godot/animace-a-pohyb.md` | AnimationTree |
+| todo | [I Rebuilt the Default Godot Jump to Feel Amazing](https://www.youtube.com/watch?v=s5XoTDwdjVo) `s5XoTDwdjVo` | Coding Quests | 4:55 | auto | 1033 | `godot/animace-a-pohyb.md` | přestavěný default skok, aby byl cítit |
+| todo | [Enemy Pathfinding AI in Godot 4](https://www.youtube.com/watch?v=OZCApGqUHGU) `OZCApGqUHGU` | TheYellowDude | 3:06 | auto | 503 | `godot/animace-a-pohyb.md` | pathfinding nepřátel |
+| todo | [save hours of programming using curves \| Godot Tutorial](https://www.youtube.com/watch?v=cTSrjN_2qDI) `cTSrjN_2qDI` | AceSpectre | 2:49 | auto | 626 | `godot/animace-a-pohyb.md` | křivky místo programování |
+| todo | [Godot Multiplayer Tutorial: The Quick and Easy High-Level API](https://www.youtube.com/watch?v=YnfsyZJRsL8) `YnfsyZJRsL8` | IcyEngine | 8:16 | manual | 1587 | `godot/multiplayer.md` | high-level multiplayer API — TENKÉ, merge kandidát |
+
+### Případovka: 2D akční platformer · `G-CASE` (42)
+
+Isadora's Edge — jeden projekt od pohybu po vydání, 15 dlouhých devlogů a 26 shortů jednoho autora (+ 1 cizí short o one-way platformách). Rozhodnutí uživatele 2026-07-29: vlastní téma uvnitř Godot sekce, ne rozpuštění do Teorie.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Perfecting MOVEMENT for my Indie Game \| Devlog](https://www.youtube.com/watch?v=EQxcdftp_eQ) `EQxcdftp_eQ` | Inbound Shovel | 18:53 | auto | 4348 | `godot/pripadovka-pohyb.md` | ladění pohybu postavy |
+| todo | [Why Slopes are Shockingly Difficult for Indie Game Devs](https://www.youtube.com/watch?v=rHMJccb5IOM) `rHMJccb5IOM` | Inbound Shovel | 17:20 | auto | 4233 | `godot/pripadovka-pohyb.md` | proč jsou slopes tak těžké (a proč je vyhodil) |
+| todo | [Game Dev Secrets: Why am I so heavy? #indiegamedev #gamedev](https://www.youtube.com/watch?v=ZSD2EOBEWlU) `ZSD2EOBEWlU` | Inbound Shovel | 0:52 | auto | 271 | `godot/pripadovka-pohyb.md` | gravitace se kumuluje na zemi — skrytý bug |
+| todo | [Game Dev Secret: REAL control over your character? #indiegamedev #gamedev](https://www.youtube.com/watch?v=jd91r5kwdnc) `jd91r5kwdnc` | Inbound Shovel | 0:45 | auto | 212 | `godot/pripadovka-pohyb.md` | jump cutting = kontrola nad výškou skoku |
+| todo | [Game Dev Secrets: How to make your Aerial Attacks feel SUPER smooth! #indiegamedev #gamedev](https://www.youtube.com/watch?v=kYPMIfROc_A) `kYPMIfROc_A` | Inbound Shovel | 0:59 | auto | 269 | `godot/pripadovka-pohyb.md` | vzdušné útoky |
+| todo | [How passable (one-way) platforms work in game development!](https://www.youtube.com/watch?v=CZgJgrndt5Q) `CZgJgrndt5Q` | Challacade | 0:59 | auto | 252 | `godot/pripadovka-pohyb.md` | one-way platformy (Challacade, mimo Inbound Shovel) |
+| todo | [I made the PERFECT camera for my Indie Game! \| Devlog](https://www.youtube.com/watch?v=80VlawJmDiE) `80VlawJmDiE` | Inbound Shovel | 23:08 | auto | 5550 | `godot/pripadovka-kamera.md` | kamera pro pixel art — pixel jitter |
+| todo | [Game Dev Secrets: Oops, we broke the camera #indiegamedev #gamedev](https://www.youtube.com/watch?v=KTOyrG2rfCU) `KTOyrG2rfCU` | Inbound Shovel | 1:15 | auto | 371 | `godot/pripadovka-kamera.md` | rozbitá kamera |
+| todo | [Game Dev Secrets: Resolution! #indiegamedev #gamedev](https://www.youtube.com/watch?v=y_TwL5IfPxA) `y_TwL5IfPxA` | Inbound Shovel | 1:00 | auto | 264 | `godot/pripadovka-kamera.md` | rozlišení a škálování |
+| todo | [I made a Fighting Game Frame Data System for my Indie Game!](https://www.youtube.com/watch?v=Dptztdm1rtg) `Dptztdm1rtg` | Inbound Shovel | 31:42 | auto | 8468 | `godot/pripadovka-nepratele.md` | frame data systém z bojovek |
+| todo | [Making a BIG BOSS FROG for my indie game! \| Devlog](https://www.youtube.com/watch?v=atqSho7wmGE) `atqSho7wmGE` | Inbound Shovel | 25:57 | auto | 6456 | `godot/pripadovka-nepratele.md` | boss: obří žába |
+| todo | [Making Flying Enemies for my Indie Game! (Isadora's Edge Devlog)](https://www.youtube.com/watch?v=bGET0eZIo9w) `bGET0eZIo9w` | Inbound Shovel | 18:49 | auto | 4751 | `godot/pripadovka-nepratele.md` | létající nepřátelé |
+| todo | [Creating SMART Enemies for my Indie Game! \| Devlog](https://www.youtube.com/watch?v=4yqg1UEkiZo) `4yqg1UEkiZo` | Inbound Shovel | 18:29 | auto | 4404 | `godot/pripadovka-nepratele.md` | chytří nepřátelé |
+| todo | [Game Dev Secrets: About Combo Attacks #indiegamedev #gamedev](https://www.youtube.com/watch?v=GbSTBAI6dJc) `GbSTBAI6dJc` | Inbound Shovel | 0:56 | auto | 291 | `godot/pripadovka-nepratele.md` | comba |
+| todo | [Game Dev Secrets: Stealing from Fighting Games! #indiegamedev #gamedev](https://www.youtube.com/watch?v=JAW6Zn3rMBk) `JAW6Zn3rMBk` | Inbound Shovel | 0:58 | auto | 256 | `godot/pripadovka-nepratele.md` | co krást z bojovek |
+| todo | [I made a Custom Level Editor for my Indie Game!](https://www.youtube.com/watch?v=wQwHKKzKQL4) `wQwHKKzKQL4` | Inbound Shovel | 19:08 | auto | 4954 | `godot/pripadovka-level-a-mapa.md` | vlastní editor levelů |
+| todo | [Making a Massive Metroidvania Map (The Right Way)](https://www.youtube.com/watch?v=FI0-yz5Xcz0) `FI0-yz5Xcz0` | Inbound Shovel | 17:38 | auto | 4340 | `godot/pripadovka-level-a-mapa.md` | velká metroidvania mapa — datový model vs. view |
+| todo | [Game Dev Secrets: Tiles and Maps! #indiegamedev #gamedev](https://www.youtube.com/watch?v=1j_B8Ra3TY4) `1j_B8Ra3TY4` | Inbound Shovel | 0:59 | auto | 308 | `godot/pripadovka-level-a-mapa.md` | tilemapy a auto-tiling |
+| todo | [Game Dev Secrets: Maps and Transitions! #indiegamedev #gamedev](https://www.youtube.com/watch?v=zG4ShItsV_Q) `zG4ShItsV_Q` | Inbound Shovel | 1:36 | auto | 414 | `godot/pripadovka-level-a-mapa.md` | mapy a přechody |
+| todo | [Game Dev Secrets: Loading Zone Trick! #indiegamedev #gamedev](https://www.youtube.com/watch?v=EP-fIhAe2Jo) `EP-fIhAe2Jo` | Inbound Shovel | 1:27 | auto | 404 | `godot/pripadovka-level-a-mapa.md` | trik s loading zónou |
+| todo | [Game Dev Secrets: A trick for environmental immersion! #indiegamedev #gamedev](https://www.youtube.com/watch?v=ok4Zst3R7aQ) `ok4Zst3R7aQ` | Inbound Shovel | 0:57 | auto | 260 | `godot/pripadovka-level-a-mapa.md` | drobnost pro imerzi prostředí |
+| todo | [Lighting VFX Completely Changed my Game!](https://www.youtube.com/watch?v=TS0hP7wX-zI) `TS0hP7wX-zI` | Inbound Shovel | 16:02 | auto | 3926 | `godot/pripadovka-vizual-a-zvuk.md` | lighting VFX změnily hru |
+| todo | [Redesigning the Main Character of my Indie Game! \| Devlog](https://www.youtube.com/watch?v=HsWnv6rCiJ4) `HsWnv6rCiJ4` | Inbound Shovel | 24:29 | auto | 5814 | `godot/pripadovka-vizual-a-zvuk.md` | redesign hlavní postavy |
+| todo | [Game Dev Secrets: The Key to Colors! #indiegamedev #gamedev](https://www.youtube.com/watch?v=x8EGyYUELUw) `x8EGyYUELUw` | Inbound Shovel | 1:33 | auto | 439 | `godot/pripadovka-vizual-a-zvuk.md` | hue shifting — klíč k barvám |
+| todo | [Game Dev Secrets: Palette Swaps! #indiegamedev #gamedev](https://www.youtube.com/watch?v=7joIPGLcWHY) `7joIPGLcWHY` | Inbound Shovel | 0:59 | auto | 303 | `godot/pripadovka-vizual-a-zvuk.md` | palette swaps |
+| todo | [Game Dev Secrets: Sound Effect Magic! #indiegamedev #gamedev](https://www.youtube.com/watch?v=ZYZRr05AMNE) `ZYZRr05AMNE` | Inbound Shovel | 1:00 | auto | 279 | `godot/pripadovka-vizual-a-zvuk.md` | kouzlo zvukových efektů |
+| todo | [Creating a Game-Changing Badge System for my Indie Game! \| Devlog](https://www.youtube.com/watch?v=KtbNdDWi30k) `KtbNdDWi30k` | Inbound Shovel | 37:10 | auto | 9437 | `godot/pripadovka-systemy.md` | systém odznaků (37 min) |
+| todo | [Game Dev Secrets: How to handle Rewards? #indiegamedev #gamedev](https://www.youtube.com/watch?v=tgczIVACFXI) `tgczIVACFXI` | Inbound Shovel | 1:04 | auto | 275 | `godot/pripadovka-systemy.md` | jak zacházet s odměnami |
+| todo | [Game Dev Secrets: Risks and Rewards! #indiegamedev #gamedev](https://www.youtube.com/watch?v=pwUKx1WDsm0) `pwUKx1WDsm0` | Inbound Shovel | 1:01 | auto | 269 | `godot/pripadovka-systemy.md` | rizika a odměny |
+| todo | [Game Dev Secrets: NUMBER GO UP #indiegamedev #gamedev](https://www.youtube.com/watch?v=kaRyRRHF-5o) `kaRyRRHF-5o` | Inbound Shovel | 2:04 | auto | 506 | `godot/pripadovka-systemy.md` | NUMBER GO UP |
+| todo | [Game Dev Secrets: Becoming a Billionaire? #indiegamedev #gamedev](https://www.youtube.com/watch?v=NZSJ7n2Ix0A) `NZSJ7n2Ix0A` | Inbound Shovel | 1:55 | auto | 508 | `godot/pripadovka-systemy.md` | stát se miliardářem (ekonomika v hrách) |
+| todo | [Game Dev Secrets: An Easy Dialogue Fix! #indiegamedev #gamedev](https://www.youtube.com/watch?v=b_4pEe4chfs) `b_4pEe4chfs` | Inbound Shovel | 1:16 | auto | 347 | `godot/pripadovka-systemy.md` | snadná oprava dialogů |
+| todo | [Game Dev Secrets: Keybindings? #indiegamedev #gamedev](https://www.youtube.com/watch?v=b9pl67ZbhX8) `b9pl67ZbhX8` | Inbound Shovel | 1:15 | auto | 335 | `godot/pripadovka-systemy.md` | keybindings |
+| todo | [The Dangers of Taking Shortcuts (as a Game Dev)](https://www.youtube.com/watch?v=qkefNtAPjUE) `qkefNtAPjUE` | Inbound Shovel | 20:19 | auto | 5387 | `godot/pripadovka-proces.md` | nebezpečí zkratek |
+| todo | [Man, making a video game is hard \| Devlog](https://www.youtube.com/watch?v=6v_gu8vbeQQ) `6v_gu8vbeQQ` | Inbound Shovel | 14:31 | auto | 3354 | `godot/pripadovka-proces.md` | dělat hru je těžké |
+| todo | [After 3 Years, I'm Changing My Indie Game's Genre!](https://www.youtube.com/watch?v=R_bX6FeEUFw) `R_bX6FeEUFw` | Inbound Shovel | 15:15 | auto | 3825 | `godot/pripadovka-proces.md` | po 3 letech mění žánr |
+| todo | [Game Dev Secrets: Increase your FPS by ten thousand percent! #indiegamedev #gamedev](https://www.youtube.com/watch?v=8_5Zrgek1p8) `8_5Zrgek1p8` | Inbound Shovel | 1:00 | auto | 287 | `godot/pripadovka-proces.md` | FPS a multithreading |
+| todo | [Game Dev Secrets: Async/Await/Ahelpme #indiegamedev #gamedev](https://www.youtube.com/watch?v=cuvW_dg9Y7c) `cuvW_dg9Y7c` | Inbound Shovel | 1:14 | auto | 301 | `godot/pripadovka-proces.md` | async ≠ multithreading |
+| todo | [Game Dev Secrets: How to Playtest! #indiegamedev #gamedev](https://www.youtube.com/watch?v=TPEn3Ur__sQ) `TPEn3Ur__sQ` | Inbound Shovel | 1:35 | auto | 413 | `godot/pripadovka-proces.md` | jak playtestovat |
+| todo | [Game Dev Secrets: It's definitely not built to scale... #indiegamedev #gamedev](https://www.youtube.com/watch?v=4_v6vw7DFus) `4_v6vw7DFus` | Inbound Shovel | 1:21 | auto | 399 | `godot/pripadovka-proces.md` | nepostaveno na škálování |
+| todo | [Game Dev Secrets: The Most Common Beginner Mistake! #indiegamedev #gamedev](https://www.youtube.com/watch?v=OQzApE2FXmI) `OQzApE2FXmI` | Inbound Shovel | 0:58 | auto | 289 | `godot/pripadovka-proces.md` | nejčastější chyba začátečníků |
+| todo | [Game Dev Secrets: Stress? #indiegamedev #gamedev](https://www.youtube.com/watch?v=1E5b-fOhfzc) `1E5b-fOhfzc` | Inbound Shovel | 1:01 | auto | 275 | `godot/pripadovka-proces.md` | stres |
+
+### Mimo Godot sekci — routing do stávajících dokumentů (5)
+
+Videa z playlistu, která s Godotem nemají nic společného; míří do existujících kapitol Teorie a Hudby.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Why Does Celeste Feel So Good to Play?](https://www.youtube.com/watch?v=yorTG9at90g) `yorTG9at90g` | Game Maker's Toolkit | 17:33 | manual | 3145 | `teorie/game-feel.md` | MIMO SEKCI — Celeste: proč se tak dobře hraje |
+| todo | [Small games win big, here's how to make them](https://www.youtube.com/watch?v=8Kr5TruT-YU) `8Kr5TruT-YU` | BiteMe Games | 14:59 | auto | 3608 | `teorie/scope.md` | MIMO SEKCI — malé hry vyhrávají velké |
+| todo | [Beginner Game Dev? Don’t Make Small Games \|\| Do This Instead](https://www.youtube.com/watch?v=rd1HzPy3fP4) `rd1HzPy3fP4` | DeeRaghooGames | 7:47 | auto | 1342 | `teorie/scope.md` | MIMO SEKCI — nedělej malé hry, dělej systémy (spor s předchozím) |
+| todo | [The Tools I Use For Full Time Indie Game Development](https://www.youtube.com/watch?v=mrVM2zehqiw) `mrVM2zehqiw` | Firebelley Games | 12:09 | manual | 2471 | `teorie/planovani-nastroje.md` | MIMO SEKCI — nástroje pro full-time indie |
+| todo | [10 Chord Patterns for 10 Different Emotions](https://www.youtube.com/watch?v=_yw85rAb6cw) `_yw85rAb6cw` | Alex Rome | 13:19 | auto | 1756 | `hudba/akordy-a-harmonie.md` | MIMO SEKCI — odloženo do hudební dávky (autor má navazující video v hudební deltě) |
+
+### Low-priority · mega-kurzy (2)
+
+Rozhodnutí uživatele 2026-07-29: oba zůstávají `todo-lp` mimo hlavní proud — follow-along formát se špatně destiluje a obsahově se překrývá se zbytkem playlistu.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo-lp | [The new ultimate introduction to Godot](https://www.youtube.com/watch?v=TLG2yVpLDT8) `TLG2yVpLDT8` | Clear Code | 536:40 | auto | 87112 | — | LOW-PRIORITY: kompletní úvod do Godotu, 8,9 h / 87k slov (rozhodnutí 2026-07-29) |
+| todo-lp | [Recreate Stardew Valley in Godot & and master advanced Godot concepts](https://www.youtube.com/watch?v=jIKuiUdCsuo) `jIKuiUdCsuo` | Clear Code | 311:30 | auto | 49611 | — | LOW-PRIORITY: Stardew Valley v Godotu, 5,2 h / 50k slov (rozhodnutí 2026-07-29) |
+
+
+---
+
+### Hlavní playlist · třetí vlna (+61) · `todo`
+
+Celkem ~297k slov. Dominantní shluk na první pohled: **výkon, profiling a optimalizace v UE5** (~35 videí — 13× Unreal Fest / Inside Unreal, Tom Looman, Dallas Drapeau ×3, Threat Interactive, SimonDev, Smart Poly ×2, Matt Aspland ×2 a další). To je materiál na samostatné téma, ne na rozšíření stávající kapitoly `praxe/optimalizace.md`. Druhý shluk je **design a teorie** (5 Principles, GDD, worldbuilding, engagement bez temných vzorů, architektury kódu podle Tyrollera), třetí je **UE praxe** (Ali Elzoheiry inventory 2 díly, animace, 5.8 preview).
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Build a Scalable Inventory System \| Part 2: Item Definition \| Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=8ylTGxeMR7w) `8ylTGxeMR7w` | Ali Elzoheiry | 44:28 | auto | 7722 | — |  |
+| todo | [Build a Scalable Inventory System \| Part 1: The Foundation \| Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=eocJvH15L4Q) `eocJvH15L4Q` | Ali Elzoheiry | 22:31 | auto | 3972 | — |  |
+| todo | [5 Tips for Great Level Design](https://www.youtube.com/watch?v=LBtucVc8l0M) `LBtucVc8l0M` | Apox Fox | 12:33 | auto | 2727 | — |  |
+| todo | [Animation Process (EMP Spike) - Dev Diary](https://www.youtube.com/watch?v=Lo0569JZTSU) `Lo0569JZTSU` | chaotic works | 7:00 | auto | 1195 | — |  |
+| todo | [UE5 Optimization Made Easy: Fundamentals](https://www.youtube.com/watch?v=zVNViTNHHdA) `zVNViTNHHdA` | Dallas Drapeau | 36:27 | auto | 6425 | — |  |
+| todo | [UE5: Profilers Explained](https://www.youtube.com/watch?v=tuAtGaVqcSM) `tuAtGaVqcSM` | Dallas Drapeau | 35:52 | auto | 6354 | — |  |
+| todo | [The “Unreal Engine Look” Explained — And How to Fix It](https://www.youtube.com/watch?v=ciCRiQmwTrs) `ciCRiQmwTrs` | Dallas Drapeau | 23:31 | auto | 4045 | — |  |
+| todo | [How to Learn Coding FAST And Make Cool Stuff](https://www.youtube.com/watch?v=nCZbZyyuHRg) `nCZbZyyuHRg` | Eray Sona | 4:18 | auto | 864 | — |  |
+| todo | [5 Principles of Game Design](https://www.youtube.com/watch?v=pF2LGYVRCwI) `pF2LGYVRCwI` | Field of View: The Art of Game Design | 39:47 | manual | 7030 | — |  |
+| todo | [Nanite Forest Optimisation in Unreal Engine 5](https://www.youtube.com/watch?v=uE4cGZjMfuY) `uE4cGZjMfuY` | Filgeck | 21:06 | auto | 3210 | — |  |
+| todo | [7 Programming myths that waste your time](https://www.youtube.com/watch?v=niWpfRyvs2U) `niWpfRyvs2U` | Fireship | 6:17 | auto | 1412 | — |  |
+| todo | [The Design Principle That Separates Good Games From Great Ones](https://www.youtube.com/watch?v=uuc6DRe4U4Q) `uuc6DRe4U4Q` | Game Design Library | 11:37 | auto | 2322 | — |  |
+| todo | [How to write a Game Design Document](https://www.youtube.com/watch?v=bro4rwYVo0I) `bro4rwYVo0I` | Game Dev Beginner | 12:23 | manual | 2296 | — |  |
+| todo | [How to Keep Players Engaged (Without Being Evil)](https://www.youtube.com/watch?v=hbzGO_Qonu0) `hbzGO_Qonu0` | Game Maker's Toolkit | 10:46 | manual | 1851 | — |  |
+| todo | [How to Analyze your Level Performance in Unreal Engine 5 - Profiler Tutorial](https://www.youtube.com/watch?v=HOcXWZY044E) `HOcXWZY044E` | Gorka Games | 3:30 | auto | 727 | — |  |
+| todo | [Game Dev Secrets: About Steam #indiegamedev #gamedev](https://www.youtube.com/watch?v=48_qqfGk6wY) `48_qqfGk6wY` | Inbound Shovel | 1:00 | auto | 330 | — |  |
+| todo | [Best Code Architectures For Indie Games](https://www.youtube.com/watch?v=8WqYQ1OwxJ4) `8WqYQ1OwxJ4` | Jonas Tyroller | 16:10 | auto | 3141 | — |  |
+| todo | [I Made Game Animation in minutes inside unreal engine 5.8](https://www.youtube.com/watch?v=stc0_aMvkPQ) `stc0_aMvkPQ` | Just An Animator | 8:27 | manual | 945 | — |  |
+| todo | [The Seven Levels of Worldbuilding](https://www.youtube.com/watch?v=vFMnz75y5y4) `vFMnz75y5y4` | Large Lads Studios | 29:29 | auto | 5196 | — |  |
+| todo | [900+ hours of Learning System Design in 9 Minutes](https://www.youtube.com/watch?v=3Pusamd6BO4) `3Pusamd6BO4` | Maddy Zhang | 9:42 | auto | 1914 | — |  |
+| todo | [How To Optimise Memory Usage In Your Unreal Engine 5 Game](https://www.youtube.com/watch?v=JWDnTDi_aLY) `JWDnTDi_aLY` | Matt Aspland | 10:02 | auto | 2176 | — |  |
+| todo | [How To Create AI Random Roam in Unreal Engine 5 Using Behaviour Trees (Tutorial)](https://www.youtube.com/watch?v=aUaBtau2M3c) `aUaBtau2M3c` | Matt Aspland | 6:43 | auto | 1439 | — |  |
+| todo | [I Reduced My UE5 Game Size By 70% #unrealengine #indiedev #gamedev](https://www.youtube.com/watch?v=qlPqwTAmQ5E) `qlPqwTAmQ5E` | Matt Aspland | 0:25 | auto | 127 | — |  |
+| todo | [Triple Your FPS With These 5 Lighting Optimization Tips for Unreal Engine 5](https://www.youtube.com/watch?v=MLS96wgSMk4) `MLS96wgSMk4` | MelvinTang Games | 7:17 | auto | 1200 | — |  |
+| todo | [3 Years Working on AAA Games ... Here's What Nobody Tells You](https://www.youtube.com/watch?v=HECL-9qPlxM) `HECL-9qPlxM` | Next Level Game Art | 18:07 | auto | 3534 | — |  |
+| todo | [Why Every Developer Needs to Understand CI/CD](https://www.youtube.com/watch?v=omB2JkC4QfA) `omB2JkC4QfA` | Nova Designs | 13:42 | auto | 2574 | — |  |
+| todo | [What's Causing my Frame Rate to Drop? - Unreal Engine 5 Stat Profiling Tutorial](https://www.youtube.com/watch?v=nQdsY2a-Fn8) `nQdsY2a-Fn8` | NumenBrothers | 6:09 | auto | 1373 | — |  |
+| todo | [How To Improve Performance - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=S-vO9YNI7zs) `S-vO9YNI7zs` | Pitchfork Academy | 27:26 | auto | 5173 | — |  |
+| todo | [Optimization UE5 - The Power of Instanced Static Meshes with Efficient Materials](https://www.youtube.com/watch?v=S7lJnSeL41M) `S7lJnSeL41M` | PolySphere 3D | 5:35 | manual | 838 | — |  |
+| todo | [How I Beat 99% of Computer Science Students (Georgia Tech Lessons)](https://www.youtube.com/watch?v=oJ6LN7t0Vr8) `oJ6LN7t0Vr8` | Sajjaad Khader | 12:04 | auto | 2606 | — |  |
+| todo | [Unreal Engine 5.8 Preview: What Epic Games Changed Under The Hood \| New Features & Updates](https://www.youtube.com/watch?v=NfDzhmXiUNA) `NfDzhmXiUNA` | Sergey Maryshev | 4:56 | manual | 856 | — |  |
+| todo | [How to Quickly Optimize Your Scene in Unreal Engine 5 Using ISM/HISM](https://www.youtube.com/watch?v=lZegK5ussdU) `lZegK5ussdU` | Sergey Maryshev | 3:16 | auto | 623 | — |  |
+| todo | [Unreal Engine 5 Level Design Workflow Trick](https://www.youtube.com/watch?v=4itMlAQC3LE) `4itMlAQC3LE` | Sergey Maryshev | 0:29 | manual | 105 | — |  |
+| todo | [When Optimisations Work, But for the Wrong Reasons](https://www.youtube.com/watch?v=hf27qsQPRLQ) `hf27qsQPRLQ` | SimonDev | 22:18 | manual | 4049 | — |  |
+| todo | [How To Create An Optimized UE5 Base Project](https://www.youtube.com/watch?v=2ZcagAT3EXQ) `2ZcagAT3EXQ` | Smart Poly | 16:50 | auto | 3331 | — |  |
+| todo | [The Most Optimized Version of UE5??? (The ViteFork)](https://www.youtube.com/watch?v=dRR5AC8PV2U) `dRR5AC8PV2U` | Smart Poly | 13:30 | auto | 2631 | — |  |
+| todo | [Introduction and setup of Unreal Engine 5 memory insights](https://www.youtube.com/watch?v=qGma-I9PD1c) `qGma-I9PD1c` | Spacemarine658 | 12:35 | auto | 2508 | — |  |
+| todo | [Unreal Engine 5.6 The 10 Biggest Mistakes You're Making](https://www.youtube.com/watch?v=QcGFO0DzFMg) `QcGFO0DzFMg` | Taken Grace | 9:45 | auto | 2182 | — |  |
+| todo | [What to teach when AI writes the code \| Rainer Stropek \| TEDxLinz](https://www.youtube.com/watch?v=yhGzXULZkEw) `yhGzXULZkEw` | TEDx Talks | 18:19 | manual | 2400 | — |  |
+| todo | [How This Game Dev Sold 1,000,000 Copies of His Game (In A WEEK) — Full Time Game Dev Podcast Ep. 007](https://www.youtube.com/watch?v=kodquYtxXd8) `kodquYtxXd8` | Thomas Brush | 76:49 | auto | 15454 | — |  |
+| todo | [Epic's Unreal Optimization Disaster \| Why Nanite Tanks Performance!](https://www.youtube.com/watch?v=M00DGjAP-mU) `M00DGjAP-mU` | Threat Interactive | 13:07 | auto | 2529 | — |  |
+| todo | [1-hour of Unreal GPU Optimization Tips & Tricks](https://www.youtube.com/watch?v=c2MH20OPSw0) `c2MH20OPSw0` | Tom Looman | 62:04 | manual | 11791 | — |  |
+| todo | [Geometry Optimization In a Few Clicks \| Unreal Engine 5](https://www.youtube.com/watch?v=h6uLdQmwc7c) `h6uLdQmwc7c` | Unreal ArchWizard | 1:36 | auto | 308 | — |  |
+| todo | [Unreal Fest Stockholm 2025 Collection - Profiling, Telemetry, and Performance](https://www.youtube.com/watch?v=CijCVXa0wBQ) `CijCVXa0wBQ` | Unreal Engine | 145:05 | auto | 25310 | — |  |
+| todo | [Automated Performance Profiling for Local Workflows \| Inside Unreal](https://www.youtube.com/watch?v=bfkbwXVMtn8) `bfkbwXVMtn8` | Unreal Engine | 115:40 | auto | 18793 | — |  |
+| todo | [Profiling with Purpose: Performance Lessons from a Real Unreal Project \| Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=C-AjCqjKRSs) `C-AjCqjKRSs` | Unreal Engine | 57:30 | auto | 11598 | — |  |
+| todo | [A Frame’s Life: Frame Timing, Synchronization, and Latency in UE \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=dKSHw_8vz3I) `dKSHw_8vz3I` | Unreal Engine | 52:47 | auto | 10389 | — |  |
+| todo | [Optimizing UE5: Advanced Rendering, Graphics Performance, and Memory Management \| Unreal Fest 2024](https://www.youtube.com/watch?v=dj4kNnj4FAQ) `dj4kNnj4FAQ` | Unreal Engine | 51:14 | auto | 10400 | — |  |
+| todo | [How to Start Your Project at 60 FPS and Keep It There \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=DxBKmQ-0kfw) `DxBKmQ-0kfw` | Unreal Engine | 50:06 | auto | 10327 | — |  |
+| todo | [The Player Was Here: Persisting World State and Actor LOD Systems \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=KBn62trwkLw) `KBn62trwkLw` | Unreal Engine | 48:56 | auto | 8602 | — |  |
+| todo | [Optimizing Niagara: a Practical Approach to Performant Worlds \| Unreal Fest Orlando 2025](https://www.youtube.com/watch?v=71c5yv-XeY8) `71c5yv-XeY8` | Unreal Engine | 46:56 | auto | 9776 | — |  |
+| todo | [New GPU Profiler and RHI Submission Pipeline \| Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=vnbARZHccpQ) `vnbARZHccpQ` | Unreal Engine | 45:59 | auto | 9950 | — |  |
+| todo | [Profiling with Pirates: Performance Plundered from a Real Game \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=CYvLn-tYRag) `CYvLn-tYRag` | Unreal Engine | 45:11 | auto | 8509 | — |  |
+| todo | [Maximizing Your Game's Performance in Unreal Engine \| Unreal Fest 2022](https://www.youtube.com/watch?v=GuIav71867E) `GuIav71867E` | Unreal Engine | 41:53 | manual | 7933 | — |  |
+| todo | [Mastering Performance Analysis with Unreal Insights \| Unreal Fest Bali 2025](https://www.youtube.com/watch?v=HQLYkwoDoT4) `HQLYkwoDoT4` | Unreal Engine | 40:05 | auto | 4522 | — |  |
+| todo | [From Scan to Stream: Open Pipelines for Large-Scale 3D in Unreal Engine  \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=5ehoHM-uzRQ) `5ehoHM-uzRQ` | Unreal Engine | 38:12 | auto | 7299 | — |  |
+| todo | [Lessons Learned from Building a Very Large Open World Game in UE5 \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=AalP65lrtpo) `AalP65lrtpo` | Unreal Engine | 37:30 | auto | 7309 | — |  |
+| todo | [Technical Artist's Guide to Profiling in Unreal Engine \| Unreal Fest Orlando 2025](https://www.youtube.com/watch?v=mCZRHljYnZA) `mCZRHljYnZA` | Unreal Engine | 33:26 | auto | 5305 | — |  |
+| todo | [Unreal Engine Performance Optimization Tips](https://www.youtube.com/watch?v=V8NnLnBQFIg) `V8NnLnBQFIg` | Unreal University  | 8:10 | auto | 1749 | — |  |
+| todo | ["Optimized for 360p" ... huh?](https://www.youtube.com/watch?v=zT8DZsdJ72Y) `zT8DZsdJ72Y` | Vex | 17:40 | auto | 3610 | — |  |
+| todo | [Why I don't use Aseprite - The Tools I Use for Indie Game Dev (2D and 3D)](https://www.youtube.com/watch?v=wuO_iy0zhPA) `wuO_iy0zhPA` | Zizaco | 8:21 | manual | 1760 | — |  |
+
+### Gamedev-music · třetí vlna (+20) · `todo`
+
+Celkem ~41k slov. Dominantní shluk: **Strudel a live coding hudby** (Glossing ×6, Switch Angel ×4, workshop Creative Code Art 82 min, SAGA3K) — nové téma, ve stávající sekci Hudba nemá kam. Dál **Alex Rome ×3** (progrese a emoce, systém psaní písní, remake Zimmera — přímé rozšíření `hudba/akordy-a-harmonie.md` a `hudba/melodie.md`), rytmus (Red Means Recording), AI na vokály. Pozor: několik položek jsou **performance/mixy, ne tutoriály** (137–405 slov přepisu) — kandidáti na `skip` nebo pouhou vizuální/poslechovou referenci; 2 videa jsou bez přepisu.
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [15 Chord Progressions for 15 Different Emotions](https://www.youtube.com/watch?v=cU4mqDPZuXg) `cU4mqDPZuXg` | Alex Rome | 22:22 | auto | 2579 | — |  |
+| todo | [A Simple System For Making Songs in 2026](https://www.youtube.com/watch?v=XlltkalLaU4) `XlltkalLaU4` | Alex Rome | 16:58 | auto | 2183 | — |  |
+| todo | [I Remade The Most Emotional Song Ever Written (Hans Zimmer)](https://www.youtube.com/watch?v=uOUPEqTU9ag) `uOUPEqTU9ag` | Alex Rome | 13:54 | auto | 1191 | — |  |
+| todo | [This AI Will Fix Your BAD Vocals — And Keep Your Real Voice](https://www.youtube.com/watch?v=8w97N0rEIS8) `8w97N0rEIS8` | Arcade | 8:38 | auto | 1535 | — |  |
+| todo | [WORKSHOP // Coding Music With Strudel // Dan Gorelick and Viola He](https://www.youtube.com/watch?v=oqyAJ4WeKoU) `oqyAJ4WeKoU` | Creative Code Art | 82:20 | auto | 13321 | — |  |
+| todo | [STRUDEL FOR BEGINNERS](https://www.youtube.com/watch?v=m7Rp46AU8dw) `m7Rp46AU8dw` | Glossing | 45:56 | auto | 5786 | — |  |
+| todo | [You Can Modulate ANYTHING in Strudel](https://www.youtube.com/watch?v=11frBA9L638) `11frBA9L638` | Glossing | 31:30 | auto | 3537 | — |  |
+| todo | [this tutorial is 10 minutes long.](https://www.youtube.com/watch?v=7GcSgrJRcIw) `7GcSgrJRcIw` | Glossing | 31:10 | auto | 2172 | — |  |
+| todo | [EUPHORIC TRANCE START TO FINISH IN STRUDEL](https://www.youtube.com/watch?v=7NyoZkJgykQ) `7NyoZkJgykQ` | Glossing | 23:51 | auto | 405 | — |  |
+| todo | [STRUDEL DLC](https://www.youtube.com/watch?v=jKkmzWmIyfs) `jKkmzWmIyfs` | Glossing | 13:30 | auto | 1656 | — |  |
+| todo | [How many FMs can we bake into a strudel?](https://www.youtube.com/watch?v=8ruLuZv1ju8) `8ruLuZv1ju8` | Glossing | 4:53 | auto | 568 | — |  |
+| todo | [music theory is witchcraft](https://www.youtube.com/watch?v=7mLqpA-PMwM) `7mLqpA-PMwM` | GST Channel | 4:00 | manual | 515 | — |  |
+| todo | [Best of Deep Trance 2026 \| Emotional Melodic Trance Mix](https://www.youtube.com/watch?v=2zKnDoUjk1I) `2zKnDoUjk1I` | Interstellar Station | 54:58 | auto | 137 | — |  |
+| todo | [Fundamentals of Rhythm for Electronic Music](https://www.youtube.com/watch?v=JE3QM_9sljI) `JE3QM_9sljI` | Red Means Recording | 21:02 | auto | 3210 | — |  |
+| todo | [A Ronin Mode Tribute to Rob Dougan Furious Angels Full Album HQ Remastered](https://www.youtube.com/watch?v=7xo56yUbVv0) `7xo56yUbVv0` | Ronin Mode | 7:27 | — | — | — |  |
+| todo | [BIRDS OF A FEATHER (Remake in Strudel)](https://www.youtube.com/watch?v=_PjSOSoZeSA) `_PjSOSoZeSA` | SAGA3K Records | 1:36 | — | — | — |  |
+| todo | [Creating Beats & Rhythms in STRUDEL](https://www.youtube.com/watch?v=sefJz9biLCY) `sefJz9biLCY` | Switch Angel | 15:16 | auto | 1789 | — |  |
+| todo | [Coding Trance IV](https://www.youtube.com/watch?v=3fpx7Scysw4) `3fpx7Scysw4` | Switch Angel | 6:05 | auto | 172 | — |  |
+| todo | [Coding Trance Music from Scratch (Again )](https://www.youtube.com/watch?v=iu5rnQkfO6M) `iu5rnQkfO6M` | Switch Angel | 5:02 | auto | 249 | — |  |
+| todo | [Livecoding melodic DNB music in Strudel](https://www.youtube.com/watch?v=aPsq5nqvhxg) `aPsq5nqvhxg` | Switch Angel | 4:28 | auto | 290 | — |  |
+
