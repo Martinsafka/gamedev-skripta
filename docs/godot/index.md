@@ -37,5 +37,7 @@ Poslední téma sekce jde jinou cestou: místo návodů sleduje **jeden projekt*
 - **[Pohyb a ovládání](pripadovka-pohyb.md)** — rozdělení vstupu od provedení (a dash jako důkaz, že to fungovalo), tři tiché opravy pohybu, proč vyhodil všechny šikmé plochy — a klasické dilema, jestli se při útoku zastavit.
 - **[Kamera pro pixel art](pripadovka-kamera.md)** — čtyři pojmenované vady pixelové kamery, rozlišení, které polovinu z nich řeší, subpixelový posun v shaderu — a proč jeho vlastní test měsíce lhal.
 - **[Nepřátelé a souboj](pripadovka-nepratele.md)** — tři patra AI a co se na nich rozbilo, létající nepřátelé ve třech verzích, frame data systém definovaný předem, boss stavěný z otázek — a combo s hit stopem ve dvou minutách.
-
-Zbývají dvě dávky případovky: level a mapa, vizuál a zvuk, systémy a progrese, a proces.
+- **[Level a mapa](pripadovka-level-a-mapa.md)** — místnost jako parametrizovaný celek s tutoriálem jako obtížností nula, level editor, který nakonec nebyl level editor, mapa metroidvanie s jediným místem pravdy — a klíč, díky kterému si svět pamatuje, co v něm hráč udělal.
+- **[Vizuál a zvuk](pripadovka-vizual-a-zvuk.md)** — čtyři nepovedené pokusy o glow a co bylo špatně, redesign postavy, kde rozhodla silueta, hue shifting a palette swap — a dvě věci, které je vidět a slyšet okamžitě.
+- **[Systémy a progrese](pripadovka-systemy.md)** — jak odměnit za těžkou výzvu, aniž bys zlehčil hru, proč je rychlé ladění designový nástroj, co hráče doopravdy motivuje — a kde mají čísla v počítači tvrdé meze.
+- **[Proces](pripadovka-proces.md)** — zkratka placená dva roky, změna žánru po třech letech, demoralizace, o které se v devlozích nemluví, playtester, který popsal řešení místo problému — a rytmus tlaku a úlevy.

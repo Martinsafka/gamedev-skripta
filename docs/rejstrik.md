@@ -174,6 +174,14 @@ Protipól průběžné obtížnosti (jak moc tě hra tlačí k prohře). Jahody 
 
 Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 
+### Assist mode
+
+**Volitelný režim, který dovolí hráči upravit si obtížnost po jednotlivých pákách místo výběru „easy".**
+
+Rozdíl proti posuvníku obtížnosti je v kontrole: hráč nedostane „hraju na lehkou a nevím, co to znamená", ale konkrétní volby — víc života, nižší poškození, pomalejší čas. Vzniklo to jako přístupnostní nástroj (někdo nezvládne mačkat dost rychle, aby porazil bosse v limitu) a používá se i obráceně — jako sada dobrovolných ztížení pro ty, co si o ně řeknou. Elegantní implementace je přes systém, který už ve hře je: [odznaky](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) v assist režimu prostě dovolí hodnoty, které by jinak byly příliš silné.
+
+Kde se s tím potkáš: [Odznaky: odměna, která nezlehčí hru](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) · [Obtížnost a výzva](teorie/obtiznost.md)
+
 ### Asset pack
 
 **Balík hotových assetů — modely, zvuky, UI, shadery — připravený k okamžitému použití.**
@@ -1326,6 +1334,14 @@ Swap na blueprint řídí Max Actor Distance, culling samotných instancí Max I
 
 Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md) · [Případovka Hex-A-Gone](praxe/pcg-hexagone.md)
 
+### Integer overflow
+
+**Přetečení celého čísla: součet přeroste, co jde uložit, a hodnota se překlopí do záporných.**
+
+32bitové celé číslo má jeden bit na znaménko a 31 na hodnotu, takže strop je zhruba **2,1 miliardy**. Překročíš-li ho, procesor „vesele" překlopí znaménkový bit a z obřího kladného čísla je obří záporné — hráč nasbírá miliardy mincí a najednou je v mínusu. Řešení jsou dvě: **omez maximum**, aby se ke stropu nepřiblížilo, nebo **použij víc bitů**. Příbuzná past u desetinných čísel je nepřesnost floatů, kde s velikostí čísla roste velikost kroku, takže se fyzika daleko od počátku souřadnic rozpadá.
+
+Kde se s tím potkáš: [Čísla mají meze](godot/pripadovka-systemy.md#cisla-maji-meze-overflow-a-nepresnost-floatu)
+
 ### Interval
 
 **Vzdálenost mezi dvěma tóny, měřená v půltónech; nese vlastní emoční zabarvení.**
@@ -1782,6 +1798,14 @@ Prostřední patro pyramidy žánr → mód → nálada: žánr je moment-to-mom
 
 Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
 
+### Mixels
+
+**Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.**
+
+Vzniká zvětšením jednoho spritu v enginu — jeho pixel je pak větší než pixel okolí a oko to okamžitě pozná, i když nepojmenuje. Souvisí s tím pravidlo o **velikosti plátna**: protože pixel art nejde škálovat, plátno určuje velikost objektu ve hře, takže se volí relativně k hlavní postavě, ne podle toho, kolik detailu chceš. Výjimka: zvětšení **celočíselným násobkem** mřížku zachová, a mixely tedy nedělá.
+
+Kde se s tím potkáš: [Pixel art má měřítko](godot/pripadovka-vizual-a-zvuk.md#pixel-art-ma-meritko-mixely-a-velikost-platna)
+
 ### Moderovaný playtest
 
 **Test, u kterého sedíš: díváš se, jak člověk hraje, mlčíš — a ptáš se přesně v místě tření.**
@@ -2054,6 +2078,22 @@ Nástroj režie levelů i celých her: scripted events doručují momenty „ve 
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Zábava a flow](teorie/zabava.md)
 
+### Palette swap
+
+**Barevná varianta spritu vyrobená přemapováním palety, ne překreslením.**
+
+Shader dostane vstupní paletu (původní barvy) a výstupní paletu, projde pixely a barvy vymění. Ušetří to druhou sadu souborů pro tutéž postavu — a hlavně **z varianty udělá data**, takže se dá generovat, náhodně vybírat nebo vázat na region či obtížnost. Podmínka funkčnosti: paleta musí být oddělená; sdílí-li kůže a oblek tentýž odstín, přebarvíš i to, co jsi nechtěl. Historicky technika ze šetření pamětí, dnes se dělá ze stejného důvodu — odlišit variantu bez placení za druhý asset.
+
+Kde se s tím potkáš: [Barvy: hue shifting a palette swap](godot/pripadovka-vizual-a-zvuk.md#barvy-hue-shifting-a-palette-swap-pres-shader)
+
+### Parallax
+
+**Vrstvy pozadí, které se pohybují pomaleji než kamera; vzniká tím iluze hloubky.**
+
+Napodobuje to, jak vzdálené objekty ve skutečnosti zdánlivě putují pomaleji. Rychlost vrstvy přitom neurčuje jen hloubku, ale i **vnímanou velikost**: pomalejší pozadí působí větší a vzdálenější, rychlejší menší a bližší. Nepříjemnost při vývoji: v editoru se parallax počítá proti pozici editorového pohledu, takže se vrstvy „samy" posunou i při změně velikosti okna — pomůže vložit do scény referenční postavu s obrysem herní kamery.
+
+Kde se s tím potkáš: [Level editor, který nakonec nebyl level editor](godot/pripadovka-level-a-mapa.md#level-editor-ktery-nakonec-nebyl-level-editor) · [Mapa 2D nodů](godot/zaklady.md#mapa-2d-nodu-vyber-tela-je-prvni-designove-rozhodnuti)
+
 ### Parallax occlusion mapping
 
 **Pixel-shader iluze hloubky: UV se posouvají podle úhlu kamery a height mapy — reliéf bez jediného vertexu navíc.**
@@ -2133,6 +2173,14 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
 Sjednotí přechody — všechny akordy teď sdílejí aspoň jeden tón — a přidá dojemnost. Když je pak zvuku moc, postav akordy kolem prodlevy: sundej kvinty a nech ji uprostřed.
 
 Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md)
+
+### Persistence key
+
+**Záznam o změně světa uložený mimo objekt, kterého se týká — aby přežil odložení z paměti.**
+
+Řeší problém plynulých světů s neviditelnými načítacími zónami: porazíš nepřítele, oblast se uvolní, vrátíš se a nepřítel je zase naživu. Klíč se uloží někam, co se neodkládá (typicky k hráči), a objekt se při načtení sám zeptá, jestli jeho klíč existuje. Hry s viditelně oddělenými místnostmi tenhle problém nemají, protože obnova nepřátel při vstupu do nové místnosti působí přirozeně — **rozdíl není technický, ale v očekávání hráče**. Pozor na růst: patří tam poražení bossové a otevřené zkratky, ne každý zabitý slimák.
+
+Kde se s tím potkáš: [Persistence key: svět, který si pamatuje](godot/pripadovka-level-a-mapa.md#persistence-key-svet-ktery-si-pamatuje) · [Ukládání stavu světa](praxe/ukladani.md#ukladani-stavu-sveta-spawn-update-zniceni-a-indikator)
 
 ### Persistent level
 
@@ -2838,6 +2886,14 @@ Alternativou by byl soubor na každý snímek, což se u animované postavy rych
 
 Kde se s tím potkáš: [První hra](godot/prvni-hra.md) · [Rejstřík: Flipbook](#flipbook)
 
+### Squeeze and release
+
+**Rytmus střídání tlaku a úlevy: výzva hráče stiskne, checkpoint nebo odměna povolí.**
+
+Hry stresují záměrně, protože stres je nosič výzvy — jenže obě krajnosti končí stejně: samý tlak vede k frustraci, samá úleva k nudě, a hráč v obou případech skončí. Nejúčinnější a nejlevnější forma úlevy je **checkpoint**, který nic nedává, jen přestane hrozit. Prakticky z toho plyne, že rozmístění checkpointů není technické rozhodnutí, ale dramaturgické — a v pasáži, kde chceš držet napětí, se vynechává schválně.
+
+Kde se s tím potkáš: [Squeeze and release](godot/pripadovka-proces.md#squeeze-and-release-hra-bez-stresu-neni-hra) · [Horor design](teorie/horor-design.md)
+
 ### Square hole
 
 **Chyba balancu: univerzální nástroj či strategie, která řeší každou situaci — a tím zabíjí všechna rozhodnutí.**
@@ -3013,6 +3069,14 @@ Kde se s tím potkáš: [PS1 estetika](praxe/ps1-estetika.md#textura-dela-styl-r
 Počet dlaždic je kompromis. Chtít vlastní obrázek pro každou kombinaci osmi sousedů znamená **256 dlaždic**, takže se v praxi používají menší sady: 15dílná (levná, ale hrany vede středem dlaždice, takže nesedí na mřížku), 47dílná (sedí, ale je jich 47) nebo 16dílná podmnožina. **Dual-grid** ten kompromis obchází dvěma mřížkami posunutými o půl dlaždice — každá dlaždice pak má jen čtyři sousedy, tedy **16 kombinací**. K tile setu se v enginu váží i fyzikální, navigační a occluder vrstvy.
 
 Kde se s tím potkáš: [Dual-grid: 16 dlaždic místo 256](godot/2d-svet.md#dual-grid-16-dlazdic-misto-256) · [Pixel art do Godotu](godot/2d-svet.md#pixel-art-do-godotu-paleta-silueta-a-jedno-nastaveni)
+
+### Time slicing
+
+**Rozložení drahého výpočtu do času: místo každý snímek se počítá každý n-tý.**
+
+Nejlevnější optimalizace, jaká existuje, protože nemění algoritmus — mění jen frekvenci. Hledání cesty počítané stokrát za sekundu srazí hru na 10 FPS; totéž desetkrát za sekundu ji vrátí nad 100, a hráč rozdíl nepozná, protože se cíl za tři setiny sekundy nikam nepřesune. Rozhodovací otázka zní **„jak často se to musí opravdu přepočítat?"** a platí na dohled nepřátel, vzdálenosti, UI i kontrolu podmínek. Nezaměňovat s asynchronním kódem — ten neblokuje, ale nezlevňuje.
+
+Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovka-proces.md#dve-veci-o-vykonu-ktere-se-pletou) · [Co skutečně stojí výkon](godot/projekt-a-vykon.md#co-skutecne-stoji-vykon-ne-nody-ale-co-v-nich-bezi-kazdy-snimek)
 
 ### Timeline
 

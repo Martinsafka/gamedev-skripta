@@ -200,6 +200,10 @@ nav:
           - Pohyb a ovládání: godot/pripadovka-pohyb.md
           - Kamera pro pixel art: godot/pripadovka-kamera.md
           - Nepřátelé a souboj: godot/pripadovka-nepratele.md
+          - Level a mapa: godot/pripadovka-level-a-mapa.md
+          - Vizuál a zvuk: godot/pripadovka-vizual-a-zvuk.md
+          - Systémy a progrese: godot/pripadovka-systemy.md
+          - Proces: godot/pripadovka-proces.md
   - Hudba a zvuk:
       - hudba/index.md
       - Základy hudební teorie:

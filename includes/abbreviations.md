@@ -19,6 +19,7 @@
 *[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
 *[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
+*[Assist mode]: Volitelný režim, kde si hráč upraví obtížnost po jednotlivých pákách místo výběru „easy".
 *[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
@@ -162,6 +163,7 @@
 *[Input buffering]: Vstup těsně před platností se zapamatuje a provede hned, jak to jde (skok před dopadem).
 *[Instance]: Konkrétní umístěný výskyt assetu v levelu.
 *[Instanced Actors]: Systém (5.5+): svět z levných instancí; objekty u hráče se swapnou na plné Blueprint actory a zpět.
+*[Integer overflow]: Přetečení celého čísla — hodnota přeroste strop (asi 2,1 mld.) a překlopí se do záporných.
 *[Integer scaling]: Zvětšování celými násobky (2x, 3x); jediný způsob, jak udržet pixel art ostrý.
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
@@ -219,6 +221,7 @@
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
+*[Mixels]: Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.
 *[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
@@ -255,6 +258,8 @@
 *[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
+*[Palette swap]: Barevná varianta spritu vyrobená přemapováním palety shaderem, ne překreslením.
+*[Parallax]: Vrstvy pozadí pohybující se pomaleji než kamera; iluze hloubky a vnímané velikosti.
 *[Parallax occlusion mapping]: Pixel-shader hloubka: posun UV dle kamery a height mapy; bez geometrie, siluety neumí.
 *[Pareto distribuce]: Mocninné rozdělení: malá menšina případů drží většinu celkové hodnoty.
 *[Particle system]: Emitter vystřelující sprity či modely a řídící jejich chování v čase.
@@ -265,6 +270,7 @@
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
 *[PCG Mode]: Editorový režim (5.7): kreslení PCG grafů přímo do světa splinou, štětcem nebo volumem.
 *[Pedal tone]: Tón znějící pod celou progresí, který se nemění (prodleva); sjednotí přechody.
+*[Persistence key]: Záznam o změně světa uložený mimo objekt, kterého se týká — přežije odložení z paměti.
 *[Persistent level]: Hlavní level, pod kterým žijí streamované sub-levely; nejde unloadnout.
 *[Physical Animation Component]: Motory kloubů táhnou simulované kosti k animované póze — základ active ragdollu.
 *[Physical Material]: Asset s vlastnostmi povrchu vč. Surface Type — systémy přes něj poznají, po čem stojíš.
@@ -354,6 +360,7 @@
 *[Sprite sheet]: Jeden obrázek s mřížkou snímků animace nebo sadou dlaždic.
 *[Square hole]: Chyba balancu: univerzální nástroj, který řeší každou situaci, a tím zabíjí rozhodování.
 *[Squash & stretch]: Animační princip: zploštit při dopadu, natáhnout při výskoku — levný juice.
+*[Squeeze and release]: Rytmus střídání tlaku a úlevy; nejlevnější forma úlevy je checkpoint.
 *[State alias]: Zástupný uzel state machine reprezentující víc stavů — jedno přechodové pravidlo místo N.
 *[State machine]: Stavový automat AnimBP: stavy = animace, přechody = pravidla; MM ho nahrazuje, hybridy kombinují.
 *[State Tree]: Hierarchický stavový automat UE (sestra behavior tree); stavy s tasky, přechody, injektované stromy.
@@ -374,6 +381,7 @@
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
 *[Texture atlas]: Jedna textura s povrchy pro mnoho objektů vedle sebe — méně materiálů, méně draw callů.
 *[Tile set]: Sada dlaždic pro 2D svět a pravidla, jak na sebe navazují; počet dlaždic je vždycky kompromis.
+*[Time slicing]: Drahý výpočet se nepočítá každý snímek, ale každý n-tý; mění frekvenci, ne algoritmus.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).

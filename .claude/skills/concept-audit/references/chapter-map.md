@@ -197,6 +197,10 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Pohyb a ovládání](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-pohyb/) — Od téhle kapitoly jde sekce jinou cestou. Místo návodů sledujeme jeden projekt — 2D akční platformer Isadora's Edge inspirovaný Symphony of the Night, Hollow Knight a Mega Man X — a to, jak…
 - [Kamera pro pixel art](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-kamera/) — Kamera je u pixel-artové hry místo, kde se sejde nejvíc drobných technických rozhodnutí — a kde se každé z nich pozná okamžitě, protože pixel buď sedí, nebo nesedí. Autor projektu tomu…
 - [Nepřátelé a souboj](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-nepratele/) — Nejsilnější část celé případovky, protože autor u nepřátel prošel tři úplné přepisy a všechny tři popsal — včetně toho, proč první dvě verze zahodil. Kapitola jde od mozku (jak se…
+- [Level a mapa](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-level-a-mapa/) — Čtyři kusy práce, které spolu drží svět pohromadě: místnost jako nejmenší návrhová jednotka, nástroj, ve kterém se ten svět zdobí, mapa, která říká, co s čím sousedí, a paměť, díky které…
+- [Vizuál a zvuk](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-vizual-a-zvuk/) — Vizuální stránka projektu je zajímavá tím, jak často se v ní správné řešení najde až po sérii špatných. Autor se pokouší o glow efekt čtyřmi způsoby (a při jednom z nich shodí celý…
+- [Systémy a progrese](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-systemy/) — Nejsilnější designová kapitola případovky, protože se v ní řeší otázka, kterou má každá hra s odměnami a málokdo ji vysloví: jak odměnit hráče za těžkou výzvu, aniž bys mu zlehčil zbytek…
+- [Proces](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-proces/) — Poslední kapitola sekce a nejosobnější. Autor v ní přiznává technickou zkratku, kterou platil dva roky, změní po třech letech žánr celé hry, a mimochodem řekne nahlas věc, kterou většina…
 
 ## Hudba a zvuk
 
@@ -261,6 +265,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Arrangement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#arrangement)
 - [Art bible](https://martinsafka.github.io/gamedev-skripta/rejstrik/#art-bible)
 - [Aspirační obtížnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#aspiracni-obtiznost)
+- [Assist mode](https://martinsafka.github.io/gamedev-skripta/rejstrik/#assist-mode)
 - [Asset pack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#asset-pack)
 - [Astroturfing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#astroturfing)
 - [Attenuation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation)
@@ -405,6 +410,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#instance)
 - [Indexical storytelling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#indexical-storytelling)
 - [Instanced Actors](https://martinsafka.github.io/gamedev-skripta/rejstrik/#instanced-actors)
+- [Integer overflow](https://martinsafka.github.io/gamedev-skripta/rejstrik/#integer-overflow)
 - [Interval](https://martinsafka.github.io/gamedev-skripta/rejstrik/#interval)
 - [Invariant](https://martinsafka.github.io/gamedev-skripta/rejstrik/#invariant)
 - [Invisible wall](https://martinsafka.github.io/gamedev-skripta/rejstrik/#invisible-wall)
@@ -462,6 +468,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [MetaSounds](https://martinsafka.github.io/gamedev-skripta/rejstrik/#metasounds)
 - [Mip mapa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mip-mapa)
 - [Mód hry](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mod-hry)
+- [Mixels](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mixels)
 - [Moderovaný playtest](https://martinsafka.github.io/gamedev-skripta/rejstrik/#moderovany-playtest)
 - [Modifier stack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#modifier-stack)
 - [Monte Carlo metoda](https://martinsafka.github.io/gamedev-skripta/rejstrik/#monte-carlo-metoda)
@@ -496,6 +503,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Overdraw](https://martinsafka.github.io/gamedev-skripta/rejstrik/#overdraw)
 - [Overlay state](https://martinsafka.github.io/gamedev-skripta/rejstrik/#overlay-state)
 - [Pacing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pacing)
+- [Palette swap](https://martinsafka.github.io/gamedev-skripta/rejstrik/#palette-swap)
+- [Parallax](https://martinsafka.github.io/gamedev-skripta/rejstrik/#parallax)
 - [Parallax occlusion mapping](https://martinsafka.github.io/gamedev-skripta/rejstrik/#parallax-occlusion-mapping)
 - [Pareto distribuce](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pareto-distribuce)
 - [Particle system](https://martinsafka.github.io/gamedev-skripta/rejstrik/#particle-system)
@@ -506,6 +515,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [PCG](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pcg)
 - [PCG Mode](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pcg-mode)
 - [Pedal tone](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pedal-tone)
+- [Persistence key](https://martinsafka.github.io/gamedev-skripta/rejstrik/#persistence-key)
 - [Persistent level](https://martinsafka.github.io/gamedev-skripta/rejstrik/#persistent-level)
 - [Physical Animation Component](https://martinsafka.github.io/gamedev-skripta/rejstrik/#physical-animation-component)
 - [Physical Material](https://martinsafka.github.io/gamedev-skripta/rejstrik/#physical-material)
@@ -594,6 +604,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Spline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#spline)
 - [Spline mesh](https://martinsafka.github.io/gamedev-skripta/rejstrik/#spline-mesh)
 - [Sprite sheet](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sprite-sheet)
+- [Squeeze and release](https://martinsafka.github.io/gamedev-skripta/rejstrik/#squeeze-and-release)
 - [Square hole](https://martinsafka.github.io/gamedev-skripta/rejstrik/#square-hole)
 - [Squash & stretch](https://martinsafka.github.io/gamedev-skripta/rejstrik/#squash-stretch)
 - [State alias](https://martinsafka.github.io/gamedev-skripta/rejstrik/#state-alias)
@@ -616,6 +627,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Tessellation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tessellation)
 - [Texture atlas](https://martinsafka.github.io/gamedev-skripta/rejstrik/#texture-atlas)
 - [Tile set](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tile-set)
+- [Time slicing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#time-slicing)
 - [Timeline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#timeline)
 - [Tónina](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tonina)
 - [Toon shading](https://martinsafka.github.io/gamedev-skripta/rejstrik/#toon-shading)
