@@ -84,6 +84,12 @@ Témata a kapitoly:
 
 - **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu, rychlé triky — a proti PBL postavené malování světlem z falešných zdrojů plus volumetrika přes EVDB.
 
+**Výkon a profiling**
+
+- **[Profiling: měření místo odhadů](profiling.md)** — rozhodovací strom podle `stat unit` (a případovka, kde hru brzdilo foliage, ne oheň), reprodukovatelný test jako vědecký experiment, překlad položek GPU profileru včetně toho, co v něm nenajdeš, prahy z profilování skutečné hry — a předávka nálezu, bez které se nález ztratí v cizí frontě.
+- **[Rozpočet snímku: kolik máš a kde se ztrácí](rozpocet-snimku.md)** — 16,66 ms jako peněženka (a kdy tedy optimalizovat), nastavení, která se dají udělat jen v prvním changelistu, legenda k optimalizačním view modes — a proč GPU nesnáší malé trojúhelníky, i když má výkon na miliardy operací.
+- **[Potrubí snímku: latence, jitter a frame pacing](frame-pacing.md)** — šest snímků v potrubí a čekání, které v profileru vypadá jako práce; co za co měníš, když zkracuješ latenci; jitter, který nastane, i když nespadne žádný snímek — a jak to celé vidí hráč, který žádná tvoje čísla nemá.
+
 **Rendering a optimalizace**
 
 - **[Optimalizace scény: draw cally, Nanite a foliage](optimalizace.md)** — proč jsou levely pomalé (ISM → packed level actors → data layers), Nanite vs. LODy bez ideologie, voxelizace proti overdraw, dvoudílná foliage optimalizace v kontextu hry a druhá osa problému: co blokuje hlavní vlákno.

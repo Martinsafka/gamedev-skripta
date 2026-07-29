@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Třetí vlna (staženo 2026-07-29):** +174 videí ve třech playlistech — **Godot playlist 93 (nový, samostatná sekce)**, hlavní +61, Gamedev-music +20. Tabulky v sekci „Třetí vlna" na konci souboru; Godot má vlastní sekci s navrženou taxonomií. Pořadí práce: **nejdřív Godot, zbytek potom**.
+**Třetí vlna (staženo 2026-07-29):** +174 videí ve třech playlistech — **Godot playlist 93 (nový, samostatná sekce)**, hlavní +61, Gamedev-music +20. Tabulky v sekci „Třetí vlna" na konci souboru; Godot má vlastní sekci s navrženou taxonomií. Pořadí práce: **nejdřív Godot** (Phase 9, hotovo), **pak hlavní playlist se startem u výkonu a profilingu** (Phase 10, běží — dávky 36–37 hotové), hudba nakonec.
 
 **Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **114/116 published (dávky 20–30) — druhá vlna hotová**, 0 todo + 2 todo-lp (beginner kurzy). Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
@@ -839,14 +839,24 @@ Rozhodnutí uživatele 2026-07-29: oba zůstávají `todo-lp` mimo hlavní proud
 
 Celkem ~297k slov. Dominantní shluk na první pohled: **výkon, profiling a optimalizace v UE5** (~35 videí — 13× Unreal Fest / Inside Unreal, Tom Looman, Dallas Drapeau ×3, Threat Interactive, SimonDev, Smart Poly ×2, Matt Aspland ×2 a další). To je materiál na samostatné téma, ne na rozšíření stávající kapitoly `praxe/optimalizace.md`. Druhý shluk je **design a teorie** (5 Principles, GDD, worldbuilding, engagement bez temných vzorů, architektury kódu podle Tyrollera), třetí je **UE praxe** (Ali Elzoheiry inventory 2 díly, animace, 5.8 preview).
 
+**Plán bloku „Výkon a profiling"** (nové téma v Praxi v UE5, ~36 videí / ~200k unikátních slov po odečtu překryvů), rozdělený do pěti dávek:
+
+| dávka | kapitola | stav |
+|---|---|---|
+| 36 | `praxe/profiling.md` — měření místo odhadů | ✅ hotovo |
+| 37 | `praxe/rozpocet-snimku.md` + `praxe/frame-pacing.md` — rozpočet, potrubí a latence | ✅ hotovo |
+| 38 | GPU, rendering, Nanite (~52k) | čeká |
+| 39 | praktické zásahy, paměť, Niagara (~28k) | čeká |
+| 40 | velké světy (~23k) | čeká |
+
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
 | todo | [Build a Scalable Inventory System \| Part 2: Item Definition \| Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=8ylTGxeMR7w) `8ylTGxeMR7w` | Ali Elzoheiry | 44:28 | auto | 7722 | — |  |
 | todo | [Build a Scalable Inventory System \| Part 1: The Foundation \| Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=eocJvH15L4Q) `eocJvH15L4Q` | Ali Elzoheiry | 22:31 | auto | 3972 | — |  |
 | todo | [5 Tips for Great Level Design](https://www.youtube.com/watch?v=LBtucVc8l0M) `LBtucVc8l0M` | Apox Fox | 12:33 | auto | 2727 | — |  |
 | todo | [Animation Process (EMP Spike) - Dev Diary](https://www.youtube.com/watch?v=Lo0569JZTSU) `Lo0569JZTSU` | chaotic works | 7:00 | auto | 1195 | — |  |
-| todo | [UE5 Optimization Made Easy: Fundamentals](https://www.youtube.com/watch?v=zVNViTNHHdA) `zVNViTNHHdA` | Dallas Drapeau | 36:27 | auto | 6425 | — |  |
-| todo | [UE5: Profilers Explained](https://www.youtube.com/watch?v=tuAtGaVqcSM) `tuAtGaVqcSM` | Dallas Drapeau | 35:52 | auto | 6354 | — |  |
+| published | [UE5 Optimization Made Easy: Fundamentals](https://www.youtube.com/watch?v=zVNViTNHHdA) `zVNViTNHHdA` | Dallas Drapeau | 36:27 | auto | 6425 | `praxe/rozpocet-snimku.md` | cílový framerate jako designové rozhodnutí + legenda k optimalizačním view modes |
+| published | [UE5: Profilers Explained](https://www.youtube.com/watch?v=tuAtGaVqcSM) `tuAtGaVqcSM` | Dallas Drapeau | 35:52 | auto | 6354 | `praxe/profiling.md` | slovníček položek GPU profileru + kalibrace očekávání (Epic/High = 30/60 FPS) |
 | todo | [The “Unreal Engine Look” Explained — And How to Fix It](https://www.youtube.com/watch?v=ciCRiQmwTrs) `ciCRiQmwTrs` | Dallas Drapeau | 23:31 | auto | 4045 | — |  |
 | todo | [How to Learn Coding FAST And Make Cool Stuff](https://www.youtube.com/watch?v=nCZbZyyuHRg) `nCZbZyyuHRg` | Eray Sona | 4:18 | auto | 864 | — |  |
 | todo | [5 Principles of Game Design](https://www.youtube.com/watch?v=pF2LGYVRCwI) `pF2LGYVRCwI` | Field of View: The Art of Game Design | 39:47 | manual | 7030 | — |  |
@@ -855,7 +865,7 @@ Celkem ~297k slov. Dominantní shluk na první pohled: **výkon, profiling a opt
 | todo | [The Design Principle That Separates Good Games From Great Ones](https://www.youtube.com/watch?v=uuc6DRe4U4Q) `uuc6DRe4U4Q` | Game Design Library | 11:37 | auto | 2322 | — |  |
 | todo | [How to write a Game Design Document](https://www.youtube.com/watch?v=bro4rwYVo0I) `bro4rwYVo0I` | Game Dev Beginner | 12:23 | manual | 2296 | — |  |
 | todo | [How to Keep Players Engaged (Without Being Evil)](https://www.youtube.com/watch?v=hbzGO_Qonu0) `hbzGO_Qonu0` | Game Maker's Toolkit | 10:46 | manual | 1851 | — |  |
-| todo | [How to Analyze your Level Performance in Unreal Engine 5 - Profiler Tutorial](https://www.youtube.com/watch?v=HOcXWZY044E) `HOcXWZY044E` | Gorka Games | 3:30 | auto | 727 | — |  |
+| published | [How to Analyze your Level Performance in Unreal Engine 5 - Profiler Tutorial](https://www.youtube.com/watch?v=HOcXWZY044E) `HOcXWZY044E` | Gorka Games | 3:30 | auto | 727 | `praxe/profiling.md` | doplněk k GPU profileru (barevný pruh, limit vůči blueprintům) |
 | todo | [Game Dev Secrets: About Steam #indiegamedev #gamedev](https://www.youtube.com/watch?v=48_qqfGk6wY) `48_qqfGk6wY` | Inbound Shovel | 1:00 | auto | 330 | — |  |
 | todo | [Best Code Architectures For Indie Games](https://www.youtube.com/watch?v=8WqYQ1OwxJ4) `8WqYQ1OwxJ4` | Jonas Tyroller | 16:10 | auto | 3141 | — |  |
 | todo | [I Made Game Animation in minutes inside unreal engine 5.8](https://www.youtube.com/watch?v=stc0_aMvkPQ) `stc0_aMvkPQ` | Just An Animator | 8:27 | manual | 945 | — |  |
@@ -867,14 +877,14 @@ Celkem ~297k slov. Dominantní shluk na první pohled: **výkon, profiling a opt
 | todo | [Triple Your FPS With These 5 Lighting Optimization Tips for Unreal Engine 5](https://www.youtube.com/watch?v=MLS96wgSMk4) `MLS96wgSMk4` | MelvinTang Games | 7:17 | auto | 1200 | — |  |
 | todo | [3 Years Working on AAA Games ... Here's What Nobody Tells You](https://www.youtube.com/watch?v=HECL-9qPlxM) `HECL-9qPlxM` | Next Level Game Art | 18:07 | auto | 3534 | — |  |
 | todo | [Why Every Developer Needs to Understand CI/CD](https://www.youtube.com/watch?v=omB2JkC4QfA) `omB2JkC4QfA` | Nova Designs | 13:42 | auto | 2574 | — |  |
-| todo | [What's Causing my Frame Rate to Drop? - Unreal Engine 5 Stat Profiling Tutorial](https://www.youtube.com/watch?v=nQdsY2a-Fn8) `nQdsY2a-Fn8` | NumenBrothers | 6:09 | auto | 1373 | — |  |
+| published | [What's Causing my Frame Rate to Drop? - Unreal Engine 5 Stat Profiling Tutorial](https://www.youtube.com/watch?v=nQdsY2a-Fn8) `nQdsY2a-Fn8` | NumenBrothers | 6:09 | auto | 1373 | `praxe/profiling.md` | případovka k rozhodovacímu stromu: `stat` → Session Frontend → viník ve foliage |
 | todo | [How To Improve Performance - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=S-vO9YNI7zs) `S-vO9YNI7zs` | Pitchfork Academy | 27:26 | auto | 5173 | — |  |
 | todo | [Optimization UE5 - The Power of Instanced Static Meshes with Efficient Materials](https://www.youtube.com/watch?v=S7lJnSeL41M) `S7lJnSeL41M` | PolySphere 3D | 5:35 | manual | 838 | — |  |
 | todo | [How I Beat 99% of Computer Science Students (Georgia Tech Lessons)](https://www.youtube.com/watch?v=oJ6LN7t0Vr8) `oJ6LN7t0Vr8` | Sajjaad Khader | 12:04 | auto | 2606 | — |  |
 | todo | [Unreal Engine 5.8 Preview: What Epic Games Changed Under The Hood \| New Features & Updates](https://www.youtube.com/watch?v=NfDzhmXiUNA) `NfDzhmXiUNA` | Sergey Maryshev | 4:56 | manual | 856 | — |  |
 | todo | [How to Quickly Optimize Your Scene in Unreal Engine 5 Using ISM/HISM](https://www.youtube.com/watch?v=lZegK5ussdU) `lZegK5ussdU` | Sergey Maryshev | 3:16 | auto | 623 | — |  |
 | todo | [Unreal Engine 5 Level Design Workflow Trick](https://www.youtube.com/watch?v=4itMlAQC3LE) `4itMlAQC3LE` | Sergey Maryshev | 0:29 | manual | 105 | — |  |
-| todo | [When Optimisations Work, But for the Wrong Reasons](https://www.youtube.com/watch?v=hf27qsQPRLQ) `hf27qsQPRLQ` | SimonDev | 22:18 | manual | 4049 | — |  |
+| published | [When Optimisations Work, But for the Wrong Reasons](https://www.youtube.com/watch?v=hf27qsQPRLQ) `hf27qsQPRLQ` | SimonDev | 22:18 | manual | 4049 | `praxe/rozpocet-snimku.md` | 2×2 quad, quad utilization, primitive assembly — proč LODy a Nanite fungují |
 | todo | [How To Create An Optimized UE5 Base Project](https://www.youtube.com/watch?v=2ZcagAT3EXQ) `2ZcagAT3EXQ` | Smart Poly | 16:50 | auto | 3331 | — |  |
 | todo | [The Most Optimized Version of UE5??? (The ViteFork)](https://www.youtube.com/watch?v=dRR5AC8PV2U) `dRR5AC8PV2U` | Smart Poly | 13:30 | auto | 2631 | — |  |
 | todo | [Introduction and setup of Unreal Engine 5 memory insights](https://www.youtube.com/watch?v=qGma-I9PD1c) `qGma-I9PD1c` | Spacemarine658 | 12:35 | auto | 2508 | — |  |
@@ -884,23 +894,23 @@ Celkem ~297k slov. Dominantní shluk na první pohled: **výkon, profiling a opt
 | todo | [Epic's Unreal Optimization Disaster \| Why Nanite Tanks Performance!](https://www.youtube.com/watch?v=M00DGjAP-mU) `M00DGjAP-mU` | Threat Interactive | 13:07 | auto | 2529 | — |  |
 | todo | [1-hour of Unreal GPU Optimization Tips & Tricks](https://www.youtube.com/watch?v=c2MH20OPSw0) `c2MH20OPSw0` | Tom Looman | 62:04 | manual | 11791 | — |  |
 | todo | [Geometry Optimization In a Few Clicks \| Unreal Engine 5](https://www.youtube.com/watch?v=h6uLdQmwc7c) `h6uLdQmwc7c` | Unreal ArchWizard | 1:36 | auto | 308 | — |  |
-| todo | [Unreal Fest Stockholm 2025 Collection - Profiling, Telemetry, and Performance](https://www.youtube.com/watch?v=CijCVXa0wBQ) `CijCVXa0wBQ` | Unreal Engine | 145:05 | auto | 25310 | — |  |
+| todo | [Unreal Fest Stockholm 2025 Collection - Profiling, Telemetry, and Performance](https://www.youtube.com/watch?v=CijCVXa0wBQ) `CijCVXa0wBQ` | Unreal Engine | 145:05 | auto | 25310 | — | **PŘEKRYV (ověřeno 2026-07-29):** sestřih tří přednášek — 0:00–1:01 = `C-AjCqjKRSs`, 1:01–1:39 = **unikátní** talk o tracingu, 1:39–2:24 = `vnbARZHccpQ`. Číst **jen prostřední úsek**; zbytek brát ze samostatných videí. Úspora ~21k slov. |
 | todo | [Automated Performance Profiling for Local Workflows \| Inside Unreal](https://www.youtube.com/watch?v=bfkbwXVMtn8) `bfkbwXVMtn8` | Unreal Engine | 115:40 | auto | 18793 | — |  |
 | todo | [Profiling with Purpose: Performance Lessons from a Real Unreal Project \| Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=C-AjCqjKRSs) `C-AjCqjKRSs` | Unreal Engine | 57:30 | auto | 11598 | — |  |
-| todo | [A Frame’s Life: Frame Timing, Synchronization, and Latency in UE \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=dKSHw_8vz3I) `dKSHw_8vz3I` | Unreal Engine | 52:47 | auto | 10389 | — |  |
+| published | [A Frame’s Life: Frame Timing, Synchronization, and Latency in UE \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=dKSHw_8vz3I) `dKSHw_8vz3I` | Unreal Engine | 52:47 | auto | 10389 | `praxe/frame-pacing.md` | páteř druhé kapitoly: potrubí snímku, latence vs. odolnost, jitter |
 | todo | [Optimizing UE5: Advanced Rendering, Graphics Performance, and Memory Management \| Unreal Fest 2024](https://www.youtube.com/watch?v=dj4kNnj4FAQ) `dj4kNnj4FAQ` | Unreal Engine | 51:14 | auto | 10400 | — |  |
-| todo | [How to Start Your Project at 60 FPS and Keep It There \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=DxBKmQ-0kfw) `DxBKmQ-0kfw` | Unreal Engine | 50:06 | auto | 10327 | — |  |
+| published | [How to Start Your Project at 60 FPS and Keep It There \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=DxBKmQ-0kfw) `DxBKmQ-0kfw` | Unreal Engine | 50:06 | auto | 10327 | `praxe/rozpocet-snimku.md` | první changelist: defaulty, scalability, device profily a rozlišovací žebřík |
 | todo | [The Player Was Here: Persisting World State and Actor LOD Systems \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=KBn62trwkLw) `KBn62trwkLw` | Unreal Engine | 48:56 | auto | 8602 | — |  |
 | todo | [Optimizing Niagara: a Practical Approach to Performant Worlds \| Unreal Fest Orlando 2025](https://www.youtube.com/watch?v=71c5yv-XeY8) `71c5yv-XeY8` | Unreal Engine | 46:56 | auto | 9776 | — |  |
 | todo | [New GPU Profiler and RHI Submission Pipeline \| Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=vnbARZHccpQ) `vnbARZHccpQ` | Unreal Engine | 45:59 | auto | 9950 | — |  |
-| todo | [Profiling with Pirates: Performance Plundered from a Real Game \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=CYvLn-tYRag) `CYvLn-tYRag` | Unreal Engine | 45:11 | auto | 8509 | — |  |
-| todo | [Maximizing Your Game's Performance in Unreal Engine \| Unreal Fest 2022](https://www.youtube.com/watch?v=GuIav71867E) `GuIav71867E` | Unreal Engine | 41:53 | manual | 7933 | — |  |
+| published | [Profiling with Pirates: Performance Plundered from a Real Game \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=CYvLn-tYRag) `CYvLn-tYRag` | Unreal Engine | 45:11 | auto | 8509 | `praxe/profiling.md` | prahy: `UObject`y, GC, shading biny, `obj list`/`obj refs`, `-corelimit` |
+| published | [Maximizing Your Game's Performance in Unreal Engine \| Unreal Fest 2022](https://www.youtube.com/watch?v=GuIav71867E) `GuIav71867E` | Unreal Engine | 41:53 | manual | 7933 | `praxe/rozpocet-snimku.md` | rozpočet jako peněženka, kdy optimalizovat, pořadí co → proč → jak |
 | todo | [Mastering Performance Analysis with Unreal Insights \| Unreal Fest Bali 2025](https://www.youtube.com/watch?v=HQLYkwoDoT4) `HQLYkwoDoT4` | Unreal Engine | 40:05 | auto | 4522 | — |  |
 | todo | [From Scan to Stream: Open Pipelines for Large-Scale 3D in Unreal Engine  \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=5ehoHM-uzRQ) `5ehoHM-uzRQ` | Unreal Engine | 38:12 | auto | 7299 | — |  |
 | todo | [Lessons Learned from Building a Very Large Open World Game in UE5 \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=AalP65lrtpo) `AalP65lrtpo` | Unreal Engine | 37:30 | auto | 7309 | — |  |
-| todo | [Technical Artist's Guide to Profiling in Unreal Engine \| Unreal Fest Orlando 2025](https://www.youtube.com/watch?v=mCZRHljYnZA) `mCZRHljYnZA` | Unreal Engine | 33:26 | auto | 5305 | — |  |
+| published | [Technical Artist's Guide to Profiling in Unreal Engine \| Unreal Fest Orlando 2025](https://www.youtube.com/watch?v=mCZRHljYnZA) `mCZRHljYnZA` | Unreal Engine | 33:26 | auto | 5305 | `praxe/profiling.md` | páteř kapitoly: rozhodovací strom, reprodukovatelný test, předávka nálezu |
 | todo | [Unreal Engine Performance Optimization Tips](https://www.youtube.com/watch?v=V8NnLnBQFIg) `V8NnLnBQFIg` | Unreal University  | 8:10 | auto | 1749 | — |  |
-| todo | ["Optimized for 360p" ... huh?](https://www.youtube.com/watch?v=zT8DZsdJ72Y) `zT8DZsdJ72Y` | Vex | 17:40 | auto | 3610 | — |  |
+| published | ["Optimized for 360p" ... huh?](https://www.youtube.com/watch?v=zT8DZsdJ72Y) `zT8DZsdJ72Y` | Vex | 17:40 | auto | 3610 | `praxe/frame-pacing.md` | pohled hráče: dynamické rozlišení, shader stutter, mlha jako optimalizace |
 | todo | [Why I don't use Aseprite - The Tools I Use for Indie Game Dev (2D and 3D)](https://www.youtube.com/watch?v=wuO_iy0zhPA) `wuO_iy0zhPA` | Zizaco | 8:21 | manual | 1760 | — |  |
 
 ### Gamedev-music · třetí vlna (+20) · `todo`

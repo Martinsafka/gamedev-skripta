@@ -670,6 +670,14 @@ Damage, animace, zvuky ani cooldowny nepatří natvrdo do grafu — patří do d
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset)
 
+### Data validation
+
+**Automatická kontrola assetů proti pravidlům projektu — při vstupu do editoru, při odevzdání a v noci na build stroji.**
+
+Plugin v UE kontroluje typicky jednoduchou i složitou kolizi, počet materiálů a materiálových vrstev, hustotu meshe a strop polygonů. Smysl je posunout záchyt problému co nejdřív: **levnější než hledat drahé assety profilerem je nepustit je dovnitř**. Vynucená kontrola při odevzdání zapisuje výsledek do popisu changelistu, noční běh posílá výpis do týmového kanálu. Vedle toho Asset Audit a Statistics dají tabulku assetů a počty instancí za běhu, obojí exportovatelné do CSV.
+
+Kde se s tím potkáš: [Nález není hotová práce](praxe/profiling.md#nalez-neni-hotova-prace-predani)
+
 ### DAW
 
 **Program na tvorbu hudby — nahrávání, MIDI, piano roll, mix, export (digital audio workstation).**
@@ -733,6 +741,14 @@ Kde se s tím potkáš: [Zábava: taxonomie a pilíře](teorie/zabava.md) · [Lu
 Rodiny potřebují postavy, místnosti potřebují stavební mechaniku — pořadí práce padá ze stromu samo a škrty se dělají shora. Sdílený spodek stacku je důvod, proč studia vyrábějí variace téže hry (Fallout/Elder Scrolls).
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zápisek: Derivační řetěz IZBY](zapisky/derivace-izby.md)
+
+### Device profile
+
+**Hierarchická sada nastavení a konzolových proměnných pro konkrétní platformu — povinná výbava projektu, který míří na 60 FPS.**
+
+Profily se dědí, takže se dá postavit celý strom (projekt → platforma → výkonový režim) a přenastavit v něm každou console variable i texture LOD group naráz. Typický obsah 60FPS profilu: scalability skupiny, rozlišovací žebřík (`r.DynamicRes`, `r.ScreenPercentage`, `r.SecondaryScreenPercentage.GameViewport`) a rozpočet snímku pro dynamické rozlišení. Past: **engine si profil sám nevybere** — potřebuješ device profile selector, který ho podle platformy zvolí. Zakládá se v prvním changelistu; dodělávat to v produkci je mnohem dražší.
+
+Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Rejstřík: Scalability groups](#scalability-groups)
 
 ### Devlog
 
@@ -805,6 +821,14 @@ Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 Scalar/vector/texture parametry pojmenované v materiálu se nastavují uzly Set Parameter Value — jména musí sedět do písmene. Základ všeho, co se vizuálně mění za hry: slábnoucí stopy, zabarvení zásahu, progres přebíjení. MID žije per objekt — změna jedné instance neovlivní ostatní.
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
+### Dynamic resolution
+
+**Rozlišení, které engine za běhu snižuje a zvyšuje, aby udržel cílový frame time.**
+
+Nastavuje se rozpočtem (`r.DynamicRes.FrameTimeBudget`, typicky 16,66 ms na 60 FPS) a mezemi screen percentage — v praxi třeba 55–75 %, tedy primární rozlišení mezi ~800 a 1080. Renderuje se na něm všechno, co závisí na rozlišení; dorovnává to temporální upscaler. **Hráči to čtou jako přiznání porážky** („upscalováno z 360p"), technicky je to naopak nástroj, jak udržet plynulost v nejnáročnějších místech místo padání snímků všude.
+
+Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Rejstřík: TSR](#tsr) · [Rejstřík: Device profile](#device-profile)
 
 ### Early access
 
@@ -1190,6 +1214,14 @@ Zní akademicky, funguje jako kompas hranic řešitelnosti: každé „najdeme a
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
 
+### Hitch resiliency
+
+**Schopnost potrubí snímků pohltit krátký výpadek, aniž hráč přijde o jediný snímek — placená vstupní latencí.**
+
+Plná pipeline v Unrealu drží šest snímků v enginu a dva v hardwaru; hotová práce v back bufferech je rezerva, ze které se dá dohnat i zásek přes tři snímky rozpočtu. Cena je latence (šest snímků × frame time: ~200 ms na 30 FPS, ~100 na 60, ~50 na 120). Zkrátíš-li potrubí kvůli latenci, rezervu zahodíš — a to je v pořádku **jen když rozpočet skutečně držíš**, jinak snímky začnou padat. Tichá vedlejší cena i při úspěšném pohlcení: [jitter](#jitter).
+
+Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Rejstřík: Input latency](#input-latency) · [Rejstřík: Jitter](#jitter)
+
 ### HUD
 
 **Heads-up display: vrstva informací zobrazená přes gameplay — zdraví, munice, minimapa, cíle.**
@@ -1270,6 +1302,14 @@ Klasický experiment: lidé si věří, že chápou kolo nebo zip, dokud nemají
 
 Kde se s tím potkáš: [Učení v éře AI](teorie/uceni-v-ere-ai.md) · [Zápisek: Kvízový protokol](zapisky/kvizovy-protokol.md)
 
+### Impostor
+
+**Nejagresivnější stupeň LOD: 3D asset nahrazený obrázkem, který se otáčí s kamerou.**
+
+Z dostatečné vzdálenosti rozdíl nepoznáš — a stojí to zlomek původní ceny. Vyplácí se dotáhnout: renderovat k diffuse i normálovou mapu a vypéct víc pohledů, mezi kterými se blenduje. Ve scénách s desetitisíci stromů jsou impostory důvod, proč se to vůbec dá vykreslit. Proč to funguje tak nepoměrně dobře, vysvětluje [quad utilization](#quad-utilization) — nejde o počet vrcholů, ale o to, že mikrotrojúhelníky jsou pro GPU nejdražší možný vstup.
+
+Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-snimku.md#proc-male-trojuhelniky-nici-gpu) · [Rejstřík: Nanite](#nanite)
+
 ### Inheritance
 
 **Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče — základ, na kterém stojí celý UE (Actor → Pawn → Character).**
@@ -1301,6 +1341,14 @@ Kde se s tím potkáš: [Vydání hry: vertikální a horizontální řez](teori
 Skok zmáčknutý dva framy před dopadem se provede při dopadu — spolu s coyote time nejcitovanější výjimka, kterou input systém obsluhuje hráčovo očekávání místo doslovného čtení vstupů. „Input manager nemá slepě překládat stisky."
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Game feel a imerze](teorie/game-feel.md)
+
+### Input latency
+
+**Prodleva mezi hráčovým vstupem a okamžikem, kdy je následek vidět na monitoru.**
+
+Pozor na to, co pod tím jménem měří Unreal: statistika `input` v `stat unit` je **od navzorkování vstupu na začátku herního snímku po flip back bufferu** — ne hardware, ne operační systém, ne kompozitor, ne kabel, ne odezva monitoru. Hlavní páky: vyšší framerate (počet snímků v potrubí je konstantní, mění se jejich délka), přiškrcení herního vlákna (`r.GTSyncType 2` na konzolích, Nvidia Reflex / AMD Anti-Lag 2 / Intel XeLL na PC) a kratší potrubí. Vždycky se za to platí [odolností proti záseku](#hitch-resiliency).
+
+Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Snímek není fronta](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi)
 
 ### Integer scaling
 
@@ -1381,6 +1429,14 @@ Kde se s tím potkáš: [Prototypování: iterační spirála](teorie/prototypov
 Proto ji volí budovatelské a simulační hry — dává přehled o prostoru a snese hodně detailu, aniž by si prvky překážely. Dvě daně: perspektivu je nutné držet ve všech assetech (jinak se objekty odmítají slučovat s prostředím) a se statickou kamerou musíš řešit, co komu zakrývá výhled — mřížkou, zdí na horním okraji mapy nebo stupňovitým layoutem.
 
 Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
+
+### Jitter
+
+**Mikro-škubání animací a kamery, které vzniká, i když nespadne ani jeden snímek.**
+
+Delta time pro simulaci je frame time **předchozího** snímku, ale zobrazované snímky jdou v pevném rytmu VSyncu. Pohltí-li potrubí zásek, hráč o žádný snímek nepřijde — jenže následuje dohánění s velkým delta timem a pak doplnění potrubí s krátkými delta timy, takže se simulace rozjede a zpomalí. Diagnostika, která z nejednoznačného dojmu udělá jednoznačné čtení: **kolo rozdělené na 60 dílů s jednou otáčkou za sekundu** — čáry mají být při 60 FPS pořád zarovnané. Nedá se to spravit fixním delta timem (variabilní obnovovací frekvence; méně než třetina monitorů má celočíselnou nativní frekvenci).
+
+Kde se s tím potkáš: [Jitter](praxe/frame-pacing.md#jitter-nespadne-ani-jeden-snimek-a-presto-to-skube) · [Rejstřík: Delta time](#delta-time) · [Rejstřík: Hitch resiliency](#hitch-resiliency)
 
 ### Juice
 
@@ -2374,6 +2430,14 @@ Titul „producent" znamená v každém médiu něco jiného — ve hrách je to
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md)
 
+### Profiling
+
+**Měření toho, kde se ve snímku ztrácí čas — na rozdíl od hádání, které v enginu skoro nikdy nevyjde.**
+
+První krok je vždy stejný: zjistit, **který rozpočet je vyčerpaný** (`stat unit` ukáže frame, game, draw, GPU — to, které se blíží k frame, je brzda), a teprve podle toho volit nástroj. Vizuální debug režimy k bottlenecku nevedou; dají se optimalizovat celý den bez dopadu na snímkování. Druhá polovina disciplíny je porovnatelnost: reprodukovatelný měřicí bod, umlčené proměnné a jediná změna mezi dvěma záznamy.
+
+Kde se s tím potkáš: [Profiling: měření místo odhadů](praxe/profiling.md) · [Rejstřík: Unreal Insights](#unreal-insights) · [Rejstřík: Frame time](#frame-time)
+
 ### Prokletí znalosti
 
 **Expert na vlastní hru si neumí dát zážitek nováčka — ví příliš mnoho, než aby viděl tření.**
@@ -2398,6 +2462,14 @@ Se svým dvojčetem (celý tón) je stavební jednotkou stupnic i akordů. Sám 
 
 Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
 
+### PSO
+
+**Pipeline state object — předpřipravený stav grafického potrubí; když chybí, kompiluje se shader za běhu a hra sekne.**
+
+Zásky z kompilace shaderů obstarává **procesor**, ne grafika, takže je rychlá grafická karta nespraví. Konzole je nemají tak zlé, protože hardware je ve všech kusech stejný a dá se zkompilovat jednou a rozdat předpřipravené; na PC to nelze. Řešení jsou dvě a nevylučují se: **bundlovat** PSO a **předcache**. Při testování je potřeba **mazat cache**, jinak lokálně neuvidíš, že s tím je problém.
+
+Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1)
+
 ### Quad
 
 **Čtyřúhelníková buňka mřížky meshe — u terénu základní jednotka rozlišení.**
@@ -2405,6 +2477,14 @@ Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.
 Rozlišení Mesh Terrainu se zadává počtem quadů v osách XY; víc quadů = jemnější síť = víc detailu i dat. Interně se quady stejně dělí na trojúhelníky (GPU nic jiného nekreslí), ale pro autorskou práci je čtyřúhelníková mřížka přehlednější — proto s ní pracují terény, subdivision modeling i retopologie.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+
+### Quad utilization
+
+**Podíl skutečně použité práce v základní jednotce GPU — čtverci 2×2 pixely.**
+
+Pixel shader se neplánuje po jednotlivých pixelech, ale po čtvercích 2×2 (tolik informace stačí na gradienty textur pro mip mapping a je to jednoduché na hardwaru). Trojúhelník menší než ten čtverec se **spočítá celý a 75 % výsledku se zahodí**; totéž v menší míře platí pro každý quad na hranici trojúhelníku, a s tím se nedá nic dělat. Co ovlivnit lze, je jaké trojúhelníky GPU dostane — proto fungují LODy a [impostory](#impostor), proto má stejný mesh při jiné triangulaci jiný výkon (dlouhé tenké trojúhelníky jsou nejhorší) a proto si Epic napsal pro mikrotrojúhelníky vlastní softwarový rasterizér v Nanitu. Druhý strop vedle toho: **primitive assembly zvládne jeden primitiv za takt**.
+
+Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-snimku.md#proc-male-trojuhelniky-nici-gpu) · [Rejstřík: Quad](#quad) · [Rejstřík: Overdraw](#overdraw)
 
 ### Race condition
 
@@ -2421,6 +2501,14 @@ Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
 Zvuk sebrání předmětu ve Stardew Valley je mlasknutí pusou — s náhodným pitchem přestane znít digitálně a otravně. Často je způsob implementace důležitější než samotný zvuk.
 
 Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
+
+### Raster bin
+
+**Nanitová dávka geometrie se shodným stavem rasterizace; cílem je mít ve scéně co nejméně různých binů.**
+
+Sourozenec [shading binu](#shading-bin) a stejná logika: cenu určuje **rozmanitost, ne množství**. Dvě stě kamenů z jednoho materiálu je levnějších než dvacet kamenů z dvaceti materiálů. Vizualizace *Nanite → raster bin* obarví assety podle binu — chceš vidět většinu scény v jedné barvě. Nejčastější příčina roztříštěnosti: scéna složená z několika stažených sad, kde má každá vlastní materiály. Náprava: společný materiál, textury do UDIMů a variace přes per-instance data.
+
+Kde se s tím potkáš: [View modes](praxe/rozpocet-snimku.md#view-modes-kde-se-ztraci-nez-otevres-profiler) · [Rejstřík: Shading bin](#shading-bin) · [Rejstřík: Draw call](#draw-call)
 
 ### Recall priming
 
@@ -2614,6 +2702,14 @@ Tři uzly stačí: Create Save Game Object / Load Game From Slot / Save Game to 
 
 Kde se s tím potkáš: [Ukládání](praxe/ukladani.md)
 
+### Scalability groups
+
+**Skupiny nastavení kvality renderování (Low → Epic); pozor na to, že *Epic* je režim pro 30 snímků, ne „nejlepší".**
+
+Míříš-li na 60 FPS, je tvůj referenční režim **High** — a dokud ho nenastavíš, díváš se v editoru na jinou hru, než jakou chceš dodat. Za celý tým se to dá udělat jen jednou: v `DefaultEditorSettings.ini` sekcí se skupinami na `2`, dokud projekt nikdo neotevřel. Uživatelské změny se ukládají zvlášť (`Engine/Saved/Config`), takže se dá kdykoli resetovat. Do hry samotné to nasazují [device profily](#device-profile).
+
+Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Co říká GPU profiler](praxe/profiling.md#co-rika-gpu-profiler-a-co-v-nem-nenajdes)
+
 ### SCAMPER
 
 **Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.**
@@ -2725,6 +2821,14 @@ Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-
 Učení je budování prediktivního modelu světa a potřebuje data, ze kterých se dá učit. Frustrace = konstantní „špatně" (nulový signál), nuda = konstantní „dobře" (nulový signál); flow kanál je pásmo, kde některé akce fungují a jiné ne — nejlepší signál. Jasné cíle jsou filtr šumu; soustředění je totéž z druhé strany (rozptýlení a vizuální balast = šum).
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
+
+### Shading bin
+
+**Nanitová obdoba draw callu: každý materiál ve scéně si vyžádá vlastní bin, s minimem ~3 µs na GPU.**
+
+Vlastní bin potřebuje **každá materiálová instance** — konstantní i dynamická — takže počet binů roste s rozmanitostí materiálů, ne s počtem meshů. Řádová orientace z profilování reálné hry: naměřeno ~2 100 raster a ~4 000 shading binů, cíl ~50 raster a ~1 000 shading. Cesta dolů je architektonická: pevná topologie materiálu a znovupoužité instance, kterým se hodnoty předávají přes custom primitive data, material parameter collections nebo per-instance custom data — místo skládání materiálových vrstev jako v Photoshopu.
+
+Kde se s tím potkáš: [Čísla, se kterými se dá srovnávat](praxe/profiling.md#cisla-se-kterymi-se-da-srovnavat) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Draw call](#draw-call)
 
 ### Shape language
 
@@ -3198,6 +3302,14 @@ Tři noty × 10 hlasů unisonu = 30 pil přes sebe. Nejvíc těží pila. Slavn�
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
+### Unreal Insights
+
+**Profiler pro CPU stranu snímku: co dělá herní a render vlákno, po funkcích a v čase.**
+
+Chodí se sem, když `stat unit` ukáže vysoký **game** nebo **draw** — obojí je CPU. Praktická pravidla: spustit Insights **dřív než hru** (pozdní připojení může data poškodit), profilovat **development build** (v testu je většina informací vystřižená) a držet `trace.stop`, dokud hledáš to správné místo, jinak vyrobíš gigabajty nepoužitelných dat. Značky `trace bookmark` a `trace screenshot` pomůžou najít konkrétní snímek; kanál `counters` přidá čísla, která se jinak shánějí těžko — paměť, počet draw callů po cullingu, počet `UObject`ů, aktivní fyzikální tělesa.
+
+Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic)
+
 ### User story
 
 **Popis funkce jako kroky uživatele: co vidí a co dělá — ne jak je to naprogramované.**
@@ -3237,6 +3349,14 @@ Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-
 Předchází UI: nejdřív se mapuje cesta hráče a minimalizuje počet nutných akcí, teprve pak se staví vizuál. U malých týmů je to jedna role, a právě proto se vyplatí držet obě zadání oddělená — jinak se optimalizuje vzhled obrazovky, která neměla vzniknout.
 
 Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
+
+### VSync
+
+**Synchronizace výměny obrazových bufferů s obnovovacím cyklem monitoru — buď žádné trhání, nebo nejnižší latence.**
+
+Bez VSyncu se buffery vymění uprostřed vykreslování a snímek se rozdělí (**tearing**); s VSyncem se čeká na konec cyklu. Vypnutý VSync dává nižší [vstupní latenci](#input-latency), ale kromě trhání ubere i schopnost potrubí pohltit zásek. Většina konzolových her ho má zapnutý. Praktické doporučení z Epicu: **zapnout ve výchozím stavu a nechat hráči možnost vypnout.** Bonus: proměnná obnovovací frekvence (VRR/G-Sync/FreeSync) se v Unrealu zapíná právě tím, že necháš VSync zapnutý — o ostatní se stará hardware hráče.
+
+Kde se s tím potkáš: [Snímek není fronta](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi) · [Rejstřík: Frame time](#frame-time)
 
 ### Value chain
 

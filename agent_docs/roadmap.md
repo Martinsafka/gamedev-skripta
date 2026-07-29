@@ -134,11 +134,21 @@ Nový samostatný playlist (93 videí, ~351k slov) zaměřený na Godot → **dr
 - [x] **Dávka 34 done** _(2026-07-29)_: případovka A — 15 videí Inbound Shovel (~40k slov) → **3 nové kapitoly / 12 myšlenek v novém nav tématu „Případovka: 2D akční platformer"** (`pripadovka-pohyb` 4, `pripadovka-kamera` 3, `pripadovka-nepratele` 5). Rejstřík +5 termínů (420 celkem), chapter map regen (623 řádků), `--strict` + anchor-check green (2278 fragmentů, napoprvé). Nejsilnější kus: **proč vyhodil všechny šikmé plochy** — tři vrstvy nákladů psané jako účet, ne pravidlo. Tři vlastní syntézy nad rámec zdrojů (vizuální věrnost zvyšuje očekávání od chování; eskalace abstrakce; hit stop zdržuje vstup). **62/93 published.**
 - [x] **Dávka 35 done — FINÁLE PHASE 9** _(2026-07-29)_: případovka B — 27 videí (~48k slov) → **4 nové kapitoly / 20 myšlenek** (`pripadovka-level-a-mapa` 4, `pripadovka-vizual-a-zvuk` 5, `pripadovka-systemy` 5, `pripadovka-proces` 6). Rejstřík +8 termínů (428 celkem), chapter map regen (635 řádků), `--strict` + anchor-check green (2417 fragmentů). Nejsilnější kus: **level editor, který nakonec nebyl level editor** — deset hodin práce zahozených kvůli špatně přečtenému požadavku. Jedno video (redesign postavy) rozděleno do tří kapitol podle myšlenek. **90/93 published.**
 
-### Phase 10 (čeká) — třetí vlna hlavního playlistu a hudby
+### Phase 10 (běží) — třetí vlna hlavního playlistu a hudby
 
-Staženo 2026-07-29, **zatím jen zaevidováno** (tabulky v `processing_index.md`). Pořadí dohodnuté s uživatelem: až po dokončení Godotu.
+Staženo 2026-07-29 (tabulky v `processing_index.md`). Pořadí dohodnuté s uživatelem: až po dokončení Godotu, a uvnitř hlavního playlistu **začít výkonem a profilingem**.
 
-- [ ] Hlavní playlist **+61 videí** (~297k slov). Dominantní shluk: **výkon, profiling a optimalizace v UE5** (~35 videí — 13× Unreal Fest / Inside Unreal, Tom Looman, Dallas Drapeau ×3, Threat Interactive, SimonDev…) → samostatné téma, ne rozšíření `praxe/optimalizace.md`. Dál design/teorie a UE praxe (Ali Elzoheiry inventory 2 díly).
+**Blok „Výkon a profiling"** — nové téma v Praxi v UE5, ~36 videí / ~200k unikátních slov v pěti dávkách:
+
+- [x] **Dávka 36** — `praxe/profiling.md`, 5 myšlenek: rozhodovací strom podle `stat unit`, reprodukovatelný test, GPU profiler (a jeho hranice), prahy z profilování skutečné hry, předávka nálezu. Zdroje: `mCZRHljYnZA`, `tuAtGaVqcSM`, `CYvLn-tYRag`, `nQdsY2a-Fn8`, `HOcXWZY044E`. Nové téma v navigaci před „Rendering a optimalizace"; rejstřík 428 → 432. _(2026-07-29)_
+- [x] **Dávka 37** — `praxe/rozpocet-snimku.md` (4 myšlenky: rozpočet jako peněženka, prvních 16,66 ms se rozdává v CL1, legenda k view modes, proč malé trojúhelníky ničí GPU) + `praxe/frame-pacing.md` (4 myšlenky: potrubí snímku, latence proti odolnosti, jitter, jak to vidí hráč). Zdroje: `DxBKmQ-0kfw`, `dKSHw_8vz3I`, `GuIav71867E`, `zVNViTNHHdA`, `hf27qsQPRLQ`, `zT8DZsdJ72Y`. Rejstřík 432 → 443. _(2026-07-29)_
+- [ ] **Dávka 38** — GPU, rendering, Nanite (~52k): `c2MH20OPSw0`, `dj4kNnj4FAQ`, `vnbARZHccpQ`, `CijCVXa0wBQ` (jen unikátní prostřední úsek — viz poznámka v indexu), `ciCRiQmwTrs`, `uE4cGZjMfuY`, `M00DGjAP-mU`.
+- [ ] **Dávka 39** — praktické zásahy, paměť, Niagara (~28k): `S-vO9YNI7zs`, `2ZcagAT3EXQ`, `dRR5AC8PV2U`, `JWDnTDi_aLY`, `V8NnLnBQFIg`, `MLS96wgSMk4`, `S7lJnSeL41M`, `lZegK5ussdU`, `h6uLdQmwc7c`, `qlPqwTAmQ5E`, `71c5yv-XeY8`.
+- [ ] **Dávka 40** — velké světy (~23k): `AalP65lrtpo`, `KBn62trwkLw`, `5ehoHM-uzRQ`.
+
+Zbytek vlny:
+
+- [ ] Zbytek hlavního playlistu **25 videí** (~76k slov): design/teorie (5 Principles, GDD, worldbuilding, engagement bez temných vzorů, architektury kódu podle Tyrollera) a UE praxe (Ali Elzoheiry inventory 2 díly, animace, 5.8 preview).
 - [ ] Gamedev-music **+20 videí** (~41k slov). Dominantní shluk: **Strudel a live coding hudby** (11 videí) → nové téma. Dál Alex Rome ×3 (rozšíření `akordy-a-harmonie`, `melodie` — sem patří i `_yw85rAb6cw` z Godot playlistu), rytmus, AI na vokály. Pozor na položky, které jsou performance/mixy, ne tutoriály.
 
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_

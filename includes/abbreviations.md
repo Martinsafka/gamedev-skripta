@@ -79,6 +79,7 @@
 *[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
 *[Data Registry]: Registr konfiguračních dat (data tables) — systémy se ptají jménem místo tvrdých odkazů na tabulky.
 *[Data-driven design]: Hodnoty a konfigurace žijí v datech (data assety); logika je jen čte.
+*[Data validation]: Automatická kontrola assetů proti pravidlům projektu — v editoru, při odevzdání i v noci.
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Degenerate strategy]: Dominantní postup, po jehož objevení hra přestává bavit; cíl balancu je ho zabít.
@@ -88,6 +89,7 @@
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Design pattern]: Pojmenované řešení opakujícího se problému v kódu; katalog Gang of Four (1994), tři rodiny.
 *[Design pillars]: 2–3 pojmy o tom, co má hráč cítit; váha pro každé rozhodnutí. Žánr ani art style pilíř není.
+*[Device profile]: Hierarchická sada nastavení a CVarů pro platformu; engine si ji sám nevybere — musíš ji zvolit.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
 *[Disonance]: Dojem napětí či drsnosti při znění tónů; opak konsonance, spojitá páka napětí.
@@ -97,6 +99,7 @@
 *[Dot product]: Skalární součin jednotkových vektorů = kosinus úhlu: 1 stejný směr, 0 kolmost, −1 protisměr.
 *[Draw call]: Příkaz CPU pro GPU „vykresli tohle"; šetří se instancingem a sdílením materiálů (trim sheety).
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
+*[Dynamic resolution]: Rozlišení snižované za běhu, aby engine udržel cílový frame time (typicky 55–75 %).
 *[Early access]: Placený předběžný přístup k nedokončené hře s příslibem dalšího vývoje.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
 *[Editor script]: Skript, který běží v editoru místo ve hře; generuje boilerplate nebo hlídá konzistenci dat.
@@ -155,21 +158,25 @@
 *[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
+*[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
 *[Indexical storytelling]: Vyprávění stopami a náznaky; hráč si příběh složí sám (Clara Fernández-Vara).
+*[Impostor]: Nejagresivnější LOD: asset nahrazený obrázkem otáčejícím se s kamerou.
 *[Inheritance]: Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče. Lakmusový test: „is it a?"
 *[Input buffering]: Vstup těsně před platností se zapamatuje a provede hned, jak to jde (skok před dopadem).
 *[Instance]: Konkrétní umístěný výskyt assetu v levelu.
 *[Instanced Actors]: Systém (5.5+): svět z levných instancí; objekty u hráče se swapnou na plné Blueprint actory a zpět.
 *[Integer overflow]: Přetečení celého čísla — hodnota přeroste strop (asi 2,1 mld.) a překlopí se do záporných.
+*[Input latency]: Od vstupu k fotonu; v `stat unit` jen od navzorkování vstupu po flip back bufferu.
 *[Integer scaling]: Zvětšování celými násobky (2x, 3x); jediný způsob, jak udržet pixel art ostrý.
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
 *[Invisible wall]: Neviditelná kolize tam, kde vizuálně nic nebrání — nejhorší způsob ohraničení mapy.
 *[Iterace]: Jedno kolo smyčky uprav → otestuj → vyhodnoť; hry nevznikají tahem, ale koly.
 *[Izometrie]: Perspektiva bez úběžníku — vzdálené objekty se nezmenšují, scéna je čitelná v hloubce.
+*[Jitter]: Mikro-škubání z rozhoupaného delta timu — nastane, i když nespadne ani jeden snímek.
 *[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
 *[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
@@ -294,12 +301,16 @@
 *[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
 *[Process mode]: Vlastnost nodu určující, jestli běží při pozastaveném stromu scény; ve výchozím stavu se dědí.
 *[Producent]: Ve hrách project manager: timeline, seznam úkolů, kdo co dělá a kdo je volný.
+*[Profiling]: Měření, kde se ve snímku ztrácí čas; napřed zjisti vyčerpaný rozpočet, pak volej nástroj.
 *[Prokletí znalosti]: Expert na vlastní hru si neumí dát zážitek nováčka — tření vidí až playtest.
 *[Průběžná obtížnost]: Jak moc tě hra tlačí k prohře; vyrábí stres a úlevu. Upgrade zdraví ji snižuje.
 *[Půltón]: Nejmenší vzdálenost dvou sousedních tónů (E–F); stavební jednotka stupnic.
+*[PSO]: Pipeline state object; chybí-li, kompiluje se shader za běhu na CPU a hra sekne.
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
+*[Quad utilization]: Podíl využité práce ve čtverci 2×2 pixely — jednotce, po které GPU plánuje pixel shader.
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
 *[Random pitch variation]: Náhodný posun výšky při každém přehrání; ubíjí mechanickou repetici opakovaného zvuku.
+*[Raster bin]: Nanitová dávka se shodným stavem rasterizace; cenu určuje rozmanitost materiálů, ne počet meshů.
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
 *[Recoup]: Splacení investice vydavatele z tržeb, než se vývojáři začne vyplácet jeho podíl.
 *[Redirector]: Ghost soubor po přesunu assetu; před smazáním složky spusť Update Redirector References.
@@ -324,6 +335,7 @@
 *[Runway]: Kolik měsíců vydržíš pracovat, než dojdou peníze — ne kolik peněz máš.
 *[Sampling]: Použití kusu existující nahrávky jako materiálu nové skladby; pozor na práva.
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
+*[Scalability groups]: Skupiny kvality renderování; *Epic* je režim pro 30 FPS, pro 60 je referenční *High*.
 *[SCAMPER]: Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.
 *[Scene inheritance]: Scéna odvozená z jiné: převezme celý strom nodů a přepíše jen odchylky.
 *[Scene tree]: Strom nodů a vnořených scén, ze kterého se skládá běžící hra; nese i transformace a pořadí kreslení.
@@ -335,6 +347,7 @@
 *[Semiotika]: Nauka o tom, co symboly znamenají a proč — u písma dřív, než přečteš obsah.
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
 *[Serif]: Patka na konci tahu písmene; nese historickou asociaci a mírně zpomaluje čtení.
+*[Shading bin]: Nanitová obdoba draw callu; vlastní bin chce každá materiálová instance, ~3 µs minimum.
 *[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
 *[Short description]: 300znakový popis hry na Steamu; test 300 znaků = zkus ho napsat v den nula nápadu.
 *[Signal]: Zpráva, kterou node vyšle, aniž ví, kdo ji poslouchá — observer pattern zabudovaný do enginu.
@@ -397,11 +410,13 @@
 *[Tónina]: Domovská stupnice skladby; v piano rollu scale highlighting schová „špatné" tóny.
 *[Tři C]: Character, camera, controls — co žánr definuje; v AAA samostatná designérská role.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
+*[Unreal Insights]: Profiler CPU strany snímku (herní a render vlákno); spouštěj ho dřív než hru.
 *[User story]: Popis funkce jako kroky uživatele: co vidí a dělá, ne jak je to naprogramované.
 *[USP]: Unique selling point — co má jen tvoje hra; nemusí existovat od začátku (GTA).
 *[Utility AI]: Každý úkol si spočítá skóre, spustí se nejvyšší; nenahrazuje stromy, řídí je.
 *[UV mapping]: Předpis, která část 2D textury se natáhne na kterou plochu modelu.
 *[UX]: User experience — informační architektura: kde informace bydlí a kolika kroky se k nim dostaneš.
+*[VSync]: Synchronizace výměny bufferů s cyklem monitoru: bez trhání, ale za cenu latence.
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.
 *[Vektor]: Bod v prostoru (pozice), nebo směr s velikostí (velocity) — dvě čtení, nemíchat.

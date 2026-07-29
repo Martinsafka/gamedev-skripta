@@ -1,6 +1,6 @@
 # Optimalizace scény: draw cally, Nanite a foliage
 
-Výkonová kapitola od základů po specializaci: **proč jsou levely pomalé** (draw cally a čtyři úrovně léčby od instancí po data layers), **Nanite vs. LODy** bez ideologie, **voxelizace** jako zabiják overdraw — a dvoudílný hluboký ponor do **optimalizace foliage v kontextu skutečné hry**. Paměťovou stranu (textury, DLSS) řeší [sesterská kapitola](textury-a-dlss.md); jak výkonově uvažují velké produkce, ukazují [Breakdowny](env-breakdowny.md).
+Výkonová kapitola od základů po specializaci: **proč jsou levely pomalé** (draw cally a čtyři úrovně léčby od instancí po data layers), **Nanite vs. LODy** bez ideologie, **voxelizace** jako zabiják overdraw — a dvoudílný hluboký ponor do **optimalizace foliage v kontextu skutečné hry**. Paměťovou stranu (textury, DLSS) řeší [sesterská kapitola](textury-a-dlss.md); jak výkonově uvažují velké produkce, ukazují [Breakdowny](env-breakdowny.md). A krok, který téhle kapitole předchází — **zjistit, jestli je tvoje úzké hrdlo vůbec tady** — je v [Profilingu](profiling.md); bez něj se dá optimalizovat celý den bez dopadu na snímkování.
 
 ---
 
