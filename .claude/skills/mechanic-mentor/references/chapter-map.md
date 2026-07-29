@@ -187,6 +187,12 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Stavové automaty a vzory](https://martinsafka.github.io/gamedev-skripta/godot/stavy-a-vzory/) — Kompozice řekne, z čeho je entita složená. Stavový automat řekne, co zrovna dělá. A strategy pattern řekne, jak to dělá — s tou zvláštností, že v Godotu se dá vyměnitelné chování uložit do…
 - [Struktura projektu a výkon](https://martinsafka.github.io/gamedev-skripta/godot/projekt-a-vykon/) — Poslední kapitola tématu je o rozhodnutích, která se dělají jednou a špatně se berou zpět: kdo co v projektu vlastní, jak se hra škáluje na monitor, čím se otáčí postava — a co v ní vlastně…
 
+### Systémy a nástroje
+- [Animace a pohyb](https://martinsafka.github.io/gamedev-skripta/godot/animace-a-pohyb/) — Čtyři nástroje, které spolu na první pohled nesouvisejí a ve skutečnosti řeší jednu věc: jak dostat chování z kódu do dat, se kterými se dá pracovat myší. AnimationTree přesouvá výběr…
+- [Control nody a UI](https://martinsafka.github.io/gamedev-skripta/godot/ui-control/) — UI je v Godotu oblast, na které se lidé zasekávají nejčastěji — a skoro vždycky proto, že si zvyknou uvažovat v pixelech a pozicích, zatímco engine chce uvažovat v procentech a…
+- [2D svět: dlaždice, světlo a pixel art](https://martinsafka.github.io/gamedev-skripta/godot/2d-svet/) — Tři vrstvy toho, jak 2D hra vypadá — a všechny tři mají společné to, že se rozhodují na začátku a špatně se mění. Dlaždicový systém určí, kolik kreslení tě čeká (a rozdíl mezi dvěma…
+- [Multiplayer: high-level API](https://martinsafka.github.io/gamedev-skripta/godot/multiplayer/) — Jediná myšlenka, ale stojí za samostatnou kapitolu, protože odpovídá na otázku, kterou si u multiplayeru položíš první: kolik z toho za tebe udělá engine? Godot nabízí dvě úrovně a rozdíl…
+
 ## Hudba a zvuk
 
 ### Základy hudební teorie
@@ -242,6 +248,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [ALS](https://martinsafka.github.io/gamedev-skripta/rejstrik/#als)
 - [Ambient occlusion](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ambient-occlusion)
 - [Anchor (marketing)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anchor-marketing)
+- [Anchor (UI)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anchor-ui)
 - [Anim montage](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-montage)
 - [Anim Notify](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-notify)
 - [Apofenie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#apofenie)
@@ -300,6 +307,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Context steering](https://martinsafka.github.io/gamedev-skripta/rejstrik/#context-steering)
 - [Continuing pose](https://martinsafka.github.io/gamedev-skripta/rejstrik/#continuing-pose)
 - [Control Rig](https://martinsafka.github.io/gamedev-skripta/rejstrik/#control-rig)
+- [Coyote time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#coyote-time)
 - [Core loop](https://martinsafka.github.io/gamedev-skripta/rejstrik/#core-loop)
 - [Custom resource](https://martinsafka.github.io/gamedev-skripta/rejstrik/#custom-resource)
 - [Cyklus napětí](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cyklus-napeti)
@@ -597,6 +605,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Telemetrie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#telemetrie)
 - [Tessellation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tessellation)
 - [Texture atlas](https://martinsafka.github.io/gamedev-skripta/rejstrik/#texture-atlas)
+- [Tile set](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tile-set)
 - [Timeline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#timeline)
 - [Tónina](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tonina)
 - [Toon shading](https://martinsafka.github.io/gamedev-skripta/rejstrik/#toon-shading)

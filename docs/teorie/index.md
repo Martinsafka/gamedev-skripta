@@ -38,10 +38,10 @@ Témata a kapitoly:
 **Nápad, scope a plánování**
 
 - **[Nápad](napad.md)** — od záblesku k validované hře: Venn diagram, test 300 znaků, core DNA, yoink & twist — a čtyři zdroje nápadů, hook/anchor/appeal a SCAMPER.
-- **[Scope a malé hry](scope.md)** — malá hra = jedna mechanika; rozpočet pozornosti, design by constraint, omezení s herním alibi — a scope v pohybu: creep, pivot, hry z praxe.
+- **[Scope a malé hry](scope.md)** — malá hra = jedna mechanika; rozpočet pozornosti, design by constraint, omezení s herním alibi; scope v pohybu (creep, pivot, hry z praxe) — a otevřený spor: jak se malá hra doopravdy dělá versus „nedělej malé hry, dělej systémy".
 - **[Prototypování a vertical slice](prototypovani.md)** — tři brány rané fáze vývoje, žánrové standardy vs. inovace, ekonomika na papíře a iterační spirála.
 - **[GDD](gdd.md)** — dokument jako způsob myšlení: minimalistická skica všech oblastí, will/should/could — a muzeum dokumentů od Diabla po Monaco.
-- **[Plánovací nástroje](planovani-nastroje.md)** — kanban pro gamedev: karty s jedním vlastníkem, WIP limit, In Review a backlog — a proč je tohle práce producenta.
+- **[Plánovací nástroje](planovani-nastroje.md)** — kanban pro gamedev: karty s jedním vlastníkem, WIP limit, In Review a backlog; proč je tohle práce producenta — a kompletní sada nástrojů full-time indie vývojáře včetně té jediné položky, která není software.
 - **[Playtesting](playtesting.md)** — hra je skutečná až před hráči: moderovaný test a čtení chování, tři vlny, RITE, road test před stress testem.
 
 **Základy designu**
@@ -49,7 +49,7 @@ Témata a kapitoly:
 - **[Engagement a appeal](zaklady.md)** — dvě povinnosti hry, MDA framework, desatero principů jako checklist a mapa teorie designu.
 - **[Zábava a flow](zabava.md)** — zábava jako odměna za učení: flow kanál, obtížnostní křivky, rubber banding — a taxonomie zábavy s design pillars.
 - **[Smyčky a řetězce](smycky-a-retezce.md)** — dva základní tvary herního designu: co smyčka vysvětluje, co už ne, a proč řetězce nesou emoce.
-- **[Game feel a imerze](game-feel.md)** — pohyb nepřátel, svět, který odpovídá, katalog juice detailů a combat jako rytmus.
+- **[Game feel a imerze](game-feel.md)** — pohyb nepřátel, svět, který odpovídá, katalog juice detailů, combat jako rytmus — a Celeste rozebraná do snímků: šest na rozjezd, tři na zastavení a hrst tichých úlev.
 - **[Příběh a postavy](pribeh-a-postavy.md)** — příběh jako feature s cenovkou: čtyři typy protagonisty, rejstříky dialogů a hádka o tvůj svět.
 
 **Design do hloubky**

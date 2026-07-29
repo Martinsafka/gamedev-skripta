@@ -10,6 +10,7 @@
 *[Alikvóta]: Vyšší frekvence nad základním tónem; určuje barvu zvuku a to, co ladí (overtone).
 *[ALS]: Advanced Locomotion System — komunitní locomotion framework; jeho autor dnes v Epicu vede design GASP.
 *[Ambient occlusion]: Ztmavení míst, kam se hůř dostane rozptýlené světlo — kouty, spáry, styky ploch.
+*[Anchor (UI)]: Kotva Control nodu — číslo 0–1 určující místo v rodičově obdélníku; přežije změnu rozlišení.
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
@@ -69,6 +70,7 @@
 *[Continuing pose]: „Co by hrálo dál“ — kandidát, kterého musí nová animace v MM porazit cenou.
 *[Control Rig]: Grafový rigging a procedurální animace v enginu — běží i za runtime, bez rekompilace.
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
+*[Coyote time]: Krátká lhůta po opuštění hrany, během které skok pořád projde (asi 6 snímků).
 *[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
@@ -366,6 +368,7 @@
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
 *[Texture atlas]: Jedna textura s povrchy pro mnoho objektů vedle sebe — méně materiálů, méně draw callů.
+*[Tile set]: Sada dlaždic pro 2D svět a pravidla, jak na sebe navazují; počet dlaždic je vždycky kompromis.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).

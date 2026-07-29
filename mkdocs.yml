@@ -191,6 +191,11 @@ nav:
           - Signály do hloubky: godot/signaly.md
           - Stavové automaty a vzory: godot/stavy-a-vzory.md
           - Struktura projektu a výkon: godot/projekt-a-vykon.md
+      - Systémy a nástroje:
+          - Animace a pohyb: godot/animace-a-pohyb.md
+          - Control nody a UI: godot/ui-control.md
+          - "2D svět: dlaždice, světlo a pixel art": godot/2d-svet.md
+          - "Multiplayer: high-level API": godot/multiplayer.md
   - Hudba a zvuk:
       - hudba/index.md
       - Základy hudební teorie:

@@ -23,4 +23,11 @@ Témata a kapitoly:
 - **[Stavové automaty a vzory](stavy-a-vzory.md)** — stav jako podmínka plus chování, strategy pattern jako vyměnitelný resource a celý přenositelný systém nepřítele, který se dá zkopírovat do jiného projektu složkou.
 - **[Struktura projektu a výkon](projekt-a-vykon.md)** — vlastnictví napřed a složky potom, chyba se záporným měřítkem, která stála celý projekt, co skutečně stojí výkon (ne nody) — a nástroje, které si napíšeš sám pro sebe.
 
-Sekce roste po dávkách; chystají se **systémy a nástroje** (animace, UI, 2D svět, multiplayer) a **případovka jednoho 2D akčního platformeru** od pohybu po změnu žánru.
+**Systémy a nástroje**
+
+- **[Animace a pohyb](animace-a-pohyb.md)** — AnimationTree jako graf místo změti podmínek, skok, který rozumí tomu, co hráč chtěl (coyote time, buffer, korekce rohu), křivka místo vzorce a navigace, která se ve 2D obkresluje ručně.
+- **[Control nody a UI](ui-control.md)** — kotvy a offsety pro layout, který přežije jiné rozlišení; čtyři kontejnery, ze kterých je 90 % UI; a témata, overridy a style boxy — včetně pasti se sdíleným resourcem.
+- **[2D svět: dlaždice, světlo a pixel art](2d-svet.md)** — dual-grid a 16 dlaždic místo 256, tři nody na osvětlení (ztmavit, prosvítit, zaclonit) a pixel art od palety po import do enginu.
+- **[Multiplayer: high-level API](multiplayer.md)** — spawner, synchronizer a otázka, kdo koho ovládá; co za tebe engine udělá a co tím ztratíš.
+
+Sekce roste po dávkách; chystá se **případovka jednoho 2D akčního platformeru** od pohybu po změnu žánru.

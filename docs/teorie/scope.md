@@ -172,3 +172,59 @@ Za pozornost stojí i ocas vydání [(5:28)](https://www.youtube.com/watch?v=7na
 > **Pozn.:** BiteMe teze [„malá hra ≠ shipnutý prototyp"](#mala-hra-jedna-mechanika-ne-zmenseny-skyrim) a RETRODEAD škrty zvuků a animací si zdánlivě protiřečí — rozdíl je v proč-otázce: BiteMe mluví o hrách *na prodej*, Ascent Flora je hra *na učení* (a podle toho taky nešla na Steam). Gun Frog je na prodej — a proto polish v posledním týdnu dostal.
 
 **Souvislosti:** [Playtesting: proč a jak](playtesting.md) · [První projekty](prvni-projekty.md) · [Proč tvořit: tělocvična](proc-tvorit.md#male-projekty-jsou-telocvicna-ne-ustupek) · [Produktivita: kde umírají první hry](produktivita.md#kde-umiraji-prvni-hry-mapa-klifu-z-jedne-vyzvy) · [Rejstřík: find the fun](../rejstrik.md#find-the-fun)
+
+---
+
+## Jak se malá hra doopravdy dělá: jeden mechanismus, tři měsíce, vlastní peníze
+
+**Zdroj:** [Small games win big, here's how to make them](https://www.youtube.com/watch?v=8Kr5TruT-YU) · [BiteMe Games](https://www.youtube.com/channel/UCHUgO0pyXWkGnQUYp5JgoUg) · ~15 min, návod z praxe
+
+**Shrnutí:** „Dělej malé hry" je rada, kterou dnes opakují všichni včetně autorů videa — a která se v komentářích láme na jedné otázce: **jak konkrétně?** Odpověď má čtyři části a všechny jsou nepohodlné: jeden hlavní mechanismus a nic navíc, **tři měsíce** (ne jeden), **žádný vydavatel ani grant**, a přijetí toho, že hra nebude dokonalá. Háček, kvůli kterému to není jen o rozsahu: **vyhýbej se žánrům, kde zábava přijde až nakonec.**
+
+### Rozpad myšlenky
+
+**Proč vůbec** — tři důvody, které autor jmenuje a které stojí za rozlišení [(0:49)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=49s): **skládající se příjem** (čtyři hry za rok = čtyři zdroje, které dál kapou), **menší riziko** (propadne-li tříměsíční hra, ztratil jsi tři měsíce, ne roky) a — méně zjevný — **odolnost proti shiny object syndromu** [(1:36)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=96s). Na tříměsíčním projektu vydržíš; na dvouletém začneš v polovině přepisovat hru na to, co je zrovna v kurzu.
+
+**Jak držet scope malý** [(3:54)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=234s): **jeden hlavní mechanismus a stavět kolem něj.** Test je pitch — nevysvětluješ „má tohle a tohle a tamto", ale jednu věc. *„Trefte to jádro a nesnažte se vymýšlet nic dalšího znovu. Vezměte, co funguje jinde, a dejte to do své hry."* Jeden velký nový hák, ne sedmnáct mechanik z patnácti žánrů.
+
+**Tři měsíce, ne jeden** [(4:41)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=281s). Autor je k vlastní zkušenosti nemilosrdný — jejich měsíční hru zmiňuje jako **věc, kterou nemáte kopírovat**: *„jeden měsíc je hodně hloupý, budu to opakovat pořád."* Doporučené rozdělení tříměsíčního cyklu: **dva měsíce na hru, měsíc na marketing** a doladění. A počítej s přetažením i tak.
+
+**A teď to nejcennější — které žánry nedělat** [(5:27)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=327s). U krátkého cyklu nemáš prostor na několik kol playtestů, takže **nesmíš dělat hru, jejíž zábava se objeví až po složení všech dílů**. Autorovy vlastní příklady jsou city buildery a automatizační hry: *„Forge Industry dávala smysl, teprve až byl hotový celý systém silnic, budov a předmětů — a to je hodně kódu, který musíš napsat, než zjistíš, jestli to je zábava."* Proti tomu staví hru s unicyklem, kde měli **jádro zábavy naprototypované za dvě hodiny**. Je u toho i poctivé přiznání, které dělá radu důvěryhodnou: u svého většího projektu si tou pastí procházejí právě teď — mechaniky stojí samostatně *„trochu na hlavu"* a oni doufají, že to celek spraví. *„Nedělejte to. Nemůžete čekat, že se zábava objeví kouzlem."*
+
+**Financování: nejspíš žádné** [(7:01)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=421s). Grant trvá od podání dokumentu k rozhodnutí zhruba **čtyři měsíce**, jednání s vydavatelem měsíce taky — *„uděláš celou hru za dobu, než dostaneš od vydavatele druhou schůzku."* Kickstarter potřebuje předmarketing a pak dvou- až čtyřtýdenní kampaň. Závěr: **self-publishing a vlastní peníze** — s číslem, které tomu dává váhu: jejich unicyklová hra stála **130 dolarů** mimo odpracovaný čas (100 za Steam, 30 za asset), zbytek byly free assety a humble bundly. Příjem z první hry pak financuje druhou.
+
+**Menší tým, ne větší** [(9:23)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=563s), a zdůvodnění není o penězích: **režie projektového řízení**. Ve dvou jste automaticky v synchronu, nemusíte nikoho doinformovávat ani plánovat sprinty — u měsíčního projektu si vystačili s jedním velkým seznamem úkolů. Autorovo číslo je přesvědčivé: *„strávíš-li první týden plánováním a srovnáváním týmu, je pryč 10 % celého rozvrhu, které už nedostaneš zpátky."*
+
+**A nakonec smíření** [(11:44)](https://www.youtube.com/watch?v=8Kr5TruT-YU&t=704s): malá hra **nebude dokonalá**. Plánovali tři levely, jeden trval půldruhého týdne, tedy skoro polovinu času — zbyl jeden. Ovladače, plně přemapovatelné ovládání, achievementy, checkpointy: každá taková věc je *„někdy jen den, ale to je pár procent celého rozsahu na funkci, která hru možná neprodá."* Checkpointy nakonec doplnili až po vydání, když je dost lidí chtělo.
+
+> **Pozn.:** Autor sám tuší, jak to zní, a odpovídá na to dopředu — *„možná na mě teď křičíš, že děláš slop hry"* — protipříkladem: mají **kladně hodnocenou hru, kterou si lidi užili**, protože ne každý shání dalších deset hodin. Ta výhrada je poctivá, ale stojí za doplnění, že **funguje jen s hákem, který krátkou dobu unese**; sám to říká: *„gimmick s unicyklem by deset hodin neutáhl, ale dvě až tři utáhne báječně."* Přímý protipól k celé téhle myšlence je [následující](#nedelej-male-hry-delej-systemy) — tam někdo po letech malých her tvrdí, že ho k jeho hře nepřiblížily.
+
+**Souvislosti:** [Malá hra = jedna mechanika](#mala-hra-jedna-mechanika-ne-zmenseny-skyrim) · [Malé hry se sčítají](#male-hry-se-scitaji) *(ekonomika backlogu z téhož kanálu)* · [Nedělej malé hry, dělej systémy](#nedelej-male-hry-delej-systemy) *(opačná teze)* · [Financování](financovani.md) *(proč jsou vydavatel a grant pomalé)* · [Přežít jako studio](prezit-jako-studio.md#strategie-malych-her-backlog-misto-sazky-na-hit) · [Rejstřík: Scope](../rejstrik.md#scope) · [Rejstřík: Hook](../rejstrik.md#hook)
+
+---
+
+## Nedělej malé hry, dělej systémy
+
+**Zdroj:** [Beginner Game Dev? Don't Make Small Games || Do This Instead](https://www.youtube.com/watch?v=rd1HzPy3fP4) · [DeeRaghooGames](https://www.youtube.com/channel/UC-KLgU0nzoCCEU6W16CS3vQ) · ~8 min, esej
+
+**Shrnutí:** Autor dělal malé hry několik let a pak si přiznal nepříjemnou věc: **ke své vysněné hře se nepřiblížil ani o krok** — jen se zlepšil v dělání malých náhodných her. Jeho návrh je posunout jednotku práce: místo „jakou hru mám udělat?" se ptát **„jaké systémy moje budoucí hra potřebuje?"** a stavět ty. Háček, který z toho dělá víc než slovíčkaření: pořád stavíš hru, jen je vybraná tak, **aby tě k těm systémům donutila**.
+
+### Rozpad myšlenky
+
+**Diagnóza** [(0:04)](https://www.youtube.com/watch?v=rd1HzPy3fP4&t=4s) je nepříjemná, protože sedí na spoustu lidí: drobná plošinovka, malá střílečka, rychlá logická hra — *„a po pár letech, a ano, řekl jsem letech, mi došlo, že se ke své vysněné hře nepřibližuju."* Nová otázka neřeší žánr: *„možná tvoje vysněná hra nezačíná hrou. Možná začíná systémem."*
+
+**Konkrétní podoba** [(0:50)](https://www.youtube.com/watch?v=rd1HzPy3fP4&t=50s): staví **malou metroidvanii** — ne třicetihodinovou, ale takovou, která vyžaduje přesně ty systémy, které jeho vysněná hra potřebuje. Argument pro žánr je věcný: v metroidvanii začne hráč slabý a pak odemkne dvojskok, takže **pohybový systém musí být rozšiřitelný**, **level design musí počítat s budoucími schopnostmi** a **stav hry si musí pamatovat, co je odemčené**. *„Nekóduješ jen skok, navrhuješ pro rozšiřování."* A minimum je překvapivě malé: **jedna mapa, tři schopnosti, jedna smysluplná progresní smyčka.**
+
+**Pět systémů**, které z toho padají [(2:22)](https://www.youtube.com/watch?v=rd1HzPy3fP4&t=142s) — a všimni si, že žádný z nich není obsah:
+
+1. **Player controller**, který se dá rozšiřovat. *„Nechci ho přepisovat pokaždé, když přidám něco nového."*
+2. **Systém odemykání schopností** — ne „stiskni tlačítko, získej moc", ale sledování odemčeného, jeho ukládání a čistá komunikace s pohybem a soubojem.
+3. **Správa stavu hry**: které dveře jsou otevřené, kde jsi byl, kdo je poražený. Autor přiznává, že *„tady se moje minulé projekty potichu rozpadaly"* — ne kvůli špatným mechanikám, ale protože se stav stal nepřehledným.
+4. **Souboj, který zapadá do pohybu.** Odemkneš-li dash, mění se i souboj. *„Systémy nemají existovat samy o sobě, mají se navzájem zesilovat."*
+5. **Level gating** — logika „sem se bez dvojskoku nedostaneš" implementovaná čistě, ne natvrdo rozsypaná po světě, *„protože natvrdo zapsané závislosti udělají ze světa křehkou věc."*
+
+**A závěrečný obraz**, který je lepší než většina rad o scope [(6:16)](https://www.youtube.com/watch?v=rd1HzPy3fP4&t=376s): *„problém není, že míříme moc vysoko. Problém je, že stavíme mrakodrapy, aniž bychom navrhli základy. A když se to začne hroutit, nekončíme z lenosti — končíme, protože nás ta konstrukce zavalí."*
+
+> **Pozn.:** Postavené vedle [předchozí myšlenky](#jak-se-mala-hra-doopravdy-dela-jeden-mechanismus-tri-mesice-vlastni-penize) to vypadá jako přímý spor — a z velké části jím je. Rozdíl je ale v tom, **na co se ptají**. BiteMe optimalizuje na **vydávání a příjem**: jejich metrikou je hotová hra na Steamu a backlog, který živí studio, takže „co ti to dá pro vysněnou hru" je nepodstatná otázka. DeeRaghoo optimalizuje na **jednu konkrétní hru**, kterou chce jednou udělat, takže mu portfolio nezaplacených dovedností nestačí. Obojí je legitimní a **volba mezi nimi je volba cíle, ne techniky.** Dvě věci ale platí v obou verzích: **jádro musí být zábavné brzy** a **nesmíš stavět na křehkých základech**. Za pozornost stojí i to, že autorův vlastní controller vznikl přepsáním *„jednoho obřího skriptu, který fungoval — dokud nepřestal"* na modulární automat přes kompozici; jak konkrétně, popisuje [godotí kapitola o systémech nepřítele](../godot/stavy-a-vzory.md#system-misto-nepritele-prenositelny-balik).
+
+**Souvislosti:** [Jak se malá hra doopravdy dělá](#jak-se-mala-hra-doopravdy-dela-jeden-mechanismus-tri-mesice-vlastni-penize) *(opačná teze)* · [Malé hry v praxi](#male-hry-v-praxi-hra-na-uceni-a-hra-za-mesic) · [První projekty](prvni-projekty.md) · [Godot: systém místo nepřítele](../godot/stavy-a-vzory.md#system-misto-nepritele-prenositelny-balik) *(týž autor, tentýž přístup v kódu)* · [Rejstřík: MVP](../rejstrik.md#mvp) · [Rejstřík: Dependency stack](../rejstrik.md#dependency-stack)

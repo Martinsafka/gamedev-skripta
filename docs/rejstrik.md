@@ -110,6 +110,14 @@ Protiváha hooku (termín Chrise Zukowského): samotná novost budí nedůvěru 
 
 Kde se s tím potkáš: [Nápad: hook, anchor, appeal](teorie/napad.md) · [Steam stránka](teorie/steam-stranka.md)
 
+### Anchor (UI)
+
+**Kotva Control nodu: číslo mezi 0 a 1 určující, kde v rodičově obdélníku prvek začíná a končí.**
+
+Nezaměňovat s [anchorem z marketingu](#anchor-marketing). Řeší jediný problém — layout, který přežije jiné rozlišení. Kotva 0,5 je střed a zůstane středem, protože počet pixelů přestal hrát roli. Doplňují ji **offsety** v pixelech měřené od kotvy (pravý a dolní musí být záporné, mají-li být uvnitř). Nejčastější nedorozumění: **kotvy jsou relativní k rodičovskému nodu, ne k oknu** — kořen je výjimka jen proto, že rodiče nemá. Dítě kontejneru kotvy nemá vůbec; místo nich má container sizing options.
+
+Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-layout-ktery-prezije-jine-rozliseni)
+
 ### Anim montage
 
 **Animační asset pro jednorázové akce (útok, interakce), přehrávaný přes sloty do vybraných částí skeletu.**
@@ -573,6 +581,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 V GASP pohání foot placement Mover postavy (slope warping, pinning, root damping) a Locomotor (procedurální chůze bez jediné animace). Zároveň směr, kterým Epic míří s budoucím animačním frameworkem: animační systémy jako vizuální grafy, které si tech animátor otevře a ohne sám. Řemeslný vzor null + control zachovává hratelnost grafu ve viewportu.
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md)
+
+### Coyote time
+
+**Krátká lhůta po opuštění hrany, během které skok pořád projde.**
+
+Jméno je z kresleného Coyota, který po výběhu z útesu chvíli běží ve vzduchu — a podle autorů Celeste ho vymysleli hráči, ne vývojáři. Typická hodnota je kolem desetiny sekundy (asi šest snímků při 60 FPS). Patří do rodiny „tichých úlev", které pracují se **záměrem hráče místo přesné simulace stisků**: sourozencem je [input buffering](#input-buffering) (stisk těsně *před* dopadem se provede při dopadu) a korekce rohu. Nezvyšuje to jen pohodlí — profesionální hráči ty snímky navíc vyžívají na skoky, které by jinak nevyšly.
+
+Kde se s tím potkáš: [Celeste: křivky v snímcích](teorie/game-feel.md#celeste-krivky-v-snimcich-a-hrst-tichych-ulev) · [Godot: skok, který rozumí hráči](godot/animace-a-pohyb.md#skok-ktery-rozumi-tomu-co-hrac-chtel)
 
 ### Core loop
 
@@ -2949,6 +2965,14 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 Snižuje počet materiálů a tím i draw callů: místo dvaceti textur po 128 pixelech jedna 512, ve které si každá stěna vezme svůj výřez. Příbuzný trim sheetu, ale bez jeho pásové logiky — atlas je prostě mozaika. Cenou je ruční práce s UV a nutnost hlídat okraje, aby se sousední výřezy nepromíchaly filtrováním.
 
 Kde se s tím potkáš: [PS1 estetika](praxe/ps1-estetika.md#textura-dela-styl-rozliseni-kontrast-a-nearest) · [Rejstřík: trim sheet](#trim-sheet)
+
+### Tile set
+
+**Sada dlaždic, ze kterých se maluje 2D svět; k ní patří pravidla, jak na sebe navazují.**
+
+Počet dlaždic je kompromis. Chtít vlastní obrázek pro každou kombinaci osmi sousedů znamená **256 dlaždic**, takže se v praxi používají menší sady: 15dílná (levná, ale hrany vede středem dlaždice, takže nesedí na mřížku), 47dílná (sedí, ale je jich 47) nebo 16dílná podmnožina. **Dual-grid** ten kompromis obchází dvěma mřížkami posunutými o půl dlaždice — každá dlaždice pak má jen čtyři sousedy, tedy **16 kombinací**. K tile setu se v enginu váží i fyzikální, navigační a occluder vrstvy.
+
+Kde se s tím potkáš: [Dual-grid: 16 dlaždic místo 256](godot/2d-svet.md#dual-grid-16-dlazdic-misto-256) · [Pixel art do Godotu](godot/2d-svet.md#pixel-art-do-godotu-paleta-silueta-a-jedno-nastaveni)
 
 ### Timeline
 

@@ -684,9 +684,11 @@ Samostatný playlist zaměřený na Godot; zrcadlí roli, kterou má hlavní pla
 
 Dvě rozhodnutí uživatele z tohoto dne: (a) **Inbound Shovel dostává vlastní téma uvnitř Godot sekce**, ne rozpuštění do Teorie — 42 videí jednoho autora se čte jako jeden příběh stavby hry; cena je, že část tématu učí 2D řemeslo, ne Godot API. (b) **Oba Clear Code mega-kurzy zůstávají low-priority**, stejně jako UE beginner kurzy.
 
-Plán dávek: **31 ✅ hotová** = G-START + G-CODE · **32 ✅ hotová** = G-ARCH · **33** = G-SYS + routing mimo sekci (13, ~30k, 4 kapitoly + rozšíření Teorie) · **34** = případovka A: pohyb, kamera, nepřátelé (15, ~36k, 3 kapitoly) · **35** = případovka B: level a mapa, vizuál a zvuk, systémy, proces (27, ~52k, 4 kapitoly).
+Plán dávek: **31 ✅ · 32 ✅ · 33 ✅ hotové** · **34** = případovka A: pohyb, kamera, nepřátelé (15, ~36k, 3 kapitoly) · **35** = případovka B: level a mapa, vizuál a zvuk, systémy, proces (27, ~52k, 4 kapitoly).
 
-**Stav: 34/93 published (dávky 31–32).** Dvě přeřazení proti původnímu návrhu, obě dole v tabulkách poznamenaná: `74y6zWZfQKk` (Bitlytic, „make your code simpler") je o **kompozici vs. dědičnosti**, ne o jazyce → přesun z G-CODE do G-ARCH; `N7UgrLFzW08` (7 coding tips) je **engine-agnostická rada o učení** → mimo Godot sekci, rozšířilo `teorie/jak-se-ucit-kodovat.md`. Sekce „Praxe v Godotu" má po dávce 32 **osm kapitol ve třech tématech** a 32 myšlenek.
+**Stav: 47/93 published (dávky 31–33).** Sekce „Praxe v Godotu" má po dávce 33 **dvanáct kapitol ve čtyřech tématech** a 43 myšlenek; zbývá už jen případovka (42 videí ve dvou dávkách) plus 2 low-priority kurzy a 1 skip.
+
+Přeřazení proti původnímu návrhu taxonomie (všechna dole v tabulkách poznamenaná): `74y6zWZfQKk` (Bitlytic, „make your code simpler") je o **kompozici vs. dědičnosti**, ne o jazyce → z G-CODE do G-ARCH · `N7UgrLFzW08` (7 coding tips) je **engine-agnostická rada o učení** → mimo sekci, do `teorie/jak-se-ucit-kodovat.md` · `YnfsyZJRsL8` (multiplayer) dostal **vlastní kapitolu s jedinou myšlenkou** místo merge — nikam jinam nepatřil a samostatně je dohledatelný.
 
 ### Godot: začínáme · `G-START` (8)
 
@@ -750,15 +752,15 @@ Konkrétní subsystémy: animace a pohyb, UI, 2D svět, multiplayer.
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Godot Control Node (UI) Masterclass](https://www.youtube.com/watch?v=5Hog6a0EYa0) `5Hog6a0EYa0` | Karto | 26:25 | auto | 5590 | `godot/ui-control.md` | Control nody — masterclass (26 min) |
-| todo | [How Much Can 2D Lighting Transform a Godot Game?](https://www.youtube.com/watch?v=BXoaRBsmY7o) `BXoaRBsmY7o` | TechDad Impact | 16:26 | manual | 3182 | `godot/2d-svet.md` | 2D světlo a stíny |
-| todo | [How To Pixel Art For Godot](https://www.youtube.com/watch?v=q2bPO4K6r_c) `q2bPO4K6r_c` | Sebbyspoons - Game Dev and Pixel Art | 13:25 | auto | 2458 | `godot/2d-svet.md` | pixel art a jeho import do Godotu |
-| todo | [Draw fewer tiles - by using a Dual-Grid system!](https://www.youtube.com/watch?v=jEWFSv3ivTg) `jEWFSv3ivTg` | jess::codes | 6:21 | manual | 1185 | `godot/2d-svet.md` | dual-grid tilemapy — méně dlaždic |
-| todo | [Why Animation Trees in Godot 4 are Unbelievably Useful](https://www.youtube.com/watch?v=iElHZhOxGYA) `iElHZhOxGYA` | Bitlytic | 7:28 | manual | 1844 | `godot/animace-a-pohyb.md` | AnimationTree |
-| todo | [I Rebuilt the Default Godot Jump to Feel Amazing](https://www.youtube.com/watch?v=s5XoTDwdjVo) `s5XoTDwdjVo` | Coding Quests | 4:55 | auto | 1033 | `godot/animace-a-pohyb.md` | přestavěný default skok, aby byl cítit |
-| todo | [Enemy Pathfinding AI in Godot 4](https://www.youtube.com/watch?v=OZCApGqUHGU) `OZCApGqUHGU` | TheYellowDude | 3:06 | auto | 503 | `godot/animace-a-pohyb.md` | pathfinding nepřátel |
-| todo | [save hours of programming using curves \| Godot Tutorial](https://www.youtube.com/watch?v=cTSrjN_2qDI) `cTSrjN_2qDI` | AceSpectre | 2:49 | auto | 626 | `godot/animace-a-pohyb.md` | křivky místo programování |
-| todo | [Godot Multiplayer Tutorial: The Quick and Easy High-Level API](https://www.youtube.com/watch?v=YnfsyZJRsL8) `YnfsyZJRsL8` | IcyEngine | 8:16 | manual | 1587 | `godot/multiplayer.md` | high-level multiplayer API — TENKÉ, merge kandidát |
+| published | [Godot Control Node (UI) Masterclass](https://www.youtube.com/watch?v=5Hog6a0EYa0) `5Hog6a0EYa0` | Karto | 26:25 | auto | 5590 | `godot/ui-control.md` | páteř kapitoly (27 min) — 3 myšlenky: kotvy, kontejnery, témata · dávka 33 |
+| published | [How Much Can 2D Lighting Transform a Godot Game?](https://www.youtube.com/watch?v=BXoaRBsmY7o) `BXoaRBsmY7o` | TechDad Impact | 16:26 | manual | 3182 | `godot/2d-svet.md` | tři nody na 2D světlo + kdy stíny nepoužít · dávka 33 |
+| published | [How To Pixel Art For Godot](https://www.youtube.com/watch?v=q2bPO4K6r_c) `q2bPO4K6r_c` | Sebbyspoons - Game Dev and Pixel Art | 13:25 | auto | 2458 | `godot/2d-svet.md` | pixel art: paleta, silueta, nearest; autor prodává vlastní balíčky (přiznáno) · dávka 33 |
+| published | [Draw fewer tiles - by using a Dual-Grid system!](https://www.youtube.com/watch?v=jEWFSv3ivTg) `jEWFSv3ivTg` | jess::codes | 6:21 | manual | 1185 | `godot/2d-svet.md` | dual-grid: 16 kombinací místo 256; 155 dlaždic místo 507 · dávka 33 |
+| published | [Why Animation Trees in Godot 4 are Unbelievably Useful](https://www.youtube.com/watch?v=iElHZhOxGYA) `iElHZhOxGYA` | Bitlytic | 7:28 | manual | 1844 | `godot/animace-a-pohyb.md` | AnimationTree: blend space -> automat -> blend tree; past continuous vs. discrete · dávka 33 |
+| published | [I Rebuilt the Default Godot Jump to Feel Amazing](https://www.youtube.com/watch?v=s5XoTDwdjVo) `s5XoTDwdjVo` | Coding Quests | 4:55 | auto | 1033 | `godot/animace-a-pohyb.md` | sedm doplňků výchozího skoku (coyote, buffer, korekce rohu) · dávka 33 |
+| published | [Enemy Pathfinding AI in Godot 4](https://www.youtube.com/watch?v=OZCApGqUHGU) `OZCApGqUHGU` | TheYellowDude | 3:06 | auto | 503 | `godot/animace-a-pohyb.md` | navigace ve 2D: region, agent size, bezpečná rychlost · dávka 33 |
+| published | [save hours of programming using curves \| Godot Tutorial](https://www.youtube.com/watch?v=cTSrjN_2qDI) `cTSrjN_2qDI` | AceSpectre | 2:49 | auto | 626 | `godot/animace-a-pohyb.md` | Curve resource místo nelineárního vzorce · dávka 33 |
+| published | [Godot Multiplayer Tutorial: The Quick and Easy High-Level API](https://www.youtube.com/watch?v=YnfsyZJRsL8) `YnfsyZJRsL8` | IcyEngine | 8:16 | manual | 1587 | `godot/multiplayer.md` | vlastní kapitola s 1 myšlenkou — high-level API a autorita; low-level díl v playlistu není · dávka 33 |
 
 ### Případovka: 2D akční platformer · `G-CASE` (42)
 
@@ -815,10 +817,10 @@ Videa z playlistu, která s Godotem nemají nic společného; míří do existuj
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [Why Does Celeste Feel So Good to Play?](https://www.youtube.com/watch?v=yorTG9at90g) `yorTG9at90g` | Game Maker's Toolkit | 17:33 | manual | 3145 | `teorie/game-feel.md` | MIMO SEKCI — Celeste: proč se tak dobře hraje |
-| todo | [Small games win big, here's how to make them](https://www.youtube.com/watch?v=8Kr5TruT-YU) `8Kr5TruT-YU` | BiteMe Games | 14:59 | auto | 3608 | `teorie/scope.md` | MIMO SEKCI — malé hry vyhrávají velké |
-| todo | [Beginner Game Dev? Don’t Make Small Games \|\| Do This Instead](https://www.youtube.com/watch?v=rd1HzPy3fP4) `rd1HzPy3fP4` | DeeRaghooGames | 7:47 | auto | 1342 | `teorie/scope.md` | MIMO SEKCI — nedělej malé hry, dělej systémy (spor s předchozím) |
-| todo | [The Tools I Use For Full Time Indie Game Development](https://www.youtube.com/watch?v=mrVM2zehqiw) `mrVM2zehqiw` | Firebelley Games | 12:09 | manual | 2471 | `teorie/planovani-nastroje.md` | MIMO SEKCI — nástroje pro full-time indie |
+| published | [Why Does Celeste Feel So Good to Play?](https://www.youtube.com/watch?v=yorTG9at90g) `yorTG9at90g` | Game Maker's Toolkit | 17:33 | manual | 3145 | `teorie/game-feel.md` | MIMO SEKCI — Celeste: křivky v snímcích a tiché úlevy · dávka 33 |
+| published | [Small games win big, here's how to make them](https://www.youtube.com/watch?v=8Kr5TruT-YU) `8Kr5TruT-YU` | BiteMe Games | 14:59 | auto | 3608 | `teorie/scope.md` | MIMO SEKCI — jak se malá hra doopravdy dělá (staged disagreement s rd1HzPy3fP4) · dávka 33 |
+| published | [Beginner Game Dev? Don’t Make Small Games \|\| Do This Instead](https://www.youtube.com/watch?v=rd1HzPy3fP4) `rd1HzPy3fP4` | DeeRaghooGames | 7:47 | auto | 1342 | `teorie/scope.md` | MIMO SEKCI — nedělej malé hry, dělej systémy (protiteze k 8Kr5TruT-YU) · dávka 33 |
+| published | [The Tools I Use For Full Time Indie Game Development](https://www.youtube.com/watch?v=mrVM2zehqiw) `mrVM2zehqiw` | Firebelley Games | 12:09 | manual | 2471 | `teorie/planovani-nastroje.md` | MIMO SEKCI — nástroje full-time indie vývojáře; placený segment přiznán · dávka 33 |
 | todo | [10 Chord Patterns for 10 Different Emotions](https://www.youtube.com/watch?v=_yw85rAb6cw) `_yw85rAb6cw` | Alex Rome | 13:19 | auto | 1756 | `hudba/akordy-a-harmonie.md` | MIMO SEKCI — odloženo do hudební dávky (autor má navazující video v hudební deltě) |
 
 ### Low-priority · mega-kurzy (2)
