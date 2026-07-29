@@ -193,6 +193,11 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [2D svět: dlaždice, světlo a pixel art](https://martinsafka.github.io/gamedev-skripta/godot/2d-svet/) — Tři vrstvy toho, jak 2D hra vypadá — a všechny tři mají společné to, že se rozhodují na začátku a špatně se mění. Dlaždicový systém určí, kolik kreslení tě čeká (a rozdíl mezi dvěma…
 - [Multiplayer: high-level API](https://martinsafka.github.io/gamedev-skripta/godot/multiplayer/) — Jediná myšlenka, ale stojí za samostatnou kapitolu, protože odpovídá na otázku, kterou si u multiplayeru položíš první: kolik z toho za tebe udělá engine? Godot nabízí dvě úrovně a rozdíl…
 
+### Případovka: 2D akční platformer
+- [Pohyb a ovládání](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-pohyb/) — Od téhle kapitoly jde sekce jinou cestou. Místo návodů sledujeme jeden projekt — 2D akční platformer Isadora's Edge inspirovaný Symphony of the Night, Hollow Knight a Mega Man X — a to, jak…
+- [Kamera pro pixel art](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-kamera/) — Kamera je u pixel-artové hry místo, kde se sejde nejvíc drobných technických rozhodnutí — a kde se každé z nich pozná okamžitě, protože pixel buď sedí, nebo nesedí. Autor projektu tomu…
+- [Nepřátelé a souboj](https://martinsafka.github.io/gamedev-skripta/godot/pripadovka-nepratele/) — Nejsilnější část celé případovky, protože autor u nepřátel prošel tři úplné přepisy a všechny tři popsal — včetně toho, proč první dvě verze zahodil. Kapitola jde od mozku (jak se…
+
 ## Hudba a zvuk
 
 ### Základy hudební teorie
@@ -250,6 +255,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Anchor (marketing)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anchor-marketing)
 - [Anchor (UI)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anchor-ui)
 - [Anim montage](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-montage)
+- [Animation cancel](https://martinsafka.github.io/gamedev-skripta/rejstrik/#animation-cancel)
 - [Anim Notify](https://martinsafka.github.io/gamedev-skripta/rejstrik/#anim-notify)
 - [Apofenie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#apofenie)
 - [Arrangement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#arrangement)
@@ -358,6 +364,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Foley](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foley)
 - [Foot placement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foot-placement)
 - [Four-on-the-floor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#four-on-the-floor)
+- [Frame data](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-data)
 - [Frame time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-time)
 - [Game Design Document](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-design-document)
 - [Gestalt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#gestalt)
@@ -381,6 +388,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Groom](https://martinsafka.github.io/gamedev-skripta/rejstrik/#groom)
 - [Halting problem](https://martinsafka.github.io/gamedev-skripta/rejstrik/#halting-problem)
 - [HUD](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hud)
+- [Hit stop](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hit-stop)
+- [Hitbox](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hitbox)
 - [Hard coding](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hard-coding)
 - [Hard reference](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hard-reference)
 - [Harmonická řada](https://martinsafka.github.io/gamedev-skripta/rejstrik/#harmonicka-rada)
@@ -602,6 +611,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Sync marker](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sync-marker)
 - [Tagy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tagy)
 - [Synkopa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#synkopa)
+- [Tell](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tell)
 - [Telemetrie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#telemetrie)
 - [Tessellation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tessellation)
 - [Texture atlas](https://martinsafka.github.io/gamedev-skripta/rejstrik/#texture-atlas)

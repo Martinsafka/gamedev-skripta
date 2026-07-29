@@ -30,4 +30,12 @@ Témata a kapitoly:
 - **[2D svět: dlaždice, světlo a pixel art](2d-svet.md)** — dual-grid a 16 dlaždic místo 256, tři nody na osvětlení (ztmavit, prosvítit, zaclonit) a pixel art od palety po import do enginu.
 - **[Multiplayer: high-level API](multiplayer.md)** — spawner, synchronizer a otázka, kdo koho ovládá; co za tebe engine udělá a co tím ztratíš.
 
-Sekce roste po dávkách; chystá se **případovka jednoho 2D akčního platformeru** od pohybu po změnu žánru.
+**Případovka: 2D akční platformer**
+
+Poslední téma sekce jde jinou cestou: místo návodů sleduje **jeden projekt** — akční platformer *Isadora's Edge* — a to, jak se v něm rozhodovalo. Autor natáčí devlogy roky a mluví i o tom, co nevyšlo, včetně věcí, které nakonec vyhodil. Bere se z toho jinak než z tutoriálu: ne postup, ale **kritéria**.
+
+- **[Pohyb a ovládání](pripadovka-pohyb.md)** — rozdělení vstupu od provedení (a dash jako důkaz, že to fungovalo), tři tiché opravy pohybu, proč vyhodil všechny šikmé plochy — a klasické dilema, jestli se při útoku zastavit.
+- **[Kamera pro pixel art](pripadovka-kamera.md)** — čtyři pojmenované vady pixelové kamery, rozlišení, které polovinu z nich řeší, subpixelový posun v shaderu — a proč jeho vlastní test měsíce lhal.
+- **[Nepřátelé a souboj](pripadovka-nepratele.md)** — tři patra AI a co se na nich rozbilo, létající nepřátelé ve třech verzích, frame data systém definovaný předem, boss stavěný z otázek — a combo s hit stopem ve dvou minutách.
+
+Zbývají dvě dávky případovky: level a mapa, vizuál a zvuk, systémy a progrese, a proces.

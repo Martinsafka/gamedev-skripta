@@ -196,6 +196,10 @@ nav:
           - Control nody a UI: godot/ui-control.md
           - "2D svět: dlaždice, světlo a pixel art": godot/2d-svet.md
           - "Multiplayer: high-level API": godot/multiplayer.md
+      - "Případovka: 2D akční platformer":
+          - Pohyb a ovládání: godot/pripadovka-pohyb.md
+          - Kamera pro pixel art: godot/pripadovka-kamera.md
+          - Nepřátelé a souboj: godot/pripadovka-nepratele.md
   - Hudba a zvuk:
       - hudba/index.md
       - Základy hudební teorie:

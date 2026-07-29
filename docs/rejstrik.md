@@ -126,6 +126,14 @@ Nad Motion Matchingem je montáž základ combatu: spodní tělo matchuje locomo
 
 Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md)
 
+### Animation cancel
+
+**Přerušení probíhající animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.**
+
+Technický předpoklad je jediný: **efekt, který má dohrát, nesmí být dítětem věci, která se může přerušit.** Rozmazaný pruh za mečem přehrávaný jako samostatná animace dohraje i tehdy, když se útok postavy zruší dopadem — a z opravy vizuální vady se rázem stane prostor pro dovednost: dash z útoku, skok z útoku, combo přes zrušení dopadem. Zvedá to [skill ceiling](#skill-ceiling), protože hráč, který se naučí rušit ve správný okamžik, získává tempo.
+
+Kde se s tím potkáš: [Útočit v pohybu, nebo se zastavit](godot/pripadovka-pohyb.md#utocit-v-pohybu-nebo-se-zastavit)
+
 ### Anim Notify
 
 **Značka na časové ose animace, která v daném framu spustí logiku — zvuk, efekt, gameplay event.**
@@ -990,6 +998,14 @@ Základ house a další taneční hudby. Protože je pravidelný, staví se prot
 
 Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md) · [Aranžmá: z loopu skladba](hudba/aranz.md)
 
+### Frame data
+
+**Popis útoku po snímcích: kolik snímků trvá nápřah, které snímky jsou aktivní, jak dlouho je zotavení.**
+
+Slovník bojovek, použitelný v každé akční hře. Ke každému aktivnímu snímku se dají navěsit vlastnosti — poškození, síla odhozu, [hit stop](#hit-stop), otřes obrazovky, stavové efekty — a protože jeden snímek animace může mít víc [hitboxů](#hitbox), dá se útok rozřezat na části s různým chováním (odhoz jen na chodidlech, jed jen na špičce biče). Kritická podmínka při stavbě: **časování musí mít jediný zdroj pravdy**, typicky animaci samotnou — data ve dvou místech se při první úpravě animace rozejdou.
+
+Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis)
+
 ### Frame time
 
 **Čas na vykreslení jednoho snímku v milisekundách — použitelnější metrika než FPS, protože se z ní počítá rozpočet.**
@@ -1173,6 +1189,22 @@ Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysle
 Jen jedna část UI: patří k němu i mapy, výběr postav, inventář, skill tree a questovní okna. Kolik HUDu hra unese, určuje žánr — karetní hra je z velké části rozhraní, narativní hra si vystačí s minimem. Rozvržení HUDu není dekorace: mozek dělá asociace podle blízkosti, takže pruh vedle jména nepřítele čteme jako jeho zdraví.
 
 Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
+
+### Hit stop
+
+**Krátké zamrznutí hry v okamžiku zásahu; dodá útoku váhu a dá hráči čas si zásah uvědomit.**
+
+Technika převzatá z bojovek, jeden z nejlevnějších juice triků vůbec — pár řádků kódu, žádný asset. Použitelné rozmezí pro běžný sek je zhruba **1/20 až 1/10 sekundy**; silné údery snesou víc. Škáluje se podle síly útoku: má-li silný hit stop každý zásah, přestane znamenat cokoli. Jedna past, na kterou se zapomíná: **hit stop zdržuje vstup**, takže se během něj vyplatí vstupy [bufferovat](#input-buffering), ne zahazovat.
+
+Kde se s tím potkáš: [Combo a hit stop](godot/pripadovka-nepratele.md#combo-a-hit-stop-dva-casovace-a-ctvrt-sekundy) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku)
+
+### Hitbox
+
+**Oblast, která při zásahu působí — proti hurtboxu, což je oblast, která zásah přijímá.**
+
+Rozdělení na dvě oblasti je základ čitelného soubojového systému: útok má hitbox, tělo má hurtbox, a teprve jejich překryv znamená zásah. Umožňuje to věci, které by jinak nešly — hitbox větší než zbraň (velkorysost), hurtbox menší než postava (odpuštění), nebo dočasné vypnutí hurtboxu (nezranitelnost po zásahu). Ve [frame datech](#frame-data) je hitbox jednotka, ke které se váže poškození, odhoz a efekty.
+
+Kde se s tím potkáš: [Frame data](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Komponenta má být sobecká](godot/kompozice.md#komponenta-ma-byt-sobecka-test-kamene)
 
 ### Hard coding
 
@@ -2941,6 +2973,14 @@ Kde se s tím potkáš: [Steam stránka: screenshoty a tagy](teorie/steam-strank
 Přesun not z přízvučných dob na „mezidoby" oživí mrtvou melodii. Dobrý rytmus balancuje opakování a proměnu — a synkopa je nejlevnější způsob, jak dodat proměnu.
 
 Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md)
+
+### Tell
+
+**Signál, kterým se dopředu prozradí, co přijde — nápřah, blik, zvuk, změna pózy.**
+
+Bez tellu není útok výzva, ale loterie: hráč nemá podle čeho se rozhodnout, takže uhýbá naslepo. Tři varianty téhož útoku se stejným nápřahem jsou proto fakticky neuhnutelné. Praktický postup, který se vyplatí: **prototypuj signál dřív než jeho podobu** — barevný obdélník vedle hlavy nepřítele odpoví na otázku „stihne to hráč přečíst?" za pět minut, zatímco nakreslit animaci a teprve pak zjistit, že tell nefunguje, stojí dny.
+
+Kde se s tím potkáš: [Boss se staví z otázek](godot/pripadovka-nepratele.md#boss-se-stavi-z-otazek-ne-z-atributu) · [Obtížnost a výzva](teorie/obtiznost.md)
 
 ### Telemetrie
 

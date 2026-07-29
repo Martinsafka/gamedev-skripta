@@ -13,6 +13,7 @@
 *[Anchor (UI)]: Kotva Control nodu — číslo 0–1 určující místo v rodičově obdélníku; přežije změnu rozlišení.
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
+*[Animation cancel]: Přerušení animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.
 *[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
 *[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
@@ -120,6 +121,7 @@
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
 *[Four-on-the-floor]: Bicí groove s kopákem na každé ze čtyř dob; základ house, proti němu synkopa.
+*[Frame data]: Popis útoku po snímcích — nápřah, aktivní snímky, zotavení; ke každému snímku vlastní vlastnosti.
 *[Frame time]: Čas na jeden snímek v ms; 60 FPS = rozpočet 16,6 ms. Sčítá se lineárně, na rozdíl od FPS.
 *[Game Design Document]: Dokument s návrhem hry; funguje, jen když se do něj tým skutečně vrací — forma je vedlejší.
 *[Game feel]: Hmatový dojem z ovládání: odezva, váha, šťavnatost interakcí. „Game feel je cheat code."
@@ -148,6 +150,8 @@
 *[Harmonická řada]: Alikvóty struny/píšťaly jako celočíselné násobky základní frekvence; zdroj západních intervalů.
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
+*[Hit stop]: Krátké zamrznutí hry při zásahu (asi 1/20–1/10 s) — dodá útoku váhu a čitelnost.
+*[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
@@ -366,6 +370,7 @@
 *[Synkopa]: Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny melodie.
 *[Tagy]: Štítky hry v obchodě; vstup pro doporučovací algoritmus, ne popis pro zákazníka.
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
+*[Tell]: Signál prozrazující dopředu, co přijde; bez něj není útok výzva, ale loterie.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
 *[Texture atlas]: Jedna textura s povrchy pro mnoho objektů vedle sebe — méně materiálů, méně draw callů.
 *[Tile set]: Sada dlaždic pro 2D svět a pravidla, jak na sebe navazují; počet dlaždic je vždycky kompromis.
