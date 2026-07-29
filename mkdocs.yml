@@ -185,6 +185,12 @@ nav:
           - "První hra: od prázdné scény k .exe": godot/prvni-hra.md
       - GDScript a kód:
           - GDScript: godot/gdscript.md
+      - Architektura projektu:
+          - "Kompozice: skládej místo dědění": godot/kompozice.md
+          - "Resource: data mimo kód": godot/resources.md
+          - Signály do hloubky: godot/signaly.md
+          - Stavové automaty a vzory: godot/stavy-a-vzory.md
+          - Struktura projektu a výkon: godot/projekt-a-vykon.md
   - Hudba a zvuk:
       - hudba/index.md
       - Základy hudební teorie:

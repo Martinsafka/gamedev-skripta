@@ -180,6 +180,13 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 ### GDScript a kód
 - [GDScript](https://martinsafka.github.io/gamedev-skripta/godot/gdscript/) — GDScript se dá popsat jako „Python pro hry" a bude to napůl pravda. Užitečnější je číst ho jako sadu rozhodnutí o tom, kolik bezpečnosti si za kolik psaní koupíš: typovat, nebo netypovat…
 
+### Architektura projektu
+- [Kompozice: skládej místo dědění](https://martinsafka.github.io/gamedev-skripta/godot/kompozice/) — Godot je na kompozici postavený — node je komponenta a scéna je jejich složenina. Tahle kapitola vysvětluje, proč se player.gd po třetí schopnosti hroutí, jak vypadá komponenta, která se dá…
+- [Resource: data mimo kód](https://martinsafka.github.io/gamedev-skripta/godot/resources/) — Resource je v Godotu všechno, co má vlastní soubor a dá se načíst — textura, zvuk, font, materiál. Zajímavé začne být ve chvíli, kdy si vyrobíš vlastní typ: soubor, ve kterém bydlí…
+- [Signály do hloubky](https://martinsafka.github.io/gamedev-skripta/godot/signaly/) — Signály jsou důvod, proč se v Godotu dá stavět modulárně — a taky nejrychlejší způsob, jak si vyrobit chaos, když se použijí špatně. Autor série, ze které kapitola čerpá, to formuluje bez…
+- [Stavové automaty a vzory](https://martinsafka.github.io/gamedev-skripta/godot/stavy-a-vzory/) — Kompozice řekne, z čeho je entita složená. Stavový automat řekne, co zrovna dělá. A strategy pattern řekne, jak to dělá — s tou zvláštností, že v Godotu se dá vyměnitelné chování uložit do…
+- [Struktura projektu a výkon](https://martinsafka.github.io/gamedev-skripta/godot/projekt-a-vykon/) — Poslední kapitola tématu je o rozhodnutích, která se dělají jednou a špatně se berou zpět: kdo co v projektu vlastní, jak se hra škáluje na monitor, čím se otáčí postava — a co v ní vlastně…
+
 ## Hudba a zvuk
 
 ### Základy hudební teorie
@@ -294,6 +301,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Continuing pose](https://martinsafka.github.io/gamedev-skripta/rejstrik/#continuing-pose)
 - [Control Rig](https://martinsafka.github.io/gamedev-skripta/rejstrik/#control-rig)
 - [Core loop](https://martinsafka.github.io/gamedev-skripta/rejstrik/#core-loop)
+- [Custom resource](https://martinsafka.github.io/gamedev-skripta/rejstrik/#custom-resource)
 - [Cyklus napětí](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cyklus-napeti)
 - [Degenerate strategy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#degenerate-strategy)
 - [Data asset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-asset)
@@ -319,6 +327,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Dynamic Material Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#dynamic-material-instance)
 - [Early access](https://martinsafka.github.io/gamedev-skripta/rejstrik/#early-access)
 - [Edit layer](https://martinsafka.github.io/gamedev-skripta/rejstrik/#edit-layer)
+- [Editor script](https://martinsafka.github.io/gamedev-skripta/rejstrik/#editor-script)
 - [Editor Utility Widget](https://martinsafka.github.io/gamedev-skripta/rejstrik/#editor-utility-widget)
 - [Eigenvektor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eigenvektor)
 - [Elemental tetrad](https://martinsafka.github.io/gamedev-skripta/rejstrik/#elemental-tetrad)
@@ -329,6 +338,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Eulerovy úhly](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eulerovy-uhly)
 - [EV100](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ev100)
 - [EVDB](https://martinsafka.github.io/gamedev-skripta/rejstrik/#evdb)
+- [Event bus](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-bus)
 - [Event dispatcher](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-dispatcher)
 - [Event Tick](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-tick)
 - [Export template](https://martinsafka.github.io/gamedev-skripta/rejstrik/#export-template)
@@ -340,6 +350,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Foley](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foley)
 - [Foot placement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foot-placement)
 - [Four-on-the-floor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#four-on-the-floor)
+- [Frame time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-time)
 - [Game Design Document](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-design-document)
 - [Gestalt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#gestalt)
 - [Game feel](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-feel)
@@ -456,6 +467,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Niagara Fluids](https://martinsafka.github.io/gamedev-skripta/rejstrik/#niagara-fluids)
 - [Normal mapa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#normal-mapa)
 - [Normalizace vektoru](https://martinsafka.github.io/gamedev-skripta/rejstrik/#normalizace-vektoru)
+- [Object pooling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#object-pooling)
 - [Obrat akordu](https://martinsafka.github.io/gamedev-skripta/rejstrik/#obrat-akordu)
 - [Observer pattern](https://martinsafka.github.io/gamedev-skripta/rejstrik/#observer-pattern)
 - [Oktáva](https://martinsafka.github.io/gamedev-skripta/rejstrik/#oktava)
@@ -499,6 +511,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Premature optimization](https://martinsafka.github.io/gamedev-skripta/rejstrik/#premature-optimization)
 - [Press kit](https://martinsafka.github.io/gamedev-skripta/rejstrik/#press-kit)
 - [Procedural Vegetation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#procedural-vegetation)
+- [Process mode](https://martinsafka.github.io/gamedev-skripta/rejstrik/#process-mode)
 - [Producent](https://martinsafka.github.io/gamedev-skripta/rejstrik/#producent)
 - [Prokletí znalosti](https://martinsafka.github.io/gamedev-skripta/rejstrik/#prokleti-znalosti)
 - [Průběžná obtížnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#prubezna-obtiznost)
@@ -548,6 +561,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Silueta](https://martinsafka.github.io/gamedev-skripta/rejstrik/#silueta)
 - [Simulated annealing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#simulated-annealing)
 - [Single Layer Water](https://martinsafka.github.io/gamedev-skripta/rejstrik/#single-layer-water)
+- [Single responsibility principle](https://martinsafka.github.io/gamedev-skripta/rejstrik/#single-responsibility-principle)
+- [Single source of truth](https://martinsafka.github.io/gamedev-skripta/rejstrik/#single-source-of-truth)
 - [Singleton](https://martinsafka.github.io/gamedev-skripta/rejstrik/#singleton)
 - [Size Map](https://martinsafka.github.io/gamedev-skripta/rejstrik/#size-map)
 - [Skill ceiling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#skill-ceiling)

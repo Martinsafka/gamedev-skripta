@@ -582,6 +582,14 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 
 Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md) · [Nápad](teorie/napad.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 
+### Custom resource
+
+**Vlastní datový typ uložený jako soubor: `extends Resource` + `class_name`, hodnoty přes `@export`, instance jako `.tres`.**
+
+Godotí obdoba Unity ScriptableObjectu a příbuzný unrealího [Data assetu](#data-asset). Řeší jediný problém: **balancovat hru bez otevírání skriptů**. Struktura se napíše jednou, každá varianta je pak nový soubor s jinými čísly a skript se už nemusí měnit. Pravidlo, které se vyplatí držet: **resource popisuje, co ta věc je; skript řídí, co ta věc dělá** — logika do resourcu nepatří. Pozor na to, že resources jsou **ve výchozím stavu sdílené**: zápis do jednoho se projeví všude, kde je použitý (řeší `duplicate()`).
+
+Kde se s tím potkáš: [Resource: data mimo kód](godot/resources.md) · [Strategy jako vyměnitelný resource](godot/stavy-a-vzory.md#strategy-chovani-jako-vymenitelny-resource)
+
 ### Cyklus napětí
 
 **Pět kroků hororové dramaturgie: setup → očekávání → semínko pochyb → diverze → akce; pak se napětí sbírá znovu.**
@@ -782,6 +790,14 @@ Nástroje pracují s aktuálně vybranou vrstvou: copy/paste gizmo kopíruje jen
 
 Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Voda a buoyancy](praxe/voda-a-buoyancy.md)
 
+### Editor script
+
+**Skript, který běží v editoru místo ve hře — `extends EditorScript`, anotace `@tool`, přepsaná metoda `_run()`.**
+
+Spouští se z palety příkazů, nespouští hru ani scénu. Používá se na generování boilerplate (vytvoř resource i skript podle zadaného jména), na hromadné úpravy assetů a — často nejužitečněji — na **kontrolu konzistence dat**: vypiš, kterým položkám chybí povinné pole. Umí si otevřít vlastní okno s UI. Unrealí protějšek je [Editor Utility Widget](#editor-utility-widget). Zlaté pravidlo: nástroj pro sebe má nejlepší poměr práce k užitku, protože se úspora násobí každým použitím.
+
+Kde se s tím potkáš: [Nástroje pro sebe](godot/projekt-a-vykon.md#nastroje-pro-sebe-editor-script-ktery-ti-usetri-boilerplate)
+
 ### Editor Utility Widget
 
 **Blueprint UI, které běží v editoru a automatizuje práci — vlastní nástroj bez psaní pluginu.**
@@ -861,6 +877,14 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí
 Expanse Volume Database drží mrak, kouř nebo oheň ve formě, která zůstává komprimovaná po celou pipeline, takže se dá v levelu duplikovat po stovkách. Rozdíl proti Volume aktéru je tentýž jako mezi static meshem a jeho aktérem: EVDB jsou data, Volume je to, co je zobrazuje. Vzniká konverzí z OpenVDB.
 
 Kde se s tím potkáš: [Osvětlení: objemy přes EVDB](praxe/osvetleni.md#objemy-pres-evdb-mraky-a-mlha-jako-asset)
+
+### Event bus
+
+**Globální kanál událostí: jedno místo, kde jsou deklarované signály, které zajímají víc nepříbuzných systémů.**
+
+V Godotu se dělá jako [autoload](#autoload) obsahující jen signály (žádnou logiku). Řeší problém, na který nestačí přímé propojení: **dynamicky vznikající objekty**, které v době startu scény ještě neexistují, a systémy, které spolu ve stromu nemají žádný rozumný společný bod. Cena je dohledatelnost — u přímého spojení vidíš, kdo koho poslouchá, u autobusu to musíš hledat fulltextem. Proto do něj patří jen události s víc posluchači; cokoli s jedním posluchačem tam nepatří. Unrealí příbuzní: broadcast přes subsystem a event manager.
+
+Kde se s tím potkáš: [Event bus](godot/signaly.md#event-bus-kdyz-se-systemy-nemaji-cim-potkat) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#ctvrty-kanal-broadcast-pres-subsystem-s-payloady)
 
 ### Event dispatcher
 
@@ -949,6 +973,14 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.
 Základ house a další taneční hudby. Protože je pravidelný, staví se proti němu synkopovaná melodie a bas, aby vznikl tah a groove.
 
 Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md) · [Aranžmá: z loopu skladba](hudba/aranz.md)
+
+### Frame time
+
+**Čas na vykreslení jednoho snímku v milisekundách — použitelnější metrika než FPS, protože se z ní počítá rozpočet.**
+
+60 FPS znamená **16,6 ms na všechno dohromady**; 30 FPS je 33,3 ms. Výhoda oproti FPS je v tom, že se frame time **sčítá lineárně**: ušetříš-li 2 ms, víš přesně, kolik ti zbylo. FPS se chová nelineárně (z 200 na 100 FPS je 5 ms, ze 40 na 30 je 8 ms). Měření vyžaduje **vypnutý VSync a nenastavený strop FPS** — jinak engine čeká na monitor a měříš čekání místo práce.
+
+Kde se s tím potkáš: [Kolik nodů je moc](godot/kompozice.md#kolik-nodu-je-moc-zmereno) · [Co skutečně stojí výkon](godot/projekt-a-vykon.md#co-skutecne-stoji-vykon-ne-nody-ale-co-v-nich-bezi-kazdy-snimek)
 
 ### Game Design Document
 
@@ -1878,6 +1910,14 @@ Jednotkové vektory vyžaduje skoro všechno: dot product jako kosinus, osvětle
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
 
+### Object pooling
+
+**Předem vytvořená zásoba objektů, které se recyklují místo neustálého vytváření a rušení.**
+
+Klasický lék na sekání u střel, částic nebo nepřátel: objekt se po „zničení" jen skryje a vrátí do zásoby, odkud si ho další výstřel vyzvedne. Šetří alokace i práci [garbage collectoru](#garbage-collection). Není to univerzální řešení — u problému s instanciací stovky složitých scén v jednom snímku pooling pomůže jen částečně a začne působit jako obcházení příčiny místo její opravy.
+
+Kde se s tím potkáš: [Když nody opravdu bolí](godot/kompozice.md#kdyz-nody-opravdu-boli-115-ms-na-jednu-obrazovku)
+
 ### Obrat akordu
 
 **Tentýž akord s jiným pořadím tónů — jednu notu posuneš o oktávu.**
@@ -2221,6 +2261,14 @@ Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md)
 Preset Loader nebo Grower dá strukturu, žluté modifiery (carve, gravity, slope) tvarují point cloud před Mesh Builderem, foliage palette + distributor olistí (ethylene threshold = plnost) a bone reduction ladí cenu větru. Vítr běží jen na instancích (wind transform provider + BP Global Foliage Actor). Presety Mega Plants dává Quixel zdarma na Fabu zhruba měsíčně; 5.8 přidává extract to mesh (procedurální strom z existující geometrie) a object interaction.
 
 Kde se s tím potkáš: [PCG vegetace](praxe/pcg-vegetace.md)
+
+### Process mode
+
+**Vlastnost nodu, která určuje, jestli běží, když je strom scény pozastavený.**
+
+Výchozí hodnota se **dědí od rodiče**, takže pauza ve výchozím stavu zastaví skoro všechno — včetně věcí, které mají běžet dál. Typický důsledek: pauzovací menu, které se po zapauzování nedá ovládat, nebo přechod mezi scénami, který uprostřed zamrzne. Praktické rozdělení: kořen aplikace a přechodová vrstva běží vždy, svět je pauzovatelný, vrstva pauzy musí běžet **během** pauzy.
+
+Kde se s tím potkáš: [Vlastnictví napřed, složky potom](godot/projekt-a-vykon.md#vlastnictvi-napred-slozky-potom-main-game-jako-koordinator)
 
 ### Producent
 
@@ -2613,6 +2661,22 @@ Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-
 Zásadní limit: stíny přijímá jen z primárního directional lightu — scéna svícená spotlighty se na hladině rozpadne. Řešení per záběr: přepnout materiál na Default Lit (+ metallic 1 pro tmavou hlubokou vodu) tam, kde translucenci nepotřebuješ. Žádný z modelů není univerzálně lepší.
 
 Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md)
+
+### Single responsibility principle
+
+**Jeden modul, jedna zodpovědnost — a tedy jen jeden důvod, proč ho měnit.**
+
+Prakticky: jeden skript, jedna práce. Health komponenta řeší život a smrt, input komponenta jen tlačítka. Porušení se pozná podle toho, že soubor roste a přibývají do něj věci, které spolu nesouvisejí — `player.gd` s pohybem, dvojskokem, dashem, útokem, úhybem a blokem je učebnicový příklad. Kritérium pro rozdělení není délka, ale **počet nezávislých důvodů ke změně**: mění-li se dvě části souboru z různých podnětů, patří jinam.
+
+Kde se s tím potkáš: [Has-a místo is-a](godot/kompozice.md#has-a-misto-is-a-hrdinuv-batoh) · [Principy architektury](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data)
+
+### Single source of truth
+
+**Jedna informace existuje na jednom místě; kdo ji potřebuje, ptá se toho místa místo aby si držel vlastní kopii.**
+
+Zkracuje se SSOT. Problém, který řeší, je **rozejití duplicitních stavů**: dvoje hodiny v domě ukazují různý čas a ty nevíš, kterým věřit. V kódu to vypadá tak, že hra funguje, dokud někdo neaktualizuje jednu kopii a na druhou zapomene — pak se chová nepředvídatelně a bez chybové hlášky. Řešení není nutně mazat proměnné; je to **rozhodnout, kde stav bydlí** (vlastnost nodu, existence spojení, jedna proměnná) a všechny ostatní přinutit se ptát.
+
+Kde se s tím potkáš: [Jediný zdroj pravdy](godot/signaly.md#jediny-zdroj-pravdy-dva-budiky-ukazuji-ruzny-cas) · [Gameplay Tags](praxe/gameplay-tags.md#hierarchie-misto-booleanu-proc-statusmovementblocked-vyhrava)
 
 ### Singleton
 

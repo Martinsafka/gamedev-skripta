@@ -69,6 +69,7 @@
 *[Continuing pose]: „Co by hrálo dál“ — kandidát, kterého musí nová animace v MM porazit cenou.
 *[Control Rig]: Grafový rigging a procedurální animace v enginu — běží i za runtime, bez rekompilace.
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
+*[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
 *[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
@@ -94,6 +95,7 @@
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
 *[Early access]: Placený předběžný přístup k nedokončené hře s příslibem dalšího vývoje.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
+*[Editor script]: Skript, který běží v editoru místo ve hře; generuje boilerplate nebo hlídá konzistenci dat.
 *[Editor Utility Widget]: Blueprint UI běžící v editoru — vlastní nástroj bez psaní pluginu.
 *[Eigenvektor]: Směr, který transformace nevychýlí — jen natáhne či zkrátí o eigenvalue.
 *[Elemental tetrad]: Schellovy čtyři části hry: estetika, mechaniky, technologie, příběh — iteruj přes všechny.
@@ -104,6 +106,7 @@
 *[Eulerovy úhly]: Rotace jako yaw/pitch/roll v pevném pořadí — intuitivní, ale hrozí gimbal lock.
 *[EV100]: Jednotka expozice; min=max v PPV zamkne auto-exposure. 1 = modrá hodina, interiér 5–7, den ~13.
 *[EVDB]: Komprimovaný volumetrický asset (Expanse): static mesh, který místo trojúhelníků nese objem.
+*[Event bus]: Globální kanál událostí — autoload se signály, které zajímají víc nepříbuzných systémů.
 *[Event dispatcher]: Rádio mezi Blueprinty: vlastník zavolá, všichni bindnutí posluchači dostanou event.
 *[Event Tick]: Blueprint event volaný každý snímek; polling, kterému se dobrý návrh vyhýbá.
 *[Export template]: Předkompilované běhové prostředí Godotu pro cílovou platformu; stahuje se zvlášť.
@@ -115,6 +118,7 @@
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
 *[Four-on-the-floor]: Bicí groove s kopákem na každé ze čtyř dob; základ house, proti němu synkopa.
+*[Frame time]: Čas na jeden snímek v ms; 60 FPS = rozpočet 16,6 ms. Sčítá se lineárně, na rozdíl od FPS.
 *[Game Design Document]: Dokument s návrhem hry; funguje, jen když se do něj tým skutečně vrací — forma je vedlejší.
 *[Game feel]: Hmatový dojem z ovládání: odezva, váha, šťavnatost interakcí. „Game feel je cheat code."
 *[Game Instance]: Objekt žijící od spuštění aplikace po její konec — přežívá přechody mezi levely.
@@ -232,6 +236,7 @@
 *[Niagara Fluids]: Plugin simulačních šablon; Grid 2D SW Particle Collisions = interaktivní hladina s collider tagy.
 *[Normal mapa]: Textura kódující odraz světla — reliéf bez přidání polygonů, obvykle z baku.
 *[Normalizace vektoru]: Zmenšení vektoru na délku 1 se zachováním směru: složky děleno délkou (odmocnina!).
+*[Object pooling]: Zásoba předem vytvořených objektů, které se recyklují místo neustálého vytváření a rušení.
 *[Oblique]: Nakloněná perspektiva: vidíš horní i boční stranu objektů (Stardew Valley).
 *[Obrat akordu]: Tentýž akord s jiným pořadím tónů (nota posunutá o oktávu); hladší přechody.
 *[Observer pattern]: Objekty se přihlásí k odběru událostí zdroje; v UE doslova Event Dispatcher.
@@ -275,6 +280,7 @@
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
 *[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
+*[Process mode]: Vlastnost nodu určující, jestli běží při pozastaveném stromu scény; ve výchozím stavu se dědí.
 *[Producent]: Ve hrách project manager: timeline, seznam úkolů, kdo co dělá a kdo je volný.
 *[Prokletí znalosti]: Expert na vlastní hru si neumí dát zážitek nováčka — tření vidí až playtest.
 *[Průběžná obtížnost]: Jak moc tě hra tlačí k prohře; vyrábí stres a úlevu. Upgrade zdraví ji snižuje.
@@ -324,6 +330,8 @@
 *[Silueta]: Obrys tvaru — nosič identity a čitelnosti; v prostředí ji tvoří kontrast světla a stínu.
 *[Simulated annealing]: Optimalizace žíháním: nejdřív ochota k horším krokům, pak chladnutí k vylepšování.
 *[Single Layer Water]: Shading model vody (translucence, kaustika); stíny jen z directional lightu — jinak Default Lit.
+*[Single responsibility principle]: Jeden modul, jedna zodpovědnost — a tedy jen jeden důvod, proč ho měnit.
+*[Single source of truth]: Jedna informace na jednom místě; ostatní se ptají místo aby si drželi vlastní kopii.
 *[Singleton]: Garantovaná jediná instance s globálním přístupem — a glorifikovaná globální proměnná.
 *[Size Map]: Pravý klik na asset → kolik paměti zabere i se vším, co s sebou táhne.
 *[Skill ceiling]: Strop dosažitelné dovednosti — prostor pro mastery.
