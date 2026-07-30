@@ -177,6 +177,9 @@ nav:
           - "Niagara: výkon částic": praxe/niagara-vykon.md
           - Paměť, reference a instancování: praxe/pamet-a-instance.md
           - "Lehký render: co vypnout": praxe/lehky-render.md
+          - Velké světy: praxe/velke-svety.md
+          - Persistence a hydratace: praxe/persistence-a-hydratace.md
+          - Automatizované měření: praxe/mereni-automaticky.md
       - Rendering a optimalizace:
           - Optimalizace scény: praxe/optimalizace.md
           - Textury a DLSS: praxe/textury-a-dlss.md

@@ -17,10 +17,12 @@
 *[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
 *[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
+*[Anim Budget Allocator]: Plugin rozdělující pevný rozpočet na animace podle významnosti; nasadit hned, zpětně to bolí.
 *[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
 *[Async compute]: Druhá fronta GPU jen pro compute; vysoký „wait" na ní je normální, na grafické ne.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
 *[Assist mode]: Volitelný režim, kde si hráč upraví obtížnost po jednotlivých pákách místo výběru „easy".
+*[Asset User Data]: Data pověšená na asset, která s ním cestují všude; gameplay na meshi bez blueprintu.
 *[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
@@ -62,6 +64,7 @@
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
 *[Closing doors]: Iterace od širokého k úzkému; zavřené dveře se znovu neotevírají.
 *[Cluster culling]: Nanite zahazuje geometrii po clusterech — buď celý, nebo nic; rozhoduje topologie meshe.
+*[Context switch]: Přepnutí jádra mezi vlákny; časté přepínání je čistá režie, nevyvážená jádra blokují ostatní.
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision mask]: „Co mě zajímá" — proti vrstvě, která říká „co jsem"; filtr kolizí v konfiguraci místo v kódu.
@@ -162,8 +165,10 @@
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hit stop]: Krátké zamrznutí hry při zásahu (asi 1/20–1/10 s) — dodá útoku váhu a čitelnost.
 *[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
+*[HLOD]: Sloučená náhrada za skupinu objektů v dálce; skrytá HLOD proxy může pořád vrhat stín.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
+*[Hydratace]: Přepnutí objektu z levné instance na plnohodnotného aktéra podle vzdálenosti — a zpátky.
 *[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
@@ -266,8 +271,10 @@
 *[Obrat akordu]: Tentýž akord s jiným pořadím tónů (nota posunutá o oktávu); hladší přechody.
 *[Observer pattern]: Objekty se přihlásí k odběru událostí zdroje; v UE doslova Event Dispatcher.
 *[Oktáva]: Vzdálenost tónu a jeho příštího výskytu; poměr 2:1, nejkonsonantnější interval.
+*[Octree]: Rekurzivní dělení prostoru na osminy; adaptivní varianta sleduje složitost místo souřadnic.
 *[Onboarding]: Prvních pár minut, kdy se hráč učí hru a rozhoduje se, jestli zůstane.
 *[One-pager]: Pitch na jednu stránku: obrázek, co chci vyrobit a jak vypadá úspěch.
+*[One File Per Actor]: Každý aktér ve vlastním souboru; bez toho nemůže na mapě pracovat víc lidí naráz.
 *[One-way door]: Rozhodnutí drahé na reverz (žánr, API, engine) — dělá se vědomě, s premisami; opak: two-way door.
 *[Orchestrace]: Rozdělení hudby mezi nástroje a smíchání do barvy; až po melodii, harmonii a kontrapunktu.
 *[Oscilátor]: Zdroj surového zvuku v synthu; tvar vlny (sinus/pila/obdélník) určuje barvu a alikvóty.
@@ -297,6 +304,7 @@
 *[Physics Control]: Komponenta držící simulovaná tělesa u cíle laditelnou pružinou — fyzikální, ale ovladatelné.
 *[Pitch deck]: Prezentace hry, která ještě neexistuje; simuluje první kontakt zákazníka s nápadem.
 *[Pivot]: Vztažný bod objektu (rotace, scale, přichytávání); v enginu opravitelný přes modeling mode Edit Pivot.
+*[Point cloud]: Mračno bodů z laserového skenu; barva sedí na bodu, detail se vrství místo aby nahrazoval.
 *[Pixel-perfect]: Celočíselné škálování pixel artu; ve slepém testu necelé faktory skoro nepoznáš.
 *[Placeholder]: Provizorní asset držící místo finálnímu; schválně ošklivý, aby nesváděl k ladění.
 *[Player State]: Objekt s daty jednoho hráče (inventář, skóre) nezávisle na pawnovi; v multiplayeru se replikuje.
@@ -408,6 +416,7 @@
 *[Synkopa]: Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny melodie.
 *[Tagy]: Štítky hry v obchodě; vstup pro doporučovací algoritmus, ne popis pro zákazníka.
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
+*[Take Recorder]: Nahrává hraní jako sekvenci transformů — nespustí gameplay kód, takže benchmark z něj lže.
 *[Tell]: Signál prozrazující dopředu, co přijde; bez něj není útok výzva, ale loterie.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
 *[Texture atlas]: Jedna textura s povrchy pro mnoho objektů vedle sebe — méně materiálů, méně draw callů.
@@ -416,6 +425,7 @@
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
 *[Tone mapper]: Převod HDR na obraz monitoru; výchozí ACES stojí za „unreal engine lookem", alternativa je AGX.
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
+*[Trace channel]: Přepínač, co se zapíše do trace; přeteče-li šířka pásma, aplikace se zastaví, nedegraduje.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).
 *[Traversal]: Překonávání překážek (vault, mantle, hurdle): detekce hran + chooser + montáž s motion warpingem.
 *[Trigger volume]: Neviditelná zóna v levelu, která při vstupu spustí událost — základ skriptovaných momentů.

@@ -166,6 +166,14 @@ Vzniká paralelně s gameplay prototypem jako samostatná linka práce — a ve 
 
 Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Prototypování](teorie/prototypovani.md) · [Herní art: concept art](teorie/art-pipeline.md)
 
+### Anim Budget Allocator
+
+**Plugin, který rozděluje pevný rozpočet na animace mezi skeletal meshe podle významnosti.**
+
+Funguje z krabice se spravovanými skeletal mesh komponentami a dá se do něj dopsat vlastní výpočet priority — typicky aby hlavní tvorové či postavy **nikdy** nedostali osekané ticky, zatímco kulisa v dálce ano. Nasadit ho stojí za to **hned na začátku**: zpětné doplnění vyžaduje přerodičování a je nepříjemné. Bývá to nejnižší patro delšího žebříku: budget → zjednodušené behavior tree → pohybující se statický mesh → statický mesh.
+
+Kde se s tím potkáš: [Animace ve velkém](praxe/velke-svety.md#animace-ve-velkem-od-tiku-k-udalostem) · [Rejstřík: Mass Entity](#mass-entity)
+
 ### Aspirační obtížnost
 
 **Jak těžké je uspět DOBŘE: lepší cesta, víc bodů, volitelná hloubka — obtížnost, po které hráč sahá sám.**
@@ -197,6 +205,14 @@ Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-
 Pro sólo vývojáře nástroj přežití: 50 hodin vlastního lokalizačního toolkitu vs. hotový asset za pár desítek dolarů je reálná volba z praxe. Kupuje se to, co dělat neumíš nebo nechceš; vlastní ruce si šetři na to, čím se hra liší. Při prototypování asset packy dodají vizuál a vibe za nulový čas — a u „design by constraint" umí být rovnou zdrojem nápadu („šla by kolem tohohle jediného assetu postavit hra?").
 
 Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Nápad](teorie/napad.md) · [Scope](teorie/scope.md)
+
+### Asset User Data
+
+**Data pověšená přímo na asset (typicky na static mesh), která s ním cestují, kdekoli se použije.**
+
+Řeší rozpor velkých světů: gameplay chce bohatá data, výkon chce hloupé objekty — a udělat ze sta tisíc objektů blueprinty nejde. Typický obsah: typ povrchu, data pro skener, gameplay tagy, příznaky pro AI. Hledá se v řetězu priorit **blueprintová komponenta → root komponenta → mesh**, takže se dá kdykoli přebít výš. Cena: data nejsou vidět v blueprintu ani v outlineru, takže k nim patří nástroj, který vypíše, co který mesh nese.
+
+Kde se s tím potkáš: [Gameplay na meshi bez blueprintu](praxe/velke-svety.md#gameplay-na-meshi-bez-blueprintu) · [Rejstřík: Gameplay tag](#gameplay-tag) · [Rejstřík: Data asset](#data-asset)
 
 ### Astroturfing
 
@@ -525,6 +541,14 @@ Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Nápa
 Z toho plyne, že o výkon rozhoduje **topologie**: stěna z dlouhých tenkých trojúhelníků je pár velkých clusterů, takže stačí kousek její hrany a musí se rasterizovat celá — i s tím, co je za ní. Rovnoměrně přesíťovaný mesh má clustery rozeseté po ploše a částečně se cullne, dokonce sám sebe. Druhá past: clustery se cullují **podle bounds**, takže do sebe namačkané meshe culling znemožní. Prakticky to znamená, že cluster culling patří do stylového průvodce k modelování, ne do optimalizačního sprintu na konci.
 
 Kde se s tím potkáš: [Overdraw se autoruje](praxe/nanite-do-hloubky.md#overdraw-se-autoruje-ne-opravuje) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Overdraw](#overdraw)
+
+### Context switch
+
+**Přepnutí jádra z jednoho vlákna na druhé; stojí čas na uložení a obnovu stavu.**
+
+V Insights se sleduje vlastním kanálem a čte se ze dvou stran: **jedno jádro obsazené jediným vláknem** může blokovat ostatní, a **příliš časté přepínání** je čistá režie navíc (typicky když je hodně krátce žijících vláken). Otázka, kterou to zodpovídá, je jednoduchá: **je zatížení jader vyvážené?**
+
+Kde se s tím potkáš: [Insights jako disciplína](praxe/mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine) · [Rejstřík: Multithreading](#multithreading)
 
 ### Cognitive load
 
@@ -1262,6 +1286,14 @@ Zní akademicky, funguje jako kompas hranic řešitelnosti: každé „najdeme a
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
 
+### HLOD
+
+**Hierarchical LOD — sloučená náhrada za skupinu objektů v dálce; jeden mesh místo stovky.**
+
+Ve world-partition světech se staví po streamovacích buňkách a vyplatí se u něj zaškrtnout *use render LOD meshes*, aby se do sloučení použily fallback meshe místo plných Nanite dat (jinak dojde paměť při buildu). Méně zřejmé použití: **skrytá HLOD proxy, která pořád vrhá stín** — scéna pak má stovky stín vrhajících primitiv místo desetitisíců, což je zásadní tam, kde se nedá spolehnout na Nanite a virtuální stíny.
+
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite)
+
 ### Hitch resiliency
 
 **Schopnost potrubí snímků pohltit krátký výpadek, aniž hráč přijde o jediný snímek — placená vstupní latencí.**
@@ -1333,6 +1365,14 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí
 Formát, na kterém stojí klasický Landscape — a zdroj jeho hlavního limitu: jedna hodnota na pixel znamená jediný stupeň volnosti (nahoru/dolů), takže jeskyně a převisy nejdou. Zůstává ale skvělým výměnným formátem: sculpt z Gaey či World Machine se přenáší právě height mapou a Mesh Terrain ji umí importovat jako startovní tvar i promítat jako texture modifier.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+
+### Hydratace
+
+**Přepnutí objektu z levné reprezentace na plnohodnotnou, když se k němu hráč přiblíží — a zpátky, když odejde.**
+
+V dálce instance v ISM komponentě, u hráče aktér se vší logikou. Naměřený přínos u instance actorů: streamování levelu s tisícem objektů bylo **asi pětkrát rychlejší** než s tisícem aktérů, protože každá instance je jen transform, ne objekt a ne komponenta. Klíčový recept navrch: objekt může být z instancí **natrvalo vyhozen** (*eject*) ve chvíli, kdy se z kulisy stane součást hráčova příběhu. Zásadní důsledek pro návrh: **volba reprezentace určuje, jak se ta věc ukládá** — aktér, instance actor a mass entita každý jinak.
+
+Kde se s tím potkáš: [Hydratace: instance actory a mass](praxe/persistence-a-hydratace.md#hydratace-instance-actory-a-mass) · [Rejstřík: Instanced Actors](#instanced-actors) · [Rejstřík: ISM](#ism)
 
 ### Hook
 
@@ -2142,6 +2182,14 @@ Dvanáct tónů se dokola opakuje po oktávách; C o oktávu výš je „totéž
 
 Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
 
+### Octree
+
+**Rekurzivní dělení prostoru na osminy; základ prostorových indexů a streamovacích dlaždic.**
+
+Proti pravidelné mřížce má jednu zásadní výhodu: dá se udělat **adaptivní** — každá dlaždice se testuje proti prahu (třeba 20 000 trojúhelníků) a dělí se dál jen tam, kde je detail. Dělení pak sleduje složitost obsahu místo aby ho ignorovalo, což u naskenovaných dat znamená řádově méně dlaždic při stejné kvalitě. Táž logika jako u Nanite clusterů: **struktura má kopírovat obsah, ne souřadnice.**
+
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: Cluster culling](#cluster-culling)
+
 ### Onboarding
 
 **Prvních pár minut, kdy se hráč učí hru — a rozhoduje se, jestli zůstane.**
@@ -2157,6 +2205,14 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md) · [První dojem](t
 Nejmenší dokument v rodině GDD — předchází i minimalistickému návrhu; slouží k prvnímu testu, jestli myšlenka unese větu a obrázek. Když one-pager nejde napsat, je pozdě na dokumenty a brzy na engine: nápad ještě není hra.
 
 Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Nápad: test 300 znaků](teorie/napad.md)
+
+### One File Per Actor
+
+**Režim, ve kterém má každý aktér vlastní soubor místo jednoho velkého souboru levelu.**
+
+Bez něj nemůže na téže mapě pracovat víc lidí naráz, protože level je jeden binární soubor a konflikty se neslučují. S ním je merge triviální a mapa se sto tisíci aktéry se dá vůbec otevřít. Spolu s [World Partition](#world-partition) je to rozhodnutí **z nultého dne**: dodělat se dá, ale přepisuje historii verzování. Vývojáři Subnautiky 2 to shrnuli takto: *„upřímně si neumím představit, jak bychom tu hru bez nich udělali."*
+
+Kde se s tím potkáš: [Sto tisíc aktérů](praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Version control](#version-control)
 
 ### One-way door
 
@@ -2381,6 +2437,14 @@ Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md)
 Logika: první krok nákupu hry stejně neobsahuje hraní (trailer, GIF, screenshot) — pitch deck tenhle moment vyrobí bez jediného řádku kódu. Proces: brainstorm → hlasování → u top nápadů popsat smyčku (slabé se rozpadnou samy) → decky → nechat lidi vybírat. Opory: lidé skvěle *vybírají* a mizerně radí, jak zlepšovat; a deck za hodinu se zahazuje bez bolesti — málo vloženého času = málo biasu.
 
 Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) · [Nápad: test 300 znaků](teorie/napad.md)
+
+### Point cloud
+
+**Mračno bodů z laserového skenu — surová prostorová data bez ploch a bez topologie.**
+
+Do enginu se dostává přes prostorové dělení do dlaždic a streamování; barva sedí na bodu jako vertex color, takže odpadá starost s texturami. Na rozdíl od meshových dlaždic se **vrství**: detail se přidává na sebe místo aby nahrazoval, což je vlastnost octree indexu. V herní praxi se s tím potkáš hlavně u digitálních dvojčat a reality capture pipeline — a jako referenci, podle které se modeluje.
+
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: Octree](#octree)
 
 ### Pixel-perfect
 
@@ -3278,6 +3342,14 @@ Přesun not z přízvučných dob na „mezidoby" oživí mrtvou melodii. Dobrý
 
 Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md)
 
+### Take Recorder
+
+**Nástroj, který nahraje běžící hraní jako sekvenci — a pro měření gameplaye je to past.**
+
+Nahrává **transformy**, takže přehrání sekvence sice pohybuje postavou přesně jako tehdy, ale **nespustí tvůj gameplay kód**. Na vizuální testy a na cinematiky je to správný nástroj; na benchmark funkce, kterou jsi napsal, je to měření něčeho jiného, co vypadá stejně. Řešení: level sequence s **event trackem**, jehož událost tu funkci opravdu zavolá.
+
+Kde se s tím potkáš: [Benchmark z level sequence](praxe/mereni-automaticky.md#benchmark-z-level-sequence-mereni-jako-soucast-prace) · [Rejstřík: Unreal Insights](#unreal-insights)
+
 ### Tell
 
 **Signál, kterým se dopředu prozradí, co přijde — nápřah, blik, zvuk, změna pózy.**
@@ -3357,6 +3429,14 @@ Kde se s tím potkáš: [Tone mapper: odkud je „unreal engine look"](praxe/osv
 Toon Profile asset řídí diffuse/specular rampu (počet, pozice a tvrdost pásů) a offset textury (halftone, malířský rozpad). Není to post-process — nasazuje se per materiál; největší výhoda proti ručním cel shaderům: správně reaguje na barevná světla, více světel i Lumen.
 
 Kde se s tím potkáš: [Materiály](praxe/materialy.md)
+
+### Trace channel
+
+**Přepínač, kterým se v Unrealu volí, co se do trasovacího záznamu vůbec zapisuje.**
+
+Kanály jsou po kategoriích (výkon, paměť, kontext, systémy) a nad nimi jsou **předvolby** podle scénáře, které se dají definovat v `ini` a sdílet v týmu. Je to hlavní páka na **šířku pásma**, a ta je důležitější, než se čeká: nestíhá-li worker vlákno data odesílat, roste spotřeba paměti a po dosažení limitu se **aplikace zastaví** — žádné plynulé zhoršení. Tři pravidla: rozhodni se pro scénář předem a nemíchej je (podrobné sledování paměti zkreslí měření výkonu), nezapínej kanály, o kterých nevíš, co dělají, a používej předvolby.
+
+Kde se s tím potkáš: [Tracing bez utopení](praxe/mereni-automaticky.md#tracing-bez-utopeni-kanaly-sirka-pasma-a-scenare) · [Rejstřík: Unreal Insights](#unreal-insights)
 
 ### Trajektorie
 

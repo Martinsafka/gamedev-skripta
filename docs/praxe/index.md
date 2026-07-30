@@ -95,6 +95,9 @@ Témata a kapitoly:
 - **[Niagara: výkon částic](niagara-vykon.md)** — pět statistik a past, bez které Niagara v Insights vůbec není; effect type jako jeden asset, který rozhoduje o všem (a projekt, kde se z něj stal problém); škálování, pooling a rozpočet, který se umí rozkmitat — a dvě navzájem se vylučující cesty, jak přestat spawnovat systémy.
 - **[Paměť, reference a instancování](pamet-a-instance.md)** — Size Map v režimu paměti a předmět, který kvůli jednomu castu zabíral 111 MB; ISM, HISM a merge včetně toho, kdy instancování scénu zhorší — a šest zásahů na jedno odpoledne, mezi nimi jedna tichá podmínka, která umí vypnout celé mipmapování.
 - **[Lehký render: co vypnout, když UE5 funkce nepotřebuješ](lehky-render.md)** — rozpad ceny výchozí scény, kde je každé vypnutí spárované s náhradou (a jedna rada, kterou měření nepotvrdilo); vlastní šablona projektu založená chytře ve 4.27 — a komunitní fork jako krajní varianta, ze které se nedá odejít.
+- **[Velké světy: sto tisíc aktérů a terabajty dat](velke-svety.md)** — měsíce práce na vlastním nástroji do koše (a proč u pluginů takové riziko není), dvě rozhodnutí z nultého dne, která rozhodla o všem, gameplay pověšený rovnou na mesh, animace přepsaná z tiku na události — a skořápka budovy, která odloží 98 % trojúhelníků.
+- **[Persistence a hydratace: svět, který si pamatuje](persistence-a-hydratace.md)** — kvíz o dveřích, na který celý sál odpoví špatně (záleží na garbage collectoru), trojice identita → stav → verze s pastí, která selže mlčky — a hydratace, kde volba reprezentace určuje, jak se ta věc vlastně ukládá.
+- **[Automatizované měření: benchmark, který se spustí sám](mereni-automaticky.md)** — benchmark z level sequence, který volá tvůj skutečný kód (a proč nahrávka hraní měří něco jiného), systematické čtení Insights včetně kliku, který ukáže, na co se čeká — a tracing, kde přetečení neznamená zhoršení, ale zastavení.
 
 **Rendering a optimalizace**
 
