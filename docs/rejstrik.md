@@ -574,6 +574,14 @@ Protipól gameplaye (mechanik a systémů). Rozlišení má praktický důsledek
 
 Kde se s tím potkáš: [Level design: game design vs. level design](teorie/level-design-solo.md) · [Scope](teorie/scope.md)
 
+### Cook
+
+**Převod editorových assetů do formátu pro cílovou platformu; probíhá při balení hry.**
+
+Čtyři nastavení, která umí zmenšit balíček o desítky procent: **create compressed cooked packages**, **cook only maps** se výslovným seznamem map, **exclude editor content when cooking** a seznam adresářů, které se nemají cookovat nikdy. Netýká se výkonu, jen velikosti instalace — ale je to jedno z mála míst, kde se dvouciferné procento dá dostat bez kompromisu.
+
+Kde se s tím potkáš: [Drobky: šest zásahů](praxe/pamet-a-instance.md#drobky-sest-zasahu-na-jedno-odpoledne)
+
 ### Contact curve
 
 **Animační křivka 0/1 říkající, kdy je chodidlo na zemi — řídí foot pinning; v GASP nahradila foot velocity curves.**
@@ -773,6 +781,14 @@ Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-sn
 Dvě funkční podoby: showcase (rozbor jedné feature: proč → proces → výsledek → limity) a story (příběh vývoje, včetně slepých uliček); nejlepší devlogy obojí mísí. Klíč ke kvalitě je scénář — psaný nahlas, ne jako sloh — a hra na obrazovce po celou dobu. Devlog není povinnost: dělá se, když tě baví videa, ne pro automatické wishlisty.
 
 Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Zápisky: devlog jako mapa](zapisky/devlog-jako-mapa.md) *(devlog jako interní nástroj, ne marketing)*
+
+### Distance field AO
+
+**Ambient occlusion počítaný z mesh distance fields; v UE se tiše zapíná spolu s movable skylightem.**
+
+Je to jedna ze tří různých metod AO, které v UE5 mohou běžet naráz (dál Lumen AO a post-process AO), a je to nejméně známá skrytá cena: nastavíš-li skylight na *movable*, platíš ji, i když o ní nevíš. Přepnutí na *stationary* ji vypne. Rozdíl je nejlépe vidět ve scénách s vegetací.
+
+Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: Ambient occlusion](#ambient-occlusion) · [Rejstřík: Mesh distance field](#mesh-distance-field)
 
 ### Difficulty curve
 
@@ -1069,6 +1085,14 @@ Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš]
 60 FPS znamená **16,6 ms na všechno dohromady**; 30 FPS je 33,3 ms. Výhoda oproti FPS je v tom, že se frame time **sčítá lineárně**: ušetříš-li 2 ms, víš přesně, kolik ti zbylo. FPS se chová nelineárně (z 200 na 100 FPS je 5 ms, ze 40 na 30 je 8 ms). Měření vyžaduje **vypnutý VSync a nenastavený strop FPS** — jinak engine čeká na monitor a měříš čekání místo práce.
 
 Kde se s tím potkáš: [Kolik nodů je moc](godot/kompozice.md#kolik-nodu-je-moc-zmereno) · [Co skutečně stojí výkon](godot/projekt-a-vykon.md#co-skutecne-stoji-vykon-ne-nody-ale-co-v-nich-bezi-kazdy-snimek)
+
+### FX budget
+
+**Rozpočet na částice, podle kterého engine za běhu stahuje cullovací vzdálenosti a stropy instancí.**
+
+Zapíná se `fx.Budget.Enabled` (a `fx.BudgetInEditor.Enabled`), rozpočty na herní a render vlákno se zadávají v `ini` souborech — což je podle praktiků důvod, proč se to používá málo. Reakce jednotlivých systémů se pak řídí přes [effect type](#effect-type). Nejagresivnější varianta je „nad 50 % rozpočtu nás kroky nezajímají vůbec". **Typické selhání je oscilace**: culluješ → jsi pod rozpočtem → smí se spawnovat víc → jsi nad rozpočtem → culluješ. Léčí se zpomalením **zotavení** rozpočtu (`fx.Budget.AdjustedUsageDecayRate`), ne zpřísněním prahu — je to regulační smyčka a potřebuje hysterezi.
+
+Kde se s tím potkáš: [Škálování a pooling](praxe/niagara-vykon.md#skalovani-a-pooling-co-vypnout-a-co-recyklovat) · [Rejstřík: Effect type](#effect-type)
 
 ### Game Design Document
 
@@ -1390,6 +1414,14 @@ Jeden asset (mesh lampy) → stovky instancí (lampy po celé mapě). Rozlišen�
 
 Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md)
 
+### ISM
+
+**Instanced Static Mesh — shodná geometrie vykreslená jedním draw callem místo jednoho na kopii.**
+
+Podmínka je tvrdší, než se čeká: **naprosto identická geometrie i materiál**. Barel a bedna se nesloučí ani se stejným materiálem; na to je *Merge Actors*, který vyrobí nový sloučený mesh (hrubší metoda, funguje u objektů blízko sebe — ale slučuje i LOD logiku). **HISM** je varianta s podporou LODů, vhodná pro objekty rozeseté po velké ploše. Past: instance se cullují jako **jeden celek**, takže sloučíš-li i stromy za budovami, budou se kreslit pořád. Máš-li zapnutý [Nanite](#nanite), ISM nepotřebuješ — Nanite culluje sám.
+
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: Packed Level Actor](#packed-level-actor)
+
 ### Indexical storytelling
 
 **Vyprávění stopami a náznaky: hráč čte důsledky událostí a příběh si složí sám.**
@@ -1645,6 +1677,14 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
 Vzor z traversal/cover systémů nad GASP: parkour či overlay logika žije ve vlastním grafu, hlavní AnimBP ji jen linkuje; tag („parkour", „overlay") umožňuje actor komponentám najít anim instanci a řídit ji. Drží AnimBP čitelný a systémy přenositelné mezi projekty.
 
 Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md)
+
+### Lightweight emitter
+
+**Niagara emitter s pevně danou funkčností — řádově levnější a řádově omezenější.**
+
+Naměřeno na krocích deseti postav: herní vlákno **1,3 → 0,2 ms**, paměť **2,7 → 0,27 MB**, GPU cena na nule (nedispatchuje se). Cena je zásadní: bez scratch padu, s minimálním napojením dat a **bez dynamických vstupů** — takže se hodí na jednoduché opakující se efekty, ne na cokoli, co potřebuje dostávat data z gameplaye. Rozšířit se dá v C++. Nejde kombinovat s [Niagara Data Channelem](#niagara-data-channel), protože neumí vlastní uzly.
+
+Kde se s tím potkáš: [Dvě cesty, jak přestat spawnovat systémy](praxe/niagara-vykon.md#dve-cesty-jak-prestat-spawnovat-systemy) · [Rejstřík: Effect type](#effect-type)
 
 ### Line of action
 
@@ -2206,6 +2246,14 @@ Emitter je neviditelný bod v prostoru; nastavením se z něj stane proud vody r
 
 Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md)
 
+### Packed Level Actor
+
+**Skupina aktérů zabalená do jednoho assetu, který je vykreslí jako instance.**
+
+Vzniká výběrem aktérů → pravý klik → Level → Create Packed Level Actor; alternativou je *Harvest Instances* v modeling mode nebo pole transformů v construction scriptu. Pozor na velikost: **hranice packed level actoru rozhodují, do které streamovací buňky spadne** — pokrývá-li dva bloky města a buňka je poloviční, bude načtený pořád.
+
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: World Partition](#world-partition)
+
 ### Pass by reference
 
 **Předání odkazu na data místo kopie: levné a rychlé, ale změny vidí všichni, kdo sdílejí tentýž originál.**
@@ -2253,6 +2301,14 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [PCG vegetace](p
 Aktor s grafem vzniká sám a panel nástroje zrcadlí exposed parametry grafu; vlastní graf zaregistruješ přes Tool Data sekci (compatible tool tags — konvence „zahoď draw, zbytek bez mezer + tool"). Pasti verze 1.0: paint klade body podle vzdálenosti od posledního bodu (ne plochou štětce), guma maže na původních pozicích před transformy a Ctrl+Z ruší celý rozdělaný nástroj.
 
 Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
+
+### Per-instance custom data
+
+**Pole hodnot nastavitelné pro každou instanci zvlášť — variace bez unikátních materiálů.**
+
+Řeší přímý rozpor: instancování vyžaduje shodný materiál, ale scéna má být rozmanitá. Místo dvaceti materiálových instancí (dvacet [shading binů](#shading-bin)) se hodnoty posílají per instanci — je potřeba nastavit *Num Custom Data Floats*. Levnější sourozenec téhož triku: náhodná variace odvozená z **pozice instance** (například posun odstínu), která nepotřebuje ani ta data.
+
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: Shading bin](#shading-bin)
 
 ### Pedal tone
 
@@ -2766,6 +2822,14 @@ Formální ideační technika — funguje na vylepšení rozdělané hry i gener
 
 Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md)
 
+### Screen percentage
+
+**V jakém rozlišení se scéna doopravdy renderuje, než ji upscaler dotáhne na výstupní.**
+
+Zákeřné je výchozí nastavení: UE5 má screen percentage **„based on display resolution"**, takže na vyšších rozlišeních tiše renderuje **pod 100 %**. Kdo o tom neví, srovnává dvě měření v různém rozlišení a netuší, že měří něco jiného. Přepíná se na **manual** na dvou místech nastavení projektu (hra a editor). Souvisí s tím **temporal upscaling**: se zapnutým vypadá 80 % skoro jako 100, s vypnutým je i 80 % rozmazané.
+
+Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: Dynamic resolution](#dynamic-resolution) · [Rejstřík: TSR](#tsr)
+
 ### Scene inheritance
 
 **Nová scéna odvozená z existující: převezme celý strom nodů a dovolí přepsat jen to, co se liší.**
@@ -2885,6 +2949,14 @@ Kde se s tím potkáš: [Čísla, se kterými se dá srovnávat](praxe/profiling
 Nutnost všude, kde je efektů nebo ikon hodně — konzistentní tvarosloví umožní pochopit funkci prvku bez čtení. Klíčová vlastnost: když jsou barvy podobné, tvar je jediné, co prvky rozliší. Používá se stejně ve VFX i v rozhraní, a spolu s barvou a pozicí tvoří pravidla, kterým se říká vizuální jazyk hry.
 
 Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md) · [Game feel](teorie/game-feel.md)
+
+### Significance handler
+
+**Pravidlo, které u Niagary rozhodne, které instance přežijí strop počtu.**
+
+Vestavěné jsou dvě — **podle vzdálenosti** a **podle věku**; vlastní se dá dopsat v C++. Bez něj strop instancí funguje, ale vybírá libovolně. Pozor na cenu při velkých počtech: u tisíců systémů na jednom effect typu musí significance manager při každé změně projít celé pole (naměřený případ: **~7 000 systémů na padající listí → 30ms spike**). Praktické pravidlo: **strop instancí je levnější než významnost** — nejdřív omez počet, pak laď, kdo přežije.
+
+Kde se s tím potkáš: [Effect type](praxe/niagara-vykon.md#effect-type-jeden-asset-ktery-rozhoduje-o-vsem) · [Rejstřík: Effect type](#effect-type)
 
 ### Silueta
 
@@ -3189,6 +3261,14 @@ Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md)
 Vybírají se obráceně, než by člověk čekal: najdi hru se stejným publikem a opiš si její tagy, protože cílem je dostat se v databázi vedle správných her. Nejčastější chyba je použít nejgeneričtější tagy (promarníš místo) — a poznávacím znamením špatných tagů jsou nesourodé hry v sekci doporučení.
 
 Kde se s tím potkáš: [Steam stránka: screenshoty a tagy](teorie/steam-stranka.md)
+
+### TAA
+
+**Temporal anti-aliasing — starší a mnohem levnější sourozenec [TSR](#tsr).**
+
+Naměřený rozdíl ve výchozí scéně UE5: **TSR ~1,7 ms proti TAA 0,15 ms.** Cena je rozmazání v pohybu, takže volba je žánrová: pohodovým hrám a adventurám TAA sedne, rychlé stříleččce nebo závodům ne. Ještě levnější mezistupeň pro stylizované a mobilní projekty je **FXAA**, který ale hrany jen prostorově rozmazává.
+
+Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: TSR](#tsr) · [Rejstřík: Screen percentage](#screen-percentage)
 
 ### Synkopa
 

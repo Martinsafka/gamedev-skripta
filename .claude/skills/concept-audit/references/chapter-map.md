@@ -163,6 +163,9 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Nanite do hloubky](https://martinsafka.github.io/gamedev-skripta/praxe/nanite-do-hloubky/) — Optimalizace scény porovnává Nanite s LODy jako volbu. Tahle kapitola jde o patro níž: jak Nanite doopravdy utrácí čas, jak se ta útrata dá rozdělit na dvě různé věci (rasterizaci a…
 - [Paměť GPU: virtuální textury a pooly](https://martinsafka.github.io/gamedev-skripta/praxe/gpu-pamet/) — Video paměť neroste tak rychle jako nároky na ni — a přibývají systémy, které z ní ukrajují (distance fields, Lumen, virtuální stíny, runtime virtuální textury). Odpovědí celého oboru je…
 - [Optimalizační průchod](https://martinsafka.github.io/gamedev-skripta/praxe/gpu-pruchod/) — Předchozí kapitoly bloku dávaly metodu. Tahle ukazuje, co z ní v praxi padá — dva průchody skutečnými scénami a jeden systematický postup na Lumen. Formát je jiný než u návodů: nikdo tu…
+- [Niagara: výkon částic](https://martinsafka.github.io/gamedev-skripta/praxe/niagara-vykon/) — Částice jsou nejčastější tichý žrout v hotové hře, protože se přidávají na konci, po jednom efektu, a nikdy jich není „moc" — dokud jich není dvě stě naráz. Tahle kapitola je celá z jedné…
+- [Paměť, reference a instancování](https://martinsafka.github.io/gamedev-skripta/praxe/pamet-a-instance/) — Tři věci, které nesouvisejí s tím, jak scéna vypadá, a přesto rozhodují o tom, jak běží: co všechno tvoje blueprinty táhnou do paměti, kolik draw callů vyrobí opakující se geometrie a hrst…
+- [Lehký render: co vypnout](https://martinsafka.github.io/gamedev-skripta/praxe/lehky-render/) — Zbytek bloku o výkonu se ptá, jak zlevnit funkce UE5. Tahle kapitola sbírá materiály, které se ptají jinak: co když je vůbec nechceš? Lumen, Nanite, virtuální stíny a TSR jsou ve výchozím…
 
 ### Rendering a optimalizace
 - [Optimalizace scény](https://martinsafka.github.io/gamedev-skripta/praxe/optimalizace/) — Výkonová kapitola od základů po specializaci: proč jsou levely pomalé (draw cally a čtyři úrovně léčby od instancí po data layers), Nanite vs. LODy bez ideologie, voxelizace jako zabiják…
@@ -323,6 +326,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Collision preset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#collision-preset)
 - [Constraints](https://martinsafka.github.io/gamedev-skripta/rejstrik/#constraints)
 - [Content](https://martinsafka.github.io/gamedev-skripta/rejstrik/#content)
+- [Cook](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cook)
 - [Contact curve](https://martinsafka.github.io/gamedev-skripta/rejstrik/#contact-curve)
 - [Content scheduling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#content-scheduling)
 - [Context steering](https://martinsafka.github.io/gamedev-skripta/rejstrik/#context-steering)
@@ -348,6 +352,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Dependency stack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#dependency-stack)
 - [Device profile](https://martinsafka.github.io/gamedev-skripta/rejstrik/#device-profile)
 - [Devlog](https://martinsafka.github.io/gamedev-skripta/rejstrik/#devlog)
+- [Distance field AO](https://martinsafka.github.io/gamedev-skripta/rejstrik/#distance-field-ao)
 - [Difficulty curve](https://martinsafka.github.io/gamedev-skripta/rejstrik/#difficulty-curve)
 - [Disonance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#disonance)
 - [DLSS](https://martinsafka.github.io/gamedev-skripta/rejstrik/#dlss)
@@ -385,6 +390,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Four-on-the-floor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#four-on-the-floor)
 - [Frame data](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-data)
 - [Frame time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-time)
+- [FX budget](https://martinsafka.github.io/gamedev-skripta/rejstrik/#fx-budget)
 - [Game Design Document](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-design-document)
 - [Gestalt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#gestalt)
 - [Game feel](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-feel)
@@ -425,6 +431,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Input latency](https://martinsafka.github.io/gamedev-skripta/rejstrik/#input-latency)
 - [Integer scaling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#integer-scaling)
 - [Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#instance)
+- [ISM](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ism)
 - [Indexical storytelling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#indexical-storytelling)
 - [Instanced Actors](https://martinsafka.github.io/gamedev-skripta/rejstrik/#instanced-actors)
 - [Integer overflow](https://martinsafka.github.io/gamedev-skripta/rejstrik/#integer-overflow)
@@ -457,6 +464,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Line Trace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#line-trace)
 - [Linear grammar](https://martinsafka.github.io/gamedev-skripta/rejstrik/#linear-grammar)
 - [Linked anim graph](https://martinsafka.github.io/gamedev-skripta/rejstrik/#linked-anim-graph)
+- [Lightweight emitter](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lightweight-emitter)
 - [Line of action](https://martinsafka.github.io/gamedev-skripta/rejstrik/#line-of-action)
 - [Live Link](https://martinsafka.github.io/gamedev-skripta/rejstrik/#live-link)
 - [Locomotor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locomotor)
@@ -527,12 +535,14 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Parallax occlusion mapping](https://martinsafka.github.io/gamedev-skripta/rejstrik/#parallax-occlusion-mapping)
 - [Pareto distribuce](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pareto-distribuce)
 - [Particle system](https://martinsafka.github.io/gamedev-skripta/rejstrik/#particle-system)
+- [Packed Level Actor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#packed-level-actor)
 - [Pass by reference](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pass-by-reference)
 - [Passing chord](https://martinsafka.github.io/gamedev-skripta/rejstrik/#passing-chord)
 - [Pawn Sensing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pawn-sensing)
 - [PBR](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pbr)
 - [PCG](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pcg)
 - [PCG Mode](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pcg-mode)
+- [Per-instance custom data](https://martinsafka.github.io/gamedev-skripta/rejstrik/#per-instance-custom-data)
 - [Pedal tone](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pedal-tone)
 - [Persistence key](https://martinsafka.github.io/gamedev-skripta/rejstrik/#persistence-key)
 - [Persistent level](https://martinsafka.github.io/gamedev-skripta/rejstrik/#persistent-level)
@@ -597,6 +607,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [SaveGame objekt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#savegame-objekt)
 - [Scalability groups](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scalability-groups)
 - [SCAMPER](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scamper)
+- [Screen percentage](https://martinsafka.github.io/gamedev-skripta/rejstrik/#screen-percentage)
 - [Scene inheritance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scene-inheritance)
 - [Scene tree](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scene-tree)
 - [Scope](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scope)
@@ -612,6 +623,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Signal-to-noise ratio](https://martinsafka.github.io/gamedev-skripta/rejstrik/#signal-to-noise-ratio)
 - [Shading bin](https://martinsafka.github.io/gamedev-skripta/rejstrik/#shading-bin)
 - [Shape language](https://martinsafka.github.io/gamedev-skripta/rejstrik/#shape-language)
+- [Significance handler](https://martinsafka.github.io/gamedev-skripta/rejstrik/#significance-handler)
 - [Silueta](https://martinsafka.github.io/gamedev-skripta/rejstrik/#silueta)
 - [Simulated annealing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#simulated-annealing)
 - [Single Layer Water](https://martinsafka.github.io/gamedev-skripta/rejstrik/#single-layer-water)
@@ -650,6 +662,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [SVD](https://martinsafka.github.io/gamedev-skripta/rejstrik/#svd)
 - [Sync marker](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sync-marker)
 - [Tagy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tagy)
+- [TAA](https://martinsafka.github.io/gamedev-skripta/rejstrik/#taa)
 - [Synkopa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#synkopa)
 - [Tell](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tell)
 - [Telemetrie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#telemetrie)

@@ -67,6 +67,7 @@
 *[Collision mask]: „Co mě zajímá" — proti vrstvě, která říká „co jsem"; filtr kolizí v konfiguraci místo v kódu.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
 *[Constraints]: Nepsané dohody, se kterými musí souhlasit každý nový řádek kódu.
+*[Cook]: Převod assetů do formátu cílové platformy při balení; čtyři nastavení umí zmenšit balíček o desítky procent.
 *[Contact curve]: Animační křivka 0/1 „chodidlo na zemi" — řídí foot pinning; nahradila foot velocity curves.
 *[Content]: Vše, co jde opakovat s variacemi: levely, nepřátelé, příběh, odemykatelné věci.
 *[Content scheduling]: Kdy a jak často se věci dějí — rytmus obsahu; častá oprava hry, co „má vše a nudí".
@@ -93,6 +94,7 @@
 *[Design pillars]: 2–3 pojmy o tom, co má hráč cítit; váha pro každé rozhodnutí. Žánr ani art style pilíř není.
 *[Device profile]: Hierarchická sada nastavení a CVarů pro platformu; engine si ji sám nevybere — musíš ji zvolit.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
+*[Distance field AO]: AO z mesh distance fields; tiše se zapíná spolu s movable skylightem, takže ho platíš bez vědomí.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
 *[Disonance]: Dojem napětí či drsnosti při znění tónů; opak konsonance, spojitá páka napětí.
 *[DLSS]: NVIDIA upscaler: render v nižším rozlišení + AI dopočet; s Frame Generation a Reflex; kompenzuj mip bias.
@@ -130,6 +132,7 @@
 *[Four-on-the-floor]: Bicí groove s kopákem na každé ze čtyř dob; základ house, proti němu synkopa.
 *[Frame data]: Popis útoku po snímcích — nápřah, aktivní snímky, zotavení; ke každému snímku vlastní vlastnosti.
 *[Frame time]: Čas na jeden snímek v ms; 60 FPS = rozpočet 16,6 ms. Sčítá se lineárně, na rozdíl od FPS.
+*[FX budget]: Rozpočet na částice, který za běhu stahuje culling; typické selhání je oscilace, léčí ji decay rate.
 *[Game Design Document]: Dokument s návrhem hry; funguje, jen když se do něj tým skutečně vrací — forma je vedlejší.
 *[Game feel]: Hmatový dojem z ovládání: odezva, váha, šťavnatost interakcí. „Game feel je cheat code."
 *[Game Instance]: Objekt žijící od spuštění aplikace po její konec — přežívá přechody mezi levely.
@@ -165,6 +168,7 @@
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
+*[ISM]: Instanced Static Mesh — shodná geometrie i materiál v jednom draw callu; HISM přidává LODy.
 *[Indexical storytelling]: Vyprávění stopami a náznaky; hráč si příběh složí sám (Clara Fernández-Vara).
 *[Impostor]: Nejagresivnější LOD: asset nahrazený obrázkem otáčejícím se s kamerou.
 *[Inheritance]: Dědičnost: děti přebírají proměnné, funkce a komponenty rodiče. Lakmusový test: „is it a?"
@@ -200,6 +204,7 @@
 *[Level streaming]: Načítání a uvolňování částí světa za běhu; persistent level je rám, sub-levely obsah.
 *[LFO]: Pomalý oscilátor otáčející donekonečna zvoleným knobem (vibrato, wobble, pohyb filtru).
 *[Liminální prostor]: Veřejný prostor bez lidí a účelu — skoro normální, a proto zneklidňující.
+*[Lightweight emitter]: Niagara emitter s pevnou funkčností: řádově levnější a řádově omezenější (bez dynamických vstupů).
 *[Line of action]: Pomyslná linie procházející pózou; rovná a čitelná = jasný pohyb.
 *[Line Trace]: Raycast — neviditelný paprsek hledající kolize na své dráze.
 *[Linear grammar]: Gramatika PCG: string symbolů řídí rytmus modulů podél splinu — sekvence, počty, opakování.
@@ -274,12 +279,14 @@
 *[Parallax occlusion mapping]: Pixel-shader hloubka: posun UV dle kamery a height mapy; bez geometrie, siluety neumí.
 *[Pareto distribuce]: Mocninné rozdělení: malá menšina případů drží většinu celkové hodnoty.
 *[Particle system]: Emitter vystřelující sprity či modely a řídící jejich chování v čase.
+*[Packed Level Actor]: Skupina aktérů zabalená do assetu vykresleného jako instance; hranice rozhodují o streamovací buňce.
 *[Pass by reference]: Předání odkazu místo kopie: změny vidí všichni sdílející originál. Kopíruju, nebo sdílím?
 *[Passing chord]: Průchozí akord mezi dvěma hlavními, který přemostí a rozbije jejich tok.
 *[Pawn Sensing]: Jednoduchá smyslová komponenta (kužel zraku + sluch) s gizmem ve viewportu; event On See Pawn.
 *[PBR]: Physically Based Rendering — materiál z vlastností (albedo, roughness, metallic), bez zapečeného světla.
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
 *[PCG Mode]: Editorový režim (5.7): kreslení PCG grafů přímo do světa splinou, štětcem nebo volumem.
+*[Per-instance custom data]: Hodnoty nastavitelné pro každou instanci zvlášť — variace bez unikátních materiálů.
 *[Pedal tone]: Tón znějící pod celou progresí, který se nemění (prodleva); sjednotí přechody.
 *[Persistence key]: Záznam o změně světa uložený mimo objekt, kterého se týká — přežije odložení z paměti.
 *[Persistent level]: Hlavní level, pod kterým žijí streamované sub-levely; nejde unloadnout.
@@ -343,6 +350,7 @@
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
 *[Scalability groups]: Skupiny kvality renderování; *Epic* je režim pro 30 FPS, pro 60 je referenční *High*.
 *[SCAMPER]: Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.
+*[Screen percentage]: V jakém rozlišení se scéna doopravdy renderuje; výchozí „based on display resolution" tiše jde pod 100 %.
 *[Scene inheritance]: Scéna odvozená z jiné: převezme celý strom nodů a přepíše jen odchylky.
 *[Scene tree]: Strom nodů a vnořených scén, ze kterého se skládá běžící hra; nese i transformace a pořadí kreslení.
 *[Scope]: Rozsah projektu — hlavní páka proveditelnosti a nejčastější příčina nedokončení.
@@ -358,6 +366,7 @@
 *[Short description]: 300znakový popis hry na Steamu; test 300 znaků = zkus ho napsat v den nula nápadu.
 *[Signal]: Zpráva, kterou node vyšle, aniž ví, kdo ji poslouchá — observer pattern zabudovaný do enginu.
 *[Signal-to-noise ratio]: Poměr užitečné informace k šumu; flow kanál je pásmo nejlepšího signálu pro učení.
+*[Significance handler]: Pravidlo, které u Niagary rozhodne, které instance přežijí strop počtu (vzdálenost nebo věk).
 *[Silueta]: Obrys tvaru — nosič identity a čitelnosti; v prostředí ji tvoří kontrast světla a stínu.
 *[Simulated annealing]: Optimalizace žíháním: nejdřív ochota k horším krokům, pak chladnutí k vylepšování.
 *[Single Layer Water]: Shading model vody (translucence, kaustika); stíny jen z directional lightu — jinak Default Lit.
@@ -395,6 +404,7 @@
 *[Survivorship bias]: Vidíš jen ty, kdo přežili; neúspěšné pokusy z dohledu zmizely.
 *[SVD]: Každá matice = rotace → škálování se změnou dimenze → rotace (A = UΣVᵀ).
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
+*[TAA]: Temporal anti-aliasing — desetinásobně levnější než TSR, cenou je rozmazání v pohybu.
 *[Synkopa]: Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny melodie.
 *[Tagy]: Štítky hry v obchodě; vstup pro doporučovací algoritmus, ne popis pro zákazníka.
 *[Telemetrie]: Sběr dat o tom, co hráči ve hře skutečně dělají — lokální čítače i vzdálená analytika.
