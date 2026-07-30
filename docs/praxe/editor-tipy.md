@@ -70,6 +70,8 @@ Užitečnost je přímočará: hromadná úprava vlastností (všechny lucerny �
 
 **Fyzikou na místo:** propy (sutiny, nádobí, klacky) nahoď volně nad povrch, zapni **Simulate** — gravitace je rozmístí věrohodně sama. Pointa, kterou většina nezná: po dopadu right-click → **Keep Simulation Changes** — pozice se zapíšou natrvalo a fyzika za hry už neběží [(0:02)](https://www.youtube.com/watch?v=qo-LYeeKMr4&t=2s).
 
+**A celý postup na klávesnici** [(0:00)](https://www.youtube.com/watch?v=4itMlAQC3LE&t=0s) *(doplněk z [krátkého videa Sergeje Marysheva](https://www.youtube.com/watch?v=4itMlAQC3LE))*: zapnout objektům kolizi a simulaci fyziky → **`Alt`+`S`** spustí simulaci → vybrat prvky (**`Shift`+`E`** vybere všechny stejné, `Ctrl`+`Alt` všechny) → **`K`** zamkne nové pozice → **`Shift`+`Esc`** simulaci ukončí.
+
 > **Pozn.:** Keep Simulation Changes je set-dressing zkratka k „lived-in" neuspořádanosti, o které mluví [RE Requiem breakdown](env-breakdowny.md#re-requiem-realismus-je-vrstveni) — ručně naaranžovaný nepořádek vypadá naaranžovaně, spadlý nepořádek spadle. Pivot jako herní pojem (bod závěsu kyvadla) rozebírají [Pasti a mechaniky](pasti-a-mechaniky.md).
 
 **Souvislosti:** [Breakdowny: RE Requiem](env-breakdowny.md#re-requiem-realismus-je-vrstveni) · [Pasti a mechaniky](pasti-a-mechaniky.md) · [Rejstřík: pivot](../rejstrik.md#pivot)

@@ -82,3 +82,39 @@ Forma je volná: scénář, tabulka, první hodina v Twine/Ren'Py, klidně samom
 > **Pozn.:** Pro projekt se slovanskou mytologií v zásobníku je tohle cvičení připravené k okamžitému použití: dvě postavy se přou, jestli se má vesnice držet starých rituálů — a najednou víš, jak se v tom světě mluví o bozích, kdo věří, kdo se bojí, a o čem vlastně hra je.
 
 **Souvislosti:** [Základy: appeal — testuj koncepty brzy](zaklady.md#appeal-centralni-fantazie-a-mix-ktery-nejde-zaradit) · [Rešerše: Vasilisa a Baba Jaga](slovansky-folklor.md) · [Rejstřík: narrative design](../rejstrik.md#narrative-design)
+
+---
+
+## Sedm pater worldbuildingu: šířka není hloubka
+
+**Zdroj:** [The Seven Levels of Worldbuilding](https://www.youtube.com/watch?v=vFMnz75y5y4) · [Large Lads Studios](https://www.youtube.com/channel/UCUMIH5Xhx6fyfGokIxtN70g) · ~30 min, esej
+
+**Shrnutí:** Autor si všímá jevu, který zná každý: **existují světy, které vypadají obrovsky, a když do nich vstoupíš, sahají po kotníky.** Rozdíl mezi šířkou a hloubkou rozloží do sedmi pater — s výslovnou poznámkou, že to nejsou schody a že spousta skvělých příběhů žije na druhém. Háček, kvůli kterému to není jen taxonomie: **každé patro se pozná podle otázky, kterou si klade.**
+
+### Rozpad myšlenky
+
+**Obrázek, kterým to celé otvírá** [(0:49)](https://www.youtube.com/watch?v=vFMnz75y5y4&t=49s), je pro každého, kdo někdy kreslil mapu, nepříjemně známý: nasypeš hory, posadíš města k pobřeží a **nakreslíš řeky tam, kde vypadají dobře** — přes pohoří, rozvětvené do stran, od moře k moři. Pak uvidíš jedno video o tvorbě map a **už to nejde odvidět**.
+
+**Sedm pater**, každé s otázkou, která ho definuje:
+
+| patro | co to je | otázka |
+|---|---|---|
+| **1. mapa** | terén, který se řídí pravidly (i vlastními) | *proč je tohle město právě tady?* |
+| **2. rule of cool** | draci, padlá říše, prokletý les | *co by bylo super?* |
+| **3. povrchová identita** | jména, architektura, oblečení, symboly | *poznám podle siluety, odkud to je?* |
+| **4. funkční moc** | magie a technologie s pravidly a důsledky | *co to ve světě doopravdy dělá?* |
+| **5. hluboká kultura a historie** | víra, tabu, dozvuky válek, protiřečící si výklady | *jak se to stalo takhle?* |
+| **6. infrastruktura a instituce** | banky, obchodní cesty, zásobování, komunikace | *když má město 200 tisíc lidí, co jedí?* |
+| **7. generativní svět** | svět, který sám plodí příběhy | *co se děje v tomhle přístavu v tomhle století?* |
+
+**Kde je ta hranice, o kterou jde** [(9:20)](https://www.youtube.com/watch?v=vFMnz75y5y4&t=560s). Druhé patro **není chyba** — je zábavné, návykové a je to obvykle to, čím tvůj svět někoho zaujme. Problém nastane, když se **zamění za hloubku**: *„skládání skvělých nápadů na sebe z toho automaticky nedělá vrstevnatou věc. Můžeš přidávat další bohy a další dávné války a bude to působit větší a větší — jenže větší není hlubší."* Test jsou otázky typu „co ten padlý impérium nahradilo?" nebo „je-li ten artefakt tak mocný, proč už dávno všechno nerozvrátil?".
+
+**Nejužitečnější patro pro herní design je čtvrté** [(15:39)](https://www.youtube.com/watch?v=vFMnz75y5y4&t=939s), protože je zároveň o pravidlech systému. *„Přestaneš se ptát ‚je to super?' a začneš se ptát ‚co to dělá?'"* Je-li magie běžná, co to udělá s prací? Existují draci — jak se vede válka? A pointa, která platí i mimo vyprávění: **má-li moc pravidla a důsledky, nemůžeš podvádět.** Problémy musíš řešit uvnitř světa, který jsi postavil — a čtenář či hráč pak přestane mít pocit, že se věci dějí, protože je potřebuje děj.
+
+**Dvě pasti, které jmenuje** [(12:30)](https://www.youtube.com/watch?v=vFMnz75y5y4&t=750s): na třetím patře hrozí **planeta klobouků** — celá kultura zredukovaná na jednu vlastnost (tohle je bojovnická, tohle chytrá, tohle záludná), obvykle proto, že se estetika posiluje tak dlouho, až v ní nezbude místo na výjimky. A na pátém je rozdíl mezi *„mít dávnou lore"* a *„mít historii, která tvaruje svět"*: u toho druhého se rozhodnutí sčítají přes generace a lidé si navzájem odporují ve výkladu, protože **skutečné společnosti si odporují**.
+
+**A závěr, který to celé změkčuje** [(28:23)](https://www.youtube.com/watch?v=vFMnz75y5y4&t=1703s): *„není to o talentu, je to o povědomí. Jakmile si začneš klást lepší otázky — proč je tohle tady, kdo z toho má prospěch, co se stane, když se to změní — tvůj svět zesílí sám."* A druhá půlka: **sedmé patro nepotřebuje většina projektů.**
+
+> **Pozn.:** Pro herní vývoj je z toho žebříku nejcennější, že **hloubka a rozsah jsou různé zdroje** — a že se dají utrácet nezávisle. Malá hra s jedním městem na čtvrtém patře působí věrohodněji než kontinent na druhém, a je **násobně levnější**. To je přesně tentýž argument jako [téma jako nůžky na scope](ludonarativni-soulad.md#tema-jako-nuzky-na-scope-pacific-drive-superhrdinove-a-fireball-wizard), jen aplikovaný na svět místo na funkce. Druhá přenositelná věc je **generativnost jako cíl**: svět, který sám nabízí příběhy, šetří práci — a to je u hry ještě podstatnější než u knihy, protože hra potřebuje **obsah v množství**. Vlastní výhrada: ten žebřík je postavený na epické fantasy a sci-fi, a u her je celé jedno patro potichu jinde — **worldbuilding musí být hratelný**. Instituce, které nejdou nijak potkat, jsou v knize hodnota a ve hře náklad; herní verze šestého patra proto zní spíš „jsou ty instituce vidět v tom, co hráč dělá?". Blízkou českou paralelou je [rešerše slovanské mytologie](slovansky-folklor.md) — tam se hloubka bere z reálné kultury místo z vlastní invence.
+
+**Souvislosti:** [Příběh je feature s cenovkou](#pribeh-je-feature-s-cenovkou) · [Cvičení: nech dvě postavy pohádat se o tvůj svět](#cviceni-nech-dve-postavy-pohadat-se-o-tvuj-svet) · [Prostor vypráví](prostor-vypravi.md) · [Ludotematický soulad](ludonarativni-soulad.md#tema-jako-nuzky-na-scope-pacific-drive-superhrdinove-a-fireball-wizard) · [Rešerše: slovanský folklor](slovansky-folklor.md) · [Rejstřík: Environmental storytelling](../rejstrik.md#environmental-storytelling) · [Rejstřík: Art bible](../rejstrik.md#art-bible)

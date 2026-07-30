@@ -148,7 +148,10 @@ Staženo 2026-07-29 (tabulky v `processing_index.md`). Pořadí dohodnuté s už
 
 Zbytek vlny:
 
-- [ ] Zbytek hlavního playlistu **25 videí** (~76k slov): design/teorie (5 Principles, GDD, worldbuilding, engagement bez temných vzorů, architektury kódu podle Tyrollera) a UE praxe (Ali Elzoheiry inventory 2 díly, animace, 5.8 preview).
+- [x] **Dávka 41 (design a teorie)** — 7 videí → **6 myšlenek do stávajících kapitol**: `teorie/zaklady.md` ×2 (poutavost vs. návykovost · duše hry), `teorie/ludonarativni-soulad.md` (kontext), `teorie/gdd.md` (jedna stránka), `teorie/pribeh-a-postavy.md` (sedm pater worldbuildingu), `teorie/level-design-solo.md` (pět principů) + zkratky do `praxe/editor-tipy.md`. Zdroje: `hbzGO_Qonu0`, `pF2LGYVRCwI`, `uuc6DRe4U4Q`, `bro4rwYVo0I`, `vFMnz75y5y4`, `LBtucVc8l0M`, `4itMlAQC3LE`. **Bez nových kapitol** — Teorie je hustá, všechno mělo domov. _(2026-07-30)_
+- [x] **Doplněk bloku Výkon a profiling** — `C-AjCqjKRSs` (Profiling with Purpose, 58 min) byl při dávce 38 omylem přeskočen jako „část sestřihu `CijCVXa0wBQ`", ale samostatně zpracovaný nebyl. Doplněn jako **+2 myšlenky do `praxe/gpu-pruchod.md`** (příprava profilování cizí hry · Chaos Visual Debugger). Blok má tedy **12 kapitol / 46 myšlenek**. _(2026-07-30)_
+- [ ] **Dávka 42 (kariéra, učení a proces)** — 8 videí, ~28k slov: `kodquYtxXd8` (Thomas Brush, 77 min / 15k), `HECL-9qPlxM` (3 roky v AAA), `3Pusamd6BO4` (system design), `oJ6LN7t0Vr8` (jak se učit CS), `nCZbZyyuHRg`, `niWpfRyvs2U` (Fireship: mýty), `yhGzXULZkEw` (TEDx: co učit, když kód píše AI), `48_qqfGk6wY` (short o Steamu).
+- [ ] **Dávka 43 (kód, architektura a nástroje)** — 10 videí, ~28k slov: `8WqYQ1OwxJ4` (Tyroller: architektury), `omB2JkC4QfA` (CI/CD), `eocJvH15L4Q` + `8ylTGxeMR7w` (Ali Elzoheiry inventory, 12k), `qGma-I9PD1c` (Memory Insights), `QcGFO0DzFMg` (10 chyb v 5.6), `NfDzhmXiUNA` (5.8 preview), `aUaBtau2M3c` (AI roam), `stc0_aMvkPQ` + `Lo0569JZTSU` (animace), `wuO_iy0zhPA` (nástroje místo Aseprite).
 - [ ] Gamedev-music **+20 videí** (~41k slov). Dominantní shluk: **Strudel a live coding hudby** (11 videí) → nové téma. Dál Alex Rome ×3 (rozšíření `akordy-a-harmonie`, `melodie` — sem patří i `_yw85rAb6cw` z Godot playlistu), rytmus, AI na vokály. Pozor na položky, které jsou performance/mixy, ne tutoriály.
 
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_

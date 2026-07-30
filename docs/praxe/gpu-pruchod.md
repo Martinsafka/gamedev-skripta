@@ -1,6 +1,8 @@
 # Optimalizační průchod: co se ve scéně najde
 
-Předchozí kapitoly bloku dávaly metodu. Tahle ukazuje, **co z ní v praxi padá** — dva průchody skutečnými scénami a jeden systematický postup na Lumen. Formát je jiný než u návodů: nikdo tu nepředvádí jednu opravu, ale prochází scénu a nachází v ní jednu věc za druhou, včetně těch, které nakonec nezabraly.
+Předchozí kapitoly bloku dávaly metodu. Tahle ukazuje, **co z ní v praxi padá** — tři průchody skutečnými scénami, systematický postup na Lumen a rentgen fyziky. Formát je jiný než u návodů: nikdo tu nepředvádí jednu opravu, ale prochází scénu a nachází v ní jednu věc za druhou, včetně těch, které nakonec nezabraly.
+
+Poslední dvě myšlenky jsou z přednášky, kde dva lidé z Epicu **veřejně proprofilovali cizí rozdělanou hru** — a nálezy jsou proto obyčejné, tedy reprezentativní.
 
 Metodický základ je v [Profilingu](profiling.md) a [Rozpočtu snímku](rozpocet-snimku.md); mechanismy, které se tady jen používají, vysvětluje [Nanite do hloubky](nanite-do-hloubky.md) a [Paměť GPU](gpu-pamet.md).
 
@@ -103,3 +105,78 @@ Je-li to strana world traces, pokračuje se dvěma view modes:
 > **Pozn.:** Nejpřenositelnější věc téhle myšlenky je **operativní definice rozpočtu**: „vypni to a změř rozdíl" funguje pro jakýkoli systém, který je v profileru rozprostřený do víc položek — a je to poctivější než sčítání řádků, které se navzájem překrývají. Druhá je **binární hledání jako první krok**: dvě větve, jedno přepnutí, půlka prostoru pryč. To zní triviálně, ale v praxi se místo toho ladí konzolové proměnné odshora dolů — a rozdíl mezi tím je hodina proti minutě. Souvisí to s [pořadím co → proč → jak](rozpocet-snimku.md#rozpocet-je-penezenka-ne-cil): binární hledání je způsob, jak se dostat od „co" k „proč" bez hádání. Vlastní výhrada k těm 4 a 8 milisekundám: jsou to hodnoty pro **konzolovou třídu hardwaru z doby přednášky** a Lumen na konzolích běží asynchronně — takže je ber jako řádovou orientaci a udělej si vlastní číslo tím způsobem, který autor popisuje.
 
 **Souvislosti:** [Les na 60 FPS](#les-na-60-fps-co-zabralo-a-co-ne) · [Nanite: rozhodovací strom](nanite-do-hloubky.md#rozhodovaci-strom-je-to-vis-buffer-nebo-base-pass) *(týž tvar postupu o systém vedle)* · [Profiling: co říká GPU profiler](profiling.md#co-rika-gpu-profiler-a-co-v-nem-nenajdes) · [Osvětlení](osvetleni.md) · [Rejstřík: Lumen](../rejstrik.md#lumen) · [Rejstřík: Surface cache](../rejstrik.md#surface-cache) · [Rejstřík: Roughness](../rejstrik.md#roughness)
+
+---
+
+## Profilovat cizí hru: příprava, která rozhoduje
+
+**Zdroj:** [Profiling with Purpose: Performance Lessons from a Real Unreal Project](https://www.youtube.com/watch?v=C-AjCqjKRSs) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~58 min, Unreal Fest Stockholm 2025 (dva lidé z technical developer relations)
+
+**Shrnutí:** Dvojice z Epicu si vyžádala na LinkedInu skutečný rozdělaný projekt, dostala přes čtyřicet nabídek a jednu hru pak veřejně proprofilovala — se souhlasem studia a s jeho vlastní větou *„my jsme s optimalizací ještě nezačali."* Nejcennější třetina není v nálezech, ale v **přípravě**: co si zapnout, než se vůbec podíváš, a kolik to stojí. Háček, který se opakuje u obou přednášejících: **skoro každý užitečný přepínač má režii, a ta se musí započítat do toho, co měříš.**
+
+### Rozpad myšlenky
+
+**Spouštěcí parametry a jejich cena** [(8:36)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=516s). U cizí hry ze Steamu se dají nastavit v `properties → launch options`, což je mimochodem šikovná cesta, jak rozdávat vývojářské buildy. Sada, kterou používá:
+
+| parametr | k čemu | cena |
+|---|---|---|
+| **`-trace=default,task`** | jediné, co doopravdy musíš zadat; `task` navíc ukáže, **na co která úloha čeká** | malá režie u `task` |
+| **`-statnamedevents`** | zapne trasování dalších pojmenovaných událostí — bez něj vidíš jen hrubé bloky | **~20 % režie** (změřeno na tomhle projektu) |
+| **`-execcmds`** | pustí konzolové příkazy po startu; on tam dává `stat unitgraph` a `stat fps` | — |
+| **`-noverifygc`** | ověřování garbage collectoru ve vývojovém buildu ho **prodlouží zhruba dvakrát** a vyrábí falešné záseky | — |
+| **`-dpcvars`** | přepíše i konzolové proměnné, které jsou jinak jen ke čtení | — |
+| **`-logcmds="LogGarbage verbose"`** | vypíše fáze GC a — což jinak v traci **nezjistíš** — **počet `UObject`ů** | psaní logu samo stojí čas |
+| **`-handleensurepercent=0`** | vypne ensures; ty se v traci projeví jako **nevysvětlená vteřinová pauza**, protože se nezobrazí stack walk ani ukládání dumpu | — |
+
+Ta položka o `-statnamedevents` je nejlepší ilustrace celé myšlenky: *„chceš-li jen vědět, jestli se trefuješ do cíle, nechej to vypnuté. Ale netrefuješ-li se a chceš vědět proč, vřele doporučuju to zapnout."* Konkrétní zisk: bez toho byl v traci jen *„animation blueprint, 0,1 ms"*; s tím bylo vidět, že ten blueprint dělá **16 raycastů do fyziky na každou postavu a každý snímek**.
+
+**Jak se čte snímkový panel** [(20:15)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=1215s): každý sloupec je **jeden snímek** (ne pevný časový úsek), vodorovná čára je 16,66 ms a všechno nad ní je zásek. Postup je pak nudný a funguje: klikni na dlouhý sloupec, zoomuj, jdi po nejtlustších blocích. Praktická drobnost: klávesou `R` se přepínají herní a renderovací snímky — u CPU práce se ty renderovací hodí vypnout. A trik, který ušetří hádání: **vyber časový úsek a klikni na funkci** — Insights vypíše, **kolikrát byla v tom úseku volaná**. Tak se ze „spousty raycastů" stalo **500 raycastů do fyziky v jednom snímku**.
+
+**Nálezy na herním vlákně** jsou poučné hlavně tím, jak jsou banální:
+
+- **Simulace nepřátel, kteří ještě nejsou ve hře** [(24:06)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=1446s). Ve scéně jsou dvě postavy a v traci desítky character movement komponent — tým vysvětlil, že jde o nepřátele z pozdějších bitev. Oprava: nesimulovat, co není v obraze.
+- **`SetGender` volané na každé postavě v levelu** místo na těch dvou viditelných.
+- **Animace vyhodnocené hned místo odloženě** — Unreal jinak animace počítá na worker vlákně, ale při spawnu aktéra to udělá okamžitě, aby to bylo vidět ve stejném snímku. Většinou to nepotřebuješ.
+- **MetaHuman v LOD0** na postavy, které zabírají stodvacetiosminu obrazovky. Odpověď MetaHuman týmu na dotaz: **LOD0 je pro virtuální produkci a film**, ve hrách se doporučuje nanejvýš LOD1 a pak agresivně dolů.
+- **`Add to World` trvající 23 vteřin** pro jednu world partition buňku. Nebyl to zásek (je to rozprostřené), ale ISM komponenty v ní si každá vytvářela fyzikální stav.
+
+**A GPU strana, uspořádaná do tří druhů čísel** [(47:40)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=2860s): hledej **jedno velké číslo**, **hodně malých čísel** a **čísla tam, kde být nemají**.
+
+- **Jedno velké**: jeden draw call v průchodu průhledností za skoro milisekundu — kouř z komína renderovaný **po depth of field**, tedy v plných 4K místo v 75 % dynamického rozlišení. A pointa: *„výchozí hodnota v Unrealu je after DOF."*
+- **Jedno velké, podruhé**: řádek **virtual shadow map projection mask bits**, který nevypadá jako cena světel a je jí — je to **počet světel dopadajících na pixely**. Viníkem byla falešná odrazová světla, která nepotřebovala vrhat stín.
+- **Hodně malých**: šedá plocha ve *visibility commands* se ukázala být **96 Niagara systémů, které četly výšku vody z GPU zpátky na CPU** — dohromady ~2 ms za oceán, který v tom záběru **nebyl vidět**.
+- **Tam, kde být nemá**: Nanite programmable rasterization v průchodu *custom depth*, zbylá po obrysovém shaderu, který to už nepotřeboval.
+
+**Dvě věci k přípravě GPU měření**, které stojí za převzetí. Profiluje se **na devkitu, ne na pracovní stanici** (*„naše stanice nejsou reprezentativní, jsou moc silné"*). A klíčové: **vypni dynamické rozlišení** (`r.DynamicRes.TestScreenPercentage 75`) — jinak se výkon projeví ve **velikosti back bufferu, ne v milisekundách**, takže všechno vypadá, že běží na cílových 30. *„První kolo jsem nasbíral všechna měření a říkal si: jedou třicet napříč, super. Aha — dynamické rozlišení."*
+
+> **Pozn.:** Nejcennější je tady **inventář režií**. Většina návodů řekne „zapni `-statnamedevents`" a neřekne, že to stojí pětinu výkonu — a pak se člověk diví, proč se jeho měření nepodobá hře. Zobecněno: **každý přepínač, který ti přidá informaci, ti ubere z věrnosti měření**, takže se musí volit podle toho, na co se zrovna ptáš (jsme na cíli? proti proč nejsme?). Táž logika jako u [šířky pásma trasování](mereni-automaticky.md#tracing-bez-utopeni-kanaly-sirka-pasma-a-scenare). Druhá věc, kterou si odsud bereme, je **past dynamického rozlišení**: je to funkce, jejímž smyslem je držet cílový framerate — takže při měření **schová přesně to, co chceš vidět**. Sourozenec [screen percentage, které jsi nenastavil](lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit), jen o třídu zákeřnější, protože tu funkci jsi zapnul schválně. A stojí za ocenění formát: **studio pustilo cizí lidi do své rozdělané hry před plný sál** — nálezy jsou proto obyčejné a tím reprezentativní, na rozdíl od vyrobených ukázkových problémů.
+
+**Souvislosti:** [Chaos Visual Debugger](#chaos-visual-debugger-rentgen-fyziky) *(druhá polovina téhož nálezu)* · [Hodina v cizí scéně](#hodina-v-cizi-scene-co-se-najde-kdyz-se-hleda) · [Profiling: čísla, se kterými se dá srovnávat](profiling.md#cisla-se-kterymi-se-da-srovnavat) *(tentýž přednášející o patro dřív)* · [Automatizované měření: tracing](mereni-automaticky.md#tracing-bez-utopeni-kanaly-sirka-pasma-a-scenare) · [Rejstřík: Dynamic resolution](../rejstrik.md#dynamic-resolution) · [Rejstřík: Trace channel](../rejstrik.md#trace-channel) · [Rejstřík: MetaHuman](../rejstrik.md#metahuman)
+
+---
+
+## Chaos Visual Debugger: rentgen fyziky
+
+**Zdroj:** [Profiling with Purpose: Performance Lessons from a Real Unreal Project](https://www.youtube.com/watch?v=C-AjCqjKRSs) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~58 min, Unreal Fest Stockholm 2025
+
+**Shrnutí:** Nejlepší deset minut celé přednášky je chvíle, kdy přednášející otevře **Chaos Visual Debugger** a ukáže scénu tak, jak ji vidí fyzika. Sál na to slyšitelně reaguje — a je proč: strom má kolizní geometrii **za každý list**, zeď za **každý dřevěný kolík**, a stánek s ovocem má zvlášť bednu se zelím a zvlášť bednu s cibulí. Háček, který z toho dělá myšlenku a ne kuriozitu: **není to nedbalost toho studia, je to výchozí chování Unrealu.**
+
+### Rozpad myšlenky
+
+**Co ten nástroj je** [(33:35)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=2015s): záznam celé fyzikální scény a všech dotazů do ní, snímek po snímku. Otevírá se v editoru přes *Tools → Debug → Chaos Visual Debugger*; ze zabaleného vývojového buildu se dá vyrobit soubor konzolovými příkazy a načíst ho tam.
+
+**Rozdíl, který je potřeba znát, než se do toho podíváš** [(34:22)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=2062s): **simple** kolize se používá, když se objekty pohybují a naráží do sebe — to je ta, která stojí milisekundy za běhu. **Complex** kolize se používá pro dotazy do scény (raycasty, střelba) — a **i když ji nepoužíváš, musí se načíst**, takže zdržuje načítání a zdražuje raycasty.
+
+**Co v té hře bylo vidět.** Nejdřív dobré zprávy: postavy jsou kapsle, stromy jsou kapsle, terén je trochu složitý, ale *„dá se s tím žít."* Pak se podívají do dálky — a je tam **načtené celé město** s hustou složitou geometrií, u hry s pohledem shora. Doporučení je stejně prosté jako správné: **nahradit ty domy kvádry.**
+
+A pak přepnou do zobrazení **complex** kolizí a přijde ta pasáž se sálem. **Mech s každým stéblem. Strom s každým listem. Ve zdi kolik za každý kolík. Bedna se zelím, bedna s cibulí — „jak hluboko to jde? Až úplně dolů."**
+
+**Vysvětlení, proč to tak je** [(38:14)](https://www.youtube.com/watch?v=C-AjCqjKRSs&t=2294s), je to hlavní, co si z toho odnést. Komplexní kolize **se generuje z LOD řetězu meshe** — a s Nanitem to znamená z **fallback meshe**. Kdo u Nanite meshů nenastaví počet LODů, dostane jako komplexní kolizi **celý Nanite mesh**, což je drahé na paměť i na dotazy. (Týž nález se v knihovně objevil nezávisle jako [helma za 66 MB](#hodina-v-cizi-scene-co-se-najde-kdyz-se-hleda).)
+
+A pak přijde ta věta, kvůli které tady tahle myšlenka je: *„nechci je za to shazovat — protože zaprvé je to velmi časté, a zadruhé **je to výchozí workflow v Unrealu**. Každý mesh má ve výchozím stavu zapnutou komplexní i jednoduchou fyziku."* Oprava je **jedno pole v nastavení projektu**: kolizní profil na **use simple as complex** — a všechno tohle zmizí.
+
+**Dvě věci navrch**, které se týkají téhož: **nestatická geometrie ve výchozím stavu kontroluje překryvy** při načtení, a to ne kvůli enginu, ale pro případ, že by na tu událost chtěl někdo reagovat. Takže: buď to udělej statické, nebo překryvy vypni.
+
+> **Pozn.:** Tahle myšlenka je nejlepší doklad toho, že **výchozí hodnoty nejsou neutrální** — a zapadá přesně k [soapboxu o defaultech](rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) z jiné Epicovy přednášky, kde totéž zaznělo o `use simple collision as complex` jako o nastavení do prvního changelistu. Tady je vidět, **jak to vypadá, když se to neudělá**: sál, který zalapal po dechu nad mechem s kolizí za každé stéblo. Přenositelné poučení je ale obecnější: **existuje vrstva projektu, do které se nikdo nedívá, protože není vidět.** Fyzika, streamovací buňky, reference mezi assety — všechno to má svůj prohlížeč a všechny se otevřou jednou za projekt, obvykle až když je zle. Vyplatí se je otevřít **dřív**, pro nic jiného než pro kalibraci, jak to vlastně vypadá. A ještě jedna vlastní poznámka: **komplexní kolizi někdy opravdu potřebuješ** — přednášející to sám říká u přesné střelby. Takže to není „vypni to všude", ale „vypni to jako výchozí stav a zapínej vědomě", což je táž změna z opt-out na opt-in.
+
+**Souvislosti:** [Profilovat cizí hru](#profilovat-cizi-hru-priprava-ktera-rozhoduje) · [Hodina v cizí scéně](#hodina-v-cizi-scene-co-se-najde-kdyz-se-hleda) *(týž nález u fallback meshe, jinou cestou)* · [Rozpočet snímku: prvních 16,66 ms](rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Ragdoll](ragdoll.md) · [Rejstřík: Collision preset](../rejstrik.md#collision-preset) · [Rejstřík: Nanite](../rejstrik.md#nanite)

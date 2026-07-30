@@ -129,3 +129,31 @@ Druhý motiv je motivační: autorovým prvním setkáním s vývojem her byl he
 > **Pozn.:** Video je z roku 2020 a technická část (chunk loading, práce s dlaždicemi, vlákna versus hlavní smyčka) je vázaná na tehdejší verzi jednoho enginu — přenosné je z ní hlavně to, že **načítání po částech se dá rozložit do snímků**, když zamrzávání trápí. Zajímavá poznámka mimochodem [(5:32)](https://www.youtube.com/watch?v=nAXMHOWliAA&t=332s): přechody mezi scénami nejsou jen technický kompromis — **pomáhají hráči stavět si mentální mapu světa** tím, že si všímá, kde k nim dochází.
 
 **Souvislosti:** [Plánovací nástroje: kanban](planovani-nastroje.md#kanban-karty-zleva-doprava-a-jeden-vlastnik-na-kartu) *(jiný nástroj, tentýž efekt na práci)* · [Prostor a hranice](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Level streaming v UE](../praxe/levely-a-streaming.md) *(chunky a načítání v praxi)* · [Rejstřík: level streaming](../rejstrik.md#level-streaming)
+
+---
+
+## Pět principů: cíl, novost, žádný prázdný prostor, tok a jazyk hry
+
+**Zdroj:** [5 Tips for Great Level Design](https://www.youtube.com/watch?v=LBtucVc8l0M) · [Apox Fox](https://www.youtube.com/channel/UCuv2YE0XSYCOMXwRKDQcNQg) · ~13 min, esej
+
+**Shrnutí:** Pět principů, které autor používá při návrhu vlastních levelů, s příklady napříč žánry. Většina jsou známé věci řečené konkrétně — ale dvě z nich jsou skutečné nálezy: **cíl potřebuje odměnu, která ho udělá cílem**, a **level design je vrstva jazyka tvojí hry, ne obecná disciplína**. Háček, o který se autor přiznaně sám otloukl: **kopírovat level design, který jinde funguje, je nejjistější cesta k levelům, které tvojí hře nesedí.**
+
+### Rozpad myšlenky
+
+**1. Zřetelný cíl — a jeho druhá půlka** [(0:50)](https://www.youtube.com/watch?v=LBtucVc8l0M&t=50s). Hráč má mít pořád vzadu v hlavě, kam směřuje, a nejlépe to jde vizuálními signály: ohniště v Dark Souls, **stěna mlhy** (za ní boss, připrav se), **spuštěný žebřík** (zkratka). U klasických Zelda dungeonů jsou dveře k bossovi **hned na začátku** — cesta je dlouhá, ale obraz cíle máš od první minuty.
+
+Druhá půlka je ta zajímavější: *„někdy nestačí lesklá cílová páska. Cíl musí za cíl stát."* Co hráč cítí u ohniště nebo u lavičky v Hollow Knight? **Úlevu** — odměnou za riskantní cestu je chvíle klidu, plné zdraví a možnost postoupit. Autorovo shrnutí: **udělej cíl co nejzřetelnější a udělej ho hodným toho, aby byl cílem.**
+
+**2. Držet to čerstvé odkládáním karet** [(3:09)](https://www.youtube.com/watch?v=LBtucVc8l0M&t=189s). Portal má všechny schopnosti hned na začátku a přesto nezevšední, protože **drží karty dlouho u sebe**: nový koncept se ukáže v nejholejší podobě, pak se přidá drobná obměna, pak časování, pak se to zkombinuje. *„Místo abys ukázal celou ruku hned, otáčej karty po jedné."* Totéž Celeste: každý level jeden nový mechanismus a jeho postupné zesložiťování. Užitečná formulace: **začátek každého levelu je reset toho, co hráč o hře ví.**
+
+**3. Neplýtvej prostorem** [(5:30)](https://www.youtube.com/watch?v=LBtucVc8l0M&t=330s). *„Větší neznamená lepší."* Příklad je konkrétní: co má vesnice v RPG dělat? Doplnit zásoby, prodat věci, přespat — tak to **dej na jedno místo** a nenuť hráče běhat sem a tam. A odpověď na námitku „nebude pak svět působit malý?": podívej se, jak jsou stavěná skutečná města — **jedno centrální tržiště se vším**, a jediné otravné je dojít tam.
+
+Autor si k tomu neodpustí kritiku vlastní oblíbené hry: pás země mezi farmou a městem ve Stardew Valley je *„jen otrava"* a stojí půl herní hodiny. Poctivá výjimka, kterou hned dodá: **prázdný prostor s účelem je v pořádku** — v Undertale slouží dlouhé přechody k tomu, aby si hráč srovnal, co se právě stalo.
+
+**4. Následuj tok** [(7:03)](https://www.youtube.com/watch?v=LBtucVc8l0M&t=423s). Drobnost, kterou zmiňuje jako první: hráči jsou od dob Maria zvyklí **jít doprava** — takže chceš-li někam navést, zkus to napravo (a chceš-li schovat tajemství, dej ho doleva). Podstatnější je ale jeho postoj ke značkám na mapě: *„není nic horšího, než když se dívám víc na minimapu než na hru."* Přiznává, že je to těžká rovnováha — bez značek hráči obsah minou — a rozhoduje se jasně: **smiř se s tím, že hráči něco minou.** Je to důvod k průzkumu a přidává to znovuhratelnost. Ale navádět se má: *„buď tajný průvodce"* — hučení mapaře v Hollow Knight, chodby, které tě nenápadně vedou k východu.
+
+**5. Tvoje hra je jazyk** [(10:09)](https://www.youtube.com/watch?v=LBtucVc8l0M&t=609s) je jediný princip, u kterého mluví o vlastním selhání. Dělal rychlou plošinovku na speedrunning a levely mu vyšly **rozvláčné a matoucí** — protože *„jsem navrhoval levely způsobem, o kterém jsem viděl, že funguje v jiných hrách, ale ne levely, které sedí k mojí hře."* Zobecní to na dvou příkladech: Vampire Survivors by nefungoval s překážkami a průzkumem, protože potřebuje **otevřenou plochu a pocit nezastavitelnosti**; Limbo naopak nemá zrychlovadla a náročné skákání, protože tě má nechat **malého a bezmocného**.
+
+> **Pozn.:** Nejcennější je pátý princip, protože je to **kritérium, ne technika** — a jediné, které umí zamítnout radu z předchozích čtyř. „Neplýtvej prostorem" je dobré pravidlo do chvíle, kdy je tvoje hra o osamělosti; „drž zřetelný cíl" platí, dokud nechceš, aby se hráč cítil ztracený. Zapadá to přesně k [tomu, jak číst cizí pravidla o level designu](#nejsi-nasledovnik-jak-cist-cizi-pravidla-o-level-designu), jen s vlastním doznáním navrch. Druhá věc, kterou si odsud bereme, je **odměna jako součást cíle**: cíl se obvykle řeší jako problém čitelnosti („vidí hráč, kam jít?"), a tohle připomíná, že je to i problém motivace („chce tam jít?"). Vlastní výhrada k té „pravé straně": platí u her s vodorovným pohybem a západním publikem, a je to slabý efekt — jako **jemné postrčení** k němu sáhni, jako k nosnému navigačnímu nástroji ne.
+
+**Souvislosti:** [Nejsi následovník](#nejsi-nasledovnik-jak-cist-cizi-pravidla-o-level-designu) · [Téma ospravedlňuje mechaniky](#tema-ospravedlnuje-mechaniky-a-landmark-musi-byt-jediny-sveho-druhu) · [Vedení hráče](vedeni-hrace.md) · [Prostor a hranice](prostor-a-hranice.md) · [Základy designu: držet hráče](zaklady.md#drzet-hrace-aniz-bys-ho-manipuloval) · [Rejstřík: Pacing](../rejstrik.md#pacing) · [Rejstřík: Affordance](../rejstrik.md#affordance)

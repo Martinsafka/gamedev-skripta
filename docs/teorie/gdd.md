@@ -114,3 +114,33 @@ Proč to je vzor a ne kuriozita [(33:45)](https://www.youtube.com/watch?v=fk-rQl
 > **Pozn.:** Tohle je [yoink & twist](napad.md#yoink-twist-lepsi-nebo-dost-jina) dotažený do dokumentační praxe — a zároveň dvojice [hook + anchor](napad.md#ctyri-zdroje-napadu-a-evaluace-hook-anchor-appeal) v akci: Pac-Man je anchor (každý ví, jak se hraje), heist s vlastními parťáky hook. Srovnej i s [„kopíruj poznámkami"](pripadovky-designu.md#150-her-na-operacnim-stole-vzorce-ktere-se-vraceji): kopíruje se mechanismus a důvod, ne povrch.
 
 **Souvislosti:** [Nápad: yoink & twist](napad.md#yoink-twist-lepsi-nebo-dost-jina) · [Případovky designu](pripadovky-designu.md#150-her-na-operacnim-stole-vzorce-ktere-se-vraceji) · [Rejstřík: elevator pitch](../rejstrik.md#elevator-pitch) · [Rejstřík: hook](../rejstrik.md#hook)
+
+---
+
+## Jedna stránka: formát rozhoduje o tom, jestli to někdo otevře
+
+**Zdroj:** [How to write a Game Design Document](https://www.youtube.com/watch?v=bro4rwYVo0I) · [Game Dev Beginner](https://www.youtube.com/channel/UC8wTcfcC3JY3pU7_Cn7za6Q) · ~13 min, výklad
+
+**Shrnutí:** Autor začne otázkou, kterou většina návodů přeskočí — **potřebuješ vůbec design dokument?** — a dá na ni jednu testovací větu. Pak přejde k věci, která je v knihovně nová: **na formátu záleží stejně jako na obsahu**, a dokládá to přirovnáním, které se nedá odbýt. Háček, který z toho dělá praktické pravidlo: **dokument, který nikdo nepřečte, není dokument.**
+
+### Rozpad myšlenky
+
+**Test, jestli ho potřebuješ** [(0:49)](https://www.youtube.com/watch?v=bro4rwYVo0I&t=49s): *„všechny design dokumenty existují kvůli jediné věci — abys svůj nápad vysvětlil někomu jinému."* A pak přijde obrat, kvůli kterému ta otázka není řečnická: **ten „někdo jiný" jsi nejspíš ty sám.** Nápad v hlavě je neúplný, věci se mění a iterace ho odvede jinam — takže rozhodovací kritérium zní: **zapomeneš informaci, která rozhoduje o směru projektu?** Je-li hra dost malá na to, abys ji unesl v hlavě, dokument nepotřebuješ.
+
+**Přirovnání, které to celé nese** [(6:20)](https://www.youtube.com/watch?v=bro4rwYVo0I&t=380s): představ si, že stavíš dům. V hlavě máš každé okno a každou cihlu. Najmeš stavitele — a teď to musíš předat. *„Umíš si představit, že bys stavitelovi popisoval vysněný dům ve wordovém dokumentu?"* I kdyby byl ten popis dokonalý, **je ve špatném formátu**. Plánek obsahuje tytéž informace a je použitelný. Závěr: nejdřív rozhodni, co v dokumentu bude, **potom** jak to bude vypadat — a to podle toho, **pro koho** je. Dokument pro investora vypadá jinak než dokument, ve kterém navrhuješ hru.
+
+**Metoda jedné stránky** [(7:52)](https://www.youtube.com/watch?v=bro4rwYVo0I&t=472s), kterou přebírá z GDC přednášky Stone Librande: **ilustrace, schéma nebo mapa** jako hlavní obsah a k tomu **popisky** na okrajích. Tři důvody, proč to omezení pomáhá:
+
+1. **Jedna stránka je zhruba tolik, kolik je kdokoli ochotný přečíst** — a to „kdokoli" zahrnuje tebe.
+2. **Nutí tě najít nejúčinnější způsob, jak nápad popsat**, protože se nemůžeš opřít o další stránky.
+3. **Dá se udělat rychle a snadno změnit** — což je u dokumentu, který má sloužit průběžně, podstatnější než úplnost.
+
+Postup má jeden nepřeskočitelný krok: **rozhodni, co je účel té stránky**, a napiš to do titulku. Souboj, level, gameplay smyčka — jeden cíl, ne několik. *„Jedno zaměření neznamená jedna věc"* — může mít víc aspektů, ale všechno na té stránce musí ten cíl podporovat, jinak jsi jen dal několik dokumentů na jednu hromadu.
+
+**A varianta pro odvážné**: celou hru na jedné stránce **jde** udělat, protože „jedna stránka" neznamená malá stránka — může být nekonečná a růst s projektem. Podmínka je ale tvrdá: **musí platit ta metodika**, tedy jedno zaměření rozvíjené do detailu. Doporučení pro ten případ: **design pillars doprostřed** a z nich ven systémy a mechaniky, které je uskutečňují.
+
+**Co dát do toho úplně prvního** [(3:14)](https://www.youtube.com/watch?v=bro4rwYVo0I&t=194s): jádro (co hráč dělá) a **pilíře** — čtyři až pět nejdůležitějších prvků, ať už jsou to činnosti (průzkum, boj, crafting), nebo pocity (spolupráce, objevování, tvořivost). A výslovné varování: **odolej nutkání přidávat další pilíře**, aby se do nich vešly všechny tvoje nápady. *„Smyslem je určit, co je nejdůležitější — a to znamená všechno ostatní vynechat,"* včetně funkcí, které ve hře nakonec budou, ale nejsou její identita.
+
+> **Pozn.:** Ten domovní plánek je nejlepší argument proti „napíšu to všechno do dokumentu", jaký knihovna má — a doplňuje [nástěnku místo eseje](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje) o důvod, proč to funguje: **není to o délce, je to o kódování informace.** Level popsaný větami se musí v hlavě převést zpátky na prostor; nakreslený level ne. Praktický důsledek pro vlastní práci: **než začneš psát, zeptej se, jestli to není obrázek, tabulka nebo schéma.** Za pozornost stojí i to kritérium potřeby — je poctivější než obvyklé „GDD je nutnost" i než „GDD je mrtvé": rozhoduje **velikost toho, co unese hlava**, ne móda. A vlastní výhrada k nekonečné jedné stránce: v praxi z ní snadno vznikne přesně to, před čím autor varuje — několik dokumentů vedle sebe. Vyplatí se držet **jeden účel na jednu stránku** a raději mít stránek víc.
+
+**Souvislosti:** [GDD minimalisticky](#gdd-minimalisticky-skica-vsech-oblasti-ne-bible-jedne) · [Od širokého ke konkrétnímu: pilíře](#od-sirokeho-ke-konkretnimu-pilire-publikum-jadro) · [Dokument, který chce někdo číst](#will-should-could-jazyk-zavazku-a-dokument-ktery-chce-nekdo-cist) · [Start projektu: nástěnka místo eseje](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje) · [Rejstřík: Design pillars](../rejstrik.md#design-pillars) · [Rejstřík: Game Design Document](../rejstrik.md#game-design-document)
