@@ -171,6 +171,9 @@ nav:
           - "Profiling: měření místo odhadů": praxe/profiling.md
           - Rozpočet snímku: praxe/rozpocet-snimku.md
           - "Potrubí snímku: latence a jitter": praxe/frame-pacing.md
+          - Nanite do hloubky: praxe/nanite-do-hloubky.md
+          - "Paměť GPU: virtuální textury a pooly": praxe/gpu-pamet.md
+          - Optimalizační průchod: praxe/gpu-pruchod.md
       - Rendering a optimalizace:
           - Optimalizace scény: praxe/optimalizace.md
           - Textury a DLSS: praxe/textury-a-dlss.md

@@ -18,6 +18,7 @@
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
 *[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
 *[Aspirační obtížnost]: Jak těžké je uspět DOBŘE (víc bodů, volitelná hloubka) — obtížnost, po které hráč sahá sám.
+*[Async compute]: Druhá fronta GPU jen pro compute; vysoký „wait" na ní je normální, na grafické ne.
 *[Asset pack]: Balík hotových assetů (modely, zvuky, UI) k okamžitému použití — základ rychlého prototypování.
 *[Assist mode]: Volitelný režim, kde si hráč upraví obtížnost po jednotlivých pákách místo výběru „easy".
 *[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
@@ -60,6 +61,7 @@
 *[Chord progression]: Sled akordů tvořící harmonickou kostru; emoci nese pohyb mezi nimi, ne jednotlivé akordy.
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
 *[Closing doors]: Iterace od širokého k úzkému; zavřené dveře se znovu neotevírají.
+*[Cluster culling]: Nanite zahazuje geometrii po clusterech — buď celý, nebo nic; rozhoduje topologie meshe.
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision mask]: „Co mě zajímá" — proti vrstvě, která říká „co jsem"; filtr kolizí v konfiguraci místo v kódu.
@@ -104,6 +106,7 @@
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
 *[Editor script]: Skript, který běží v editoru místo ve hře; generuje boilerplate nebo hlídá konzistenci dat.
 *[Editor Utility Widget]: Blueprint UI běžící v editoru — vlastní nástroj bez psaní pluginu.
+*[Effect type]: Asset s pravidly cullingu pro Niagara systémy; bez něj se částice simulují i mimo obraz.
 *[Eigenvektor]: Směr, který transformace nevychýlí — jen natáhne či zkrátí o eigenvalue.
 *[Elemental tetrad]: Schellovy čtyři části hry: estetika, mechaniky, technologie, příběh — iteruj přes všechny.
 *[Elevator pitch]: Popis hry na délku jízdy výtahem, nejčastěji „X meets Y"; nesmí být redundantní ani nespojitelný.
@@ -208,6 +211,7 @@
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
 *[Low-pass filtr]: Filtr propouštějící nízké frekvence a ubírající vysoké; z bohaté vlny udělá bas/pad.
+*[Lumen]: Realtime GI a odrazy v UE5; orientační rozpočet ~4 ms na 60 FPS, ~8 ms na 30.
 *[Ludonarativní disonance]: Nesoulad příběhu a gameplaye (hodný hrdina, stovky mrtvých). Neutrální nástroj — i humor.
 *[Ludus a paidia]: Caillois: hra podle pravidel vs. volné blbnutí. Holá hra = moc ludus, málo paidia.
 *[Map (dictionary)]: Struktura klíč → hodnota: čitelný klíč místo indexu; překlep klíče = tichý bug.
@@ -325,9 +329,11 @@
 *[Retriggerable Delay]: Delay restartovaný každým dalším spuštěním — doběhne až po klidu; „ztráta zájmu" AI.
 *[Reverb]: Odraz zvuku od prostředí (dozvuk); slepí zvuky nebo vyjádří prostor (chodba, kaňon).
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
+*[RHI]: Render Hardware Interface — vrstva mezi rendererem a grafickým API dané platformy.
 *[Rigging]: Vložení kostry do modelu a nastavení, jak kosti ovládají mesh.
 *[RITE]: Rapid Iterative Testing and Evaluation: jeden tester → oprav vážné problémy → další tester.
 *[Roguelike]: Žánr postavený na opakovaných bězích, smrti jako součásti smyčky a procedurální generaci.
+*[Roughness]: Drsnost povrchu v PBR; zároveň práh, pod kterým Lumen trasuje dedikované odrazové paprsky.
 *[Root motion]: Pohyb uložený v root kosti animace; MM ho vyžaduje (Enable Root Motion + Force Root Lock).
 *[Rovnoměrně temperované ladění]: Oktáva dělená na 12 stejných kroků; čisté intervaly jen přibližuje (equal temperament).
 *[Rubber banding]: Umělá podpora hráče pozadu / brzda napřed; opravuje signal-to-noise na okrajích obtížnosti.
@@ -378,12 +384,14 @@
 *[State machine]: Stavový automat AnimBP: stavy = animace, přechody = pravidla; MM ho nahrazuje, hybridy kombinují.
 *[State Tree]: Hierarchický stavový automat UE (sestra behavior tree); stavy s tasky, přechody, injektované stromy.
 *[Steam Next Fest]: Steamový festival demoverzí (3× ročně); multiplikátor wishlistů, účast jen jednou za hru.
+*[Streaming pool]: Vyhrazená VRAM pro streamované textury; zmenšuj ji, dokud engine nezačne hlásit přetečení.
 *[Stitching]: Experimentální MM technika: místo lineárního blendu najde animaci z pózy A do pózy B za daný čas.
 *[Strategy pattern]: Rodina zaměnitelných algoritmů za společným rozhraním místo if/else stromu.
 *[Struct]: Pojmenovaná skupina proměnných, se kterou se zachází jako s jednou hodnotou.
 *[Stupnice]: Sada tónů daná vzorcem půltónů a celých tónů; durová a mollová pokryjí většinu.
 *[Subsystem]: Automaticky vytvářený singleton s daným životním cyklem (engine/game instance/world); definice v C++.
 *[Subtraktivní syntéza]: Oscilátor generuje bohatý zvuk, filtr ubírá; řetězec oscilátor → filtr → obálka/LFO.
+*[Surface cache]: Zjednodušené povrchy, ze kterých Lumen čte; žlutá = vyřazeno, fialová = nevykresleno.
 *[Survivorship bias]: Vidíš jen ty, kdo přežili; neúspěšné pokusy z dohledu zmizely.
 *[SVD]: Každá matice = rotace → škálování se změnou dimenze → rotace (A = UΣVᵀ).
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
@@ -396,6 +404,7 @@
 *[Tile set]: Sada dlaždic pro 2D svět a pravidla, jak na sebe navazují; počet dlaždic je vždycky kompromis.
 *[Time slicing]: Drahý výpočet se nepočítá každý snímek, ale každý n-tý; mění frekvenci, ne algoritmus.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
+*[Tone mapper]: Převod HDR na obraz monitoru; výchozí ACES stojí za „unreal engine lookem", alternativa je AGX.
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).
 *[Traversal]: Překonávání překážek (vault, mantle, hurdle): detekce hran + chooser + montáž s motion warpingem.
@@ -422,6 +431,7 @@
 *[Vektor]: Bod v prostoru (pozice), nebo směr s velikostí (velocity) — dvě čtení, nemíchat.
 *[Version control]: Verzování projektu (Git): návratové body a historie jako deník pokroku; commituj malé celky.
 *[Vertical slice]: Reprezentativní výsek hry ve finální kvalitě; brána mezi prototypem a plnou produkcí.
+*[Virtual texture stack]: Počet unikátních UV kombinací v materiálu; cena zpětné vazby se počítá na stack.
 *[Virtual bone]: Kost existující jen v enginu (Add Virtual Bone) — IK cíle a sockety bez re-exportu z DCC.
 *[Virtual Shadow Maps]: Stínový systém UE5 pro Nanite a Lumen — vysoké rozlišení bez ladění kaskád.
 *[Virtual texture]: Textura streamovaná po stránkách jen kam se kamera dívá; pevný pool, daň = page table.
@@ -429,6 +439,7 @@
 *[Voice leading]: Vedení tónů tak, aby přechody mezi akordy byly co nejjemnější (vedení hlasů).
 *[Voicing]: Jak rozmístíš tóny akordu (pořadí, oktávy); otevřený voicing zní prostorněji.
 *[Volumetric fog]: Objemová mlha na height fogu — paprsky a atmosféra; kvalita přes GridPixelSize/GridSizeZ.
+*[WPO]: World Position Offset — posun vrcholů v materiálu; nejčastější tichá příčina drahých stínů.
 *[Water Body]: Actor Water pluginu (ocean/lake/river/island) tvarovaný splinami; řeka má rychlost proudu per point.
 *[Wave Function Collapse]: PCG: políčko jako superpozice dlaždic, kolaps dle pravidel sousedství — náhodné, a přitom soudržné.
 *[WIP limit]: Kanban strop rozdělanosti: 1–2 karty v Doing na osobu; víc = těkání.

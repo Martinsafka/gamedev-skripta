@@ -82,13 +82,16 @@ Témata a kapitoly:
 
 **Osvětlení a atmosféra**
 
-- **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu, rychlé triky — a proti PBL postavené malování světlem z falešných zdrojů plus volumetrika přes EVDB.
+- **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu, rychlé triky, proti PBL postavené malování světlem z falešných zdrojů, volumetrika přes EVDB — a tone mapper, tedy odkud se vlastně bere „unreal engine look".
 
 **Výkon a profiling**
 
 - **[Profiling: měření místo odhadů](profiling.md)** — rozhodovací strom podle `stat unit` (a případovka, kde hru brzdilo foliage, ne oheň), reprodukovatelný test jako vědecký experiment, překlad položek GPU profileru včetně toho, co v něm nenajdeš, prahy z profilování skutečné hry — a předávka nálezu, bez které se nález ztratí v cizí frontě.
 - **[Rozpočet snímku: kolik máš a kde se ztrácí](rozpocet-snimku.md)** — 16,66 ms jako peněženka (a kdy tedy optimalizovat), nastavení, která se dají udělat jen v prvním changelistu, legenda k optimalizačním view modes — a proč GPU nesnáší malé trojúhelníky, i když má výkon na miliardy operací.
 - **[Potrubí snímku: latence, jitter a frame pacing](frame-pacing.md)** — šest snímků v potrubí a čekání, které v profileru vypadá jako práce; co za co měníš, když zkracuješ latenci; jitter, který nastane, i když nespadne žádný snímek — a jak to celé vidí hráč, který žádná tvoje čísla nemá.
+- **[Nanite do hloubky: rasterizace, overdraw a stínová cache](nanite-do-hloubky.md)** — rozhodovací strom mezi vis bufferem a base passem, cluster culling jako věc, která se autoruje při modelování, kdo doopravdy invaliduje stínovou cache — a spor o Nanite, ve kterém platí mechanismus, ale ne závěr.
+- **[Paměť GPU: virtuální textury, pooly a nový profiler](gpu-pamet.md)** — virtualizace vysvětlená na knize (22 GB textur z 500 MB paměti), postup, jak zjistit skutečnou velikost poolů místo odhadu s rezervou — a tři sloupce nového GPU profileru, z nichž jeden odpovídá na otázku „brzdí mě grafika, nebo procesor?".
+- **[Optimalizační průchod: co se ve scéně najde](gpu-pruchod.md)** — hodina hledání v cizí ukázkové scéně (osm nálezů, samé zapomenuté defaulty), měsíc na vlastním lese z 30 na 60 FPS včetně toho, co nezabralo — a systematické ladění Lumenu ve dvou větvích.
 
 **Rendering a optimalizace**
 

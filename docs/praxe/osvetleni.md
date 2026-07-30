@@ -1,6 +1,6 @@
 # Osvětlení: fyzikální základ, mlha a nálady
 
-Světlo od řemesla k náladě: **PBL workflow** (svítit podle skutečných hodnot v luxech a měřit to přímo v enginu), volumetrická **mlha Silent Hill 2** jako materiál, hororová atmosféra vrstvená jako ve filmové postprodukci, noční scéna z default setupu a hrst rychlých triků. Kompoziční základ („nejdřív tvary, pak settingy") pokládá [kapitola Stavba prostředí](env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro); fyzikální světlo v praxi lesa ukazuje [lesní pěšina](env-tvorba.md#lesni-pesina-ii-decaly-svetlo-a-render).
+Světlo od řemesla k náladě: **PBL workflow** (svítit podle skutečných hodnot v luxech a měřit to přímo v enginu), volumetrická **mlha Silent Hill 2** jako materiál, hororová atmosféra vrstvená jako ve filmové postprodukci, noční scéna z default setupu, hrst rychlých triků — a na konci **tone mapper**, tedy poslední krok, který rozhodne, jak všechno předchozí dopadne na monitoru. Kompoziční základ („nejdřív tvary, pak settingy") pokládá [kapitola Stavba prostředí](env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro); fyzikální světlo v praxi lesa ukazuje [lesní pěšina](env-tvorba.md#lesni-pesina-ii-decaly-svetlo-a-render).
 
 ---
 
@@ -172,3 +172,30 @@ Nad tím pak přijdou tři vrstvy, které s realitou nemají nic společného. *
 > **Pozn.:** Jde o **placený plugin třetí strany, v době natáčení v betě**, a autor v závěru děkuje jeho tvůrcům za poskytnutý přístup — čti to tedy jako představení nástroje, ne jako nezávislou recenzi. Pro nás jsou přenositelné dvě věci nezávisle na tom, jestli si ho pořídíš: **oddělení „data vs. zobrazovač"** (platí i pro Heterogeneous Volumes v základním enginu) a **parametry média** (albedo / absorpce / anisotropie / emise), které popisují jakoukoli volumetriku — včetně té, kterou si postavíš sám jako [volumetrický materiál v Silent Hill 2 mlze](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy).
 
 **Souvislosti:** [Mlha ze Silent Hill 2](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy) *(tatáž úloha ručně a zdarma)* · [Malovat světlem](#malovat-svetlem-scena-slozena-z-falesnych-svetel) *(mlžné karty jako nejlevnější varianta)* · [Materiály](materialy.md) · [Rejstřík: Volumetric fog](../rejstrik.md#volumetric-fog) · [Rejstřík: EVDB](../rejstrik.md#evdb)
+
+---
+
+## Tone mapper: odkud je „unreal engine look"
+
+**Zdroj:** [The "Unreal Engine Look" Explained — And How to Fix It](https://www.youtube.com/watch?v=ciCRiQmwTrs) · [Dallas Drapeau](https://www.youtube.com/channel/UCatEMsDp-qF_bix_1ST2llw) · ~24 min, rozbor + tutoriál (druhá půlka s hostujícím programátorem)
+
+**Shrnutí:** Vymytý šedivý nádech, ploché ohně místo intenzivně horkých a syté barvy, které se s rostoucím jasem posouvají do divných odstínů — to je věc, kterou si lidé roky vykládali jako vlastní chybu v osvětlení. Autor tvrdí, že příčina je jinde: **ve výchozím tone mapperu**, kterým UE5 posílá **ACES**. Háček, který z toho dělá silnou myšlenku: ACES není špatný nástroj, je to nástroj **pro jinou pipeline**.
+
+### Rozpad myšlenky
+
+**Argument, který dává celé věci smysl** [(0:48)](https://www.youtube.com/watch?v=ciCRiQmwTrs&t=48s): ACES je oborový standard z **filmu**, a ve filmu se s ním počítá jako s mezikrokem — záběry pak jdou do postprodukce, kde je někdo barevně vyladí. *„Ve hrách ta pipeline prostě neexistuje."* Takže vývojáři dostanou obraz připravený na krok, který nikdy nepřijde, a snaží se ho vyrovnat posuvníky v post-processu.
+
+**Co konkrétně dělá** [(4:38)](https://www.youtube.com/watch?v=ciCRiQmwTrs&t=278s): sytá jasná barva by měla s rostoucí intenzitou **přirozeně desaturovat a přejít do bílé**. ACES se o to pokouší, ale místo plynulého přechodu barvu **posune** — což je vidět hlavně na **středních tónech**. Autor to ukazuje na křivce (šedivý plochý úsek uprostřed) a na výřezech gradientu z oblohy, kde jde u ACES rozeznat schodovitost.
+
+**Alternativa: AGX** [(1:34)](https://www.youtube.com/watch?v=ciCRiQmwTrs&t=94s) — novější formátovací nástroj, který se v Blenderové komunitě stal standardem prakticky přes noc. Autorovo srovnání na téže scéně s týmiž post-process nastaveními: sytější barvy, čitelnější gradient oblohy, a hlavně **víc rozeznatelného detailu** v albedu, normálových mapách i roughness. *„Nejde jen o barvy, jde o kontrast v nich."*
+
+**Dvě upřímné výhrady, které autor sám přidává** — a bez nich by tahle myšlenka byla reklama:
+
+- **Změní se ti pracovní postup.** *„Zvykli jsme si svítit kolem výchozího tone mapperu, takže teď musíme svítit trochu jinak."* Konkrétně: **světla s AGX zesvětlují rychleji**, takže se musí přeladit intenzity a emisivní materiály (v ukázce mu přepálil oheň).
+- **Tone mappery z tržiště jsou náplast, ne oprava.** Jsou to post-process materiály, které přes obraz položí korekční vrstvu, a stojí výkon. Autorova pozice je jiná: *„řešením není udělat ACES lepší, ale odstranit ho."*
+
+**A jak se to nasazuje** [(17:07)](https://www.youtube.com/watch?v=ciCRiQmwTrs&t=1027s), včetně toho, proč to není pro každého: pracovní barevný prostor se nastaví na sRGB / Rec. 709 a pak se **edituje shader enginu** — `Engine/Shaders/Private/PostProcessTonemap.usf`, kde se výstup přesměruje na AGX funkci. Pak `recompile shaders changed`. Zásadní důsledek, který zaznívá až v samém závěru: **je to zásah do enginu, ne do projektu** — přepíše výchozí tone mapper **všem projektům na téže verzi enginu**, takže si původní soubor zálohuj.
+
+> **Pozn.:** Nejcennější věc téhle myšlenky není AGX, ale **rámec**: pojmenovat vlastnost nástroje, kterou si všichni vykládali jako vlastní nedostatek. Pro knihovnu je to sourozenec [srovnávání očekávání s realitou u scalability](../rejstrik.md#scalability-groups) — v obou případech dělá engine přesně to, co má, a frustrace pramení z toho, že to nikdo neřekl nahlas. Zároveň je poctivé přiznat, kde je tenhle zdroj slabý: **je to argumentace obrázky**, ne měřením, a část srovnání běží přes YouTube kompresi, takže je nutné to vzít jako pozvánku k vlastnímu testu. Druhá výhrada je praktická a vážnější než kterákoli estetická: **zásah do shaderů enginu je závazek na údržbu.** Při každém upgradu verze ho budeš dělat znovu a při každém podivném renderovacím chování bude první otázka „nemáš to z toho tone mapperu?". Rozumný kompromis, který video nenabízí: **vyzkoušej to na testovací scéně a rozhodni se před tím, než postavíš vizuál celé hry** — ne uprostřed produkce, protože přeladit všechna světla je práce, kterou nikdo nechce dělat dvakrát.
+
+**Souvislosti:** [PBL: svítit podle skutečných hodnot](#pbl-svitit-podle-skutecnych-hodnot) *(druhá polovina téže otázky — vstupní hodnoty proti výstupnímu převodu)* · [Malovat světlem](#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Optimalizační průchod: tonemapper sharpen](gpu-pruchod.md#hodina-v-cizi-scene-co-se-najde-kdyz-se-hleda) *(další nastavení téhož průchodu, které rozhoduje o dojmu)* · [Rejstřík: Tone mapper](../rejstrik.md#tone-mapper) · [Rejstřík: EV100](../rejstrik.md#ev100)

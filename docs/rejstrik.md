@@ -182,6 +182,14 @@ Rozdíl proti posuvníku obtížnosti je v kontrole: hráč nedostane „hraju n
 
 Kde se s tím potkáš: [Odznaky: odměna, která nezlehčí hru](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) · [Obtížnost a výzva](teorie/obtiznost.md)
 
+### Async compute
+
+**Druhá fronta GPU, která umí jen compute shadery a běží souběžně s grafickou.**
+
+Fronty sdílejí výpočetní jednotky a synchronizují se přes fences — z čehož vznikají **bubliny**: fronta stojí, protože čeká na signál z druhé. Praktický důsledek pro čtení profileru: vysoký *wait* na compute frontě je normální a sám o sobě není chyba, na grafické frontě by měl být blízko nule. A při měření konkrétního průchodu se async compute vyplatí vypnout (`r.RDG.AsyncCompute 0`), protože překrývající se práce zkresluje časy obou front.
+
+Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-rika-novy-gpu-profiler) · [Rejstřík: RHI](#rhi)
+
 ### Asset pack
 
 **Balík hotových assetů — modely, zvuky, UI, shadery — připravený k okamžitému použití.**
@@ -509,6 +517,14 @@ Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
 Riotí postup pro concept art, ale funguje na jakoukoli tvůrčí volbu. Stojí a padá s jedním sebeovládáním: zavřené dveře se znovu neotevírají. Bez toho pravidla se tým točí v kruhu a projekt se každé tři měsíce potichu promění v jinou hru. Doplňuje se otázkami na cíl (která z nich působí nejděsivěji?) místo otázek na dojem.
 
 Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Nápad](teorie/napad.md)
+
+### Cluster culling
+
+**Nanite zahazuje neviditelnou geometrii po clusterech (~128 trojúhelníků) — buď celý cluster, nebo nic.**
+
+Z toho plyne, že o výkon rozhoduje **topologie**: stěna z dlouhých tenkých trojúhelníků je pár velkých clusterů, takže stačí kousek její hrany a musí se rasterizovat celá — i s tím, co je za ní. Rovnoměrně přesíťovaný mesh má clustery rozeseté po ploše a částečně se cullne, dokonce sám sebe. Druhá past: clustery se cullují **podle bounds**, takže do sebe namačkané meshe culling znemožní. Prakticky to znamená, že cluster culling patří do stylového průvodce k modelování, ne do optimalizačního sprintu na konci.
+
+Kde se s tím potkáš: [Overdraw se autoruje](praxe/nanite-do-hloubky.md#overdraw-se-autoruje-ne-opravuje) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Overdraw](#overdraw)
 
 ### Cognitive load
 
@@ -861,6 +877,14 @@ Kde se s tím potkáš: [Nástroje pro sebe](godot/projekt-a-vykon.md#nastroje-p
 Spouští se pravým klikem → Run Editor Utility Widget a dá se ukotvit vedle ostatních panelů. Typické použití: dávkové přejmenování, kontrola konvencí, přepínání zobrazení scény. Protože je to obyčejný blueprint, jde cizí nástroj otevřít, přečíst a upravit — což je zásadní rozdíl proti zkompilovanému pluginu.
 
 Kde se s tím potkáš: [Animační nástroje: SAM](praxe/animace-nastroje.md#sam-izolace-jednoho-aktera-jako-animatorsky-rezim) · [Editor tipy](praxe/editor-tipy.md)
+
+### Effect type
+
+**Asset, který dává Niagara systémům pravidla cullingu a škálování — bez něj se částice simulují i mimo obraz.**
+
+Niagara ve výchozím stavu neculluje nic, takže padesát ambientních systémů roztroušených po levelu běží pořád. Effect type to řeší třemi nastaveními: **max time without render** (nerenderuje-li se to chvíli, zastav), **allow pre-cull by view frustum** (rozhodni už při spawnu, jestli by to vůbec bylo vidět — ideální pro krátké efekty typu záblesku výstřelu) a **cull update frequency**. Zakládá se po kategoriích, ne po systémech: jeden pro ambientní efekty, jeden pro zásahy, jeden pro projektily.
+
+Kde se s tím potkáš: [Hodina v cizí scéně](praxe/gpu-pruchod.md#hodina-v-cizi-scene-co-se-najde-kdyz-se-hleda) · [Rejstřík: Particle system](#particle-system)
 
 ### Eigenvektor
 
@@ -1685,6 +1709,14 @@ Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md) · [Prototypován�
 Základní nástroj subtraktivní syntézy: z bohaté vlny „ořízne" výšky. Libovolná vlna v nízké oktávě protažená úzkým low-pass filtrem dá bas.
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
+
+### Lumen
+
+**Realtime globální osvětlení a odrazy v UE5 — nepřímé světlo bez pečení, za cenu stálého rozpočtu.**
+
+Orientační rozpočet od Epicu: **~4 ms na 60 FPS, ~8 ms na 30**. Ověřuje se operativně — vypni ho (`r.DynamicGlobalIlluminationMethod 0`, `r.ReflectionMethod 0`) a změř, o kolik se snímek zrychlí; to je jeho skutečná cena, protože v profileru je rozprostřený do víc položek (scene lighting, diffuse indirect a AO, reflections). Ladí se ve dvou větvích: **screen traces** (hodnoty z pixelů na obrazovce) proti **world traces** (z Lumen scény) — vypnutí screen traces je nejrychlejší způsob, jak zjistit, kterou půlku prohledávat.
+
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite)
 
 ### Ludonarativní disonance
 
@@ -2630,6 +2662,14 @@ Metoda z UX designu pro vývojáře bez velkého poolu testerů: sleduj jednoho 
 
 Kde se s tím potkáš: [Playtesting: kadence a RITE](teorie/playtesting.md)
 
+### RHI
+
+**Render Hardware Interface — vrstva enginu mezi rendererem a grafickým API dané platformy.**
+
+Implementuje se jedna na platformu (D3D12, Vulkan, Metal…) a překládá zaznamenané příkazy do skutečných GPU command listů. Pro ladění výkonu jsou zajímavé dvě věci: **paralelní překlad** se ladí přes `r.RHICommand.ParallelTranslate.MaxCommandsPerTranslate` (na víc jádrech jít do šířky, na omezeném stroji naopak), a **použití immediate command listu vynutí jednovláknový překlad**, tedy bublinu v potrubí — v RDG průchodech proto ber základní typ, ne immediate.
+
+Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-rika-novy-gpu-profiler) · [Potrubí snímku](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi)
+
 ### Rigging
 
 **Vložení kostry do modelu a nastavení, jak kosti ovládají mesh — bez toho zůstane model socha.**
@@ -2645,6 +2685,14 @@ Kde se s tím potkáš: [Art specializace: tech art](teorie/art-specializace.md)
 Pro design je podstatný důsledek mnoha běhů: hráč potkává stejné systémy znovu a znovu, což násobí šanci na náhodné objevení skrytých pravidel — proto žánru tak sedí tajné řetězce (Spelunky). Odnož s trvalým meta-postupem mezi běhy se označuje roguelite.
 
 Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md)
+
+### Roughness
+
+**Drsnost povrchu v PBR: 0 = zrcadlo, 1 = zcela matný — a v UE5 zároveň prahová hodnota pro cenu odrazů.**
+
+Výkonový háček, který se snadno přehlédne: Lumen trasuje **dedikované odrazové paprsky** pro pixely pod prahem `r.Lumen.Reflections.MaxRoughnessToTrace` (výchozí 0,4). Hodně projektů má většinu materiálů kolem 0,35, takže valná část obrazovky trasuje odrazy, aniž by to někdo chtěl. Zvlášť zákeřné je to u listí (vlastní proměnná `…ForFoliage`, klidně 0) a u shaderů počasí, které za deště srazí roughness všemu.
+
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: PBR](#pbr) · [Rejstřík: Lumen](#lumen)
 
 ### Root motion
 
@@ -3046,6 +3094,14 @@ Funguje jako multiplikátor wishlistů — čím víc jich máš na vstupu, tím
 
 Kde se s tím potkáš: [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Idea iceberg](teorie/rady-z-praxe.md)
 
+### Streaming pool
+
+**Pevně vyhrazená část VRAM pro streamované textury; při přeplnění spadne rozlišení mipy.**
+
+Výchozích 2 000 MB bylo zvoleno pro cizí projekt — a příliš velký pool je stejná chyba jako příliš malý, jen tišší, protože ta paměť chybí jinde. Postup, jak zjistit skutečnou potřebu: **zmenšuj `r.Streaming.PoolSize`, dokud engine nezačne hlásit „streaming pool over budget"** — to je tvůj vodočet. Virtuální textury mají pooly zvlášť pro každý kompresní formát; od 5.4 si engine vede transient list dosažených maxim, ze kterého se hodnoty opíšou do fixed poolu.
+
+Kde se s tím potkáš: [Pooly a jejich vodočty](praxe/gpu-pamet.md#pooly-a-jejich-vodocty) · [Rejstřík: Virtual texture](#virtual-texture) · [Rejstřík: Mip mapa](#mip-mapa)
+
 ### Stitching
 
 **Experimentální MM technika: místo lineárního blendu najde animaci, která tě za daný čas dostane z aktuální pózy do cílové.**
@@ -3093,6 +3149,14 @@ Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md)
 Řetězec oscilátor → filtr → obálka/LFO. Slavný pad je jen pila protažená filtrem. Pochopíš-li tenhle jeden signálový řetězec, přečteš skoro každý synth.
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
+
+### Surface cache
+
+**Zjednodušená reprezentace povrchů scény, ze které Lumen čte při world traces.**
+
+Diagnostický view mode má vlastní legendu: **žlutá** = Lumen to z Lumen scény vyřadil a neřeší · **fialová** = do Lumen scény se to nakreslilo, ale pixely se nevykreslily — typicky protože surface cards nejsou správně nastavené nebo je mesh příliš členitý. Odtud pochází většina záhad typu „proč se ta lávka v nepřímém osvětlení vůbec neobjevuje".
+
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Lumen](#lumen)
 
 ### Survivorship bias
 
@@ -3197,6 +3261,14 @@ Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md
 V piano rollu ji nastavíš přes scale highlighting; „špatné" tóny pak zmizí z dohledu a skládáš skoro naslepo po zvýrazněných. C dur a A moll mají stejné tóny, liší se právě cítěným domovem.
 
 Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
+
+### Tone mapper
+
+**Převod HDR hodnot renderu na to, co zobrazí monitor — a hlavní příčina toho, čemu se říká „unreal engine look".**
+
+UE5 posílá ve výchozím stavu **ACES**, filmový tone mapper navržený pro záběry, které se pak barevně korigují v postprodukci. Ve hrách ta postprodukce nikdy nepřijde, a ACES má návyk, který v reálném čase vadí: **sytě jasné barvy netlačí plynule do bílé, ale posouvá je** — odtud vymyté šedivé střední tóny a plochý přechod. Alternativa, kterou přejala Blenderová komunita, je **AGX**: jas přechází do bílé přirozeněji a detail v normálových mapách a albedu je čitelnější. Nasazuje se **zásahem do shaderu enginu** (`PostProcessTonemap.usf`), takže se to týká všech projektů na dané verzi enginu — a mění to pracovní postup, protože světla s AGX rychleji zesvětlují.
+
+Kde se s tím potkáš: [Tone mapper: odkud je „unreal engine look"](praxe/osvetleni.md#tone-mapper-odkud-je-unreal-engine-look) · [Rejstřík: EV100](#ev100)
 
 ### Toon shading
 
@@ -3406,6 +3478,14 @@ Ne nutně začátek hry: libovolných 5–60 minut zážitku, na kterém se popr
 
 Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.md) · [Základy designu](teorie/zaklady.md) · [Zápisky: cut line](zapisky/cut-line.md)
 
+### Virtual texture stack
+
+**Počet unikátních UV kombinací v materiálu — cena zpětné vazby virtuálních textur se počítá na stack, ne na texturu.**
+
+Tři různá dláždění znamenají tři stacky, protože pro každý se musí zvlášť vyhodnotit, které mipy a dlaždice nahrát. Vzorkovat víc textur toutéž UV kombinací stack **nepřidá**; dát normálce vlastní dláždění ano. Praktické pravidlo při stavbě master materiálu: sdílej UV kombinace, kde to jde, a nové zaváděj vědomě.
+
+Kde se s tím potkáš: [Virtualizace](praxe/gpu-pamet.md#virtualizace-kniha-ze-ktere-ctes-jen-otevrenou-stranku) · [Rejstřík: Virtual texture](#virtual-texture)
+
 ### Virtual bone
 
 **Kost existující jen v enginu — přidá se na skeleton (Add Virtual Bone) bez re-exportu z DCC nástroje.**
@@ -3461,6 +3541,14 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí
 Perspektiva her jako Harvest Moon nebo Stardew Valley — není to čistý pohled shora, ale ani izometrie. Rozdíl proti izometrii je v tom, jak se osy sbíhají; prakticky se volí tam, kde je potřeba čitelný půdorys a zároveň rozpoznatelné postavy zpředu.
 
 Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
+
+### WPO
+
+**World Position Offset — posun vrcholů v materiálu; nejčastější tichá příčina drahých stínů.**
+
+Slouží k větru v listí, vlnám a podobným deformacím a je to **programovatelná rasterizace**, tedy v Nanite světě výrazně dražší cesta. Dvě pole, která k němu vždycky patří: **WPO disabled distance** (za ní se přepne na rychlou fixed-function cestu) a u listí **shadow cache invalidation behavior**, protože pohybující se vrcholy jinak invalidují stínovou cache každý snímek. Diagnostika: Nanite visualization → *Evaluate WPO*; zelená znamená, že se vyhodnocuje.
+
+Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite)
 
 ### Water Body
 

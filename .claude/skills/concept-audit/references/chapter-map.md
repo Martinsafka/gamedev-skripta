@@ -1,4 +1,4 @@
-# Chapter map — generated 2026-07-29 by `scripts/build_chapter_map.py`. Do not edit by hand.
+# Chapter map — generated 2026-07-30 by `scripts/build_chapter_map.py`. Do not edit by hand.
 
 Routing catalog for audit findings. Base URL: https://martinsafka.github.io/gamedev-skripta/
 Slugs and anchors are public API (see agent_docs/architecture.md) — they never get renamed.
@@ -160,6 +160,9 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Profiling: měření místo odhadů](https://martinsafka.github.io/gamedev-skripta/praxe/profiling/) — Optimalizace bez měření je hádání a hádání v Unrealu skoro nikdy nevyjde — protože příčina bývá o dvě patra jinde, než kde se problém projeví. Tahle kapitola je o metodě: jak zjistit, co…
 - [Rozpočet snímku](https://martinsafka.github.io/gamedev-skripta/praxe/rozpocet-snimku/) — Šedesát snímků za sekundu znamená 16,66 ms na všechno — herní logiku, animace, fyziku, síť, přípravu scény, draw cally a vykreslení. Tahle kapitola je o tom, jak s tím číslem zacházet jako…
 - [Potrubí snímku: latence a jitter](https://martinsafka.github.io/gamedev-skripta/praxe/frame-pacing/) — Hráč nevidí ani jedno z čísel, na která se koukáš v stat unit. Vidí kolik snímků se skutečně objevilo na monitoru a jak dlouho trvalo, než jeho stisk něco udělal. Tahle kapitola je o té…
+- [Nanite do hloubky](https://martinsafka.github.io/gamedev-skripta/praxe/nanite-do-hloubky/) — Optimalizace scény porovnává Nanite s LODy jako volbu. Tahle kapitola jde o patro níž: jak Nanite doopravdy utrácí čas, jak se ta útrata dá rozdělit na dvě různé věci (rasterizaci a…
+- [Paměť GPU: virtuální textury a pooly](https://martinsafka.github.io/gamedev-skripta/praxe/gpu-pamet/) — Video paměť neroste tak rychle jako nároky na ni — a přibývají systémy, které z ní ukrajují (distance fields, Lumen, virtuální stíny, runtime virtuální textury). Odpovědí celého oboru je…
+- [Optimalizační průchod](https://martinsafka.github.io/gamedev-skripta/praxe/gpu-pruchod/) — Předchozí kapitoly bloku dávaly metodu. Tahle ukazuje, co z ní v praxi padá — dva průchody skutečnými scénami a jeden systematický postup na Lumen. Formát je jiný než u návodů: nikdo tu…
 
 ### Rendering a optimalizace
 - [Optimalizace scény](https://martinsafka.github.io/gamedev-skripta/praxe/optimalizace/) — Výkonová kapitola od základů po specializaci: proč jsou levely pomalé (draw cally a čtyři úrovně léčby od instancí po data layers), Nanite vs. LODy bez ideologie, voxelizace jako zabiják…
@@ -271,6 +274,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Art bible](https://martinsafka.github.io/gamedev-skripta/rejstrik/#art-bible)
 - [Aspirační obtížnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#aspiracni-obtiznost)
 - [Assist mode](https://martinsafka.github.io/gamedev-skripta/rejstrik/#assist-mode)
+- [Async compute](https://martinsafka.github.io/gamedev-skripta/rejstrik/#async-compute)
 - [Asset pack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#asset-pack)
 - [Astroturfing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#astroturfing)
 - [Attenuation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation)
@@ -312,6 +316,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Chord progression](https://martinsafka.github.io/gamedev-skripta/rejstrik/#chord-progression)
 - [Cipher](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cipher)
 - [Closing doors](https://martinsafka.github.io/gamedev-skripta/rejstrik/#closing-doors)
+- [Cluster culling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cluster-culling)
 - [Cognitive load](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cognitive-load)
 - [Cold open](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cold-open)
 - [Collision mask](https://martinsafka.github.io/gamedev-skripta/rejstrik/#collision-mask)
@@ -356,6 +361,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Edit layer](https://martinsafka.github.io/gamedev-skripta/rejstrik/#edit-layer)
 - [Editor script](https://martinsafka.github.io/gamedev-skripta/rejstrik/#editor-script)
 - [Editor Utility Widget](https://martinsafka.github.io/gamedev-skripta/rejstrik/#editor-utility-widget)
+- [Effect type](https://martinsafka.github.io/gamedev-skripta/rejstrik/#effect-type)
 - [Eigenvektor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eigenvektor)
 - [Elemental tetrad](https://martinsafka.github.io/gamedev-skripta/rejstrik/#elemental-tetrad)
 - [Elevator pitch](https://martinsafka.github.io/gamedev-skripta/rejstrik/#elevator-pitch)
@@ -459,6 +465,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Loose coupling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#loose-coupling)
 - [Low-fi prototyp](https://martinsafka.github.io/gamedev-skripta/rejstrik/#low-fi-prototyp)
 - [Low-pass filtr](https://martinsafka.github.io/gamedev-skripta/rejstrik/#low-pass-filtr)
+- [Lumen](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lumen)
 - [Ludonarativní disonance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ludonarativni-disonance)
 - [Ludus a paidia](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ludus-a-paidia)
 - [MAYA](https://martinsafka.github.io/gamedev-skripta/rejstrik/#maya)
@@ -577,8 +584,10 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Reverb](https://martinsafka.github.io/gamedev-skripta/rejstrik/#reverb)
 - [Rewind Debugger](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rewind-debugger)
 - [RITE](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rite)
+- [RHI](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rhi)
 - [Rigging](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rigging)
 - [Roguelike](https://martinsafka.github.io/gamedev-skripta/rejstrik/#roguelike)
+- [Roughness](https://martinsafka.github.io/gamedev-skripta/rejstrik/#roughness)
 - [Root motion](https://martinsafka.github.io/gamedev-skripta/rejstrik/#root-motion)
 - [Rovnoměrně temperované ladění](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rovnomerne-temperovane-ladeni)
 - [Rubber banding](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rubber-banding)
@@ -629,12 +638,14 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [State machine](https://martinsafka.github.io/gamedev-skripta/rejstrik/#state-machine)
 - [State Tree](https://martinsafka.github.io/gamedev-skripta/rejstrik/#state-tree)
 - [Steam Next Fest](https://martinsafka.github.io/gamedev-skripta/rejstrik/#steam-next-fest)
+- [Streaming pool](https://martinsafka.github.io/gamedev-skripta/rejstrik/#streaming-pool)
 - [Stitching](https://martinsafka.github.io/gamedev-skripta/rejstrik/#stitching)
 - [Strategy pattern](https://martinsafka.github.io/gamedev-skripta/rejstrik/#strategy-pattern)
 - [Struct](https://martinsafka.github.io/gamedev-skripta/rejstrik/#struct)
 - [Stupnice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#stupnice)
 - [Subsystem](https://martinsafka.github.io/gamedev-skripta/rejstrik/#subsystem)
 - [Subtraktivní syntéza](https://martinsafka.github.io/gamedev-skripta/rejstrik/#subtraktivni-synteza)
+- [Surface cache](https://martinsafka.github.io/gamedev-skripta/rejstrik/#surface-cache)
 - [Survivorship bias](https://martinsafka.github.io/gamedev-skripta/rejstrik/#survivorship-bias)
 - [SVD](https://martinsafka.github.io/gamedev-skripta/rejstrik/#svd)
 - [Sync marker](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sync-marker)
@@ -648,6 +659,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Time slicing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#time-slicing)
 - [Timeline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#timeline)
 - [Tónina](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tonina)
+- [Tone mapper](https://martinsafka.github.io/gamedev-skripta/rejstrik/#tone-mapper)
 - [Toon shading](https://martinsafka.github.io/gamedev-skripta/rejstrik/#toon-shading)
 - [Trajektorie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#trajektorie)
 - [Traversal](https://martinsafka.github.io/gamedev-skripta/rejstrik/#traversal)
@@ -674,6 +686,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Version control](https://martinsafka.github.io/gamedev-skripta/rejstrik/#version-control)
 - [Vizuální hierarchie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#vizualni-hierarchie)
 - [Vertical slice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#vertical-slice)
+- [Virtual texture stack](https://martinsafka.github.io/gamedev-skripta/rejstrik/#virtual-texture-stack)
 - [Virtual bone](https://martinsafka.github.io/gamedev-skripta/rejstrik/#virtual-bone)
 - [Virtual Shadow Maps](https://martinsafka.github.io/gamedev-skripta/rejstrik/#virtual-shadow-maps)
 - [Virtual texture](https://martinsafka.github.io/gamedev-skripta/rejstrik/#virtual-texture)
@@ -681,6 +694,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Voicing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#voicing)
 - [Volumetric fog](https://martinsafka.github.io/gamedev-skripta/rejstrik/#volumetric-fog)
 - [Oblique](https://martinsafka.github.io/gamedev-skripta/rejstrik/#oblique)
+- [WPO](https://martinsafka.github.io/gamedev-skripta/rejstrik/#wpo)
 - [Water Body](https://martinsafka.github.io/gamedev-skripta/rejstrik/#water-body)
 - [Wave Function Collapse](https://martinsafka.github.io/gamedev-skripta/rejstrik/#wave-function-collapse)
 - [WIP limit](https://martinsafka.github.io/gamedev-skripta/rejstrik/#wip-limit)
