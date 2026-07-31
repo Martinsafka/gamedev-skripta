@@ -1,4 +1,4 @@
-# Chapter map — generated 2026-07-30 by `scripts/build_chapter_map.py`. Do not edit by hand.
+# Chapter map — generated 2026-07-31 by `scripts/build_chapter_map.py`. Do not edit by hand.
 
 Routing catalog for audit findings. Base URL: https://martinsafka.github.io/gamedev-skripta/
 Slugs and anchors are public API (see agent_docs/architecture.md) — they never get renamed.

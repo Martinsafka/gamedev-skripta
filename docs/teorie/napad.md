@@ -166,3 +166,30 @@ A nakonec **momentum bar** [(58:14)](https://www.youtube.com/watch?v=d_e9Apys9Dg
 > **Pozn.:** Skills audit je měkčí sourozenec řemeslnických otázek z [rozpočtu pozornosti](scope.md#proc-male-rozpocet-pozornosti-ne-jen-dokoncitelnost) („co neumím tak, že to do projektu nesmí?") — a Ape Out příklad si autor o rok později naordinoval sám: viz [pivot Golem Gourmet](scope.md#pivot-kdyz-hra-nasla-jadro-jinde-nez-jsi-planoval). Magnify z SCAMPER je totéž co „malá hra = jedna mechanika" řečené generátorem.
 
 **Souvislosti:** [Scope: design by constraint](scope.md#design-by-constraint-krabice-napred-napad-dovnitr) · [Test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) · [Systémy a mechaniky](systemy-a-mechaniky.md) · [Rejstřík: SCAMPER](../rejstrik.md#scamper) · [Rejstřík: skills audit](../rejstrik.md#skills-audit)
+
+---
+
+## „X, ale Y": hook, který se vejde do čtyř slov
+
+**Zdroj:** [How This Game Dev Sold 1,000,000 Copies of His Game (In A WEEK) — Full Time Game Dev Podcast Ep. 007](https://www.youtube.com/watch?v=kodquYtxXd8) · [Thomas Brush](https://www.youtube.com/channel/UCuHVjteDW9tCb8QqMrtGvwQ) · ~77 min, rozhovor (spoluzakladatel Massive Monster, Cult of the Lamb)
+
+**Shrnutí:** Rozhovor se spoluzakladatelem studia, které po dvou komerčně neúspěšných hrách udělalo Cult of the Lamb. Nejcennější část je o **hooku** — a je konkrétní, protože host přesně popisuje, jak jejich hra devět měsíců hook neměla a co se stalo, když ho našla. Háček, kvůli kterému to není jen marketingová rada: **hook si tě pak drží zodpovědného za sliby, které dal.**
+
+### Rozpad myšlenky
+
+**Devět měsíců hledání a jeden test** [(7:00)](https://www.youtube.com/watch?v=kodquYtxXd8&t=420s). Smyčka hry byla hotová brzy — základna, výpravy pro suroviny, vylepšení. Ale **o čem ta hra je**, nevěděli. Chodili na konvence a zkoušeli to na lidech: *„jsi ztracený bůh na zádech létající velryby"* — a *„lidem prostě zeskelnatěl pohled."* Pak našli **„založíš si kult"** a *„lidem to došlo okamžitě."* Rozdíl je délka a srozumitelnost, ne kvalita nápadu.
+
+**Formule, kterou hostitel pojmenoval** [(8:34)](https://www.youtube.com/watch?v=kodquYtxXd8&t=514s): **„X, ale Y."** Hollow Knight je *metroidvania, ale s brouky*; Portal je *střílečka, ale s portály*; Cult of the Lamb je *Binding of Isaac, ale se správou kultu* — nebo jak to popsal host: *Stardew Valley, ale Enter the Gungeon*. Proč to funguje: **novost uvnitř známého**. *„Řekneš to a člověk si řekne — aha, střílečky znám a hádanky mám rád, chápu to."*
+
+A doplněk, který je nejpraktičtější mírou: **čím kratší popis, tím lépe.** Host uvádí jako rekord *„spider train"* — dvě slova. A hned varuje před snadným čtením té rady: *„lidi si možná řeknou, aha, to je jednoduché. Není. Napsat popis hry, který v někom vyvolá svrbění, je strašně těžké."*
+
+**Odkud ta pravidla přišla** [(9:20)](https://www.youtube.com/watch?v=kodquYtxXd8&t=560s) — a tohle je na celém rozhovoru nejcennější, protože je to analýza vlastního selhání. Ze dvou předchozích her si odnesli dvě věci:
+
+- **Jak hru čte cizí člověk, není tvoje volba.** Jejich předchozí hru lidé odepisovali jako dětskou. Odpověď: jít temněji.
+- **Obsah na jedno použití je drahý a nedá se vydělat dvakrát.** *„Máš 120 levelů, ale jakmile je jednou projdeš, je to pryč — a je to strašně drahé a časově náročné na výrobu. A se streamováním to ani nemusíš hrát sám, můžeš se dívat, jak to hraje někdo jiný, a máš to zkonzumované."* Odtud pohled na hry, které se konzumují opakovaně: **kolonijní simulátory a roguelike**.
+
+**A ta druhá polovina, na kterou se zapomíná** [(19:26)](https://www.youtube.com/watch?v=kodquYtxXd8&t=1166s). Hostitel to přirovná k YouTube: **hook je míra prokliku, splnění slibu je retence.** *„Můžeš mít skvělý hook, ale nesplníš-li jeho sliby, dostaneš většinou negativní recenze."* U nich to znamenalo, že *„založíš si kult"* zavazuje k obětem, rituálům a indoktrinaci — takže si **udělali seznam z webů o tom, co dělá kult kultem, a odškrtávali ho**. A pak to museli udělat smysluplným uvnitř smyčky, což bylo *„velmi, velmi těžké"*.
+
+> **Pozn.:** Tahle myšlenka doplňuje [test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) o **empirickou verzi**: nepiš popis a nehodnoť ho sám — **řekni ho cizím lidem a dívej se jim do obličeje.** Host popisuje, jak u předchozí hry poznal, které dvě věci fungují (žirafa v batohu a otec proměněný v párek), protože u nich lidé cukli koutkem. To je levnější a spolehlivější než jakákoli vlastní úvaha. Druhá věc, kterou si odsud bereme, je **hook jako závazek**: dobrá věta ti přivede lidi a **zároveň ti předepíše práci**, kterou musíš udělat, aby nebyli zklamaní. Z toho plyne test, který stojí za převzetí: **napiš, co si hráč po přečtení tvé věty představí, a zeptej se, jestli to ve hře je.** A vlastní výhrada k „X, ale Y": funguje na **odlišení**, ne na hodnocení. Věta „Dark Souls, ale s vaflemi" je snadno zapamatovatelná a nic neříká o tom, jestli ta hra bude dobrá — o tom rozhoduje až ta druhá půlka, retence.
+
+**Souvislosti:** [Test 300 znaků](#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) · [Yoink & twist](#yoink-twist-lepsi-nebo-dost-jina) · [Čtyři zdroje nápadů — a evaluace: hook, anchor, appeal](#ctyri-zdroje-napadu-a-evaluace-hook-anchor-appeal) · [Steam stránka: krátký popis](steam-stranka.md#kratky-popis-slovesa-konkretnost-a-test-zakryteho-nazvu) · [Rejstřík: Hook](../rejstrik.md#hook) · [Rejstřík: Short description](../rejstrik.md#short-description)

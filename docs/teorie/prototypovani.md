@@ -82,3 +82,32 @@ Praktický korolár [(10:54)](https://www.youtube.com/watch?v=9L6XX9kDQyA&t=654s
 > **Pozn.:** Tohle je jemnozrnný pohled dovnitř [tří bran](#tri-brany-gameplay-prototyp-vertical-slice-produkce): brány říkají, *kdy* smíš dál, spirála říká, *jak* se mezi nimi jede. A „komfortní lajna" je totéž, co [únik k snadné tvorbě](produktivita.md#unik-k-snadne-tvorbe-world-building-a-dokonaly-toolset) — jen viděná z ptačí perspektivy celého projektu.
 
 **Souvislosti:** [Žrouti času: únik k snadné tvorbě](produktivita.md#unik-k-snadne-tvorbe-world-building-a-dokonaly-toolset) · [Sólo vývoj](solo-vyvoj.md) · [Scope: pivot](scope.md#pivot-kdyz-hra-nasla-jadro-jinde-nez-jsi-planoval) · [Rejstřík: elemental tetrad](../rejstrik.md#elemental-tetrad) · [Rejstřík: iterace](../rejstrik.md#iterace)
+
+---
+
+## Když GDD nestíhá: booleovské A/B a pilíře, které dovolí škrtat
+
+**Zdroj:** [How This Game Dev Sold 1,000,000 Copies of His Game (In A WEEK)](https://www.youtube.com/watch?v=kodquYtxXd8) · [Thomas Brush](https://www.youtube.com/channel/UCuHVjteDW9tCb8QqMrtGvwQ) · ~77 min, rozhovor (spoluzakladatel Massive Monster)
+
+**Shrnutí:** Na otázku *„naplánovali jste to v GDD?"* odpoví host *„proboha ne"* — a pak to celé hodinu zdůvodňuje způsobem, který není obhajobou chaosu. Jeho proces má dvě opory: **spor se neřeší diskuzí, ale tím, že se obě varianty naprogramují**, a **tři designové pilíře**, bez kterých by to celé neudrželo směr. Háček, který dělá rozdíl mezi tímhle a nekázní: **iterovat se dá jen tam, kde všichni vědí, kam se jde.**
+
+### Rozpad myšlenky
+
+**Proč u nich GDD nefungoval** [(25:45)](https://www.youtube.com/watch?v=kodquYtxXd8&t=1545s) — a je to konkrétní důvod, ne postoj: *„dělali jsme spoustu věcí, se kterými jsme se předtím nesetkali."* U metroidvanie se dá napsat dopředu, co bude, protože formát je známý. U hry, jejíž žánr ještě neexistoval, se nedalo. K tomu malý tým a takové tempo, že *„nápady byly zaříznuté dřív, než se o nich většina lidí dozvěděla."* Výslovně dodává, že proti GDD **nic nemá** a že pro vydavatele psali dokumenty kvůli financování.
+
+**Co dělali místo toho: booleovské A/B** [(24:11)](https://www.youtube.com/watch?v=kodquYtxXd8&t=1451s). Když se přeli, jestli má sermon zvyšovat úroveň postavy, nebo dávat zlato, **udělali z toho boolean a zkusili obojí**. *„Došli jsme do bodu, kdy jsme si říkali: nemám čas ani energii se hádat. Dej to tam obojí a zkusíme to."* Z toho vznikla jejich formulace, která je celé myšlence jádrem: **„ať nám ta hra řekne, co chce být."**
+
+**Dva nálezy, které přišly úplně na konci** a bez toho procesu by nevznikly:
+
+- **Obětování stoupence zvedne úroveň postavy** [(22:37)](https://www.youtube.com/watch?v=kodquYtxXd8&t=1357s). Dřív dávalo zlato, jenže v pozdní hře už zlato nepotřebuješ, takže se oběť nevyplácela. Nová verze udělala něco jiného: **hráč to dělá pro vlastní prospěch** — a tím se stane spoluviníkem. *„Bylo to fantastické, když to šlo dovnitř."*
+- **Sermony napojené na úrovně** — také až na konci, přestože je to celá smyčka hry.
+
+**A ta podmínka, bez které je to jen chaos** [(29:36)](https://www.youtube.com/watch?v=kodquYtxXd8&t=1776s): **tři designové pilíře.** *„Každé rozhodnutí, které pak uděláš, musí posílit jeden nebo víc z nich. A když ne — i kdyby to byla skvělá funkce — musíš to vyhodit, protože to kalí vizi."* Zmiňuje, že tým God of War měl své tři pilíře vyvěšené v budově. Živá ukázka v rozhovoru: hostitel na místě zformuluje pilíře své hry jako **BioShock, ale Willy Wonka** · **gunplay jako Half-Life, ale měníš prostředí** · **příběh, který dojme** — a host to okamžitě otočí do praxe: *„nedáš tam piráty, protože nesedí do té Willy Wonka estetiky."*
+
+**Vedlejší praxe, kterou stojí za to znát i s jejími náklady** [(30:23)](https://www.youtube.com/watch?v=kodquYtxXd8&t=1823s): *team sneaky boys* — když je něco potřeba a není to naplánované, **prostě to udělají a neřeknou o tom**. Logika je cynicky přesná: *„je víc práce to vyhodit, než to tam nechat."* Host to sám označí za *„velmi stresující pro všechny, kdo v tom týmu nejsou"* — zejména pro producenta.
+
+**Vina za zahozenou práci** [(49:56)](https://www.youtube.com/watch?v=kodquYtxXd8&t=2996s) je v rozhovoru nejlidštější část: hostitel přiznává, že měsíc práce svého výtvarníka zahodil a týdny se z toho hryzal. Odpověď hosta je přirovnání k horolezci, který se probudí v ledovcové trhlině: *„musel jsem si vybrat doleva, nebo doprava — a nezáleželo na tom, jestli je to správně. Rozhodoval jsem se."* A rozvedení: **jednotlivé rozhodnutí obvykle není osudové, ale to, že někdo kormidluje, ano.** *„Lidi chtějí mít pocit, že tuhle loď někdo řídí."*
+
+> **Pozn.:** Tenhle rozhovor by se dal snadno přečíst jako „GDD je zbytečný" — a to by byla špatná četba. Podstatné je, **co u nich tu funkci zastalo**: tři věty, které se vejdou na zeď, a pravidlo, že všechno ostatní se musí dát odvodit z nich. To je vlastně **komprimovaný GDD**, jen ve formě, kterou nikdo nemusí otevírat. Přesně to je i pointa [jedné stránky](gdd.md#jedna-stranka-format-rozhoduje-o-tom-jestli-to-nekdo-otevre): dokument, který se nečte, nefunguje; tři věty na zdi se čtou samy. Nejcennější přenositelná technika je ale **boolean místo hádky**: převádí názorový spor na měřitelný, a hlavně ho převádí na **něco levnějšího než diskuze** — což u malého týmu obvykle platí a u velkého ne. Vlastní výhrada k *team sneaky boys*: funguje to v týmu tří spoluzakladatelů se sdíleným podílem a **stejnou motivací**. V týmu se zaměstnanci a termíny je to tentýž postup s úplně jiným významem — obcházení plánování, ne iniciativa. Ta praxe se nedá odstřihnout od kontextu, ve kterém vznikla.
+
+**Souvislosti:** [Iterační spirála](#iteracni-spirala-ke-stredu-nevede-rychly-pruh) · [Tři brány](#tri-brany-gameplay-prototyp-vertical-slice-produkce) · [GDD: jedna stránka](gdd.md#jedna-stranka-format-rozhoduje-o-tom-jestli-to-nekdo-otevre) · [Nápad: „X, ale Y"](napad.md#x-ale-y-hook-ktery-se-vejde-do-ctyr-slov) · [Rejstřík: Design pillars](../rejstrik.md#design-pillars) · [Rejstřík: A/B test](../rejstrik.md#ab-test)
