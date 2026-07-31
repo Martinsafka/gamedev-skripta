@@ -92,4 +92,38 @@ A hned k tomu poctivé pojmenování hranice nástroje [(11:51)](https://www.you
 
 > **Pozn.:** Formát videa je „cook up" — z valné většiny hraje hudba a mluveného slova je málo, takže se z něj nedá číst systém, jen postupy. Právě proto se hezky doplňuje s [pravidlem dvou loopů](#pravidlo-dvou-loopu): tam je kostra bez konkrétních zvuků, tady konkrétní zvuky bez kostry. A jedno varování k převzetí do herní hudby: **skoro všechno je tu postavené na vokálu**, což je u smyčkované herní hudby problematické (text se posluchači po dvacáté opakování zajídá). Přenositelné jsou proto hlavně mechanismy — hlas jako sampler, vrstvení bicích, riser se zámlkou — ne struktura písně.
 
-**Souvislosti:** [Pravidlo dvou loopů](#pravidlo-dvou-loopu) *(kostra, do které se tyhle postupy vejdou)* · [Píseň žije v přechodu](#pisen-zije-v-prechodu) · [Tvorba herního soundtracku](tvorba-soundtracku.md) *(proč vokál ve smyčce zlobí)* · [Nástroje zdarma](nastroje-zdarma-a-game-jam.md) · [Rejstřík: arrangement](../rejstrik.md#arrangement) · [Rejstřík: sampling](../rejstrik.md#sampling)
+**Souvislosti:** [Pravidlo dvou loopů](#pravidlo-dvou-loopu) *(kostra, do které se tyhle postupy vejdou)* · [Píseň žije v přechodu](#pisen-zije-v-prechodu) · [Tvorba herního soundtracku](tvorba-soundtracku.md) *(proč vokál ve smyčce zlobí)* · [Metoda zákopu](#metoda-zakopu-nic-nepridavej-dokud-stavajici-nesedne) · [Nástroje zdarma](nastroje-zdarma-a-game-jam.md) · [Rejstřík: arrangement](../rejstrik.md#arrangement) · [Rejstřík: sampling](../rejstrik.md#sampling)
+
+---
+
+## Metoda zákopu: nic nepřidávej, dokud stávající nesedne
+
+**Zdroj:** [A Simple System For Making Songs in 2026](https://www.youtube.com/watch?v=XlltkalLaU4) · [Alex Rome](https://www.youtube.com/channel/UCh1MtJ4rx4n4PQGYNYK_UXA) · ~17 min, systém předvedený na jedné skladbě
+
+**Shrnutí:** Třístupňový postup, který autor učí své studenty a nazývá ho **metoda zákopu**: (1) vykopej zákop — vokál nebo hlavní melodie a akordy pod ní, (2) rozšiř zákop — bicí, melodie, bas, (3) teprve pak aranžuj. Jádro ale není v tom pořadí. Je v **kontrolním kroku mezi každými dvěma přidanými nástroji**. Háček: dokud spolu fundamenty nesedí, žádná další vrstva už tomu nepomůže.
+
+### Rozpad myšlenky
+
+**Zákop je vokál plus akordy** [(0:24)](https://www.youtube.com/watch?v=XlltkalLaU4&t=24s) — a když neděláš hudbu s vokály, **hlavní melodie**. Podstatné je pořadí: **melodie první, akordy druhé.** Autor si nepíše akord za akordem, ale *„používá energii, která už ve vokálu je, a harmonizuje s ní"*.
+
+Postup je záměrně chudý: **vezmi pilu, přidej filtr — a máš electro pad**, *„nejjednodušší zvuk, jaký kdy použiješ, a já v něm stavím všechny svoje zákopy."* Pak se pod vokál píší basové tóny *„náhodně, jen v tónině"*, dokud něco nesedne, tercie nahoru — a hotovo.
+
+**A tady je věta, kvůli které ten postup není banální** [(2:53)](https://www.youtube.com/watch?v=XlltkalLaU4&t=173s): *„budu tu sedět třeba hodiny a zkoušet různé harmonie. Všechny si uložím a pak vyberu tu nejlepší, protože zákop ztluču do němoty, abych měl jistotu, že stavím skladbu na absolutně nejsilnější sadě akordů, jakou jsem schopen vymyslet."* Ta nepoměrná investice do nejmenšího kusu skladby je celý ten systém.
+
+**Akordy se zjednodušují** [(3:55)](https://www.youtube.com/watch?v=XlltkalLaU4&t=235s) — pozorování o současné produkci, které stojí za převzetí: *„všechny popové žánry teď nemají ty šílené vrstvené akordy o čtyřech nebo pěti tónech jako za časů big room house nebo progressive. Dneska jsou akordy velmi často jen kořen a jeden dva další tóny, a nad tím vokál a melodie."* Zvuk zákopu má proto zůstat jednoduchý — *„je to zvuk, který lepí harmonii dohromady."*
+
+**Rozšíření zákopu** [(6:03)](https://www.youtube.com/watch?v=XlltkalLaU4&t=363s) je bicí, melodie a bas — a **mezi každými dvěma je kontrola**. Formulace, která se opakuje třikrát: *„kdykoli přidáš nástroj, musíš se ujistit, že funguje s ostatními. Znějí, jako by byly ze stejné skladby? Sedí k sobě dynamicky?"* A pak důvod, který stojí za odcitování celý [(9:03)](https://www.youtube.com/watch?v=XlltkalLaU4&t=543s): *„všichni jsme tak nedočkaví přidávat věci a dostat svoje nápady ven — ale když tyhle věci nefungují dohromady, nic z toho, co přidáš, už tvojí skladbě žádnou hodnotu nepřidá."*
+
+**Tři drobnosti z toho druhého kroku**, které jsou samy o sobě použitelné:
+
+- **Bicí přes MIDI, ne kreslením do mřížky**: sada se poskládá do drum racku a hraje se z kláves. Autor uvádí konkrétní důvod — *„MIDI bicí mě donutily hrát nízkofrekvenční údery, které bych v DAW normálně nedělal."* **Vstupní zařízení mění, co vůbec napíšeš.**
+- **Tečkovaný rytmus** je nejlevnější způsob, jak melodii vytrhnout z mřížky: *„jakákoli standardní hodnota plus padesát procent jí samotné."*
+- **Melodie musí vyústit**: *„vždycky chceš, aby tvoje melodie někam došla. Když jen dokola opakuješ čtyřtaktovou melodii, která se nemění, začne to být repetitivní a trochu takové nijaké."*
+
+**Bas se neskládá, odvozuje** [(10:12)](https://www.youtube.com/watch?v=XlltkalLaU4&t=612s): vezmou se spodní tóny akordů. K tomu poznámka o práci, která má cenu i mimo hudbu: *„na basu zrovna nejsem v přemýšlivé náladě — ale ta pěkná věc na hudbě je, že v přemýšlivé náladě být nemusíš. Hudba je hudba a přizpůsobí se tomu, jak se cítíš."*
+
+**A výplata za všechnu tu disciplínu** [(11:11)](https://www.youtube.com/watch?v=XlltkalLaU4&t=671s): *„náš zákop je hotový, a to doopravdy znamená, že odsud už nemůžeš nic pokazit."* Aranžování jsou pak sekce, přechody a automatizace — a nic z toho nemůže podkopat základ, protože ten je odzkoušený.
+
+> **Pozn.:** Kdo dělá software, pozná ten tvar okamžitě: **je to integrace po malých krocích proti big-bang integraci.** Přidej jednu věc, ověř, že celek pořád funguje, teprve pak přidej další — protože **náklad na najití problému roste s počtem vrstev, které nad ním leží**. V hudbě je to o to zákeřnější, že to selhává tiše: mix nespadne na chybu, jen postupně přestane fungovat, a ty pak přidáváš vrstvy do něčeho, co je vadné odspodu. Nejcennější kus je proto ta **hodina strávená nad čtyřmi akordy** — je to vědomé přesunutí námahy tam, kde má největší páku. Pro herní hudbu to platí dvojnásob: **smyčka, kterou hráč uslyší dvěstěkrát, si tu hodinu zaslouží víc než jakákoli píseň.** Vlastní výhrada: metoda předpokládá, že **víš, co je hlavní hlas**, a to u ambientní nebo adaptivní herní hudby často neplatí — tam žádný vokál ani lead není a zákop se musí kopat kolem textury. Postup se dá převzít, výchozí bod ne.
+
+**Souvislosti:** [Pravidlo dvou loopů](#pravidlo-dvou-loopu) · [Píseň žije v přechodu](#pisen-zije-v-prechodu) · [Dvě cesty k melodii](melodie.md#dve-cesty-k-melodii-sochar-a-carova-kresba) · [Katalog progresí podle nálady](akordy-a-harmonie.md#katalog-progresi-podle-nalady) · [Rytmus: mřížka, doby a fráze](rytmus.md) · [Rejstřík: arrangement](../rejstrik.md#arrangement) · [Rejstřík: Zákop (trench)](../rejstrik.md#zakop-trench)

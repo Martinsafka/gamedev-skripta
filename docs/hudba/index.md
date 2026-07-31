@@ -8,14 +8,15 @@ Témata a kapitoly:
 
 **Základy hudební teorie**
 
-- **[Fyzika souzvuku](fyzika-souzvuku.md)** — proč tóny ladí a neladí: zázněj dvou sinusovek, alikvóty a harmonická řada, a proč mají jiné kultury jiné stupnice. Disonance jako řízená páka napětí.
+- **[Fyzika souzvuku](fyzika-souzvuku.md)** — proč tóny ladí a neladí: zázněj dvou sinusovek, alikvóty a harmonická řada, a proč mají jiné kultury jiné stupnice. Disonance jako řízená páka napětí — a kvintový kruh, který se nedovírá.
 - **[Základy hudební teorie](hudebni-teorie-zaklady.md)** — praktické minimum pro DAW: noty, půltóny a celé tóny, stupnice jako vzorce a stavba triád ze stupnice.
+- **[Rytmus: mřížka, doby a fráze](rytmus.md)** — zapomenutá půlka hudby: předznamenání a dělení, swing jako páka na žánr, žebříček silných a slabých dob (a proč rozhoduje frekvenční obsah), fráze A·B·A·C·A·A·D — a prázdno, které funguje jako fill naopak.
 
 **Skladba: melodie, harmonie, aranž**
 
 - **[Jak psát melodie](melodie.md)** — melodie = výška + rytmus a one-note test, dvě cesty ke vzniku (sochař vs. čárová kresba), osm otázek na cizí melodii a případovka na Aviciiho.
-- **[Akordy a harmonie](akordy-a-harmonie.md)** — stavba akordů a progrese v piano rollu, emoce z pohybu akordů (vzestup/sestup, passing chords) a řemeslo voicingu, voice leadingu a prodlev.
-- **[Aranžmá: z loopu skladba](aranz.md)** — pravidlo dvou loopů proti „loop trap", čtyři druhy změn na sekci, proč píseň žije v přechodu (test vypršení, rozpočet tahů, transition check) — a natáčená session, kde skladba vzniká od prvních kláves.
+- **[Akordy a harmonie](akordy-a-harmonie.md)** — stavba akordů a progrese v piano rollu, emoce z pohybu akordů (vzestup/sestup, passing chords), řemeslo voicingu, voice leadingu a prodlev — katalog pětadvaceti progresí podle nálady a překlopitelné progrese, které tě nechají rozhodnout se až podle poslechu.
+- **[Aranžmá: z loopu skladba](aranz.md)** — pravidlo dvou loopů proti „loop trap", čtyři druhy změn na sekci, proč píseň žije v přechodu (test vypršení, rozpočet tahů, transition check), metoda zákopu (nic nepřidávej, dokud stávající nesedne) — a natáčená session, kde skladba vzniká od prvních kláves.
 - **[Žánry a jejich melodie](zanry-a-styl.md)** — žánr jako recept (tempo, akordy, rytmus, výběr zvuku) a přenositelné triky napříč žánry: extensions, synkopa, posouvání akordu.
 
 **Sound design a zvuk ve hře**
@@ -25,8 +26,8 @@ Témata a kapitoly:
 
 **Hudba pro tvou hru**
 
-- **[Tvorba herního soundtracku](tvorba-soundtracku.md)** — nejdřív tón scény, pak noty; sound fonty pro retro zvuk; leitmotiv jako pojivo světa; a řemeslo tracku včetně bezešvého loopu.
-- **[Zdarma a rychle: nástroje a game jam](nastroje-zdarma-a-game-jam.md)** — vlastní hudba bez peněz a bez teorie: LMMS, chord generátory a montážní linka drumy → akordy → melodie → bas → loop; a CDP se SoundThreadem jako bezplatná laboratoř na nemožné zvuky.
+- **[Tvorba herního soundtracku](tvorba-soundtracku.md)** — nejdřív tón scény, pak noty; sound fonty pro retro zvuk; leitmotiv jako pojivo světa; řemeslo tracku včetně bezešvého loopu; a případovka na Cornfield Chase — co zbude, když cizí track rozeberete přestavbou.
+- **[Zdarma a rychle: nástroje a game jam](nastroje-zdarma-a-game-jam.md)** — vlastní hudba bez peněz a bez teorie: LMMS, chord generátory a montážní linka drumy → akordy → melodie → bas → loop; CDP se SoundThreadem jako bezplatná laboratoř na nemožné zvuky; a AI řetěz na vokál, který přezpívá tvou melodii a vrátí ti tvůj hlas — i s tím, co je na něm potřeba zvážit.
 
 **Cesta skladatele**
 

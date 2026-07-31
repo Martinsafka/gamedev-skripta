@@ -79,4 +79,28 @@ Leitmotiv je přímá aplikace práce s motivem z [Melodie](melodie.md#osm-otaze
 
 A specifikum, kterým se herní track liší od písně — **bezešvý loop** [(15:37)](https://www.youtube.com/watch?v=1qPfH95ry84&t=937s): hudba ve hře se přehrává donekonečna, takže úplný konec musí navazovat na začátek. Poslední část udělej tak, aby plynule přešla do prvního taktu — jinak uslyšíš „šev" při každém opakování. (To je [aranžérský přechod](aranz.md#pisen-zije-v-prechodu), jen zapojený do kruhu.)
 
-**Souvislosti:** [Leitmotiv: hudba propojuje svět](#leitmotiv-hudba-propojuje-svet) · [Akordy a harmonie: voicing a prodleva](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Aranžmá: píseň žije v přechodu](aranz.md#pisen-zije-v-prechodu) · [Rejstřík: seamless loop](../rejstrik.md#seamless-loop) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone)
+**Souvislosti:** [Leitmotiv: hudba propojuje svět](#leitmotiv-hudba-propojuje-svet) · [Rozebrat cizí track](#rozebrat-cizi-track-pripadovka-na-cornfield-chase) · [Akordy a harmonie: voicing a prodleva](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Aranžmá: píseň žije v přechodu](aranz.md#pisen-zije-v-prechodu) · [Rejstřík: seamless loop](../rejstrik.md#seamless-loop) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone)
+
+---
+
+## Rozebrat cizí track: případovka na Cornfield Chase
+
+**Zdroj:** [I Remade The Most Emotional Song Ever Written (Hans Zimmer)](https://www.youtube.com/watch?v=uOUPEqTU9ag) · [Alex Rome](https://www.youtube.com/channel/UCh1MtJ4rx4n4PQGYNYK_UXA) · ~14 min, rozbor přestavbou
+
+**Shrnutí:** Autor si vezme *Cornfield Chase* z Interstellaru a **postaví ho znovu od nuly ve svém DAW** — ne aby ho nasdílel, ale aby zjistil, z čeho je. Je to nejlepší metoda učení pro herní hudbu, jakou dokument popisuje, protože skladba pro film a skladba pro hru řeší totéž: **jak nést scénu, aniž by se hudba dral do popředí.** A výsledek rozboru je překvapivě chudý: **stojí to na jednom tónu, který se nemění.**
+
+### Rozpad myšlenky
+
+**Co v té skladbě vlastně je** [(0:25)](https://www.youtube.com/watch?v=uOUPEqTU9ag&t=25s), vrstvu po vrstvě: tříčtvrťový takt · varhanní melodie s **dvěma dozvuky přes sebe — jedním z malé místnosti a jedním z velké** · smyčcové akordy, které zpočátku **nejsou akordy, ale jen intervaly** (6 · 7 · 1 v A moll) · bas · a jedna vrstva navrch, kterou autor označí za hvězdu celého kusu.
+
+**Ta hvězda je prodleva** [(2:07)](https://www.youtube.com/watch?v=uOUPEqTU9ag&t=127s): *„vezme velmi dechový zvuk a použije ho jako prodlevu na E, a ta hraje po celou skladbu."* Jeden tón. Nemění se. A nese to celé — přesně to, co [voicing a artikulace](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) tvrdí obecně, tady doložené na skladbě s půl miliardou přehrání.
+
+**Skladba roste přírůstkem, ne změnou** [(2:53)](https://www.youtube.com/watch?v=uOUPEqTU9ag&t=173s), a tohle je z celého rozboru nejpoužitelnější: *„každých šestnáct taktů se přidá něco dalšího, aby vzrostl výraz."* Intervaly se **rozšíří na triády**, přidá se **druhá prodleva** ve smyčcích, prohloubí se bas, přibude další akordová vrstva ve varhanách. Harmonie se přitom skoro nemění. **Roste hustota, ne materiál.**
+
+**Poctivost rozboru** je na tom videu to nejcennější a stojí za pojmenování: autor opakovaně přizná, kde si není jistý. U jedné arpeggiované linky: *„u druhého akordu jsem si docela jistý, ale od téhle chvíle dál je to šedá zóna — hádám, že je to nějaký C dur"*. A o závěrečné varhanní melodii rovnou: *„to je část skladby, která mě bude strašit do konce života. Zkusil jsem, co jsem mohl."* Kus, který se nepovedlo rozklíčovat, **nechá nedodělaný a řekne to** místo aby ho zamaskoval.
+
+**A jedna metodická drobnost**, která má cenu i mimo hudbu [(3:40)](https://www.youtube.com/watch?v=uOUPEqTU9ag&t=220s): některé věci **nemá smysl přestavovat syntézou**. Prodlevu ve smyčcích autor napřed napsal synťákem, znělo to špatně, a tak sáhl po skutečném smyčcovém nástroji — *„ten smyčec je v originále příliš zřejmý, než abych ho jen tak předělal syntezátorem."* Rozbor tedy nemá vést k „udělej všechno sám", ale k rozpoznání, **který prvek je nahraditelný a který ne**.
+
+> **Pozn.:** Přestavba cizího tracku je **nejpodhodnocenější cvičení v celé této sekci** a stojí za to říct proč: rozbor poslechem ti řekne, co tam je, ale přestavba ti řekne, **co tam není** — kolik toho autor vynechal. Právě to je pro herní hudbu klíčové, protože herní track soutěží o pozornost se zvuky hry, a **hustota je tam nákladem, ne ctností**. Nejcennější poznatek celé případovky je proto ten, který zní nejnudněji: **jeden nehybný tón plus postupné přidávání každých šestnáct taktů.** Je to přesně konstrukce, kterou umíš postavit i jako programátor bez hudebního vzdělání — a je to zároveň [vrstvení adaptivní hudby](#remeslo-herniho-tracku-bas-akordy-loop) popsané v jiném slovníku: vrstvy, které se přidávají a odebírají nad neměnným základem, jsou přesně to, co potřebuje hudba reagující na dění ve hře. A vlastní poznámka k té autorově poctivosti: **„tohle jsem nerozluštil" je součást metody**, ne selhání. Rozbor, který na všechno má odpověď, obvykle jen nepřipouští, kde si vymýšlí.
+
+**Souvislosti:** [Řemeslo herního tracku](#remeslo-herniho-tracku-bas-akordy-loop) · [Nejdřív tón, pak noty](#nejdriv-ton-pak-noty) · [Leitmotiv: hudba propojuje svět](#leitmotiv-hudba-propojuje-svet) · [Osm otázek na cizí melodii](melodie.md#osm-otazek-na-cizi-melodii) *(týž postup, ale poslechem)* · [Emoce z voicingu a artikulace](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone) · [Rejstřík: reverb](../rejstrik.md#reverb)

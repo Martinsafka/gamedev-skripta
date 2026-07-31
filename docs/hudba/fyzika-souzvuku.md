@@ -74,4 +74,26 @@ Autor sám graf nepřeceňuje: neřekne ti, proč fungují konkrétní *sledy* a
 
 > **Pozn.:** Pro tvorbu herní hudby je nejcennější závěr tenhle: disonance je spojité pásmo, ne vypínač. Máš plynulou páku napětí — od dokonalého souzvuku přes lehké tření po drsnou hrůzu. Horor, boss, nejistota: sáhni po těsných intervalech a neharmonických zvucích. Klid, domov, rozuzlení: oktávy, kvinty, čisté alikvóty.
 
-**Souvislosti:** [Alikvóty určují stupnici](#alikvoty-urcuji-stupnici) · [Syntéza zvuku od nuly](synteza-zvuku.md) (jak si barvu, a tím alikvóty, postavíš sám) · [Sound design ve hře](sound-design-ve-hre.md) (disonance jako emoční nástroj) · [Rejstřík: rovnoměrně temperované ladění](../rejstrik.md#rovnomerne-temperovane-ladeni)
+**Souvislosti:** [Alikvóty určují stupnici](#alikvoty-urcuji-stupnici) · [Kvintový kruh je ve skutečnosti spirála](#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Syntéza zvuku od nuly](synteza-zvuku.md) (jak si barvu, a tím alikvóty, postavíš sám) · [Sound design ve hře](sound-design-ve-hre.md) (disonance jako emoční nástroj) · [Rejstřík: rovnoměrně temperované ladění](../rejstrik.md#rovnomerne-temperovane-ladeni)
+
+---
+
+## Kvintový kruh je ve skutečnosti spirála
+
+**Zdroj:** [music theory is witchcraft](https://www.youtube.com/watch?v=7mLqpA-PMwM) · [GST Channel](https://www.youtube.com/channel/UCoQsV1On1wnbGn705cf_9Gw) · ~4 min, esej
+
+**Shrnutí:** Krátká esej, která vezme nejznámější schéma hudební teorie — **kvintový kruh** — a ukáže, že se **nedovírá**. Kvinta je poměr 3:2, ale ta, kterou používáme, je o třetinu procenta jinde, a po dvanácti krocích se nevrátíš tam, kde jsi začal. Háček, kvůli kterému to tady je: **nejužívanější schéma teorie stojí na zaokrouhlení.**
+
+### Rozpad myšlenky
+
+**Nejdřív obrázek, na kterém to celé stojí** [(0:30)](https://www.youtube.com/watch?v=7mLqpA-PMwM&t=30s): hudba je pohyb a ten pohyb je cyklický — *„musíš si ustavit domov, pak z něj odejít, a obvykle, i když ne vždycky, se vrátit."* Platí to pro harmonii i pro melodii: *„melodie, která neopustí domov, je jen tón."* Proto se dvanáct tónů kreslí do kruhu.
+
+**Tvary v tom kruhu** [(1:03)](https://www.youtube.com/watch?v=7mLqpA-PMwM&t=63s) jsou přesně to, co si člověk odnese: **dokonalé rozpůlení kruhu je tritón** (notoricky nestabilní dvojice), **rovnostranný trojúhelník je zvětšený akord**, **čtverec je zmenšený akord** — vlastně dva tritóny přes sebe. A charakterizuje je jedním slovem: **jsou to místa, kterými se dá projít, ale kde se dá stěží zůstat.** *„Tritón se chce ohnout a rozvést. Zvětšený akord se chce zešikmit a rozvést. Čtverec se chce hnout dál."* Symetrie na tom kruhu tedy neznamená stabilitu, ale její pravý opak — **dokonale pravidelný tvar nemá kam gravitovat.**
+
+**A pak ten obrat** [(1:58)](https://www.youtube.com/watch?v=7mLqpA-PMwM&t=118s): vezmi hvězdu (každý druhý tón) a **otoč ji** — a máš kvintový kruh, *„základní kámen hudební teorie a analýzy."* Jenže: **kvinta je definovaná jako poměr 3:2**, kdežto ta naše je *„vedle o třetinu procenta. Vlastně o míň, ale sčítá se to."* Po dvanácti kvintách skončíš **o zhruba 24 centů vedle** — je to **pythagorejské koma** — a *„kvintový kruh je ve skutečnosti spirála."*
+
+**Závěr, kvůli kterému video existuje** [(2:56)](https://www.youtube.com/watch?v=7mLqpA-PMwM&t=176s), a stojí za odcitování celý: *„existuje zvláštní, překvapivě rozšířená představa, že hudební teorie je pevně daná sada pravidel, kterou musíš dodržet, aby tvoje hudba zněla dobře a nudně. Chci, abys věděl, že to prostě není pravda. Hudba je gumové čarodějnictví. Teorie je oblíbený způsob, jak se v tom pohybovat, ale můžeš si psát vlastní zaklínadla. Nejspíš přitom znovu vynalezneš pár kol, ale koho to zajímá? Nejdřív se bav."*
+
+> **Pozn.:** Tohle je poslední dílek k tomu, co dokument říká o [alikvótách](#alikvoty-urcuji-stupnici) a [jiných stupnicích](#jine-alikvoty-jine-stupnice): souzvuk vychází z fyziky, ale **zápis, ve kterém o něm mluvíme, je kompromis**. Rovnoměrné temperování rozprostře pythagorejské koma rovnoměrně po všech dvanácti tónech, takže žádný interval není úplně čistý — a výměnou za to zní **všechny tóniny stejně** a dá se mezi nimi modulovat. To je obchod, ne pravda. Nejcennější je z toho pro tvorbu jedna věc: **teorie je mapa, ne území** — a jakmile to člověk jednou uslyší doložené na samotném kvintovém kruhu, přestane si ji plést s pravidly. Vlastní výhrada: to „gumové čarodějnictví" je snadné přečíst jako *teorii nepotřebuješ*, což autor neříká — říká, že **je to navigační nástroj, který si smíš přizpůsobit**. Rozdíl je podstatný. Kdo teorii neumí, nemá co ohýbat.
+
+**Souvislosti:** [Alikvóty určují stupnici](#alikvoty-urcuji-stupnici) · [Jiné alikvóty, jiné stupnice](#jine-alikvoty-jine-stupnice) · [Stupnice jsou vzorce](hudebni-teorie-zaklady.md#stupnice-jsou-vzorce) · [Rejstřík: Kvintový kruh](../rejstrik.md#kvintovy-kruh) · [Rejstřík: rovnoměrně temperované ladění](../rejstrik.md#rovnomerne-temperovane-ladeni) · [Rejstřík: Tritón](../rejstrik.md#triton)

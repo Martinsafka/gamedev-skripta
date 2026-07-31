@@ -246,6 +246,14 @@ Pravidlo devlogů: na obrazovce má být hra, pořád — ideálně přesně to,
 
 Kde se s tím potkáš: [Devlogy](teorie/devlogy.md)
 
+### Backbeat
+
+**Rytmický důraz na sudé doby taktu — na dvojky a čtyřky.**
+
+Je to místo, kam v drtivé většině populární hudby patří snare a clap. V žebříčku síly dob stojí pod downbeatem a ostatními čtvrťovými, ale nad offbeatem — a právě proto funguje: je dost silný, aby se o něj dalo opřít, a dost odlišný od kopáku, aby se s ním nepral.
+
+Kde se s tím potkáš: [Silné a slabé doby](hudba/rytmus.md#silne-a-slabe-doby-pater-a-ozdoby) · [Rejstrik: Synkopa](#synkopa)
+
 ### Backlog
 
 **Zásobník všeho, co projekt čeká: úkoly i nezralé nápady — priority se z něj tahají po dávkách.**
@@ -1070,6 +1078,14 @@ Talebův pojem: v Mediocristanu (tělesná výška) žádný jednotlivec statist
 
 Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-tri-mechanismy-ktere-vedou-ke-stejne-strategii)
 
+### Fill
+
+**Zahuštění rytmu na konci fráze, které připraví posluchače na příchod další sekce.**
+
+Typicky se přidá synkopa, snare na slabé doby, pár kopáků navíc na osminy nebo tomy. Platí přímá úměra: čím větší změna přijde v další sekci, tím větší fill si zaslouží. Opakem je **prázdno (empty)** — místo přidání se většina rytmických prvků naopak ubere, čímž vznikne vakuum, na jehož zaplnění posluchač čeká. U herní hudby je prázdno cennější, protože **zamaskuje šev smyčky**.
+
+Kde se s tím potkáš: [Za jeden takt: fráze, fill a prázdno](hudba/rytmus.md#za-jeden-takt-fraze-fill-a-prazdno) · [Rejstřík: seamless loop](#seamless-loop)
+
 ### Find the fun
 
 **Fáze prototypování: experimentuj s jádrem hry, dokud nezačne bavit samo o sobě.**
@@ -1253,6 +1269,14 @@ Kde se s tím potkáš: [GDScript](godot/gdscript.md) · [Nody, scény a strom](
 Tower defense je RTS bez jednotek a útočení; backpack hry jsou Diablo svařené na inventář. Škrt musí něco přidat (fokus, přístupnost): dobrý nápad řeší dva problémy — méně práce pro vývojáře a ostřejší zážitek pro hráče.
 
 Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md) · [Scope a malé hry](teorie/scope.md)
+
+### Ghost note
+
+**Tišší verze téhož bicího zvuku, položená na slabou dělenou dobu.**
+
+Nejčastěji na snare a nejčastěji na šestnáctinách. Přidá beatu hustotu, aniž by přidala důraz — proto na nich stojí většina slavných breakbeatů. Princip je obecnější než bicí: *tentýž prvek tišeji na slabší pozici* je způsob, jak něco zahustit, aniž bys posunul těžiště.
+
+Kde se s tím potkáš: [Silné a slabé doby](hudba/rytmus.md#silne-a-slabe-doby-pater-a-ozdoby) · [Rejstřík: Synkopa](#synkopa)
 
 ### Gimbal lock
 
@@ -1606,6 +1630,14 @@ Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kd
 
 Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [První dojem](teorie/prvni-dojem.md)
 
+### Klonování hlasu
+
+**Model vytrénovaný na nahrávkách konkrétního hlasu, který pak umí přezpívat nebo přemluvit cizí výkon jeho barvou.**
+
+V praxi se kombinuje se dvěma dalšími kroky: generátor přezpívá tvůj text a melodii pořádně (ale cizím hlasem), stem separace z výsledku vytáhne samotný zpěv a klon ho převede zpátky na tvou barvu. Výstup je **suchý** — bez dozvuku a efektů — a to je jeho hlavní přednost, protože se dá posadit do mixu jako běžná nahrávka. Vážit je potřeba tři věci: běží to v cloudu (nahráváš otisk vlastního hlasu na cizí server), licenčně to má dvě vrstvy a nástroje se často propagují placenou spoluprací.
+
+Kde se s tím potkáš: [AI na vokál](hudba/nastroje-zdarma-a-game-jam.md#ai-na-vokal-prezpivat-ale-zustat-sam-sebou) · [Rejstřík: Stem separace](#stem-separace)
+
 ### Konsonance
 
 **Dojem klidu a souznění při současném znění tónů; opak disonance.**
@@ -1629,6 +1661,14 @@ Kde se s tím potkáš: [Cesta skladatele: sedm pilířů](hudba/cesta-skladatel
 Známé i jako Matoušův efekt nebo „bohatí bohatnou". Na Steamu funguje mechanicky: algoritmus doporučuje to, co se prodává, a co se doporučuje, se prodává. Je to jeden ze tří mechanismů, které vedou k mocninnému rozdělení výsledků, a zároveň důvod, proč je start hry disproporčně důležitý oproti její dlouhodobé kvalitě.
 
 Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-tri-mechanismy-ktere-vedou-ke-stejne-strategii) · [Co prodává](teorie/co-prodava.md)
+
+### Kvintový kruh
+
+**Schéma dvanácti tónů seřazených po kvintách, které se po dvanácti krocích vrací na začátek — jenže nevrací.**
+
+Kvinta je definovaná jako frekvenční poměr 3:2, ale ta, kterou skutečně hrajeme, je o třetinu procenta jinde. Po dvanácti krocích tedy skončíš zhruba **24 centů** vedle — je to **pythagorejské koma** — takže kvintový kruh je ve skutečnosti spirála. Rovnoměrné temperování ten rozdíl rozprostře po všech dvanácti tónech: žádný interval není úplně čistý, ale všechny tóniny znějí stejně a dá se mezi nimi modulovat. Je to obchod, ne pravda.
+
+Kde se s tím potkáš: [Kvintový kruh je ve skutečnosti spirála](hudba/fyzika-souzvuku.md#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Rejstřík: rovnoměrně temperované ladění](#rovnomerne-temperovane-ladeni) · [Rejstřík: Tritón](#triton)
 
 ### Kvaternion
 
@@ -2558,6 +2598,14 @@ Není to totéž co polyrytmus: u polymetru mají řady stejnou dobu, ale různ�
 
 Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-pizza-mini-notace) · [Rejstřík: Synkopa](#synkopa)
 
+### Polyrytmus
+
+**Dva rytmické vzorce ve stejném metru: první doby sedí, ale dělení nesedí.**
+
+Klasika je 3:2 — tři noty ve stejném čase jako dvě. Nezaměňovat s [polymetrem](#polymetr), kde je to naopak (mřížka sedí, těžké doby ne). Doporučení pro začátečníky je opatrnost, aby skladba nezněla zmateně — přesnější formulace ale je, že polyrytmus je nečitelný jen tehdy, když posluchač nemá čeho se držet; nad pevnou páteří naopak funguje.
+
+Kde se s tím potkáš: [Za jeden takt: fráze, fill a prázdno](hudba/rytmus.md#za-jeden-takt-fraze-fill-a-prazdno) · [Rejstřík: Polymetr](#polymetr)
+
 ### Pose Search Database
 
 **PSD — kolekce animací pro jeden typ pohybu, ve které Motion Matching hledá pózy.**
@@ -2661,6 +2709,14 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md) · [První dojem](t
 Protipól aspirační obtížnosti. Bullet hell má průběžnou obtížnost vysokou, cozy sim skoro žádnou (grind není totéž co odpor); upgrade zdraví v roguelite ji snižuje. Vyrábí stres a úlevu — a spolu s estetikou říká hráči dopředu, jaké pocity čekat.
 
 Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
+
+### Předznamenání
+
+**Dvojice čísel na začátku skladby, která říká, kolik dob je v taktu a jaká nota je jedna doba.**
+
+Horní číslo je počet, spodní hodnota noty. 4/4 jsou čtyři čtvrťové (proto se počítá „1 2 3 4"), 3/4 tři (valčík), a 6/8 počítá osminy — šest jich v taktu dá **triolový pocit** místo čtyřdobého. Anglicky *time signature*. Pro herní hudbu drobná výhrada: triolová předznamenání znějí svěže ve smyčce na deset vteřin, ale při hodině hraní unavují rychleji než čtyřdobý takt.
+
+Kde se s tím potkáš: [Mřížka: takt, dělení a swing](hudba/rytmus.md#mrizka-takt-deleni-a-swing) · [Rejstřík: BPM](#bpm) · [Rejstřík: Swing](#swing)
 
 ### Půltón
 
@@ -3022,6 +3078,14 @@ Návrhová otázka „co mají všechny X společné?" oddělí obecné (base cl
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Organizace projektu](praxe/organizace-projektu.md)
 
+### Septakord
+
+**Akord se čtvrtým tónem přidaným nad triádu — septimou.**
+
+Je to koření žánru: bez septakordů nezní funk funkově a jazz jazzově. Zároveň platí varování, které stojí za zapamatování, protože je proti intuici — **neudělej septakord z každého akordu v progresi**, protože tím emoci „vymyješ". Septakordy fungují jako kontrast, ne jako výchozí stav.
+
+Kde se s tím potkáš: [Katalog progresí podle nálady](hudba/akordy-a-harmonie.md#katalog-progresi-podle-nalady) · [Rejstřík: Akord](#akord) · [Rejstřík: chord progression](#chord-progression)
+
 ### Short description
 
 **Krátký popis hry na Steamu — ~300 znaků pod capsule obrázkem, první text, který potenciální hráč čte.**
@@ -3294,6 +3358,14 @@ Funguje jako multiplikátor wishlistů — čím víc jich máš na vstupu, tím
 
 Kde se s tím potkáš: [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Idea iceberg](teorie/rady-z-praxe.md)
 
+### Stem separace
+
+**Rozdělení hotové nahrávky zpět na jednotlivé složky — zpěv, bicí, bas, zbytek.**
+
+Dnes to zvládají modely překvapivě dobře a v praxi se to používá jinak, než se čekalo: ne na remixy, ale jako **mezikrok v řetězu** — vytáhnout z generovaného výstupu jen tu stopu, kterou chceš, a zbytek zahodit. Výsledek nese artefakty, které jsou tím slyšitelnější, čím víc se stopy v originále překrývaly.
+
+Kde se s tím potkáš: [AI na vokál](hudba/nastroje-zdarma-a-game-jam.md#ai-na-vokal-prezpivat-ale-zustat-sam-sebou) · [Rejstřík: Klonování hlasu](#klonovani-hlasu) · [Rejstřík: Sampling](#sampling)
+
 ### Streaming pool
 
 **Pevně vyhrazená část VRAM pro streamované textury; při přeplnění spadne rozlišení mipy.**
@@ -3381,6 +3453,14 @@ Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#krivka-prezi
 „Velké finále" lineární algebry: A = UΣVᵀ, kde U a V jsou rotace (singulární vektory) a Σ nese singulární hodnoty. Geometricky posílá koule na elipsoidy; prakticky stojí za kompresí obrázků (low-rank aproximace) i PCA.
 
 Kde se s tím potkáš: [Lineární algebra vizuálně](teorie/linearni-algebra-vizualne.md)
+
+### Swing
+
+**Prodloužení první a třetí šestnáctiny na úkor druhé a čtvrté — čímž vznikne „push-pull" groove.**
+
+Není to efekt ani „posuň to trochu", je to konkrétní záměna délek dob, a proto se dá zopakovat. Šestnáctinový swing je klíčem k tomu, aby house zněl jako house; doma je taky v jazzu a big bandu. Swingované osminy při větších hodnotách začnou znít jako trioly. Pro generativní herní hudbu je to nejlevnější páka na charakter: **změní žánr, aniž bys sáhl na jedinou notu**.
+
+Kde se s tím potkáš: [Mřížka: takt, dělení a swing](hudba/rytmus.md#mrizka-takt-deleni-a-swing) · [Rejstřík: Předznamenání](#predznamenani) · [Rejstřík: Synkopa](#synkopa)
 
 ### Sync marker
 
@@ -3477,6 +3557,14 @@ Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovk
 Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, Auto = ease); looping track 0→360 = rotace. Ping-pong vzor: na Finished přečti Direction enum a zavolej Reverse/Play. Set Timeline Length za běhu mění tempo — délka nad poslední klíč vyrábí pauzu v krajní poloze. Latentní uzel — jen v event graphu, ne ve funkcích.
 
 Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md)
+
+### Tritón
+
+**Interval přesně uprostřed oktávy — dokonalé rozpůlení kruhu dvanácti tónů.**
+
+Notoricky nestabilní dvojice, která „se chce ohnout a rozvést". Zajímavé je, že jeho pověst nejdisonantnějšího intervalu je z velké části kulturní: v grafu disonance na tom není o moc hůř než malá sexta. A obecnější poučení, které z něj plyne: **na kruhu tónů znamená symetrie nestabilitu**, ne stabilitu — dokonale pravidelný tvar (tritón, zvětšený akord, zmenšený akord) nemá kam gravitovat.
+
+Kde se s tím potkáš: [Kvintový kruh je ve skutečnosti spirála](hudba/fyzika-souzvuku.md#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Jiné alikvóty, jiné stupnice](hudba/fyzika-souzvuku.md#jine-alikvoty-jine-stupnice) · [Rejstřík: Konsonance](#konsonance)
 
 ### Tónina
 
@@ -3845,6 +3933,14 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 Protiklad honby za stoprocentní originalitou, která znamená nulovou validaci trhu a chybějící referenční body. Rozhodovací pravidlo: v mladém žánru stačí být *lepší* (oprav pár bolestí z negativních recenzí — Fields of Mistria vs. Stardew Valley), ve starém žánru musíš být *jiný* (Age of Empires neporazíš kvalitou). Twist často stojí jen reskin a fikci — v kódu se nemusí změnit nic.
 
 Kde se s tím potkáš: [Nápad: yoink & twist](teorie/napad.md) · [Prototypování: standardy vs. inovace](teorie/prototypovani.md)
+
+### Zákop (trench)
+
+**Nejmenší nosný kus skladby — hlavní hlas a akordy pod ním — do kterého se investuje nepoměrně víc času než do zbytku.**
+
+Metoda má tři kroky: vykopat zákop (melodie první, akordy druhé), rozšířit ho o bicí, melodii a bas — **s kontrolou celku mezi každými dvěma přidanými nástroji** — a teprve pak aranžovat. Jádro není v pořadí, ale v té kontrole: dokud spolu fundamenty nesedí, žádná další vrstva už tomu nepomůže. Je to totéž jako integrace po malých krocích proti big-bang integraci, jen se to v hudbě projeví tiše — mix nespadne, jen postupně přestane fungovat.
+
+Kde se s tím potkáš: [Metoda zákopu](hudba/aranz.md#metoda-zakopu-nic-nepridavej-dokud-stavajici-nesedne) · [Rejstřík: Arrangement](#arrangement)
 
 ### Zázněj
 

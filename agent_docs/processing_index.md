@@ -8,7 +8,7 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Phase 7 (samostatný playlist „Gamedev-music"):** 17 videí, **všech 17 published** v dokumentu „Hudba a zvuk" (tabulka na konci souboru).
 
-**Třetí vlna (staženo 2026-07-29):** +174 videí ve třech playlistech — **Godot playlist 93 (nový, samostatná sekce)**, hlavní +61, Gamedev-music +20. Tabulky v sekci „Třetí vlna" na konci souboru; Godot má vlastní sekci s navrženou taxonomií. Pořadí práce: **nejdřív Godot** (Phase 9, hotovo), **pak hlavní playlist se startem u výkonu a profilingu** (Phase 10, hotovo — dávky 36–43), **hudba nakonec** (Phase 11, běží — Strudel/live coding hotový, dávka 44).
+**Třetí vlna (staženo 2026-07-29):** +174 videí ve třech playlistech — **Godot playlist 93 (nový, samostatná sekce)**, hlavní +61, Gamedev-music +20. Tabulky v sekci „Třetí vlna" na konci souboru; Godot má vlastní sekci s navrženou taxonomií. Pořadí práce: **nejdřív Godot** (Phase 9, hotovo), **pak hlavní playlist se startem u výkonu a profilingu** (Phase 10, hotovo — dávky 36–43), **hudba nakonec** (Phase 11, hotovo — dávky 44–45). **Celá třetí vlna je zpracovaná.**
 
 **Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **114/116 published (dávky 20–30) — druhá vlna hotová**, 0 todo + 2 todo-lp (beginner kurzy). Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
@@ -821,7 +821,7 @@ Videa z playlistu, která s Godotem nemají nic společného; míří do existuj
 | published | [Small games win big, here's how to make them](https://www.youtube.com/watch?v=8Kr5TruT-YU) `8Kr5TruT-YU` | BiteMe Games | 14:59 | auto | 3608 | `teorie/scope.md` | MIMO SEKCI — jak se malá hra doopravdy dělá (staged disagreement s rd1HzPy3fP4) · dávka 33 |
 | published | [Beginner Game Dev? Don’t Make Small Games \|\| Do This Instead](https://www.youtube.com/watch?v=rd1HzPy3fP4) `rd1HzPy3fP4` | DeeRaghooGames | 7:47 | auto | 1342 | `teorie/scope.md` | MIMO SEKCI — nedělej malé hry, dělej systémy (protiteze k 8Kr5TruT-YU) · dávka 33 |
 | published | [The Tools I Use For Full Time Indie Game Development](https://www.youtube.com/watch?v=mrVM2zehqiw) `mrVM2zehqiw` | Firebelley Games | 12:09 | manual | 2471 | `teorie/planovani-nastroje.md` | MIMO SEKCI — nástroje full-time indie vývojáře; placený segment přiznán · dávka 33 |
-| todo | [10 Chord Patterns for 10 Different Emotions](https://www.youtube.com/watch?v=_yw85rAb6cw) `_yw85rAb6cw` | Alex Rome | 13:19 | auto | 1756 | `hudba/akordy-a-harmonie.md` | MIMO SEKCI — odloženo do hudební dávky (autor má navazující video v hudební deltě) |
+| published | [10 Chord Patterns for 10 Different Emotions](https://www.youtube.com/watch?v=_yw85rAb6cw) `_yw85rAb6cw` | Alex Rome | 13:19 | auto | 1756 | hudba/akordy-a-harmonie.md | odložený z Godot playlistu — 10 progresí, sloučeno s cU4mqDPZuXg do jednoho katalogu |
 
 ### Low-priority · mega-kurzy (2)
 
@@ -913,18 +913,18 @@ Celkem ~297k slov. Dominantní shluk na první pohled: **výkon, profiling a opt
 | published | ["Optimized for 360p" ... huh?](https://www.youtube.com/watch?v=zT8DZsdJ72Y) `zT8DZsdJ72Y` | Vex | 17:40 | auto | 3610 | `praxe/frame-pacing.md` | pohled hráče: dynamické rozlišení, shader stutter, mlha jako optimalizace |
 | published | [Why I don't use Aseprite - The Tools I Use for Indie Game Dev (2D and 3D)](https://www.youtube.com/watch?v=wuO_iy0zhPA) `wuO_iy0zhPA` | Zizaco | 8:21 | manual | 1760 | `teorie/2d-vizual.md` | +1: „zpomal, abys byl rychlejší" — volba nástrojů jako investice |
 
-### Gamedev-music · třetí vlna (+20) · `běží` (dávka 44)
+### Gamedev-music · třetí vlna (+20) · `hotovo` (dávky 44–45)
 
 Celkem ~41k slov. Dominantní shluk: **Strudel a live coding hudby** (Glossing ×6, Switch Angel ×4, workshop Creative Code Art 82 min, SAGA3K) — nové téma, ve stávající sekci Hudba nemá kam. Dál **Alex Rome ×3** (progrese a emoce, systém psaní písní, remake Zimmera — přímé rozšíření `hudba/akordy-a-harmonie.md` a `hudba/melodie.md`), rytmus (Red Means Recording), AI na vokály. Pozor: několik položek jsou **performance/mixy, ne tutoriály** (137–405 slov přepisu) — kandidáti na `skip` nebo pouhou vizuální/poslechovou referenci; 2 videa jsou bez přepisu.
 
-**Stav po dávce 44:** 7 published (celý strudelový shluk → nová kapitola `hudba/live-coding.md` + FM do `hudba/synteza-zvuku.md`), 7 skip (performance a mixy — potvrzeno čtením délky přepisu vůči stopáži), zbývá 6 todo: Alex Rome ×3 (+ odložený `_yw85rAb6cw` z Godot playlistu), rytmus, AI vokály, teorie-jako-čarodějnictví.
+**Stav po dávce 45 — HOTOVO:** 13 published (dávka 44: strudelový shluk → nová kapitola `hudba/live-coding.md` + FM do `hudba/synteza-zvuku.md`; dávka 45: Alex Rome ×3 + odložený `_yw85rAb6cw` → `akordy-a-harmonie.md`, `aranz.md` a `tvorba-soundtracku.md`, rytmus → nová kapitola `hudba/rytmus.md`, AI vokály → `nastroje-zdarma-a-game-jam.md`, kvintový kruh → `fyzika-souzvuku.md`), 7 skip (performance a mixy — potvrzeno poměrem délky přepisu ke stopáži). **0 todo — třetí vlna je celá zpracovaná.**
 
 | status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
 |---|---|---|---|---|---|---|---|
-| todo | [15 Chord Progressions for 15 Different Emotions](https://www.youtube.com/watch?v=cU4mqDPZuXg) `cU4mqDPZuXg` | Alex Rome | 22:22 | auto | 2579 | — |  |
-| todo | [A Simple System For Making Songs in 2026](https://www.youtube.com/watch?v=XlltkalLaU4) `XlltkalLaU4` | Alex Rome | 16:58 | auto | 2183 | — |  |
-| todo | [I Remade The Most Emotional Song Ever Written (Hans Zimmer)](https://www.youtube.com/watch?v=uOUPEqTU9ag) `uOUPEqTU9ag` | Alex Rome | 13:54 | auto | 1191 | — |  |
-| todo | [This AI Will Fix Your BAD Vocals — And Keep Your Real Voice](https://www.youtube.com/watch?v=8w97N0rEIS8) `8w97N0rEIS8` | Arcade | 8:38 | auto | 1535 | — |  |
+| published | [15 Chord Progressions for 15 Different Emotions](https://www.youtube.com/watch?v=cU4mqDPZuXg) `cU4mqDPZuXg` | Alex Rome | 22:22 | auto | 2579 | hudba/akordy-a-harmonie.md | katalog 15 progresí + hlavní zdroj myšlenky o překlopitelných („neutrálních") progresích |
+| published | [A Simple System For Making Songs in 2026](https://www.youtube.com/watch?v=XlltkalLaU4) `XlltkalLaU4` | Alex Rome | 16:58 | auto | 2183 | hudba/aranz.md | metoda zákopu — vlastní myšlenka; kontrola celku mezi každými dvěma nástroji |
+| published | [I Remade The Most Emotional Song Ever Written (Hans Zimmer)](https://www.youtube.com/watch?v=uOUPEqTU9ag) `uOUPEqTU9ag` | Alex Rome | 13:54 | auto | 1191 | hudba/tvorba-soundtracku.md | rozbor přestavbou (Cornfield Chase) — prodleva jako nosník, přírůstek po 16 taktech |
+| published | [This AI Will Fix Your BAD Vocals — And Keep Your Real Voice](https://www.youtube.com/watch?v=8w97N0rEIS8) `8w97N0rEIS8` | Arcade | 8:38 | auto | 1535 | hudba/nastroje-zdarma-a-game-jam.md | AI řetěz na vokál; placená spolupráce — zpracováno s výhradami (cloud, licence, sponzor) |
 | published | [WORKSHOP // Coding Music With Strudel // Dan Gorelick and Viola He](https://www.youtube.com/watch?v=oqyAJ4WeKoU) `oqyAJ4WeKoU` | Creative Code Art | 82:20 | auto | 13321 | hudba/live-coding.md | Workshop pro úplné začátečníky — hlavní zdroj myšlenky „Co je Strudel", plus mini notace a euklidovské rytmy |
 | published | [STRUDEL FOR BEGINNERS](https://www.youtube.com/watch?v=m7Rp46AU8dw) `m7Rp46AU8dw` | Glossing | 45:56 | auto | 5786 | hudba/live-coding.md | Skladba od nuly — hlavní zdroj mini notace, signálového řetězce a myšlenky „Od smyčky k vystoupení" |
 | published | [You Can Modulate ANYTHING in Strudel](https://www.youtube.com/watch?v=11frBA9L638) `11frBA9L638` | Glossing | 31:30 | auto | 3537 | hudba/live-coding.md | Modulátory (LFO/envelope/bus) na warm.strudel.cc — do myšlenky „Zvuk, efekty a modulace" |
@@ -932,9 +932,9 @@ Celkem ~41k slov. Dominantní shluk: **Strudel a live coding hudby** (Glossing �
 | skip | [EUPHORIC TRANCE START TO FINISH IN STRUDEL](https://www.youtube.com/watch?v=7NyoZkJgykQ) `7NyoZkJgykQ` | Glossing | 23:51 | auto | 405 | — | performance (405 slov na 24 min) — hudba bez výkladu, žádná přenositelná technika |
 | published | [STRUDEL DLC](https://www.youtube.com/watch?v=jKkmzWmIyfs) `jKkmzWmIyfs` | Glossing | 13:30 | auto | 1656 | hudba/live-coding.md | MIDI klávesy, scribe, move, vlastní knihovna skriptů — do myšlenky „Od smyčky k vystoupení" |
 | published | [How many FMs can we bake into a strudel?](https://www.youtube.com/watch?v=8ruLuZv1ju8) `8ruLuZv1ju8` | Glossing | 4:53 | auto | 568 | hudba/synteza-zvuku.md | FM syntéza — vlastní myšlenka „FM: když jeden zvuk ohýbá druhý" (obecná, ne strudelová) |
-| todo | [music theory is witchcraft](https://www.youtube.com/watch?v=7mLqpA-PMwM) `7mLqpA-PMwM` | GST Channel | 4:00 | manual | 515 | — |  |
+| published | [music theory is witchcraft](https://www.youtube.com/watch?v=7mLqpA-PMwM) `7mLqpA-PMwM` | GST Channel | 4:00 | manual | 515 | hudba/fyzika-souzvuku.md | kvintový kruh je spirála (pythagorejské koma) + tvary na kruhu tónů |
 | skip | [Best of Deep Trance 2026 \| Emotional Melodic Trance Mix](https://www.youtube.com/watch?v=2zKnDoUjk1I) `2zKnDoUjk1I` | Interstellar Station | 54:58 | auto | 137 | — | 55min mix (137 slov) — poslechový set, ne tutoriál |
-| todo | [Fundamentals of Rhythm for Electronic Music](https://www.youtube.com/watch?v=JE3QM_9sljI) `JE3QM_9sljI` | Red Means Recording | 21:02 | auto | 3210 | — |  |
+| published | [Fundamentals of Rhythm for Electronic Music](https://www.youtube.com/watch?v=JE3QM_9sljI) `JE3QM_9sljI` | Red Means Recording | 21:02 | auto | 3210 | hudba/rytmus.md | páteř celé nové kapitoly — mřížka a swing, silné/slabé doby, frázování a fill vs. prázdno |
 | skip | [A Ronin Mode Tribute to Rob Dougan Furious Angels Full Album HQ Remastered](https://www.youtube.com/watch?v=7xo56yUbVv0) `7xo56yUbVv0` | Ronin Mode | 7:27 | — | — | — | bez přepisu, hudební set — ne tutoriál |
 | skip | [BIRDS OF A FEATHER (Remake in Strudel)](https://www.youtube.com/watch?v=_PjSOSoZeSA) `_PjSOSoZeSA` | SAGA3K Records | 1:36 | — | — | — | 96s klip bez přepisu — ukázka, ne výklad |
 | published | [Creating Beats & Rhythms in STRUDEL](https://www.youtube.com/watch?v=sefJz9biLCY) `sefJz9biLCY` | Switch Angel | 15:16 | auto | 1789 | hudba/live-coding.md | Euklidovské rytmy, struct/beat, degrade a ribbon — hlavní zdroj myšlenky „Euklidovské rytmy a řízená náhoda" |

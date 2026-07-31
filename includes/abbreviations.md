@@ -27,6 +27,7 @@
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
+*[Backbeat]: Rytmický důraz na sudé doby taktu; místo pro snare a clap.
 *[Backlog]: Zásobník všeho, co projekt čeká (úkoly i nápady); priority se z něj tahají po dávkách.
 *[Backpressure]: Producent rychlejší než konzument? Nebufferuj, nezahazuj — propaguj tlak zpět, ať zdroj zpomalí.
 *[Barbell strategie]: Sázej na oba krajní póly (bezpečné + riskantní), ne na průměr uprostřed.
@@ -130,6 +131,7 @@
 *[Export template]: Předkompilované běhové prostředí Godotu pro cílovou platformu; stahuje se zvlášť.
 *[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
 *[Extremistan]: Prostředí, kde jeden vzorek převáží celý zbytek souboru (prodeje her).
+*[Fill]: Zahuštění rytmu na konci fráze před další sekcí; opakem je prázdno.
 *[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
 *[Flipbook]: Mřížka snímků v jedné textuře, kterou materiál přehrává jako animaci.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
@@ -154,6 +156,7 @@
 *[GDScript]: Skriptovací jazyk Godotu — blízký Pythonu, gradually typed, navržený pro strom scény.
 *[Genre descoping]: Jeden prvek velkého žánru nafouknutý na celou hru (TD z RTS, backpack z Diabla).
 *[Gestalt]: Psychologie celku: člověk čte celý obraz a z uspořádání odvozuje vztahy mezi částmi.
+*[Ghost note]: Tišší verze téhož bicího na slabé dělené době; hustota bez důrazu.
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
 *[Git LFS]: Rozšíření gitu pro velké binárky: v repozitáři odkaz, obsah zvlášť; na GitHubu 1 GB zdarma.
 *[GOAP]: Goal-Oriented Action Planning — AI si posloupnost akcí k cíli poskládá sama za běhu.
@@ -198,9 +201,11 @@
 *[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
 *[Keyboard ghosting]: Hardwarový limit klávesnice: u některých kombinací kláves jeden vstup nedorazí do hry.
+*[Klonování hlasu]: Model natrénovaný na tvém hlase, který přezpívá cizí výkon tvou barvou.
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
 *[Kontrapunkt]: Skládání nezávislých melodií, které fungují zároveň; odděluje profíky od amatérů.
 *[Kumulativní výhoda]: Kdo je vidět, je víc vidět — úspěch se sám zesiluje bez ohledu na kvalitu.
+*[Kvintový kruh]: Dvanáct tónů po kvintách; ve skutečnosti spirála, ne kruh.
 *[Kvaternion]: Rotace čtyřmi čísly: bez gimbal locku, hladký slerp — výměnou za nulovou intuici.
 *[Landmark]: Výrazný orientační bod levelu; v postupu „landmark napřed" první rozhodnutí návrhu prostoru.
 *[Landscape]: Klasický terén UE: height mapa, jen nahoru/dolů; produkční volba, dokud Mesh Terrain nedozraje.
@@ -317,6 +322,7 @@
 *[Playtest]: Testování hry skutečnými hráči za účelem zpětné vazby.
 *[POM]: Parallax occlusion mapping — pixel-shader iluze hloubky posunem UV; na hranách řeže, siluety neumí.
 *[Polymetr]: Souběžné rytmické řady různé délky; dlouhý groove z krátkého zápisu.
+*[Polyrytmus]: Dva vzorce ve stejném metru: první doby sedí, dělení ne.
 *[Pose Search Database]: PSD — kolekce animací jednoho typu pohybu, ve které Motion Matching hledá pózy.
 *[Pose Search Schema]: Definice, co MM měří: kanály (trajektorie, kosti) s vahami; ladí se experimentem.
 *[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
@@ -330,6 +336,7 @@
 *[Profiling]: Měření, kde se ve snímku ztrácí čas; napřed zjisti vyčerpaný rozpočet, pak volej nástroj.
 *[Prokletí znalosti]: Expert na vlastní hru si neumí dát zážitek nováčka — tření vidí až playtest.
 *[Průběžná obtížnost]: Jak moc tě hra tlačí k prohře; vyrábí stres a úlevu. Upgrade zdraví ji snižuje.
+*[Předznamenání]: Kolik dob je v taktu a jaká nota je jedna doba (4/4, 3/4, 6/8).
 *[Půltón]: Nejmenší vzdálenost dvou sousedních tónů (E–F); stavební jednotka stupnic.
 *[PSO]: Pipeline state object; chybí-li, kompiluje se shader za běhu na CPU a hra sekne.
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
@@ -378,6 +385,7 @@
 *[Serif]: Patka na konci tahu písmene; nese historickou asociaci a mírně zpomaluje čtení.
 *[Shading bin]: Nanitová obdoba draw callu; vlastní bin chce každá materiálová instance, ~3 µs minimum.
 *[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
+*[Septakord]: Akord se septimou nad triádou; koření žánru, ne výchozí stav.
 *[Short description]: 300znakový popis hry na Steamu; test 300 znaků = zkus ho napsat v den nula nápadu.
 *[Sidechain]: Automatické stažení zvuku při úderu jiného; ve Strudelu duck na orbitě.
 *[Signal]: Zpráva, kterou node vyšle, aniž ví, kdo ji poslouchá — observer pattern zabudovaný do enginu.
@@ -409,6 +417,7 @@
 *[State machine]: Stavový automat AnimBP: stavy = animace, přechody = pravidla; MM ho nahrazuje, hybridy kombinují.
 *[State Tree]: Hierarchický stavový automat UE (sestra behavior tree); stavy s tasky, přechody, injektované stromy.
 *[Steam Next Fest]: Steamový festival demoverzí (3× ročně); multiplikátor wishlistů, účast jen jednou za hru.
+*[Stem separace]: Rozdělení hotové nahrávky zpět na zpěv, bicí, bas a zbytek.
 *[Streaming pool]: Vyhrazená VRAM pro streamované textury; zmenšuj ji, dokud engine nezačne hlásit přetečení.
 *[Stitching]: Experimentální MM technika: místo lineárního blendu najde animaci z pózy A do pózy B za daný čas.
 *[Strategy pattern]: Rodina zaměnitelných algoritmů za společným rozhraním místo if/else stromu.
@@ -420,6 +429,7 @@
 *[Surface cache]: Zjednodušené povrchy, ze kterých Lumen čte; žlutá = vyřazeno, fialová = nevykresleno.
 *[Survivorship bias]: Vidíš jen ty, kdo přežili; neúspěšné pokusy z dohledu zmizely.
 *[SVD]: Každá matice = rotace → škálování se změnou dimenze → rotace (A = UΣVᵀ).
+*[Swing]: Prodloužení liché šestnáctiny na úkor sudé; klíč k houseovému groovu.
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
 *[TAA]: Temporal anti-aliasing — desetinásobně levnější než TSR, cenou je rozmazání v pohybu.
 *[Synkopa]: Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny melodie.
@@ -445,6 +455,7 @@
 *[Two-loop rule]: Každé dva loopy nejvýš dvě změny (přidat/ubrat nástroj či výraz); lešení pro aranžmá.
 *[Type 2 fun]: Bolí teď, těší ve vzpomínce (hora, soulsovka). Pro jiného hráče Type 3 — volba publika.
 *[Typografie]: Práce s písmem: volba řezů, jejich role v hierarchii textu a pravidla použití.
+*[Tritón]: Interval uprostřed oktávy; symetrie na kruhu tónů znamená nestabilitu.
 *[Tónina]: Domovská stupnice skladby; v piano rollu scale highlighting schová „špatné" tóny.
 *[Tři C]: Character, camera, controls — co žánr definuje; v AAA samostatná designérská role.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
@@ -479,4 +490,5 @@
 *[Z index]: Číslo určující pořadí vykreslení 2D objektů nezávisle na jejich pozici ve stromu.
 *[Zero indexing]: První prvek má index 0; n-tý sedí na n − 1. Záměna = klasická off-by-one chyba.
 *[Zákon opaků]: Najdi slabinu žánru, odstraň ji a postav na tom svůj marketingový slib.
+*[Zákop (trench)]: Hlavní hlas plus akordy — nejmenší nosný kus skladby.
 *[Zázněj]: Pomalé kolísání hlasitosti dvou blízkých frekvencí (beating); příčina pásma nepohody.

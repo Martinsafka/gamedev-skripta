@@ -68,3 +68,27 @@ Cílový scénář je jasný: **game jam** (kde na najímání není čas ani pe
 > **Pozn.:** Nejsympatičtější je autorovo přiznání [(6:54)](https://www.youtube.com/watch?v=TGczsxuAm1I&t=414s): *„nemám s tím moc zkušeností, zkouším to dneska poprvé. Ale co si opravdu užívám, je ten pocit hry a experimentu, který plyne z toho, že tomu úplně nerozumím — mám popisky, ale netuším, co dostanu."* Pro herní zvuk je to přesně ten správný způsob použití: **nehledáš konkrétní efekt, hledáš zvuk, který by tě nenapadl** — a pak z něj v [sound designu](sound-design-ve-hre.md#hledej-spravny-zvuk-a-cti-styl) postavíš to, co scéna potřebuje. Nástroj se hodí hlavně na nelidské a nemístné zvuky (bytosti, artefakty, přechody do jiného světa), tedy přesně na to, co se ze zvukových knihoven shání nejhůř.
 
 **Souvislosti:** [Sound design: hledej správný zvuk](sound-design-ve-hre.md#hledej-spravny-zvuk-a-cti-styl) · [Syntéza zvuku: modulace](synteza-zvuku.md#modulace-envelope-a-lfo-otaceji-knoby) *(běžná cesta k témuž — v reálném čase a s menším rozsahem)* · [Hudba zdarma pro nemuzikanty](#hudba-zdarma-pro-nemuzikanty) · [Rejstřík: granulární syntéza](../rejstrik.md#granularni-synteza) · [Rejstřík: sampling](../rejstrik.md#sampling)
+
+---
+
+## AI na vokál: přezpívat, ale zůstat sám sebou
+
+**Zdroj:** [This AI Will Fix Your BAD Vocals — And Keep Your Real Voice](https://www.youtube.com/watch?v=8w97N0rEIS8) · [Arcade](https://www.youtube.com/channel/UC7vJeI9yNkLec9s_3b9Pnew) · ~9 min, návod (**placená spolupráce** — autor to v závěru přiznává)
+
+**Shrnutí:** Postup, jak si člověk, který neumí zpívat, pořídí použitelný vokál a **nepřijde přitom o svůj hlas**: nazpívej to špatně, nech AI přezpívat melodii a text správně, a pak výsledek **převeď zpátky do klonu vlastního hlasu**. Melodie, text i barva zůstanou tvoje, změní se jen provedení. Háček, který stojí za vážení: **řetěz sahá do dvou cloudových služeb a jedna z nich je sponzor videa.**
+
+### Rozpad myšlenky
+
+**Řetěz má pět kroků** a je pochopitelný i bez konkrétních nástrojů:
+
+1. **Nazpívej to přes akordy** [(0:35)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=35s). Musíš mít aspoň akordy nebo bas, ať máš do čeho zpívat. Autor svůj vlastní pokus komentuje bez příkras: *„je to hrozné, nejsem dobrý zpěvák, ale měl jsem představu, jak to má znít, a snažil jsem se ji trefit."*
+2. **Vyexportuj a nahraj do generátoru** [(1:47)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=107s), tam zvol funkci **cover**. Ta nechá **tvůj text i tvou melodii** a přezpívá je pořádně — ale **cizím hlasem** a s vlastní instrumentálkou.
+3. **Vytáhni stopu zpěvu** [(2:59)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=179s) přes separaci stem, protože instrumentálku nechceš.
+4. **Přehoď hlas na svůj** [(3:25)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=205s). Klon vlastního hlasu vznikne tak, že **si asi deset minut zazpíváš svoje oblíbené písničky** — *„a nedělej si starosti, zpívat vůbec nemusíš umět. Když jsem to zvládl já, zvládneš to ty."* Existuje i rychlá varianta z patnácti vteřin, méně přesná.
+5. **Nadopuj to efekty**, protože výstup je **suchý** — bez dozvuku a efektů. Autor tomu dává gate, jasnější zvuk, EQ na výšky, reverb a delay, a poznamená, že *„ty efekty to celé teprve zpečetí."*
+
+**Co je na tom vlastně užitečné**: ten poslední bod je jádro celé věci. Suchý vokál je totiž **materiál, ne hotový produkt** — dá se do mixu posadit stejně jako nahrávka, kdežto výstup přímo z generátoru přijde už s vlastním prostorem a do vlastní skladby ho nedostaneš.
+
+> **Pozn.:** Zařazujeme to kvůli **užšímu případu, než video slibuje**: hlas ve hře nemusí být zpěv. Zvuky postav, vypravěč, hlášky do prototypu — všude tam se hodí totéž, tedy **záznam vlastního výkonu jako vstup**, který se dál upravuje, ne generování od nuly. Tím se to liší od „napiš prompt a dostaň písničku" a proto to v tomhle dokumentu stojí. Vážit je ale potřeba tři věci, a video ani jednu neotevře: **(a)** je to **placená spolupráce** — autor to přiznává až v závěru a celý postup je postavený kolem jednoho konkrétního placeného nástroje, takže ho ber jako ukázku *třídy* řešení, ne jako doporučení; **(b)** oba kroky běží **v cloudu**, tedy nahráváš svůj materiál a **otisk vlastního hlasu** na cizí server — u hlasu je to citlivější než u samplů a stojí za přečtení podmínek; **(c)** licenčně to má **dvě vrstvy** — tvůj text a tvá melodie a nad tím výstup generativního modelu, což u hry, kterou chceš prodávat, není maličkost. Střízlivá alternativa, kterou dokument popisuje jinde: [vlastní hlas jako sampler](aranz.md#skladba-od-nuly-vokal-jako-nastroj-a-text-z-nahodnych-frazi) — naladit, nasekat a hrát z kláves. Zní to jinak, ale je to **zdarma, offline a bez otazníků**.
+
+**Souvislosti:** [Hudba zdarma pro nemuzikanty](#hudba-zdarma-pro-nemuzikanty) · [Skladba od nuly: vokál jako nástroj](aranz.md#skladba-od-nuly-vokal-jako-nastroj-a-text-z-nahodnych-frazi) · [Sound design ve hře](sound-design-ve-hre.md) · [Učení v éře AI](../teorie/uceni-v-ere-ai.md) · [Rejstřík: Klonování hlasu](../rejstrik.md#klonovani-hlasu) · [Rejstřík: Stem separace](../rejstrik.md#stem-separace)

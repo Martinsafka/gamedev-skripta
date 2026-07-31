@@ -155,10 +155,12 @@ Zbytek vlny:
 
 **✅ HLAVNÍ PLAYLIST TŘETÍ VLNY DOKONČEN** — všech 61 videí zpracováno (dávky 36–43). Zbývá už jen hudba.
 
-### Phase 11 (běží) — hudební vlna
+### Phase 11 (hotovo) — hudební vlna
 
 - [x] **Dávka 44 (Strudel a live coding)** — 7 videí (~29k slov) → **nová kapitola `hudba/live-coding.md` v novém nav tématu „Live coding" (6 myšlenek)**: co je Strudel a proč se učí jinak · cyklus jako pizza (mini notace) · euklidovské rytmy a řízená náhoda · zvuk, efekty a modulace · od smyčky k vystoupení · deset minut na track. **+1 myšlenka do `hudba/synteza-zvuku.md`** (FM syntéza — obecná, ne strudelová). Zdroje: `oqyAJ4WeKoU`, `m7Rp46AU8dw`, `11frBA9L638`, `7GcSgrJRcIw`, `jKkmzWmIyfs`, `sefJz9biLCY`, `8ruLuZv1ju8`. **7 videí označeno `skip`** — performance a mixy bez výkladu (137–405 slov na 5–55 minut stopáže), ověřeno poměrem délky přepisu ke stopáži. Rejstřík 477 → **483** (Euklidovský rytmus, FM syntéza, Live coding, Polymetr, Sidechain, Strudel). _(2026-07-31)_
-- [ ] **Dávka 45 (harmonie, rytmus, hlas)** — zbylých 6 videí: Alex Rome ×3 (`cU4mqDPZuXg` 15 progresí a emoce · `XlltkalLaU4` systém psaní písní · `uOUPEqTU9ag` remake Zimmera) + odložený `_yw85rAb6cw` (10 akordových vzorců, z Godot playlistu) → `hudba/akordy-a-harmonie.md` a `hudba/melodie.md`; `JE3QM_9sljI` (rytmus) a `8w97N0rEIS8` (AI na vokály) + krátký `7mLqpA-PMwM`. Tím končí třetí vlna celá.
+- [x] **Dávka 45 (harmonie, rytmus, hlas) — FINÁLE TŘETÍ VLNY** _(2026-07-31)_: 7 videí (~13k slov) → **nová kapitola `hudba/rytmus.md` (3 myšlenky)** v tématu „Základy hudební teorie" — mřížka, takt a swing · silné a slabé doby (páteř a ozdoby) · fráze A·B·A·C·A·A·D, fill a prázdno — **plus 6 myšlenek do stávajících kapitol**: `akordy-a-harmonie.md` ×2 (katalog 25 progresí podle nálady · překlopitelné „neutrální" progrese), `aranz.md` (metoda zákopu), `tvorba-soundtracku.md` (rozbor přestavbou: Cornfield Chase), `fyzika-souzvuku.md` (kvintový kruh je spirála), `nastroje-zdarma-a-game-jam.md` (AI řetěz na vokál, s výhradami). Zdroje: `cU4mqDPZuXg`, `_yw85rAb6cw`, `XlltkalLaU4`, `uOUPEqTU9ag`, `JE3QM_9sljI`, `8w97N0rEIS8`, `7mLqpA-PMwM`. Rejstřík 483 → **495** (+12). Odložený `_yw85rAb6cw` z Godot playlistu tím konečně umístěn.
+
+**✅ TŘETÍ VLNA DOKONČENA CELÁ** — 174 videí ve třech playlistech (Godot 93, hlavní 61, hudba 20), dávky 31–45. V `processing_index.md` zbývají už jen tři dlouhodobě odložené položky: 1 české video bez pipeline a 2 low-priority beginner kurzy.
 
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 

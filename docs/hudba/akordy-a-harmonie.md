@@ -77,4 +77,79 @@ A dvě páky nad notami samotnými:
 
 > **Pozn.:** Všechny tyhle techniky jsou variace jediné myšlenky: **stejné noty, jiný dojem**. Než sáhneš po jiných akordech, zkus s těmi stávajícími pohnout jinak — otevřít voicing, přidat prodlevu, změnit artikulaci nebo zvuk. Většinou je tam mnohem víc emoce, než vypadá.
 
-**Souvislosti:** [Emoce je v pohybu akordů](#emoce-je-v-pohybu-akordu) · [Syntéza zvuku od nuly](synteza-zvuku.md) (odkud „volba zvuku" bere materiál) · [Aranžmá: z loopu skladba](aranz.md) · [Rejstřík: voicing](../rejstrik.md#voicing) · [Rejstřík: voice leading](../rejstrik.md#voice-leading) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone)
+**Souvislosti:** [Emoce je v pohybu akordů](#emoce-je-v-pohybu-akordu) · [Katalog progresí podle nálady](#katalog-progresi-podle-nalady) · [Syntéza zvuku od nuly](synteza-zvuku.md) (odkud „volba zvuku" bere materiál) · [Aranžmá: z loopu skladba](aranz.md) · [Rejstřík: voicing](../rejstrik.md#voicing) · [Rejstřík: voice leading](../rejstrik.md#voice-leading) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone)
+
+---
+
+## Katalog progresí podle nálady
+
+**Zdroj:** [15 Chord Progressions for 15 Different Emotions](https://www.youtube.com/watch?v=cU4mqDPZuXg) a [10 Chord Patterns for 10 Different Emotions](https://www.youtube.com/watch?v=_yw85rAb6cw) · [Alex Rome](https://www.youtube.com/channel/UCh1MtJ4rx4n4PQGYNYK_UXA) · ~22 + 13 min, dvě katalogová videa
+
+**Shrnutí:** Dvě videa, dvacet pět progresí, jeden formát: **nálada → stupně → poslech**. Bereme z nich to, co je opravdu užitečné — **tabulku k nalistování** a **jednu opakovanou trojici tahů**, kterou autor dělá u každé jediné progrese. Háček, který katalog sám nepřizná: **ty stupně samy o sobě nic nedělají.** Základní tvar zní pokaždé plocho a emoce vzniká až tou trojicí tahů nad ním.
+
+### Rozpad myšlenky
+
+**Tabulka.** Stupně se čtou ve zvolené stupnici (moll, pokud není řečeno jinak) a jsou to **arabské číslice stupňů**, ne funkční značení:
+
+| nálada | stupně | poznámka autora |
+|---|---|---|
+| povznášející, euforické | 5 · 6 · 7 · 1 | *„pět, šest a sedm jsou nejemotivnější akordy mollové stupnice"* |
+| povznášející, sladké | 6 · 1 · 3 · 7 | oblíbená autorova |
+| feel-good euforie | 6 · 3 · 7 · 1 | *„když chceš udělat feel-good track, prostě použij tyhle akordy"* |
+| vážné, hluboké | 6 · 7 · 1 · 7 | jedna z nejběžnějších progresí v hudbě vůbec |
+| smutné | 1 · 7 · 4 · 6 | sestupný pohyb, dlouhé akordy přes dva takty |
+| hořkosladké | 6 · 6 · 1 · 7 | *„jedna z nejkrásnějších progresí na světě"* — Porter Robinson, *Language* |
+| temné, vážné | 1 · 6 · 4 · 5 | tři ze čtyř akordů mollové → recept na temno |
+| napjaté, cinematické | **jediný mollový akord** | žádná progrese; napětí dělá délka a bas pod ní |
+| melancholické | 1 · 3 · 5 | *„melancholické progrese milují prodlevy"* |
+| snové indie | 1 · 6 · 3 · 2 | dvojka je zmenšená — autor ji nahrazuje sousedním durovým |
+| šťastné | 6 · 4 · 1 · 5 (dur) | *„je to kýčovité, ale ten dobrý druh kýče"* |
+| čistá radost | 6 · 4 · 1 (dur) + 2 moll | závěrečný mollový akord přidá hloubku |
+| vzdorné, vzpřímené | 1 · 7 · 6 · 5 (dur) | sestup, ale z durové tóniky — proto to nese sílu, ne smutek |
+| nejveselejší | 4 · 5 · 1 (dur) | samé durové akordy, žádný mollový |
+| groove a funk | 1 · 3 · 4 | *„klíč k funku je přimíchat septakordy"* |
+
+**Trojice tahů**, kterou autor dělá znovu a znovu a která je vlastním obsahem obou videí — u něj *„vytažení maximální emoce"*:
+
+1. **tercie o oktávu nahoru** — *„miluju, když je tercie akordu úplně nahoře"*;
+2. **basový tón zdvojený o oktávu níž** (kopie, ne přesun) pro posílení kořene;
+3. **prodleva** — jeden nebo dva tóny, které zní pod celou progresí a nemění se. Typicky na tónice, ale funguje i na třetím stupni a pět stupňů nad ním.
+
+Tohle je v podstatě [voicing, voice leading a prodleva](#emoce-z-voicingu-a-artikulace) sbalené do rutiny, kterou lze aplikovat naslepo.
+
+**Tři dílčí rady navrch**, které v katalogu proklouznou, ale jsou přenositelné:
+
+- **Neudělej septakord z každého akordu** — *„tím emoci tak trochu vymyješ."* Septakordy jsou koření, ne základ.
+- **Většina akordů v mollové → tmavší celek.** Autor to nepočítá jako pravidlo, ale jako recept: tři ze čtyř mollových = temno.
+- **Zdvojení kteréhokoli tónu akordu ten tón zvýrazní** — jiným zvukem, ne hlasitostí. Levná páka, když chceš, aby v akordu vynikla konkrétní barva.
+
+> **Pozn.:** Katalog jako formát má vestavěnou past a stojí za to ji pojmenovat: **svádí k tomu brát progrese jako hotové zboží**, a přitom autor sám v každém jednotlivém příkladu předvede, že základní tvar zní nezajímavě a rozdíl dělá až voicing. **Použitelná část toho videa je tedy ta trojice tahů, ne tabulka** — tabulku ber jako rozcestník, když nevíš, kde začít. Pro herní hudbu to má konkrétní důsledek: nálada scény ti řekne, které řádky zkusit, ale **charakter dostaneš až tím, jak akordy rozložíš**, protože právě tam vzniká rozdíl mezi „hudba ve hře" a „hudba téhle hry". A vlastní výhrada k jedné položce: **„napjaté = jeden akord"** je poctivější, než to zní — bez pohybu není harmonie, jen barva, což je přesně to, co [ambientní podklad ve hře](tvorba-soundtracku.md) obvykle potřebuje. Kdo hledá hudbu, která se nedere do popředí, začne tady.
+
+**Souvislosti:** [Emoce z voicingu a artikulace](#emoce-z-voicingu-a-artikulace) · [Neutrální progrese: nech skladbu, ať si řekne](#neutralni-progrese-nech-skladbu-at-si-rekne) · [Emoce je v pohybu akordů](#emoce-je-v-pohybu-akordu) · [Nejdřív tón, pak noty](tvorba-soundtracku.md#nejdriv-ton-pak-noty) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone) · [Rejstřík: chord progression](../rejstrik.md#chord-progression) · [Rejstřík: Septakord](../rejstrik.md#septakord)
+
+---
+
+## Neutrální progrese: nech skladbu, ať si řekne
+
+**Zdroj:** [15 Chord Progressions for 15 Different Emotions](https://www.youtube.com/watch?v=cU4mqDPZuXg) · [Alex Rome](https://www.youtube.com/channel/UCh1MtJ4rx4n4PQGYNYK_UXA) · ~22 min, katalogové video
+
+**Shrnutí:** Uprostřed katalogu je jedna položka, která do katalogu nepatří, a je z něj nejcennější: **progrese, které autor záměrně používá, když ještě neví, co skladba bude.** Nejsou napsané pro náladu — jsou napsané tak, aby se **daly překlopit** dvěma pohyby. Háček: nálada není vstup do skladby, je to často až její výstup.
+
+### Rozpad myšlenky
+
+**Postup, který autor popisuje** [(15:17)](https://www.youtube.com/watch?v=cU4mqDPZuXg&t=917s): má dvě progrese, kterým říká **neutrální**, a *„skáče mezi nimi, když píše skladbu a zjišťuje, jakou náladu se vlastně snaží zachytit."* Nejde tedy o to vybrat správnou progresi dopředu, ale mít po ruce takovou, která **snese oba směry**.
+
+První je **smutná neutrální**: sestupné 1 · 7 · 6 · 7 v mollové stupnici, tercie navrch. Autor ji charakterizuje přesně: *„je to smutné, ale ne filmově smutné a ne přehnaně smutné — je to hudebně smutné."*
+
+**A pak ten překlopení** [(16:33)](https://www.youtube.com/watch?v=cU4mqDPZuXg&t=993s), který je celý o dvou pohybech:
+
+1. **první akord se stáhne dolů na šestý stupeň** a šestý se přesune tam, kde byla jednička;
+2. **prodleva se přesune z tóniky na třetí stupeň mollové stupnice** — tedy na tóniku relativní durové.
+
+Výsledek je *„odhodlaný a hrdinský"* místo smutného, aniž by se změnila stupnice nebo přibyl jediný akord. Autor to komentuje otázkou, která je vlastně celé shrnutí: *„necítíš, jak je to najednou o něco nadějnější?"*
+
+**Druhá neutrální položka** [(19:21)](https://www.youtube.com/watch?v=cU4mqDPZuXg&t=1161s) je stejné poučení z druhé strany: 1 · 7 · 6 · 5 **v durové** stupnici. Pohyb je sestupný, což obvykle vede ke smutku — ale protože začíná na **durové tónice**, nese *„emocionální houževnatost, jako když si stojíš za svým."* Táž mechanika, jen s obráceným znaménkem: **směr pohybu a tónový domov si můžou protiřečit, a z toho rozporu je nálada, na kterou by se cíleně mířilo těžko.**
+
+> **Pozn.:** Tohle je nejlepší kus z obou katalogových videí, přestože je v nich schovaný jako dvě položky z pětadvaceti. **Pracovní metoda, ne recept**: neptej se „jakou náladu chci", ptej se „snese tenhle materiál obě?" — a rozhodni se, až uslyšíš. Pro herní hudbu je to obzvlášť užitečné, protože scéna se během vývoje mění a **progrese, která umí překlopit, přežije redesign**, kdežto progrese napsaná na jednu konkrétní emoci se zahazuje s ní. Je to tentýž princip, který dokument popisuje u [kotvení melodie](#emoce-je-v-pohybu-akordu): akordy nesou míň nálady, než se zdá, a **rozhodne až to, co nad nimi nebo pod nimi drží tón**. Vlastní výhrada: „neutrální" je zavádějící slovo — ty progrese neutrální nejsou, jsou **překlopitelné**, což je něco jiného. Neutrální progrese by nezněla nijak; tyhle znějí a jen se dají otočit.
+
+**Souvislosti:** [Katalog progresí podle nálady](#katalog-progresi-podle-nalady) · [Emoce je v pohybu akordů](#emoce-je-v-pohybu-akordu) · [Emoce z voicingu a artikulace](#emoce-z-voicingu-a-artikulace) · [Nejdřív tón, pak noty](tvorba-soundtracku.md#nejdriv-ton-pak-noty) · [Rejstřík: relativní dur](../rejstrik.md#relativni-dur) · [Rejstřík: pedal tone](../rejstrik.md#pedal-tone)
