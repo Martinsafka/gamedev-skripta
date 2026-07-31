@@ -998,6 +998,14 @@ Standard pro UI (v UE je to Rotator): tři čísla, kterým rozumíš. Cena: miz
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
 
+### Euklidovský rytmus
+
+**Zápis `(n,k)`: rozprostři `n` hitů co nejrovnoměrněji do `k` kroků.**
+
+Vznikl ve fyzice — šlo o to, jak v daném časovém okně poslat částice co nejvíc rozestoupené — a ukázalo se, že výsledné vzorce **odpovídají rytmům z mnoha různých kultur**. V praxi je to nástroj na objevování: nevíš, jak má groove znít, změníš jedno číslo a dostaneš jiný. Protiklad k tomu je zápis, kde přesně řekneš, na kterých krocích se hraje. Výhrada: prostor možností je úzký, takže po chvíli **zní euklidovské rytmy poznatelně** — dobré na základ, ne na všechno.
+
+Kde se s tím potkáš: [Euklidovské rytmy a řízená náhoda](hudba/live-coding.md#euklidovske-rytmy-a-rizena-nahoda) · [Rejstřík: Synkopa](#synkopa)
+
 ### EV100
 
 **Jednotka expozice: kolik světla pustí kamera do obrazu — EV100 = 1 odpovídá modré hodině, interiér ~5–7, slunečný den ~13.**
@@ -1117,6 +1125,14 @@ Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md) · [Ar
 Slovník bojovek, použitelný v každé akční hře. Ke každému aktivnímu snímku se dají navěsit vlastnosti — poškození, síla odhozu, [hit stop](#hit-stop), otřes obrazovky, stavové efekty — a protože jeden snímek animace může mít víc [hitboxů](#hitbox), dá se útok rozřezat na části s různým chováním (odhoz jen na chodidlech, jed jen na špičce biče). Kritická podmínka při stavbě: **časování musí mít jediný zdroj pravdy**, typicky animaci samotnou — data ve dvou místech se při první úpravě animace rozejdou.
 
 Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis)
+
+### FM syntéza
+
+**Syntéza, kde jeden signál rozkmitává frekvenci druhého — místo aby se z bohatého zvuku ubíralo filtrem.**
+
+Nejdůležitější parametr není hloubka modulace, ale **harmonicita** — poměr frekvence modulátoru k nosné. Nízké poměry zní jako vibráto, vysoké a neceločíselné dávají kovové alikvóty, celočíselné drží zvuk laděný. Výpočetně levné a zvukově drahé, proto na tom stála éra konzolového a automatového zvuku. Úzký použitelný recept: **sinus + FM + krátká obálka = zvonek nebo perkuse**. Výhrada: ladí se hůř než subtraktivní řetězec — nejdřív hledej poměr, pak tvaruj obálkou.
+
+Kde se s tím potkáš: [FM: když jeden zvuk ohýbá druhý](hudba/synteza-zvuku.md#fm-kdyz-jeden-zvuk-ohyba-druhy) · [Rejstřík: subtraktivní syntéza](#subtraktivni-synteza) · [Rejstřík: oscilátor](#oscilator)
 
 ### Fragment
 
@@ -1757,6 +1773,14 @@ Kde se s tím potkáš: [Dvě cesty, jak přestat spawnovat systémy](praxe/niag
 Chceš ji rovnou a čitelnou, s částmi těla, které ji následují — zlomená nebo komplikovaná linie ničí účel pózy a pohyb se hůř čte. Spolu s těžištěm (musí padat nad chodidla, pokud zrovna nechceš ukázat ztrátu rovnováhy) je to základ, který stojí před vším ostatním: animace je série póz, takže špatná póza se nedá zachránit časováním.
 
 Kde se s tím potkáš: [Art specializace: animace](teorie/art-specializace.md)
+
+### Live coding
+
+**Tvorba hudby psaním kódu, který zní okamžitě a mění se za běhu — takže skládání a vystoupení splývají.**
+
+Nejdostupnějším nástrojem je **Strudel** (viz vlastní heslo). Podstatný rozdíl proti DAW: nepokládáš události na časovou osu, ale **popisuješ dělení cyklu**, takže se rytmus mění změnou jednoho čísla. Vedlejší důsledek, který stojí za zmínku: protože se nástroj mění během hraní, **vlastní knihovna funkcí je zároveň nástroj i styl** — určuje, co je při vystoupení snadné, a tedy co zahraješ.
+
+Kde se s tím potkáš: [Live coding: hudba jako kód](hudba/live-coding.md) · [Rejstřík: Strudel](#strudel)
 
 ### Live Link
 
@@ -2526,6 +2550,14 @@ Pixel-shader trik hloubky bez geometrie; v breakdownech a diskusích se běžně
 
 Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
+### Polymetr
+
+**Dvě či víc rytmických řad, které běží současně a mají různou délku — takže se jejich zarovnání posouvá.**
+
+Není to totéž co polyrytmus: u polymetru mají řady stejnou dobu, ale různý počet dob v cyklu (třeba 4 proti 3), takže se vzorec zopakuje až po nejmenším společném násobku. Prakticky to dává **dlouho se neopakující groove z krátkého zápisu**, což je přesně to, co se hodí u generativní herní hudby. Ve Strudelu se píše složenými závorkami.
+
+Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-pizza-mini-notace) · [Rejstřík: Synkopa](#synkopa)
+
 ### Pose Search Database
 
 **PSD — kolekce animací pro jeden typ pohybu, ve které Motion Matching hledá pózy.**
@@ -3006,6 +3038,14 @@ Vznikla v době fyzického tisku, kde bránila rozpíjení inkoustu a opotřeben
 
 Kde se s tím potkáš: [Typografie](teorie/typografie.md)
 
+### Sidechain
+
+**Automatické stažení jednoho zvuku pokaždé, když udeří jiný — nejčastěji padu nebo basu při kopáku.**
+
+Slyšitelný výsledek je „pumpování do beatu", které v taneční hudbě dělá místo pro kopák a zároveň drží energii. Ve Strudelu se jmenuje **`duck`**: vzor se dá na orbitu (skupinu sdílející efekty) a kopák na tu orbitu zavolá duck; `duckattack` řídí, jak dlouho zůstane stažené (0 = okamžitý návrat, 1 = drží dole). Existuje i varianta bez zdroje — ghost ducking, kde se ducká, jako by tam kopák byl.
+
+Kde se s tím potkáš: [Zvuk, efekty a modulace](hudba/live-coding.md#zvuk-efekty-a-modulace) · [Rejstřík: LFO](#lfo)
+
 ### Signal
 
 **Zpráva, kterou node vyšle, aniž by věděl, kdo ji poslouchá — vestavěný [observer pattern](#observer-pattern).**
@@ -3277,6 +3317,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 „Programování na úrovni rozhraní": cíl jeden, strategií víc, výměna za běhu. Ukázka open-closed principu — nové chování přidáš novou třídou bez sahání do existujícího kódu. V UE: movement modes Moveru, choosery, Blueprint Interface místo kaskády castů.
 
 Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Mover](praxe/mover.md)
+
+### Strudel
+
+**Prohlížečové prostředí pro live coding hudby — JavaScriptová verze jazyka TidalCycles.**
+
+Nic se neinstaluje, běží na `strudel.cc`, vestavěné zvuky nesou jména z klasických bicích automatů (`bd`, `hh`, `cp`). Základ je **mini notace**: `*4` dělí cyklus na čtvrtiny, `[a b]` dělí dál, `~` je pomlka, `<a b>` střídá po cyklech, `{}` je polymetr. Dvě věci, které začátečníka nutně potkají: **vzory zleva doprava určují, jak často se vzorkuje ten vpravo** (léčí `setDefaultJoin('mix')`) a **dlouhé vzorky se bez `clip(1)` vrství samy na sebe**.
+
+Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-pizza-mini-notace) · [Rejstřík: Live coding](#live-coding) · [Rejstřík: Euklidovský rytmus](#euklidovsky-rytmus)
 
 ### Struct
 

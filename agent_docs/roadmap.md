@@ -134,7 +134,7 @@ Nový samostatný playlist (93 videí, ~351k slov) zaměřený na Godot → **dr
 - [x] **Dávka 34 done** _(2026-07-29)_: případovka A — 15 videí Inbound Shovel (~40k slov) → **3 nové kapitoly / 12 myšlenek v novém nav tématu „Případovka: 2D akční platformer"** (`pripadovka-pohyb` 4, `pripadovka-kamera` 3, `pripadovka-nepratele` 5). Rejstřík +5 termínů (420 celkem), chapter map regen (623 řádků), `--strict` + anchor-check green (2278 fragmentů, napoprvé). Nejsilnější kus: **proč vyhodil všechny šikmé plochy** — tři vrstvy nákladů psané jako účet, ne pravidlo. Tři vlastní syntézy nad rámec zdrojů (vizuální věrnost zvyšuje očekávání od chování; eskalace abstrakce; hit stop zdržuje vstup). **62/93 published.**
 - [x] **Dávka 35 done — FINÁLE PHASE 9** _(2026-07-29)_: případovka B — 27 videí (~48k slov) → **4 nové kapitoly / 20 myšlenek** (`pripadovka-level-a-mapa` 4, `pripadovka-vizual-a-zvuk` 5, `pripadovka-systemy` 5, `pripadovka-proces` 6). Rejstřík +8 termínů (428 celkem), chapter map regen (635 řádků), `--strict` + anchor-check green (2417 fragmentů). Nejsilnější kus: **level editor, který nakonec nebyl level editor** — deset hodin práce zahozených kvůli špatně přečtenému požadavku. Jedno video (redesign postavy) rozděleno do tří kapitol podle myšlenek. **90/93 published.**
 
-### Phase 10 (běží) — třetí vlna hlavního playlistu a hudby
+### Phase 10 (hotovo) — třetí vlna hlavního playlistu
 
 Staženo 2026-07-29 (tabulky v `processing_index.md`). Pořadí dohodnuté s uživatelem: až po dokončení Godotu, a uvnitř hlavního playlistu **začít výkonem a profilingem**.
 
@@ -154,7 +154,11 @@ Zbytek vlny:
 - [x] **Dávka 43 (kód, architektura a nástroje)** — 11 videí (~28k slov) → **7 myšlenek + 1 doplněk**: `praxe/principy-architektury.md` ×3 (kostky a lepidlo 70/30 · třída jako data přes CDO · fragmenty jako kompozice), `teorie/programatorske-navyky.md` (CI/CD), `praxe/editor-tipy.md` (změny v 5.8), `praxe/animace-nastroje.md` (řemeslo první osoby), `teorie/2d-vizual.md` (volba nástrojů) + doplněk k tracingu v `praxe/mereni-automaticky.md` (Memory Insights). **Tři zdroje označeny jako duplikáty** (`QcGFO0DzFMg`, `aUaBtau2M3c`, `stc0_aMvkPQ`) — knihovna je už pokrývá podrobněji. Rejstřík 474 → **477** (CDO, CI/CD, Fragment). _(2026-07-31)_
 
 **✅ HLAVNÍ PLAYLIST TŘETÍ VLNY DOKONČEN** — všech 61 videí zpracováno (dávky 36–43). Zbývá už jen hudba.
-- [ ] Gamedev-music **+20 videí** (~41k slov). Dominantní shluk: **Strudel a live coding hudby** (11 videí) → nové téma. Dál Alex Rome ×3 (rozšíření `akordy-a-harmonie`, `melodie` — sem patří i `_yw85rAb6cw` z Godot playlistu), rytmus, AI na vokály. Pozor na položky, které jsou performance/mixy, ne tutoriály.
+
+### Phase 11 (běží) — hudební vlna
+
+- [x] **Dávka 44 (Strudel a live coding)** — 7 videí (~29k slov) → **nová kapitola `hudba/live-coding.md` v novém nav tématu „Live coding" (6 myšlenek)**: co je Strudel a proč se učí jinak · cyklus jako pizza (mini notace) · euklidovské rytmy a řízená náhoda · zvuk, efekty a modulace · od smyčky k vystoupení · deset minut na track. **+1 myšlenka do `hudba/synteza-zvuku.md`** (FM syntéza — obecná, ne strudelová). Zdroje: `oqyAJ4WeKoU`, `m7Rp46AU8dw`, `11frBA9L638`, `7GcSgrJRcIw`, `jKkmzWmIyfs`, `sefJz9biLCY`, `8ruLuZv1ju8`. **7 videí označeno `skip`** — performance a mixy bez výkladu (137–405 slov na 5–55 minut stopáže), ověřeno poměrem délky přepisu ke stopáži. Rejstřík 477 → **483** (Euklidovský rytmus, FM syntéza, Live coding, Polymetr, Sidechain, Strudel). _(2026-07-31)_
+- [ ] **Dávka 45 (harmonie, rytmus, hlas)** — zbylých 6 videí: Alex Rome ×3 (`cU4mqDPZuXg` 15 progresí a emoce · `XlltkalLaU4` systém psaní písní · `uOUPEqTU9ag` remake Zimmera) + odložený `_yw85rAb6cw` (10 akordových vzorců, z Godot playlistu) → `hudba/akordy-a-harmonie.md` a `hudba/melodie.md`; `JE3QM_9sljI` (rytmus) a `8w97N0rEIS8` (AI na vokály) + krátký `7mLqpA-PMwM`. Tím končí třetí vlna celá.
 
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 

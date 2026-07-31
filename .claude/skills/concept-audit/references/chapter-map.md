@@ -240,6 +240,9 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Sedm pilířů skladatele](https://martinsafka.github.io/gamedev-skripta/hudba/cesta-skladatele/) — Předchozí kapitoly učí konkrétní dovednosti; tahle dává mapu, jak se skládat naučit dlouhodobě. Je z videa klasicky laděného skladatele — mluví o partiturách a orchestraci, ne o piano rollu…
 - [Začít a vydržet](https://martinsafka.github.io/gamedev-skripta/hudba/zacit-a-vydrzet/) — Cesta skladatele je systematická mapa, jak se skládat naučit. Tahle kapitola je její syrový protějšek: upřímný devlog samouka o tom, jak vypadá doopravdy se do tvorby hudby pustit — s…
 
+### Live coding
+- [Live coding: hudba jako kód](https://martinsafka.github.io/gamedev-skripta/hudba/live-coding/) — Poslední téma dokumentu jde jinou cestou než zbytek. Nemá DAW, piano roll ani stopy — má textový editor v prohlížeči, do kterého píšeš vzory a ony hned hrají. Nástroj se jmenuje Strudel, je…
+
 ## Zápisky
 
 - [Selhávat citelně a čitelně](https://martinsafka.github.io/gamedev-skripta/zapisky/selhavat-citelne-a-citelne/) — Maxima, která vykrystalizovala v létě 2026 z dlouhé debaty nad vlastní cestou samouka — a nad tím, jak se testují systémy, které si nemůžou dovolit selhat před publikem. Je to filozofické…
@@ -382,6 +385,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [EQ](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eq)
 - [Equity](https://martinsafka.github.io/gamedev-skripta/rejstrik/#equity)
 - [Eulerovy úhly](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eulerovy-uhly)
+- [Euklidovský rytmus](https://martinsafka.github.io/gamedev-skripta/rejstrik/#euklidovsky-rytmus)
 - [EV100](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ev100)
 - [EVDB](https://martinsafka.github.io/gamedev-skripta/rejstrik/#evdb)
 - [Event bus](https://martinsafka.github.io/gamedev-skripta/rejstrik/#event-bus)
@@ -397,6 +401,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Foot placement](https://martinsafka.github.io/gamedev-skripta/rejstrik/#foot-placement)
 - [Four-on-the-floor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#four-on-the-floor)
 - [Frame data](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-data)
+- [FM syntéza](https://martinsafka.github.io/gamedev-skripta/rejstrik/#fm-synteza)
 - [Fragment](https://martinsafka.github.io/gamedev-skripta/rejstrik/#fragment)
 - [Frame time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-time)
 - [FX budget](https://martinsafka.github.io/gamedev-skripta/rejstrik/#fx-budget)
@@ -477,6 +482,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Linked anim graph](https://martinsafka.github.io/gamedev-skripta/rejstrik/#linked-anim-graph)
 - [Lightweight emitter](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lightweight-emitter)
 - [Line of action](https://martinsafka.github.io/gamedev-skripta/rejstrik/#line-of-action)
+- [Live coding](https://martinsafka.github.io/gamedev-skripta/rejstrik/#live-coding)
 - [Live Link](https://martinsafka.github.io/gamedev-skripta/rejstrik/#live-link)
 - [Locomotor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locomotor)
 - [Locus of control](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locus-of-control)
@@ -573,6 +579,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Player State](https://martinsafka.github.io/gamedev-skripta/rejstrik/#player-state)
 - [Playtest](https://martinsafka.github.io/gamedev-skripta/rejstrik/#playtest)
 - [POM](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pom)
+- [Polymetr](https://martinsafka.github.io/gamedev-skripta/rejstrik/#polymetr)
 - [Pose Search Database](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pose-search-database)
 - [Pose Search Schema](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pose-search-schema)
 - [Pose Snapshot](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pose-snapshot)
@@ -633,6 +640,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Separation of concerns](https://martinsafka.github.io/gamedev-skripta/rejstrik/#separation-of-concerns)
 - [Short description](https://martinsafka.github.io/gamedev-skripta/rejstrik/#short-description)
 - [Serif](https://martinsafka.github.io/gamedev-skripta/rejstrik/#serif)
+- [Sidechain](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sidechain)
 - [Signal](https://martinsafka.github.io/gamedev-skripta/rejstrik/#signal)
 - [Signal-to-noise ratio](https://martinsafka.github.io/gamedev-skripta/rejstrik/#signal-to-noise-ratio)
 - [Shading bin](https://martinsafka.github.io/gamedev-skripta/rejstrik/#shading-bin)
@@ -667,6 +675,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Streaming pool](https://martinsafka.github.io/gamedev-skripta/rejstrik/#streaming-pool)
 - [Stitching](https://martinsafka.github.io/gamedev-skripta/rejstrik/#stitching)
 - [Strategy pattern](https://martinsafka.github.io/gamedev-skripta/rejstrik/#strategy-pattern)
+- [Strudel](https://martinsafka.github.io/gamedev-skripta/rejstrik/#strudel)
 - [Struct](https://martinsafka.github.io/gamedev-skripta/rejstrik/#struct)
 - [Stupnice](https://martinsafka.github.io/gamedev-skripta/rejstrik/#stupnice)
 - [Subsystem](https://martinsafka.github.io/gamedev-skripta/rejstrik/#subsystem)

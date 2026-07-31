@@ -236,6 +236,8 @@ nav:
       - Cesta skladatele:
           - Sedm pilířů skladatele: hudba/cesta-skladatele.md
           - Začít a vydržet: hudba/zacit-a-vydrzet.md
+      - Live coding:
+          - "Live coding: hudba jako kód": hudba/live-coding.md
   - Zápisky:
       - zapisky/index.md
       - Selhávat citelně a čitelně: zapisky/selhavat-citelne-a-citelne.md

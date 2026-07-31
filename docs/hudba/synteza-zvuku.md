@@ -68,4 +68,32 @@ Zvuk, který by měl umět každý [(18:39)](https://www.youtube.com/watch?v=p1-
 
 A hlavní pointa celé kapitoly [(21:49)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=1309s): tohle není jeden zvuk. Když umíš signálový řetězec a modulaci, tentýž postup přeměníš v nekonečno různých zvuků — bas, akordy, melodii, cokoli. Preset je slepá ulička; řetězec je klíč.
 
-**Souvislosti:** [Amp-controlled zvuky a bas](#amp-controlled-zvuky-a-bas) · [Akordy a harmonie: volba zvuku](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Žánry: výběr zvuku dělá žánr](zanry-a-styl.md#zanr-je-recept-ne-magie) · [CDP a SoundThread](nastroje-zdarma-a-game-jam.md#cdp-a-soundthread-laborator-na-zvuk-zdarma) *(co jde, když nemusíš stíhat reálný čas)* · [Rejstřík: LFO](../rejstrik.md#lfo)
+**Souvislosti:** [Amp-controlled zvuky a bas](#amp-controlled-zvuky-a-bas) · [FM: když jeden zvuk ohýbá druhý](#fm-kdyz-jeden-zvuk-ohyba-druhy) · [Akordy a harmonie: volba zvuku](akordy-a-harmonie.md#emoce-z-voicingu-a-artikulace) · [Žánry: výběr zvuku dělá žánr](zanry-a-styl.md#zanr-je-recept-ne-magie) · [CDP a SoundThread](nastroje-zdarma-a-game-jam.md#cdp-a-soundthread-laborator-na-zvuk-zdarma) *(co jde, když nemusíš stíhat reálný čas)* · [Rejstřík: LFO](../rejstrik.md#lfo)
+
+---
+
+## FM: když jeden zvuk ohýbá druhý
+
+**Zdroj:** [How many FMs can we bake into a strudel?](https://www.youtube.com/watch?v=8ruLuZv1ju8) · [Glossing](https://www.youtube.com/channel/UCHrhiATyh5jAMboL2ywGyJQ) · ~5 min, ukázka funkce
+
+**Shrnutí:** Subtraktivní syntéza z bohatého zvuku **ubírá**. **FM syntéza** místo toho nechá jeden signál **rozkmitávat frekvenci druhého** — a z pár oscilátorů dostane zvuky, které se filtrem postavit nedají. Ukázáno je to ve Strudelu, ale platí to všude. Háček, kvůli kterému má FM pověst nepřístupné: **nejdůležitější parametr není hloubka, ale poměr**.
+
+### Rozpad myšlenky
+
+**Co se vlastně děje** [(0:34)](https://www.youtube.com/watch?v=8ruLuZv1ju8&t=34s): vezmeš pilu a přidáš k ní další signál, který **moduluje její frekvenci**. Množství modulace je jeden knob (`fm`) — od nuly, kde se nestane nic, po hodnoty, kde je zvuk k nepoznání.
+
+**Ten druhý knob je ale ten podstatný** — **harmonicita** (`fmh`): *„zní to složitě, ale je to jen poměr frekvence modulátoru k původnímu signálu."* A na tom poměru stojí charakter zvuku:
+
+- **velmi nízké poměry** → *„začíná to znít jako vibráto"* (modulace je tak pomalá, že ji slyšíš jako kolísání výšky, ne jako barvu);
+- **vysoké poměry** → divoké alikvóty, zvlášť u čísel, která **nejsou celočíselné poměry** — tam vznikají nesouzvučné, kovové barvy;
+- celočíselné poměry drží zvuk „laděný", protože přidané frekvence sedí na harmonickou řadu.
+
+**ADSR platí i tady** — attack a decay na FM dělají **zvonivé tóny**, což je klasika (zvony a elektrické piano jsou učebnicové FM zvuky). A **mírné rozladění** dvou oscilátorů proti sobě dá slyšitelný zázněj, ze kterého se staví **Reese bas**.
+
+**Modulátor nemusí být sinus** [(2:08)](https://www.youtube.com/watch?v=8ruLuZv1ju8&t=128s): jde nastavit i jeho tvar vlny, včetně šumu. Autorka na růžový šum reaguje jednou větou, která říká všechno o tom, na co se FM používá: *„takže teď jsi Porter Robinson."*
+
+**A kam to jde dál** [(3:00)](https://www.youtube.com/watch?v=8ruLuZv1ju8&t=180s): modulátory se dají řetězit — FM2 moduluje FM1, FM3 moduluje FM2 — a v **matici** může kterýkoli modulovat kterýkoli, včetně sebe sama. To je zpětná vazba, u které autorka varuje: *„chceš na to hodně malé číslo, jinak se to začne chovat divoce."*
+
+> **Pozn.:** Zajímavé je, že FM je **výpočetně levné a zvukově drahé** — pár oscilátorů dá barvy, které by subtraktivní řetězec sháněl vrstvením. Přesně proto na tom stála celá éra herního a konzolového zvuku (kdo zná chip zvuky z automatů a raných konzolí, poslouchá FM). Pro dnešní tvorbu je z toho použitelný jeden úzký recept: **sinus + FM + krátká obálka = zvonek nebo perkuse**, což jsou zvuky, které se ze samplů shánějí těžko a v UI hry se používají pořád. Vlastní výhrada: FM je notoricky **neintuitivní na ladění** — malá změna poměru přehodí zvuk na něco úplně jiného, takže se hůř „dolaďuje" a spíš se hledá. Proto se vyplatí naopak než u subtraktivní syntézy: **nejdřív najdi poměr, pak teprve tvaruj obálkou.**
+
+**Souvislosti:** [Anatomie subtraktivního synthu](#anatomie-subtraktivniho-synthu) · [Modulace: envelope a LFO](#modulace-envelope-a-lfo-otaceji-knoby) · [Fyzika souzvuku: alikvóty](fyzika-souzvuku.md#alikvoty-urcuji-stupnici) · [Zvuk, efekty a modulace ve Strudelu](live-coding.md#zvuk-efekty-a-modulace) · [Rejstřík: FM syntéza](../rejstrik.md#fm-synteza) · [Rejstřík: oscilátor](../rejstrik.md#oscilator)

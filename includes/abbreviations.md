@@ -121,6 +121,7 @@
 *[EQ]: Zesílení či potlačení konkrétních frekvencí; čištění šumu a prosazení zvuku v mixu.
 *[Equity]: Podíl na firmě — nesplácí se jako půjčka, ale už se nikdy nevrátí.
 *[Eulerovy úhly]: Rotace jako yaw/pitch/roll v pevném pořadí — intuitivní, ale hrozí gimbal lock.
+*[Euklidovský rytmus]: Zápis (n,k) — rozprostři n hitů rovnoměrně do k kroků; algoritmus původem z fyziky.
 *[EV100]: Jednotka expozice; min=max v PPV zamkne auto-exposure. 1 = modrá hodina, interiér 5–7, den ~13.
 *[EVDB]: Komprimovaný volumetrický asset (Expanse): static mesh, který místo trojúhelníků nese objem.
 *[Event bus]: Globální kanál událostí — autoload se signály, které zajímají víc nepříbuzných systémů.
@@ -136,6 +137,7 @@
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
 *[Four-on-the-floor]: Bicí groove s kopákem na každé ze čtyř dob; základ house, proti němu synkopa.
 *[Frame data]: Popis útoku po snímcích — nápřah, aktivní snímky, zotavení; ke každému snímku vlastní vlastnosti.
+*[FM syntéza]: Syntéza, kde jeden signál moduluje frekvenci druhého; klíčový parametr je harmonicita.
 *[Fragment]: Objekt připojující k položce kus dat a funkčnosti — kompozice místo jedné obří třídy.
 *[Frame time]: Čas na jeden snímek v ms; 60 FPS = rozpočet 16,6 ms. Sčítá se lineárně, na rozdíl od FPS.
 *[FX budget]: Rozpočet na částice, který za běhu stahuje culling; typické selhání je oscilace, léčí ji decay rate.
@@ -217,6 +219,7 @@
 *[Line Trace]: Raycast — neviditelný paprsek hledající kolize na své dráze.
 *[Linear grammar]: Gramatika PCG: string symbolů řídí rytmus modulů podél splinu — sekvence, počty, opakování.
 *[Linked anim graph]: Samostatný anim graf připojený jako modul; přes tag na něj sáhnou komponenty zvenčí.
+*[Live coding]: Tvorba hudby psaním kódu, který zní okamžitě; skládání a vystoupení splývají.
 *[Live Link]: Streamování dat do enginu (mocap, kamery); Live Link Hub od 5.8 zpracuje i offline video na capture data.
 *[Locomotor]: Control Rig uzel procedurální chůze: došlapy počítá dynamicky — foot sets, fázové offsety, žádné klipy.
 *[Locus of control]: Kde hledáš řídicí sílu jednání: uvnitř (rozhoduju sám), či venku (čekám na dotlačení).
@@ -313,6 +316,7 @@
 *[Player State]: Objekt s daty jednoho hráče (inventář, skóre) nezávisle na pawnovi; v multiplayeru se replikuje.
 *[Playtest]: Testování hry skutečnými hráči za účelem zpětné vazby.
 *[POM]: Parallax occlusion mapping — pixel-shader iluze hloubky posunem UV; na hranách řeže, siluety neumí.
+*[Polymetr]: Souběžné rytmické řady různé délky; dlouhý groove z krátkého zápisu.
 *[Pose Search Database]: PSD — kolekce animací jednoho typu pohybu, ve které Motion Matching hledá pózy.
 *[Pose Search Schema]: Definice, co MM měří: kanály (trajektorie, kosti) s vahami; ladí se experimentem.
 *[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
@@ -375,6 +379,7 @@
 *[Shading bin]: Nanitová obdoba draw callu; vlastní bin chce každá materiálová instance, ~3 µs minimum.
 *[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
 *[Short description]: 300znakový popis hry na Steamu; test 300 znaků = zkus ho napsat v den nula nápadu.
+*[Sidechain]: Automatické stažení zvuku při úderu jiného; ve Strudelu duck na orbitě.
 *[Signal]: Zpráva, kterou node vyšle, aniž ví, kdo ji poslouchá — observer pattern zabudovaný do enginu.
 *[Signal-to-noise ratio]: Poměr užitečné informace k šumu; flow kanál je pásmo nejlepšího signálu pro učení.
 *[Significance handler]: Pravidlo, které u Niagary rozhodne, které instance přežijí strop počtu (vzdálenost nebo věk).
@@ -407,6 +412,7 @@
 *[Streaming pool]: Vyhrazená VRAM pro streamované textury; zmenšuj ji, dokud engine nezačne hlásit přetečení.
 *[Stitching]: Experimentální MM technika: místo lineárního blendu najde animaci z pózy A do pózy B za daný čas.
 *[Strategy pattern]: Rodina zaměnitelných algoritmů za společným rozhraním místo if/else stromu.
+*[Strudel]: Prohlížečové prostředí pro live coding; JavaScriptová verze TidalCycles.
 *[Struct]: Pojmenovaná skupina proměnných, se kterou se zachází jako s jednou hodnotou.
 *[Stupnice]: Sada tónů daná vzorcem půltónů a celých tónů; durová a mollová pokryjí většinu.
 *[Subsystem]: Automaticky vytvářený singleton s daným životním cyklem (engine/game instance/world); definice v C++.

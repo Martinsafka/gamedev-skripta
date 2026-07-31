@@ -20,7 +20,7 @@ Témata a kapitoly:
 
 **Sound design a zvuk ve hře**
 
-- **[Syntéza zvuku od nuly](synteza-zvuku.md)** — subtraktivní synth (oscilátor → filtr → obálka), ADSR a stavba basu, modulace přes envelope a LFO. Preset trap versus signálový řetězec.
+- **[Syntéza zvuku od nuly](synteza-zvuku.md)** — subtraktivní synth (oscilátor → filtr → obálka), ADSR a stavba basu, modulace přes envelope a LFO, a FM syntéza, kde jeden signál ohýbá druhý. Preset trap versus signálový řetězec.
 - **[Sound design ve hře](sound-design-ve-hre.md)** — tři úkoly herního zvuku (cue/feedback/emoce), slovník (attenuation, EQ, reverb, foley), indie filozofie „nepředesignovat" a „cti výtvarný styl" — a attenuation v UE, aby zvuk měl místo.
 
 **Hudba pro tvou hru**
@@ -32,3 +32,7 @@ Témata a kapitoly:
 
 - **[Sedm pilířů skladatele](cesta-skladatele.md)** — skládání jako strom dovedností (poslech, harmonie, kontrapunkt, forma, orchestrace, ear training, psaní) a proč „piš, piš, piš" drží zbytek pohromadě.
 - **[Začít a vydržet](zacit-a-vydrzet.md)** — syrový devlog o začátcích: hyperfokus a pauzy, hučení melodií do telefonu a „staré skladby zní hrozně = zlepšil ses".
+
+**Live coding**
+
+- **[Live coding: hudba jako kód](live-coding.md)** — Strudel v prohlížeči, kde se hudba píše jako vzory: cyklus jako pizza a mini notace, euklidovské rytmy a řízená náhoda, signálový řetězec od `clip(1)` po sidechain, cesta od smyčky k vystoupení (kde je vlastní knihovna funkcí zároveň nástroj i styl) — a časovaný běh, kde deset minut na track ukáže, kde se ve skutečnosti ztrácí čas.
