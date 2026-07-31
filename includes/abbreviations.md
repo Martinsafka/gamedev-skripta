@@ -56,8 +56,10 @@
 *[Capsule]: Náhledový obrázek hry na Steamu — nejdůležitější kus grafiky celé stránky.
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
+*[CDO]: Class Default Object — výchozí instance každé třídy; umožňuje vzor „třída jako data" bez konstruování.
 *[Chaos Cloth]: Realtime fyzika látek: Cloth Asset graf s weight mapou, configem a colliderem z physics assetu.
 *[Chooser]: Datová tabulka „za těchto podmínek vyber tenhle asset“; v MM přepíná databáze.
+*[CI/CD]: Automatizovaný kontrolní seznam po každém pushi; u her je největší přínos čistý build stroj.
 *[Chord extension]: Tón přidaný k triádě nad kvintu (septima, nona…); bohatší zvuk lo-fi, R&B, house.
 *[Chord generator]: Web generující smysluplnou akordovou progresi (chordchord.com); rychlý start bez teorie.
 *[Chord progression]: Sled akordů tvořící harmonickou kostru; emoci nese pohyb mezi nimi, ne jednotlivé akordy.
@@ -134,6 +136,7 @@
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
 *[Four-on-the-floor]: Bicí groove s kopákem na každé ze čtyř dob; základ house, proti němu synkopa.
 *[Frame data]: Popis útoku po snímcích — nápřah, aktivní snímky, zotavení; ke každému snímku vlastní vlastnosti.
+*[Fragment]: Objekt připojující k položce kus dat a funkčnosti — kompozice místo jedné obří třídy.
 *[Frame time]: Čas na jeden snímek v ms; 60 FPS = rozpočet 16,6 ms. Sčítá se lineárně, na rozdíl od FPS.
 *[FX budget]: Rozpočet na částice, který za běhu stahuje culling; typické selhání je oscilace, léčí ji decay rate.
 *[Game Design Document]: Dokument s návrhem hry; funguje, jen když se do něj tým skutečně vrací — forma je vedlejší.

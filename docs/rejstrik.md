@@ -478,6 +478,14 @@ Channels se definují v data assetu partition definice 1:1 podle vrstev materiá
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
+### CDO
+
+**Class Default Object — výchozí instance, kterou Unreal vytvoří pro každou třídu sám; dá se z ní číst, aniž bys cokoli konstruoval.**
+
+Umožňuje vzor **„třída jako data"**: definici položky (název, ikona, popis) napíšeš jako `UObject` s `EditDefaultsOnly` vlastnostmi, konkrétní věci jsou blueprintoví potomci bez event grafu — a čte se z nich uzlem `Get Class Defaults`, respektive `GetDefaultObject()` v C++. Proti data assetu má jednu praktickou výhodu: **předáváš třídu, ne objektovou referenci**, takže nevzniká tvrdá reference na asset. Zásadní výhrada: **CDO je globální a sdílené** — cokoli, co se má lišit mezi jednotlivými kusy (opotřebení, náboje, vlastník), do něj nepatří.
+
+Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset) · [Rejstřík: Hard reference](#hard-reference)
+
 ### Chaos Cloth
 
 **Realtime fyzika látek přes Cloth Asset graf: import meshe → skin weights z těla → weight mapa → config → collider.**
@@ -493,6 +501,14 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 Řádky = kandidáti (PSD, montáže, nested choosery), sloupce = podmínky (bool, enum, float range) bindnuté na proměnné AnimBP. V MM: databáze jako Dynamic value, On Update → Evaluate Chooser (All Results) → Set Databases To Search + Interrupt on database change. Umí i output sloupce (damage per útok). Plně integrovaný s rewind debuggerem.
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md)
+
+### CI/CD
+
+**Automatizovaný kontrolní seznam, který po každém pushi ověří změnu a udrží projekt ve stavu, kdy se dá vydat.**
+
+*Continuous integration* = kód se po každém pushi automaticky otestuje proti zbytku; *continuous delivery* = po projití testů je vždycky připravený k vydání. Pod tím je jediná změna návyku: **místo „otestuju, až budu hotový" → každá změna je malá, otestovaná a připravená jít ven.** U GitHubu se nic neinstaluje — stačí složka `.github/workflows` a soubor `.yml`. Pro herní projekt je největší přínos **čistý stroj u každého běhu**: chytí celou třídu chyb typu „u mě to funguje" (chybějící asset, nezakomitovaná změna). Realistický první krok u UE není automatické nasazení, ale **automatické ověření, že projekt jde zabalit**.
+
+Kde se s tím potkáš: [CI/CD je automatizovaný kontrolní seznam](teorie/programatorske-navyky.md#cicd-je-automatizovany-kontrolni-seznam-ne-devops-ritual) · [Rejstřík: Version control](#version-control)
 
 ### Chord extension
 
@@ -1101,6 +1117,14 @@ Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md) · [Ar
 Slovník bojovek, použitelný v každé akční hře. Ke každému aktivnímu snímku se dají navěsit vlastnosti — poškození, síla odhozu, [hit stop](#hit-stop), otřes obrazovky, stavové efekty — a protože jeden snímek animace může mít víc [hitboxů](#hitbox), dá se útok rozřezat na části s různým chováním (odhoz jen na chodidlech, jed jen na špičce biče). Kritická podmínka při stavbě: **časování musí mít jediný zdroj pravdy**, typicky animaci samotnou — data ve dvou místech se při první úpravě animace rozejdou.
 
 Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis)
+
+### Fragment
+
+**Objekt, který k definici položky připojí kus dat a kus funkčnosti — kompozice místo jedné obří třídy.**
+
+Řeší, že ne všechny položky mají totéž: co má reprezentaci ve světě, dostane fragment světové reprezentace; co se dá vybavit, fragment vybavení. Definice položky pak drží jen společné vlastnosti a **pole fragmentů**. Vzor stojí na třech C++ specifikátorech, které v blueprintu nejsou: **`DefaultToInstanced`** (instance se při vytvoření duplikují), **`EditInlineNew`** (fragment se přidá tlačítkem přímo v okně vlastností) a **`Instanced`** na tom poli (každá položka dostane vlastní kopii). Praktické měřítko: **vlastnost patří do fragmentu, jakmile ji nemá aspoň polovina položek.** Používá to inventář v Lyře.
+
+Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy-architektury.md#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: CDO](#cdo) · [Rejstřík: Data-driven design](#data-driven-design)
 
 ### Frame time
 

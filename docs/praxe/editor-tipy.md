@@ -115,3 +115,27 @@ Užitečnost je přímočará: hromadná úprava vlastností (všechny lucerny �
 > **Pozn.:** Jedna praktická novinka mimo metodu [(0:49)](https://www.youtube.com/watch?v=Nn9F341Vwy0&t=49s): od verze 5.7 má engine **vestavěný projekt „Intro to Unreal"**, který začátečníka provede nejběžnějšími nastaveními — otevírá se přímo z výběru šablon. A upřesnění k asset packům, které předchozí myšlenka zmiňuje jen v jedné větě [(9:26)](https://www.youtube.com/watch?v=Nn9F341Vwy0&t=566s): kromě obsahu si hlídej **dokumentaci**, protože *„assety můžou být trochu pokročilé na napojení do projektu a taky můžou obsahovat spoustu zbytečností"*. Autor zároveň přiznává, že tenhle rok některé bonusové rady opakuje — což je i důvod, proč je tahle myšlenka psaná jen kolem kroků 3 až 5.
 
 **Souvislosti:** [Jak se učit engine: rady po pěti letech](#jak-se-ucit-engine-rady-po-peti-letech) *(katalogová verze od téhož autora)* · [Teorie: začátky bez zkušeností](../teorie/zacatky-bez-zkusenosti.md) · [Teorie: první projekty](../teorie/prvni-projekty.md) · [Žrouti času: motivace startuje, disciplína dokončuje](../teorie/produktivita.md#motivace-startuje-disciplina-dokoncuje) *(tatáž teze o rutině z druhé strany)* · [Zápisky: kvízový protokol](../zapisky/kvizovy-protokol.md) · [Rejstřík: tutorial hell](../rejstrik.md#tutorial-hell)
+
+---
+
+## Co se změnilo v editoru 5.8
+
+**Zdroj:** [Unreal Engine 5.8 Preview: What Epic Games Changed Under The Hood](https://www.youtube.com/watch?v=NfDzhmXiUNA) · [Sergey Maryshev](https://www.youtube.com/channel/UCVAdTnZgQ40jpKzC0-_RPAQ) · ~5 min, přehled
+
+**Shrnutí:** Přehled změn v uživatelském rozhraní 5.8, které se dají shrnout jedním pozorováním: **Epic si tentokrát půjčoval od CADu.** Nejsou to velké funkce, ale drobnosti, které se dotknou každodenní práce — a dvě z nich stojí za to nastavit hned. Háček: **je to preview build**, takže autor sám hlásí, co mu nefungovalo.
+
+### Rozpad myšlenky
+
+**Parent Space** [(0:00)](https://www.youtube.com/watch?v=NfDzhmXiUNA&t=0s): dosud se přepínalo jen mezi World a Local. Nově je i **prostor rodiče** — připojíš-li objekt k jinému aktérovi a přepneš do Parent Space, pohybuje se **striktně po lokálních osách rodiče**. Praktické tam, kde má připojený asset klouzat po natočené ploše.
+
+**Výběr rámečkem jako v CADu** [(0:50)](https://www.youtube.com/watch?v=NfDzhmXiUNA&t=50s) je z celého videa nejužitečnější. Dřívější `Ctrl`+`Alt` výběr nabíral spoustu geometrie na pozadí; nově jsou **Crossing a Window režimy** převzaté z klasických CAD programů a 3ds Maxu — a chování se **mění podle toho, jestli táhneš doleva, nebo doprava**. *„Absolutní záchrana pro práci s nabitými scénami."*
+
+**MegaLights Overlap** — nový režim zobrazení, který barevnými maskami ukáže, **kde se protínají desítky až stovky světel**. Tedy diagnostika přesně na to, co [v knihovně vyšlo jako výkonový nález](gpu-pruchod.md#profilovat-cizi-hru-priprava-ktera-rozhoduje) u překrývajících se stínových světel.
+
+**Lumen pro slabší hardware** [(1:41)](https://www.youtube.com/watch?v=NfDzhmXiUNA&t=101s): nový výkonově přívětivý režim globálního osvětlení. Stáhneš-li v scalability nastavení GI na **Medium**, Lumen se nevypne ani se nezmění v šum — *„dodává čisté měkké nepřímé osvětlení"* a zátěž GPU spadne. Přesně ten mezistupeň, který [v rozpadu ceny výchozí scény](lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) chyběl.
+
+**Drobnosti navrch**: gizmo teď ukazuje **přesné hodnoty posunu v reálném čase** a při rotaci úhloměr (dá se vypnout v Editor Preferences → Gizmo Appearance → Element Visibility) · **samostatné okno pro klávesové zkratky** s vlastními presety · **modulární nastavení projektu** s vnořenými záložkami místo jednoho nekonečného seznamu · a **přizpůsobitelná podlaha v náhledu assetů** místo šedé mřížky.
+
+> **Pozn.:** Ze všech těch změn stojí za nastavení hned dvě: **Crossing/Window výběr** (protože mění zvyk, ne funkci — a čím dřív si ho osvojíš, tím líp) a **Lumen na Medium**, protože to poprvé dává rozumnou třetí možnost mezi „Lumen zapnutý" a „Lumen vypnutý", kterou celý blok o výkonu neměl. Za pozornost stojí i to, odkud si Epic ty výběrové režimy vzal: **z CADu a 3ds Maxu**, tedy z nástrojů, kde se s hustou geometrií pracuje o třídu déle. Je to připomínka, která platí obecněji — **problém, který v tvém nástroji vypadá nevyřešitelně, může být jinde vyřešený třicet let.** A jedna výhrada k prameni: je to **preview**, autor sám hlásí nefunkční výběr objektu pro zaostření kamery a doporučuje počkat na stabilní vydání.
+
+**Souvislosti:** [Výběry, navigace a drobná zrychlení](#vybery-navigace-a-drobna-zrychleni) · [Lehký render: rozpad ceny výchozí scény](lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Optimalizační průchod](gpu-pruchod.md#profilovat-cizi-hru-priprava-ktera-rozhoduje) · [Osvětlení](osvetleni.md) · [Rejstřík: MegaLights](../rejstrik.md#megalights) · [Rejstřík: Lumen](../rejstrik.md#lumen) · [Rejstřík: Scalability groups](../rejstrik.md#scalability-groups)

@@ -63,3 +63,29 @@ Vedle mentálních modelů ([Programátorské myšlení](programatorske-mysleni.
 > **Pozn.:** Ten seznam má společného jmenovatele, který autor neřekne přímo a stojí za vytažení: **všechny ty myty jsou způsoby, jak si vyrobit pocit postupu bez postupu.** Refaktorovat, zvyšovat pokrytí, migrovat na novější framework, ladit výkon — to všechno **vypadá jako práce, je to měřitelné a nikdo tě za to nekritizuje**, na rozdíl od psaní funkce, u které nevíš, jestli bude dobrá. Odtud praktický test, který se dá použít na sebe: **kdy jsem naposledy dodal něco, co uživatel poznal?** Nejcennější jednotlivost je **RUG**, protože je to jediná z těch rad, která nabízí náhradní pravidlo místo varování — a je použitelná i v gamedevu, kde se DRY láme obzvlášť často: dvě podobné mechaniky se sjednocují **až potřetí**, ne podruhé. Souvisí to s [premature optimization](../rejstrik.md#premature-optimization) i s [pravidlem 70/30](../zapisky/pravidlo-70-30.md).
 
 **Souvislosti:** [Patnáct malých návyků, tři mechanismy](#patnact-malych-navyku-tri-mechanismy) · [Design patterns](design-patterns.md) · [Programátorské myšlení](programatorske-mysleni.md) · [Učení v éře AI](uceni-v-ere-ai.md#novy-programovaci-jazyk-se-jmenuje-srozumitelnost) · [Rejstřík: Premature optimization](../rejstrik.md#premature-optimization) · [Rejstřík: Separation of concerns](../rejstrik.md#separation-of-concerns)
+
+---
+
+## CI/CD je automatizovaný kontrolní seznam, ne DevOps rituál
+
+**Zdroj:** [Why Every Developer Needs to Understand CI/CD](https://www.youtube.com/watch?v=omB2JkC4QfA) · [Nova Designs](https://www.youtube.com/channel/UClNFeG4Smv1G7PIl9YCLkfA) · ~14 min, výklad
+
+**Shrnutí:** Autor přiznává, co si o tom myslel na začátku — *„nějaká vymyšlená DevOps věc, kterou musí řešit jen velké firmy s velkými týmy, tak jsem to ignoroval"* — a pak vysvětluje, proč to považuje za **první radu, kterou by dal každému po prvním hotovém projektu**. Háček, který to zpřístupní: **nemusíš rozumět syntaxi, abys pochopil logiku.**
+
+### Rozpad myšlenky
+
+**Co ty dvě zkratky znamenají** [(0:47)](https://www.youtube.com/watch?v=omB2JkC4QfA&t=47s), bez žargonu: **continuous integration** = pokaždé, když pushneš kód, se automaticky otestuje proti zbytku codebase. **Continuous delivery** = po projití testů je kód **vždycky ve stavu, kdy se dá vydat**. A přísnější varianta, **continuous deployment**, kde se každá projitá změna vydá sama.
+
+Ale podstatné je to, co je pod tím: *„místo ‚otestuju a nasadím, až budu hotový' začneš uvažovat ‚každá změna, kterou udělám, má být malá, otestovaná a připravená jít ven'. To je celé. Všechno ostatní — pipeline, YAML soubory, runnery — jsou jen nástroje, které ten návyk vynucují."*
+
+**Kde se lidé zaseknou** [(1:34)](https://www.youtube.com/watch?v=omB2JkC4QfA&t=94s): uvidí konfiguraci s YAMLem a proměnnými prostředí a usoudí, že na to ještě nejsou dost dobří. *„To je špatné myšlení. Nemusíš první den rozumět každému řádku. Stačí ti chápat, co to dělá na vysoké úrovni."* Jeho definice pipeline: **automatizovaný kontrolní seznam.** *„Nainstaluj závislosti, spusť testy, a projde-li všechno, nasaď aplikaci. To je celé."*
+
+**Přirovnání, které to zafixuje** [(2:20)](https://www.youtube.com/watch?v=omB2JkC4QfA&t=140s): **myčka aut.** Každé auto jede stejnou cestou — voda, pěna, oplach, sušení. Žádné auto krok nepřeskočí a **nikdo si nemusí pamatovat, co přijde dál**. Pipeline dělá totéž: pokaždé stejné kroky ve stejném pořadí. *„Není to magie a není to složitý systém jen pro velké firmy. Je to opakovatelný proces, který zajistí, že stejné kontroly proběhnou pokaždé."*
+
+**Skladba, kterou stojí za to znát**, i když ji nepíšeš z hlavy [(3:53)](https://www.youtube.com/watch?v=omB2JkC4QfA&t=233s): **`on`** říká, **kdy** se to spustí (push do hlavní větve, otevření pull requestu) · **`jobs`** dělí práci na velké celky (test, build, deploy), z nichž **každý běží na vlastním virtuálním stroji** · **`steps`** jsou konkrétní instrukce uvnitř. A vlastnost, která je u herních projektů obzvlášť cenná: každý běh dostane **čerstvý stroj**, takže *„se nemusíš starat o zbylé soubory, nainstalované balíčky ani změny konfigurace z předchozích běhů."*
+
+A praktická poznámka na závěr: **používáš-li GitHub, nic instalovat nemusíš** — GitHub Actions je součástí repozitáře. Stačí složka `.github/workflows` a v ní soubor s příponou `.yml`.
+
+> **Pozn.:** Pro gamedev je z toho nejcennější **ten čistý stroj**, i když to autor nezmiňuje. Nejčastější druh chyby, která projde vývojářům a spadne u hráčů, je *„u mě to funguje"* — chybějící asset, který máš lokálně, nezakomitovaná změna, nastavení v editoru, které není v repozitáři. Build na čistém stroji tuhle celou třídu chyb chytí **automaticky a bez disciplíny**, což je lepší než jakékoli pravidlo. Souvisí to přímo s [validátory jako vynuceným pravidlem](../praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor) a s [nočními běhy](../praxe/mereni-automaticky.md#benchmark-z-level-sequence-mereni-jako-soucast-prace). Vlastní výhrada k přenositelnosti: **u Unrealu je to dražší**, než jak to zní v tomhle videu. Build engine z pohledu CI trvá desítky minut, sdílené runnery bývají pomalé a licenční omezení konzolových SDK znamenají vlastní stroj. Realistický první krok u herního projektu proto není „nasazuj automaticky", ale **automaticky ověřuj, že projekt jde zabalit** — a to jediné už chytí většinu toho, co se ztratí mezi vývojáři.
+
+**Souvislosti:** [Patnáct malých návyků, tři mechanismy](#patnact-malych-navyku-tri-mechanismy) · [Devět chytrých nápadů, které žerou čas](#devet-chytrych-napadu-ktere-zerou-cas) · [Organizace projektu: Git v Unrealu](../praxe/organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case) · [Start projektu: version control od nultého dne](jak-zacit.md#version-control-od-nulteho-dne) · [Rejstřík: Version control](../rejstrik.md#version-control) · [Rejstřík: CI/CD](../rejstrik.md#cicd)

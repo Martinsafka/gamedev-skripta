@@ -91,3 +91,29 @@ Tři nástroje pro tři situace: **animation blueprint se state machine** (klasi
 > **Pozn.:** Pod kapotou jsou to tři triviální věci — kamera s vlastním meshem (aby šla odlišit od běžné), **sky sphere s plochým materiálem** a post process volume — a autor **graf záměrně nechal rozbalený a neuklizený** [(9:23)](https://www.youtube.com/watch?v=-mcMxpVmnAM&t=563s): *„mohl jsem přidat víc proměnných a funkcí, aby byla struktura čistší, ale cílem bylo dát vám přístup k celému systému, abyste mu rozuměli a mohli z něj iterovat."* Je to legitimní protiklad k [čistým grafům](organizace-projektu.md#devet-tipu-proti-spagetam-v-grafech): u nástroje určeného k rozebrání je čitelnost pro cizího důležitější než elegance. Funguje v **5.7 i 5.8**.
 
 **Souvislosti:** [Animace: line of action a osobnost](../teorie/art-specializace.md#animace-citelnost-vaha-a-osobnost) *(co silueta kontroluje)* · [Editor tipy](editor-tipy.md) · [Organizace projektu: čisté grafy](organizace-projektu.md#devet-tipu-proti-spagetam-v-grafech) · [Rejstřík: Editor Utility Widget](../rejstrik.md#editor-utility-widget) · [Rejstřík: Silueta](../rejstrik.md#silueta)
+
+---
+
+## Křivky, kamera a past 30 snímků: řemeslo první osoby
+
+**Zdroj:** [Animation Process (EMP Spike) — Dev Diary](https://www.youtube.com/watch?v=Lo0569JZTSU) · [chaotic works](https://www.youtube.com/channel/UCJuiHPZ7JqStcEtBbHFwOWw) · ~7 min, devlog
+
+**Shrnutí:** Krátký devlog o tom, jak vzniká **animace zbraně v první osobě** — a je to obor s vlastními pravidly, protože *„je to spousta mikropohybů a většinu času hýbeš jedinou kostí."* Prakticky to znamená šest křivek, které stačí sledovat. Háček, o kterém většina tutoriálů mlčí: **animace vypadá jinak po exportu do enginu než v Blenderu, a je to kvůli snímkové frekvenci.**
+
+### Rozpad myšlenky
+
+**Postup: blockout → spline → úklid křivek** [(0:56)](https://www.youtube.com/watch?v=Lo0569JZTSU&t=56s). Autor dělá **hodně klíčových snímků ve stupňovaném blockoutu**, než přejde na plynulou interpolaci — teprve pak vybere všechno a přepne na Bézier s auto clamped. Přiznává, že to není jediná cesta: *„vím, že spousta lidí dělá všechno straight ahead, a v mnoha případech to může být přínosnější, protože v tom je víc nepředvídatelnosti."*
+
+A pak přijde věta, kterou by ocenil každý, kdo animoval poprvé: *„jakmile to uděláš, dostaneš čerstvou dávku reality — protože to najednou nevypadá tak dobře, jak jsi to právě viděl."* Následuje úklid: projít křivky jednu po druhé a **zjednodušit je**. Ukazuje to na konkrétní křivce, která ve výsledku vypadá skoro triviálně, *„ale předtím vypadala nějak takhle"*.
+
+**Pózy mají být čitelné ze siluety** [(2:29)](https://www.youtube.com/watch?v=Lo0569JZTSU&t=149s): v blockoutu už odkazuješ na výsledek, protože **všechny ty pózy budou v nějaké podobě vidět** i po přechodu na plynulou interpolaci. Zvlášť u pozic rukou je dobré, když se poznají **jen podle obrysu**.
+
+**Kamera se dělá naposledy** [(4:09)](https://www.youtube.com/watch?v=Lo0569JZTSU&t=249s) — s výjimkou případů, kdy animace vyžaduje pohled dolů nebo nahoru, kdy se hodí hrubý průchod na začátku. Zajímavější je jeho konkrétní technika: **protipohyb**. Jde-li zbraň nahoru (u bullpupu při nabíjení), **posuň kameru dolů** a vznikne inverze, která ten pohyb prodá.
+
+A jeho názor na **roll**, který sám označí za sporný: *„spousta lidí roll nemá ráda. Podle mě je cenný — jen se musí používat střídmě a záměrně."* K tomu okamžitá protiváha: *„poslední, co chceš, je udělat hráči bolení hlavy tím, že to bude moc intenzivní."*
+
+**A ta past, kvůli které je tenhle devlog v knihovně** [(5:41)](https://www.youtube.com/watch?v=Lo0569JZTSU&t=341s): animuje se ve **30 snímcích za sekundu**, ale hra běží na 60 a víc. Při interpolaci se mezi klíčové snímky **vloží další snímky** — a *„spousta té síly, která se odehraje v nárazu na jednom snímku, se utlumí. Časování zůstane stejné, ale vyhladí se to."* Praktický důsledek: **musíš vědět, kde na časové ose ty nárazy jsou**, a ověřovat je v cíli. *„Je to věc, kterou dělám neustále — importovat a znovu exportovat do Unrealu nebo to testovat v Blenderu, jestli je té síly dost, nebo málo."*
+
+> **Pozn.:** To utlumení při přechodu z 30 na 60 snímků je **nejpřenositelnější věc celého videa** a platí daleko za animací zbraní: **cokoli, co stojí na jednom prudkém snímku, se v cíli změkčí.** Týká se to hit stopů, záblesků, otřesů kamery i [frame data v soubojích](../godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis). Obrana je vždycky táž: **ověřovat v prostředí, kde to poběží**, ne v nástroji, ve kterém to vzniká — což je tentýž princip jako [reprodukovatelný test](profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic), jen v animaci. Za pozornost stojí i **protipohyb kamery**: je to levný trik, který přidá sílu, aniž by se sáhlo na animaci samotnou — a je to designově tentýž nástroj jako [hit stop](../rejstrik.md#hit-stop), jen v opačném směru.
+
+**Souvislosti:** [AnimBP od nuly](#animbp-od-nuly-state-machine-tridilny-skok-a-blend-space) · [Markerless mocap v 5.8](#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [Godot: frame data](../godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Game feel](../teorie/game-feel.md) · [Rejstřík: Frame data](../rejstrik.md#frame-data) · [Rejstřík: Hit stop](../rejstrik.md#hit-stop)

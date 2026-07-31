@@ -95,3 +95,97 @@ Výchozí stav: laser ability nadrátovaná v actor componentě — cooldown, sp
 > **Pozn.:** Komponentní vzor je v UE tak samozřejmý, že si ho většina lidí neuvědomí jako rozhodnutí — panel Components **je** ten vzor. U hry s interakcemi a inventářem to znamená konkrétní věc: interakce, otevírání a stav dveří patří spíš do komponent než do společného rodiče `BP_InteractableActor`, protože **jinak si zaděláš na strom, ve kterém truhla dědí schopnost mluvit**. Praktický protějšek stejného uvažování je [health komponenta vs. interface](komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) z téže série.
 
 **Souvislosti:** [Dědičnost: test „is it a?"](#dedicnost-test-is-it-a-a-rodic-jako-smlouva) *(kdy naopak rodič dává smysl)* · [Tři principy škálovatelnosti](#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [Interface, nebo dispatcher](komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Design patterns: tři rodiny vzorů](../teorie/design-patterns.md#tri-rodiny-vzoru-tvorba-struktura-chovani) · [Rejstřík: Actor Component](../rejstrik.md#actor-component) · [Rejstřík: separation of concerns](../rejstrik.md#separation-of-concerns)
+
+---
+
+## Znovupoužitelné kostky a lepidlo: 70 ku 30
+
+**Zdroj:** [Best Code Architectures For Indie Games](https://www.youtube.com/watch?v=8WqYQ1OwxJ4) · [Jonas Tyroller](https://www.youtube.com/channel/UC_p_9arduPuxM8DHTGIuSOg) · ~16 min, esej
+
+**Shrnutí:** Autor otevírá poznámkou, která celé video zachraňuje před dogmatismem: *„většina her je pod kapotou čisté špagety. A je to v pořádku. Funguje-li to, funguje to."* Pak nabídne architekturu, kterou by sám příště použil, a je pozoruhodná tím, jak je konkrétní — včetně poměru. Háček, který je celé myšlence jádrem: **složitost uvnitř modulu je v pořádku, složitost mezi moduly ne.**
+
+### Rozpad myšlenky
+
+**Základní rozdělení** [(0:48)](https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=48s): **znovupoužitelné moduly** (systém pohybu, systém zdraví, spawner vln) — každý úplně nezávislý na ostatních, takže se dá vyměnit, znovu použít a má nízkou složitost. A k nim **lepidlo**: skripty, o kterých **předem víš, že je znovu nepoužiješ**, a jejichž jediná práce je ty moduly propojit.
+
+A hned k tomu ukázka toho, co lepidlo **není**: dát systému zdraví referenci na systém pohybu a naopak. *„Ne, ne, ne. Tohle je špatná cesta. Teď už nejsou nezávislé. Teď jsi je svázal dohromady."*
+
+**Poměr**, který je nejlépe zapamatovatelnou částí videa: **70 % znovupoužitelných kostek, 30 % lepidla.** *„Uděláš-li dobrou práci, zhruba takhle to skončí."*
+
+**Obraz, který se drží** [(3:55)](https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=235s): **špagety musí zůstat na talíři.** Ne že by ve tvém kódu neměly být — mají zůstat **uvnitř modulu**. Ven z talíře nesmí. *„Odkazují-li se všechny moduly navzájem, mění se to v nepřehlednou změť."*
+
+**A výjimka, kterou dodává sám**: jsou dva systémy, které se od sebe fakticky nedají oddělit (jeho příklad: zdraví a útok)? *„No a co. Prostě z toho udělej jeden systém."* Některé systémy prostě mají být jeden.
+
+**Pravidlo palce, které funguje i bez znovupoužití** [(5:27)](https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=327s): **piš systémy se záměrem použít je v příštích projektech, i když je nepoužiješ.** *„I když je nikdy znovu nepoužiješ, pořád to má velkou výhodu — udržíš je uklizenější, modulárnější a nezávislejší."*
+
+**A totéž o lepidle**: nechceš **jeden obří game manager**, který lepí všechno. V jejich hře jich mají **kolem třiceti** — každý s velmi malým a specializovaným úkolem, některé úplně drobné. *„Nikdy nechceš mít moc špaget na jednom místě."*
+
+**Druhá zeď: kód proti datům** [(6:59)](https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=419s). Neměnná data (balanc, překlady) mají žít v databázi, ze které kód jen čte. Nejsrozumitelnější příklad jsou **překlady**: nikdo je nezadrátuje do kódu, protože ví, že by se to nedalo lokalizovat — *„a není důvod to dělat jen s překlady."*
+
+K tomu poctivé přiznání vlastní chyby: v jejich hře je **balanc rozházený po celém projektu** — rychlost pohybu tady, cooldown tamhle — *„a je to docela otravné, protože všechna data jsou schovaná na náhodných místech."* Pravidlo, které z toho plyne: **co je navrhované spolu, ukládej spolu.** A rozvedení, které je vlastně o použitelnosti: **spokojený designér** má všechna čísla na jednom místě a může rychle zkoušet; **naštvaný designér** hledá hodiny. Vedlejší výhoda uspořádaných dat: **modderům stačí přidat data.** Autor jde místy tak daleko, že **navrhne databázi dřív, než má hru**.
+
+**Špageta, které se nevyhneš** [(10:55)](https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=655s): **čas.** Každý systém se musí připojit k tomu, kdy se co spustí. Jeho současný přístup: **těsně řídit pořadí spouštění** — jeden skript, který volá všechny update události přesně v pořadí, které chce. *„Nemám proto moc rád události. Pro vizuál jsou v pohodě, ale u herní logiky nemám rád, když se mi kód spouští v náhodném pořadí, které nemůžu snadno ovládat."*
+
+**A poslední vrstva: oddělit simulaci od zobrazení** [(12:32)](https://www.youtube.com/watch?v=8WqYQ1OwxJ4&t=752s), kterou sám označuje za pokročilejší. Simulace je **jen holý herní stav**; zobrazení ho **čte jako databázi v reálném čase** a vykresluje. Z pohledu simulace zobrazení **neexistuje**. Výsledek: dva skoro samostatné projekty uvnitř jednoho, žádný systém nedělá obojí — a čas je kritický jen pro simulaci.
+
+> **Pozn.:** Nejužitečnější je to **rozdělení na kostky a lepidlo**, protože pojmenovává něco, s čím se lidé perou: rada „všechno má být znovupoužitelné" je nesplnitelná, protože propojení znovupoužitelné z definice není. Tenhle rámec říká **kolik toho smí být neznovupoužitelné a kde to má být** — a tím se z ideálu stane návrh. Souvisí to přímo s [třemi principy škálovatelnosti](#tri-principy-skalovatelnosti-separace-volne-vazby-data) a s [pravidlem 70/30](../zapisky/pravidlo-70-30.md), byť to druhé mluví o něčem jiném. Za pozornost stojí i to, že autor **nedoporučuje události pro herní logiku** — což jde proti většině rad v knihovně (i proti [event busu](../godot/signaly.md#event-bus-kdyz-se-systemy-nemaji-cim-potkat)). Není to spor: on řeší **determinismus pořadí**, ne provázanost. U hry, kde na pořadí vyhodnocení záleží (simulace, fyzika, souboj po snímcích), je ta výhrada namístě; u UI a vizuálu ne. Stojí za to obě rady držet vedle sebe a ptát se, **jestli u téhle konkrétní věci na pořadí záleží.**
+
+**Souvislosti:** [Tři principy škálovatelnosti](#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [Komponenty místo dědičnosti](#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Fragmenty: skládání položky z kusů](#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: Data-driven design](../rejstrik.md#data-driven-design) · [Rejstřík: Loose coupling](../rejstrik.md#loose-coupling) · [Rejstřík: Separation of concerns](../rejstrik.md#separation-of-concerns)
+
+---
+
+## Třída jako data: CDO místo instancí
+
+**Zdroj:** [Build a Scalable Inventory System — Part 1: The Foundation](https://www.youtube.com/watch?v=eocJvH15L4Q) a [Part 2: Item Definition](https://www.youtube.com/watch?v=8ylTGxeMR7w) · [Ali Elzoheiry](https://www.youtube.com/channel/UCrrZx9bh7RMYhXvaN8BrbNg) · ~23 + 45 min, kurz gameplay programování
+
+**Shrnutí:** Série staví inventář podle vzoru z Lyry a začíná záměrně naivně: **položka je řetězec**. Do dvaceti minut je vidět, proč to nejde — ikona i mesh se přiřazují `switch`em na jméno, takže každá nová položka znamená úpravu na třech místech. Řešení není data table ani data asset, ale **třída použitá jako data**. Háček, který ten vzor umožňuje: **Unreal pro každou třídu vytvoří jednu výchozí instanci sám** — a z té se dá číst.
+
+### Rozpad myšlenky
+
+**Proč naivní verze selže** [(19:58)](https://www.youtube.com/watch?v=eocJvH15L4Q&t=1198s): kus dřeva není slovo „dřevo". Má kategorii, mesh, ikonu, použití při craftu — a hlavně **funkčnost**: lektvar léčí o 20 HP. *„Kde ta informace žije a kde žije ta funkčnost?"* V naivní verzi je zadrátovaná v `switch`ích rozesetých po projektu.
+
+**Tři možnosti a proč zvolil třetí** [(20:45)](https://www.youtube.com/watch?v=eocJvH15L4Q&t=1245s): **data tables** jsou statické (nedá se k nim přidat funkčnost ani z nich dědit, všechno žije na jednom místě) · **data assety** jsou mnohem lepší (proměnné, funkce, potomci) · **třídy jako data** jsou tomu velmi blízko a je to cesta, kterou jde **Lyra**.
+
+**Jak se to postaví** [(2:22)](https://www.youtube.com/watch?v=8ylTGxeMR7w&t=142s). `UItemDefinition` je obyčejný `UObject` v C++, ve kterém jsou **jen společné vlastnosti** (název, popis, ikona). Čtyři specifikátory na třídě dělají celý vzor: **`Blueprintable`** (dá se z ní dědit v blueprintu), **`BlueprintType`** (dá se použít jako typ proměnné), **`Abstract`** (sama se neobjeví v rozbalovacích nabídkách — jen její potomci) a **`Const`**. Na vlastnostech pak `EditDefaultsOnly` + `BlueprintReadOnly`, protože se **upravují jen výchozí hodnoty**.
+
+Konkrétní položka (chléb, dřevo, lektvar) je pak **blueprintový potomek**, který nemá event graph — jen výchozí hodnoty. *„Otevřeš ho podruhé a otevře se ti to v režimu jen pro čtení. Je to velmi podobné data assetu."*
+
+**A ta část, kvůli které to celé funguje** [(10:09)](https://www.youtube.com/watch?v=8ylTGxeMR7w&t=609s): z třídy se normálně data číst nedají, jen z vytvořeného objektu. Jenže *„Unreal Engine má tuhle opravdu skvělou věc: každá třída, každý `UObject`, má už vytvořenou výchozí instanci, které se říká **class default object**."* V blueprintech se k ní dostaneš uzlem **`Get Class Defaults`**, v C++ přes **`GetDefaultObject()`**. Takže se **nikdy nic nekonstruuje** — jen se předává třída a čtou se její výchozí hodnoty.
+
+Praktický důsledek, který zazní mimochodem a je zásadní: *„nemusíš předávat objektové reference data assetů. Předáváš jedinou třídu."*
+
+> **Pozn.:** Tenhle vzor je zajímavý hlavně tím, **jak se liší od data assetu, přestože vypadá stejně** — a rozdíl je v tom, co se předává dál. Reference na data asset je odkaz na **objekt**, a objekt se musí načíst; reference na třídu je odkaz na **třídu**, jejíž CDO v paměti stejně už je. To je táž úvaha, kterou má knihovna u [tvrdých referencí a Size Mapu](pamet-a-instance.md#size-map-v-rezimu-pameti-co-drzi-tvuj-blueprint), jen s příjemnějším koncem. Za pozornost stojí i **pedagogický postup celé série**: autor nejdřív postaví naivní verzi a **nechá ji selhat na obrazovce**, teprve pak nabídne vzor. To je násobně účinnější než začít správným řešením — a je to stejná technika jako [strhnout kontext a podívat se, co zbylo](../teorie/ludonarativni-soulad.md#kontext-tataz-mechanika-jiny-zazitek). Vlastní výhrada: **CDO je globální a sdílené.** Cokoli, co se má lišit mezi kusy téže položky (opotřebení, počet nábojů, vlastník), do něj nepatří a musí žít v instanci inventáře — a v tom se dá při přebírání toho vzoru snadno uklouznout.
+
+**Souvislosti:** [Fragmenty: skládání položky z kusů](#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Znovupoužitelné kostky a lepidlo](#znovupouzitelne-kostky-a-lepidlo-70-ku-30) · [Paměť a instancování: Size Map](pamet-a-instance.md#size-map-v-rezimu-pameti-co-drzi-tvuj-blueprint) · [Ukládání](ukladani.md) · [Rejstřík: CDO](../rejstrik.md#cdo) · [Rejstřík: Data asset](../rejstrik.md#data-asset) · [Rejstřík: Hard reference](../rejstrik.md#hard-reference)
+
+---
+
+## Fragmenty: skládání položky z kusů místo jedné obří třídy
+
+**Zdroj:** [Build a Scalable Inventory System — Part 2: Item Definition](https://www.youtube.com/watch?v=8ylTGxeMR7w) · [Ali Elzoheiry](https://www.youtube.com/channel/UCrrZx9bh7RMYhXvaN8BrbNg) · ~45 min, kurz gameplay programování
+
+**Shrnutí:** Druhá polovina vzoru řeší otázku, kterou třída jako data sama nevyřeší: **ne všechny položky mají totéž.** Ne všechno má mesh ve světě, ne všechno se dá vybavit, ne všechno se stohuje. Odpověď je kompozice — **fragment** je objekt, který k položce připojí kus dat a kus funkčnosti. Háček, kvůli kterému to musí být v C++: **celý vzor stojí na třech specifikátorech, které v blueprintu nejsou.**
+
+### Rozpad myšlenky
+
+**Proč ne jedna velká třída** [(17:52)](https://www.youtube.com/watch?v=8ylTGxeMR7w&t=1072s): *„některé položky se dají stohovat, na některé se dá kliknout a použít je, některé se dají zahodit, jiné ne. Kdybychom se pokusili dát všechny informace do jedné třídy, byla by gigantická a plná informací, které jsou užitečné třeba pro jednu jedinou položku."*
+
+Řešení: `UItemDefinition` drží **pole fragmentů**. Je-li položka vybavitelná, připojíš fragment vybavení. Má-li reprezentaci ve světě, připojíš fragment světové reprezentace. *„Každý fragment přichází s vlastními daty a vlastní funkčností."*
+
+**Tři specifikátory, které to dělají použitelné** [(20:16)](https://www.youtube.com/watch?v=8ylTGxeMR7w&t=1216s), a stojí za to je znát, protože bez nich je z toho jen teoreticky hezký vzor:
+
+| specifikátor | co dělá | proč to potřebuješ |
+|---|---|---|
+| **`DefaultToInstanced`** | instance třídy se při vytvoření duplikují | fragment patří té položce, která ho vytvořila |
+| **`EditInlineNew`** | objekt se dá vytvořit **přímo v okně vlastností** editoru | přidáš fragment tlačítkem `+` v assetu místo zakládání samostatného souboru |
+| **`Instanced`** (na tom poli) | každá instance dostane **vlastní kopii** objektu | chléb a dřevo nesmí sdílet tentýž mesh |
+
+Autor to shrnuje názorně: bez toho *„bys musel vytvořit blueprint typu world representation, nastavit mu mesh, a teprve ten použít jako ukazatel. Tohle tomu všemu předchází."*
+
+**Jak se fragment najde** [(29:49)](https://www.youtube.com/watch?v=8ylTGxeMR7w&t=1789s) — a tady se ukáže drobná nepříjemnost: `Get Class Defaults` v blueprintu **instancované vlastnosti nezobrazí**, takže pole fragmentů takhle nepřečteš. Musí se dopsat **statická funkce** `FindFragmentByClass(itemDefinition, fragmentClass)`, která si vytáhne CDO, projde pole a vrátí první fragment odpovídající třídy. Statická je proto, že *„nikdy nevytváříme instanci item definition — vždycky ji používáme jako třídu."*
+
+**A specifikátor, který z toho udělá pohodlí** [(37:33)](https://www.youtube.com/watch?v=8ylTGxeMR7w&t=2253s): **`meta = (DeterminesOutputType = "FragmentClass")`**. Bez něj funkce vrací rodičovský typ a v blueprintu bys musel castovat. S ním se **návratový typ uzlu změní podle třídy, kterou do něj zapojíš** — vybereš world representation a uzel začne vracet world representation. *„Krásný specifikátor. Žádné castování."*
+
+> **Pozn.:** Tohle je **kompozice místo dědičnosti** dotažená do konce a v knihovně to má sourozence na obou stranách: [komponenty místo dědičnosti](#komponenty-misto-dedicnosti-skladej-misto-vetveni) v UE a [has-a místo is-a](../godot/kompozice.md#has-a-misto-is-a-hrdinuv-batoh) v Godotu. Nové je tady to, že se skládá **datový popis**, ne chování aktéra — a že tím zmizí celá kategorie problému: nikdy nevznikne třída `ZbranKteraSeDaSnistAJeZaroveňKlic`. Praktické měřítko, které z toho plyne a autor ho neříká přímo: **vlastnost patří do fragmentu, jakmile ji nemá aspoň polovina položek.** Za pozornost stojí i to, že celý vzor je vlastně **licencovaný z Lyry** — což je dobrá připomínka, že [ukázkové projekty Epicu](gasp.md) nejsou jen hračky, ale zdroj hotových architektonických rozhodnutí. Vlastní výhrada: fragmenty **posunou složitost, nezruší ji**. Deset fragmentů znamená deset míst, kde se dá udělat chyba, a nováček v projektu musí nejdřív zjistit, které existují — takže k tomu patří dokumentace nebo aspoň editor script, který je vypíše.
+
+**Souvislosti:** [Třída jako data](#trida-jako-data-cdo-misto-instanci) · [Komponenty místo dědičnosti](#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Godot: has-a místo is-a](../godot/kompozice.md#has-a-misto-is-a-hrdinuv-batoh) · [Interakce s předměty](interakce-predmety.md) · [Rejstřík: Fragment](../rejstrik.md#fragment) · [Rejstřík: CDO](../rejstrik.md#cdo) · [Rejstřík: Data-driven design](../rejstrik.md#data-driven-design)

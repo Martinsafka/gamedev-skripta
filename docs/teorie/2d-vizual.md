@@ -87,3 +87,27 @@ Závěrečná formulace je nejlepší část devlogu [(8:41)](https://www.youtub
 > **Pozn.:** Tohle je 2D obdoba práce, kterou ve 3D dělá [kamera](kamera.md#kamera-metroidvanie-hranice-ktere-umi-lhat) — jen s obráceným zadáním. Ve 3D se kamera přizpůsobuje světu; tady se **svět staví tak, aby vyhověl nehybné kameře**. Proto je „stupňovitý ostrov" plnohodnotné designové rozhodnutí, ne dekorace.
 
 **Souvislosti:** [Kamera: neviditelný designér](kamera.md#kamera-metroidvanie-hranice-ktere-umi-lhat) · [Prostor a hranice](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Vizuální komunikace: mechaniky musí být vidět](vizualni-komunikace.md#mechaniky-funguji-jen-tehdy-kdyz-je-hrac-vidi) · [Rejstřík: izometrie](../rejstrik.md#izometrie)
+
+---
+
+## Zpomalit, abys byl rychlejší: volba nástrojů jako investice
+
+**Zdroj:** [Why I don't use Aseprite — The Tools I Use for Indie Game Dev (2D and 3D)](https://www.youtube.com/watch?v=wuO_iy0zhPA) · [Zizaco](https://www.youtube.com/channel/UCvFDxvCvvibNScfJD5h4oBQ) · ~8 min, přehled nástrojů
+
+**Shrnutí:** Přehled nástrojů, který je zajímavý jednou tezí a jednou provokací. Teze zní **„zpomal, abys byl rychlejší"** — investice do těžšího nástroje se vrátí. Provokace je v titulku: autor nepoužívá Aseprite a vysvětluje proč, způsobem, který stojí za zvážení i pro toho, kdo u něj zůstane. Háček: **je to názor jednoho člověka na jeho vlastní pipeline**, ne měření.
+
+### Rozpad myšlenky
+
+**Argument proti Aseprite** [(0:00)](https://www.youtube.com/watch?v=wuO_iy0zhPA&t=0s) není o funkcích, ale o technice: *„nutí tě kreslit každý jednotlivý pixel — a to není postup, který používají špičkoví pixel artisté."* Jeho doklad je nepřímý, ale poctivě uvedený: podívej se na nejlepší práce na Pixel Jointu a zjistíš, čím vznikaly. Předvádí to na kouli, kterou udělá **jedním kliknutím** s nastavenou paletou a filtry, a pak do ní jen domaluje praskliny.
+
+**Co používá místo toho**: **Photopea** (bezplatná webová alternativa Photoshopu — *„nabízí skoro všechny funkce, které bys našel ve Photoshopu"*, včetně omezení na paletu pro pixel art) a **Krita** na kreslení tabletem, kvůli ovládání štětců a onion skinningu pro animaci. Dělba práce u něj: **Krita pro kreslení tabletem, Photopea pro úpravy myší.**
+
+**Ta hlavní teze** se opakuje třikrát a je to jediné, co z videa má obecnou platnost: *„učit se nový software může působit zastrašujícím dojmem, ale nakonec ti to může pomoct pracovat rychleji a dělat kvalitnější výsledky."* Aplikuje ji i na Git: *„může působit složitě, jsi-li v tom nový, ale věřím, že se investice do jeho pořádného naučení mnohonásobně vrátí."*
+
+**Ke 3D** [(5:19)](https://www.youtube.com/watch?v=wuO_iy0zhPA&t=319s) přidává radu, která patří k nejopakovanějším v celé knihovně, a je dobré ji slyšet i tady: *„neradil bych indie ani sólo vývojářům honit vysokou vizuální věrnost. Místo toho zvolit výrazný stylizovaný 3D styl je nejspíš tvoje nejlepší sázka."* Konkrétně používá **Blockbench** na modelování (styl, který podle něj sedí tomu, co indie vývojáři zvládnou) a **Blender** na všechno ostatní — *„nedá se to obejít, Blender je v podstatě nezbytná součást výbavy každého 3D artisty."*
+
+**A dokumentace bez estetiky**: Google Docs, Sheets a Slides. *„Přiznávám, že tyhle nástroje nemají žádné estetické kouzlo. Vlastně jsou ošklivé. Ale bohatě to vynahrazují funkčností."* Argument: napadne tě nápad v tramvaji, zapíšeš ho z telefonu, sdílíš, komentuješ, a máš historii toho, co se kdy změnilo.
+
+> **Pozn.:** To „zpomal, abys byl rychlejší" je jediná část, kterou stojí za to brát jako obecné pravidlo — a je užitečné právě proto, že **jde proti tomu, jak se nástroje vybírají v praxi**: podle toho, co se dá dnes odpoledne rozjet. Rozumný test, který z toho plyne: **kolikrát ten nástroj použiju?** U věci, kterou uděláš jednou, vyhrává snadnost; u věci, kterou budeš dělat tisíckrát, vyhrává strop. To je táž úvaha jako u [nástrojů, které si napíšeš pro sebe](../godot/projekt-a-vykon.md#nastroje-pro-sebe-editor-script-ktery-ti-usetri-boilerplate). Argument proti Aseprite je slabší, než jak zní: **není to spor o nástroj, ale o techniku** — filtry a paletizace proti kreslení pixel po pixelu — a tu první se dá dělat i v Aseprite. Ber to tedy jako pozvánku vyzkoušet **jiný postup**, ne jako důvod měnit software. A jedno přiznání, které video samo obsahuje: autor je zároveň propagátorem konkrétního enginu a odkazuje na svůj mailing list, takže část doporučení je i osobní pipeline, ne nezávislé srovnání.
+
+**Souvislosti:** [Pixel art je rozhodnutí, ne nouzové řešení](#pixel-art-je-rozhodnuti-ne-nouzove-reseni) · [Herní art — pipeline](art-pipeline.md) · [Plánovací nástroje](planovani-nastroje.md#nastroje-full-time-indie-vyvojare-a-jedna-vec-navic-ktera-neni-software) · [Godot: nástroje pro sebe](../godot/projekt-a-vykon.md#nastroje-pro-sebe-editor-script-ktery-ti-usetri-boilerplate) · [Rejstřík: Blockout](../rejstrik.md#blockout) · [Rejstřík: Version control](../rejstrik.md#version-control)
