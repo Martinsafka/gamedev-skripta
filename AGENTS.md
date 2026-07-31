@@ -25,7 +25,7 @@ Follow the loop in `agent_docs/workflow.md` for **every** assignment: analyze �
 ## Layout
 
 - `agent_docs/` — methodology for agents (this doc set).
-- `scripts/` — `fetch_transcripts.sh` (incremental yt-dlp fetch), `clean_transcripts.py` (SRT/VTT → clean text), `fetched.txt` (archive of downloaded ids — **committed**).
+- `scripts/` — `fetch_transcripts.sh` (incremental yt-dlp fetch), `clean_transcripts.py` (SRT/VTT → clean text), `gap_scan.py` (corpus-vs-docs coverage evidence), `fetched.txt` (archive of downloaded ids — **committed**).
 - `transcripts/` — raw subtitle files + `info.json` per video id. **Gitignored.**
 - `transcripts_clean/` — cleaned plain-text transcripts. **Gitignored.**
 - `inbox/` — raw personal material for Zápisky (devlogs, conversation summaries). **Gitignored.**
@@ -45,12 +45,14 @@ Pull the relevant doc(s) into context **only when the task needs them**:
 - How to approach tasks (the loop) → `agent_docs/workflow.md`.
 - What's been done and why (running log — **append after every task**) → `agent_docs/dev_log.md`.
 - Phases and current status → `agent_docs/roadmap.md`.
+- **What the corpus cannot answer** — topics missing from the playlists, what to search for, what is already closed → `agent_docs/content_gaps.md` (evidence via `scripts/gap_scan.py`). Read before proposing a new fetch.
 
 ## Working rules
 
 - **Content language is Czech; terminology stays English** (see `content_conventions.md`). Agent docs are English.
 - **Verify the site builds before reporting a content task done:** `mkdocs build --strict` (broken links and bad nav fail the build).
 - Chapters are organized **by idea, not by video**. A video is a source; several videos can feed one chapter, one video can feed several entries.
+- **"Processed" is not "mined out."** A long source can be published against one idea and still hold unused material. Before proposing a new fetch, check `agent_docs/content_gaps.md` — the answer may already be in a transcript that was read for something else.
 - Every processed video's terms go into the glossary; every new chapter links related chapters/zápisky both ways.
 - **Don't run `git commit` or `git push` unless explicitly asked.** Propose the commit message; the user commits.
 

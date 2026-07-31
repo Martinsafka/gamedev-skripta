@@ -162,6 +162,14 @@ Zbytek vlny:
 
 **✅ TŘETÍ VLNA DOKONČENA CELÁ** — 174 videí ve třech playlistech (Godot 93, hlavní 61, hudba 20), dávky 31–45. V `processing_index.md` zbývají už jen tři dlouhodobě odložené položky: 1 české video bez pipeline a 2 low-priority beginner kurzy.
 
+### Phase 12 (běží) — práce podle otázek, ne podle playlistu
+
+Třetí vlna vyčerpala playlisty. Odteď se díry hledají aktivně: `agent_docs/content_gaps.md` je seznam témat, na která korpus nemá odpověď, `scripts/gap_scan.py` k tomu dodává čísla a odliší re-read od nového fetche.
+
+- [x] **Dávka 46 (re-read CPU strany + gap tabulka)** _(2026-07-31)_: založena `content_gaps.md` (13 řádků, 3× P1) a `scripts/gap_scan.py`, zapojeno do `AGENTS.md`. Re-read `bfkbwXVMtn8` → **+2 myšlenky do `praxe/profiling.md`** (anatomie herního a renderovacího vlákna · tvůj kód v profileru není vidět). Rejstřík 495 → **498**. Odhad díry byl nadsazený — dvě třetiny už byly napsané v `mereni-automaticky.md` a `gpu-pruchod.md`, jen jinými slovy; řádek „editor vs build" proto uzavřen jako falešný poplach.
+- [ ] **Rozhodnutí: cílený fetch pro P1 díry** — UI/UMG (největší, 57 kapitol Praxe a ani jedna o rozhraní), PSO a kompilace shaderů, Blueprint vs C++. Je to změna režimu: hledá se odpověď na otázku, ne zpracovává playlist. Čeká na uživatele.
+- [ ] **Proskenovat Teorii a Godot** — `content_gaps.md` je zatím psaná jen z pohledu Praxe v UE5.
+
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 
 - [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_

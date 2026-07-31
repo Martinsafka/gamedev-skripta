@@ -686,6 +686,14 @@ Kde se s tím potkáš: [Celeste: křivky v snímcích](teorie/game-feel.md#cele
 
 Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md) · [Nápad](teorie/napad.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 
+### CPU-bound / GPU-bound
+
+**Které ze dvou zařízení na tvou hru čeká — a tím pádem které z nich má smysl odlehčovat.**
+
+Rozhoduje se podle toho, které číslo v `stat unit` se blíží k `frame`: **game** nebo **draw** → CPU-bound, **GPU** → GPU-bound. Význam je praktický, ne akademický: **stejný symptom má dvě různé léčby.** Padá snímkování a vysoko je `draw`? Neřeš shadery, řeš počet objektů, ze kterých se rozhodnutí dělá. Vysoko je `GPU`? Pak teprve shadery a rozlišení. Zaměnit ta dvě patra znamená optimalizovat celý den bez efektu.
+
+Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno)
+
 ### Custom resource
 
 **Vlastní datový typ uložený jako soubor: `extends Resource` + `class_name`, hodnoty přes `@export`, instance jako `.tres`.**
@@ -1349,6 +1357,14 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 Zní akademicky, funguje jako kompas hranic řešitelnosti: každé „najdeme automaticky všechny bugy" a „AI garantuje správný kód" naráží na tenhle strop. Kdo o něm ví, je imunní vůči celé kategorii technického hadího oleje.
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
+
+### Herní vlákno
+
+**Vlákno, na kterém běží všechno, co bys označil za „tvoji hru" — herní logika, AI, fyzika, blueprinty.**
+
+V `stat unit` je to hodnota **game**. Přeroste-li renderovací vlákno, jsi CPU-bound a příčina je skoro jistě v kódu, který jsi napsal. Pozor na záměnu s **renderovacím vláknem** (viz vlastní heslo), které je taky CPU — ale dělá něco úplně jiného a šetří se na něm jinými zásahy.
+
+Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Renderovací vlákno](#renderovaci-vlakno) · [Rejstřík: Frame time](#frame-time)
 
 ### HLOD
 
@@ -2837,6 +2853,14 @@ Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md) · [Akordy a harmo
 Slouží k obrazovkám kamer, zrcadlům nebo malování do textury za běhu. Šikovné vedlejší použití: materiál složený z noise uzlů se dá do render targetu vypéct a uložit jako obyčejnou texturu — takže na generování šumu nepotřebuješ žádný externí program.
 
 Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite)
+
+### Renderovací vlákno
+
+**Čas, který procesor stráví přípravou práce pro GPU — ne čas GPU.**
+
+V `stat unit` je to hodnota **draw** a je to nejčastěji špatně čtené číslo v celém panelu. Odehrává se tam **culling** (příkazy pro deset tisíc objektů se musí připravit, i když jich uvidíš zlomek), **výběr LODů** podle vzdálenosti a **sestavení a odeslání draw callů**. Praktický důsledek: LODy a culling nešetří jen GPU, ale i procesor — takže „mám málo trojúhelníků, LODy nepotřebuju" přestává platit, jakmile je objektů hodně.
+
+Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: RHI](#rhi)
 
 ### Retargeting
 

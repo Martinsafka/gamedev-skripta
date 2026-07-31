@@ -15,6 +15,26 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-07-31 — Dávka 46: re-read CPU strany + zavedení gap tabulky (Claude Code, Opus 5)
+
+**What:** Dvě nové věci a jedna dávka.
+
+1. **`agent_docs/content_gaps.md`** — tabulka témat, na která korpus nemá odpověď: stav (☐/⏳/☑/✗), evidence v číslech, cílová kapitola a **co konkrétně hledat na YouTube**. 13 řádků, tři P1 (UI/UMG, PSO a kompilace shaderů, Blueprint vs C++). Zapojeno do `AGENTS.md` (progressive disclosure + nové pravidlo „processed is not mined out").
+2. **`scripts/gap_scan.py`** — reprodukovatelná evidence pro tu tabulku: pro každé téma spočítá zásahy v `transcripts_clean/` a v `docs/` a odliší *re-read* (korpus bohatý, dokumenty tenké) od *fetch* (korpus prázdný).
+3. **Dávka 46** — re-read `bfkbwXVMtn8` z CPU úhlu → **+2 myšlenky do `praxe/profiling.md`** (nyní 7): „Co je v herním vlákně a co v renderovacím" a „Tvůj kód v profileru není vidět". Rejstřík **+3** (498: Herní vlákno, Renderovací vlákno, CPU-bound / GPU-bound), tooltipy 497. Chapter map 721 řádků, `--strict` bez warningů, anchor-check **3245/0**.
+
+**Why:** Uživatel se zeptal, jestli blok o výkonu naučí dělat optimalizovanější hry. Odpověď zněla „naučí metodu, ale CPU strana vlastního kódu chybí" — a to se ukázalo být z poloviny pravda. Tabulka vznikla proto, že další práce už nemá zdroj v playlistech: dosud se pracovalo se seznamem videí, odteď se pracuje se seznamem otázek.
+
+**How:** Postup byl scan → cílený re-read → napsat. Dvě věci na tom stojí za zaznamenání, protože obě byly korekce vlastního odhadu.
+
+**Regexová past v prvním scanu.** První běh hlásil u replikace a garbage collectoru nulu. Příčina: koncové `\b` za kmenem — `replicat\b` nikdy nesedne na „replication", `garbage collect\b` na „garbage collection". Table by na tom postavila dva falešné řádky. V `gap_scan.py` je to teď v docstringu jako varování.
+
+**Odhad díry byl o dvě třetiny nadsazený.** Předpovídal jsem novou kapitolu `cpu-a-hlavni-vlakno.md` o 3–4 myšlenkách. Po přečtení cílových kapitol se ukázalo, že `mereni-automaticky.md` už obsahuje automatizovaný benchmark, `TRACE_CPUPROFILER_EVENT_SCOPE` jako poznámku, realistické měřítko 8,3 → 8,0 ms i šíření úzkého hrdla mezi vlákny — a `gpu-pruchod.md` celou spouštěcí sadu včetně `-noverifygc`. Zbyly **dvě** skutečně nenapsané věci a obě patřily do `profiling.md`, ne do nové kapitoly: **anatomie vláken** (co se počítá do `game` a co do `draw`, a že `draw` je taky CPU) a **neviditelnost vlastního kódu** v profileru. Řádek „editor vs zabalený build" je proto v tabulce označený `✗` jako falešný poplach.
+
+Poučení z toho zapsané přímo do tabulky: **scan počítá zásahy klíčových slov, ne pokrytí.** Dokumenty jsou česky a píšou o téže věci jinými slovy, takže scan systematicky podceňuje, co už je hotové. Než se řádek povýší na P1, patří se přečíst cílová kapitola.
+
+**Follow-ups:** Tři P1 řádky v `content_gaps.md` čekají na rozhodnutí, jestli se dělá cílený fetch — je to změna režimu práce (hledání odpovědi místo zpracování playlistu) a patří uživateli. `praxe/profiling.md` má teď 7 myšlenek, což je horní mez; další materiál o profilingu patří jinam. Tabulka je zatím psaná z pohledu Praxe v UE5 — Teorie a Godot mají díry taky a nikdo je zatím neproskenoval.
+
 ### 2026-07-31 — Phase 11 dávka 45 + DOKONČENÍ CELÉ TŘETÍ VLNY (Claude Code, Opus 5)
 
 **What:** 7 videí (~13k slov) → **nová kapitola `docs/hudba/rytmus.md` (3 myšlenky)** v tématu „Základy hudební teorie": mřížka — takt, dělení a swing · silné a slabé doby: páteř a ozdoby · za jeden takt: fráze, fill a prázdno. **+6 myšlenek do stávajících kapitol**: `akordy-a-harmonie.md` ×2 (katalog 25 progresí podle nálady · neutrální progrese: nech skladbu, ať si řekne), `aranz.md` (metoda zákopu), `tvorba-soundtracku.md` (rozebrat cizí track: Cornfield Chase), `fyzika-souzvuku.md` (kvintový kruh je ve skutečnosti spirála), `nastroje-zdarma-a-game-jam.md` (AI na vokál). Rejstřík **+12** (495: Backbeat, Fill, Ghost note, Klonování hlasu, Kvintový kruh, Polyrytmus, Předznamenání, Septakord, Stem separace, Swing, Tritón, Zákop). Nav + anotace v `docs/hudba/index.md`, chapter map regen (718 řádků), `--strict` bez warningů, anchor-check **3215/0**. Zdroje: `cU4mqDPZuXg`, `_yw85rAb6cw`, `XlltkalLaU4`, `uOUPEqTU9ag`, `JE3QM_9sljI`, `8w97N0rEIS8`, `7mLqpA-PMwM`. **Tím je celá třetí vlna hotová — 174 videí, dávky 31–45.**

@@ -82,6 +82,7 @@
 *[Control Rig]: Grafový rigging a procedurální animace v enginu — běží i za runtime, bez rekompilace.
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
 *[Coyote time]: Krátká lhůta po opuštění hrany, během které skok pořád projde (asi 6 snímků).
+*[CPU-bound / GPU-bound]: Které zařízení na hru čeká; určuje, kterým směrem vůbec optimalizovat.
 *[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
@@ -173,6 +174,7 @@
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hit stop]: Krátké zamrznutí hry při zásahu (asi 1/20–1/10 s) — dodá útoku váhu a čitelnost.
 *[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
+*[Herní vlákno]: Vlákno s herní logikou, AI, fyzikou a blueprinty; v stat unit hodnota game.
 *[HLOD]: Sloučená náhrada za skupinu objektů v dálce; skrytá HLOD proxy může pořád vrhat stín.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
@@ -352,6 +354,7 @@
 *[Rekurze]: Funkce volající sama sebe: base case + zmenšování problému + skok důvěry.
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
 *[Render target]: Textura, do které engine vykresluje za běhu — jde do ní i vypéct materiál.
+*[Renderovací vlákno]: Čas CPU na přípravu práce pro GPU (culling, LODy, draw cally) — ne čas GPU.
 *[Retargeting]: Přenos animace z jedné kostry na jinou s odlišnými proporcemi (IK Rig + Retargeter).
 *[Retopologie]: Přestavba geometrie na čistou síť pro rig/animaci; AI cesty: decimace+bake, smart low poly, remesher.
 *[Retrieval practice]: Učení vybavováním: odvrať zrak a vzpomínej — poráží opakované čtení.

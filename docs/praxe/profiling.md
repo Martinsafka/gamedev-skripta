@@ -45,6 +45,35 @@ Příčina je v zpětném pohledu banální a přesně to je na ní poučné: fu
 
 ---
 
+## Co je v herním vlákně a co v renderovacím
+
+**Zdroj:** [Automated Performance Profiling for Local Workflows](https://www.youtube.com/watch?v=bfkbwXVMtn8) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~116 min, Inside Unreal (engine programátor)
+
+**Shrnutí:** Rozhodovací strom výše řekne, **které z těch čtyř čísel** je tvoje brzda. Tahle myšlenka je patro pod ním: **co se do každého z nich vlastně počítá.** Bez toho se dá strom projít správně a pak optimalizovat úplně špatnou věc. Háček, na kterém uvázne skoro každý: **renderovací vlákno není GPU čas.** Je to čas, který **procesor** stráví přípravou práce pro GPU — a šetří se na něm jinými zásahy než na GPU.
+
+### Rozpad myšlenky
+
+**Herní vlákno** [(24:58)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=1498s) je všechno, co bys označil za „tvoji hru": *„herní logika, AI, fyzika, blueprinty, jakákoli gameplay logika, kterou máš"*. Když ti tohle číslo přeroste renderovací vlákno, jsi **CPU-bound** a příčina je skoro jistě v kódu, který jsi napsal.
+
+**Renderovací vlákno** [(26:33)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=1593s) je ta část, kterou lidé čtou špatně: *„tohle není přesně GPU čas. Je to čas, který CPU stráví přípravou vykreslovacích příkazů pro GPU."* Konkrétně se tam odehrává:
+
+- **culling** — kreslíš-li deset tisíc objektů, příkazy pro ně se musí připravit, i když jich na obrazovce uvidíš zlomek; někdo je musí zahodit, a ten někdo je procesor;
+- **výběr LODů** — které úrovni detailu odpovídá který objekt podle vzdálenosti;
+- **sestavení a odeslání draw callů** — *„připravovat a odesílat draw cally je cena, o které musíš vědět."*
+
+**GPU čas** je pak teprve skutečná práce grafiky: rasterizace, shadery, post-process, ray tracing.
+
+**A jedna vlastnost, kterou je potřeba znát, protože z ní plyne latence** [(28:05)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=1685s): **snímky CPU a GPU nejsou zarovnané.** Procesor smí běžet napřed — odešle příkazy a hned začne počítat další snímek, zatímco GPU pořád zpracovává ten předchozí. To je přesně to, co [potrubí snímku](frame-pacing.md#snimek-neni-fronta-je-to-potrubi) popisuje z druhé strany.
+
+**Paměť jako průřezová vrstva** [(28:51)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=1731s), která se do těch čtyř čísel promítne nepřímo: dojde-li paměť, spustí se **garbage collection**; na PC začne systém odkládat na disk (*„a i s SSD je to pomalejší než hlavní paměť"*); na mobilu a části konzolí **odkládání neexistuje vůbec**. K tomu poznámka, která pro PC platí dvojnásob: *„jsou lidi se čtyřmi giga paměti a lidi se čtyřiašedesáti"* — takže „kolik mám paměti" není vlastnost hry, ale vlastnost cílového publika.
+
+> **Pozn.:** Nejcennější důsledek téhle anatomie je nenápadný a přehlíží ho skoro každý: **LODy a culling nešetří jenom GPU.** Šetří i procesor, protože se na něm ta rozhodnutí dělají — takže „mám málo trojúhelníků, LODy nepotřebuju" je špatná úvaha, jakmile je objektů hodně. Druhá věc, kvůli které tahle myšlenka stojí před praxí: **stejný symptom má dvě různé léčby.** Padá ti snímkování a `draw` je vysoko? Neřeš shadery, řeš **počet objektů, ze kterých se rozhodnutí dělá**. Padá ti snímkování a vysoko je `GPU`? Pak teprve shadery a rozlišení. Zaměnit ta dvě patra znamená optimalizovat celý den bez efektu — což je táž past jako [debug režimy místo bottlenecku](#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat), jen o krok dál. A vlastní poznámka k té paměti: je to jediná položka ze čtyř, která **neroste plynule** — nedojde, nedojde, a pak dojde a spadne ti to všechno naráz. Proto se hlídá jinak než čas: [vodočtem, ne průměrem](gpu-pamet.md#pooly-a-jejich-vodocty).
+
+**Souvislosti:** [Rozhodovací strom](#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Tvůj kód v profileru není vidět](#tvuj-kod-v-profileru-neni-videt) · [Potrubí snímku](frame-pacing.md#snimek-neni-fronta-je-to-potrubi) · [Insights jako disciplína](mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine) *(šíření úzkého hrdla mezi vlákny)* · [Optimalizace: co blokuje hlavní vlákno](optimalizace.md#druha-osa-optimalizace-co-blokuje-hlavni-vlakno) · [Rejstřík: Herní vlákno](../rejstrik.md#herni-vlakno) · [Rejstřík: Renderovací vlákno](../rejstrik.md#renderovaci-vlakno) · [Rejstřík: Draw call](../rejstrik.md#draw-call)
+
+---
+
+
 ## Reprodukovatelný test: bez něj neporovnáš nic
 
 **Zdroj:** [Technical Artist's Guide to Profiling in Unreal Engine](https://www.youtube.com/watch?v=mCZRHljYnZA) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~33 min, Unreal Fest Orlando 2025
@@ -151,6 +180,29 @@ A důrazné varování k poslednímu řádku: *„viděl jsem studia, která si 
 **Souvislosti:** [Rozhodovací strom](#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Nález není hotová práce](#nalez-neni-hotova-prace-predani) · [Optimalizace scény](optimalizace.md#proc-jsou-levely-pomale-od-instanci-po-data-layers) · [Godot: čísla mají meze](../godot/pripadovka-systemy.md#cisla-maji-meze-overflow-a-nepresnost-floatu) *(jiné tvrdé stropy, tatáž logika)* · [Rejstřík: Garbage collection](../rejstrik.md#garbage-collection) · [Rejstřík: Shading bin](../rejstrik.md#shading-bin) · [Rejstřík: Hard reference](../rejstrik.md#hard-reference)
 
 ---
+
+## Tvůj kód v profileru není vidět
+
+**Zdroj:** [Automated Performance Profiling for Local Workflows](https://www.youtube.com/watch?v=bfkbwXVMtn8) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~116 min, Inside Unreal (engine programátor)
+
+**Shrnutí:** Předchozí myšlenky předpokládají, že v profileru **uvidíš, kde se čas ztrácí**. U vlastního kódu to není zdarma. Funkce, kterou jsi napsal, se v traci **neobjeví, dokud ji sám neoznačíš** — a to je nejčastější důvod, proč se hledá hodinu v enginu místo ve vlastní práci. Háček navrch: i když ji uvidíš, **bez představy o tom, co má stát, ti to číslo nic neřekne.**
+
+### Rozpad myšlenky
+
+**Označení vlastního rozsahu** [(55:29)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=3329s) je jeden makro řádek — `TRACE_CPUPROFILER_EVENT_SCOPE` — a autorova rada zní: *„myslíš-li si, že děláš práci, která je na ten čas dost těžká, přidej si ten profilovací scope, ať máš snadno vidět, kde přesně čas trávíš."* Bez něj se ta práce schová do nějakého obecného enginového bloku a v traci prostě není. Praktické pravidlo: **označuj při psaní, ne až při hledání** — v okamžiku, kdy funkci píšeš, víš nejlíp, jestli je drahá.
+
+**Blueprint proti C++ v profileru** [(58:15)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=3495s) je jediné místo, kde se toho v celé knihovně o tomhle srovnání dozvíš — a je to méně, než by člověk čekal: *„optimalizuješ-li blueprinty, bude to vypadat trochu jinak, protože v Insights dostaneš blueprintové události místo C++ volání. Vyber si jed. Postup optimalizace zůstává v tomhle ohledu stejný."* Jeden praktický rozdíl přece jen zazní: po změně C++ se přeloží jen ten soubor, kdežto **u blueprintů se musí znovu cookovat**.
+
+**A druhá polovina, bez které je měření k ničemu** [(1:10:46)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=4246s): *„vidět ty metriky je skoro stejně důležité jako mít aspoň základní představu o tom, co od čeho čekáš, že bude stát — protože jinak se podíváš na něco, co trvá vteřinu, a řekneš si: no… já nevím, jestli to tak dlouho trvat má."* Autoři to hned poctivě omezí: **žádná univerzální tabulka neexistuje**, protože ta představa závisí na stroji i na cílové platformě. Nedá se tedy opsat — dá se jen **vypěstovat měřením vlastního projektu**, a proto se s ním má začít dřív, než něco hoří.
+
+**A důvod, proč se to vyplatí dělat, i když teď nic nehoří**, formuluje autor jako obranu proti sobě samému [(34:22)](https://www.youtube.com/watch?v=bfkbwXVMtn8&t=2062s): *„když neměřím, tak něco pushnu a za půl roku to vybouchne a já přemýšlím, jestli jsem to udělal já. To radši nechci být přistižen."*
+
+> **Pozn.:** „Tvůj kód není vidět, dokud ho neoznačíš" je věc, která se nedá odvodit ze zkušenosti — buď ji někdo řekne, nebo se profiluje naslepo. A má nepříjemnou vlastnost: **profiler nevypadá, že něco skrývá.** Ukáže plný, věrohodný strom, ve kterém tvoje drahá funkce prostě splynula s enginem — takže nehledáš dál, protože si myslíš, že vidíš všechno. To je horší než chybějící nástroj. Nejužitečnější zobecnění je ale ta druhá půlka: **číslo bez očekávání není informace.** Tohle platí daleko za profilingem a je to důvod, proč má [reprodukovatelný test](#reprodukovatelny-test-bez-nej-neporovnas-nic) a [srovnávací čísla](#cisla-se-kterymi-se-da-srovnavat) v téhle kapitole tolik místa — teprve druhé měření je měření. A pro sólo vývojáře jedna praktická útěcha: ta „základní představa" nemusí být z tabulek. Stačí **jednou proměřit skoro prázdný projekt** a máš krajní bod, ke kterému se dá vztáhnout všechno další; ostatně přesně to doporučuje i [automatizovaný benchmark](mereni-automaticky.md#benchmark-z-level-sequence-mereni-jako-soucast-prace).
+
+**Souvislosti:** [Co je v herním vlákně a co v renderovacím](#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Reprodukovatelný test](#reprodukovatelny-test-bez-nej-neporovnas-nic) · [Čísla, se kterými se dá srovnávat](#cisla-se-kterymi-se-da-srovnavat) · [Benchmark z level sequence](mereni-automaticky.md#benchmark-z-level-sequence-mereni-jako-soucast-prace) · [Programátorské návyky](../teorie/programatorske-navyky.md) · [Rejstřík: Unreal Insights](../rejstrik.md#unreal-insights) · [Rejstřík: Trace channel](../rejstrik.md#trace-channel)
+
+---
+
 
 ## Nález není hotová práce: předání
 
