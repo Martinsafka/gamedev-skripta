@@ -15,6 +15,56 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-10 — Phase 13 dávka 51: fyzika a GASP 5.8 (Claude Code, Opus 5.5)
+
+**What:** 5 videí (~50k slov) → **1 nová kapitola / 4 myšlenky + 10 myšlenek do stávajících**:
+- `praxe/destrukce-a-latky.md` (4): budova, kterou rozbije kdokoli (graf spojení na serveru, cluster union, buoyancy) · destrukce, kterou procesor unese (konvexy, debris, ISM pooling, paměť, strop zlomů, Event Relay) · rozbití v multiplayeru přes predictive interpolation · látka jako samostatný asset přes Dataflow.
+- `praxe/gasp.md` +4: motion matching uvnitř chooseru (pose match sloupec, databáze na řádek, blend space ve stacku) · aditivní look-at · párové akce přes multi-character motion matching · poslední update pro UE 5 (sample, ne framework). Úvod kapitoly aktualizován.
+- `praxe/ragdoll.md` +3: Physics Control profily · ragdoll, který se chrání (pózy, křivky síly, čas do dopadu, síť) · vstávání přes motion matching. Úvod aktualizován.
+- `praxe/mover.md` +2: Chaos Mover (postava jako fyzikální těleso) · síťová fyzika zevnitř (snímky, resimulace, input decay, logika na fyzikálním vlákně). Úvod aktualizován.
+- `praxe/debugging.md` +1: Chaos Visual Debugger zevnitř (fáze solveru, kontakty, dotazy, klient vedle serveru). Úvod aktualizován.
+
+Nav: „Chaos: destrukce a látky" pod Fyzikou; `praxe/index.md` doplněn. Rejstřík 578 → **591**: 13 nových (Additive animation, Async Physics, Chaos Mover, Chaos Visual Debugger, Cluster Union, Geometry Collection, Input decay, Pose History, Pose Match column, Pose Search Interaction Asset, Predictive interpolation, Ragdoll, Resimulation), 25 rozšířeno, z toho 7 o odstavec. 13 backlinků, mezi nimi slíbený z `interakcni-animace` (Contextual Animation → párové akce). `content_gaps.md`: řádek Multiplayer (P3) aktualizován. Chapter map 824 řádků.
+
+**Why:** Pátá dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 51").
+
+**How:**
+- **GASP 5.8 (2,8 h) čten celý** a rozdělen podle myšlenek mezi `gasp` (výběr animací, look-at, párové akce, co projekt je) a `ragdoll` (fyzika postav). Gorka Games (8 min, přehled) nemá vlastní myšlenku; přispívá do pěti jako druhý hlas a v jeho tvrzeních jsou označené ty, které stream nedokládá (look-at „skoro zadarmo", projekt „ve volném čase").
+- **Odchylky od tabulky dávky:**
+  - `_jRLlTDqoGI` dal dvě myšlenky místo jedné, protože fyzikální postava a síťová fyzika jsou dvě samostatné teze.
+  - Úseky o Chaos Visual Debuggeru ze dvou přednášek tvoří novou myšlenku v `debugging.md`. Kapitola CVD už zmiňovala a existující myšlenka v `gpu-pruchod` ukazuje, *co* CVD odhalil, kdežto nová *jak* záznam číst.
+  - Látky spojují přednášku z 5.4 a tutoriál z 5.8 do jedné myšlenky.
+  - Buoyancy z LEGO Fortnite je v první myšlence o destrukci, ve Vodě je na ni backlink.
+- **Verze:** přednáška `uCYGFdEWyZw` je z 5.4 (2024). Úvod kapitoly i Pozn. to říkají: Dataflow pro destrukci byl tehdy experimentální, import z Marvelous Designeru a CVD v betě. Jak se Dataflow pro destrukci posunul do 5.8, knihovna nemá zdroj.
+- **Napětí rozehraná v Pozn.:**
+  - Přednáška o Moveru z 2024 (chyba se „eroduje" bez rewindu) proti 2025 (pro postavy je hlavním režimem resimulace, predictive interpolation patří vzdáleným objektům).
+  - Contextual Animation (scénu vybere designér) proti multi-character MM (dvojici vybere dotaz).
+  - Tuhost ragdollu z rychlosti proti tuhosti z křivek v póze.
+  - Vstávání přes dot product pánve a select proti výběru podle celé pózy.
+- **Kontrola přesnosti po napsání** našla 10 formulací, všechny opravené:
+  - Cluster groups „nešly" přeskupovat → „neměly jednoduchý způsob".
+  - 180 „zlomů" za sekundu → 180 částic.
+  - Slib víc kusů oblečení je v úvodu tutoriálu, ne v titulku.
+  - Pérující plošina se „nedala" stabilizovat silami → „velmi těžko".
+  - „Skluz" → tackle (třikrát).
+  - Aim constraint u „stylizované" animace → „výrazné, nestrnulé" (garble „non Steve" = non-stiff).
+  - Na UE 6 se „nesmělo" odpovídat → „záměrně neodpovídalo".
+  - Doplněna lavička se smart objectem pro hráče, která v textu chyběla.
+- **Garble-fixy:**
+  - Jména řečníků jsou v titulcích zkomolená (Ben Galaga, Danny Chamman, Samuel Monty, Tony Jaldini, Maximl), v textu proto jen role. Technického designéra GASP titulky píšou jako Kayla/Scallop/Gale/Kell.
+  - ragd doll → ragdoll · jump Rec Collections → geometry collections · cvd / KS / curs visual debugger → Chaos Visual Debugger
+  - marvelous design → Marvelous Designer · ufn/UFM → UEFN · necroysics → network physics · Autonous Proxin → autonomous proxy · Krytek → Crytek
+  - „anim and"/„Anomgen" = experimentální ML plugin (necháno dávce 55).
+- **Rejstřík:** heslo Ragdoll v knihovně chybělo, přestože o ragdollu je celá kapitola. Doplněno.
+- **Časové odkazy:** všech 650 v dotčených kapitolách ověřeno skriptem proti blokům přepisů.
+
+**Follow-ups:**
+1. Další je dávka 52 (prostředí: blockout, modulární kity a breakdowny, 10 videí). Prostřelené barely ze 007 (`T4JStuqxUPI`) → backlink do „Barel, který teče" v `pasti-a-mechaniky` (z dávky 50).
+2. Dávka 55: experimentální ML plugin pro animaci z `6NYC4ryO9ik` (demo 10:09–13:14, Q&A 2:35:57–2:38:16) zatím není nikde zpracovaný.
+3. `gasp.md` má 12 myšlenek a ~7 600 slov, ale GASP podle Epicu další update pro UE 5 nedostane. Nový materiál o UE 6 ukázkách patří do nové kapitoly.
+4. Multiplayer: síťová fyzika už má lekci, základy replikace (RPC, authority, dedicated server) dál chybí.
+5. `ngx2Cy5tkXo` zůstává skip; Pozn. v `lana-kabely` jsem nedělal, protože průmyslový plugin indie čtenáři nic nedá.
+
 ### 2026-10-10 — Phase 13 dávka 50: souboj, UI ve světě a AI nepřátel (Claude Code, Opus 5.5)
 
 **What:** 7 videí (~55k slov) + odložený úsek `xr-2TrMUd9w` o in-world widgetech z dávky 48 → **3 nové kapitoly / 18 myšlenek**:

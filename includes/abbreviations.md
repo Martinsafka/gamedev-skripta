@@ -4,6 +4,7 @@
 *[ABTest]: Konzolový příkaz střídající dvě hodnoty jedné proměnné a vypisující výkon obou.
 *[Active frames]: Snímky, ve kterých útok zraňuje — mezi nápřahem a zotavením; v UE typicky notify state.
 *[Actor Component]: Znovupoužitelný díl chování připnutý k aktérovi — schopnost bez identity.
+*[Additive animation]: Animace přičtená k základní póze místo její náhrady; past je přeaplikování, když se póza pohne sama.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
 *[Aggro]: Skóre, podle kterého si nepřítel vybírá cíl — blízkost, vydržené poškození, umělé aggro, cooldown přepnutí.
@@ -29,6 +30,7 @@
 *[Assist mode]: Volitelný režim, kde si hráč upraví obtížnost po jednotlivých pákách místo výběru „easy".
 *[Asset User Data]: Data pověšená na asset, která s ním cestují všude; gameplay na meshi bez blueprintu.
 *[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
+*[Async Physics]: Fyzika s pevným krokem na vlastním vlákně; hra ji interpoluje a je o kousek pozadu.
 *[Attachment rules]: Pravidla připnutí objektu: Snap to Target ho okamžitě přesune, Keep World ho nechá na místě.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[AutoBake]: Přepínání živého control rigu a jeho zapečené animation sequence v sequenceru (UE 5.8).
@@ -72,6 +74,8 @@
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
 *[CDO]: Class Default Object — výchozí instance každé třídy; umožňuje vzor „třída jako data" bez konstruování.
 *[Chaos Cloth]: Realtime fyzika látek: Cloth Asset graf s weight mapou, configem a colliderem z physics assetu.
+*[Chaos Mover]: Plugin, který z Mover postavy dělá fyzikální těleso tažené k cíli omezenou silou (experimentální, 5.7+).
+*[Chaos Visual Debugger]: Nahrávání fyzikální scény Chaosu po snímcích a fázích solveru: kontakty, dotazy, klient vedle serveru.
 *[Chooser]: Datová tabulka „za těchto podmínek vyber tenhle asset“; v MM přepíná databáze.
 *[CI/CD]: Automatizovaný kontrolní seznam po každém pushi; u her je největší přínos čistý build stroj.
 *[Chord extension]: Tón přidaný k triádě nad kvintu (septima, nona…); bohatší zvuk lo-fi, R&B, house.
@@ -80,6 +84,7 @@
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
 *[Closing doors]: Iterace od širokého k úzkému; zavřené dveře se znovu neotevírají.
 *[Cluster culling]: Nanite zahazuje geometrii po clusterech — buď celý, nebo nic; rozhoduje topologie meshe.
+*[Cluster Union]: Komponenta Chaosu, která slepí víc geometry collections do jednoho tělesa s částečnou destrukcí.
 *[Construction Script]: Graf actor blueprintu, který běží v editoru při umístění či změně actoru a při spawnu.
 *[Context switch]: Přepnutí jádra mezi vlákny; časté přepínání je čistá režie, nevyvážená jádra blokují ostatní.
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
@@ -192,6 +197,7 @@
 *[GDD]: Game design document — dokument s návrhem hry; funguje, jen když se do něj skutečně vracíš.
 *[GDScript]: Skriptovací jazyk Godotu — blízký Pythonu, gradually typed, navržený pro strom scény.
 *[Genre descoping]: Jeden prvek velkého žánru nafouknutý na celou hru (TD z RTS, backpack z Diabla).
+*[Geometry Collection]: Asset rozbitného objektu v Chaosu: tělesa aktualizovaná a kreslená společně, s úrovněmi clusteringu.
 *[Gestalt]: Psychologie celku: člověk čte celý obraz a z uspořádání odvozuje vztahy mezi částmi.
 *[Ghost note]: Tišší verze téhož bicího na slabé dělené době; hustota bez důrazu.
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
@@ -226,6 +232,7 @@
 *[IK]: Inverzní kinematika: řetěz kostí se natočí tak, aby koncová kost dosáhla cíle.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
 *[Inertialization]: Blend, který z rychlosti původního pohybu dopočítá plynulý přechod místo míchání dvou póz.
+*[Input decay]: Tlumení predikovaného vstupu při resimulaci; čím hlouběji v predikci, tím slabší vstup.
 *[ISM]: Instanced Static Mesh — shodná geometrie i materiál v jednom draw callu; HISM přidává LODy.
 *[Indexical storytelling]: Vyprávění stopami a náznaky; hráč si příběh složí sám (Clara Fernández-Vara).
 *[Impostor]: Nejagresivnější LOD: asset nahrazený obrázkem otáčejícím se s kamerou.
@@ -386,11 +393,15 @@
 *[Polymetr]: Souběžné rytmické řady různé délky; dlouhý groove z krátkého zápisu.
 *[Polyrytmus]: Dva vzorce ve stejném metru: první doby sedí, dělení ne.
 *[Pose Asset]: Asset s pojmenovanými pózami, které AnimBP vybírá a míchá podle jména (např. úchopy).
+*[Pose History]: Uzel AnimBP s historií póz a trajektorie, ze které čte motion matching; plní se před fyzikou.
+*[Pose Match column]: Sloupec chooseru, který mezi kandidáty provede motion matching a vybere animaci i snímek.
 *[Pose Search Database]: PSD — kolekce animací jednoho typu pohybu, ve které Motion Matching hledá pózy.
+*[Pose Search Interaction Asset]: Asset párových animací pro motion matching: montáže podle rolí a rozdělení chyby warpu (experimentální).
 *[Pose Search Schema]: Definice, co MM měří: kanály (trajektorie, kosti) s vahami; ladí se experimentem.
 *[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
 *[Post-process AnimBP]: AnimBP meshe vyhodnocovaný po hlavní animaci — vrstvení look-atu a korekcí; vázaný na skeleton.
 *[Postmortem]: Ohlédnutí za dokončeným projektem: co fungovalo, co ne a proč — nejhutnější studijní žánr gamedevu.
+*[Predictive interpolation]: Replikace fyziky s cílem mírně za serverem a dorovnáním přes rychlost; levnější než resimulace.
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
 *[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
@@ -406,6 +417,7 @@
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
 *[Quad utilization]: Podíl využité práce ve čtverci 2×2 pixely — jednotce, po které GPU plánuje pixel shader.
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
+*[Ragdoll]: Postava, jejíž kostra simuluje jako fyzikální tělesa spojená klouby; active ragdoll ji táhne k póze.
 *[Random pitch variation]: Náhodný posun výšky při každém přehrání; ubíjí mechanickou repetici opakovaného zvuku.
 *[Raster bin]: Nanitová dávka se shodným stavem rasterizace; cenu určuje rozmanitost materiálů, ne počet meshů.
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
@@ -417,6 +429,7 @@
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
 *[Render target]: Textura, do které engine vykresluje za běhu — jde do ní i vypéct materiál.
 *[Renderovací vlákno]: Čas CPU na přípravu práce pro GPU (culling, LODy, draw cally) — ne čas GPU.
+*[Resimulation]: Síťová korekce fyziky: rewind do minulého snímku, oprava podle serveru a přehrání do současnosti.
 *[Retargeting]: Přenos animace z jedné kostry na jinou s odlišnými proporcemi (IK Rig + Retargeter).
 *[Retopologie]: Přestavba geometrie na čistou síť pro rig/animaci; AI cesty: decimace+bake, smart low poly, remesher.
 *[Retrieval practice]: Učení vybavováním: odvrať zrak a vzpomínej — poráží opakované čtení.

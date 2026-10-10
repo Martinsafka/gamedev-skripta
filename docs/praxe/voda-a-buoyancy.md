@@ -61,4 +61,4 @@ Nový režim „Probe" v kolizích je to, co vztlak pohání — voda se dotazuj
 
 > **Pozn.:** Dvě cesty vedle sebe = verzní checklist: na 5.6 a starších pontoony, na 5.7+ physical material (a pontoonová cesta zůstává pro jemnou kontrolu — loď se stabilními body vztlaku). Kdo přechází mezi verzemi, tohle je přesně místo, kde se „nefunkční voda" opravuje dvěma checkboxy.
 
-**Souvislosti:** [Rejstřík: buoyancy](../rejstrik.md#buoyancy) · [Rejstřík: physical material](../rejstrik.md#physical-material) · [Kroky a povrchy: physical materials](footsteps.md#physical-materials-a-trace-misto-notify)
+**Souvislosti:** [Rejstřík: buoyancy](../rejstrik.md#buoyancy) · [Rejstřík: physical material](../rejstrik.md#physical-material) · [Kroky a povrchy: physical materials](footsteps.md#physical-materials-a-trace-misto-notify) · [Buoyancy pro cokoli, co hráč postaví](destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) *(plugin pro libovolné rigid částice v LEGO Fortnite)*

@@ -157,7 +157,7 @@ Výsledek je Enum `E_Direction` a podle něj se vybere montáž [(1:53:15)](http
 
 > **Pozn.:** Směrové reakce s chooserem místo mapy jsou v [Systémech nad MM](mm-systemy.md#smerove-hit-reakce-dot-product-rozhodne-odkud-chooser-vybere-co). Tam se porovnávají absolutní hodnoty obou dot productů a 45° kužel dává v rovině tytéž čtyři kvadranty. Jednu věc ale video neřeší: Evans počítá směr k **místu zásahu ve 3D**. Rána zepředu vysoko nad středem kapsle, třeba do hlavy, má velkou svislou složku. Úhel k forward vektoru pak přeleze 45° a funkce zásah pošle do levé nebo pravé větve. Kdo zasahuje i vysoko a nízko, vynuluje před normalizací Z. Ragdoll do hloubky, včetně physics assetu a vstávání, je v kapitole [Ragdoll](ragdoll.md#ragdoll-za-minutu-preset-simulace-kamera).
 
-**Souvislosti:** [Rejstřík: Apply Damage](../rejstrik.md#apply-damage) · [Rejstřík: Dot product](../rejstrik.md#dot-product) · [Rejstřík: Map (dictionary)](../rejstrik.md#map-dictionary) · [Rejstřík: Enum](../rejstrik.md#enum) · [Health bar nad hlavou](ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) *(tatáž komponenta spawnuje i ukazatel)*
+**Souvislosti:** [Rejstřík: Apply Damage](../rejstrik.md#apply-damage) · [Rejstřík: Dot product](../rejstrik.md#dot-product) · [Rejstřík: Map (dictionary)](../rejstrik.md#map-dictionary) · [Rejstřík: Enum](../rejstrik.md#enum) · [Health bar nad hlavou](ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) *(tatáž komponenta spawnuje i ukazatel)* · [Ragdoll, který se chrání](ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu) *(kam až jde smrt přes fyziku)*
 
 ---
 

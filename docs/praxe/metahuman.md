@@ -38,7 +38,7 @@ MetaHuman už není jen „digitální dvojník pro cinematiku" — [markerless 
 
 > **Pozn.:** Post-process ABP je **sdílený všemi MetaHumany** — pro víc postav je nutné větvení podle `Get Owning Actor → Get Class` s referencí a controly per postava, a nulovat controly pro nespárované [(8:05)](https://www.youtube.com/watch?v=UBSNmxXurkk&t=485s). Pro naši hru se stejný vzor hodí i mimo cinematiku: NPC, které se otočí za procházejícím hráčem, je tenhle uzel + [AI perception](ai-vnimani.md) místo sequenceru.
 
-**Souvislosti:** [Rejstřík: post-process AnimBP](../rejstrik.md#post-process-animbp) · [AI vnímání](ai-vnimani.md) · [Rejstřík: MetaHuman](../rejstrik.md#metahuman)
+**Souvislosti:** [Rejstřík: post-process AnimBP](../rejstrik.md#post-process-animbp) · [AI vnímání](ai-vnimani.md) · [Rejstřík: MetaHuman](../rejstrik.md#metahuman) · [Aditivní look-at solver v GASP](gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) *(limity, pružiny a cíl jako kost v animaci)*
 
 ---
 
@@ -56,7 +56,7 @@ MetaHuman už není jen „digitální dvojník pro cinematiku" — [markerless 
 
 > **Pozn.:** Outfit autor šije v bezplatné alternativě Marvelous Designeru (odkazuje na svůj cloth tutoriál) — pro nás je podstatný ten UE konec: cloth asset graf je stejný nedestruktivní vzor jako [Mesh Terrain modifiery](mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani) — uzly jdou kdykoli přeladit. Pro hru měř: plná simulace sukně na každém NPC je luxus; kombinace „hlavní postava simuluje, dav má oblečení pečené" je běžný kompromis (viz Crowd níže).
 
-**Souvislosti:** [Rejstřík: Chaos Cloth](../rejstrik.md#chaos-cloth) · [Rejstřík: physics asset](../rejstrik.md#physics-asset) · [Mesh Terrain: modifier stack](mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani)
+**Souvislosti:** [Rejstřík: Chaos Cloth](../rejstrik.md#chaos-cloth) · [Rejstřík: physics asset](../rejstrik.md#physics-asset) · [Mesh Terrain: modifier stack](mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani) · [Látka jako samostatný asset](destrukce-a-latky.md#latka-jako-samostatny-asset-chaos-cloth-pres-dataflow) *(pipeline za tímhle grafem a postup v 5.8)*
 
 ---
 

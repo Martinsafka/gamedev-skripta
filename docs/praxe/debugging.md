@@ -1,6 +1,6 @@
 # Ladění: jak vidět, co hra dělá
 
-Ladění je v knihovně zatím rozeseté po kapitolách — [Blueprint Debugger s watch hodnotami](principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe) ve workshopu dveří, [Chaos Visual Debugger](gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky) u fyziky, [Unreal Insights](mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine) u výkonu. Tahle kapitola sbírá nástroje pro nejčastější otázku vývoje: **proč to nedělá, co má?** První myšlenka je o blueprintech obecně, druhá o AI, která se ladí nejhůř, protože její chyby vypadají jako chování.
+Ladění je v knihovně zatím rozeseté po kapitolách — [Blueprint Debugger s watch hodnotami](principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe) ve workshopu dveří, [Chaos Visual Debugger](gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky) u fyziky, [Unreal Insights](mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine) u výkonu. Tahle kapitola sbírá nástroje pro nejčastější otázku vývoje: **proč to nedělá, co má?** První myšlenka je o blueprintech obecně, druhá o AI, která se ladí nejhůř, protože její chyby vypadají jako chování, a třetí o fyzice: jak číst záznam Chaos Visual Debuggeru, včetně klienta a serveru vedle sebe.
 
 ---
 
@@ -49,3 +49,43 @@ Ladění je v knihovně zatím rozeseté po kapitolách — [Blueprint Debugger 
 > **Pozn.:** Všechny tři chyby mají společný rys, kvůli kterému se AI ladí nejhůř: **neselže nic, co by hlásilo chybu.** Strom běží, percepce běží, postava jen stojí — a proto má smysl začít gameplay debuggerem, ne čtením grafů. Rozdíl mezi „nevidí", „vidí, ale klíč se nenastavil" a „klíč je nastavený, ale nedá se k němu dojít" je v něm vidět na první pohled. Navazuje to přímo na [AI Perception na controlleru](ai-vnimani.md#ai-perception-na-controlleru-lose-sight-radius-a-blackboard-bool) a [objektový klíč](ai-vnimani.md#objektovy-klic-a-odklad-ztraty-cile-percepce-navazana-na-strom) v kapitole o vnímání. Video je první ze čtyř dílů (junior → principal) a další v playlistu nejsou, takže tady končí u nepřítele, který honí bez konce. Jedna rada z něj patří jinam a stojí za zmínku: do základní třídy nepřítele nedávat mesh ani animation blueprint, aby casty na ni netahaly těžké závislosti [(9:21)](https://www.youtube.com/watch?v=vcGtpTn5X8s&t=561s) — táž úvaha jako [cast na lehkého společného rodiče](komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast).
 
 **Souvislosti:** [Základy AI: Behavior Tree a Blackboard](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) · [AI vnímání](ai-vnimani.md) · [State Trees](state-trees.md) · [Rejstřík: Gameplay Debugger](../rejstrik.md#gameplay-debugger) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: Blackboard](../rejstrik.md#blackboard) · [Mass Debugger](mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) *(breakpointy na entitu, napojené na gameplay debugger)*
+
+---
+
+## Chaos Visual Debugger zevnitř: fáze solveru, kontakty a klient vedle serveru
+
+**Zdroj:** [Using Chaos Physics for Large-Scale and High-Fidelity Scenes | Unreal Fest 2024](https://www.youtube.com/watch?v=uCYGFdEWyZw) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~51 min, přednáška (úsek o CVD; UE 5.4) ·
+[A Dive Into Networked Physics-Based Character Movement | Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=_jRLlTDqoGI) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~41 min, přednáška (ladění síťové fyziky)
+
+**Shrnutí:** Chaos Visual Debugger nahrává fyzikální scénu tak, jak ji vidí solver: po snímcích, a když chceš, i po fázích jednoho kroku. Záznam jde přehrávat, zastavovat a rozklikávat. Nejvíc pomůže u tří otázek, na které jiné nástroje neodpovědí:
+- proč se tělesa srazila právě takhle (kontakt s manifoldem a impulzy),
+- proč trace trefil zrovna tenhle tvar (záznam všeho, co dotaz navštívil),
+- kde se klient rozešel se serverem (obě stopy vedle sebe).
+
+Háček: nahrávat jde z jakéhokoli buildu kromě shippingu, i z konzole, protože CVD stojí na stejném Trace jako Insights.
+
+### Rozpad myšlenky
+
+**Co to je.** Nástroj byl v 5.4 v betě. Otevírá se přes *Tools → Debug → Chaos Visual Debugger* a nahrává i přehrává fyzikální scénu jakékoli hry mimo shipping konfiguraci [(25:56)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1556s). Stav se serializuje přímo z Chaosu, takže záznam obsahuje přesně to, co vidí fyzika. Má malou režii, a proto se ze shipping buildu vyřadí [(26:43)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1603s). Přenos dat stojí na Trace, stejném systému jako Unreal Insights. Session jde sledovat živě, nebo nahrát do souboru a sdílet. K běžící instanci se připojí konzolovým příkazem, i na konzoli [(27:31)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1651s).
+
+**Fáze solveru.** Krok fyziky má několik fází a každou jde zachytit zvlášť zapnutím jejího datového kanálu [(27:31)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1651s), [(28:18)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1698s), [(29:04)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1744s):
+1. begin, ještě před jakoukoli změnou,
+2. integrate, která posune tělesa v čase a klidně je vrazí do sebe,
+3. detekce kolizí: broad phase přes bounding boxy a narrow phase s přesným kontaktním manifoldem,
+4. pre-solve, kdy jsou constrainty sestavené, ale neaplikované,
+5. post-solve s výsledkem,
+6. end, kde se řeší třeba resimulace.
+
+Když máš podezření, že se něco pokazí mezi integrací a aplikací výsledků, podíváš se přesně tam.
+
+**Co v záznamu najdeš.** Zobrazit jde kontakty, dotazy do scény, geometrii a klouby [(29:04)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1744s). Dole je časová osa všech nahrávek a pro každý solver vlastní stopa. Klientský a serverový solver tak můžeš mít vedle sebe a vidět, kde se rozcházejí [(30:40)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1840s). Obarvení podle stavu je zelená pro statická tělesa, modrá pro kinematická, žlutá pro dynamická a červená pro spící. Barvit jde i podle typu tvaru nebo podle klienta a serveru [(32:13)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1933s).
+
+**Kontakty.** V ukázce z Lyry se rozklikne ragdoll vyřazené postavy a její kontakty [(33:01)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=1981s). U každého je vidět všechno, co solver ke srážce potřeboval: vytlačení a impulzy, data CCD, tvary a materiály, a body manifoldu s jejich normálami [(33:48)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=2028s).
+
+**Dotazy.** Pohyb postavy dělá v každém kroku několik dotazů: překryv na místě, sweep vpřed o rychlost × čas kroku a sweep dolů, kde je zem. K tomu animace hledá podlahu pro nohy a další systémy kolem postavy vlastní dotazy [(34:35)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=2075s), [(35:23)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=2123s). U vybraného dotazu jsou vidět vstupy, vrácené zásahy a záznam všeho, co dotaz při průchodu scénou navštívil, včetně toho, který tvar byl blokující a proč. Když trace trefí kouli, o které nevíš, tady zjistíš, odkud se vzala [(36:11)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=2171s). Podrobný návod je na Epic Developer Community [(36:58)](https://www.youtube.com/watch?v=uCYGFdEWyZw&t=2218s).
+
+**Klient vedle serveru.** U síťové fyziky se do záznamu ukládá i vstup a výstup Moveru a data jeho constraintu, a to na klientovi i na serveru. Dá se tak ověřit, jestli se vstup aplikoval ve stejném snímku, jestli se výsledky rozešly a kde vznikl desync [(11:18)](https://www.youtube.com/watch?v=_jRLlTDqoGI&t=678s). V síťové ukázce jsou vedle sebe vlastní postava hráče, server i kopie postavy u druhého klienta [(25:27)](https://www.youtube.com/watch?v=_jRLlTDqoGI&t=1527s). Synchronizace časové osy podle síťového ticku pak srovná odpovídající snímky [(26:15)](https://www.youtube.com/watch?v=_jRLlTDqoGI&t=1575s), [(27:03)](https://www.youtube.com/watch?v=_jRLlTDqoGI&t=1623s). Jedna past při čtení: první krok resimulace ukazuje korekci jen na klientovi, takže na okamžik vypadá jako desync, i když žádný není [(35:29)](https://www.youtube.com/watch?v=_jRLlTDqoGI&t=2129s).
+
+> **Pozn.:** Co CVD ukáže v reálné hře, popisuje [optimalizační průchod](gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky): komplexní kolizi za každý list a každé stéblo. Tahle myšlenka je o tom, jak záznam číst. Se zbytkem kapitoly sdílí stejný princip: místo hádání z výsledku nahrát, co systém opravdu viděl, a pak se v tom procházet. [Visual Logger](#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) to dělá pro libovolné hodnoty a [Rewind Debugger](../rejstrik.md#rewind-debugger) pro animaci.
+
+**Souvislosti:** [Rejstřík: Chaos Visual Debugger](../rejstrik.md#chaos-visual-debugger) · [Síťová fyzika zevnitř](mover.md#sitova-fyzika-zevnitr-snimky-misto-casu-resimulace-a-input-decay) · [Chaos: destrukce a látky](destrukce-a-latky.md) · [Insights jako disciplína](mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine)

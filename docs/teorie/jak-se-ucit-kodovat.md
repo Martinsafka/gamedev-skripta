@@ -40,7 +40,7 @@ Nejlepší metafora videa: francouzská konverzační příručka [(11:45)](http
 
 > **Pozn.:** „Uprav tutoriál, než ho opustíš" je nejlevnější test porozumění, jaký existuje — v duchu [kvízového protokolu](../zapisky/kvizovy-protokol.md): malý náraz intuice na realitu. Tutorial hell už má v knihovně [vlastní heslo](../praxe/editor-tipy.md#jak-se-ucit-engine-rady-po-peti-letech); tahle myšlenka je jeho únikový plán.
 
-**Souvislosti:** [Tipy do editoru: jak se učit engine](../praxe/editor-tipy.md#jak-se-ucit-engine-rady-po-peti-letech) · [Učení v éře AI](uceni-v-ere-ai.md) · [Rejstřík: Tutorial hell](../rejstrik.md#tutorial-hell)
+**Souvislosti:** [Tipy do editoru: jak se učit engine](../praxe/editor-tipy.md#jak-se-ucit-engine-rady-po-peti-letech) · [Učení v éře AI](uceni-v-ere-ai.md) · [Rejstřík: Tutorial hell](../rejstrik.md#tutorial-hell) · [Jak se učit z GASP](../praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework) *(tytéž rady od tvůrců Epic sample projektu)*
 
 ---
 

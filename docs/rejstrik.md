@@ -54,6 +54,14 @@ Nemá vlastní reprezentaci ve světě (na rozdíl od scene komponent); nese log
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Dvě komponenty: útočník a terč](praxe/souboj.md#dve-komponenty-misto-bojove-postavy-utocnik-a-terc)
 
+### Additive animation
+
+**Animace, která se k základní póze přičítá, místo aby ji nahradila — rozdíl proti referenční póze přidaný navrch.**
+
+Typické použití je náklon, nádech, zásah nebo pohled: základní animace (třeba chůze) běží dál a přírůstek ji jen pozmění. Pastí je přeaplikování. Když se základní póza sama posune stejným směrem (gesto, kývnutí), sečte se to a výsledná póza se rozbije, a proto se síla přírůstku ladí nebo ztlumí křivkou. Look-at v GASP 5.8 je aditivní solver: rotaci k cíli spočítá a přidá, zahranou animaci nemaže.
+
+Kde se s tím potkáš: [Look-at jako aditivní solver](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Rejstřík: Layered Blend Per Bone](#layered-blend-per-bone)
+
 ### ADSR
 
 **Čtyři knoby obálky: Attack, Decay, Sustain, Release — jak zvuk naběhne, klesne, drží a dozní.**
@@ -148,7 +156,7 @@ Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-la
 
 Typické použití: alfa IK ruky, která se zapne jen ve chvíli úchopu, úhel dveří nebo kliky sladěný s rukou, váha pózy prstů. Hodnoty se vyplatí ukládat normalizované (0–1) a maximem násobit až v kódu — změna maxima pak neznamená přepisovat animace. Po skončení montáže křivka čte nulu, takže trvalý stav světa (otevřené dveře) je potřeba podržet zvlášť. Křivkami se dá i upravit animace samotná přímo v editoru: posunout kost a uložit klíč.
 
-Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Křivka BlendOff v útoku](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
+Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Křivka BlendOff v útoku](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Síla ragdollu z křivek](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu) · [Přepis limitů look-atu](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
 
 ### Anim montage
 
@@ -267,6 +275,14 @@ Kde se s tím potkáš: [Gameplay na meshi bez blueprintu](praxe/velke-svety.md#
 Termín z politiky (astroturf je umělý trávník — falešná „grassroots"). V herním kontextu se tak označuje snaha velkého vydavatele vypadat jako indie: cílit na estetiku, tón a hodnoty nezávislé scény bez odpovídajícího produkčního kontextu. Indie publikum na to reaguje citlivě právě proto, že u něj jde o hodnotový systém, ne jen o vkus.
 
 Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#kdy-indie-hra-neni-indie-hra)
+
+### Async Physics
+
+**Režim, ve kterém fyzika běží s pevným krokem na vlastním vlákně, zatímco hra tiká proměnlivě.**
+
+Zapíná se v Project Settings (Enable Async Physics) i s délkou kroku. Herní vlákno na výsledek nečeká a interpoluje mezi posledními dvěma kroky fyziky, takže je vždy o kousek pozadu, nanejvýš o dva kroky. Pevný krok je podmínkou skoro deterministické simulace, a tedy síťové fyziky. Logika, která na fyziku sahá, musí běžet na fyzikálním vlákně.
+
+Kde se s tím potkáš: [Chaos Mover](praxe/mover.md#chaos-mover-postava-jako-fyzikalni-teleso-se-stropem-sily) · [Síťová fyzika zevnitř](praxe/mover.md#sitova-fyzika-zevnitr-snimky-misto-casu-resimulace-a-input-decay) · [Buoyancy na fyzikálním vlákně](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice)
 
 ### Attachment rules
 
@@ -402,7 +418,7 @@ Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](pr
 
 Klipy se rozmístí na osu (idle 0, walk 300, run 600…) a vstupní hodnota určuje mix. Klipy různých délek synchronizují sync markery — bez nich se kroky rozjedou. Blend spacy jdou vkládat i do Motion Matching databází a GASP animace jsou na to fázovány.
 
-Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md) · [MM základy](praxe/mm-zaklady.md)
+Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md) · [MM základy](praxe/mm-zaklady.md) · [Svahy jako blend space v chooseru](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku) · [Pózy ragdollu](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu)
 
 ### Blend stack
 
@@ -410,7 +426,9 @@ Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md) · [MM základ
 
 Základ, na kterém Motion Matching stojí: uvnitř MM uzlu běží graf per vybraná animace (tam žije orientation warping, steering…). Varianty: obyčejný blend stack (animace z proměnné), Chooser Player (animace z chooser tabulky, umí i stitch) a hybridní setup se state machine. Max počet současných blendů je konfigurovatelný.
 
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
+Blend stack umí přehrát i blend space vybraný chooserem; jeho osy krmí vstup blend parameters. S nastavením Blend Space Update Mode = Update Active Only se aktualizuje jen nejnovější animace ve stacku, aby dva blend spacy s jinými osami nedostaly stejná data.
+
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Blend space ve stacku](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku)
 
 ### Blockout
 
@@ -612,7 +630,25 @@ Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida
 
 Weight mapa (uzel MaxDistance) maluje, co simulovat a co nechat animaci; kolider dodává kopie physics assetu postavy. Ladicí trojúhelník: mapa × collider koule × config (stiffness, iteration/subdivision count = kvalita vs. CPU). Do postavy se zapojuje Chaos Cloth komponentou; aerodynamics config přidá vítr.
 
-Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+Od pipeline z dema Talisman (5.4) je cloth asset samostatný a nebydlí ve skeletal meshi. Mapa Backstop přidá levný test, aby látka nezapadla za skinovaný povrch, uzel Remesh vygeneruje méně detailní simulační LODy a import z Marvelous Designeru přes USD přenese i parametry simulace.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Látka jako samostatný asset](praxe/destrukce-a-latky.md#latka-jako-samostatny-asset-chaos-cloth-pres-dataflow)
+
+### Chaos Mover
+
+**Plugin, který z postavy v Moveru dělá dynamické těleso ve fyzikálním světě (experimentální, od 5.7).**
+
+Pohybový mód spočítá cíl jako obvykle, ale k cíli postavu táhne constraint v solveru Chaosu, a to jen do nastaveného limitu síly a momentu. Zvláštní constraint drží postavu nad zemí podle dotazu na zem. Zapíná se backend třídou Chaos Mover na Mover komponentě a potřebuje Async Physics. Výsledkem jsou obousměrné interakce (tlačení, pružiny, hybnost) a síťová fyzika, za cenu mírné latence vstupu.
+
+Kde se s tím potkáš: [Chaos Mover](praxe/mover.md#chaos-mover-postava-jako-fyzikalni-teleso-se-stropem-sily) · [Rejstřík: Mover](#mover)
+
+### Chaos Visual Debugger
+
+**Nástroj, který nahrává fyzikální scénu tak, jak ji vidí Chaos, a dovoluje ji přehrávat snímek po snímku i po fázích solveru.**
+
+Otevírá se přes Tools → Debug → Chaos Visual Debugger. Nahrává v buildech mimo shipping, živě i do souboru, a stojí na Trace jako Insights. Ukáže kontakty s manifoldem a impulzy, dotazy do scény včetně všeho, co navštívily, klouby i geometrii. Klientský a serverový solver umí mít vedle sebe.
+
+Kde se s tím potkáš: [CVD zevnitř](praxe/debugging.md#chaos-visual-debugger-zevnitr-faze-solveru-kontakty-a-klient-vedle-serveru) · [CVD v reálné hře](praxe/gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky)
 
 ### Chooser
 
@@ -620,7 +656,9 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 
 Řádky = kandidáti (PSD, montáže, nested choosery), sloupce = podmínky (bool, enum, float range) bindnuté na proměnné AnimBP. V MM: databáze jako Dynamic value, On Update → Evaluate Chooser (All Results) → Set Databases To Search + Interrupt on database change. Umí i output sloupce (damage per útok). Plně integrovaný s rewind debuggerem.
 
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md)
+Od 5.8 může být posledním sloupcem [pose match](#pose-match-column), tedy motion matching přímo v tabulce, a chooser drží libovolný počet vnitřních pose search databází. Vrácení víc výstupních structů najednou je volba na uzlu Evaluate Chooser.
+
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Motion matching uvnitř chooseru](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku) · [Výběr vstávání](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser)
 
 ### CI/CD
 
@@ -677,6 +715,14 @@ Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Nápa
 Z toho plyne, že o výkon rozhoduje **topologie**: stěna z dlouhých tenkých trojúhelníků je pár velkých clusterů, takže stačí kousek její hrany a musí se rasterizovat celá — i s tím, co je za ní. Rovnoměrně přesíťovaný mesh má clustery rozeseté po ploše a částečně se cullne, dokonce sám sebe. Druhá past: clustery se cullují **podle bounds**, takže do sebe namačkané meshe culling znemožní. Prakticky to znamená, že cluster culling patří do stylového průvodce k modelování, ne do optimalizačního sprintu na konci.
 
 Kde se s tím potkáš: [Overdraw se autoruje](praxe/nanite-do-hloubky.md#overdraw-se-autoruje-ne-opravuje) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Overdraw](#overdraw)
+
+### Cluster Union
+
+**Komponenta Chaosu, která z víc geometry collections udělá jedno fyzikální těleso — a umí prasknout jen v jednom místě.**
+
+Rozhoduje, které vnitřní částice patří do kterého unionu, a podporuje částečnou destrukci: poškození uvolní jen zasaženou část a zbytek zůstane připojený. V LEGO Fortnite ji krmí herní graf spojení na serveru. Kvůli výkonu se postupně zjednodušuje do konvexních obalů, které slouží jen simulaci. Nahrazuje starší cluster groups.
+
+Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
 ### Construction Script
 
@@ -814,7 +860,7 @@ V GASP pohání foot placement Mover postavy (slope warping, pinning, root dampi
 
 Pro gameplay je Control Rig uzel v AnimGraph místo, kde [IK](#ik) dotáhne ruku na kliku nebo předmět — za slotem, který hraje montáže. Ve verzi 5.8 přibyly [Control Rig Dynamics](#control-rig-dynamics) pro sekundární pohyb, fyzika přímo v rig modulech a [Direct Mesh Controls](#direct-mesh-controls).
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Aditivní look-at](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Vazby končetin přes FBIK](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin)
 
 ### Coyote time
 
@@ -878,7 +924,9 @@ Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
 V přednášce o riggingu v 5.8 přenáší uzel Transfer Attributes celý rig z hrubšího meshe, na kterém se pohodlně riguje, na mesh s vyšším rozlišením — a stejně tak z jedné postavy na druhou (zebra → monstrum), takže vysochané tvary jdou použít znovu. Graf se přidává ke skeletal meshi.
 
-Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Morph target](#morph-target)
+Dataflow slouží i destrukci (nedestruktivní lámání assetů v LEGO Fortnite, experimentální v 5.4) a látkám: cloth asset vzniká v grafu z importu, přenosu skin weights, map a konfigurace solveru.
+
+Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Morph target](#morph-target) · [Lámání v Dataflow](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Látka přes Dataflow](praxe/destrukce-a-latky.md#latka-jako-samostatny-asset-chaos-cloth-pres-dataflow)
 
 ### Data-oriented design
 
@@ -886,7 +934,7 @@ Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-
 
 Měřítkem je paměťová efektivita: kolik z paměti, kterou procesor načte, opravdu použiješ. Typické důsledky: data zpracovávaná spolu leží za sebou; místo reakcí na jednotlivé události se často každý snímek projdou všechna data najednou; a návrh se kreslí jako tok dat, protože kód pojmům ze hry neodpovídá jedna k jedné. [ECS](#ecs) je jedno z jeho paradigmat. **Neplést s [data-driven design](#data-driven-design)** — ten říká, že hodnoty patří do dat místo do kódu; data-oriented říká, jak data uspořádat pro procesor.
 
-Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) · [Rejstřík: Cache miss](#cache-miss)
+Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) · [Rejstřík: Cache miss](#cache-miss) · [Částice Chaosu jako struct of arrays](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
 ### Data table
 
@@ -910,7 +958,7 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 
 V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blueprinty je čtou. Odděluje „co" od „jak" — stejná logika, jiná data, jiné chování. Mesh Terrain v data assetu (Mesh Partition Definition) drží materiál, texel size a definice channels.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Nastavení look-at solveru](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
 
 ### Data layer
 
@@ -1494,6 +1542,14 @@ Typicky ho spouští build systém: build se rozešle na min spec PC nebo konzol
 
 Kde se s tím potkáš: [Výkon jako věc celého týmu](praxe/mereni-automaticky.md#vykon-jako-vec-celeho-tymu-dashboard-validace-a-kontrola-pameti) · [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Sto tisíc aktérů: automatizované testy](praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor)
 
+### Geometry Collection
+
+**Asset rozbitného objektu v Chaosu: sada fyzikálních těles, která se aktualizují a kreslí společně, s úrovněmi clusteringu.**
+
+Kusy vznikají frakturou, nedestruktivně i v Dataflow grafu, a úrovně clusteringu je seskupují do větších hmot pro simulaci. Za běhu má neměnnou rest collection z assetu a dynamickou kopii, kterou mění simulace. Opakované kusy jde kreslit jako sdílené instance a odlomené drobky jako debris bez vlivu na hru.
+
+Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu) · [Rejstřík: Cluster Union](#cluster-union)
+
 ### Gestalt
 
 **Psychologická škola, podle níž člověk vnímá celý obraz a z uspořádání si odvozuje vztahy mezi částmi.**
@@ -1564,7 +1620,7 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 
 Zdarma, blueprint-only. Smysl projektu: zvednout minimální laťku kvality herní animace a dát šablonu, jak MM stavět — databáze per stav, choosery, procedurální doladění. Není to plugin: do vlastního projektu se migruje content (+ console variables a pluginy) a každá verze enginu přináší výrazné změny.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Update 5.8: poslední pro UE5](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework)
 
 ### GDScript
 
@@ -1816,7 +1872,7 @@ Kde se s tím potkáš: [Základy: engagement a appeal](teorie/zaklady.md) · [P
 
 Opak FK, kde se natáčí kost po kosti od kořene. Ve hrách typicky opravuje animaci na posledním metru podle světa: nohy na nerovném terénu, ruka na klice nebo na předmětu. V Control Rigu ji řeší uzly Basic IK (tři kosti), Full Body IK a další; podstatné je nastavit osy řetězu a [pole vector](#pole-vector) a převést cíl do správného prostoru (u postav do prostoru meshe). Váha uzlu slouží jako alfa, kterou může řídit [křivka v animaci](#animation-curve).
 
-Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Hratelný MetaHuman: foot IK](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [GASP: foot placement](praxe/gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor)
+Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Hratelný MetaHuman: foot IK](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [GASP: foot placement](praxe/gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) · [Vazby končetin u párových akcí](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin)
 
 ### Iluze plynulosti
 
@@ -1874,6 +1930,14 @@ Skok zmáčknutý dva framy před dopadem se provede při dopadu — spolu s coy
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Game feel a imerze](teorie/game-feel.md)
 
+### Input decay
+
+**Tlumení predikovaného vstupu při resimulaci — čím hlouběji v predikci, tím slabší.**
+
+Predikce předpokládá, že hráč drží vstup dál. Když zastaví, kopie jeho postavy u ostatních popojede moc daleko a po korekci couvá. Útlum podle křivky v Network Physics Settings to zmírní; v kódu jde o vynásobení pohybového vstupu hodnotou křivky.
+
+Kde se s tím potkáš: [Síťová fyzika zevnitř](praxe/mover.md#sitova-fyzika-zevnitr-snimky-misto-casu-resimulace-a-input-decay) · [Rejstřík: Resimulation](#resimulation)
+
 ### Input latency
 
 **Prodleva mezi hráčovým vstupem a okamžikem, kdy je následek vidět na monitoru.**
@@ -1904,7 +1968,7 @@ Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Rejstřík: 
 
 Podmínka je tvrdší, než se čeká: **naprosto identická geometrie i materiál**. Barel a bedna se nesloučí ani se stejným materiálem; na to je *Merge Actors*, který vyrobí nový sloučený mesh (hrubší metoda, funguje u objektů blízko sebe — ale slučuje i LOD logiku). **HISM** je varianta s podporou LODů, vhodná pro objekty rozeseté po velké ploše. Past: instance se cullují jako **jeden celek**, takže sloučíš-li i stromy za budovami, budou se kreslit pořád. Máš-li zapnutý [Nanite](#nanite), ISM nepotřebuješ — Nanite culluje sám.
 
-Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: Packed Level Actor](#packed-level-actor)
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: Packed Level Actor](#packed-level-actor) · [Sdílené instance kusů destrukce](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
 ### Indexical storytelling
 
@@ -2584,7 +2648,7 @@ Základ traversalu a interakcí: Motion Matching vybere nejbližší vhodnou ani
 
 U interakcí bez Motion Matchingu (dveře, zvednutí předmětu, párový útok) musí zbytkovou chybu unést samotná animace — proto se do ní záměrně přidává přístupový krok. U dvou postav lze warp rozdělit: obě se k sobě přiblíží napůl (váha 0,5 u obou rolí).
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Dojít na místo: krok v animaci](praxe/interakcni-animace.md#dojit-na-misto-motion-warping-potrebuje-krok-ktery-je-v-animaci-schvalne) · [Contextual Animation](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Dojít na místo: krok v animaci](praxe/interakcni-animace.md#dojit-na-misto-motion-warping-potrebuje-krok-ktery-je-v-animaci-schvalne) · [Contextual Animation](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) · [Rozdělený warp u párových akcí](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin)
 
 ### Motiv
 
@@ -2608,7 +2672,9 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 Klíčové rozdíly proti CMC: replikují se inputy (i vlastní blueprint structy) místo výsledků pohybu, rotace je zcela volná (spin transitions, twin-stick intent) a predikce trajektorie pro Motion Matching spouští skutečný simulační kód včetně custom módů. V GASP od 5.7 výchozí; CMC postava zůstává jako legacy. Pozor na frame zpoždění vstupu (network prediction tiká před pawnem) — kameru a AnimBP krmit post-sim hodnotami.
 
-Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
+Fyzikální variantu přináší [Chaos Mover](#chaos-mover). V GASP 5.8 má Mover i ragdoll mód, ve kterém kapsle jen sleduje pánev fyzikálního těla.
+
+Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md) · [Chaos Mover](praxe/mover.md#chaos-mover-postava-jako-fyzikalni-teleso-se-stropem-sily) · [Ragdoll jako pohybový mód](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu)
 
 ### Multithreading
 
@@ -2616,7 +2682,7 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 Kód hry běží standardně na jediném hlavním vlákně — pohyb, stavové automaty i kolize. Jedna drahá operace tam zastaví všechno ostatní. Vlákna navíc se hodí na úkoly typu „pošli data, vrať se s výsledkem": hledání cesty, načítání assetů, procedurální generování. Cena je omezení: mimo hlavní vlákno se na aktéry ve scéně obvykle sahat nesmí.
 
-Kde se s tím potkáš: [Optimalizace: co blokuje hlavní vlákno](praxe/optimalizace.md#druha-osa-optimalizace-co-blokuje-hlavni-vlakno) · [Rejstřík: race condition](#race-condition) · [Offset cesty na pozadí](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace)
+Kde se s tím potkáš: [Optimalizace: co blokuje hlavní vlákno](praxe/optimalizace.md#druha-osa-optimalizace-co-blokuje-hlavni-vlakno) · [Rejstřík: race condition](#race-condition) · [Offset cesty na pozadí](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace) · [Async Physics](praxe/mover.md#chaos-mover-postava-jako-fyzikalni-teleso-se-stropem-sily)
 
 ### MVP
 
@@ -2698,7 +2764,9 @@ Kde se s tím potkáš: [První hra: nastavení projektu](godot/prvni-hra.md#nas
 
 Klienti posílají jen vstupy s časem simulace; server je bufferuje, konzumuje podle svých hodin a vysílá stav — chyby detekuje a řeší klient. Rollback je „unified": vrací se a přehrává celé okolí naráz, takže korekce bývá jedna. Prakticky: režim interpolated + Sync Inputs for Sim Proxy řeší klepání simulated proxies; pozor na frame zpoždění vstupu (tiká před pawnem).
 
-Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
+Protože Mover tiká na začátku snímku, nový pohybový mód zařazený z herní logiky začne platit až v dalším snímku. GASP proto po vstupu do ragdollu snímek nato kontroluje, jestli se mód opravdu změnil.
+
+Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md) · [Síťová fyzika zevnitř](praxe/mover.md#sitova-fyzika-zevnitr-snimky-misto-casu-resimulace-a-input-decay)
 
 ### Niagara Data Channel
 
@@ -2996,7 +3064,7 @@ Kde se s tím potkáš: [Levely a streaming](praxe/levely-a-streaming.md)
 
 `Set Skeletal Mesh Component` na BeginPlay, pak `Apply Physical Animation Settings Below` od zvolené kosti (typicky pelvis) s daty orientation/position strength. Síly jdou měnit za běhu — mapování na rychlost těla (letí = tuhý, leží = hadr) je klíčový trik věrohodných ragdollů. Gang Beasts/Human Fall Flat pocit.
 
-Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md)
+Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Physics Control jako obecnější nástroj](praxe/ragdoll.md#physics-control-profily-hra-rekne-ragdoll-cisla-bydli-v-assetu)
 
 ### Physical Material
 
@@ -3014,7 +3082,7 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](
 
 Defaultní assety manekýnů jsou pro ragdoll nedoladěné — limity swing/twist je potřeba ladit (Simulate Selected). Klíčové triky: kinematic body na root kosti (jinak se mesh při simulaci odpojí a nejde číst rychlost), angular drive motory Twist and Swing s výjimkou pelvis, kolize tělo×tělo per dvojice tvarů.
 
-Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Terč: smrt jako ragdoll](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
+Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Terč: smrt jako ragdoll](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Asset pod Physics Control](praxe/ragdoll.md#physics-control-profily-hra-rekne-ragdoll-cisla-bydli-v-assetu)
 
 ### Physics Constraint
 
@@ -3030,7 +3098,9 @@ Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Kabely, lana a Physics C
 
 `Create Control` + `Create Body Modifier` (bez něj se nastavení neaplikuje); cíl se posouvá přes `Set Control Target Position and Orientation` — pozor, uzel chce auto-generované jméno controlu. Linear Strength = poddajnost, Damping Ratio = dohoupání. Obecnější sourozenec Physical Animation komponenty — funguje na libovolných tělesech.
 
-Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md) · [Fyzika v Control Rigu při animování](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani)
+V GASP 5.8 se ovládá přes **profily** v Physics Control assetu. Nad physics assetem jsou definované končetiny, pro každé těleso body modifier, world-space a parent-space control a z nich sady a profily (kinematic, physical animation, ragdoll). Hra pak volá jen `Invoke Control Profile` se jménem, volitelně s maskou končetin. Profil se uplatní až při další aktualizaci komponenty, takže impulz hned po přepnutí chce simulaci zapnutou napřed.
+
+Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md) · [Fyzika v Control Rigu při animování](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Physics Control profily](praxe/ragdoll.md#physics-control-profily-hra-rekne-ragdoll-cisla-bydli-v-assetu) · [Ragdoll, který se chrání](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu)
 
 ### Pitch deck
 
@@ -3144,13 +3214,37 @@ Vzniká z animace, kde každý snímek je jedna póza. V AnimGraph se póza vyt�
 
 Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky)
 
+### Pose History
+
+**Uzel v AnimBP, který si pamatuje nedávné pózy a trajektorii — z něj čte každé hledání motion matchingu.**
+
+Plní se během aktualizace AnimBP, tedy před fyzikou, a o výsledku fyziky neví. GASP 5.8 má funkci, která do něj po ragdollu zapíše fyzikální pózu, aby motion matching vybral vstávání podle skutečné polohy těla. Latenci to nepřidá, protože matching porovnává pózu z předchozího snímku.
+
+Kde se s tím potkáš: [Vstávání přes motion matching](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser) · [Rejstřík: Pose Match column](#pose-match-column)
+
+### Pose Match column
+
+**Sloupec chooseru, který mezi kandidáty vybranými ostatními sloupci provede motion matching — vybere animaci i snímek.**
+
+Ostatní sloupce filtrují podle herní logiky, pose match rozhodne podle pózy a trajektorie. Od 5.8 chooser drží libovolný počet vnitřních pose search databází a každý řádek si zvolí svou. Sloupec filtruje i zapisuje do výstupního structu, proto patří na konec tabulky. Které snímky smí hledání vidět, omezují notify staty Exclude From Database a Sampling Range.
+
+Kde se s tím potkáš: [Motion matching uvnitř chooseru](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku) · [Vstávání přes motion matching](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser) · [Rejstřík: Chooser](#chooser)
+
 ### Pose Search Database
 
 **PSD — kolekce animací pro jeden typ pohybu, ve které Motion Matching hledá pózy.**
 
 Databáze se dělí podle stavů (idle, run starts, stops, crouch…) — jednak kvůli přehlednosti, jednak kvůli responzivitě: chooser vynutí prohledání správné databáze v ten samý frame (vzor z Fortnite). Ceny mezi oddělenými databázemi zporovnatelní normalization set. Do PSD patří sekvence, blend spacy i montáže; klipy musí mít root motion + force root lock.
 
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Databáze na řádek chooseru](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku) · [Databáze s rolemi](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin)
+
+### Pose Search Interaction Asset
+
+**Asset pro párové animace přes motion matching: montáže přiřazené k rolím (útočník, oběť) a pravidla, jak rozdělit chybu warpu.**
+
+Databáze s ním má schéma s kostrou pro každou roli a kanály měří kořeny postav vůči sobě. Funkce motion match multi podle ceny přidělí role a vybere dvojici animací pro skutečné postavení obou postav. Zbylou chybu dorovná motion warping, kontakty IK. Experimentální od 5.7.
+
+Kde se s tím potkáš: [Párové akce přes motion matching](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin) · [Rejstřík: Motion Warping](#motion-warping)
 
 ### Pose Search Schema
 
@@ -3166,7 +3260,7 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
 Klíč k plynulému vstávání z ragdollu: tělo leží v póze, kterou žádná animace nezná — snapshot ji zachytí a Pose Snapshot uzel (stejné jméno!) z ní nechá blendovat do vstávací montáže. Alternativa: timeline nad Physics Blend Weight (postupné předání fyziky animaci).
 
-Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md)
+Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Vstávání přes motion matching](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser)
 
 ### Post-process AnimBP
 
@@ -3183,6 +3277,14 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 Nejhutnější studijní žánr gamedevu — na rozdíl od tutoriálů obsahuje i cenu rozhodnutí a slepé uličky. Dobrý postmortem přiznává čísla (wishlisty, prodeje, časové odhady vs. realita) i emoce (launch blues). Psát vlastní postmortemy je nejrychlejší způsob, jak z odehraných projektů vytěžit zkušenost — viz Zápisky.
 
 Kde se s tím potkáš: [Postmortem: tři roky na ShantyTown](teorie/postmortem-shantytown.md)
+
+### Predictive interpolation
+
+**Režim replikace fyziky, ve kterém klient míří na stav mírně za serverem a dorovnává se rychlostí, ne skokem polohy.**
+
+Cíl je zhruba o polovinu doby odezvy za serverem, takže serverové události, třeba zlomy, přicházejí skoro načas, a mezi zprávami se cíl extrapoluje. Je levnější než resimulace a obejde se bez rewindu, hodí se tedy na objekty, se kterými hráč přímo neinteraguje (LEGO Fortnite). Zapíná se v nastavení physics replication aktéra.
+
+Kde se s tím potkáš: [Rozbití v multiplayeru](praxe/destrukce-a-latky.md#rozbiti-v-multiplayeru-predictive-interpolation-misto-predikce) · [Rejstřík: Resimulation](#resimulation)
 
 ### Premature optimization
 
@@ -3304,6 +3406,14 @@ V UE klasicky mezi BeginPlay různých actorů — klíč se ptá dveří na ID 
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
 
+### Ragdoll
+
+**Postava, jejíž kostra přestane hrát animaci a začne simulovat jako soustava fyzikálních těles spojených klouby.**
+
+Tvar a limity dává physics asset; bez dalšího ovládání padá jako hadrová panenka. Active ragdoll přidá motory kloubů, které tělo táhnou k póze (Physical Animation Component, Physics Control). V GASP 5.8 ragdollu podsouvá pózy AnimBP (rozhazování, natažené ruce, schoulení) a sílu kloubů řídí křivky. Návrat zpět chce pose snapshot a výběr vstávací animace.
+
+Kde se s tím potkáš: [Ragdoll za minutu](praxe/ragdoll.md#ragdoll-za-minutu-preset-simulace-kamera) · [Active ragdoll](praxe/ragdoll.md#active-ragdoll-motory-rizene-rychlosti) · [Ragdoll, který se chrání](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu) · [Terč: smrt jako ragdoll](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave)
+
 ### Random pitch variation
 
 **Náhodný posun výšky zvuku při každém přehrání; zabíjí mechanickou repetici.**
@@ -3392,6 +3502,14 @@ V `stat unit` je to hodnota **draw** a je to nejčastěji špatně čtené čís
 
 Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: RHI](#rhi)
 
+### Resimulation
+
+**Síťová korekce fyziky: návrat do minulého snímku, oprava podle serveru a přehrání simulace až do současnosti.**
+
+Stojí na pevném kroku a číslech snímků (posun mezi klientem a serverem). Drží vlastní postavu a to, s čím hráč interaguje, ve stejné časové ose se serverem; vstupy ostatních se během přehrání predikují a tlumí (viz [input decay](#input-decay)). Logika, která ovlivňuje fyziku, musí běžet na fyzikálním vlákně, aby se při resimulaci přehrála taky.
+
+Kde se s tím potkáš: [Síťová fyzika zevnitř](praxe/mover.md#sitova-fyzika-zevnitr-snimky-misto-casu-resimulace-a-input-decay) · [Rozbití v multiplayeru](praxe/destrukce-a-latky.md#rozbiti-v-multiplayeru-predictive-interpolation-misto-predikce)
+
 ### Retargeting
 
 **Přenos animace z jedné kostry na jinou, která má odlišné proporce.**
@@ -3438,7 +3556,7 @@ Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
 `Debug → Rewind Debugger`, zapni auto-record (+ auto-eject). Dvojklik na track otevře asset na správném framu; šipkami jdeš frame po framu; eject kamery přehraje pohyb ve světě. Pose search debugger uvnitř ukazuje kandidáty, ceny a channels breakdown; od 5.7 má vlastní track i State Tree — vidíš přesný frame, kdy padlo rozhodnutí.
 
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [GASP](praxe/gasp.md) · [Look-at v GASP 5.8](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
 
 ### RigLogic
 
@@ -3832,7 +3950,7 @@ Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md) · [Scop
 
 Lavička nese smart object komponentu a definition data asset; NPC si najde volný slot, claimne ho (druhé NPC už ho nedostane) a spustí injektovaný strom — jiný objekt dodá jinou logiku, beze změny AI postavy. V GASP navázané na Motion Matching: vstupní montáž se vybírá pose match sloupcem podle pózy a vzdálenosti od vstupního bodu.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Hráč na lavičce v 5.8](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework)
 
 ### Socket
 
@@ -4312,7 +4430,7 @@ Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
 
 Sledování není učení. Útěk je vždycky stejný: po každém tutoriálu zavřít video a postavit něco malého vlastního s tím, co ses právě naučil. Mezera mezi následováním kroků a vlastním myšlením se zavírá jen malými dokončenými projekty — dveře, mince, postava s damage.
 
-Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md)
+Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Jak se učit z GASP](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework)
 
 ### Typografie
 
@@ -4360,7 +4478,7 @@ Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
 Chodí se sem, když `stat unit` ukáže vysoký **game** nebo **draw** — obojí je CPU. Praktická pravidla: spustit Insights **dřív než hru** (pozdní připojení může data poškodit), profilovat **development build** (v testu je většina informací vystřižená) a držet `trace.stop`, dokud hledáš to správné místo, jinak vyrobíš gigabajty nepoužitelných dat. Značky `trace bookmark` a `trace screenshot` pomůžou najít konkrétní snímek; kanál `counters` přidá čísla, která se jinak shánějí těžko — paměť, počet draw callů po cullingu, počet `UObject`ů, aktivní fyzikální tělesa.
 
-Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic)
+Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic) · [CVD na stejném Trace](praxe/debugging.md#chaos-visual-debugger-zevnitr-faze-solveru-kontakty-a-klient-vedle-serveru)
 
 ### User story
 

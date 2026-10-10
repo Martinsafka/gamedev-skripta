@@ -20,13 +20,13 @@ Témata a kapitoly:
 
 - **[Motion Matching základy](mm-zaklady.md)** — dotaz místo grafu stavů: trajektorie, databáze, schema a chooser; setup od nuly, sparse set (13 animací stačí) a procedurální uzly.
 - **[Systémy nad MM](mm-systemy.md)** — combat přes montáže a choosery, traversal a cover komponenty se state managerem, nescriptované interakce z Witcher 4 dema a směrové hit reakce přes dot product a chooser tabulku.
-- **[GASP: Game Animation Sample](gasp.md)** — anatomie Epicova vzorového projektu: capsule-driven autoring animací, řízení výběru, traversal pod kapotou, Mover, NPC přes State Tree, Control Rig vrstva a zbraně přes overlay.
+- **[GASP: Game Animation Sample](gasp.md)** — anatomie Epicova vzorového projektu: capsule-driven autoring animací, řízení výběru, traversal pod kapotou, Mover, NPC přes State Tree, Control Rig vrstva a zbraně přes overlay; z posledního updatu pro UE 5 (5.8) motion matching jako sloupec chooseru, párové akce přes motion matching, aditivní look-at a co si z GASP vzít a co ne.
 
 **Pohyb postavy (locomotion)**
 
 - **[Základy pohybu](pohyb-zaklady.md)** — gaity přes Max Walk Speed a blend spacy, podřep a plazení, rychlost podle sklonu, nabíjený skok s křivkou a dvě řešení zdi: zastavení à la RE9 a klouzání à la TLOU2.
 - **[Parkour postaru](parkour-vault.md)** — vault a výlez přes tři trace s root motion montážemi; ledge grab se zarovnáním na libovolný mesh přes Get Actor Bounds.
-- **[Mover](mover.md)** — proč nahrazuje CMC: modulární movement modes, layered moves, replikace vstupů, dvě síťové větve; setup od nuly v 5.7 a oprava strafu na osm směrů.
+- **[Mover](mover.md)** — proč nahrazuje CMC: modulární movement modes, layered moves, replikace vstupů, dvě síťové větve; setup od nuly v 5.7 a oprava strafu na osm směrů; Chaos Mover s postavou jako fyzikálním tělesem a síťová fyzika zevnitř (snímky místo času, resimulace, input decay).
 
 **AI a chování NPC**
 
@@ -48,8 +48,9 @@ Témata a kapitoly:
 
 **Fyzika: ragdoll, lana, simulace**
 
-- **[Ragdoll](ragdoll.md)** — od minutového přepínače po plnou smyčku: physics asset s ALS triky, active ragdoll s motory řízenými rychlostí, pose snapshot a auto-vstávání správným směrem.
+- **[Ragdoll](ragdoll.md)** — od minutového přepínače po plnou smyčku: physics asset s ALS triky, active ragdoll s motory řízenými rychlostí, pose snapshot a auto-vstávání správným směrem; z GASP 5.8 profily Physics Control, ragdoll, který se chrání pózami z animace, a vstávání vybrané motion matchingem.
 - **[Kabely, lana a Physics Control](lana-kabely.md)** — Cable Component, dynamický kabel s instancovanými meshi po délce a vor na Physics Control pružině.
+- **[Chaos: destrukce a látky](destrukce-a-latky.md)** — destrukce ve velkém podle LEGO Fortnite (graf spojení na serveru, cluster union, konvexy, debris, sdílené instance, strop zlomů), rozbití v multiplayeru přes predictive interpolation a látka jako samostatný asset přes Dataflow.
 
 **Voda**
 
@@ -122,7 +123,7 @@ Témata a kapitoly:
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu i jeho pětikroková metoda s chunkingem a rutinou), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.
-- **[Ladění: vidět, co hra dělá](debugging.md)** — čtyři otázky a čtyři nástroje (print string s klíčem, kreslení do světa, Visual Logger, watch a zastavení při výjimce) a gameplay debugger na AI, která nereaguje, i když nic nehlásí chybu.
+- **[Ladění: vidět, co hra dělá](debugging.md)** — čtyři otázky a čtyři nástroje (print string s klíčem, kreslení do světa, Visual Logger, watch a zastavení při výjimce) a gameplay debugger na AI, která nereaguje, i když nic nehlásí chybu, a Chaos Visual Debugger zevnitř: fáze solveru, kontakty, dotazy a klient vedle serveru.
 
 **Tvorba assetů mimo engine (Blender)**
 

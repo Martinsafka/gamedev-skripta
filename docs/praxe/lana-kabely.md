@@ -58,4 +58,4 @@ Tři malé fyzikální systémy, které oživují svět: **Cable Component** (vi
 
 > **Pozn.:** Physics Control je mladší sourozenec Physical Animation komponenty z [ragdoll kapitoly](ragdoll.md#active-ragdoll-motory-rizene-rychlosti) — obecnější (funguje na libovolných tělesech, ne jen skeletech) a Epic ho používá i pro fyzikální interakce v ukázkách. Vzor „pružina k cíli místo kinematického pohybu" je přesně to, co dělá svět hmatatelným: vor pod nohama *odpovídá*, místo aby byl výtahem. Pro naši vesnici u vody prakticky povinnost.
 
-**Souvislosti:** [Ragdoll: active ragdoll](ragdoll.md#active-ragdoll-motory-rizene-rychlosti) · [Game feel a imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [Rejstřík: physics control](../rejstrik.md#physics-control)
+**Souvislosti:** [Ragdoll: active ragdoll](ragdoll.md#active-ragdoll-motory-rizene-rychlosti) · [Game feel a imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [Rejstřík: physics control](../rejstrik.md#physics-control) · [Physics Control profily na postavě](ragdoll.md#physics-control-profily-hra-rekne-ragdoll-cisla-bydli-v-assetu) *(tatáž komponenta s profily a maskami končetin)*

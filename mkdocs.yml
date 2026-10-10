@@ -148,6 +148,7 @@ nav:
       - "Fyzika: ragdoll, lana, simulace":
           - Ragdoll: praxe/ragdoll.md
           - Kabely, lana a Physics Control: praxe/lana-kabely.md
+          - "Chaos: destrukce a látky": praxe/destrukce-a-latky.md
       - Voda:
           - Voda a buoyancy: praxe/voda-a-buoyancy.md
           - Interaktivní voda: praxe/interaktivni-voda.md

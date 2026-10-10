@@ -57,7 +57,7 @@ Co z toho pro nás: Epic naznačuje, že ukázka podobného systému dorazí do 
 
 > **Pozn.:** Tohle video je spíš ochutnávka než návod — jeho hodnota je orientační: říká, *kterým směrem* se MM ekosystém hýbe (interakce, davy, více postav) a že GASP je platforma, kam tyhle věci budou přistávat. Pro stealth adventuru je „vrážení do NPC" mimochodem přesně ten druh systémové drobnosti, která dělá [imerzi](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida).
 
-**Souvislosti:** [MM základy](mm-zaklady.md) · [Game feel a imerze](../teorie/game-feel.md) · [GASP: Game Animation Sample](gasp.md) · [Contextual Animation](interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) *(dnešní scriptovaná podoba párových animací)*
+**Souvislosti:** [MM základy](mm-zaklady.md) · [Game feel a imerze](../teorie/game-feel.md) · [GASP: Game Animation Sample](gasp.md) · [Contextual Animation](interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) *(dnešní scriptovaná podoba párových animací)* · [Párové akce v GASP 5.8](gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin) *(totéž jako sample s rolemi a warpem)*
 
 ---
 
