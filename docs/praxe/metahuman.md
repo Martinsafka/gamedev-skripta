@@ -76,7 +76,7 @@ MetaHuman už není jen „digitální dvojník pro cinematiku" — [markerless 
 
 > **Pozn.:** Showcase, ne tutoriál — a čísla ber s rezervou (editor + nahrávání). Podstatný je vzor: **dav = levné instance + streamovaní hrdinové u kamery**, stejná filozofie jako dense/sparse databáze v [GASP](gasp.md#anatomie-gasp-jeden-mm-uzel-a-kapsle-jako-pravda) nebo NDC pooling u [kroků](footsteps.md#niagara-data-channel-castice-kroku-bez-stovky-systemu). Pro naši vesnici je tohle výhled — desítky vesničanů s rutinami spíš utáhne [State Tree + smart objects](state-trees.md), ale trh nebo slavnost by Crowd zvládl.
 
-**Souvislosti:** [GASP: NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Rejstřík: Mass Entity](../rejstrik.md#mass-entity) · [Rejstřík: MetaHuman](../rejstrik.md#metahuman) · [Rejstřík: Nanite](../rejstrik.md#nanite)
+**Souvislosti:** [GASP: NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Rejstřík: Mass Entity](../rejstrik.md#mass-entity) · [Rejstřík: MetaHuman](../rejstrik.md#metahuman) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Mass a ECS: jak se v něm myslí](mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) *(entity, procesory a fragmenty)*
 
 ---
 

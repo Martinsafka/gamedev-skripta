@@ -79,4 +79,4 @@ Kroky jsou nejčastější zvuk i nejčastější vizuální otisk hry — a př
 
 > **Pozn.:** Vzor „mapa v data assetu místo switch uzlu" stojí za zapamatování i mimo kroky — je to [data-driven design](../rejstrik.md#data-driven-design) v praxi a škáluje líp než Switch on EPhysicalSurface z první myšlenky (62 povrchů = 62 pinů vs. 62 řádků mapy). Drobný tip z konce videa: pokud particle „simulation position" zlobí, použij uloženou NDC pozici z init modulu [(9:09)](https://www.youtube.com/watch?v=sGJ8cqe94ps&t=549s).
 
-**Souvislosti:** [Rejstřík: Niagara Data Channel](../rejstrik.md#niagara-data-channel) · [Rejstřík: data asset](../rejstrik.md#data-asset) · [Principy architektury: data-driven](principy-architektury.md)
+**Souvislosti:** [Rejstřík: Niagara Data Channel](../rejstrik.md#niagara-data-channel) · [Rejstřík: data asset](../rejstrik.md#data-asset) · [Principy architektury: data-driven](principy-architektury.md) · [Živý svět z částic](niagara-vykon.md#zivy-svet-z-castic-tvorove-kteri-poslouchaji-ale-nehlasuji) *(data channel krmený z PCG)*

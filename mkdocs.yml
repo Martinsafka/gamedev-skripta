@@ -180,6 +180,7 @@ nav:
           - "Lehký render: co vypnout": praxe/lehky-render.md
           - Velké světy: praxe/velke-svety.md
           - Persistence a hydratace: praxe/persistence-a-hydratace.md
+          - "Mass a ECS: data místo objektů": praxe/mass-ecs.md
           - Automatizované měření: praxe/mereni-automaticky.md
       - Rendering a optimalizace:
           - Optimalizace scény: praxe/optimalizace.md

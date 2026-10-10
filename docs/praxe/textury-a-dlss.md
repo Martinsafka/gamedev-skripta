@@ -22,7 +22,7 @@ Druhá půlka výkonu je paměť a obraz: **right-sizing textur** (4K si zaslou�
 
 > **Pozn.:** Dvě páky shaderu — instrukce a rozlišení — jsou nezávislé: snížením textur instrukce neubydou [(0:52)](https://www.youtube.com/watch?v=WnHgLJcmhTM&t=52s); orientačně do ~300 instrukcí na běžný mesh, ~500 na landscape s displacementem [(1:38)](https://www.youtube.com/watch?v=WnHgLJcmhTM&t=98s). Video vzniklo kolem autorova nástroje Surface Forge — čísla a postupy jsou ale obecné, produkt je jen kulisa. Stejnou disciplínu radí [The Ascent breakdown](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader): 4K skoro nikdy a roughness klidně poloviční.
 
-**Souvislosti:** [Breakdowny: Crimson Desert](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) · [Breakdowny: The Ascent](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) · [Rejstřík: mip mapa](../rejstrik.md#mip-mapa) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet)
+**Souvislosti:** [Breakdowny: Crimson Desert](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) · [Breakdowny: The Ascent](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) · [Rejstřík: mip mapa](../rejstrik.md#mip-mapa) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Validace textur při odevzdání](mereni-automaticky.md#vykon-jako-vec-celeho-tymu-dashboard-validace-a-kontrola-pameti) *(rozpočet hlídaný nástrojem)* · [Nanite a velikost balíčku](nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) *(totéž u geometrie)*
 
 ---
 

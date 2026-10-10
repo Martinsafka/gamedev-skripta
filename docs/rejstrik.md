@@ -30,6 +30,14 @@ U base class v Blueprintech se zapíná v `Class Settings → Generate Abstract 
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat)
 
+### ABTest
+
+**Konzolový příkaz, který střídá dvě hodnoty jedné konzolové proměnné a vypisuje naměřený výkon obou — A/B srovnání nastavení přímo ve viewportu.**
+
+Hodí se, když se rozhoduješ mezi dvěma hodnotami jednoho nastavení a nechceš je přepínat ručně a porovnávat odhadem. Pořád je to ale měření jednoho místa jedné scény; rozhodnutí pro celý projekt patří do opakovatelného testu. Neplést s [A/B testem](#ab-test) z playtestingu, kde se porovnávají dvě verze hry na hráčích.
+
+Kde se s tím potkáš: [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Profiling: reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic)
+
 ### Actor Component
 
 **Znovupoužitelný díl chování, který se připne k libovolnému aktérovi — schopnost bez identity.**
@@ -172,7 +180,7 @@ Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Prototypování](teorie/prototy
 
 Funguje z krabice se spravovanými skeletal mesh komponentami a dá se do něj dopsat vlastní výpočet priority — typicky aby hlavní tvorové či postavy **nikdy** nedostali osekané ticky, zatímco kulisa v dálce ano. Nasadit ho stojí za to **hned na začátku**: zpětné doplnění vyžaduje přerodičování a je nepříjemné. Bývá to nejnižší patro delšího žebříku: budget → zjednodušené behavior tree → pohybující se statický mesh → statický mesh.
 
-Kde se s tím potkáš: [Animace ve velkém](praxe/velke-svety.md#animace-ve-velkem-od-tiku-k-udalostem) · [Rejstřík: Mass Entity](#mass-entity)
+Kde se s tím potkáš: [Animace ve velkém](praxe/velke-svety.md#animace-ve-velkem-od-tiku-k-udalostem) · [Rejstřík: Mass Entity](#mass-entity) · [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo)
 
 ### Aspirační obtížnost
 
@@ -396,7 +404,7 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
 Ve fyzice a tracingu zrychlují testy, v PCG jsou bounds bodů přímo pracovní data: Difference vyřezává podle nich (přesněji to umí kolizní data), Self Pruning jimi měří překryvy a bounds modifier je nafukuje či zmenšuje jako ladicí páku. Get Actor Bounds vrací obal celého actora — základ zarovnávání na neznámé meshe.
 
-Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Parkour postaru](praxe/parkour-vault.md)
+Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Parkour postaru](praxe/parkour-vault.md) · [Bounds Scale: culling drobných propů](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo)
 
 ### BPM
 
@@ -445,6 +453,14 @@ Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#ekonomika-deset
 Ladí se délka, počet segmentů (hladkost), tuhost, šířka a počet stran renderu (default 4 vypadá hranatě) + tile material. Váže se k pivotu cílového objektu — typicky doladit Z offset. `Get Cable Particle Locations` vrací body simulace, na které jdou věšet instancované meshe (girlandy, řetězy). Nosnou fyziku ale dělá physics constraint — kabel je vizuál.
 
 Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md)
+
+### Cache miss
+
+**Procesor potřebuje data, která nemá v cache, a čeká na hlavní paměť — ve hrách častější brzda než samotné výpočty.**
+
+Paměť se do cache načítá po celých řádcích (cache lines), takže rozhoduje, kolik z načteného řádku opravdu použiješ. Objektový kód skáče po pointerech (actor → seznam komponent → hledání podle typu → virtuální metoda) a každý skok je pravděpodobně miss; přednáška o Mass v takovém kódu napočítá kolem sta dereferencí kvůli jediné hodnotě. Proto větší cache hru zrychlí jen málo — a proto [data-oriented design](#data-oriented-design) skládá data, se kterými se pracuje spolu, za sebe.
+
+Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor: malé fragmenty](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Rejstřík: ECS](#ecs)
 
 ### Call to action
 
@@ -718,6 +734,14 @@ Setup a očekávání ustaví normál; anomálie ho nahlodají; diverze („ček
 
 Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
+### Data-oriented design
+
+**Návrh kódu podle toho, jak leží data v paměti a jak se k nim přistupuje — ne podle pojmů ze hry.**
+
+Měřítkem je paměťová efektivita: kolik z paměti, kterou procesor načte, opravdu použiješ. Typické důsledky: data zpracovávaná spolu leží za sebou; místo reakcí na jednotlivé události se často každý snímek projdou všechna data najednou; a návrh se kreslí jako tok dat, protože kód pojmům ze hry neodpovídá jedna k jedné. [ECS](#ecs) je jedno z jeho paradigmat. **Neplést s [data-driven design](#data-driven-design)** — ten říká, že hodnoty patří do dat místo do kódu; data-oriented říká, jak data uspořádat pro procesor.
+
+Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) · [Rejstřík: Cache miss](#cache-miss)
+
 ### Data table
 
 **Tabulka řádků postavená na jednom structu — každý řádek má jméno a hodnoty se čtou podle něj.**
@@ -764,7 +788,7 @@ Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md)
 
 Damage, animace, zvuky ani cooldowny nepatří natvrdo do grafu — patří do data assetu, který ability/systém čte. Fragmenty (malé datové objekty pro volitelné části: animace, VFX, damage) řeší, že ne každá entita potřebuje všechno. Odměna: designér vytvoří novou ability výměnou dat, bez zásahu do logiky. UE Gameplay Ability System je tenhle princip dotažený do konce.
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset) · [Neplést s data-oriented design](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis)
 
 ### Data validation
 
@@ -772,7 +796,7 @@ Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) 
 
 Plugin v UE kontroluje typicky jednoduchou i složitou kolizi, počet materiálů a materiálových vrstev, hustotu meshe a strop polygonů. Smysl je posunout záchyt problému co nejdřív: **levnější než hledat drahé assety profilerem je nepustit je dovnitř**. Vynucená kontrola při odevzdání zapisuje výsledek do popisu changelistu, noční běh posílá výpis do týmového kanálu. Vedle toho Asset Audit a Statistics dají tabulku assetů a počty instancí za běhu, obojí exportovatelné do CSV.
 
-Kde se s tím potkáš: [Nález není hotová práce](praxe/profiling.md#nalez-neni-hotova-prace-predani)
+Kde se s tím potkáš: [Nález není hotová práce](praxe/profiling.md#nalez-neni-hotova-prace-predani) · [Výkon jako věc celého týmu](praxe/mereni-automaticky.md#vykon-jako-vec-celeho-tymu-dashboard-validace-a-kontrola-pameti) · [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani)
 
 ### DAW
 
@@ -942,6 +966,14 @@ Pro hráče je to riziko, a proto jsou u dem ostražití: kdo byl jednou popále
 
 Kde se s tím potkáš: [Vydání hry](teorie/vydani-hry.md)
 
+### ECS
+
+**Entity Component System — entita je jen identita se skládankou dat, logiku nesou systémy, které hromadně zpracují všechny entity s určitým složením.**
+
+Složení entity (které fragmenty a tagy má) rozhoduje, které systémy se jí věnují; změna stavu bývá jen přidání nebo odebrání tagu místo události. Data stejného složení leží v paměti za sebou, takže se procházejí levně, a protože každý systém předem deklaruje, co čte a co zapisuje, dají se systémy bez zámků plánovat paralelně. V Unrealu je to [Mass Entity](#mass-entity) — systémům se tam říká procesory a datům fragmenty. Pozor: „komponenta" v ECS je čistá data, ne actor component.
+
+Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Rejstřík: Data-oriented design](#data-oriented-design) · [Rejstřík: Fragment](#fragment)
+
 ### Edit layer
 
 **Vrstva úprav Landscape terénu — sculpt i paint žijí v pojmenovaných vrstvách, které jdou zapínat a mazat.**
@@ -1110,6 +1142,14 @@ Talebův pojem: v Mediocristanu (tělesná výška) žádný jednotlivec statist
 
 Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-tri-mechanismy-ktere-vedou-ke-stejne-strategii)
 
+### Fallback mesh
+
+**Klasická, ne-Nanite verze Nanite meshe — engine ji použije tam, kde Nanite nejde nebo kde plná geometrie není potřeba.**
+
+Slouží mimo jiné odrazům, ray tracing scéně, Lumenu a platformám bez podpory Nanitu; protože se v nich drobný rozdíl nepozná, snese výrazně méně trojúhelníků. V editoru meshe se mezi Nanitem a fallbackem přepíná zobrazení (`Ctrl+N`), takže fallback poslouží i jako náhled: dočasně mu nastavíš procento trojúhelníků a z běžné vzdálenosti zjistíš, kolik detailu je vidět — to číslo pak patří do [Keep Triangle Percent](#keep-triangle-percent).
+
+Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Rejstřík: Nanite](#nanite)
+
 ### File locking
 
 **Zamčení souboru tím, kdo na něm pracuje — ostatní ho nemůžou upravit; odpověď na binární assety, které se nedají sloučit.**
@@ -1166,6 +1206,14 @@ Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md)
 
+### Forward rendering
+
+**Způsob vykreslování, kdy se objekt nasvítí rovnou při kreslení — bez mezikroku G-bufferu, na kterém stojí výchozí (deferred) renderer UE.**
+
+V Unrealu je to volba Forward Shading v nastavení projektu, typická pro VR a hry pro slabý hardware (běží na něm třeba bojovka 2XKO). V GPU profileru se u něj čtou poměry mezi passy: dlouhý depth pass ukazuje na moc polygonů, dlouhý base pass u jednoho draw callu na drahý shader, dlouhá translucency na [overdraw](#overdraw).
+
+Kde se s tím potkáš: [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo) · [Rejstřík: Overdraw](#overdraw)
+
 ### Four-on-the-floor
 
 **Bicí groove s kopákem na každé ze čtyř dob taktu.**
@@ -1196,7 +1244,9 @@ Kde se s tím potkáš: [FM: když jeden zvuk ohýbá druhý](hudba/synteza-zvuk
 
 Řeší, že ne všechny položky mají totéž: co má reprezentaci ve světě, dostane fragment světové reprezentace; co se dá vybavit, fragment vybavení. Definice položky pak drží jen společné vlastnosti a **pole fragmentů**. Vzor stojí na třech C++ specifikátorech, které v blueprintu nejsou: **`DefaultToInstanced`** (instance se při vytvoření duplikují), **`EditInlineNew`** (fragment se přidá tlačítkem přímo v okně vlastností) a **`Instanced`** na tom poli (každá položka dostane vlastní kopii). Praktické měřítko: **vlastnost patří do fragmentu, jakmile ji nemá aspoň polovina položek.** Používá to inventář v Lyře.
 
-Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy-architektury.md#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: CDO](#cdo) · [Rejstřík: Data-driven design](#data-driven-design) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus) · [Inventář: akce](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku)
+V [Mass](#mass-entity) znamená fragment něco jiného: čistá data bez chování, která hromadně zpracovávají procesory — blíž členské proměnné než komponentě. Společná je jen myšlenka skládání; liší se tím, kde žije logika.
+
+Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy-architektury.md#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: CDO](#cdo) · [Rejstřík: Data-driven design](#data-driven-design) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus) · [Inventář: akce](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Entita není actor: fragment v Mass](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy)
 
 ### Frame time
 
@@ -1228,7 +1278,7 @@ Kde se s tím potkáš: [GDD: dokument jako způsob myšlení](teorie/gdd.md) ·
 
 Kategorie se přepínají numerickou klávesnicí (0 navmesh, 1 AI, 2 behavior tree, 4 EQS, dál percepce a smart objects). Ukáže kužel zraku, hranici ztráty cíle i to, který decorator ve stromu selhal a proč („value equals none"). U AI je to nejrychlejší cesta, protože její chyby nehlásí chybu — postava jen stojí.
 
-Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Rejstřík: Behavior Tree](#behavior-tree) · [Rejstřík: AI Perception](#ai-perception)
+Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Rejstřík: Behavior Tree](#behavior-tree) · [Rejstřík: AI Perception](#ai-perception) · [Mass Debugger](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou)
 
 ### GAS
 
@@ -1237,6 +1287,14 @@ Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nerea
 Atribut (rychlost, zdraví) se nemění přepsáním čísla, ale **gameplay efektem** s modifikátory, které jdou zase odebrat — dočasné vlivy se tak nemohou „slít" do základu (příklad, kdy prosté sčítání skončí na 400 místo 500, je v kapitole o statech). Efekt navíc mapuje hodnotu na atribut v datech, ne v kódu. Stojí na něm Lyra; principy, ze kterých vychází (separace, data, komponenty), jsou tytéž jako v Principech architektury.
 
 Kde se s tím potkáš: [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni) · [Použití jako seznam akcí](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Tři principy škálovatelnosti](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data)
+
+### Gauntlet
+
+**Automatizační framework Unrealu, který spouští hru na cílových zařízeních (i víc instancí naráz) a řídí na nich testy.**
+
+Typicky ho spouští build systém: build se rozešle na min spec PC nebo konzoli, proběhne smoke test (připojit se, projít level) nebo výkonový průchod a výsledky jdou do reportu či dashboardu. Smysl dostává ve chvíli, kdy ruční testování po každé změně přestane stačit — u her v raném přístupu s častými aktualizacemi, u výkonových dashboardů a u smoke testů na víc platformách.
+
+Kde se s tím potkáš: [Výkon jako věc celého týmu](praxe/mereni-automaticky.md#vykon-jako-vec-celeho-tymu-dashboard-validace-a-kontrola-pameti) · [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Sto tisíc aktérů: automatizované testy](praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor)
 
 ### Gestalt
 
@@ -1300,7 +1358,7 @@ Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](
 
 V UE je objekt po zničení (`Destroy Actor`) nejdřív označen jako **pending kill** — existuje v paměti, ale je „mrtvý" — a fyzicky zmizí až při dalším úklidu. Reference na takový objekt projde, ale použití spadne na runtime error. Obrana v Blueprintech: Validated Get / `Is Valid` před každým použitím reference na objekt, který mohl zaniknout.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Když stav opouští inventář](praxe/inventar.md#kdyz-stav-opousti-inventar-cestuje-jako-data-ne-jako-objekt)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Když stav opouští inventář](praxe/inventar.md#kdyz-stav-opousti-inventar-cestuje-jako-data-ne-jako-objekt) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani)
 
 ### GASP
 
@@ -1349,6 +1407,14 @@ Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.m
 Bez něj git u každé změny ukládá celý binární soubor znovu, takže repozitář s animacemi a texturami rychle nabobtná. Háček je cena: na GitHubu je zdarma jen první gigabajt úložiště a pak se platí. Rozhodnutí zapnout či nezapnout LFS se dělá na začátku projektu — pozdější migrace je bolestivá.
 
 Kde se s tím potkáš: [Organizace projektu: Git v Unrealu](praxe/organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case)
+
+### Global Distance Field
+
+**Hrubé, sloučené pole vzdáleností k povrchům celé scény v okolí kamery — odpověď na „jak daleko je odsud nejbližší povrch" pro celý svět najednou.**
+
+Skládá se z [mesh distance fieldů](#mesh-distance-field) jednotlivých objektů. Hodnota v bodě je zároveň poloměr největší koule, která se tam vejde — na tom stojí [sphere tracing](#sphere-tracing). Používají ho mimo jiné Lumen v softwarovém režimu, distance field AO a GPU částice Niagary pro kolize; na mobilu nemusí být k dispozici.
+
+Kde se s tím potkáš: [Živý svět z částic](praxe/niagara-vykon.md#zivy-svet-z-castic-tvorove-kteri-poslouchaji-ale-nehlasuji) · [Rejstřík: Mesh distance field](#mesh-distance-field)
 
 ### GOAP
 
@@ -1414,6 +1480,14 @@ V `stat unit` je to hodnota **game**. Přeroste-li renderovací vlákno, jsi CPU
 
 Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Renderovací vlákno](#renderovaci-vlakno) · [Rejstřík: Frame time](#frame-time)
 
+### Hitch
+
+**Jednotlivý snímek, který trvá výrazně déle než ostatní — škubnutí, které hráč vidí, i když průměrné FPS vypadá dobře.**
+
+Průměr ho schová, a proto se hitche hledají na časové ose snímků. Obvyklé příčiny podle týmu technical developer relations Epicu: streaming levelů, fyzika, spawn aktérů, synchronní načítání, kompilace [PSO](#pso), [garbage collection](#garbage-collection), blueprinty a samotné množství obsahu. Nejsou jen estetická vada — v souboji nebo v multiplayeru mění výsledek. Neplést s [jitterem](#jitter) (nerovnoměrné tempo bez jediného dlouhého snímku) ani s [hitch resiliency](#hitch-resiliency) (rezerva potrubí, která krátký výpadek pohltí).
+
+Kde se s tím potkáš: [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Rejstřík: PSO](#pso) · [Rejstřík: Hitch resiliency](#hitch-resiliency)
+
 ### HLOD
 
 **Hierarchical LOD — sloučená náhrada za skupinu objektů v dálce; jeden mesh místo stovky.**
@@ -1428,7 +1502,7 @@ Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-m
 
 Plná pipeline v Unrealu drží šest snímků v enginu a dva v hardwaru; hotová práce v back bufferech je rezerva, ze které se dá dohnat i zásek přes tři snímky rozpočtu. Cena je latence (šest snímků × frame time: ~200 ms na 30 FPS, ~100 na 60, ~50 na 120). Zkrátíš-li potrubí kvůli latenci, rezervu zahodíš — a to je v pořádku **jen když rozpočet skutečně držíš**, jinak snímky začnou padat. Tichá vedlejší cena i při úspěšném pohlcení: [jitter](#jitter).
 
-Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Rejstřík: Input latency](#input-latency) · [Rejstřík: Jitter](#jitter)
+Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Rejstřík: Input latency](#input-latency) · [Rejstřík: Jitter](#jitter) · [Rejstřík: Hitch](#hitch)
 
 ### HUD
 
@@ -1685,6 +1759,14 @@ Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
 Trello je značka, kanban je systém (jede i v Jira nebo Notionu). Tři nosná pravidla: karty dost malé, aby šly dokončit; jeden vlastník na kartu — když jsou zodpovědní dva, není zodpovědný nikdo; a nejméně karet je uprostřed, protože Doing je deklarace dnešního fokusu, ne evidence ambicí.
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md)
+
+### Keep Triangle Percent
+
+**Nastavení Nanite meshe: kolik procent zdrojových trojúhelníků se uloží — zbytek se zahodí a zmizí z balíčku.**
+
+Má smysl u meshů, jejichž nejjemnější detail se z běžné vzdálenosti nikdy neukáže; s počtem trojúhelníků klesá i velikost na disku (kořeny z 11 milionů na 150 tisíc). Kolik nechat, se dá zjistit přes [fallback mesh](#fallback-mesh) jako náhled. Na listí se nehodí — ubírání po procentech rozpojí větve a listy; tam patří [Trim Relative Error](#trim-relative-error).
+
+Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Rejstřík: Nanite](#nanite)
 
 ### Keyboard ghosting
 
@@ -2020,7 +2102,7 @@ Kde se s tím potkáš: [Markovovy řetězce a Monte Carlo](teorie/markovovy-ret
 
 Entity nejsou actory: data žijí ve fragmentech zpracovávaných hromadně, proto škálování na tisíce NPC s navigací a vyhýbáním. Pro viditelnost se kombinuje s instancovanými meshi a streamováním plných actorů u kamery.
 
-Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Mass a ECS: proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou)
 
 ### Material function
 
@@ -2092,7 +2174,7 @@ Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malov
 
 Zapíná se v project settings, kontroluje vizualizačním viewmodem. Uzel Distance to Nearest Surface na něm staví efekty obtékající objekty: mlha plazící se po zdech, sníh u stěn, ohořelé okraje. Stejná data pohání distance field stíny a AO.
 
-Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md)
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Rejstřík: Global Distance Field](#global-distance-field)
 
 ### MetaHuman
 
@@ -2244,7 +2326,7 @@ Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kd
 
 Prakticky ruší ruční LOD řetězce — mesh se subdivuje a redukuje průběžně, po clusterech, podle toho, co kamera reálně vidí. Mesh Terrain je na Nanite postavený; právě adaptivní subdivize je jeden z důvodů, proč zvládá větší plochy než starý Landscape. Po editaci terénu se Nanite reprezentace přestavuje — proto FPS propad během úprav a krátký build po odkliknutí.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Ze 100 na 200 FPS: základní cena Nanitu](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre)
 
 ### Narrative design
 
@@ -2284,7 +2366,7 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 Řeší nešvar „nový particle systém per událost": sto kroků = sto zápisů do kanálu, ne sto systémů. Emitter čte přes Spawn from Data Channel; typ gameplay boost (5.7) umí při zápisu přepnout, který systém se spawne. NDC referenci ukládej jako system value.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Živý svět z částic](praxe/niagara-vykon.md#zivy-svet-z-castic-tvorove-kteri-poslouchaji-ale-nehlasuji)
 
 ### Niagara Fluids
 
@@ -2412,7 +2494,7 @@ Kde se s tím potkáš: [Když stav opouští inventář](praxe/inventar.md#kdyz
 
 Typicky listí, masky a průhlednost; vizualizuje ho Nanite overdraw view (jasné/bílé plochy = zle). Léčba: redukovat překryvy — voxelizace vzdálené vegetace, plná geometrie místo masek, menší footprint assetů, mazat zakopanou geometrii. Nikdy nebude nula; loví se největší viníci vypínáním spawnerů jednoho po druhém.
 
-Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md) · [PCG vegetace](praxe/pcg-vegetace.md)
+Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo)
 
 ### Overlay state
 
@@ -2812,7 +2894,7 @@ Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.
 
 Zásky z kompilace shaderů obstarává **procesor**, ne grafika, takže je rychlá grafická karta nespraví. Konzole je nemají tak zlé, protože hardware je ve všech kusech stejný a dá se zkompilovat jednou a rozdat předpřipravené; na PC to nelze. Řešení jsou dvě a nevylučují se: **bundlovat** PSO a **předcache**. Při testování je potřeba **mazat cache**, jinak lokálně neuvidíš, že s tím je problém.
 
-Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1)
+Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani)
 
 ### Quad
 
@@ -3374,6 +3456,14 @@ Epicův recept proti mýtu „potřebuju 500 animací jako GASP": idle, run forw
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
+### Sphere tracing
+
+**Trasování podél paprsku po skocích dlouhých tolik, kolik říká distance field — bližší povrch tam není, takže se nic nepřeskočí.**
+
+Na rozdíl od klasického paprsku, který je nekonečně tenký a proklouzne škvírou, se dá trasovat s tloušťkou: objekt (třeba ryba v hejnu) projde jen tam, kam se vejde. Na GPU nad [global distance fieldem](#global-distance-field) je to levná náhrada kolizí pro velké množství částic; na platformách bez distance fieldů ale nejde.
+
+Kde se s tím potkáš: [Živý svět z částic](praxe/niagara-vykon.md#zivy-svet-z-castic-tvorove-kteri-poslouchaji-ale-nehlasuji) · [Rejstřík: Global Distance Field](#global-distance-field)
+
 ### Spline
 
 **Komponenta s křivkou z tažitelných bodů — trasa, po které se dá vést pohyb, geometrie nebo obsah.**
@@ -3445,6 +3535,14 @@ Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [MM
 Vyhodnocuje se shora dolů, stavy nesou tasky a přechody podle úspěchu/selhání; umí linkované podstromy (patrol) i stromy injektované zvenčí (smart objects). Přechody spouští i eventy s gameplay tagy (Send State Tree Event); Finish Task končí celý stav, context injektuje taskům AI controller. Tasků má z krabice málo — píšou se per projekt.
 
 Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md)
+
+### Static switch
+
+**Přepínač v materiálu, o kterém se rozhoduje při kompilaci — nepoužitá větev ze shaderu úplně zmizí.**
+
+Proto je levnější než lerp mezi nulou a jedničkou, který počítá obě větve a jen je smíchá. Cena je jinde: každá kombinace přepínačů je další permutace shaderu, tedy víc kompilace a paměti. Typické použití: materiálová instance, která drahou vrstvu nepotřebuje, ji přepínačem vypne místo násobení nulou.
+
+Kde se s tím potkáš: [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo) · [Rejstřík: PSO](#pso)
 
 ### Steam Next Fest
 
@@ -3580,7 +3678,7 @@ Kde se s tím potkáš: [Steam stránka: screenshoty a tagy](teorie/steam-strank
 
 Naměřený rozdíl ve výchozí scéně UE5: **TSR ~1,7 ms proti TAA 0,15 ms.** Cena je rozmazání v pohybu, takže volba je žánrová: pohodovým hrám a adventurám TAA sedne, rychlé stříleččce nebo závodům ne. Ještě levnější mezistupeň pro stylizované a mobilní projekty je **FXAA**, který ale hrany jen prostorově rozmazává.
 
-Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: TSR](#tsr) · [Rejstřík: Screen percentage](#screen-percentage)
+Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: TSR](#tsr) · [Rejstřík: Screen percentage](#screen-percentage) · [Ze 100 na 200 FPS](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre)
 
 ### Synkopa
 
@@ -3653,6 +3751,14 @@ Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovk
 Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, Auto = ease); looping track 0→360 = rotace. Ping-pong vzor: na Finished přečti Direction enum a zavolej Reverse/Play. Set Timeline Length za běhu mění tempo — délka nad poslední klíč vyrábí pauzu v krajní poloze. Latentní uzel — jen v event graphu, ne ve funkcích.
 
 Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md)
+
+### Trim Relative Error
+
+**Nastavení Nanite meshe: zahodí všechny detaily pod danou relativní chybou — místo procenta trojúhelníků povolená odchylka tvaru.**
+
+Protože jde o chybu, ne o procento, přizpůsobí se sama různě hustým meshům a hodí se i tam, kde [Keep Triangle Percent](#keep-triangle-percent) škodí — hlavně na listí, kde ubírání po procentech rozpojí větve. V příkladu z kapitoly o Nanitu stačila hodnota 0,1 bez viditelné ztráty a 0,5 už byla moc; na vlastních meshích je ale potřeba hodnoty ověřit.
+
+Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Rejstřík: Nanite](#nanite)
 
 ### Tritón
 
@@ -3740,7 +3846,7 @@ Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
 Viewport typicky běží na 80–90 % screen percentage a TSR dopočítává — pohyblivá hladina pak ghostuje a smearuje. Diagnóza: screen percentage 100 % (či 125–200 %) a porovnat. Léčba: jiná AA metoda přes console variable, tonemapper sharpen 0,5–1, a hlavně vyhnout se upscalingu, kde to jde.
 
-Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md)
+Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md) · [Ze 100 na 200 FPS](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre)
 
 ### Tři C
 

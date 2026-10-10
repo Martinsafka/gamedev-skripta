@@ -27,7 +27,7 @@ Validace prostá: **Force Regen** na PCG komponentě — žádný warning znamen
 
 > **Pozn.:** Systém je **experimental** — UI i názvy se mohou mezi verzemi hnout a dokumentace je zatím řídká (i proto je celý setup tak neintuitivní). Registry byrokracie je ale per projekt: druhá a další třída už jen přidává řádek do tabulky.
 
-**Souvislosti:** [PCG: základy a nástroje](pcg-zaklady.md) · [Rejstřík: instanced actors](../rejstrik.md#instanced-actors) · [Rejstřík: data registry](../rejstrik.md#data-registry) · [Rejstřík: instance](../rejstrik.md#instance)
+**Souvislosti:** [PCG: základy a nástroje](pcg-zaklady.md) · [Rejstřík: instanced actors](../rejstrik.md#instanced-actors) · [Rejstřík: data registry](../rejstrik.md#data-registry) · [Rejstřík: instance](../rejstrik.md#instance) · [Mass a ECS: data místo objektů](mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) *(jiná cesta k levnému světu: data místo actorů)*
 
 ---
 

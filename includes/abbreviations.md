@@ -1,6 +1,7 @@
 *[A/B test]: Dvě verze hry dvěma skupinám testerů — rozhodne chování, ne názor; testerům se často neříká nic.
 *[AAA]: Termín z financí, ne z kvality: největší a nejbezpečnější finanční sázky v oboru.
 *[Abstract class]: Třída, kterou nejde umístit do světa ani referencovat — existuje jen jako rodič pro děti.
+*[ABTest]: Konzolový příkaz střídající dvě hodnoty jedné proměnné a vypisující výkon obou.
 *[Actor Component]: Znovupoužitelný díl chování připnutý k aktérovi — schopnost bez identity.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
@@ -52,6 +53,7 @@
 *[Buoyancy]: Vztlak Water pluginu: pontoony (klasika) nebo od 5.7 Default Buoyancy Physics Material + Query and Probe.
 *[Burn rate]: Kolik peněz projekt spálí za měsíc či rok; krát délka vývoje = cena projektu.
 *[Cable Component]: Vestavěné simulované lano/kabel; konce jdou ukotvit, částice čte Get Cable Particle Locations.
+*[Cache miss]: Data nejsou v cache procesoru a čeká se na hlavní paměť — ve hrách častější brzda než výpočty.
 *[Call down, signal up]: Pravidlo Godotu: rodič volá funkce na dětech, dítě posílá signály nahoru.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
 *[Camera director]: Objekt vlastnící pravidla kamery pro oblast: hranice, výjimky, plynulé předání řízení.
@@ -88,6 +90,7 @@
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
 *[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
+*[Data-oriented design]: Návrh podle toho, jak leží data v paměti a jak se k nim přistupuje; neplést s data-driven.
 *[Data Registry]: Registr konfiguračních dat (data tables) — systémy se ptají jménem místo tvrdých odkazů na tabulky.
 *[Data-driven design]: Hodnoty a konfigurace žijí v datech (data assety); logika je jen čte.
 *[Data table]: Tabulka řádků podle jednoho structu; konfigurovatelná třída si podle jména řádku dohledá data.
@@ -114,6 +117,7 @@
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
 *[Dynamic resolution]: Rozlišení snižované za běhu, aby engine udržel cílový frame time (typicky 55–75 %).
 *[Early access]: Placený předběžný přístup k nedokončené hře s příslibem dalšího vývoje.
+*[ECS]: Entity Component System — entity jako skládanky dat, logika v systémech nad entitami stejného složení.
 *[Edit layer]: Vrstva úprav Landscapu (sculpt i paint); nástroje pracují s aktuálně vybranou — kopie z jiné = prázdno.
 *[Editor script]: Skript, který běží v editoru místo ve hře; generuje boilerplate nebo hlídá konzistenci dat.
 *[Editor Utility Widget]: Blueprint UI běžící v editoru — vlastní nástroj bez psaní pluginu.
@@ -135,6 +139,7 @@
 *[Export template]: Předkompilované běhové prostředí Godotu pro cílovou platformu; stahuje se zvlášť.
 *[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
 *[Extremistan]: Prostředí, kde jeden vzorek převáží celý zbytek souboru (prodeje her).
+*[Fallback mesh]: Klasická verze Nanite meshe pro místa, kde Nanite nejde (odrazy, ray tracing, starší HW).
 *[File locking]: Zamčení souboru tím, kdo na něm pracuje; řešení pro binární assety, které se nedají sloučit.
 *[Fill]: Zahuštění rytmu na konci fráze před další sekcí; opakem je prázdno.
 *[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
@@ -142,6 +147,7 @@
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
 *[Foot placement]: Procedurální usazení chodidel: IK na svazích, špendlení došlapů, tlumení roota na hrbolech.
+*[Forward rendering]: Vykreslování bez G-bufferu: objekt se nasvítí rovnou při kreslení; typické pro VR a slabý hardware.
 *[Four-on-the-floor]: Bicí groove s kopákem na každé ze čtyř dob; základ house, proti němu synkopa.
 *[Frame data]: Popis útoku po snímcích — nápřah, aktivní snímky, zotavení; ke každému snímku vlastní vlastnosti.
 *[FM syntéza]: Syntéza, kde jeden signál moduluje frekvenci druhého; klíčový parametr je harmonicita.
@@ -159,6 +165,7 @@
 *[Garbage collection]: Automatický úklid paměti; zničené objekty jsou dočasně „pending kill".
 *[GAS]: Gameplay Ability System — schopnosti, atributy a efekty; hodnota ze základu a odebíratelných modifikátorů.
 *[GASP]: Game Animation Sample — Epicův živý ukázkový projekt gameplay animace: 500+ animací, MM, traversal, Mover.
+*[Gauntlet]: Automatizační framework UE: spouští hru na cílových zařízeních a řídí na nich testy.
 *[GDD]: Game design document — dokument s návrhem hry; funguje, jen když se do něj skutečně vracíš.
 *[GDScript]: Skriptovací jazyk Godotu — blízký Pythonu, gradually typed, navržený pro strom scény.
 *[Genre descoping]: Jeden prvek velkého žánru nafouknutý na celou hru (TD z RTS, backpack z Diabla).
@@ -166,6 +173,7 @@
 *[Ghost note]: Tišší verze téhož bicího na slabé dělené době; hustota bez důrazu.
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
 *[Git LFS]: Rozšíření gitu pro velké binárky: v repozitáři odkaz, obsah zvlášť; na GitHubu 1 GB zdarma.
+*[Global Distance Field]: Hrubé sloučené pole vzdáleností k povrchům celé scény kolem kamery (Lumen, DFAO, Niagara).
 *[GOAP]: Goal-Oriented Action Planning — AI si posloupnost akcí k cíli poskládá sama za běhu.
 *[God class]: Antipattern: třída, do které se postupně nastěhuje logika všech ostatních.
 *[Gradual typing]: Typy jsou volitelné a přidávají se postupně; statický zápis hlásí chyby před spuštěním.
@@ -178,6 +186,7 @@
 *[Harmonická řada]: Alikvóty struny/píšťaly jako celočíselné násobky základní frekvence; zdroj západních intervalů.
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
+*[Hitch]: Jednotlivý výrazně dlouhý snímek — škubnutí, které průměrné FPS schová.
 *[Hit stop]: Krátké zamrznutí hry při zásahu (asi 1/20–1/10 s) — dodá útoku váhu a čitelnost.
 *[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
 *[Herní vlákno]: Vlákno s herní logikou, AI, fyzikou a blueprinty; v stat unit hodnota game.
@@ -209,6 +218,7 @@
 *[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
 *[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
+*[Keep Triangle Percent]: Nanite: kolik procent zdrojových trojúhelníků se uloží; zbytek zmizí z balíčku.
 *[Keyboard ghosting]: Hardwarový limit klávesnice: u některých kombinací kláves jeden vstup nedorazí do hry.
 *[Klonování hlasu]: Model natrénovaný na tvém hlase, který přezpívá cizí výkon tvou barvou.
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
@@ -419,6 +429,7 @@
 *[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
 *[Sound font]: Kolekce nasamplovaných zvuků nástroje (.sf2); rychlá retro paleta (Undertale, SNES).
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.
+*[Sphere tracing]: Trasování po skocích o hodnotu distance fieldu; počítá s tloušťkou, neproklouzne škvírou.
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.
 *[Spline mesh]: Mesh natažený podél segmentu splinu — liány, lana, oblouky drah; pozor na forward axis.
 *[Sprite sheet]: Jeden obrázek s mřížkou snímků animace nebo sadou dlaždic.
@@ -428,6 +439,7 @@
 *[State alias]: Zástupný uzel state machine reprezentující víc stavů — jedno přechodové pravidlo místo N.
 *[State machine]: Stavový automat AnimBP: stavy = animace, přechody = pravidla; MM ho nahrazuje, hybridy kombinují.
 *[State Tree]: Hierarchický stavový automat UE (sestra behavior tree); stavy s tasky, přechody, injektované stromy.
+*[Static switch]: Přepínač v materiálu rozhodnutý při kompilaci — nepoužitá větev ze shaderu zmizí.
 *[Steam Next Fest]: Steamový festival demoverzí (3× ročně); multiplikátor wishlistů, účast jen jednou za hru.
 *[Stem separace]: Rozdělení hotové nahrávky zpět na zpěv, bicí, bas a zbytek.
 *[Streaming pool]: Vyhrazená VRAM pro streamované textury; zmenšuj ji, dokud engine nezačne hlásit přetečení.
@@ -460,6 +472,7 @@
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).
 *[Traversal]: Překonávání překážek (vault, mantle, hurdle): detekce hran + chooser + montáž s motion warpingem.
 *[Trigger volume]: Neviditelná zóna v levelu, která při vstupu spustí událost — základ skriptovaných momentů.
+*[Trim Relative Error]: Nanite: zahodí detail pod danou relativní chybou; na listí vhodnější než procento.
 *[Trim sheet]: Sdílená textura z pásů detailů pro mnoho assetů — řádová úspora draw calls a VRAM.
 *[Triáda]: Nejzákladnější akord ze tří tónů (základ, tercie, kvinta); rozestupy určí dur/moll/zmenšená.
 *[TSR]: Temporal Super Resolution — upscaler UE5; rozmazaná voda a ghosting jemných detailů = typicky jeho vina.
