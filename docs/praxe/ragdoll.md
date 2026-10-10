@@ -16,7 +16,7 @@ Bez presetu „Ragdoll" simulace nefunguje správně — nastavuje objektový ty
 
 > **Pozn.:** Tohle je „ragdoll na smrt" — jednosměrka. Všechno ostatní v téhle kapitole řeší, jak z něj udělat obousměrný stav. Ale pro nepřátele, kteří vstávat nemusí, je tahle minutová verze plus kolizní úpravy z [AI kapitoly](ai-zaklady.md#minimalni-nepritel-pawn-sensing-ai-moveto-a-nav-mesh) (kapsle No Collision po smrti!) všechno, co potřebuješ.
 
-**Souvislosti:** [Základy AI: ragdoll po zásahu](ai-zaklady.md#minimalni-nepritel-pawn-sensing-ai-moveto-a-nav-mesh) · [Rejstřík: physics asset](../rejstrik.md#physics-asset) · [Rejstřík: collision preset](../rejstrik.md#collision-preset)
+**Souvislosti:** [Základy AI: ragdoll po zásahu](ai-zaklady.md#minimalni-nepritel-pawn-sensing-ai-moveto-a-nav-mesh) · [Rejstřík: physics asset](../rejstrik.md#physics-asset) · [Rejstřík: collision preset](../rejstrik.md#collision-preset) · [Smrt jako ragdoll z komponenty](souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) *(kolize Query and Physics a kapsle ignorující pawny)*
 
 ---
 

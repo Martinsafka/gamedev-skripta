@@ -1,6 +1,6 @@
-# Pasti a arénové mechaniky
+# Pasti, hádanky a arénové mechaniky
 
-Past je gameplay systém v nejčistší podobě: detekce (overlap) → následek (damage, odhození) → obnova (delay, reset). Kapitola staví pět pastí ze dvou tutoriálů — bodáky, tlačící rameno, rotující věž, kyvadlové sekery, mizející podlaha à la Fall Guys — a končí minutovou, ale zásadní lekcí o férovosti hitboxů. Vzory (timeline, sockety na kostech, instance editable parametry) se hodí daleko za pasti.
+Past je gameplay systém v nejčistší podobě: detekce (overlap) → následek (damage, odhození) → obnova (delay, reset). Kapitola staví pasti — bodáky, tlačící rameno, rotující věž, kyvadlové sekery a mizející podlahu à la Fall Guys. K nim přidává stavebnici hádanky (spínač, kostka, plošina, klíče a dveře) a barel, ze kterého po zásahu teče voda. Končí minutovou, ale zásadní lekcí o férovosti hitboxů. Vzory (timeline, sockety na kostech, instance editable parametry, zprávy přes interface) se hodí daleko za pasti; útoky a zásahy postav řeší [Souboj](souboj.md).
 
 ---
 
@@ -66,6 +66,52 @@ Past je gameplay systém v nejčistší podobě: detekce (overlap) → následek
 
 ---
 
+## Hádanka ze stavebnice: spínač nic nezná a level se nesmí dát rozbít
+
+**Zdroj:** [How We Designed a Puzzle Adventure Game in Unreal Engine](https://www.youtube.com/watch?v=tpq66PFyzf0) · [Unreal Engine](https://www.youtube.com/channel/UCBobmJyzsJ6Ll7UbfhI4iwQ) · ~18 min, přehled psané série Epicu (začátečnická úroveň)
+
+**Shrnutí:** Epic ve videu provází výsledkem své psané série *Design a Puzzle Adventure Game*. Je to graybox level s klíči a dveřmi, tlakovou deskou, fyzikální kostkou, pohyblivou plošinou, pastmi, nepřítelem a cílem. Pod začátečnickým povrchem jsou dva vzory, které platí pro každou hádanku. **Spínač, který neví, co spíná:** pošle zprávu přes Blueprint Interface a reaguje, kdo chce. A **level, který se nedá rozbít:** výhra se počítá podle sebraných klíčů, ne podle dosaženého místa, a kostky se doplní, když je hráč ztratí.
+
+### Rozpad myšlenky
+
+**Data místo kopií.** Tři druhy klíčů jsou Enum, struct drží tvar a barvu a barvy jsou instance jednoho rodičovského materiálu [(2:20)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=140s). Klíč i dveře mají mapu typ → vzhled. Druh se v levelu mění jedním rozbalovacím seznamem a barva dveří sama sedí ke klíči [(3:08)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=188s), [(4:42)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=282s).
+
+**Smyčka klíč–dveře.** Klíč při overlapu přes interface řekne hráči, že dostal klíč, a zmizí [(3:56)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=236s). Dveře se při overlapu ptají, jestli klíč vyžadují a jestli ho hráč má, přes `Contains Item` nad jeho seznamem [(5:32)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=332s). Designově patří klíč tam, kde se pro něj musí něco udělat; v ukázce leží na vysoké plošině za skákacími překážkami [(6:18)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=378s). A protože sebraný klíč zmizí z očí, ukazuje HUD zdraví a seznam klíčů. Pod textem je rozmazané pozadí, aby byl čitelný v jakémkoli prostředí [(7:05)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=425s).
+
+**Spínač, který nic nezná.** Tlaková deska se při overlapu rozsvítí a pošle zprávu přes interface `BPI_Interaction`, místo aby měla napevno zadrátováno, co spíná [(8:37)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=517s). Plošina i ohnivá past ten interface implementují a reagují po svém [(9:23)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=563s). Plošina jezdí tam a zpět mezi startem a target pointem a na koncích dvě sekundy čeká [(10:10)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=610s). Deska nerozlišuje, kdo na ni stoupl. Fyzikální kostka ji zatíží a udrží stisknutou i po odchodu hráče, a tím otevře nové hádanky [(9:23)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=563s).
+
+**Pasti z jednoho rodiče.** Rodičovská past drží damage na časovači, dokud je někdo v kolizi [(10:56)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=656s). Bodáky jsou potomek s mřížkou 4 × 4 kuželů. Oheň je potomek s červeným materiálem a interfacem, takže ho spínač zapíná a vypíná [(11:42)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=702s).
+
+**Level, který se nedá rozbít.**
+- Cíl na vyvýšené plošině se odemkne jen se všemi třemi klíči. Je to záměr: hráč pak level neobejde ani tím, že najde cestu přes zeď [(16:25)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=985s).
+- Spawner kostek je neviditelný blueprint uvnitř trubky, který na spínač vypustí novou kostku. Drží pole vypuštěných kostek a nad limitem zničí nejstarší [(17:14)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=1034s). Kostky se tak nedají ztratit nadobro, level se nezaplní stovkami fyzikálních kostek a hádanka zůstane řešitelná [(18:01)](https://www.youtube.com/watch?v=tpq66PFyzf0&t=1081s).
+
+> **Pozn.:** Video říká, že spínač zprávu „vysílá" a slyšet ji může kdokoli. V termínech [komunikace Blueprintů](komunikace-blueprintu.md#tri-kanaly-a-kdy-ktery-cast-interface-event-dispatcher) je ale interface volání na konkrétní cíl, ne rádio, takže spínač musí vědět, komu volat. Jak série cíle drží, přehled neukazuje; podrobnosti jsou v psaném tutoriálu, na který video odkazuje, i se staženým projektem. Rodičovská past s damage je tentýž tvar jako [kostra pasti](#kostra-pasti-a-tri-variace-bodaky-rameno-rotor), jen místo instance editable přepínačů používá dědičnost. A „level se nesmí dát rozbít" je obrana proti tomu, čemu se říká [softlock](../rejstrik.md#softlock).
+
+**Souvislosti:** [Interakce bez Event Ticku: Blueprint Interface](interakce-bez-event-ticku.md#blueprint-interface-volani-bez-castu) · [Graybox, beautiful corners a první level nakonec](../teorie/level-design-solo.md#graybox-beautiful-corners-a-prvni-level-nakonec) *(graybox, ve kterém se celé video odehrává)* · [Rejstřík: Material Instance](../rejstrik.md#material-instance) · [Rejstřík: Enum](../rejstrik.md#enum) · [Rejstřík: HUD](../rejstrik.md#hud)
+
+---
+
+## Barel, který teče: díry jako data, hladina jako jedno číslo
+
+**Zdroj:** [Create a Water Leak System in Unreal Engine 5 | Blueprint Tutorial (Part 1)](https://www.youtube.com/watch?v=8aDH2KUGdbE) · [Zima Env](https://www.youtube.com/channel/UC1Ob_PAPVw5dL6XlpCfXuKg) · ~11 min, tutoriál (díl 1)
+
+**Shrnutí:** Prostřelený barel začne téct z každé díry pod hladinou. Hladina klesá, s víc dírami rychleji, a vždycky jen k nejnižší díře. Díra, nad kterou hladina klesla, přestane téct [(0:02)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=2s). Celé je to jedno číslo (výška hladiny), pole děr a časovač místo ticku. Háček je v pravidle cíle: hladina nesměřuje ke dnu, ale k **nejnižší díře**. Právě díky tomu je z efektu systém, který si pamatuje, kam hráč střílel.
+
+### Rozpad myšlenky
+
+**Stav.** Barel a vodní plocha jsou v jednom blueprintu. Výška plochy je hladina, uložená jako float, a pivot barelu u dna určuje nejnižší možnou hladinu [(0:48)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=48s), [(1:25)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=85s), [(1:34)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=94s).
+
+**Zásah.** Střelba může být jakýkoli line trace. Stačí zasaženého aktéra castnout na barel a předat mu impact point a normálu [(2:18)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=138s), [(2:51)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=171s). Zásah nad hladinou barel ignoruje. Pod hladinou přidá v místě zásahu Niagara komponentu s proudem vody, natočenou podle normály, a uloží ji do pole děr [(3:27)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=207s), [(4:34)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=274s). Efekt mířil o 90° vedle a autor to opraví složením rotací [(4:16)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=256s).
+
+**Kontrola na časovači.** Místo Event Ticku, který podle autora umí být drahý, projde díry časovač jednou za pár sekund. Každá díra, nad kterou hladina klesla, zmizí [(5:11)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=311s), [(6:01)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=361s). Druhá větev sekvence najde nejnižší díru a hladina k ní postupně klesá; počáteční hodnota „nejnižší výšky" musí být obrovské číslo [(7:12)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=432s). Samotný pokles a jeho rychlost video staví bez komentáře [(7:58)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=478s).
+
+> **Pozn.:** Barel je malý příklad toho, čemu [teorie imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) říká svět, který odpovídá: zásah nezmizí, ale změní stav předmětu, který si ho pamatuje. Druhý díl autor podmiňuje odezvou diváků a chce zůstat u Blueprintů, protože výpočtů je málo [(10:22)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=622s). Kontrola na časovači místo ticku je stejný tah jako u [interakcí bez Event Ticku](interakce-bez-event-ticku.md#overlap-trigger-misto-trasovani-v-ticku).
+
+**Souvislosti:** [Rejstřík: Set Timer by Event](../rejstrik.md#set-timer-by-event) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: Particle system](../rejstrik.md#particle-system) · [Zdraví po končetinách](souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) *(jiný systém, který čte, kam hráč trefil)*
+
+---
+
 ## Hitboxy: velkorysost, ne přesnost
 
 **Zdroj:** [Game Dev Secrets: A Simple Hitbox Trick!](https://www.youtube.com/watch?v=X0jy94VP_Ko) · [Inbound Shovel](https://www.youtube.com/channel/UCdYwjLVP-98bptdlQFO_5zQ) · ~1 min, design tip
@@ -78,4 +124,4 @@ Pravidlo: **hurtbox hráče menší než postava, hitboxy nepřátel spíš men�
 
 > **Pozn.:** Souvisí s [game feel](../teorie/game-feel.md) kapitolou: férovost je vjem, ne geometrie. A pro naši hru: u stealth detekce platí totéž obráceně — kužel vidění stráže má být *menší*, než vypadá, aby těsné proplížení vycházelo hráčovi, ne AI.
 
-**Souvislosti:** [Game feel](../teorie/game-feel.md) · [AI vnímání](ai-vnimani.md) · [Rejstřík: game feel](../rejstrik.md#game-feel)
+**Souvislosti:** [Game feel](../teorie/game-feel.md) · [AI vnímání](ai-vnimani.md) · [Rejstřík: game feel](../rejstrik.md#game-feel) · [Hitbox podle poctivosti animace](souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) *(kdy se vyplatí přesnost)*

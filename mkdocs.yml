@@ -137,10 +137,14 @@ nav:
           - Základy nepřátelské AI: praxe/ai-zaklady.md
           - AI vnímání: praxe/ai-vnimani.md
           - State Trees: praxe/state-trees.md
+          - AI ve velkém: praxe/ai-ve-velkem.md
       - Herní systémy a interakce:
           - Kroky a povrchy: praxe/footsteps.md
-          - Pasti a arénové mechaniky: praxe/pasti-a-mechaniky.md
+          - Pasti, hádanky a arénové mechaniky: praxe/pasti-a-mechaniky.md
           - Interakce s předměty a úkryty: praxe/interakce-predmety.md
+          - Souboj: praxe/souboj.md
+      - UI a rozhraní:
+          - UI ve světě: praxe/ui-ve-svete.md
       - "Fyzika: ragdoll, lana, simulace":
           - Ragdoll: praxe/ragdoll.md
           - Kabely, lana a Physics Control: praxe/lana-kabely.md
@@ -148,7 +152,7 @@ nav:
           - Voda a buoyancy: praxe/voda-a-buoyancy.md
           - Interaktivní voda: praxe/interaktivni-voda.md
           - "Nástroje: EasyWaterscape": praxe/nastroje-voda.md
-      - "Animace: nástroje a mocap":
+      - "Animace: nástroje, interakce a cutscény":
           - Animační nástroje: praxe/animace-nastroje.md
           - Interakční animace: praxe/interakcni-animace.md
           - Cutscény: praxe/cutsceny.md

@@ -20,7 +20,7 @@ Druhá půlka téže lekce je **wandering** [(5:32)](https://www.youtube.com/wat
 
 > **Pozn.:** Bonusová lekce o emergenci: když autor zapnul faction systém, nepřátelé se začali mlátit mezi sebou v „battle royale" [(7:25)](https://www.youtube.com/watch?v=6BrZryMz-ac&t=445s) — a ten nečekaně skvělý pohled ho přesvědčil přitlačit na plánovaný pet-taming systém [(7:33)](https://www.youtube.com/watch?v=6BrZryMz-ac&t=453s). Systémy, které spolu mluví, občas vygenerují design zadarmo — stojí za to si takových nehod všímat, místo je „opravovat".
 
-**Souvislosti:** [Jak udělat cokoli zábavným](zabava.md) · [Základy nepřátelské AI](../praxe/ai-zaklady.md) · [Rejstřík: context steering](../rejstrik.md#context-steering) · [Rejstřík: game feel](../rejstrik.md#game-feel)
+**Souvislosti:** [Jak udělat cokoli zábavným](zabava.md) · [Základy nepřátelské AI](../praxe/ai-zaklady.md) · [Rejstřík: context steering](../rejstrik.md#context-steering) · [Rejstřík: game feel](../rejstrik.md#game-feel) · [Bojové role v Lords of the Fallen](../praxe/ai-ve-velkem.md#kdo-utoci-a-kdo-ceka-aggro-skore-a-bojove-role) *(útočník, kryt a divák jako plán pohybu skupiny)*
 
 ---
 
@@ -62,7 +62,7 @@ Obecná lekce pod tím: imerze není počet polygonů, ale **smyčka akce → ot
 
 > **Pozn.:** Juice je feedback vrstva z [desatera](zaklady.md#desatero-principu-jako-checklist-kostra-puls-duse) dovedená k řemeslu — a teoreticky je to čistý [signal-to-noise](zabava.md#flow-kanal-je-pasmo-nejlepsiho-signalu): každý detail říká hráči, co právě udělal a že to svět zaznamenal. Půlka juice je mimochodem zvuk — viz [sound design ve hře](../hudba/sound-design-ve-hre.md). A pozor na pořadí: juice se leští na jádru, které už baví — jinak je to [over-polishing](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem).
 
-**Souvislosti:** [Základy: hračky](zaklady.md#engagement-hracky-spojene-zajimavymi-rozhodnutimi) · [Vizuální komunikace: mechaniky musí být vidět](vizualni-komunikace.md#mechaniky-funguji-jen-tehdy-kdyz-je-hrac-vidi) *(tytéž triky jako podmínka hratelnosti, ne jen příjemnosti)* · [Kroky a povrchy](../praxe/footsteps.md) · [Rejstřík: Juice](../rejstrik.md#juice) · [Rejstřík: Squash & stretch](../rejstrik.md#squash-stretch) · [Finisher bez střihu](../praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) *(kamera a otřes jako juice)*
+**Souvislosti:** [Základy: hračky](zaklady.md#engagement-hracky-spojene-zajimavymi-rozhodnutimi) · [Vizuální komunikace: mechaniky musí být vidět](vizualni-komunikace.md#mechaniky-funguji-jen-tehdy-kdyz-je-hrac-vidi) *(tytéž triky jako podmínka hratelnosti, ne jen příjemnosti)* · [Kroky a povrchy](../praxe/footsteps.md) · [Rejstřík: Juice](../rejstrik.md#juice) · [Rejstřík: Squash & stretch](../rejstrik.md#squash-stretch) · [Finisher bez střihu](../praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) *(kamera a otřes jako juice)* · [Souboj v UE: pět potvrzení rány](../praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) *(tytéž vrstvy postavené v Blueprintech)*
 
 ---
 

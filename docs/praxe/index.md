@@ -33,12 +33,18 @@ Témata a kapitoly:
 - **[Základy nepřátelské AI](ai-zaklady.md)** — minimální nepřítel (Pawn Sensing + AI MoveTo + nav mesh), patrola náhodně i po waypointech, chase se ztrátou zájmu, totéž přes AI Controller + Behavior Tree + Blackboard, a Utility AI jako rozhodovací vrstva nad tím vším.
 - **[AI vnímání](ai-vnimani.md)** — Pawn Sensing vs. AI Perception vs. trigger; kužel zraku, object permanence, lose sight radius, přesný timing ztráty zájmu a objektový klíč s odloženou ztrátou cíle.
 - **[State Trees](state-trees.md)** — kompletní nepřítel: patrola po spline, tři smysly jedné percepce, Report eventy, přechody přes gameplay tagy a event dispatchery.
+- **[AI ve velkém](ai-ve-velkem.md)** — Lords of the Fallen: jeden nav mesh pro nepřátele všech velikostí (šířka chodby jako flag), offset cesty od rohů a jak ho uživit, strom, který jen rozhoduje, nad nepřítelem popsaným daty, reakce vedle stromu a aggro skóre s bojovými rolemi.
 
 **Herní systémy a interakce**
 
 - **[Kroky a povrchy](footsteps.md)** — physical materials, trace vs. anim notify, MetaSounds s hlasitostí podle rychlosti, stopy jako decaly s rozpadem a Niagara Data Channel optimalizace.
-- **[Pasti a arénové mechaniky](pasti-a-mechaniky.md)** — kostra pasti (overlap → damage → launch), kyvadlové sekery s pivotem a per-instance chováním, mizející podlaha à la Fall Guys a férovost hitboxů.
+- **[Pasti, hádanky a arénové mechaniky](pasti-a-mechaniky.md)** — kostra pasti (overlap → damage → launch), kyvadlové sekery s pivotem a per-instance chováním, mizející podlaha à la Fall Guys, stavebnice hádanky se spínačem přes interface a levelem, který se nedá rozbít, barel, ze kterého teče voda k nejnižší díře, a férovost hitboxů.
 - **[Interakce s předměty a úkryty](interakce-predmety.md)** — házení s predikcí trajektorie (Predict Projectile Path + spline mesh) a úkryt ve skříni s choreografií přes montage notifies.
+- **[Souboj](souboj.md)** — melee systém jako dvě komponenty (útočník a terč): combo okna z notify state, útok za běhu s křivkou, která vrstvení vypne, hitbox podle poctivosti animace, damage jednou za útok, směrové reakce a ragdoll, hit stop per aktér, pět potvrzení rány, overlay záblesk a kapow přes custom stencil a zdraví po končetinách.
+
+**UI a rozhraní**
+
+- **[UI ve světě](ui-ve-svete.md)** — diegetické menu na obrazovce televize s virtuální myší (Widget Interaction Component), health bar nad hlavou ve screen space i na zasažené končetině a dvě ceny stovky widgetů: logika v ticku a překreslování (Redraw Time).
 
 **Fyzika: ragdoll, lana, simulace**
 
@@ -51,7 +57,7 @@ Témata a kapitoly:
 - **[Interaktivní voda](interaktivni-voda.md)** — vlnky za postavou: 5.6 shallow water subsystem checkboxem, nebo ručně Niagara Fluids šablonou s collider tagy.
 - **[Nástroje: EasyWaterscape](nastroje-voda.md)** — Faucherův nástroj jako kontext + přenositelné lekce: Single Layer Water limity, TSR rozmazání, výkonové páky.
 
-**Animace: nástroje a mocap**
+**Animace: nástroje, interakce a cutscény**
 
 - **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (co natočit, zpracování, dočištění a hranice podle oficiálního dema), procedurální pavouk na Locomotoru, SAM pro izolaci aktéra, řemeslo první osoby (i úprava hotových animací přímo v UE) a co 5.8 přidává animátorům a riggerům: Control Rig Dynamics, fyzika jako vrstva, AutoBake, controly na kůži a přenos rigu.
 - **[Interakční animace](interakcni-animace.md)** — postava sahá na svět: data interakce patří k objektu, motion warping s krokem v animaci, IK ruky v Control Rigu, normalizované křivky v montáži, grip pointy a pózy ruky, attach bez teleportu, Contextual Animation a párový zápas se sekcemi montáže.

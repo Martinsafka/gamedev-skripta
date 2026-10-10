@@ -2,9 +2,11 @@
 *[AAA]: Termín z financí, ne z kvality: největší a nejbezpečnější finanční sázky v oboru.
 *[Abstract class]: Třída, kterou nejde umístit do světa ani referencovat — existuje jen jako rodič pro děti.
 *[ABTest]: Konzolový příkaz střídající dvě hodnoty jedné proměnné a vypisující výkon obou.
+*[Active frames]: Snímky, ve kterých útok zraňuje — mezi nápřahem a zotavením; v UE typicky notify state.
 *[Actor Component]: Znovupoužitelný díl chování připnutý k aktérovi — schopnost bez identity.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
+*[Aggro]: Skóre, podle kterého si nepřítel vybírá cíl — blízkost, vydržené poškození, umělé aggro, cooldown přepnutí.
 *[AI Controller]: Mozek AI postavy: posedne pawna a rozhoduje; spouští Behavior/State Tree, nese percepci.
 *[AI Perception]: Percepční systém UE: smysly (sight, hearing, damage) jedné komponenty; cíl musí mít Stimuli Source.
 *[Akord]: Tři a více tónů zároveň; nejzákladnější je triáda (základ + tercie + kvinta).
@@ -17,6 +19,7 @@
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Animation cancel]: Přerušení animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.
 *[Apofenie]: Pud vidět vzory a příběhy všude — motor emergentního narativu (RimWorld model).
+*[Apply Damage]: Vestavěné poškození v UE: Apply (Point) Damage u útočníka, Event Any/Point Damage u terče.
 *[Arrangement]: Rozvinutí loopu do celé skladby (aranžmá); píseň žije v přechodech mezi sekcemi.
 *[Art bible]: Dokument vizuálního jazyka hry: moodboardy, palety, reference, pravidla stylu.
 *[Anim Budget Allocator]: Plugin rozdělující pevný rozpočet na animace podle významnosti; nasadit hned, zpětně to bolí.
@@ -30,6 +33,7 @@
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[AutoBake]: Přepínání živého control rigu a jeho zapečené animation sequence v sequenceru (UE 5.8).
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
+*[Blend Poses by Bool]: Anim uzel, který podle boolu přepne mezi dvěma pózami — „if" v anim grafu.
 *[Blueprint Debugger]: Ladění blueprintů za běhu: breakpointy, sledované hodnoty a zastavení na uzlu, kde nastala chyba.
 *[Blueprint Macro]: Znovupoužitelný kus Blueprint grafu; na rozdíl od funkce smí obsahovat Delay a jiné latentní uzly.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
@@ -57,6 +61,7 @@
 *[Buoyancy]: Vztlak Water pluginu: pontoony (klasika) nebo od 5.7 Default Buoyancy Physics Material + Query and Probe.
 *[Burn rate]: Kolik peněz projekt spálí za měsíc či rok; krát délka vývoje = cena projektu.
 *[Cable Component]: Vestavěné simulované lano/kabel; konce jdou ukotvit, částice čte Get Cable Particle Locations.
+*[Cached pose]: Póza uložená v anim grafu pod jménem, aby šla použít na víc místech (Save/Use Cached Pose).
 *[Cache miss]: Data nejsou v cache procesoru a čeká se na hlavní paměť — ve hrách častější brzda než výpočty.
 *[Call down, signal up]: Pravidlo Godotu: rodič volá funkce na dětech, dítě posílá signály nahoru.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
@@ -95,7 +100,9 @@
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
 *[Coyote time]: Krátká lhůta po opuštění hrany, během které skok pořád projde (asi 6 snímků).
 *[CPU-bound / GPU-bound]: Které zařízení na hru čeká; určuje, kterým směrem vůbec optimalizovat.
+*[Custom Depth]: Hloubkový průchod jen pro vybrané meshe, se stencil čísly; materiál ho čte přes SceneTexture.
 *[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
+*[Custom Time Dilation]: Násobitel času jednoho aktéra: 0 ho zmrazí, zbytek hry běží dál; základ hit stopu.
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
 *[Dataflow]: Grafový systém UE pro zpracování dat assetů, např. přenos rigu a tvarů mezi meshi.
@@ -108,6 +115,7 @@
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Degenerate strategy]: Dominantní postup, po jehož objevení hra přestává bavit; cíl balancu je ho zabít.
+*[Delegate]: Seznam odběratelů zprávy (v BP event dispatcher); engine má vlastní, např. Landed a OnTakePointDamage.
 *[Delta time]: Čas od minulého snímku; násobí se jím pohyb, aby nezávisel na výkonu počítače.
 *[Demo]: Veřejná verze hry, jejímž úkolem je prodat — ne otestovat (to dělá playtest build).
 *[Dependency stack]: Strom závislostí systémů: dole core mechaniky, nahoře škrtnutelné obohacení.
@@ -116,6 +124,7 @@
 *[Design pillars]: 2–3 pojmy o tom, co má hráč cítit; váha pro každé rozhodnutí. Žánr ani art style pilíř není.
 *[Device profile]: Hierarchická sada nastavení a CVarů pro platformu; engine si ji sám nevybere — musíš ji zvolit.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
+*[Diegetic UI]: UI, které je součástí herního světa (obrazovka televize, displej zbraně) — ne vrstva přes obrazovku.
 *[Direct Mesh Controls]: Controly rigu ovládané tahem přímo za povrch postavy, ne za kroužky kolem ní (UE 5.8).
 *[Distance field AO]: AO z mesh distance fields; tiše se zapíná spolu s movable skylightem, takže ho platíš bez vědomí.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
@@ -137,6 +146,7 @@
 *[Eigenvektor]: Směr, který transformace nevychýlí — jen natáhne či zkrátí o eigenvalue.
 *[Elemental tetrad]: Schellovy čtyři části hry: estetika, mechaniky, technologie, příběh — iteruj přes všechny.
 *[Elevator pitch]: Popis hry na délku jízdy výtahem, nejčastěji „X meets Y"; nesmí být redundantní ani nespojitelný.
+*[Enum]: Typ s pevným seznamem pojmenovaných hodnot (směr, druh klíče); Switch, Select, klíč mapy.
 *[Environmental storytelling]: Vyprávění prostorem: rozmístění objektů a stopy používání říkají, co se tu stalo.
 *[EQ]: Zesílení či potlačení konkrétních frekvencí; čištění šumu a prosazení zvuku v mixu.
 *[Equipment Instance]: Objekt nasazeného kusu vybavení — pamatuje si, co spawnul a změnil, aby šlo vše vrátit.
@@ -165,6 +175,7 @@
 *[FM syntéza]: Syntéza, kde jeden signál moduluje frekvenci druhého; klíčový parametr je harmonicita.
 *[Fragment]: Objekt připojující k položce kus dat a funkčnosti — kompozice místo jedné obří třídy.
 *[Frame time]: Čas na jeden snímek v ms; 60 FPS = rozpočet 16,6 ms. Sčítá se lineárně, na rozdíl od FPS.
+*[Fresnel]: Materiálový uzel, který roste k obrysu objektu z pohledu kamery; rim light, záblesk po kraji.
 *[FX budget]: Rozpočet na částice, který za běhu stahuje culling; typické selhání je oscilace, léčí ji decay rate.
 *[Game Design Document]: Dokument s návrhem hry; funguje, jen když se do něj tým skutečně vrací — forma je vedlejší.
 *[Game feel]: Hmatový dojem z ovládání: odezva, váha, šťavnatost interakcí. „Game feel je cheat code."
@@ -200,12 +211,14 @@
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hitch]: Jednotlivý výrazně dlouhý snímek — škubnutí, které průměrné FPS schová.
+*[Hit flash]: Krátké rozsvícení či zbarvení zasaženého jako potvrzení zásahu; výměnou materiálu nebo overlayem.
 *[Hit stop]: Krátké zamrznutí hry při zásahu (asi 1/20–1/10 s) — dodá útoku váhu a čitelnost.
 *[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
 *[Herní vlákno]: Vlákno s herní logikou, AI, fyzikou a blueprinty; v stat unit hodnota game.
 *[HLOD]: Sloučená náhrada za skupinu objektů v dálce; skrytá HLOD proxy může pořád vrhat stín.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
+*[Hurtbox]: Oblast, která zásah přijímá (protějšek hitboxu); menší než postava odpouští, vypnutá = nezranitelnost.
 *[Hydratace]: Přepnutí objektu z levné instance na plnohodnotného aktéra podle vzdálenosti — a zpátky.
 *[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
@@ -236,6 +249,7 @@
 *[Keep Triangle Percent]: Nanite: kolik procent zdrojových trojúhelníků se uloží; zbytek zmizí z balíčku.
 *[Keyboard ghosting]: Hardwarový limit klávesnice: u některých kombinací kláves jeden vstup nedorazí do hry.
 *[Klonování hlasu]: Model natrénovaný na tvém hlase, který přezpívá cizí výkon tvou barvou.
+*[Knockback]: Odhození zasaženého směrem od útoku; potvrzuje sílu rány (Launch Character, impulz).
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
 *[Kontrapunkt]: Skládání nezávislých melodií, které fungují zároveň; odděluje profíky od amatérů.
 *[Kumulativní výhoda]: Kdo je vidět, je víc vidět — úspěch se sám zesiluje bez ohledu na kvalitu.
@@ -277,6 +291,7 @@
 *[Markovův řetěz]: Stavy a pravděpodobnosti přechodů; memoryless — pro další krok stačí současný stav.
 *[Mass Entity]: ECS framework pro tisíce entit (davy, doprava) — City Sample i MetaHuman Crowd; entity nejsou actory.
 *[Material function]: Znovupoužitelný blok materiálové logiky; s material attributes I/O funguje jako vrstva.
+*[Material Instance]: Potomek materiálu, který mění jen vystavené parametry (barva, textura); graf zůstává u rodiče.
 *[Matice]: Lineární transformace: sloupce říkají, kam se přesunou osy; násobení = skládání transformací.
 *[MAYA]: Most Advanced Yet Acceptable — nejpokročilejší varianta, kterou publikum ještě přijme.
 *[McNamarův klam]: Co jde snadno změřit, se prohlásí za jediné důležité; metriky rostou, věc se prohrává.
@@ -307,6 +322,8 @@
 *[Multithreading]: Rozdělení práce na víc vláken, aby dlouhý výpočet neblokoval běh hry.
 *[MVP]: Minimum Viable Product: nejmenší verze doručující jádro hodnoty — jen core loop, dezert počká.
 *[Mód hry]: Struktura hraní přes sezení (roguelike, metroidvania) — neříká, co držíš v rukou.
+*[Nav Agent]: Profil (poloměr, výška), pro který se generují nav data; každý další agent = další sada dat.
+*[Navigation Query Filter]: Pravidla pro výpočet cesty: zvýhodní, zdraží nebo vyřadí oblasti a flagy navigace pro daný dotaz.
 *[N-gon]: Polygon s víc než čtyřmi hranami; na ploché ploše neškodný, na zakřivené zdroj chyb.
 *[N-key rollover]: Schopnost klávesnice nahlásit N současně stisknutých kláves; obrana proti ghostingu.
 *[Nanite]: Virtualizovaná geometrie UE5 — detail meshů se dynamicky přizpůsobuje kameře.
@@ -332,6 +349,7 @@
 *[Oscilátor]: Zdroj surového zvuku v synthu; tvar vlny (sinus/pila/obdélník) určuje barvu a alikvóty.
 *[Outer]: Objekt, ke kterému je UObject přivázaný — s ním žije a s ním ho uklidí garbage collector.
 *[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
+*[Overlay material]: Materiál vykreslený přes základní materiál meshe (slot Overlay Material); nevidí WPO pod sebou.
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
 *[Palette swap]: Barevná varianta spritu vyrobená přemapováním palety shaderem, ne překreslením.
@@ -384,6 +402,7 @@
 *[Předznamenání]: Kolik dob je v taktu a jaká nota je jedna doba (4/4, 3/4, 6/8).
 *[Půltón]: Nejmenší vzdálenost dvou sousedních tónů (E–F); stavební jednotka stupnic.
 *[PSO]: Pipeline state object; chybí-li, kompiluje se shader za běhu na CPU a hra sekne.
+*[Pure function]: Funkce bez exec pinů, která jen vrací hodnotu; počítá se znovu při každém čtení výstupu.
 *[Quad]: Čtyřúhelníková buňka mřížky meshe; jednotka rozlišení terénu.
 *[Quad utilization]: Podíl využité práce ve čtverci 2×2 pixely — jednotce, po které GPU plánuje pixel shader.
 *[Race condition]: Chyba pořadí inicializace: kód čte data, která jiný kód ještě nenastavil (BeginPlay actorů!).
@@ -432,6 +451,7 @@
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
 *[Sequencer]: Editor časových os v UE: cutscény, kamery, animace postav, render záběrů.
 *[Serif]: Patka na konci tahu písmene; nese historickou asociaci a mírně zpomaluje čtení.
+*[Set Timer by Event]: Časovač, který po zadané době (jednou či opakovaně) zavolá event; handle ho zastaví nebo změří.
 *[Shading bin]: Nanitová obdoba draw callu; vlastní bin chce každá materiálová instance, ~3 µs minimum.
 *[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
 *[Septakord]: Akord se septimou nad triádou; koření žánru, ne výchozí stav.
@@ -440,6 +460,7 @@
 *[Signal]: Zpráva, kterou node vyšle, aniž ví, kdo ji poslouchá — observer pattern zabudovaný do enginu.
 *[Signal-to-noise ratio]: Poměr užitečné informace k šumu; flow kanál je pásmo nejlepšího signálu pro učení.
 *[Significance handler]: Pravidlo, které u Niagary rozhodne, které instance přežijí strop počtu (vzdálenost nebo věk).
+*[Significance Manager]: Plugin, který objektům počítá význam (vzdálenost aj.); hra podle něj řídí LOD, tick a počet aktivních.
 *[Silueta]: Obrys tvaru — nosič identity a čitelnosti; v prostředí ji tvoří kontrast světla a stínu.
 *[Simulated annealing]: Optimalizace žíháním: nejdřív ochota k horším krokům, pak chladnutí k vylepšování.
 *[Single Layer Water]: Shading model vody (translucence, kaustika); stíny jen z directional lightu — jinak Default Lit.
@@ -453,6 +474,7 @@
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Socket]: Pojmenovaný bod na kosti nebo meshi, ke kterému se připínají jiné objekty.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
+*[Softlock]: Stav, kdy hra běží, ale nejde dohrát — hráč uvízl bez cesty dál (ztracený předmět, obejitá podmínka).
 *[Soft reference]: Odkaz jen s cestou k assetu; nic nenačte, dokud si o to hra neřekne (Async Load Asset).
 *[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
 *[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
@@ -474,6 +496,7 @@
 *[Streaming pool]: Vyhrazená VRAM pro streamované textury; zmenšuj ji, dokud engine nezačne hlásit přetečení.
 *[Stitching]: Experimentální MM technika: místo lineárního blendu najde animaci z pózy A do pózy B za daný čas.
 *[Strategy pattern]: Rodina zaměnitelných algoritmů za společným rozhraním místo if/else stromu.
+*[String pulling]: Zkrácení cesty na nejkratší přes nav polygony (funnel); body se přitáhnou k rohům.
 *[Strudel]: Prohlížečové prostředí pro live coding; JavaScriptová verze TidalCycles.
 *[Struct]: Pojmenovaná skupina proměnných, se kterou se zachází jako s jednou hodnotou.
 *[Stupnice]: Sada tónů daná vzorcem půltónů a celých tónů; durová a mollová pokryjí většinu.
@@ -512,6 +535,7 @@
 *[Tritón]: Interval uprostřed oktávy; symetrie na kruhu tónů znamená nestabilitu.
 *[Tónina]: Domovská stupnice skladby; v piano rollu scale highlighting schová „špatné" tóny.
 *[Tři C]: Character, camera, controls — co žánr definuje; v AAA samostatná designérská role.
+*[UMG]: Unreal Motion Graphics — systém UI v UE: widget blueprinty z panelů, tlačítek a textů.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
 *[Unreal Insights]: Profiler CPU strany snímku (herní a render vlákno); spouštěj ho dřív než hru.
 *[User story]: Popis funkce jako kroky uživatele: co vidí a dělá, ne jak je to naprogramované.
@@ -534,6 +558,10 @@
 *[Voice leading]: Vedení tónů tak, aby přechody mezi akordy byly co nejjemnější (vedení hlasů).
 *[Voicing]: Jak rozmístíš tóny akordu (pořadí, oktávy); otevřený voicing zní prostorněji.
 *[Volumetric fog]: Objemová mlha na height fogu — paprsky a atmosféra; kvalita přes GridPixelSize/GridSizeZ.
+*[Widget Blueprint]: Asset UMG, který spojuje vzhled widgetu (designer) s jeho logikou (graph).
+*[Widget Component]: Komponenta, která zobrazí UMG widget ve světě — na ploše (World), nebo nad aktérem ke kameře (Screen).
+*[Widget Interaction Component]: Virtuální myš pro widgety ve světě: paprsek, který Widget Componentě posílá najetí a klik.
+*[World Composition]: Starší systém UE 4 pro velké světy: sublevely v mřížce streamované podle vzdálenosti; předchůdce WP.
 *[WPO]: World Position Offset — posun vrcholů v materiálu; nejčastější tichá příčina drahých stínů.
 *[Water Body]: Actor Water pluginu (ocean/lake/river/island) tvarovaný splinami; řeka má rychlost proudu per point.
 *[Wave Function Collapse]: PCG: políčko jako superpozice dlaždic, kolaps dle pravidel sousedství — náhodné, a přitom soudržné.

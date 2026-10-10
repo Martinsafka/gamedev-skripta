@@ -15,6 +15,72 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-10 — Phase 13 dávka 50: souboj, UI ve světě a AI nepřátel (Claude Code, Opus 5.5)
+
+**What:** 7 videí (~55k slov) + odložený úsek `xr-2TrMUd9w` o in-world widgetech z dávky 48 → **3 nové kapitoly / 18 myšlenek**:
+- `praxe/souboj.md` (10): dvě komponenty místo bojové postavy · combo okna z notify state a stav, který se musí vrátit · útok za běhu s křivkou BlendOff · hitbox podle poctivosti animace (impact frame vs. active frames) · damage jednou za útok · terč (směr, zdraví, ragdoll) · hit stop per aktér · pět potvrzení rány · záblesk a kapow přes overlay a custom stencil · zdraví po končetinách.
+- `praxe/ui-ve-svete.md` (3): menu v televizi s virtuální myší · health bar nad hlavou · dvě ceny stovky widgetů.
+- `praxe/ai-ve-velkem.md` (5): jeden nav mesh pro všechny velikosti · offset cesty pro velké tělo · strom jen rozhoduje, nepřítel v datech · reakce vedle stromu · aggro a bojové role.
+- `praxe/pasti-a-mechaniky.md` +2 (stavebnice hádanky · barel, který teče); H1 i nav → „Pasti, hádanky a arénové mechaniky", úvod přepsán.
+
+Nav: nové téma **„UI a rozhraní"**, Souboj pod Herními systémy, AI ve velkém pod AI. Dohnáno schválené přejmenování „Animace: nástroje, interakce a cutscény" (patřilo do dávky 49, kde se opomnělo). `praxe/index.md` doplněn včetně nové sekce. Rejstřík 550 → **578**: 28 nových (Active frames, Aggro, Apply Damage, Blend Poses by Bool, Cached pose, Custom Depth, Custom Time Dilation, Delegate, Diegetic UI, Enum, Fresnel, Hit flash, Hurtbox, Knockback, Material Instance, Nav Agent, Navigation Query Filter, Overlay material, Pure function, Set Timer by Event, Significance Manager, Softlock, String pulling, UMG, Widget Blueprint, Widget Component, Widget Interaction Component, World Composition), 43 rozšířeno, z toho 13 o odstavec. 15 backlinků. `content_gaps.md`: řádek UI a UMG (P1) aktualizován. Chapter map 810 řádků.
+
+**Why:** Čtvrtá dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 50").
+
+**How:**
+- **Řazení podle otázek, ne podle videa:** Evans Bohl (3,8 h, čteno celé) má přes dvacet sekcí v pořadí stavby. Kapitola je skládá do otázek, na které musí odpovědět každý soubojový systém: kde logika bydlí, kdy smí útok navázat, co zasáhne a kolikrát, jak terč zareaguje, čím se rána prodá. Unreal University (8 min, tenký zdroj) netvoří samostatný návod, ale rámec „pět potvrzení", do kterého jde Evansův camera shake.
+- **Odchylky od tabulky dávky:**
+  - Evans krom health baru dal do `ui-ve-svete` i trik s dispatcherem, který ruší tick.
+  - Unreal University přidala do health baru dojezdový pruh.
+  - `pasti-a-mechaniky` dostala nový titulek, protože „arénové mechaniky" už nepokrývají hádanky.
+- **Napětí rozehraná v Pozn.:**
+  - Evansovy délky hit stopu (čtvrt a půl sekundy) proti pásmu 1/20–1/10 s z godotové případovky; Evans sám navrhuje škálovat podle síly úderu.
+  - Seznam zasažených na útoku proti nezranitelnosti na postavě u pastí (různé zdroje opakování).
+  - Přesný vs. velkorysý hitbox.
+  - Evansova zdravotní komponenta, která sama ragdolluje a ničí, proti „ohlašující" komponentě z Principů architektury.
+  - Interface jako „vysílání" v Epicově přehledu proti našim komunikačním kanálům.
+  - Rubber banding ve významu vodítka nepřítele (rejstřík zná jen catch-up).
+- **Naše vlastní technické poznámky (vždy v Pozn., označené):**
+  - Směr zásahu ve 3D: svislá složka pošle ránu do hlavy zepředu do boční větve, proto Z vynulovat.
+  - Výstup On Interrupted u `Play Montage`.
+  - Cena custom depth (odkaz na gpu-pruchod).
+  - Rychlé blikání jako otázka přístupnosti.
+  - Redraw Time a dispatcher šetří různé ceny.
+- **Kontrola přesnosti po napsání** našla 12 formulací, všechny opravené:
+  - Crunchův úder levou rukou má dva sockety, ne jednu kost.
+  - Trup „míří k zemi" → je „trochu skloněný".
+  - Třes „zmizí" → „skoro zmizí".
+  - Unreal University mluví o hře, ne o souboji.
+  - Bílý pruh „pod" ukazatelem nemá oporu.
+  - Sprite se „napůl schová" → „občas se zařízne".
+  - Důsledek pass-by-reference přeformulován blíž řečenému.
+  - „Pokoj svítí menu" → „televize".
+  - „Tři zdroje, tři cesty" → „různé cesty".
+  - Výška ukazatele nad kapslí upřesněna.
+  - „Zvládá se tím, co se nepočítá" zmírněno (multithreading je taky část).
+  - Termín „sobecká komponenta" patří do godotové kompozice, ne do Principů architektury.
+- **Garble-fixy z auto titulků:**
+  - heat → hit · ragd doll → ragdoll · IIA → IA · Evan/oven graph → Event Graph · length anim graph → Linked Anim Graph · animage → anim montage · cury → Query
+  - Masayo Sakay / Masah Sakurai → Masahiro Sakurai · comics zone → Comix Zone · plin noise → Perlin · frenel → Fresnel · Michelang → Michelin
+  - Wukcom/Wongong → Wukong · ramp page/homepage/BPM page → Rampage · „falls through the roof" = podlaha
+  - Take Control Games → Tank Control Games · Hman → Houman · wrecked light → rect light
+  - CA games → CI Games · stream pooling → string pulling · pick aggregation → tick aggregation
+  - „0.5 seconds of world tick" = ms (při 200 FPS jinak nedává smysl).
+  - Jméno kanálu „Unreal University " má v info.json mezeru na konci, oříznuto.
+- **Rejstřík:**
+  - „Diegetic UI" anglicky podle konvence.
+  - Samostatné heslo pro anim slot nevzniklo; slot vysvětluje rozšířené heslo Anim montage.
+  - Significance Manager je zvlášť od niagarového Significance handler.
+  - Rubber banding dostal odstavec o druhém významu.
+- **Časové odkazy:** všech 453 v nových textech ověřeno skriptem proti blokům přepisu (label = t a blok existuje).
+
+**Follow-ups:**
+1. Další v pořadí je dávka 51 (fyzika a GASP 5.8). `6NYC4ryO9ik` má úsek o multi-character interakcích → backlink do `interakcni-animace` (z dávky 49). Physics control a aktivní ragdoll → `ragdoll`.
+2. Dávka 52: prostřelené barely ze 007 (`T4JStuqxUPI`) jsou AAA protějšek k „Barel, který teče" → backlink do `pasti-a-mechaniky`.
+3. Dávka 56: Cyberpunk `G_te2IkVVi4` má podle plánu dát backlink do `ui-ve-svete`.
+4. `souboj.md` má 10 myšlenek a ~5 500 slov. Další bojový materiál (dash, root motion útoků, parry, lock-on) patří spíš do druhé kapitoly.
+5. Jádro UMG (layout, fokus, gamepad, Common UI) dál chybí; `ui-ve-svete` je jen okraj tématu. P1 v content_gaps platí.
+
 ### 2026-10-10 — Phase 13 dávka 49: animace — interakce, cutscény, rigging a mocap (Claude Code, Opus 5.5)
 
 **What:** 12 videí (~46k slov) + jedna věta ze skipu `ol5nY6P4jlg` → **2 nové kapitoly / 10 myšlenek**: `praxe/interakcni-animace.md` (8: data interakce patří k věci · motion warping potřebuje krok v animaci · IK ruky v Control Rigu, převod prostoru a alfa z křivky · normalizované křivky v montáži · grip pointy a pózy ruky · attach není snap a dosah není dohled · Contextual Animation · zápas se sekcemi montáže) a `praxe/cutsceny.md` (2: cutscéna, která vrátí hru tam, kde skončila · finisher přehraný kolem hráče). **+ 3 myšlenky do stávajících** (`animace-nastroje`: sekundární pohyb v Control Rigu — dynamics, fyzika jako vrstva, AutoBake · rig, který se přenese — DMC, moduly, Dataflow, shot correctives; `metahuman`: MetaHuman jako standard). **+ 2 prohloubení** v `animace-nastroje`: markerless mocap přepsaný kolem oficiálního 51min dema (checklist záznamu, pády při Process, Existing Skeleton, aditivní dočištění, hranice) a přednášky o Meshcapade; pistole s baterkou jako druhý zdroj v řemesle první osoby. Úvody `animace-nastroje` a `metahuman` obnovené, nav (obě nové kapitoly pod „Animace: nástroje a mocap"), rozcestník Praxe. Rejstřík 521 → **550** (Animation curve, Attachment rules, AutoBake, Blueprint Macro, Camera shake, Construction Script, Contextual Animation, Control Rig Dynamics, Control Rotation, Dataflow, Direct Mesh Controls, Do Once, Global Time Dilation, IK, Inertialization, Level Sequence, Markerless mocap, Mesh to MetaHuman, MetaHuman Animator, MetaHuman Collection, Montage section, Morph target, Player Camera Manager, Pole vector, Pose Asset, RigLogic, Scene Component, Sequencer, Socket), 21 hesel rozšířeno (4 o odstavec: Motion Warping, Anim montage, Control Rig, MetaHuman), 13 zpětných odkazů, processing index, roadmapa, chapter map (778).

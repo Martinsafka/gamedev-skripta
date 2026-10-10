@@ -20,7 +20,7 @@ State Tree je Epicem preferovaný nástupce behavior tree — a tahle kapitola n
 
 > **Pozn.:** Interface na patrol path je stejný vzor jako v [komunikaci Blueprintů](komunikace-blueprintu.md) — task potřebuje data, ale nemá znát třídu; kontrakt místo castu. Drobný hack z videa: default ABP_Manny po nav mesh „klouzal", autor to vyřešil odstraněním idle stavu z locomotion [(12:51)](https://www.youtube.com/watch?v=UuqKC0AgeXU&t=771s) — čistší řešení je `Use Acceleration for Paths` ze [základů AI](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard).
 
-**Souvislosti:** [GASP: NPC a smart objects](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Rejstřík: State Tree](../rejstrik.md#state-tree) · [Rejstřík: spline](../rejstrik.md#spline) · [Rejstřík: AI Controller](../rejstrik.md#ai-controller)
+**Souvislosti:** [GASP: NPC a smart objects](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Rejstřík: State Tree](../rejstrik.md#state-tree) · [Rejstřík: spline](../rejstrik.md#spline) · [Rejstřík: AI Controller](../rejstrik.md#ai-controller) · [Reakce vedle stromu](ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve) *(state trees jako reakce v Lords of the Fallen 2)*
 
 ---
 

@@ -38,13 +38,21 @@ Hodí se, když se rozhoduješ mezi dvěma hodnotami jednoho nastavení a nechce
 
 Kde se s tím potkáš: [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Profiling: reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic)
 
+### Active frames
+
+**Snímky útoku, ve kterých útok opravdu zraňuje — mezi nápřahem (startup) a zotavením (recovery).**
+
+Termín z bojovek. V UE se dají vyjádřit notify statem přes tyto snímky: jeho Received Notify Tick běží v každém snímku okna a táhne hitbox, třeba kouli mezi dvěma sockety zbraně. Jeden útok může mít víc oken s různými parametry (obě ruce, silnější špička čepele). Opakem je jediný impact frame, kdy zásah padne na jeden snímek.
+
+Kde se s tím potkáš: [Hitbox podle poctivosti animace](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Rejstřík: Frame data](#frame-data)
+
 ### Actor Component
 
 **Znovupoužitelný díl chování, který se připne k libovolnému aktérovi — schopnost bez identity.**
 
 Nemá vlastní reprezentaci ve světě (na rozdíl od scene komponent); nese logiku a data. Klíčové pravidlo: komponenta nikdy nepředpokládá, kdo ji používá — smrt, zásah nebo dokončení jen oznamuje dispatcherem a nechá vlastníka reagovat po svém. Skládání komponent je v UE náhrada za hlubokou dědičnost.
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md#komponenty-misto-dedicnosti-skladej-misto-vetveni) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Dvě komponenty: útočník a terč](praxe/souboj.md#dve-komponenty-misto-bojove-postavy-utocnik-a-terc)
 
 ### ADSR
 
@@ -61,6 +69,14 @@ Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md) · [Sou
 Pojem z designové psychologie (Gibson, Norman): klika říká „stiskni", římsa říká „vylez". V level designu se affordances vyrábějí světlem, kompozicí a kontrastem — tajná odbočka musí *vypadat* zajímavě a interaktivně, jinak ji hráč mine. Zrádné jsou falešné affordances: co vypadá průchozí a není, rozbíjí důvěru (viz invisible wall).
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Vedení hráče](teorie/vedeni-hrace.md)
+
+### Aggro
+
+**Míra, jak moc chce nepřítel útočit na konkrétní cíl — skóre, podle kterého si vybírá mezi hráči.**
+
+V Lords of the Fallen ho skládají čtyři složky: blízkost, poškození, které cíl nepříteli vytrvale dává, umělé aggro (aby nepřítel zůstal u jednoho hráče) a skóre přepnutí, které brání přeskakování mezi cíli. Některé složky s časem klesají podle křivek. Kdo nepřítele občas trefí, neodláká ho; kdo útočí soustavně, ano.
+
+Kde se s tím potkáš: [Kdo útočí a kdo čeká](praxe/ai-ve-velkem.md#kdo-utoci-a-kdo-ceka-aggro-skore-a-bojove-role) · [Rejstřík: Utility AI](#utility-ai)
 
 ### AI Controller
 
@@ -124,7 +140,7 @@ Kde se s tím potkáš: [Nápad: hook, anchor, appeal](teorie/napad.md) · [Stea
 
 Nezaměňovat s [anchorem z marketingu](#anchor-marketing). Řeší jediný problém — layout, který přežije jiné rozlišení. Kotva 0,5 je střed a zůstane středem, protože počet pixelů přestal hrát roli. Doplňují ji **offsety** v pixelech měřené od kotvy (pravý a dolní musí být záporné, mají-li být uvnitř). Nejčastější nedorozumění: **kotvy jsou relativní k rodičovskému nodu, ne k oknu** — kořen je výjimka jen proto, že rodiče nemá. Dítě kontejneru kotvy nemá vůbec; místo nich má container sizing options.
 
-Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-layout-ktery-prezije-jine-rozliseni)
+Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-layout-ktery-prezije-jine-rozliseni) · [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys)
 
 ### Animation curve
 
@@ -132,7 +148,7 @@ Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-la
 
 Typické použití: alfa IK ruky, která se zapne jen ve chvíli úchopu, úhel dveří nebo kliky sladěný s rukou, váha pózy prstů. Hodnoty se vyplatí ukládat normalizované (0–1) a maximem násobit až v kódu — změna maxima pak neznamená přepisovat animace. Po skončení montáže křivka čte nulu, takže trvalý stav světa (otevřené dveře) je potřeba podržet zvlášť. Křivkami se dá i upravit animace samotná přímo v editoru: posunout kost a uložit klíč.
 
-Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby)
+Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Křivka BlendOff v útoku](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
 
 ### Anim montage
 
@@ -142,7 +158,9 @@ Nad Motion Matchingem je montáž základ combatu: spodní tělo matchuje locomo
 
 Montáž se dělí na [sekce](#montage-section), mezi kterými lze za běhu přepínat, a nese [křivky](#animation-curve), které řídí věci jedoucí v jejím rytmu (úhel dveří, alfa IK, póza prstů).
 
-Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md) · [Zápas se smyčkou: sekce](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Animace řídí svět: křivky v montáži](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi)
+Do výsledné pózy se montáž dostane jen přes uzel `Slot` v AnimBP; sekvence sama přes slot neprojde. Svižný útok chce blend in 0 a blend out kolem 0,2 s. Pozor na `Play Montage`: spuštění nové montáže zastaví ostatní a přerušená montáž nedoběhne do On Completed (přijde On Interrupted).
+
+Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md) · [Zápas se smyčkou: sekce](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Animace řídí svět: křivky v montáži](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Útok je časová osa](praxe/souboj.md#utok-je-casova-osa-montaz-okna-z-notify-a-stav-ktery-se-musi-vratit) · [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
 
 ### Animation cancel
 
@@ -158,7 +176,9 @@ Kde se s tím potkáš: [Útočit v pohybu, nebo se zastavit](godot/pripadovka-p
 
 Vestavěné (Play Sound) i vlastní blueprint třídy (override Receive Notify) s instance editable parametry — notify pak nese data (která noha, který moment hodu). Notify state je varianta s trváním (od–do framu): motion warping okna, Pose Search Branch In. Pozor v blend space: Notify Trigger Mode default spouští jen nejváženější animaci.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Jedna animace zvednutí: notify OnGrab](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Zápas se smyčkou](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace)
+Vlastní notify state z `AnimNotify_PlayMontageNotifyWindow` udělá z okna comba nebo z active frames značku v timeline, kterou kód poslouchá přes On Notify Begin/End uzlu `Play Montage`. Jména se párují přes `Switch on Name` a musí sedět přesně.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Jedna animace zvednutí: notify OnGrab](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Zápas se smyčkou](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Okna comba z notify state](praxe/souboj.md#utok-je-casova-osa-montaz-okna-z-notify-a-stav-ktery-se-musi-vratit) · [Hitbox: impact frame a active frames](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames)
 
 ### Apofenie
 
@@ -167,6 +187,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](
 Dej hráči reprezentace, postavy a situace, a příběh si složí v hlavě sám (model, na kterém stojí RimWorld). Pro designéra to znamená, že narativ nemusí být autorský text: stačí systémy, jejichž srážky stojí za převyprávění.
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Příběh a postavy](teorie/pribeh-a-postavy.md)
+
+### Apply Damage
+
+**Vestavěný systém poškození v UE: útočník zavolá `Apply Damage` (nebo `Apply Point Damage`), terč dostane `Event Any Damage` (nebo `Event Point Damage`).**
+
+Terč musí mít v Class Defaults zapnuté `Can Be Damaged`; jeho vypnutím se dá dočasně udělat nezranitelným. Point Damage nese i hit result, takže terč ví, kam rána dopadla, a může spočítat směr reakce. Komponenta, která vlastní event nemá, se přihlásí k delegátu vlastníka `OnTakePointDamage`. Kolikrát smí jeden útok zasáhnout tentýž cíl, musí hlídat útok sám.
+
+Kde se s tím potkáš: [Damage jednou za útok](praxe/souboj.md#damage-jednou-za-utok-seznam-zasazenych-patri-utoku-ne-terci) · [Terč: směr rány](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) · [Kostra pasti](praxe/pasti-a-mechaniky.md#kostra-pasti-a-tri-variace-bodaky-rameno-rotor) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
 
 ### Arrangement
 
@@ -272,6 +300,14 @@ Zdejší podoba singletonu: v nastavení projektu zaregistruješ scénu a Godot 
 
 Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni-hra.md#animationplayer-jako-casovac-sekvence-bez-jedineho-radku-kodu) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
 
+### Blend Poses by Bool
+
+**Anim uzel, který podle boolu přepíná mezi dvěma pózami — „if" v anim grafu.**
+
+Klasicky rozhoduje, jestli se útok vrství přes locomotion (v pohybu), nebo hraje celé tělo (ve stoje), případně jestli postava právě útočí (`IsAttacking`). Podmínka se dá skládat z víc vstupů: pohyb, vzduch, hodnota křivky z animace.
+
+Kde se s tím potkáš: [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Combat nad MM](praxe/mm-systemy.md#combat-nad-mm-horni-telo-v-montazi-spodni-v-matchingu)
+
 ### Blueprint Debugger
 
 **Ladění blueprintů přímo v editoru za běhu hry: breakpointy, sledované hodnoty a zastavení při chybě.**
@@ -342,7 +378,7 @@ Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 
 Strom běží na AI controlleru a čte sdílenou tabuli (Blackboard); decoratory hlídají podmínky a s „observer aborts" přerušují běžící větve při změně dat. Vlastní tasky se píší v blueprintu (Receive Execute AI → Finish Execute). Pro nové projekty Epic tlačí State Trees — koncepty se ale přenášejí.
 
-Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny)
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Strom jen rozhoduje](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Reakce vedle stromu](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve)
 
 ### Beta
 
@@ -414,7 +450,7 @@ Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Ukládání]
 
 Volající posílá zprávu (message call) na libovolný actor; pokud actor interface implementuje, zareaguje vlastní logikou, pokud ne, nestane se nic — žádný pád, žádná závislost. Je to enginová podoba principu „programuj proti rozhraní": character nemusí znát třídu dveří, truhly ani panelu, stačí mu smlouva „umíš interagovat?". Přidání nového typu interaktivního objektu pak neznamená žádnou změnu ve volajícím.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
 
 ### Boids
 
@@ -488,6 +524,14 @@ Ladí se délka, počet segmentů (hladkost), tuhost, šířka a počet stran re
 
 Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md)
 
+### Cached pose
+
+**Póza z anim grafu uložená pod jménem (`Save Cached Pose`), kterou jde použít na víc místech (`Use Cached Pose`).**
+
+Výstup uzlu v anim grafu jde zapojit jen do jednoho vstupu. Kdo potřebuje tutéž locomotion jako základ vrstvy i jako samostatnou větev, uloží ji do cache. Typické je to u vrstvení útoku přes Layered Blend Per Bone, kde se locomotion i póza se slotem rozvádějí do několika uzlů.
+
+Kde se s tím potkáš: [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Rejstřík: Layered Blend Per Bone](#layered-blend-per-bone)
+
 ### Cache miss
 
 **Procesor potřebuje data, která nemá v cache, a čeká na hlavní paměť — ve hrách častější brzda než samotné výpočty.**
@@ -518,7 +562,9 @@ Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-
 
 Starší „legacy" camera shake blueprint nastavuje oscilaci rotace (pitch, yaw, roll) třeba Perlinovým šumem. V sequenceru délku otřesu určuje sekce stopy, ne oscillation duration. Otřes patří jen na okamžik dopadu; přes celou animaci by byl k nevydržení — stejná střídmost jako u ostatního [juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku).
 
-Kde se s tím potkáš: [Finisher bez střihu](praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) · [Rejstřík: Player Camera Manager](#player-camera-manager)
+Pro dopad zásahu: Camera Shake Base s patternem Perlin noise, krátké trvání (kolem 0,2 s), blend in 0 a krátký blend out, spuštěný přes Player Camera Manager spolu s hit stopem.
+
+Kde se s tím potkáš: [Finisher bez střihu](praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) · [Rejstřík: Player Camera Manager](#player-camera-manager) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
 
 ### Capsule
 
@@ -794,6 +840,14 @@ Rozhoduje se podle toho, které číslo v `stat unit` se blíží k `frame`: **g
 
 Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno)
 
+### Custom Depth
+
+**Zvláštní průchod hloubky, do kterého kreslí jen vybrané meshe (`Render CustomDepth Pass`), volitelně se stencil číslem pro rozlišení skupin.**
+
+Zapíná se v Project Settings (Custom Depth-Stencil Pass, varianta Enabled with Stencil) a na meshi; materiál ho čte přes `SceneTexture` (CustomDepth, CustomStencil). Slouží na obrysy, zvýraznění i triky typu „efekt nad zasaženým, ale pod útočníkem": stencil řekne, kde postava je, a porovnání se scene depth, jestli je opravdu vidět. Zadarmo není — průchod stojí výkon, i když ho už nic nepotřebuje.
+
+Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Profilovat cizí hru](praxe/gpu-pruchod.md#profilovat-cizi-hru-priprava-ktera-rozhoduje)
+
 ### Custom resource
 
 **Vlastní datový typ uložený jako soubor: `extends Resource` + `class_name`, hodnoty přes `@export`, instance jako `.tres`.**
@@ -801,6 +855,14 @@ Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-stro
 Godotí obdoba Unity ScriptableObjectu a příbuzný unrealího [Data assetu](#data-asset). Řeší jediný problém: **balancovat hru bez otevírání skriptů**. Struktura se napíše jednou, každá varianta je pak nový soubor s jinými čísly a skript se už nemusí měnit. Pravidlo, které se vyplatí držet: **resource popisuje, co ta věc je; skript řídí, co ta věc dělá** — logika do resourcu nepatří. Pozor na to, že resources jsou **ve výchozím stavu sdílené**: zápis do jednoho se projeví všude, kde je použitý (řeší `duplicate()`).
 
 Kde se s tím potkáš: [Resource: data mimo kód](godot/resources.md) · [Strategy jako vyměnitelný resource](godot/stavy-a-vzory.md#strategy-chovani-jako-vymenitelny-resource)
+
+### Custom Time Dilation
+
+**Násobitel času jednoho aktéra (`Set Custom Time Dilation`) — 0 ho zmrazí, 1 vrátí normální rychlost, zbytek hry běží dál.**
+
+Na rozdíl od [Global Time Dilation](#global-time-dilation) zpomaluje jen toho, komu se nastaví. Při hit stopu tak jde zasaženého úplně zastavit a útočníka jen zpomalit. S aktérem se zpomalí jeho tick i animace; časovače světa (Set Timer by Event) běží normálně, takže jimi jde délku zmrazení odměřit.
+
+Kde se s tím potkáš: [Hit stop: zastav oba, ale každého jinak](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak) · [Rejstřík: Hit stop](#hit-stop)
 
 ### Cyklus napětí
 
@@ -848,7 +910,7 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 
 V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blueprinty je čtou. Odděluje „co" od „jak" — stejná logika, jiná data, jiné chování. Mesh Terrain v data assetu (Mesh Partition Definition) drží materiál, texel size a definice channels.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
 
 ### Data layer
 
@@ -872,7 +934,7 @@ Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md)
 
 Damage, animace, zvuky ani cooldowny nepatří natvrdo do grafu — patří do data assetu, který ability/systém čte. Fragmenty (malé datové objekty pro volitelné části: animace, VFX, damage) řeší, že ne každá entita potřebuje všechno. Odměna: designér vytvoří novou ability výměnou dat, bez zásahu do logiky. UE Gameplay Ability System je tenhle princip dotažený do konce.
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset) · [Neplést s data-oriented design](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset) · [Neplést s data-oriented design](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
 
 ### Data validation
 
@@ -897,6 +959,14 @@ Kde se s tím potkáš: [Zdarma a rychle: nástroje a game jam](hudba/nastroje-z
 `Spawn Decal at Location` s velikostí a rotací; materiál v režimu deferred decal (translucent). Umístění: bod dopadu + normála × malý offset proti z-fightingu; rotace z normály povrchu, ať decal „leží". S dynamic material instancí jde per decal řídit texturu, barvu i fade-out v čase.
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+
+### Delegate
+
+**Seznam odběratelů, kterým objekt pošle zprávu, když se něco stane — v Blueprintu se mu říká event dispatcher.**
+
+Engine má vlastní delegáty, ke kterým se dá přihlásit zvenčí: `Landed` u Characteru (dopad na zem), `OnTakePointDamage` u aktéra. Komponenta se k nim přihlásí přes `Bind`/`Assign` a nemusí čekat, až jí vlastník zavolá. Dokud nikdo neodebírá, rozeslání skoro nic nestojí, takže přihlášením a odhlášením jde zapínat i logiku v ticku.
+
+Kde se s tím potkáš: [Dvě komponenty: útočník a terč](praxe/souboj.md#dve-komponenty-misto-bojove-postavy-utocnik-a-terc) · [Útok je časová osa](praxe/souboj.md#utok-je-casova-osa-montaz-okna-z-notify-a-stav-ktery-se-musi-vratit) · [Sto health barů](praxe/ui-ve-svete.md#sto-health-baru-logika-na-ticku-a-prekresleni-jsou-dve-ruzne-ceny) · [Rejstřík: Event dispatcher](#event-dispatcher)
 
 ### Delta time
 
@@ -961,6 +1031,14 @@ Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-sn
 Dvě funkční podoby: showcase (rozbor jedné feature: proč → proces → výsledek → limity) a story (příběh vývoje, včetně slepých uliček); nejlepší devlogy obojí mísí. Klíč ke kvalitě je scénář — psaný nahlas, ne jako sloh — a hra na obrazovce po celou dobu. Devlog není povinnost: dělá se, když tě baví videa, ne pro automatické wishlisty.
 
 Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Zápisky: devlog jako mapa](zapisky/devlog-jako-mapa.md) *(devlog jako interní nástroj, ne marketing)*
+
+### Diegetic UI
+
+**Rozhraní, které je součástí herního světa a existuje i pro postavy v něm — obrazovka televize, displej na zbrani, mapa v ruce.**
+
+Opakem je klasické UI přes obrazovku. Diegetické menu prodlouží imerzi až do menu a hororu dá atmosféru od první minuty. Cenou je ovládání: paprsek z virtuální myši, kolize, které mu stojí v cestě, a navigace gamepadem, kterou je potřeba vyřešit zvlášť. V UE stojí na [Widget Component](#widget-component) a [Widget Interaction Component](#widget-interaction-component).
+
+Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys) · [Imerze](teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida)
 
 ### Direct Mesh Controls
 
@@ -1032,7 +1110,7 @@ Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe
 
 Nejlevnější odpověď na otázku „jak moc se dva směry shodují": pár násobení a součtů, žádná goniometrie za běhu. Stojí na něm osvětlení (L·N), zorná pole AI (porovnej dot s cos poloviny FOV) i rozhodnutí „je cíl přede mnou, nebo za mnou" (znaménko).
 
-Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md) · [AI vnímání](praxe/ai-vnimani.md) · [Výběr grip pointu](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky)
+Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md) · [AI vnímání](praxe/ai-vnimani.md) · [Výběr grip pointu](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Terč: směr rány](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave)
 
 ### Draw call
 
@@ -1048,7 +1126,7 @@ Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
 Scalar/vector/texture parametry pojmenované v materiálu se nastavují uzly Set Parameter Value — jména musí sedět do písmene. Základ všeho, co se vizuálně mění za hry: slábnoucí stopy, zabarvení zásahu, progres přebíjení. MID žije per objekt — změna jedné instance neovlivní ostatní.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Health bar z materiálu](praxe/ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) · [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
 
 ### Dynamic resolution
 
@@ -1130,6 +1208,14 @@ Kombinace selhává dvěma způsoby: redundancí („The Walking Dead meets Day 
 
 Kde se s tím potkáš: [GDD: Monaco](teorie/gdd.md) · [Nápad](teorie/napad.md)
 
+### Enum
+
+**Datový typ s pevným seznamem pojmenovaných hodnot — směr zásahu, druh klíče, končetina.**
+
+V Blueprintu se zakládá jako samostatný asset (Enumeration) a používá se v `Switch on`, v `Select` nebo jako klíč mapy. Proti stringu má výhodu, že se nedá napsat špatně a editor nabídne rozbalovací seznam; proti boolu, že unese víc než dva stavy. Hodnota „none" se vyplatí tam, kde systém někdy odpověď nemá.
+
+Kde se s tím potkáš: [Terč: směr rány](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [Směrové hit reakce](praxe/mm-systemy.md#smerove-hit-reakce-dot-product-rozhodne-odkud-chooser-vybere-co)
+
 ### Environmental storytelling
 
 **Vyprávění prostorem: rozmístění objektů říká, co se tu stalo, dřív než padne jediné slovo.**
@@ -1208,7 +1294,9 @@ Kde se s tím potkáš: [Event bus](godot/signaly.md#event-bus-kdyz-se-systemy-n
 
 Deklaruje se na vysílači; posluchači se bindují (typicky na BeginPlay) a dodávají vlastní custom event. Umí parametry, unbind i více posluchačů najednou — a obrací závislost: vysílač o posluchačích neví. Použití: „stalo se X, koho to zajímá" (dveře otevřeny, cooldown skončil, aktivita zaznamenána). Pozor na race conditions při bindování v BeginPlay — pořadí inicializace actorů není zaručené.
 
-Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Principy architektury](praxe/principy-architektury.md) · [Telemetrie](praxe/telemetrie.md)
+Dispatcher, který nikdo neodebírá, se rozešle skoro zadarmo. Logiku v ticku proto jde zapínat a vypínat přihlášením a odhlášením (dojezd health baru jen po dobu pohybu).
+
+Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Principy architektury](praxe/principy-architektury.md) · [Telemetrie](praxe/telemetrie.md) · [Sto health barů: odběr jen po dobu pohybu](praxe/ui-ve-svete.md#sto-health-baru-logika-na-ticku-a-prekresleni-jsou-dve-ruzne-ceny)
 
 ### Event Tick
 
@@ -1216,7 +1304,7 @@ Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md)
 
 Kód v Ticku běží 60× i vícekrát za vteřinu, ať se děje cokoli — je to polling: neustálé kladení otázky, jejíž odpověď se většinou nemění. Občas je nutný (plynulý pohyb, interpolace), ale většina herní logiky patří do eventů, timerů a delegátů, které se spouštějí při změnách. „Dostaň to z Ticku" je jedna z nejčastějších optimalizačních rad v UE — a hlavně rada architektonická.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Sto health barů](praxe/ui-ve-svete.md#sto-health-baru-logika-na-ticku-a-prekresleni-jsou-dve-ruzne-ceny) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo)
 
 ### Export template
 
@@ -1328,7 +1416,7 @@ Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md) · [Ar
 
 Slovník bojovek, použitelný v každé akční hře. Ke každému aktivnímu snímku se dají navěsit vlastnosti — poškození, síla odhozu, [hit stop](#hit-stop), otřes obrazovky, stavové efekty — a protože jeden snímek animace může mít víc [hitboxů](#hitbox), dá se útok rozřezat na části s různým chováním (odhoz jen na chodidlech, jed jen na špičce biče). Kritická podmínka při stavbě: **časování musí mít jediný zdroj pravdy**, typicky animaci samotnou — data ve dvou místech se při první úpravě animace rozejdou.
 
-Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis)
+Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Active frames v UE](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames)
 
 ### FM syntéza
 
@@ -1355,6 +1443,14 @@ Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy
 60 FPS znamená **16,6 ms na všechno dohromady**; 30 FPS je 33,3 ms. Výhoda oproti FPS je v tom, že se frame time **sčítá lineárně**: ušetříš-li 2 ms, víš přesně, kolik ti zbylo. FPS se chová nelineárně (z 200 na 100 FPS je 5 ms, ze 40 na 30 je 8 ms). Měření vyžaduje **vypnutý VSync a nenastavený strop FPS** — jinak engine čeká na monitor a měříš čekání místo práce.
 
 Kde se s tím potkáš: [Kolik nodů je moc](godot/kompozice.md#kolik-nodu-je-moc-zmereno) · [Co skutečně stojí výkon](godot/projekt-a-vykon.md#co-skutecne-stoji-vykon-ne-nody-ale-co-v-nich-bezi-kazdy-snimek)
+
+### Fresnel
+
+**Materiálový uzel, jehož hodnota roste k obrysu objektu z pohledu kamery — 0 tam, kde plocha míří ke kameře, k 1 na okraji.**
+
+Používá se na obrysové světlo (rim light), na záblesk zásahu jen po kraji postavy nebo na hrany skla. Exponent (power) a násobič ladí, jak úzký a jasný obrys bude.
+
+Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
 
 ### FX budget
 
@@ -1386,7 +1482,9 @@ Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nerea
 
 Atribut (rychlost, zdraví) se nemění přepsáním čísla, ale **gameplay efektem** s modifikátory, které jdou zase odebrat — dočasné vlivy se tak nemohou „slít" do základu (příklad, kdy prosté sčítání skončí na 400 místo 500, je v kapitole o statech). Efekt navíc mapuje hodnotu na atribut v datech, ne v kódu. Stojí na něm Lyra; principy, ze kterých vychází (separace, data, komponenty), jsou tytéž jako v Principech architektury.
 
-Kde se s tím potkáš: [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni) · [Použití jako seznam akcí](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Tři principy škálovatelnosti](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data)
+I AI může jednat přes abilitu: úloha behavior tree jen rozhodne a předá abilitě data (chůze nebo běh, animace přes tag); abilita akci provede a stromu ohlásí konec.
+
+Kde se s tím potkáš: [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni) · [Použití jako seznam akcí](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Tři principy škálovatelnosti](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [AI: akce v gameplay abilitách](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
 
 ### Gauntlet
 
@@ -1450,7 +1548,7 @@ Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md)
 
 Tag v containeru = true; síla je v hierarchii: dotaz na rodiče (`Status.MovementBlocked`) matchuje všechny potomky, takže nová schopnost blokující pohyb = nový sub-tag, nula změn v podmínkách. Spravují se v Gameplay Tag Manageru (soubory .ini, v týmu dělit podle domén). Pasti: struct z funkce je kopie (Add/Remove jen na skutečné proměnné) a ref counting (dva ohně, jeden tag). V GAS jsou tagy lepidlem celého systému.
 
-Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](praxe/telemetrie.md)
+Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](praxe/telemetrie.md) · [Nepřítel v datech: tag → animace](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Tick podmínky reakcí](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve)
 
 ### Garbage collection
 
@@ -1522,7 +1620,7 @@ Kde se s tím potkáš: [Živý svět z částic](praxe/niagara-vykon.md#zivy-sv
 
 Kromě efektů typu slow motion je to ladicí nástroj: zpomalená interakce ukáže, kdy se ruka chytí, kdy se předmět připne a kde výběr úchopu přeskočí. Nastavuje se uzlem `Set Global Time Dilation`, v editoru i konzolovým příkazem `slomo`.
 
-Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled)
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Hit stop per aktér](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak)
 
 ### GOAP
 
@@ -1562,7 +1660,7 @@ Kde se s tím potkáš: [Nástroje zdarma: CDP a SoundThread](hudba/nastroje-zda
 
 Správné použití: testování mechanik a metrik (gameplay prototyp, level blockout), kde by krása jen zkreslovala zpětnou vazbu. Špatné použití: testování prodejnosti a emoce — šedé kostky žádnou nemají, tam patří asset packy a hudba od prvního dne. Rozhodni, kterou otázku prototyp klade, a podle toho zvol formu.
 
-Kde se s tím potkáš: [Prototypování](teorie/prototypovani.md) · [Nápad: prototyp do týdne](teorie/napad.md) · [Prostor a hranice](teorie/prostor-a-hranice.md)
+Kde se s tím potkáš: [Prototypování](teorie/prototypovani.md) · [Nápad: prototyp do týdne](teorie/napad.md) · [Prostor a hranice](teorie/prostor-a-hranice.md) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
 
 ### Groom
 
@@ -1596,6 +1694,14 @@ Průměr ho schová, a proto se hitche hledají na časové ose snímků. Obvykl
 
 Kde se s tím potkáš: [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Rejstřík: PSO](#pso) · [Rejstřík: Hitch resiliency](#hitch-resiliency)
 
+### Hit flash
+
+**Krátké rozsvícení nebo zbarvení zasaženého — vizuální potvrzení, že rána dopadla.**
+
+Jedna z nejlevnějších vrstev [juice](#juice). V UE vede ke dvěma cestám: výměna materiálu za jiný (třeba červený) a zpátky, nebo [overlay material](#overlay-material), který se jen položí přes stávající materiál a po zásahu se odebere. Overlay funguje přes jakýkoli materiál, ale nevidí jeho WPO deformaci. Blikání jde udělat přímo v materiálu (čas → sinus → round); rychlé blikání je i otázka přístupnosti.
+
+Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku)
+
 ### HLOD
 
 **Hierarchical LOD — sloučená náhrada za skupinu objektů v dálce; jeden mesh místo stovky.**
@@ -1618,7 +1724,7 @@ Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-
 
 Jen jedna část UI: patří k němu i mapy, výběr postav, inventář, skill tree a questovní okna. Kolik HUDu hra unese, určuje žánr — karetní hra je z velké části rozhraní, narativní hra si vystačí s minimem. Rozvržení HUDu není dekorace: mozek dělá asociace podle blízkosti, takže pruh vedle jména nepřítele čteme jako jeho zdraví.
 
-Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
+Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [UI ve světě](praxe/ui-ve-svete.md)
 
 ### Hit stop
 
@@ -1626,7 +1732,9 @@ Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) 
 
 Technika převzatá z bojovek, jeden z nejlevnějších juice triků vůbec — pár řádků kódu, žádný asset. Použitelné rozmezí pro běžný sek je zhruba **1/20 až 1/10 sekundy**; silné údery snesou víc. Škáluje se podle síly útoku: má-li silný hit stop každý zásah, přestane znamenat cokoli. Jedna past, na kterou se zapomíná: **hit stop zdržuje vstup**, takže se během něj vyplatí vstupy [bufferovat](#input-buffering), ne zahazovat.
 
-Kde se s tím potkáš: [Combo a hit stop](godot/pripadovka-nepratele.md#combo-a-hit-stop-dva-casovace-a-ctvrt-sekundy) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku)
+V UE se dá postavit per aktér přes [Custom Time Dilation](#custom-time-dilation): zasažený stojí, útočník jen zpomalí (třeba na 5 %). Patří k němu i otřes meshe (ne aktéra, ať se netřese kapsle), silnější u zasaženého a slábnoucí ke konci.
+
+Kde se s tím potkáš: [Combo a hit stop](godot/pripadovka-nepratele.md#combo-a-hit-stop-dva-casovace-a-ctvrt-sekundy) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Hit stop: zastav oba, ale každého jinak](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak)
 
 ### Hitbox
 
@@ -1634,7 +1742,9 @@ Kde se s tím potkáš: [Combo a hit stop](godot/pripadovka-nepratele.md#combo-a
 
 Rozdělení na dvě oblasti je základ čitelného soubojového systému: útok má hitbox, tělo má hurtbox, a teprve jejich překryv znamená zásah. Umožňuje to věci, které by jinak nešly — hitbox větší než zbraň (velkorysost), hurtbox menší než postava (odpuštění), nebo dočasné vypnutí hurtboxu (nezranitelnost po zásahu). Ve [frame datech](#frame-data) je hitbox jednotka, ke které se váže poškození, odhoz a efekty.
 
-Kde se s tím potkáš: [Frame data](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Komponenta má být sobecká](godot/kompozice.md#komponenta-ma-byt-sobecka-test-kamene)
+V UE se hitbox útoku typicky dělá tracem během animace: box před postavou na jednom snímku (impact frame), nebo koule tažená mezi sockety zbraně po celé [active frames](#active-frames). Kolikrát smí jeden útok zasáhnout tentýž cíl, hlídá seznam zasažených, který se s každým útokem vyprázdní.
+
+Kde se s tím potkáš: [Frame data](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Komponenta má být sobecká](godot/kompozice.md#komponenta-ma-byt-sobecka-test-kamene) · [Hitbox podle poctivosti animace](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Damage jednou za útok](praxe/souboj.md#damage-jednou-za-utok-seznam-zasazenych-patri-utoku-ne-terci)
 
 ### Hard coding
 
@@ -1675,6 +1785,14 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí
 Formát, na kterém stojí klasický Landscape — a zdroj jeho hlavního limitu: jedna hodnota na pixel znamená jediný stupeň volnosti (nahoru/dolů), takže jeskyně a převisy nejdou. Zůstává ale skvělým výměnným formátem: sculpt z Gaey či World Machine se přenáší právě height mapou a Mesh Terrain ji umí importovat jako startovní tvar i promítat jako texture modifier.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+
+### Hurtbox
+
+**Oblast, která zásah přijímá — protějšek [hitboxu](#hitbox), který zásah působí.**
+
+Hurtbox menší než postava odpouští těsné úhyby, dočasně vypnutý hurtbox je nezranitelnost. V UE ho v jednoduchých systémech dělá kapsle (typ objektu Pawn), na kterou útok trasuje. Jemnější systémy trasují na fyzikální těla physics assetu a podle jejich physical materialu poznají, kterou končetinu rána zasáhla.
+
+Kde se s tím potkáš: [Hitboxy: velkorysost, ne přesnost](praxe/pasti-a-mechaniky.md#hitboxy-velkorysost-ne-presnost) · [Hitbox podle poctivosti animace](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
 
 ### Hydratace
 
@@ -1730,7 +1848,7 @@ Kde se s tím potkáš: [Contextual Animation](praxe/interakcni-animace.md#conte
 
 Lakmusový test každého vztahu: „is it a?" — pes *je* mazlíček, dům není. Rodič je smlouva (co deklaruje, mají garantovaně všechny děti) a na smlouvě stojí polymorfismus: volající volá `Interact`, každé dítě odpoví po svém. Blueprint specifika: component eventy nejde overridnout (obal je do custom eventů), overridnutý event nespouští rodiče automaticky (Add Call to Parent Function).
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Pasti z jednoho rodiče](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
 
 ### Idea reservoir
 
@@ -1874,7 +1992,7 @@ Kde se s tím potkáš: [Jitter](praxe/frame-pacing.md#jitter-nespadne-ani-jeden
 
 Stejné mechaniky s juice a bez něj jsou dvě různé hry — dash stejné rychlosti působí rychleji, kulka s odletujícími kusy zdi má najednou váhu. Teoreticky čistý signal-to-noise: každý detail hlásí, co se stalo a že to svět zaznamenal. Leští se na jádru, které už baví.
 
-Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
+Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
 
 ### Kanban
 
@@ -1899,6 +2017,14 @@ Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md
 Klávesnice nemá vodič ke každé klávese — má matici řádků a sloupců. Při více současných stiscích může signál projít matricí neočekávanou cestou a vypadat jako stisk klávesy, kterou nikdo nezmáčkl (odtud „duch"). Moderní klávesnice tomu předcházejí tím, že místo vymyšlené klávesy jednu skutečnou **zahodí** (*key jamming*). Které kombinace selžou, se liší podle značky a modelu. **Kódem se to opravit nedá** — brání se tomu design ovládání: přemapovatelné klávesy, víc výchozích rozložení, podpora gamepadu, žádné kritické akce na třech současně držených klávesách. Viz [N-key rollover](#n-key-rollover).
 
 Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
+
+### Knockback
+
+**Odhození zasaženého směrem od útoku — potvrzení, že rána měla sílu.**
+
+Vedle záblesku nejčitelnější reakce na zásah. Když se škáluje podle zbraně, zároveň rozlišuje mechaniky (dýka málo, kopí hodně). V UE ho typicky dělá `Launch Character` nebo impulz na fyzikální tělo.
+
+Kde se s tím potkáš: [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Kostra pasti](praxe/pasti-a-mechaniky.md#kostra-pasti-a-tri-variace-bodaky-rameno-rotor)
 
 ### Legibilita
 
@@ -1986,7 +2112,9 @@ Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terra
 
 V layer setupu se uvádí jméno kosti (přesný spelling!), od které blend působí — typicky clavicle nebo spine; blend depth a weight ladí měkkost přechodu. Nad Motion Matchingem dvě klasická použití: montáž útoku do horního těla (s Blend Poses by Bool) a overlay póza držené zbraně (single frame animace).
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Pózy prstů od hand_r](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Pistole s baterkou](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby)
+Blend depth rozkládá přechod po kostech (hodnota 4 od pánve dá 25/50/75/100 %), blend depth −1 větev vyřadí (stehna, aby útok nešel do nohou) a Mesh Space Rotation Blend bere rotaci vrstvy v prostoru meshe místo podle rodičovských kostí.
+
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Pózy prstů od hand_r](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Pistole s baterkou](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
 
 ### Layered move
 
@@ -2066,7 +2194,7 @@ Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
 Základní dotazovací nástroj: „na co koukám?", „stojím na zemi?", „vidí mě stráž?". Samotný trace je levný; problém je vzorec „trace každý frame v Event Ticku" — polling tam, kde stačí reagovat na změny. Alternativou pro detekci „něco vstoupilo do zóny" jsou overlap eventy kolizních komponent.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
 
 ### Linear grammar
 
@@ -2082,7 +2210,9 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
 
 Vzor z traversal/cover systémů nad GASP: parkour či overlay logika žije ve vlastním grafu, hlavní AnimBP ji jen linkuje; tag („parkour", „overlay") umožňuje actor komponentám najít anim instanci a řídit ji. Drží AnimBP čitelný a systémy přenositelné mezi projekty.
 
-Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md)
+Modul jde vytvořit jako template AnimBP bez skeletu, se vstupem přes `Input Pose`. Sloty uvnitř linked grafu se ale ve výchozím stavu nevyhodnocují, takže modul potřebuje v Class Defaults `Use Main Instance Montage Evaluation Data`. Branch filtry Layered Blend Per Bone se z modulu vystavit nedají.
+
+Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [Útok za běhu: modul pro další postavy](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
 
 ### Lightweight emitter
 
@@ -2196,6 +2326,14 @@ Klasické cesty, optický systém s markery nebo inerciální oblek, potřebují
 
 Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig)
 
+### Material Instance
+
+**Potomek materiálu, který přebírá jeho graf a mění jen vystavené parametry — barvu, texturu, číslo.**
+
+Rodičovský materiál definuje logiku a parametry, instance je jen sada hodnot: tři barvy klíčů jsou tři instance, ne tři materiály. Změna rodiče se propíše do všech instancí. Instance se nastavuje v editoru; za běhu se parametry mění přes [Dynamic Material Instance](#dynamic-material-instance).
+
+Kde se s tím potkáš: [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [Master material](praxe/materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
+
 ### MAYA
 
 **Most Advanced Yet Acceptable: nejpokročilejší varianta, kterou publikum ještě přijme.**
@@ -2210,7 +2348,7 @@ Kde se s tím potkáš: [Co prodává: hraj hry jako profesní povinnost](teorie
 
 Klíč je čitelný a smysluplný; přidání a úprava mají stejnou syntax (nový klíč přidá, existující přepíše), klíč musí sedět přesně (překlep = nový klíč = tichý bug) a nesmí být měnitelný. V Blueprintech je to node Map; příbuzné jsou Data Table s Row Name jako klíčem.
 
-Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md) · [Ukládání](praxe/ukladani.md) · [Strana dveří → data](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Výška → montáž zvednutí](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled)
+Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md) · [Ukládání](praxe/ukladani.md) · [Strana dveří → data](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Výška → montáž zvednutí](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Terč: mapa směr → montáž](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave)
 
 ### Marching cubes
 
@@ -2478,7 +2616,7 @@ Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md)
 
 Kód hry běží standardně na jediném hlavním vlákně — pohyb, stavové automaty i kolize. Jedna drahá operace tam zastaví všechno ostatní. Vlákna navíc se hodí na úkoly typu „pošli data, vrať se s výsledkem": hledání cesty, načítání assetů, procedurální generování. Cena je omezení: mimo hlavní vlákno se na aktéry ve scéně obvykle sahat nesmí.
 
-Kde se s tím potkáš: [Optimalizace: co blokuje hlavní vlákno](praxe/optimalizace.md#druha-osa-optimalizace-co-blokuje-hlavni-vlakno) · [Rejstřík: race condition](#race-condition)
+Kde se s tím potkáš: [Optimalizace: co blokuje hlavní vlákno](praxe/optimalizace.md#druha-osa-optimalizace-co-blokuje-hlavni-vlakno) · [Rejstřík: race condition](#race-condition) · [Offset cesty na pozadí](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace)
 
 ### MVP
 
@@ -2487,6 +2625,22 @@ Kde se s tím potkáš: [Optimalizace: co blokuje hlavní vlákno](praxe/optimal
 Ve hrách: přihlas se → udělej věc → viz výsledek; leaderboardy, dark mode a marketplace počkají. Smysl MVP není ošidit kvalitu, ale co nejdřív ověřit, že jádro funguje a někoho zajímá — příbuzný gameplay prototypu a vertical slice.
 
 Kde se s tím potkáš: [Jak se učit kódovat](teorie/jak-se-ucit-kodovat.md) · [Prototypování](teorie/prototypovani.md) · [GDD](teorie/gdd.md)
+
+### Nav Agent
+
+**Profil, pro který Unreal generuje nav data — hlavně poloměr a výška agenta.**
+
+Poloměr agenta je odstup okraje navigace od překážek: AI se stejně velkou kapslí se pak o nic neodře a navigace nevznikne tam, kam se nevejde. Každý další agent znamená další sadu nav dat (paměť, generování). Hře s mnoha velikostmi nepřátel se proto může vyplatit jeden agent pro nejmenší velikost a šířka chodeb zapsaná do nav dat jako flag.
+
+Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Velký nepřítel na malém agentovi](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace) · [Rejstřík: Nav Mesh](#nav-mesh)
+
+### Navigation Query Filter
+
+**Pravidla, která při výpočtu cesty zvýhodní, zdraží nebo vyřadí určité oblasti a flagy navigace.**
+
+Filtr se předá s požadavkem na pohyb a běží během pathfindingu. Nav data nemění, mění jen to, jak je konkrétní dotaz čte. Typické použití: nepřítel, který neprojde ohněm, vyřadí flag ohně, a velký nepřítel vyřadí flagy úzkých chodeb. Vlastní filtry mohou dědit z výchozího.
+
+Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Rejstřík: Nav Agent](#nav-agent)
 
 ### N-gon
 
@@ -2526,7 +2680,9 @@ Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
 
 Do levelu se přidává jako Nav Mesh Bounds Volume; klávesa P zobrazí zeleně pochozí plochy. Vygenerovaný RecastNavMesh má v Generation nastavení jako Agent Radius (odstup cest od stěn — lék na zasekávání o rohy) nebo výšku kroku. Body pro pohyb dodávají uzly typu Get Random Location in Navigable Radius.
 
-Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](praxe/state-trees.md)
+Hra s mnoha velikostmi nepřátel nemusí mít nav mesh pro každou. Stačí jeden pro nejmenšího [agenta](#nav-agent), šířka chodeb zapsaná do flagů polygonů při cookování a [navigační filtr](#navigation-query-filter), který velkým nepřátelům úzká místa vyřadí (Lords of the Fallen).
+
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](praxe/state-trees.md) · [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech)
 
 ### Nearest-neighbor filtering
 
@@ -2680,6 +2836,14 @@ Typicky listí, masky a průhlednost; vizualizuje ho Nanite overdraw view (jasn�
 
 Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo)
 
+### Overlay material
+
+**Druhý materiál, který se vykreslí přes základní materiál meshe (slot Overlay Material) — bez zásahu do něj.**
+
+Hodí se na záblesk zásahu, zvýraznění výběru nebo stav postavy, a jeden overlay funguje na všech postavách. Kreslí se ale na tvar meshe bez deformace, kterou dělá WPO základního materiálu. U postav s WPO ho je potřeba nafouknout podél normál ve vlastním WPO.
+
+Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Rejstřík: Hit flash](#hit-flash)
+
 ### Overlay state
 
 **Enum-řízená vrstva pózy horního těla přes locomotion — drž pistoli, luk nebo pochodeň bez vlastních pohybových animací.**
@@ -2750,7 +2914,9 @@ Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a
 
 Jazyky typicky předávají lehké typy (čísla, stringy) hodnotou — kopií — a těžké (pole, mapy, objekty) referencí („sticky note s šipkou na heap"). Mentální test proti bugům: kopíruju, nebo sdílím? V UE běží tahle hranice mezi structy (kopie) a objekty/aktory (reference).
 
-Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md) · [Gameplay Tags](praxe/gameplay-tags.md)
+V Blueprintu se u vstupu funkce zaškrtává Pass-by-Reference. Bez něj funkce dostane kopii structu a změny se po jejím skončení zahodí — u funkce, která má struct upravit (zdraví končetiny), je to tichý bug.
+
+Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md) · [Gameplay Tags](praxe/gameplay-tags.md) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
 
 ### Passing chord
 
@@ -2838,7 +3004,9 @@ Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md)
 
 Surface typy se definují v Project Settings (Physical Surface, až 62 + Default). Přiřazení: v materiálu/instanci (všechny meshe s ním automaticky) nebo per-mesh override v levelu. Čtení: hit result → Get Surface Type → Switch on EPhysicalSurface, nebo mapa physical material → data v data assetu. Krom povrchových systémů nese i friction/restituci (gumový míč).
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md)
+Physical materials na tělech physics assetu fungují i jako adresa zásahu: jméno materiálu z hit resultu řekne, kterou končetinu rána zasáhla.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
 
 ### Physics Asset
 
@@ -2846,7 +3014,7 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](
 
 Defaultní assety manekýnů jsou pro ragdoll nedoladěné — limity swing/twist je potřeba ladit (Simulate Selected). Klíčové triky: kinematic body na root kosti (jinak se mesh při simulaci odpojí a nejde číst rychlost), angular drive motory Twist and Swing s výjimkou pelvis, kolize tělo×tělo per dvojice tvarů.
 
-Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md)
+Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Terč: smrt jako ragdoll](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
 
 ### Physics Constraint
 
@@ -2878,7 +3046,7 @@ Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) �
 
 `Start Camera Fade` zatmí obraz do barvy během zadané doby, `Set Manual Camera Fade` nastaví míru zatmění ručně. Po zatmívačce před cutscénou je potřeba vrátit ji na nulu, jinak hra zůstane potemnělá. Přes něj se spouštějí i [camera shaky](#camera-shake).
 
-Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila) · [Hit stop: třes z pohledu kamery](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
 
 ### Point cloud
 
@@ -3104,6 +3272,14 @@ Zásky z kompilace shaderů obstarává **procesor**, ne grafika, takže je rych
 
 Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani)
 
+### Pure function
+
+**Funkce bez exec pinů, která jen vrací hodnotu a nemění stav — v grafu se spočítá, kdykoli je její výstup potřeba.**
+
+Hodí se na převody a výpočty: místo zásahu → směr, jméno physical materialu → končetina. Protože se vyhodnocuje při každém čtení výstupu, nemá dělat nic drahého ani nic měnit; náročný výsledek je lepší uložit do proměnné.
+
+Kde se s tím potkáš: [Terč: směr rány](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
+
 ### Quad
 
 **Čtyřúhelníková buňka mřížky meshe — u terénu základní jednotka rozlišení.**
@@ -3134,7 +3310,7 @@ Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
 
 Zvuk sebrání předmětu ve Stardew Valley je mlasknutí pusou — s náhodným pitchem přestane znít digitálně a otravně. Často je způsob implementace důležitější než samotný zvuk.
 
-Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
+Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md) · [Pět potvrzení rány: Modulator](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
 
 ### Raster bin
 
@@ -3334,7 +3510,9 @@ Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
 
 Nejde o podvod na hráče, ale o opravu učebního prostředí: kdo je beznadějně pozadu, dostává od hry konstantní „špatně" a nemá se z čeho učit; kdo je nedostižně napřed, dostává konstantní „dobře". Rubber banding oba vrací do pásma, kde akce zase mají čitelné následky. Příbuzné nástroje: hinty, skipy, měkké stavy úspěchu (skóre místo výhra/prohra).
 
-Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
+V AI nepřátel (Lords of the Fallen) se stejným slovem říká i vodítku: nepřítel se nenechá odlákat daleko od svého území a pomalu se vrací, ať hráč přijde za ním.
+
+Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md) · [Reakce vedle stromu](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve)
 
 ### Rubber duck debugging
 
@@ -3488,6 +3666,14 @@ Pracuje s [level sequences](#level-sequence): stopy actorů (transform, animace,
 
 Kde se s tím potkáš: [Cutscény](praxe/cutsceny.md) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
 
+### Set Timer by Event
+
+**Uzel, který po zadané době (jednou, nebo opakovaně) zavolá event — časovač místo Delay nebo Event Ticku.**
+
+Vrací timer handle, přes který jde časovač zastavit (`Clear and Invalidate Timer by Handle`) nebo zjistit, kolik z něj uběhlo (`Get Timer Elapsed Time by Handle`) — tak se dá číst průběh hit stopu normalizovaně od 0 do 1. Opakovaný časovač po pár sekundách je levná náhrada ticku pro kontroly, které nemusí běžet každý snímek.
+
+Kde se s tím potkáš: [Hit stop](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Terč: odstranění těla](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave)
+
 ### Short description
 
 **Krátký popis hry na Steamu — ~300 znaků pod capsule obrázkem, první text, který potenciální hráč čte.**
@@ -3550,7 +3736,15 @@ Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md) · [
 
 Vestavěné jsou dvě — **podle vzdálenosti** a **podle věku**; vlastní se dá dopsat v C++. Bez něj strop instancí funguje, ale vybírá libovolně. Pozor na cenu při velkých počtech: u tisíců systémů na jednom effect typu musí significance manager při každé změně projít celé pole (naměřený případ: **~7 000 systémů na padající listí → 30ms spike**). Praktické pravidlo: **strop instancí je levnější než významnost** — nejdřív omez počet, pak laď, kdo přežije.
 
-Kde se s tím potkáš: [Effect type](praxe/niagara-vykon.md#effect-type-jeden-asset-ktery-rozhoduje-o-vsem) · [Rejstřík: Effect type](#effect-type)
+Kde se s tím potkáš: [Effect type](praxe/niagara-vykon.md#effect-type-jeden-asset-ktery-rozhoduje-o-vsem) · [Rejstřík: Effect type](#effect-type) · [Significance Manager v AI](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace)
+
+### Significance Manager
+
+**Plugin UE, který objektům průběžně počítá význam (třeba podle vzdálenosti od hráče) — hra podle něj rozhoduje, kdo běží naplno, kdo zpomalí a kdo spí.**
+
+V Lords of the Fallen drží nanejvýš 20 aktivních nepřátel a s LOD a agregací ticku vypíná, co není potřeba. U Niagary jde o příbuzný mechanismus, [Significance handler](#significance-handler), který vybírá, které instance efektu přežijí strop počtu.
+
+Kde se s tím potkáš: [Velký nepřítel na malém agentovi](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace)
 
 ### Silueta
 
@@ -3646,7 +3840,7 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 
 Socket má vlastní offset a rotaci vůči kosti, takže se dá doladit, jak předmět v ruce sedí; v editoru skeletu pomůže preview asset. Když má každý předmět jiný úchop, má i vlastní socket a jeho jméno vrací předmět sám, třeba přes interface. Jak se předmět na socket dostane, určují [attachment rules](#attachment-rules).
 
-Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Řemeslo první osoby: pistole a baterka](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby)
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Řemeslo první osoby: pistole a baterka](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Hitbox mezi sockety zbraně](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames)
 
 ### Soft boundary
 
@@ -3655,6 +3849,14 @@ Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#je
 Pět vzorů: narativní (most se zřítí, postava odmítne jít dál), countdown (mráz, plyn, dezerce — tlak času místo kolize), nepřátelská (za hranicí loví něco silnějšího; nemusí zabíjet — stačí probrat se potlučený zpátky), ekonomická (kyslík/palivo nevystačí na návrat) a percepční (ztráta orientace a viditelnosti). Nejlépe fungují kombinované a vždy s fikčním alibi.
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+
+### Softlock
+
+**Stav, kdy hra běží, ale nedá se dohrát — hráč uvízl bez cesty dál a bez způsobu, jak se vrátit.**
+
+Typické příčiny: ztracený předmět, který hádanka potřebuje, spínač, který nejde znovu stisknout, nebo obejitá podmínka postupu. Obrana je v designu: cíl podmíněný tím, co hráč musí mít (všechny klíče), ne místem, kam se dostal, a předměty hádanky, které se doplní, když se ztratí.
+
+Kde se s tím potkáš: [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
 
 ### Soft reference
 
@@ -3678,7 +3880,7 @@ Kde se s tím potkáš: [Rady z praxe](teorie/rady-z-praxe.md) · [Učení v é�
 
 Multi-select wave souborů → Create Sound Cue vloží Random uzel automaticky (variace kroků jedním klikem). Pro pokročilejší práci (parametry za běhu, procedurální audio) je nástupcem MetaSounds; Sound Cue zůstává nejrychlejší cesta k „přehraj náhodnou variaci".
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
 
 ### Sound font
 
@@ -3774,7 +3976,7 @@ Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [MM
 
 Vyhodnocuje se shora dolů, stavy nesou tasky a přechody podle úspěchu/selhání; umí linkované podstromy (patrol) i stromy injektované zvenčí (smart objects). Přechody spouští i eventy s gameplay tagy (Send State Tree Event); Finish Task končí celý stav, context injektuje taskům AI controller. Tasků má z krabice málo — píšou se per projekt.
 
-Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md)
+Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp.md) · [Reakce vedle stromu](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve)
 
 ### Static switch
 
@@ -3824,6 +4026,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
 Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Mover](praxe/mover.md)
 
+### String pulling
+
+**Zkrácení cesty přes navigační polygony na nejkratší možnou — body se přitáhnou k rohům a přebytečné zmizí (funnel algoritmus).**
+
+S agentem stejně velkým jako postava funguje. Je-li agent menší, vede velkou postavu těsně kolem rohů a odsazení od nich musí přijít zvlášť. Vestavěné Offset From Corners přitom posouvá jen konce úseků a umí cestu vyvést mimo navigaci.
+
+Kde se s tím potkáš: [Velký nepřítel na malém agentovi](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace) · [Rejstřík: Nav Agent](#nav-agent)
+
 ### Strudel
 
 **Prohlížečové prostředí pro live coding hudby — JavaScriptová verze jazyka TidalCycles.**
@@ -3838,7 +4048,7 @@ Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-piz
 
 Místo osmi vstupů do funkce jeden; místo osmi proměnných v SaveGame objektu jedna. Kromě čitelnosti přináší hlavně jedno místo změny: přidáš-li do struktury pole, všechna místa, která ji předávají, fungují dál. V save systémech je to rozdíl mezi rozšiřitelným formátem a rozsypaným seznamem.
 
-Kde se s tím potkáš: [Ukládání: struktury a interface](praxe/ukladani.md#save-system-ktery-prezije-druhy-projekt-struktury-interface-a-async) · [Data stran dveří](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave)
+Kde se s tím potkáš: [Ukládání: struktury a interface](praxe/ukladani.md#save-system-ktery-prezije-druhy-projekt-struktury-interface-a-async) · [Data stran dveří](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Hitbox: profil útoku](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
 
 ### Stupnice
 
@@ -4128,6 +4338,14 @@ Z třístupňové Fun Scale (Newberry): Type 1 baví hned, Type 2 až zpětně (
 
 Kde se s tím potkáš: [Zábava: taxonomie a pilíře](teorie/zabava.md) · [Obtížnost a výzva](teorie/obtiznost.md)
 
+### UMG
+
+**Unreal Motion Graphics — systém uživatelského rozhraní v UE: widget blueprinty skládané v designeru z panelů, tlačítek, textů a obrázků.**
+
+Widget se zobrazí buď přes obrazovku (`Add to Viewport`), nebo ve světě přes [Widget Component](#widget-component). Kód widgetu žije v jeho event graphu, kde Event Construct hraje roli BeginPlay. Property bindings se vyhodnocují každý snímek a Epic radí je v projektu zakázat.
+
+Kde se s tím potkáš: [UI ve světě](praxe/ui-ve-svete.md) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Hádanka ze stavebnice: HUD](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
+
 ### Unison
 
 **Navrstvení více kopií téže vlny na jednu notu; rozšíří zvuk do sterea.**
@@ -4166,7 +4384,7 @@ Kde se s tím potkáš: [GDD: dokument není smlouva](teorie/gdd.md) · [Co prod
 
 Není to plugin ani kód, ale způsob návrhu — a nenahrazuje behavior trees ani state trees, používá je jako výkonnou vrstvu. Skóre není konstanta, ale součet důvodů (počet nepřátel, zdraví, vzdálenost, povaha), takže z týchž úkolů vznikne se zbabělcem jiné chování než s veteránem. Škáluje tam, kde by strom podmínek přestal být čitelný.
 
-Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md#utility-ai-rozhodovani-podle-skore-misto-vetveni) · [State Trees](praxe/state-trees.md) · [Rejstřík: GOAP](#goap)
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md#utility-ai-rozhodovani-podle-skore-misto-vetveni) · [State Trees](praxe/state-trees.md) · [Rejstřík: GOAP](#goap) · [Paměť utility v Lords of the Fallen](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve) · [Aggro](praxe/ai-ve-velkem.md#kdo-utoci-a-kdo-ceka-aggro-skore-a-bojove-role)
 
 ### UV mapping
 
@@ -4312,13 +4530,45 @@ Perspektiva her jako Harvest Moon nebo Stardew Valley — není to čistý pohle
 
 Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
 
+### Widget Blueprint
+
+**Asset UMG, který spojuje vzhled widgetu (designer) s jeho logikou (graph).**
+
+Prvek, na který chceš z kódu sáhnout, musí mít zaškrtnuté Is Variable. Kotvy a alignment drží rozložení při změně rozlišení. Hotový widget se přidá do viewportu, nebo se dá do Widget Component ve světě.
+
+Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys) · [Health bar nad hlavou](praxe/ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) · [Rejstřík: Anchor (UI)](#anchor-ui)
+
+### Widget Component
+
+**Komponenta, která zobrazí UMG widget ve světě — na ploše ve scéně (World), nebo nad aktérem čelem ke kameře (Screen).**
+
+World space dělá z widgetu předmět ve scéně (menu na televizi), screen space ukazatel v pevné velikosti, který se vždy dívá do kamery (health bar). `Draw at Desired Size` srovná velikost s obsahem. `Redraw Time` dává strop, jak často se widget překreslí: 0 znamená každý snímek, 0,1 nanejvýš desetkrát za sekundu.
+
+Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys) · [Health bar nad hlavou](praxe/ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) · [Sto health barů](praxe/ui-ve-svete.md#sto-health-baru-logika-na-ticku-a-prekresleni-jsou-dve-ruzne-ceny)
+
+### Widget Interaction Component
+
+**Virtuální myš pro widgety ve světě: paprsek, který widgetu na Widget Componentě posílá najetí a kliknutí.**
+
+Zdrojem paprsku může být kurzor myši (Interaction Source = Mouse) nebo směr samotné komponenty. Paprsek se zastaví o první kolizi, takže meshe před widgetem nesmějí blokovat. Kliknutí se do komponenty předává ručně (`Press Pointer Key` / `Release Pointer Key`).
+
+Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys)
+
+### World Composition
+
+**Starší systém UE 4 pro velké světy: svět složený ze sublevelů v mřížce, které se streamují podle vzdálenosti.**
+
+Předchůdce [World Partition](#world-partition). Projekty začaté před jeho příchodem na něm stavěly i v UE 5; Lords of the Fallen po sublevelech streamují i nav data.
+
+Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Rejstřík: World Partition](#world-partition)
+
 ### WPO
 
 **World Position Offset — posun vrcholů v materiálu; nejčastější tichá příčina drahých stínů.**
 
 Slouží k větru v listí, vlnám a podobným deformacím a je to **programovatelná rasterizace**, tedy v Nanite světě výrazně dražší cesta. Dvě pole, která k němu vždycky patří: **WPO disabled distance** (za ní se přepne na rychlou fixed-function cestu) a u listí **shadow cache invalidation behavior**, protože pohybující se vrcholy jinak invalidují stínovou cache každý snímek. Diagnostika: Nanite visualization → *Evaluate WPO*; zelená znamená, že se vyhodnocuje.
 
-Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite)
+Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
 
 ### Water Body
 
