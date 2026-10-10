@@ -20,7 +20,7 @@ Jak dostat hráče z levelu do levelu, aniž by hra ztuhla — a jak to dělají
 
 > **Pozn.:** Video učí klasický level streaming — pro velké otevřené světy má UE5 nástupce: [World Partition](../rejstrik.md#world-partition) s automatickými buňkami (viz [Mesh Terrain](mesh-terrain.md), který na něm stojí). Principy (async, persistent rám, loaded ≠ visible) platí v obou systémech; ruční sub-levely dávají smysl pro řízené přechody à la RE Requiem níže.
 
-**Souvislosti:** [Jak to dělá Resident Evil Requiem](#jak-to-dela-resident-evil-requiem) níže · [První dojem](../teorie/prvni-dojem.md) *(loading na vlastních podmínkách)* · [Rejstřík: level streaming](../rejstrik.md#level-streaming) · [Rejstřík: persistent level](../rejstrik.md#persistent-level)
+**Souvislosti:** [Jak to dělá Resident Evil Requiem](#jak-to-dela-resident-evil-requiem) níže · [První dojem](../teorie/prvni-dojem.md) *(loading na vlastních podmínkách)* · [Rejstřík: level streaming](../rejstrik.md#level-streaming) · [Rejstřík: persistent level](../rejstrik.md#persistent-level) · [Soft reference a async načítání](pamet-a-instance.md#soft-reference-nacti-az-kdyz-to-hra-potrebuje) *(totéž o patro níž: jednotlivé assety)*
 
 ---
 

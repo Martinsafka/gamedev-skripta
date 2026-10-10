@@ -170,6 +170,25 @@ Třetí vlna vyčerpala playlisty. Odteď se díry hledají aktivně: `agent_doc
 - [ ] **Rozhodnutí: cílený fetch pro P1 díry** — UI/UMG (největší, 57 kapitol Praxe a ani jedna o rozhraní), PSO a kompilace shaderů, Blueprint vs C++. Je to změna režimu: hledá se odpověď na otázku, ne zpracovává playlist. Čeká na uživatele.
 - [ ] **Proskenovat Teorii a Godot** — `content_gaps.md` je zatím psaná jen z pohledu Praxe v UE5.
 
+### ▶ Phase 13 (navrženo) — čtvrtá vlna hlavního playlistu (+93)
+
+Uživatel do playlistu „ue5 - izba" (= hlavní studijní playlist) uložil 93 nových videí. Staženo a vyčištěno 2026-10-10, tabulky v `processing_index.md` → „Čtvrtá vlna". Postup zrcadlí Phase 8 a 10: taxonomie → **schválení stromu uživatelem** → tematické dávky (10–25 videí, každá = zelený `--strict` + anchor-check + dev_log). Phase 12 tím neskončila — čtvrtá vlna jen částečně sahá na díry z `content_gaps.md` (viz tam).
+
+- [x] **Fetch + clean** _(2026-10-10)_: 93 videí jen z hlavního playlistu, 0 chyb; archiv 610 id, 600 čistých přepisů. Tři opravy `clean_transcripts.py`: výběr stopy podle `info.json`, `en-orig` před `en` (automatická `en` bývá od 2026 zpětný překlad z auto-dabingu) a odmítnutí ruční stopy delší než video.
+- [x] **Taxonomie navržena** _(2026-10-10)_: 81 todo v dávkách 47–56 (~403k slov; 73 Praxe, 8 Teorie) · 9 skip · 3 todo-lp. **15 nových kapitol v Praxi** + nové nav téma „UI a rozhraní"; Teorie jen rozšíření.
+- [x] **Strom schválen uživatelem** _(2026-10-10, přes strukturované otázky)_: (a) 15 nových kapitol + nové téma „UI a rozhraní" — **schváleno**, (b) všech 9 skipů **potvrzeno**, (c) Evans Bohl 3,8 h je **páteř `souboj.md`** a čte se celý (ne low-priority), (d) téma přejmenovat na „Animace: nástroje, interakce a cutscény" — **schváleno** (provede se v dávce 49, kdy přibudou kapitoly), (e) **start dávkou 47** hned.
+- [x] **Dávka 47 — Blueprint architektura, inventář a ladění** _(2026-10-10)_: 11 videí (~51k slov) + 1 skip → **2 nové kapitoly / 7 myšlenek**: `praxe/inventar.md` (definice vs. instance · stav cestuje jako data · použití jako seznam akcí · vybavení jako samostatný systém · staty přes modifikátory, 500 → 400) a `praxe/debugging.md` (čtyři otázky, čtyři nástroje · AI, která nereaguje) **+ 2 myšlenky do stávajících** (`principy-architektury`: kdy dědit a kdy jen konfigurovat; `pamet-a-instance`: soft reference) **+ doplňky** (`komunikace-blueprintu`: cast na lehkého rodiče; `organizace-projektu`: zámky souborů; Drobky). Rejstřík 498 → **508**, 8 backlinků + 3 uvnitř Principů, chapter map 733 řádků, `--strict` exit 0, anchor-check **3395/0**.
+- [ ] Dávka 48 — Výkon, škálování a zdraví projektu (7, ~37k)
+- [ ] Dávka 49 — Animace: interakce, cutscény, rigging a mocap (12, ~46k)
+- [ ] Dávka 50 — Souboj, herní systémy, UI ve světě a AI nepřátel (7, ~55k)
+- [ ] Dávka 51 — Fyzika a GASP 5.8 (5, ~49k)
+- [ ] Dávka 52 — Prostředí: blockout, modulární kity a breakdowny (10, ~47k)
+- [ ] Dávka 53 — Světlo a materiály (6, ~40k)
+- [ ] Dávka 54 — PCG, terén, povrchy a velké světy (7, ~39k)
+- [ ] Dávka 55 — AI nástroje: MCP, agenti a AI animace (8, ~26k)
+- [ ] Dávka 56 — Teorie: příběh, plánování, design a level design (7, ~14k)
+- [ ] **Follow-up z fetche:** 10 starších přepisů bylo vyčištěno ze strojového zpětného překladu místo ručních titulků (seznam v dev_logu 2026-10-10). Přečistit je opravenou pipeline a u publikovaných kapitol zvážit kontrolu termínů.
+
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 
 - [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_

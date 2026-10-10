@@ -14,7 +14,7 @@
 set -euo pipefail
 
 PLAYLIST_URLS=(
-  "https://www.youtube.com/playlist?list=PL-qhg2vVw8lw3mBg_K_EtS7MGcua86kru"  # hlavní studijní playlist (UE5 + teorie)
+  "https://www.youtube.com/playlist?list=PL-qhg2vVw8lw3mBg_K_EtS7MGcua86kru"  # hlavní studijní playlist „ue5 - izba" (UE5 + teorie)
   "https://www.youtube.com/playlist?list=PLfwSSaFKkCXc"                       # Gamedev-music (hudba a zvuk)
   "https://www.youtube.com/playlist?list=PLQmZx7ns6Ua0"                       # Godot (samostatný engine playlist)
 )

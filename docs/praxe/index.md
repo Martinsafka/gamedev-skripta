@@ -6,11 +6,12 @@ Témata a kapitoly:
 
 **Blueprint architektura a organizace projektu**
 
-- **[Principy architektury](principy-architektury.md)** — dědičnost a test „is it a?", tři principy škálovatelnosti (separace, volné vazby, data), kde co v UE bydlí a proč se schopnosti skládají z komponent místo dědění.
-- **[Komunikace Blueprintů](komunikace-blueprintu.md)** — cast, interface, event dispatcher a broadcast kanály: kdo na kom závisí a kdy který použít — plus observer a mediator jako vzory a změřená cena jednoho castu.
+- **[Principy architektury](principy-architektury.md)** — dědičnost a test „is it a?", kdy z dědičnosti stačí jedna konfigurovatelná třída, tři principy škálovatelnosti (separace, volné vazby, data), kde co v UE bydlí a proč se schopnosti skládají z komponent místo dědění.
+- **[Komunikace Blueprintů](komunikace-blueprintu.md)** — cast, interface, event dispatcher a broadcast kanály: kdo na kom závisí a kdy který použít — plus observer a mediator jako vzory, změřená cena jednoho castu a cast na lehkého společného rodiče.
 - **[Interakce bez Event Ticku](interakce-bez-event-ticku.md)** — event-driven interakční systém: overlap trigger, Blueprint Interface, tagy a validated gets.
 - **[Gameplay Tags](gameplay-tags.md)** — hierarchický stav místo booleanové špagety: tag manager komponenta, dotazy bez skrytých bugů, pojmenování.
-- **[Organizace projektu](organizace-projektu.md)** — Content Browser podle Epicu (feature foldery, redirectory, 260znakový limit), devět tipů proti špagetám v grafech a Git přímo z editoru včetně diffu blueprintů.
+- **[Inventář: definice, instance, akce](inventar.md)** — pokračování inventářové série: kde bydlí stav jednoho kusu, proč mezi světem a inventářem cestují data místo objektů, použití jako seznam akcí, vybavení jako samostatný systém a staty přes modifikátory místo přepisování základu.
+- **[Organizace projektu](organizace-projektu.md)** — Content Browser podle Epicu (feature foldery, redirectory, 260znakový limit), devět tipů proti špagetám v grafech a Git přímo z editoru včetně diffu blueprintů — a kdy na binární assety potřebuješ zámky.
 - **[Levely a streaming](levely-a-streaming.md)** — proč Open Level zamrzá, level streaming s persistent levelem a breakdown, jak loading schovává Resident Evil Requiem.
 - **[Ukládání](ukladani.md)** — SaveGame objekty, sloty a vzor Game Instance + function library pro save dostupný odkudkoli — a dál struktury, interface, sync vs. async a ukládání stavu světa.
 - **[Telemetrie](telemetrie.md)** — activity tracker z gameplay tagů a vzdálená analytika (TrackEdge + PostHog).
@@ -93,7 +94,7 @@ Témata a kapitoly:
 - **[Paměť GPU: virtuální textury, pooly a nový profiler](gpu-pamet.md)** — virtualizace vysvětlená na knize (22 GB textur z 500 MB paměti), postup, jak zjistit skutečnou velikost poolů místo odhadu s rezervou — a tři sloupce nového GPU profileru, z nichž jeden odpovídá na otázku „brzdí mě grafika, nebo procesor?".
 - **[Optimalizační průchod: co se ve scéně najde](gpu-pruchod.md)** — hodina hledání v cizí ukázkové scéně (osm nálezů, samé zapomenuté defaulty), měsíc na vlastním lese z 30 na 60 FPS včetně toho, co nezabralo, systematické ladění Lumenu ve dvou větvích — a veřejné proprofilování cizí rozdělané hry včetně rentgenu fyziky, kde má strom kolizi za každý list.
 - **[Niagara: výkon částic](niagara-vykon.md)** — pět statistik a past, bez které Niagara v Insights vůbec není; effect type jako jeden asset, který rozhoduje o všem (a projekt, kde se z něj stal problém); škálování, pooling a rozpočet, který se umí rozkmitat — a dvě navzájem se vylučující cesty, jak přestat spawnovat systémy.
-- **[Paměť, reference a instancování](pamet-a-instance.md)** — Size Map v režimu paměti a předmět, který kvůli jednomu castu zabíral 111 MB; ISM, HISM a merge včetně toho, kdy instancování scénu zhorší — a šest zásahů na jedno odpoledne, mezi nimi jedna tichá podmínka, která umí vypnout celé mipmapování.
+- **[Paměť, reference a instancování](pamet-a-instance.md)** — Size Map v režimu paměti a předmět, který kvůli jednomu castu zabíral 111 MB; soft reference a asynchronní načítání (a proč v editoru „funguje" i bez něj); ISM, HISM a merge včetně toho, kdy instancování scénu zhorší — a šest zásahů na jedno odpoledne, mezi nimi jedna tichá podmínka, která umí vypnout celé mipmapování.
 - **[Lehký render: co vypnout, když UE5 funkce nepotřebuješ](lehky-render.md)** — rozpad ceny výchozí scény, kde je každé vypnutí spárované s náhradou (a jedna rada, kterou měření nepotvrdilo); vlastní šablona projektu založená chytře ve 4.27 — a komunitní fork jako krajní varianta, ze které se nedá odejít.
 - **[Velké světy: sto tisíc aktérů a terabajty dat](velke-svety.md)** — měsíce práce na vlastním nástroji do koše (a proč u pluginů takové riziko není), dvě rozhodnutí z nultého dne, která rozhodla o všem, gameplay pověšený rovnou na mesh, animace přepsaná z tiku na události — a skořápka budovy, která odloží 98 % trojúhelníků.
 - **[Persistence a hydratace: svět, který si pamatuje](persistence-a-hydratace.md)** — kvíz o dveřích, na který celý sál odpoví špatně (záleží na garbage collectoru), trojice identita → stav → verze s pastí, která selže mlčky — a hydratace, kde volba reprezentace určuje, jak se ta věc vlastně ukládá.
@@ -112,6 +113,7 @@ Témata a kapitoly:
 **Editor a workflow**
 
 - **[Tipy do editoru](editor-tipy.md)** — jak se učit engine (rady instruktora Epicu i jeho pětikroková metoda s chunkingem a rutinou), výběry a navigace ve viewportu, pivot bez Blenderu, rozmístění fyzikou a drobné triky, které šetří minuty každý den.
+- **[Ladění: vidět, co hra dělá](debugging.md)** — čtyři otázky a čtyři nástroje (print string s klíčem, kreslení do světa, Visual Logger, watch a zastavení při výjimce) a gameplay debugger na AI, která nereaguje, i když nic nehlásí chybu.
 
 **Tvorba assetů mimo engine (Blender)**
 

@@ -26,6 +26,7 @@
 *[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
+*[Blueprint Debugger]: Ladění blueprintů za běhu: breakpointy, sledované hodnoty a zastavení na uzlu, kde nastala chyba.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
 *[Backbeat]: Rytmický důraz na sudé doby taktu; místo pro snare a clap.
 *[Backlog]: Zásobník všeho, co projekt čeká (úkoly i nápady); priority se z něj tahají po dávkách.
@@ -89,6 +90,7 @@
 *[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
 *[Data Registry]: Registr konfiguračních dat (data tables) — systémy se ptají jménem místo tvrdých odkazů na tabulky.
 *[Data-driven design]: Hodnoty a konfigurace žijí v datech (data assety); logika je jen čte.
+*[Data table]: Tabulka řádků podle jednoho structu; konfigurovatelná třída si podle jména řádku dohledá data.
 *[Data validation]: Automatická kontrola assetů proti pravidlům projektu — v editoru, při odevzdání i v noci.
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
@@ -121,6 +123,7 @@
 *[Elevator pitch]: Popis hry na délku jízdy výtahem, nejčastěji „X meets Y"; nesmí být redundantní ani nespojitelný.
 *[Environmental storytelling]: Vyprávění prostorem: rozmístění objektů a stopy používání říkají, co se tu stalo.
 *[EQ]: Zesílení či potlačení konkrétních frekvencí; čištění šumu a prosazení zvuku v mixu.
+*[Equipment Instance]: Objekt nasazeného kusu vybavení — pamatuje si, co spawnul a změnil, aby šlo vše vrátit.
 *[Equity]: Podíl na firmě — nesplácí se jako půjčka, ale už se nikdy nevrátí.
 *[Eulerovy úhly]: Rotace jako yaw/pitch/roll v pevném pořadí — intuitivní, ale hrozí gimbal lock.
 *[Euklidovský rytmus]: Zápis (n,k) — rozprostři n hitů rovnoměrně do k kroků; algoritmus původem z fyziky.
@@ -132,6 +135,7 @@
 *[Export template]: Předkompilované běhové prostředí Godotu pro cílovou platformu; stahuje se zvlášť.
 *[Expresivní mechanika]: Nepomáhá vyhrát, mění chuť hry: pohladit kočku, emoty — rozdíl mezi dobrou a výbornou hrou.
 *[Extremistan]: Prostředí, kde jeden vzorek převáží celý zbytek souboru (prodeje her).
+*[File locking]: Zamčení souboru tím, kdo na něm pracuje; řešení pro binární assety, které se nedají sloučit.
 *[Fill]: Zahuštění rytmu na konci fráze před další sekcí; opakem je prázdno.
 *[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
 *[Flipbook]: Mřížka snímků v jedné textuře, kterou materiál přehrává jako animaci.
@@ -148,10 +152,12 @@
 *[Game feel]: Hmatový dojem z ovládání: odezva, váha, šťavnatost interakcí. „Game feel je cheat code."
 *[Game Instance]: Objekt žijící od spuštění aplikace po její konec — přežívá přechody mezi levely.
 *[Game jam]: Časově omezená akce (hodiny až dny), během níž vzniká celá malá hra.
+*[Gameplay Debugger]: Ladicí vrstva ve hře (apostrof): navmesh, cesta AI, behavior tree, EQS a percepce.
 *[Game State]: Stav probíhající partie, dostupný všem a replikovaný; domov pro event manager.
 *[Gameplay loop]: Smyčka činností, kterou hráč opakuje; popisný nástroj game designu.
 *[Gameplay tag]: Hierarchický identifikátor stavu (Status.MovementBlocked.Stunned) — náhrada boolean špagety.
 *[Garbage collection]: Automatický úklid paměti; zničené objekty jsou dočasně „pending kill".
+*[GAS]: Gameplay Ability System — schopnosti, atributy a efekty; hodnota ze základu a odebíratelných modifikátorů.
 *[GASP]: Game Animation Sample — Epicův živý ukázkový projekt gameplay animace: 500+ animací, MM, traversal, Mover.
 *[GDD]: Game design document — dokument s návrhem hry; funguje, jen když se do něj skutečně vracíš.
 *[GDScript]: Skriptovací jazyk Godotu — blízký Pythonu, gradually typed, navržený pro strom scény.
@@ -196,6 +202,7 @@
 *[Interval]: Vzdálenost dvou tónů v půltónech; nese emoci (kvinta hrdinská, malá sexta tajemná).
 *[Invariant]: Podmínka platná v daném bodě programu vždy, ať se tam běh dostal jakkoli.
 *[Invisible wall]: Neviditelná kolize tam, kde vizuálně nic nebrání — nejhorší způsob ohraničení mapy.
+*[Item Instance]: Konkrétní kus položky v inventáři — nese stav, který definice mít nemůže (použití, staty).
 *[Iterace]: Jedno kolo smyčky uprav → otestuj → vyhodnoť; hry nevznikají tahem, ale koly.
 *[Izometrie]: Perspektiva bez úběžníku — vzdálené objekty se nezmenšují, scéna je čitelná v hloubce.
 *[Jitter]: Mikro-škubání z rozhoupaného delta timu — nastane, i když nespadne ani jeden snímek.
@@ -291,6 +298,7 @@
 *[One-way door]: Rozhodnutí drahé na reverz (žánr, API, engine) — dělá se vědomě, s premisami; opak: two-way door.
 *[Orchestrace]: Rozdělení hudby mezi nástroje a smíchání do barvy; až po melodii, harmonii a kontrapunktu.
 *[Oscilátor]: Zdroj surového zvuku v synthu; tvar vlny (sinus/pila/obdélník) určuje barvu a alikvóty.
+*[Outer]: Objekt, ke kterému je UObject přivázaný — s ním žije a s ním ho uklidí garbage collector.
 *[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
 *[Overlay state]: Enum-řízená vrstva pózy horního těla přes locomotion — drž předmět bez vlastních pohybových animací.
 *[Pacing]: Rytmus zážitku: střídání napětí a klidu, akce a ticha, učení a mistrovství v čase.
@@ -406,6 +414,7 @@
 *[Skills audit]: Inventura dovedností před volbou projektu: co umím, co ne, co napůl.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
+*[Soft reference]: Odkaz jen s cestou k assetu; nic nenačte, dokud si o to hra neřekne (Async Load Asset).
 *[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
 *[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
 *[Sound font]: Kolekce nasamplovaných zvuků nástroje (.sf2); rychlá retro paleta (Undertale, SNES).
@@ -468,6 +477,7 @@
 *[Utility AI]: Každý úkol si spočítá skóre, spustí se nejvyšší; nenahrazuje stromy, řídí je.
 *[UV mapping]: Předpis, která část 2D textury se natáhne na kterou plochu modelu.
 *[UX]: User experience — informační architektura: kde informace bydlí a kolika kroky se k nim dostaneš.
+*[Visual Logger]: Nahrávač hodnot a tvarů v čase; po hře se prochází po časové ose a kategoriích.
 *[VSync]: Synchronizace výměny bufferů s cyklem monitoru: bez trhání, ale za cenu latence.
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.

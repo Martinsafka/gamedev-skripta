@@ -120,6 +120,7 @@ nav:
           - Komunikace Blueprintů: praxe/komunikace-blueprintu.md
           - Interakce bez Event Ticku: praxe/interakce-bez-event-ticku.md
           - Gameplay Tags: praxe/gameplay-tags.md
+          - "Inventář: definice, instance, akce": praxe/inventar.md
           - Organizace projektu: praxe/organizace-projektu.md
           - Levely a streaming: praxe/levely-a-streaming.md
           - Ukládání: praxe/ukladani.md
@@ -188,6 +189,7 @@ nav:
           - AI assety: praxe/ai-assety.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md
+          - "Ladění: vidět, co hra dělá": praxe/debugging.md
       - "Tvorba assetů mimo engine (Blender)":
           - "Z fotky herní asset": praxe/foto-do-assetu.md
           - PS1 estetika: praxe/ps1-estetika.md

@@ -13,10 +13,11 @@ Usage:
 <input_dir> is scanned for per-video folders (named by video id) containing
 .srt/.vtt files — the layout produced by scripts/fetch_transcripts.sh.
 For each video the best available track is chosen:
-    manual subs (e.g. en-GB, or en differing from en-orig) > auto captions.
+    manual English subs (per info.json) > auto `en-orig` > auto `en`.
 Output: <output_dir>/<video_id>.txt
 """
 import html
+import json
 import re
 import sys
 from pathlib import Path
@@ -109,15 +110,68 @@ def fmt_ts(seconds: int) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+def track_lang(f: Path) -> str:
+    """`Title.en-orig.srt` -> `en-orig` (titles may contain dots)."""
+    return f.name.rsplit(".", 2)[-2]
+
+
+def read_info(vid_dir: Path):
+    infos = sorted(vid_dir.glob("*.info.json"))
+    if not infos:
+        return None
+    try:
+        return json.loads(infos[0].read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def last_cue_seconds(path: Path) -> int:
+    content = path.read_text(encoding="utf-8", errors="replace")
+    starts = re.findall(r"(\d{1,2}:\d{2}:\d{2}[.,]\d{3})\s*-->", content)
+    return parse_timestamp(starts[-1]) if starts else 0
+
+
 def choose_best_track(vid_dir: Path):
     """Prefer manual subtitles over auto captions.
 
-    Heuristic: any regional variant (en-GB, en-US...) is manual; a plain `en`
-    that differs in size from `en-orig` is manual; otherwise fall back to
+    With info.json the metadata decides: a manual English track (`subtitles`)
+    wins; otherwise auto captions — the original ASR (`en-orig`, or
+    `en-US-orig` for an English dub of a foreign video) before plain `en`.
+    Since 2026 plain `en` can be a machine retranslation from one of the
+    auto-dubbed audio tracks even for an English video; up to then it was
+    identical to `en-orig`, so the order changes no older output. Tracks like
+    `en-de` or `en-pl` are YouTube's machine translations of the creator's
+    *other-language* manual subs back into English — never chosen on purpose
+    (the file-name heuristic below mistook them for regional manual subs).
+    A manual track that runs well past the video's duration belongs to
+    another video (creators do upload the wrong file) and is rejected.
+
+    Without info.json: a regional variant (en-GB, en-US) is manual; a plain
+    `en` that differs in size from `en-orig` is manual; otherwise fall back to
     whatever exists (`en`, then `en-orig`).
     """
     files = [f for f in vid_dir.iterdir() if f.suffix in (".srt", ".vtt")]
-    regional = [f for f in files if re.search(r"\.en-(?!orig)[A-Za-z]+\.(srt|vtt)$", f.name)]
+    by_lang = {track_lang(f): f for f in files}
+    info = read_info(vid_dir)
+    if info is not None:
+        duration = info.get("duration") or 0
+        manual = [k for k in (info.get("subtitles") or {}) if k == "en" or k.startswith("en-")]
+        rejected = []
+        for lang in sorted(manual, key=lambda k: (k != "en", k)):
+            if lang in by_lang:
+                if duration and last_cue_seconds(by_lang[lang]) > duration * 1.1 + 30:
+                    rejected.append(lang)
+                    continue
+                return by_lang[lang], f"manual ({lang})"
+        source = str(info.get("language") or "en")
+        via = "" if source.startswith("en") else f", translated from {source}"
+        if rejected:
+            via += f"; manual {','.join(rejected)} rejected: longer than the video"
+        orig = sorted(k for k in by_lang if re.fullmatch(r"en(-[A-Z]{2})?-orig", k))
+        for lang in orig + ["en"]:
+            if lang in by_lang and lang not in rejected:
+                return by_lang[lang], f"auto captions ({lang}{via})"
+    regional = [f for f in files if re.search(r"\.en-[A-Z]{2}\.(srt|vtt)$", f.name)]
     en_plain = [f for f in files if re.search(r"\.en\.(srt|vtt)$", f.name)]
     en_orig = [f for f in files if re.search(r"\.en-orig\.(srt|vtt)$", f.name)]
     if regional:

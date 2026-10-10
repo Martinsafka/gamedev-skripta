@@ -1,4 +1,4 @@
-# Chapter map — generated 2026-07-31 by `scripts/build_chapter_map.py`. Do not edit by hand.
+# Chapter map — generated 2026-10-10 by `scripts/build_chapter_map.py`. Do not edit by hand.
 
 Routing catalog for audit findings. Base URL: https://martinsafka.github.io/gamedev-skripta/
 Slugs and anchors are public API (see agent_docs/architecture.md) — they never get renamed.
@@ -91,11 +91,12 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 ## Praxe v UE5
 
 ### Blueprint architektura a organizace projektu
-- [Principy architektury](https://martinsafka.github.io/gamedev-skripta/praxe/principy-architektury/) — Dvě videa, která se doplňují jako teorie a tělocvična: Ali Elzoheiry ukazuje na ability systému tři principy škálovatelnosti (separation of concerns, loose coupling, data-driven design) a…
+- [Principy architektury](https://martinsafka.github.io/gamedev-skripta/praxe/principy-architektury/) — Kapitola o tom, jak stavět třídy a blueprinty, aby systém, který funguje dnes, fungoval i za půl roku s desetinásobkem obsahu. Začíná dědičností — kdy dává smysl, kdy z ní stačí jedna…
 - [Komunikace Blueprintů](https://martinsafka.github.io/gamedev-skripta/praxe/komunikace-blueprintu/) — Jak spolu mají Blueprinty mluvit je nejčastější architektonická otázka v UE — a odpověď má tři (a půl) podoby. Tahle kapitola dává vedle sebe mechaniku všech metod z tutoriálu Unreal…
 - [Interakce bez Event Ticku](https://martinsafka.github.io/gamedev-skripta/praxe/interakce-bez-event-ticku/) — Interakční systém „koukni a zmáčkni E" je jedna z prvních věcí, kterou každá 3D hra potřebuje — a zároveň klasické místo, kde vzniká per-frame kód. Tahle kapitola rozebírá event-driven…
 - [Gameplay Tags](https://martinsafka.github.io/gamedev-skripta/praxe/gameplay-tags/) — Gameplay tagy nahrazují změť booleanů a enumů, kterou většina her sleduje svůj stav (0:02). Ali Elzoheiry ale nejde jen po „co to je" — řeší, kde mají tagy bydlet, jak se na ně ptát bez…
-- [Organizace projektu](https://martinsafka.github.io/gamedev-skripta/praxe/organizace-projektu/) — Dvě vrstvy pořádku: struktura složek v Content Browseru (kde bydlí assety a proč se špatný úklid mstí až při balení buildu) a hygiena uvnitř Blueprint grafů (aby ses ve vlastní logice…
+- [Inventář: definice, instance, akce](https://martinsafka.github.io/gamedev-skripta/praxe/inventar/) — Pokračování inventářové série Aliho Elzoheiryho, jejíž první dva díly — třída jako data a fragmenty — stojí v Principech architektury. Tam architektura končí u položek, které jsou všechny…
+- [Organizace projektu](https://martinsafka.github.io/gamedev-skripta/praxe/organizace-projektu/) — Tři vrstvy pořádku: struktura složek v Content Browseru (kde bydlí assety a proč se špatný úklid mstí až při balení buildu), hygiena uvnitř Blueprint grafů (aby ses ve vlastní logice vyznal…
 - [Levely a streaming](https://martinsafka.github.io/gamedev-skripta/praxe/levely-a-streaming/) — Jak dostat hráče z levelu do levelu, aniž by hra ztuhla — a jak to dělají profíci. Tutoriál DevEdge Studia staví základy (proč Open Level zamrzá, level streaming, asynchronní načítání…
 - [Ukládání](https://martinsafka.github.io/gamedev-skripta/praxe/ukladani/) — Save systém v UE je překvapivě málo kódu — SaveGame objekt, slot se jménem a tři uzly. Zajímavá část je architektura okolo: kde má save reference bydlet, aby přežila přechody mezi levely a…
 - [Telemetrie](https://martinsafka.github.io/gamedev-skripta/praxe/telemetrie/) — Dvě patra téže otázky „co se ve hře děje": lokální activity tracker (Ryan Laley) — gameplay tagy hlášené centrálnímu systému, palivo pro achievementy, statistiky a tutorialy — a vzdálená…
@@ -164,7 +165,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Paměť GPU: virtuální textury a pooly](https://martinsafka.github.io/gamedev-skripta/praxe/gpu-pamet/) — Video paměť neroste tak rychle jako nároky na ni — a přibývají systémy, které z ní ukrajují (distance fields, Lumen, virtuální stíny, runtime virtuální textury). Odpovědí celého oboru je…
 - [Optimalizační průchod](https://martinsafka.github.io/gamedev-skripta/praxe/gpu-pruchod/) — Předchozí kapitoly bloku dávaly metodu. Tahle ukazuje, co z ní v praxi padá — tři průchody skutečnými scénami, systematický postup na Lumen a rentgen fyziky. Formát je jiný než u návodů…
 - [Niagara: výkon částic](https://martinsafka.github.io/gamedev-skripta/praxe/niagara-vykon/) — Částice jsou nejčastější tichý žrout v hotové hře, protože se přidávají na konci, po jednom efektu, a nikdy jich není „moc" — dokud jich není dvě stě naráz. Tahle kapitola je celá z jedné…
-- [Paměť, reference a instancování](https://martinsafka.github.io/gamedev-skripta/praxe/pamet-a-instance/) — Tři věci, které nesouvisejí s tím, jak scéna vypadá, a přesto rozhodují o tom, jak běží: co všechno tvoje blueprinty táhnou do paměti, kolik draw callů vyrobí opakující se geometrie a hrst…
+- [Paměť, reference a instancování](https://martinsafka.github.io/gamedev-skripta/praxe/pamet-a-instance/) — Věci, které nesouvisejí s tím, jak scéna vypadá, a přesto rozhodují o tom, jak běží: co všechno tvoje blueprinty táhnou do paměti a jak to odložit, dokud to není potřeba, kolik draw callů…
 - [Lehký render: co vypnout](https://martinsafka.github.io/gamedev-skripta/praxe/lehky-render/) — Zbytek bloku o výkonu se ptá, jak zlevnit funkce UE5. Tahle kapitola sbírá materiály, které se ptají jinak: co když je vůbec nechceš? Lumen, Nanite, virtuální stíny a TSR jsou ve výchozím…
 - [Velké světy](https://martinsafka.github.io/gamedev-skripta/praxe/velke-svety/) — Dvě přednášky o tom, co se stane, když měřítko přeroste hlavu. První je postmortem z rozdělané hry — Subnautica 2, ručně stavěná mapa 3 × 1,5 km se sto tisíci aktéry a výhledem na půl…
 - [Persistence a hydratace](https://martinsafka.github.io/gamedev-skripta/praxe/persistence-a-hydratace/) — Dvě témata, která spolu na první pohled nesouvisejí a v praxi se nedají oddělit. Persistence je ukládání stavu světa tak, aby přežil — buď mezi sezeními, nebo jen mezi tím, než se kus mapy…
@@ -180,6 +181,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 
 ### Editor a workflow
 - [Tipy do editoru](https://martinsafka.github.io/gamedev-skripta/praxe/editor-tipy/) — Sbírka drobných triků, které nezaslouží vlastní kapitolu, ale šetří minuty každý den — výběry a navigace ve viewportu, oprava pivotu bez Blenderu, rozmisťování fyzikou, rychlejší mazání…
+- [Ladění: vidět, co hra dělá](https://martinsafka.github.io/gamedev-skripta/praxe/debugging/) — Ladění je v knihovně zatím rozeseté po kapitolách — Blueprint Debugger s watch hodnotami ve workshopu dveří, Chaos Visual Debugger u fyziky, Unreal Insights u výkonu. Tahle kapitola sbírá…
 
 ### Tvorba assetů mimo engine (Blender)
 - [Z fotky herní asset](https://martinsafka.github.io/gamedev-skripta/praxe/foto-do-assetu/) — Nejlevnější zdroj detailu, jaký existuje, je fotoaparát v kapse. Tahle kapitola ukazuje pipeline, která z jediné fotky udělá nízkopolygonový model s hotovými UV: narovnat obrázek ve 2D…
@@ -291,6 +293,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Astroturfing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#astroturfing)
 - [Attenuation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation)
 - [Autoload](https://martinsafka.github.io/gamedev-skripta/rejstrik/#autoload)
+- [Blueprint Debugger](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blueprint-debugger)
 - [B-roll](https://martinsafka.github.io/gamedev-skripta/rejstrik/#b-roll)
 - [Backbeat](https://martinsafka.github.io/gamedev-skripta/rejstrik/#backbeat)
 - [Backlog](https://martinsafka.github.io/gamedev-skripta/rejstrik/#backlog)
@@ -350,6 +353,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [CPU-bound / GPU-bound](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cpu-bound-gpu-bound)
 - [Custom resource](https://martinsafka.github.io/gamedev-skripta/rejstrik/#custom-resource)
 - [Cyklus napětí](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cyklus-napeti)
+- [Data table](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-table)
 - [Degenerate strategy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#degenerate-strategy)
 - [Data asset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-asset)
 - [Data layer](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-layer)
@@ -386,6 +390,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Elevator pitch](https://martinsafka.github.io/gamedev-skripta/rejstrik/#elevator-pitch)
 - [Environmental storytelling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#environmental-storytelling)
 - [EQ](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eq)
+- [Equipment Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#equipment-instance)
 - [Equity](https://martinsafka.github.io/gamedev-skripta/rejstrik/#equity)
 - [Eulerovy úhly](https://martinsafka.github.io/gamedev-skripta/rejstrik/#eulerovy-uhly)
 - [Euklidovský rytmus](https://martinsafka.github.io/gamedev-skripta/rejstrik/#euklidovsky-rytmus)
@@ -397,6 +402,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Export template](https://martinsafka.github.io/gamedev-skripta/rejstrik/#export-template)
 - [Expresivní mechanika](https://martinsafka.github.io/gamedev-skripta/rejstrik/#expresivni-mechanika)
 - [Extremistan](https://martinsafka.github.io/gamedev-skripta/rejstrik/#extremistan)
+- [File locking](https://martinsafka.github.io/gamedev-skripta/rejstrik/#file-locking)
 - [Fill](https://martinsafka.github.io/gamedev-skripta/rejstrik/#fill)
 - [Find the fun](https://martinsafka.github.io/gamedev-skripta/rejstrik/#find-the-fun)
 - [Flipbook](https://martinsafka.github.io/gamedev-skripta/rejstrik/#flipbook)
@@ -410,6 +416,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Frame time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#frame-time)
 - [FX budget](https://martinsafka.github.io/gamedev-skripta/rejstrik/#fx-budget)
 - [Game Design Document](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-design-document)
+- [Gameplay Debugger](https://martinsafka.github.io/gamedev-skripta/rejstrik/#gameplay-debugger)
+- [GAS](https://martinsafka.github.io/gamedev-skripta/rejstrik/#gas)
 - [Gestalt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#gestalt)
 - [Game feel](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-feel)
 - [Game Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#game-instance)
@@ -460,6 +468,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Interval](https://martinsafka.github.io/gamedev-skripta/rejstrik/#interval)
 - [Invariant](https://martinsafka.github.io/gamedev-skripta/rejstrik/#invariant)
 - [Invisible wall](https://martinsafka.github.io/gamedev-skripta/rejstrik/#invisible-wall)
+- [Item Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#item-instance)
 - [Iterace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#iterace)
 - [Izometrie](https://martinsafka.github.io/gamedev-skripta/rejstrik/#izometrie)
 - [Jitter](https://martinsafka.github.io/gamedev-skripta/rejstrik/#jitter)
@@ -554,6 +563,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [One-way door](https://martinsafka.github.io/gamedev-skripta/rejstrik/#one-way-door)
 - [Orchestrace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#orchestrace)
 - [Oscilátor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#oscilator)
+- [Outer](https://martinsafka.github.io/gamedev-skripta/rejstrik/#outer)
 - [Overdraw](https://martinsafka.github.io/gamedev-skripta/rejstrik/#overdraw)
 - [Overlay state](https://martinsafka.github.io/gamedev-skripta/rejstrik/#overlay-state)
 - [Pacing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pacing)
@@ -670,6 +680,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Skills audit](https://martinsafka.github.io/gamedev-skripta/rejstrik/#skills-audit)
 - [Smart Object](https://martinsafka.github.io/gamedev-skripta/rejstrik/#smart-object)
 - [Soft boundary](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-boundary)
+- [Soft reference](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-reference)
 - [Soft skills](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-skills)
 - [Sound Cue](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sound-cue)
 - [Sound font](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sound-font)
@@ -732,6 +743,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Utility AI](https://martinsafka.github.io/gamedev-skripta/rejstrik/#utility-ai)
 - [UV mapping](https://martinsafka.github.io/gamedev-skripta/rejstrik/#uv-mapping)
 - [UX](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ux)
+- [Visual Logger](https://martinsafka.github.io/gamedev-skripta/rejstrik/#visual-logger)
 - [VSync](https://martinsafka.github.io/gamedev-skripta/rejstrik/#vsync)
 - [Value chain](https://martinsafka.github.io/gamedev-skripta/rejstrik/#value-chain)
 - [Vektor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#vektor)

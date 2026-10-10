@@ -10,6 +10,8 @@ Legend: status `todo / drafted / published / skip` · track `manual / auto / —
 
 **Třetí vlna (staženo 2026-07-29):** +174 videí ve třech playlistech — **Godot playlist 93 (nový, samostatná sekce)**, hlavní +61, Gamedev-music +20. Tabulky v sekci „Třetí vlna" na konci souboru; Godot má vlastní sekci s navrženou taxonomií. Pořadí práce: **nejdřív Godot** (Phase 9, hotovo), **pak hlavní playlist se startem u výkonu a profilingu** (Phase 10, hotovo — dávky 36–43), **hudba nakonec** (Phase 11, hotovo — dávky 44–45). **Celá třetí vlna je zpracovaná.**
 
+**Čtvrtá vlna (staženo 2026-10-10):** +93 videí jen z hlavního playlistu („ue5 - izba"), ~458k slov. Taxonomie navržena: **81 todo v dávkách 47–56** (~403k slov; 73 Praxe, 8 Teorie), 9 skip, 3 todo-lp; 15 nových kapitol v Praxi + nové nav téma „UI a rozhraní". **Strom schválen uživatelem 2026-10-10** (vč. 9 skipů a Evanse Bohla jako páteře `souboj.md`). **Stav: 11 published (dávka 47 ✅), 70 todo, 10 skip, 3 lp.** Tabulky v sekci „Čtvrtá vlna" na konci souboru.
+
 **Druhá vlna hlavního playlistu (+116 videí, staženo 2026-07-17):** taxonomie **schválena 2026-07-18** — kompletní tabulky v sekci „Druhá vlna" na konci souboru; tam běží i statusy dávek (20–30). Rozložení: 86 Teorie (z toho 6 nových témat) · 27 Praxe · 3 Hudba; ~512k slov přepisů; 2 bez přepisu; 2 nové low-priority beginner kurzy. **Strom schválen uživatelem 2026-07-18.** Stav: **114/116 published (dávky 20–30) — druhá vlna hotová**, 0 todo + 2 todo-lp (beginner kurzy). Nav témata „Design do hloubky" a „Byznys, data a kariéra" kompletní; Design do hloubky (8 kapitol: obtiznost, systemy-a-mechaniky, ludonarativni-soulad, zanry, engineering-experiences, pripadovky-designu, horor-design, kamera).
 
 ## Proposed téma tree
@@ -942,3 +944,206 @@ Celkem ~41k slov. Dominantní shluk: **Strudel a live coding hudby** (Glossing �
 | skip | [Coding Trance Music from Scratch (Again )](https://www.youtube.com/watch?v=iu5rnQkfO6M) `iu5rnQkfO6M` | Switch Angel | 5:02 | auto | 249 | — | performance (249 slov) — bez výkladu |
 | skip | [Livecoding melodic DNB music in Strudel](https://www.youtube.com/watch?v=aPsq5nqvhxg) `aPsq5nqvhxg` | Switch Angel | 4:28 | auto | 290 | — | performance (290 slov) — bez výkladu |
 
+
+---
+
+## Čtvrtá vlna — hlavní playlist „ue5 - izba" (+93) · staženo 2026-10-10 · **taxonomie schválena 2026-10-10**
+
+Fetch 2026-10-10 **jen z hlavního playlistu** (na YouTube se jmenuje „ue5 - izba"; hudba a Godot se tentokrát nestahovaly). Playlist má 480 unikátních videí, proti `scripts/fetched.txt` je nových **93** → archiv 610 id, `transcripts_clean/` 600 souborů. Všech 93 má `info.json` i anglickou stopu: 11 ručních, 82 automatických, `VxTQhSr1sbw` je španělský originál přepsaný z anglického dabingu. Celkem ~458k slov.
+
+**Tři opravy pipeline při té příležitosti** (detail v dev_logu 2026-10-10): `clean_transcripts.py` vybírá stopu podle `info.json` (dřív si u vícejazyčných videí bral strojový zpětný překlad typu `en-de` místo ručních titulků), bere `en-orig` před `en` (automatická `en` je u 10 nových videí zpětný překlad z auto-dabingu; ve starém korpusu takový případ není) a odmítne ruční stopu, která je delší než video (`wknRD5g-vvk` má ruční titulky z jiného videa svého autora).
+
+**Rozložení:** **81 `todo`** v deseti dávkách (47–56, ~403k slov) — 73 do Praxe v UE5, 8 do Teorie · **9 `skip`** (5 mimo záběr knihovny nebo bez mluveného slova, 4 duplikáty obsahu) · **3 `todo-lp`** (dlouhé začátečnické průchody, stejně jako `FAo9nfWYPSE`). Skip potvrzen uživatelem 2026-10-10 (všech 9).
+
+**Stav po dávce 47:** 11 published — nové kapitoly `praxe/inventar.md` (5 myšlenek) a `praxe/debugging.md` (2), +1 myšlenka do `principy-architektury.md` a `pamet-a-instance.md`, doplňky do `komunikace-blueprintu.md` a `organizace-projektu.md`; `R_gX46NtqU8` přesunut do skip (obsah už v knihovně je). Zbývá 70 todo v dávkách 48–56.
+
+**Dotčené díry z `content_gaps.md`:** UI a UMG (P1) dostává první zdroje, ale jen pro **UI ve světě** (diegetické menu, health bary nad hlavou, cena in-world widgetů) — jádro UMG a Common UI dál chybí; multiplayer (P3) jeden zdroj (`_jRLlTDqoGI`); doba buildu a testy (P2) částečně (`BJ8gQQmJJ-U`); slabý hardware (P2) jedna případovka (`Pkd7-ouyb-M`).
+
+### Změny ve stromu (schváleno 2026-10-10)
+
+**15 nových kapitol v Praxi v UE5 a 1 nové nav téma.** Slugy jsou pracovní, dokud kapitola nevyjde — pak jsou veřejné API.
+
+| nová kapitola | nav téma | dávka | páteř |
+|---|---|---|---|
+| `praxe/inventar.md` — inventář: definice, instance, akce, vybavení | Blueprint architektura a organizace projektu | 47 | Ali Elzoheiry, díly 6 · 8 · 10 · 11 (díly 1–2 už jsou v `principy-architektury.md`) |
+| `praxe/debugging.md` — ladění: vidět, co hra dělá | Editor a workflow | 47 | DK 3D + gameplay debugger |
+| `praxe/mass-ecs.md` — Mass a ECS: data místo objektů | Výkon a profiling | 48 | Unreal Fest Chicago 2026 |
+| `praxe/interakcni-animace.md` — postava sahá na svět (motion warping, IK, contextual animation) | Animace: nástroje a mocap | 49 | Houman Creates ×3, Tank Control Games ×2 |
+| `praxe/cutsceny.md` — cutscény a přechod do cinematiky bez střihu | Animace: nástroje a mocap | 49 | 2 tutoriály (Sequencer má v knihovně jen zmínky) |
+| `praxe/souboj.md` — souboj: od montáže po hit stop | Herní systémy a interakce | 50 | Evans Bohl (3,8 h) + game feel + zdraví končetin |
+| `praxe/ui-ve-svete.md` — UI ve světě: diegetické menu a world-space widgety | **nové téma „UI a rozhraní"** | 50 | Houman Creates + úseky ze tří dalších videí |
+| `praxe/ai-ve-velkem.md` — AI ve velkém: navigace, rozhodování, reakce | AI a chování NPC | 50 | Lords of the Fallen (Unreal Fest Stockholm 2025) |
+| `praxe/destrukce-a-latky.md` — Chaos: destrukce a látky | Fyzika: ragdoll, lana, simulace | 51 | Unreal Fest 2024 + Chaos Cloth Dataflow 5.8 |
+| `praxe/blockout.md` — blockout jako polovina projektu | Prostředí a environment art | 52 | JaviSkau + hybridní blockout Naughty Dog |
+| `praxe/modularni-kity.md` — modulární kity a trim sheety | Prostředí a environment art | 52 | Beyond Extent (87 min) + 2× trim sheety + Witcher 3 a Mortal Shell 2 |
+| `praxe/env-technika.md` — breakdowny II: technika za vzhledem | Prostředí a environment art | 52 | 007 First Light, Alan Wake 2, AC Black Flag Resynced |
+| `praxe/megalights.md` — MegaLights | Osvětlení a atmosféra | 53 | Inside Unreal (2,8 h) |
+| `praxe/pcg-mesta.md` — procedurální města | PCG a procedurální svět | 54 | Lucid Games (Unreal Fest Chicago 2026) |
+| `praxe/mcp-v-editoru.md` — MCP v editoru: jak ho Epic navrhl a jak ho rozšířit | AI nástroje ve vývoji | 55 | Epic ×2 + JetBrains Rider |
+
+Schválené přejmenování v nav (jen titulek, URL beze změny): „Animace: nástroje a mocap" → **„Animace: nástroje, interakce a cutscény"**, protože do tématu přibudou dvě kapitoly, které nejsou o nástrojích.
+
+### Plán dávek
+
+| dávka | téma | todo | ~slov | nové kapitoly | rozšiřuje |
+|---|---|---|---|---|---|
+| 47 ✅ | Blueprint architektura, inventář a ladění | 11 + 1 skip | 51k | `inventar`, `debugging` | `principy-architektury`, `pamet-a-instance`, `komunikace-blueprintu`, `organizace-projektu`, `editor-tipy` |
+| 48 | Výkon, škálování a zdraví projektu | 7 | 37k | `mass-ecs` | `gpu-pruchod`, `nanite-do-hloubky`, `lehky-render`, `optimalizace`, `niagara-vykon`, `organizace-projektu` |
+| 49 | Animace: interakce, cutscény, rigging a mocap | 12 | 46k | `interakcni-animace`, `cutsceny` | `animace-nastroje`, `metahuman` |
+| 50 | Souboj, herní systémy, UI ve světě a AI nepřátel | 7 | 55k | `souboj`, `ui-ve-svete`, `ai-ve-velkem` | `pasti-a-mechaniky` |
+| 51 | Fyzika a GASP 5.8 | 5 | 49k | `destrukce-a-latky` | `mover`, `gasp`, `ragdoll` |
+| 52 | Prostředí: blockout, modulární kity a breakdowny | 10 | 47k | `blockout`, `modularni-kity`, `env-technika` | — |
+| 53 | Světlo a materiály | 6 | 40k | `megalights` | `materialy`, `ps1-estetika`, `landscape-tipy` |
+| 54 | PCG, terén, povrchy a velké světy | 7 | 39k | `pcg-mesta` | `pcg-liany`, `pcg-vegetace`, `mesh-terrain`, `velke-svety`, `footsteps` |
+| 55 | AI nástroje: MCP, agenti a AI animace | 8 | 26k | `mcp-v-editoru` | `claude-code-ue`, `ai-assety`, `teorie/2d-vizual` |
+| 56 | Teorie: příběh, plánování, design a level design | 7 | 14k | — | `pribeh-a-postavy`, `planovani-nastroje`, `jak-se-ucit-kodovat`, `systemy-a-mechaniky`, `algoritmy-prehled`, `prostor-a-hranice`, `vydani-hry` |
+
+**Vazby mezi dávkami** (ať se nic neztratí, když se pořadí změní): `ui-ve-svete` (50) čerpá i z úseků `xr-2TrMUd9w` (48), `4omEu9N9WIE` a `Mv1LGtQRVls` (50) a dostane backlink z Cyberpunku `G_te2IkVVi4` (56) · GASP 5.8 `6NYC4ryO9ik` (51) má úsek pro `interakcni-animace` (49, backlink) a úsek o AnimGen pro dávku 55 · `blockout` (52) dostane Pozn. z Cyberpunku (56) · prostřelené barely ze 007 (52) jsou AAA protějšek k `8aDH2KUGdbE` (50).
+
+### Dávka 47 — Blueprint architektura, inventář a ladění · `hotovo`
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| published | [Data Driven Inventory System (Part 6: Using Items) \| Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=LKdBlgQ8_rY) `LKdBlgQ8_rY` | Ali Elzoheiry | 43:08 | auto | 7216 | `praxe/inventar.md` | myšlenka „Použití jako seznam akcí" (+ problém stavu, na který navazuje díl 8) · dávka 47 |
+| published | [Data Driven Inventory System (Part 8: Item Instances Integrated) \| Unreal Engine 5](https://www.youtube.com/watch?v=jRTjBB8vIfM) `jRTjBB8vIfM` | Ali Elzoheiry | 48:44 | auto | 7794 | `praxe/inventar.md` | dvě myšlenky: „Definice popisuje druh, instance nese kus" a „Když stav opouští inventář, cestuje jako data" · dávka 47 |
+| published | [Data Driven Inventory System (Part 10: EQUIPMENT) \| Unreal Engine 5](https://www.youtube.com/watch?v=vW2zUajnaGY) `vW2zUajnaGY` | Ali Elzoheiry | 58:09 | auto | 9663 | `praxe/inventar.md` | myšlenka „Vybavení je samostatný systém"; v Pozn. paralela s třídami vybavení v Lyře · dávka 47 |
+| published | [Data Driven Inventory System (Part 11: ITEM STATS) \| Unreal Engine 5](https://www.youtube.com/watch?v=a7sVIyCwbbY) `a7sVIyCwbbY` | Ali Elzoheiry | 23:34 | auto | 3908 | `praxe/inventar.md` | myšlenka „Staty: náhoda při vzniku, modifikátory při vybavení" (500 → 400); přepis z `en-orig`, auto `en` byl zpětný překlad · dávka 47 |
+| published | [Why Your Unreal Project Becomes a Mess (And How to Fix It) \| UE5 Inheritance Explained](https://www.youtube.com/watch?v=xS7wckoboAo) `xS7wckoboAo` | Ali Elzoheiry | 27:24 | auto | 4528 | `praxe/principy-architektury.md` | +1 „Kdy dědit a kdy jen konfigurovat" (hned za Dědičností); úvod kapitoly obnoven · dávka 47 |
+| published | [Stop Overusing Hard References ( Do This Instead )](https://www.youtube.com/watch?v=OpotdQGOAYE) `OpotdQGOAYE` | Unreal University | 8:21 | auto | 1587 | `praxe/pamet-a-instance.md` | +1 „Soft reference: načti, až když to hra potřebuje" (24,5 MB → 99 KB) · dávka 47 |
+| published | [Every Unreal Engine Tutorial Teaches Casting Wrong](https://www.youtube.com/watch?v=PkCIoPIIOzc) `PkCIoPIIOzc` | Unreal University | 10:30 | auto | 1991 | `praxe/komunikace-blueprintu.md` | doplněk „Třetí cesta: castuj na lehkého společného rodiče" v myšlence o ceně castu · dávka 47 |
+| published | [5 Ways To Optimise Your Game In Unreal Engine](https://www.youtube.com/watch?v=UAVz7WTARIk) `UAVz7WTARIk` | Unreal University | 16:32 | auto | 3054 | `praxe/pamet-a-instance.md` | do soft reference (past: v editoru funguje, po restartu ne) + doplněk Drobků (normál mapa, menu nastavení) · dávka 47 |
+| published | [Level up your UE DEBUGGING skills](https://www.youtube.com/watch?v=xPihqWA6tkE) `xPihqWA6tkE` | DK 3D | 25:30 | auto | 3219 | `praxe/debugging.md` | myšlenka „Čtyři otázky, čtyři nástroje" · dávka 47 |
+| published | [Learn Character AI in Unreal Engine 5: Basics](https://www.youtube.com/watch?v=vcGtpTn5X8s) `vcGtpTn5X8s` | Taken Grace | 24:58 | auto | 5450 | `praxe/debugging.md` | myšlenka „AI, která nereaguje" — gameplay debugger a tři chyby naživo; základy BT zůstaly v `ai-zaklady.md` · dávka 47 |
+| published | [This Tool Makes Git Much More Accessible For Game Dev Teams](https://www.youtube.com/watch?v=sB8jryDaaXE) `sB8jryDaaXE` | Game Dev Guide | 10:59 | auto | 2478 | `praxe/organizace-projektu.md` | doplněk Git myšlenky „Kde Git na hry přestane stačit" (zámky souborů); sponzor flag v Pozn. · dávka 47 |
+| skip | [Work 4X Faster in UE5.7: 5 Pro Hotkeys Nobody Uses (UE5)](https://www.youtube.com/watch?v=R_gX46NtqU8) `R_gX46NtqU8` | 3D Dreamer | 0:30 | manual | 79 | — | obsah už je v `organizace-projektu.md` (devět tipů: komentáře, reroute, zarovnání, collapse) — dávka 47 |
+
+### Dávka 48 — Výkon, škálování a zdraví projektu
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Fighting the Frame Budget: Stage Optimization Lessons from 2XKO \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=Pkd7-ouyb-M) `Pkd7-ouyb-M` | Unreal Engine | 34:07 | auto | 6533 | `praxe/gpu-pruchod.md` | +1: Riot 2XKO — optimalizace stagí bojovky pro slabý hardware (CPU i GPU, vlastní nástroje, tech-art pohled); dotýká se gapu „Mobil a slabý hardware“ |
+| todo | [UE5 Nanite Optimization Deep Dive — Cutting 3GB](https://www.youtube.com/watch?v=RvEcTRAqA6Y) `RvEcTRAqA6Y` | DK 3D | 45:11 | auto | 5661 | `praxe/nanite-do-hloubky.md` | +1: Nanite a velikost balíčku — 3 GB dat, která se nikdy nevykreslí; hromadná editace stovek meshů |
+| todo | [How I Optimized My Game to Over 200 FPS in UE5](https://www.youtube.com/watch?v=xr-2TrMUd9w) `xr-2TrMUd9w` | Procedural Minds | 22:46 | auto | 4555 | `praxe/lehky-render.md` | +1: sólo hra 100 → 200 FPS (TSR/AA, vypnuté featury, Niagara). Úsek o in-world widgetech (11:21–15:56) patří do `ui-ve-svete.md` v dávce 50 |
+| todo | [How to Boost FPS Fast in UE5 with this ONE Setting](https://www.youtube.com/watch?v=aK9K7CffqCk) `aK9K7CffqCk` | 3D Dreamer | 0:21 | manual | 54 | `praxe/optimalizace.md` | 21 s, jedna věta (Bounds Scale → dřívější culling drobných propů) — doplněk |
+| todo | [Unlearning OOP: Data-Oriented Gameplay Design with ECS and Mass Entity \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=UXA8axmAb-U) `UXA8axmAb-U` | Unreal Engine | 43:37 | auto | 8573 | NOVÁ `praxe/mass-ecs.md` | Epic: data-oriented gameplay s Mass — paměťový layout, tick vs. události, procesory, ladění. Pozor: „fragment“ v Mass ≠ fragment v inventáři — rozlišit v rejstříku |
+| todo | [Building Living World Creatures with Niagara \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=pwpwy6m38bk) `pwpwy6m38bk` | Unreal Engine | 16:51 | auto | 2943 | `praxe/niagara-vykon.md` | +1: živý svět z částic místo AI aktérů (hejna ryb, světlušky, žáby; CPU simulace, škálování přes PCG, od mobilu nahoru) |
+| todo | [Project Health in Unreal Engine: The Technical Indicators That Matter \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=BJ8gQQmJJ-U) `BJ8gQQmJJ-U` | Unreal Engine | 44:21 | auto | 8211 | `praxe/organizace-projektu.md` | +1: technické zdraví projektu jako průběžná kontrola (brzy na cílové platformě, scalability, CI/CD a validace, iterační časy, upgrade enginu); dotýká se gapů „Doba buildu“ a „Testy“ |
+| skip | [How Subnautica 2 Handles 100,000+ Actors in UE5](https://www.youtube.com/watch?v=x6UqZq-XpXE) `x6UqZq-XpXE` | Smart Poly | 9:05 | auto | 1660 | — | DUPLIKÁT obsahu: shrnutí přednášky `AalP65lrtpo` (Subnautica 2), která je ve `velke-svety.md` zpracovaná z originálu |
+| skip | [Scaling AI the Smart Way: Memory Footprint and Runtime Efficiency \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=BFfebAtBLfU) `BFfebAtBLfU` | Unreal Engine | 33:07 | auto | 4865 | — | runtime ML inference pro moderaci hlasového chatu (NNE, AMD) — mimo záběr sólo vývoje; jediný přenositelný fakt: trvalá inference na CPU sní půl CPU rozpočtu (27:42) |
+
+### Dávka 49 — Animace: interakce, cutscény, rigging a mocap
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Build Better Doors in Unreal Engine 5](https://www.youtube.com/watch?v=CR8Qy6dmCAU) `CR8Qy6dmCAU` | Houman Creates | 29:27 | auto | 4485 | NOVÁ `praxe/interakcni-animace.md` | dveře z obou stran: čtyři animace, motion warping, IK ruky přes Control Rig, křivka kliky |
+| todo | [Realistic Pickup System in Unreal Engine 5 (Control Rig + Grip Poses)](https://www.youtube.com/watch?v=W856GJgqM2U) `W856GJgqM2U` | Houman Creates | 35:12 | auto | 5711 | NOVÁ `praxe/interakcni-animace.md` | jedna animace zvednutí pro všechny předměty: Control Rig IK + grip pointy + grip pózy (pose asset) |
+| todo | [The Secret to Realistic Item Interactions in Unreal Engine 5](https://www.youtube.com/watch?v=6zGQFsnKCeY) `6zGQFsnKCeY` | Houman Creates | 11:50 | auto | 1885 | NOVÁ `praxe/interakcni-animace.md` | pokračování W856GJgqM2U: attach ≠ snap, tři výšky zvednutí, první i třetí osoba |
+| todo | [EASY Object Interactions in Unreal Engine 5 \| Contextual Animation](https://www.youtube.com/watch?v=OpSqCcPVJUY) `OpSqCcPVJUY` | Tank Control Games | 17:07 | auto | 3687 | NOVÁ `praxe/interakcni-animace.md` | Contextual Animation: jeden master actor pro dveře, kontejnery, páky a plošiny |
+| todo | [Finally, PERFECT Zombie Synced Animations in UE5 (Contextual Animation Tutorial)](https://www.youtube.com/watch?v=NoI3GyDvyKI) `NoI3GyDvyKI` | Tank Control Games | 21:32 | auto | 4567 | NOVÁ `praxe/interakcni-animace.md` | párová animace útočník/oběť: smyčka zápasu, větvení útěk vs. kousnutí podle vstupu hráče |
+| todo | [SEAMLESS Gameplay to Cinematic Finishers in Unreal Engine 5 (No Cuts)](https://www.youtube.com/watch?v=buVZ7-0NX94) `buVZ7-0NX94` | Tank Control Games | 14:58 | auto | 3154 | NOVÁ `praxe/cutsceny.md` | gameplay → cinematic finisher bez střihu: level sequence za běhu, transform origin, blend kamery tam a zpět |
+| todo | [UE 5.8 - How To Add Cutscenes To Your Game - Tutorial](https://www.youtube.com/watch?v=pV727-cB69Y) `pV727-cB69Y` | Unreal - X - Tutorials | 11:34 | auto | 1565 | NOVÁ `praxe/cutsceny.md` | intro a průchod domem; `Keep State` + cam blend, návrat do hry bez skoku — celé v level blueprintu |
+| todo | [Creating a Pistol w/ Flashlight Aim Set - Unreal Engine 5 Tutorial](https://www.youtube.com/watch?v=1N4yZ6g6LB0) `1N4yZ6g6LB0` | Surreptitious Vignettes | 4:52 | auto | 816 | `praxe/animace-nastroje.md` | doplněk k řemeslu první osoby: pistole s baterkou poskládaná úpravou existujících animací křivkami a klíči přímo v UE |
+| todo | [State of Rigging and Animation Tools in Unreal Engine 5.8 \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=yi-oDmC1nqU) `yi-oDmC1nqU` | Unreal Engine | 38:57 | auto | 7231 | `praxe/animace-nastroje.md` | +1: stav riggingu a animace v 5.8 (fyzika v Control Rigu, AutoBake, modular rig, faciální rig) |
+| todo | [Aprons on, it's time for some baking🧑‍🍳](https://www.youtube.com/watch?v=ueozYU2YNlI) `ueozYU2YNlI` | Unreal Engine | 0:48 | auto | 196 | `praxe/animace-nastroje.md` | 48 s, AutoBake — doplněk k yi-oDmC1nqU |
+| todo | [MetaHuman Animator Markerless Motion Capture Demo](https://www.youtube.com/watch?v=r_-fEi7fXLA) `r_-fEi7fXLA` | Unreal Engine | 51:05 | auto | 7187 | `praxe/animace-nastroje.md` | prohloubit myšlenku o markerless mocapu (dosud ze tří pětiminutových návodů): příprava záběrů, zpracování, dočištění — oficiální 51min demo |
+| todo | [MetaHuman in 2026: Five Years In, What's Next? \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=IsbgHRa5N3A) `IsbgHRa5N3A` | Unreal Engine | 33:29 | auto | 5297 | `praxe/metahuman.md` | +1: kam se MetaHuman posunul za pět let (5.8: styly, DevKit, runtime tisíců MH, markerless) |
+| skip | [Unreal Engine 5 Tutorial: First-Person Horror Pickup System](https://www.youtube.com/watch?v=Z2cvh0vKa0k) `Z2cvh0vKa0k` | Houman Creates | 31:12 | auto | 2909 | — | starší verze W856GJgqM2U (autor sám odkazuje na novou) |
+| skip | [Unreal Engine 5.8 Video To Metahuman Animation! Markerless MoCap Plugin Beginner Tutorial](https://www.youtube.com/watch?v=8lokT6WXnU0) `8lokT6WXnU0` | pinkpocketTV | 8:27 | auto | 1438 | — | čtvrtý krátký návod na markerless workflow, který kapitola už má |
+| skip | [Don't Buy Mocap Gear! Do This Instead in Unreal Engine 5.8](https://www.youtube.com/watch?v=ol5nY6P4jlg) `ol5nY6P4jlg` | Monsoon Studios 3D | 6:26 | manual | 525 | — | pátý krátký návod na týž workflow; jediný unikát je nastavení videa (5:05) → nanejvýš věta do r_-fEi7fXLA (dávka 49) |
+
+### Dávka 50 — Souboj, herní systémy, UI ve světě a AI nepřátel
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [How to Make a Combat System in UE5](https://www.youtube.com/watch?v=4omEu9N9WIE) `4omEu9N9WIE` | Evans Bohl | 229:17 | auto | 34750 | NOVÁ `praxe/souboj.md` | páteř kapitoly (3,8 h): komponenta, montáže a combo okna přes notifies, hitboxy od impact frame po kostní, damage jednou za útok, směrové reakce, health komponenta, ragdoll, hit stop/shake. Úsek o health baru (2:13–2:35) → `ui-ve-svete.md`. Číst celé |
+| todo | [5 Ways to Improve Game Feel In Unreal Engine](https://www.youtube.com/watch?v=78MBe46IBrQ) `78MBe46IBrQ` | Unreal University | 8:47 | auto | 1605 | `praxe/souboj.md` | pět technik game feelu v UE — implementační protějšek juice katalogu v `teorie/game-feel.md`; inspirováno cizím Unity tweetem (kredit v popisu) |
+| todo | [Limb Health + Breakable Limbs in Unreal Engine 5](https://www.youtube.com/watch?v=Mv1LGtQRVls) `Mv1LGtQRVls` | Tank Control Games | 22:00 | auto | 4372 | `praxe/souboj.md` | zdraví po končetinách přes physical materials, zlomení fyzikou vs. zničení s VFX; world-space health bary → `ui-ve-svete.md` |
+| todo | [Interactive Horror Menu in Unreal Engine 5](https://www.youtube.com/watch?v=CDf-5lp4yxQ) `CDf-5lp4yxQ` | Houman Creates | 13:26 | auto | 1382 | NOVÁ `praxe/ui-ve-svete.md` | diegetické menu v televizi: UMG na Widget Component + Widget Interaction Component. Částečně plní P1 gap „UI a UMG“ (world-space UI, ne jádro UMG) |
+| todo | [Crafting Scalable AI for a AAA Souls-Like Game in Unreal Engine \| Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=XKQfMZOXFv0) `XKQfMZOXFv0` | Unreal Engine | 40:41 | auto | 8323 | NOVÁ `praxe/ai-ve-velkem.md` | Lords of the Fallen: navigace pro nepřátele mnoha velikostí, optimalizace pathfindingu, data-driven rozhodování místo obřích BT, reakční systém, bojové role |
+| todo | [Create a Water Leak System in Unreal Engine 5 \| Blueprint Tutorial (Part 1)](https://www.youtube.com/watch?v=8aDH2KUGdbE) `8aDH2KUGdbE` | Zima Env | 10:46 | auto | 976 | `praxe/pasti-a-mechaniky.md` | malý reaktivní systém (zásah → díra → hladina klesá k nejnižší díře); AAA protějšek: prostřelené barely ve 007 (T4JStuqxUPI, Houdini). Díl 1 |
+| todo | [How We Designed a Puzzle Adventure Game in Unreal Engine](https://www.youtube.com/watch?v=tpq66PFyzf0) `tpq66PFyzf0` | Unreal Engine | 18:22 | manual | 3533 | `praxe/pasti-a-mechaniky.md` | přehled psané série Epicu „Design a Puzzle Adventure“ (klíče a dveře přes BPI, HUD, tlaková deska, fyzikální kostka, plošina) — doplněk, začátečnická úroveň |
+
+### Dávka 51 — Fyzika a GASP 5.8
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Using Chaos Physics for Large-Scale and High-Fidelity Scenes \| Unreal Fest 2024](https://www.youtube.com/watch?v=uCYGFdEWyZw) `uCYGFdEWyZw` | Unreal Engine | 50:41 | auto | 9460 | NOVÁ `praxe/destrukce-a-latky.md` | Chaos ve velkém: destrukce v LEGO Fortnite (multiplayer), cloth pipeline, Chaos Visual Debugger, paměť. Talk z 5.4 (2024) — hlídat aktuálnost |
+| todo | [Unreal Engine 5.8's NEW Cloth Physics System \| Chaos Cloth Dataflow Tutorial](https://www.youtube.com/watch?v=6XDPQX-i0AQ) `6XDPQX-i0AQ` | Pixelart Animation | 8:04 | auto | 981 | NOVÁ `praxe/destrukce-a-latky.md` | Chaos Cloth Dataflow v 5.8 (skinning v Mayi → dataflow graf); navázat na `metahuman.md` (Chaos Cloth) |
+| todo | [A Dive Into Networked Physics-Based Character Movement \| Unreal Fest Stockholm 2025](https://www.youtube.com/watch?v=_jRLlTDqoGI) `_jRLlTDqoGI` | Unreal Engine | 41:21 | auto | 6834 | `praxe/mover.md` | +1: Chaos Mover — fyzikální pohyb postavy v multiplayeru (resimulace, input decay, synchronizace času); dotýká se P3 gapu „Multiplayer“ |
+| todo | [The Last GASP!? Game Animation Sample Updates for 5.8 + Q&A \| Inside Unreal](https://www.youtube.com/watch?v=6NYC4ryO9ik) `6NYC4ryO9ik` | Unreal Engine | 166:35 | auto | 29960 | `praxe/gasp.md` + `praxe/ragdoll.md` | poslední update GASP (2,8 h): physics control a aktivní ragdoll → `ragdoll.md`; get-upy přes MM, look-at solver, MM v chooserech → `gasp.md`; multi-character interakce → backlink do `interakcni-animace.md`; AnimGen (10:49–13:47) → dávka 55 |
+| todo | [Unreal Engine Just Got AAA Animation Physics (Game Animation Sample 5.8)](https://www.youtube.com/watch?v=UP3zWCMPn3E) `UP3zWCMPn3E` | Gorka Games | 8:26 | auto | 1532 | `praxe/gasp.md` | doplněk k 6NYC4ryO9ik — včetně zprávy, že tohle je poslední update GASP |
+| skip | [Beyond Native: Real-Time Scientific & Cable Simulation in UE5 \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=ngx2Cy5tkXo) `ngx2Cy5tkXo` | Unreal Engine | 41:20 | auto | 6121 | — | průmyslový plugin (Skyreal XDE) pro vědeckou simulaci kabelů, živé demo — mimo dosah indie; nanejvýš Pozn. v `lana-kabely.md` |
+
+### Dávka 52 — Prostředí: blockout, modulární kity a breakdowny
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [BLOCKOUT de Escenarios para Videojuegos](https://www.youtube.com/watch?v=VxTQhSr1sbw) `VxTQhSr1sbw` | JaviSkau \| Senior Environment Artist | 21:07 | auto | 4076 | NOVÁ `praxe/blockout.md` | zastav / omez / porovnej; hierarchie tvarů, test přimhouřených očí, přehánění měřítek. ŠPANĚLSKÝ originál, přepis z anglického dabingu (`en-US-orig`). Jeho „70/30“ (detail vs. klid) ≠ Tyrollerovo 70/30 ≠ zápisek Pravidlo 70/30 |
+| todo | [Why Naughty Dog's 3D Blockouts Are World Class (Hybrid Workflow)](https://www.youtube.com/watch?v=2OBTIFS0PdE) `2OBTIFS0PdE` | EMC3D - Game Art | 16:09 | auto | 3049 | NOVÁ `praxe/blockout.md` | hybridní blockout Naughty Dog (úrovně 0–2, držet rozsahy hodnot); Patreon promo |
+| todo | [The easiest Way to Create Modular 3D Kits Without Stress](https://www.youtube.com/watch?v=77xPHfzciiY) `77xPHfzciiY` | Beyond Extent | 86:47 | auto | 21844 | NOVÁ `praxe/modularni-kity.md` | páteř kapitoly (87 min, env artist Sony Santa Monica): teorie kitů, složitost, příprava, hard-surface vs. organické kity, texturování, shader, blendování |
+| todo | [How AAA Studios Texture Huge Worlds \| The Last of Us & Valorant Trim Sheet Workflows](https://www.youtube.com/watch?v=Jn9Zl5SO4EU) `Jn9Zl5SO4EU` | Class Creatives | 19:08 | auto | 3143 | NOVÁ `praxe/modularni-kity.md` | trim sheety TLOU / Valorant / AC Mirage, rozbití mřížky, texel density; navázat na `env-breakdowny.md` (TLOU trim sheet). Promo kurzu |
+| todo | [Why AAA Games Use Trim Sheets (And How They Actually Work)](https://www.youtube.com/watch?v=Jw9X4HjlFpI) `Jw9X4HjlFpI` | Zeref3DForge | 5:18 | auto | 1096 | NOVÁ `praxe/modularni-kity.md` | kdy trim sheet ano a kdy ne — doplněk |
+| todo | [How The Witcher 3 Built Its Cities \| Environment Breakdown](https://www.youtube.com/watch?v=cCovMWRSL6o) `cCovMWRSL6o` | Next Level Game Art | 20:52 | auto | 3483 | NOVÁ `praxe/modularni-kity.md` | Witcher 3 Beauclair: 500 MB textur na celé město (jeden dům 72 MB), stejné assety s jiným nátěrem, jeden shader na čtvrť; layout a landmarky → most k `teorie/vedeni-hrace.md` |
+| todo | [How 30 Devs Made One of 2026's Best Looking Games \| Mortal Shell 2](https://www.youtube.com/watch?v=SleW5iuwyIA) `SleW5iuwyIA` | Next Level Game Art | 20:41 | auto | 3490 | NOVÁ `praxe/modularni-kity.md` | Mortal Shell 2: AAA vzhled od 30 lidí — Nanite zapnout/vypnout, kity, externí nástroje, optimalizace |
+| todo | [How 007 First Light Is Built Inside the Editor](https://www.youtube.com/watch?v=T4JStuqxUPI) `T4JStuqxUPI` | Next Level Game Art | 14:20 | auto | 2188 | NOVÁ `praxe/env-technika.md` | 007 First Light: editor pro tvůrce obsahu (entity / template / brick), Houdini nástroje tech artistů, volumetrika |
+| todo | [3 Invisible Systems Secretly Running Alan Wake 2](https://www.youtube.com/watch?v=zOlvns5pEZM) `zOlvns5pEZM` | Next Level Game Art | 17:04 | auto | 2517 | NOVÁ `praxe/env-technika.md` | Alan Wake 2: neviditelné systémy — ground triggery spawnující prach a hmyz, vítr přes SDF wind boxy, GPU skinned vegetace, meshlety |
+| todo | [Tricks Behind AC Black Flag Resynced's Materials and Tech](https://www.youtube.com/watch?v=MF_wkqanBFI) `MF_wkqanBFI` | Next Level Game Art | 11:22 | auto | 1653 | NOVÁ `praxe/env-technika.md` | AC Black Flag Resynced: vertex paint architektury, simulace místo ručního sochání, fake interior shader (→ `materialy.md`), voda. Promo kurzu |
+
+### Dávka 53 — Světlo a materiály
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Artist's Guide to Using MegaLights in Unreal Engine 5.8 \| Inside Unreal](https://www.youtube.com/watch?v=Nrb17mtBJPM) `Nrb17mtBJPM` | Unreal Engine | 166:35 | auto | 30920 | NOVÁ `praxe/megalights.md` | Inside Unreal 2,8 h: co MegaLights mění (rozpočet vzorků, light complexity, 200 stínících světel), attenuation radius a expozice jako hlavní páky, smart light blueprint, light channels (5.8), IES světlomety, proč ne na slunce, local exposure |
+| todo | [How to Create Fake Windows in Unreal Engine 5 \| Fake 3D Interior](https://www.youtube.com/watch?v=OftM6QfMLtk) `OftM6QfMLtk` | Zima Env | 8:07 | auto | 941 | `praxe/materialy.md` | +1: falešný interiér za oknem (interior cubemap, cube textura ze Scene Capture Cube); spárovat s fake interior z MF_wkqanBFI |
+| todo | [How to Make PSX-Style Fog in Unreal Engine 5](https://www.youtube.com/watch?v=6i5hk_9whpE) `6i5hk_9whpE` | Eremental Studios | 15:14 | auto | 2235 | `praxe/ps1-estetika.md` | +1 (s UFX-DwosKUM): PS1 vzhled v enginu — mlha jako post-process materiál, pixelizace UV. Promo vlastních assetů |
+| todo | [Pixelated Effect on Any Material in Unreal Engine 5 \| Material Tutorial](https://www.youtube.com/watch?v=UFX-DwosKUM) `UFX-DwosKUM` | Zima Env | 1:39 | auto | 241 | `praxe/ps1-estetika.md` | 1:39 — pixelizace libovolného materiálu, doplněk |
+| todo | [Landscape Lab #01 — The Perfect POM + Contact Shadows Combo in Unreal Engine 5](https://www.youtube.com/watch?v=gxk2ulmlkX8) `gxk2ulmlkX8` | Gatyh Interactive | 20:55 | auto | 4243 | `praxe/landscape-tipy.md` | +1 (s c9WhNdNLheY): hloubka bez geometrie — POM + contact shadows, proti Nanite displacementu |
+| todo | [NEXT-GEN Real-Time Displacement \| IHP for Unreal Engine](https://www.youtube.com/watch?v=c9WhNdNLheY) `c9WhNdNLheY` | Denizcan Gok | 15:01 | manual | 1721 | `praxe/landscape-tipy.md` | IHP jako alternativa k POM s pevným krokem — autorův vlastní plugin (flag) |
+
+### Dávka 54 — PCG, terén, povrchy a velké světy
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [Procedural Cities for Tech Artists: Geometry Scripting & PCG \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=7uuFPOKIw8I) `7uuFPOKIw8I` | Unreal Engine | 43:43 | auto | 7301 | NOVÁ `praxe/pcg-mesta.md` | Lucid Games: budovy z gramatiky, block processor ze spline, silnice; geometry scripting v produkci |
+| todo | [Volumetric Sampling In PCG Is a LOT More Powerful Than You Think](https://www.youtube.com/watch?v=mgurlPTz__E) `mgurlPTz__E` | Procedural Minds | 21:48 | auto | 4517 | `praxe/pcg-liany.md` | +1: volumetric sampler místo mesh sampleru — podlaha, stěny a strop jedním grafem (tentýž autor jako zbytek kapitoly) |
+| todo | [Building Open World Forests: The Fastest Way in UE5](https://www.youtube.com/watch?v=ufZrhbZWPto) `ufZrhbZWPto` | Aziel Arts | 39:52 | auto | 8289 | `praxe/pcg-vegetace.md` | +1: les pro otevřený svět (biomy, spawning groups, co zapéct a co generovat za běhu); autorův placený nástroj QuickScatter — flag |
+| todo | [Introducing Mesh Terrain: Craft Large Complex Worlds \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=QJwTTmNez3k) `QJwTTmNez3k` | Unreal Engine | 47:40 | auto | 7682 | `praxe/mesh-terrain.md` | +1–2: oficiální zdroj (inženýři Epicu) — mesh partition, modifikátory, runtime a výkon, kam to míří; kapitola je dosud z Aziel Arts a DK 3D |
+| todo | [Supercharging my procedural mountain forest](https://www.youtube.com/watch?v=ACjlgxRp69c) `ACjlgxRp69c` | runevision | 18:01 | manual | 2355 | `praxe/velke-svety.md` | +1, mimo UE (vlastní framework LayerProcGen): dohled na kilometry — chunky, impostory stromů, eroze, přesnost floatu (→ Large World Coordinates) |
+| todo | [Footstep VFX by Surface Type in Unreal Engine 5 (Niagara)](https://www.youtube.com/watch?v=RsI8O7Guz4s) `RsI8O7Guz4s` | Tank Control Games | 17:57 | auto | 3394 | `praxe/footsteps.md` | +1: díl 3 série o povrchech — díl 2 (zvuky přes MetaSounds, `e2N0dRLHsGY`) už kapitola má, díl 1 v playlistu není; VFX podle povrchu, Niagara pooling, škálování rychlostí |
+| todo | [UE5 Surface Deformation Tutorial \| Real-Time Snow & Ground Depth (Render Target, RVT, VHM)](https://www.youtube.com/watch?v=QWONTiw68OU) `QWONTiw68OU` | Tank Control Games | 28:10 | auto | 5479 | `praxe/footsteps.md` | +1: stopy ve sněhu a bahně — render target + RVT + Virtual Heightfield Mesh |
+
+### Dávka 55 — AI nástroje: MCP, agenti a AI animace
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [From Words to Worlds: Integrating MCP into the Unreal Editor \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=lDf_y-YPELo) `lDf_y-YPELo` | Unreal Engine | 36:40 | auto | 6178 | NOVÁ `praxe/mcp-v-editoru.md` | jak Epic navrhl MCP: čtyři prvky, PCG primitives pro stavbu světa, skills, jak rozšířit toolset; navázat na `claude-code-ue.md` (proč nativní MCP samo nestačí) |
+| todo | [Getting Started with MCP in Unreal Engine 5.8 I Epic Games Education Webinar](https://www.youtube.com/watch?v=k0tgmrBuIJc) `k0tgmrBuIJc` | Unreal Engine | 60:52 | auto | 9293 | NOVÁ `praxe/mcp-v-editoru.md` | praktický start s MCP pluginem (Epic Education, 61 min); hlídat překryv s „Nativní MCP v 5.8: setup a první testy“ |
+| todo | [Agentic Development in Unreal Engine with Rider \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=0C7GjShUnlY) `0C7GjShUnlY` | Unreal Engine | 24:55 | auto | 3026 | NOVÁ `praxe/mcp-v-editoru.md` | strana IDE: Rider, ACP, Rider Kit — kde generická AI v UE selhává (GAS bootstrap, build triage, DataTables) |
+| todo | [New Absolute King of 3D & Blender - GPT-6 Astra](https://www.youtube.com/watch?v=8MUk-tQTiwE) `8MUk-tQTiwE` | Stefan 3D AI | 14:08 | manual | 2709 | `praxe/claude-code-ue.md` | doplněk k agentovi v Blenderu: GPT-6 riguje a animuje, staví auto z výkresů (ukazuje i co se rozbilo); affiliate Higgsfield + hype tón — flag |
+| todo | [Unreal Engine’s NEW AI Animation System Is Crazy (UE5)](https://www.youtube.com/watch?v=vksuxAECgI8) `vksuxAECgI8` | Smart Poly | 10:07 | auto | 1888 | `praxe/ai-assety.md` | +1 (s lj-xPo7ueGA, wknRD5g-vvk a úsekem 6NYC4ryO9ik 10:49–13:47): animace generovaná za běhu — AnimGen (experimentální v 5.8), MotionBricks, Kimodo |
+| todo | [Free and Local Real-Time AI Animation - NVIDIA MotionBricks.cpp](https://www.youtube.com/watch?v=lj-xPo7ueGA) `lj-xPo7ueGA` | Stefan 3D AI | 7:19 | manual | 1320 | `praxe/ai-assety.md` | MotionBricks.cpp — real-time AI motion controller lokálně, i na CPU; affiliate (flag) |
+| todo | [NVIDIA Kimodo Now Runs Without a GPU - Free Local Workflow](https://www.youtube.com/watch?v=wknRD5g-vvk) `wknRD5g-vvk` | Stefan 3D AI | 6:45 | auto | 1275 | `praxe/ai-assety.md` | Kimodo.cpp na CPU (Kimodo už v kapitole je). POZOR: ruční titulky patří jinému videu autora (končí v 31:57 u 6:45 videa) — vyčištěn automatický přepis |
+| todo | [Create a FREE 2D Parallax System Using AI ( Game Ready )](https://www.youtube.com/watch?v=4_u5Ues1zPY) `4_u5Ues1zPY` | Iris Ogli - Modeling, AI Animation & Game Assets | 3:46 | manual | 528 | `teorie/2d-vizual.md` | doplněk: vrstvy pro parallax z AI (zamčená kamera a horizont); promo |
+| skip | [World Modeling and Vibe Simulation with Unreal Engine \| Unreal Fest Chicago 2026](https://www.youtube.com/watch?v=v6QujSBg4Xw) `v6QujSBg4Xw` | Unreal Engine | 48:42 | auto | 8925 | — | světové modely a syntetická data pro robotiku (Duality) — mimo gamedev |
+| skip | [Getting Started with the Unreal Engine HMI Template and Data Reduction Pipeline](https://www.youtube.com/watch?v=fyjkR6YDjvM) `fyjkR6YDjvM` | Unreal Engine | 42:18 | auto | 6280 | — | automotive HMI šablona (Epic + Qualcomm) — mimo gamedev; s UI souvisí jen vzdáleně (binding signálů na widgety) |
+
+### Dávka 56 — Teorie: příběh, plánování, design a level design
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo | [If You Can't Answer These 6 Questions You Don't Have A Story - Glenn Gers](https://www.youtube.com/watch?v=uL0atQFZzL8) `uL0atQFZzL8` | Film Courage | 14:57 | manual | 2677 | `teorie/pribeh-a-postavy.md` | +1: šest otázek, bez kterých nemáš příběh (scenárista Glenn Gers, rozhovor Film Courage) |
+| todo | [The Breakdown Method: The Secret to Finishing Your Game](https://www.youtube.com/watch?v=wAe6b3IpSh0) `wAe6b3IpSh0` | Unreal University | 7:51 | auto | 1711 | `teorie/planovani-nastroje.md` | +1/doplněk: rozpad hory na kameny — proč se hry nedodělávají a jak je rozkouskovat. Promo kurzu |
+| todo | [5 things I wish I knew before I started Unreal Engine](https://www.youtube.com/watch?v=pMziF4jpejo) `pMziF4jpejo` | Unreal University | 7:02 | auto | 1272 | `teorie/jak-se-ucit-kodovat.md` | doplněk: tutorial hell, hloubka místo šíře, nejdřív actors a components, Fab místo vlastního modelování |
+| todo | [You can create any game mechanic once you understand this](https://www.youtube.com/watch?v=vZkAbeMLcvc) `vZkAbeMLcvc` | PtroDev | 10:54 | auto | 1777 | `teorie/systemy-a-mechaniky.md` | +1: každá mechanika z pěti kostek (vstup, detekce, transformace, komunikace, stav + logika) a pět otázek; Godot kanál, ale engine-agnostické |
+| todo | [The infinite potential of Conway's Game Of Life](https://www.youtube.com/watch?v=SQitnzjr8tc) `SQitnzjr8tc` | Ominous Dev | 6:17 | auto | 1160 | `teorie/algoritmy-prehled.md` | +1/doplněk: Game of Life — tři pravidla, Turingova úplnost, složitost z jednoduchosti; most k emergenci v `systemy-a-mechaniky.md` |
+| todo | [Spawn Closets in Video Game Level Design](https://www.youtube.com/watch?v=YjZVo8RO0xQ) `YjZVo8RO0xQ` | timdoesleveldesign (TimDoesLevelDesign) | 6:07 | manual | 1097 | `teorie/prostor-a-hranice.md` | +1: spawn closet — kde se rodí nepřátelé, aby to hráč neviděl, a proč (rozpočet aktivních nepřátel) |
+| todo | [How was Cyberpunk 2077 created?](https://www.youtube.com/watch?v=G_te2IkVVi4) `G_te2IkVVi4` | ByteSeb | 30:04 | auto | 4618 | `teorie/vydani-hry.md` | +1: rozbitý launch a vykoupení (protipól k „pasti post-launch updatů“); sekundární zdroj se spekulacemi — flag. Diegetický HUD → backlink do `ui-ve-svete.md`, blockout → kity do `blockout.md` |
+
+### Low-priority a skip mimo dávky
+
+| status | video | kanál | délka | track | slova | kapitola (slug) | pozn. |
+|---|---|---|---|---|---|---|---|
+| todo-lp | [Unreal Engine 5.8.2 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5 #megascans #cgi](https://www.youtube.com/watch?v=LqOKsVmy2Rc) `LqOKsVmy2Rc` | Magnet VFX | 67:51 | auto | 10257 | — | LOW-PRIORITY: Magnet VFX, průchod stavbou prostředí 68 min (jako `FAo9nfWYPSE`) |
+| todo-lp | [Unreal Engine 5.8 Beginner Tutorial - UE5 Starter Course 2026#unrealengine5 #megascans #cgi](https://www.youtube.com/watch?v=oDXCx2i17DQ) `oDXCx2i17DQ` | Magnet VFX | 67:47 | auto | 9167 | — | LOW-PRIORITY: Magnet VFX, průchod stavbou prostředí a MetaHuman animací 68 min (jako `FAo9nfWYPSE`) |
+| todo-lp | [Create Next-Gen Dynamic Environments In Unreal Engine 5 - Shallow Water River, Megaplants & more!](https://www.youtube.com/watch?v=-KMBEjaVp3M) `-KMBEjaVp3M` | pinkpocketTV | 16:00 | auto | 2158 | — | LOW-PRIORITY: začátečnický průchod (shallow water řeka, megaplants) — obsah už mají `interaktivni-voda.md` a `pcg-vegetace.md` |
+| skip | [1989 WALK THROUGH FIRE // Synthwave, Cyberpunk, Retrowave](https://www.youtube.com/watch?v=dflqyI2KXp0) `dflqyI2KXp0` | Moebius FM | 125:27 | auto | 150 | — | dvouhodinový synthwave mix bez mluveného slova (přepis = „Heat. Heat.“) |

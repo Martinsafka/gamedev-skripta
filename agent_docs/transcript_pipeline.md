@@ -23,7 +23,9 @@ Known follow-up: if fetches start failing wholesale after a YouTube-side change,
 
 `python3 scripts/clean_transcripts.py transcripts transcripts_clean`
 
-- **Track selection per video:** regional manual track (e.g. `en-GB`) > `en` differing from `en-orig` > single `en` > `en-orig` auto captions. The chosen track is recorded in the output header.
+- **Track selection per video** (since 2026-10-10 driven by `info.json`): a **manual** English track listed under `subtitles` (`en`, then regional `en-GB`/`en-US`) > auto **`en-orig`** (original ASR; `en-US-orig` for an English dub of a foreign video) > auto `en`. A manual track that runs well past the video's duration belongs to another video and is rejected. The chosen track is recorded in the output header. Without info.json the old file-name heuristic applies.
+- **Trap: auto `en` is no longer a copy of `en-orig`.** Up to the third wave the two were identical (447/447 old videos clean to the same paragraphs and timestamps). In the fourth wave 10 of 54 English videos had an auto `en` that is a **machine retranslation from one of YouTube's auto-dubbed audio tracks** — readable but garbled („game tag", „snippet" for fragment, „card" for map). Hence `en-orig` first.
+- **Trap: `en-xx` tracks are not regional subs.** When a creator uploads manual subs in other languages, YouTube offers machine translations of each back into English (`en-de`, `en-pl`, `en-en`…), and `--sub-langs "en.*"` downloads them all. The pre-2026-10-10 heuristic took any `en-<letters>` file for a regional manual track and so sometimes cleaned a retranslation instead of the original (10 videos, see dev_log 2026-10-10). The same multilingual videos also multiply subtitle requests and are the main trigger of HTTP 429 during a fetch.
 - **Rolling-window dedupe:** YouTube auto-captions repeat the previous cue's tail in every cue; the script strips the overlap.
 - Strips HTML entities (`&nbsp;`), inline tags, and noise markers (`[Music]`, `[Applause]`).
 - Joins cues into paragraphs (new paragraph on ≥8 s silence or ≥45 s length) and prefixes each with `[M:SS | t=SECONDSs]` — the `t=` value plugs directly into deep links (`&t=273s`).

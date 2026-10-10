@@ -58,7 +58,7 @@ Detekce hráče je pro stealth hru gameplay sám o sobě — kdy si mě stráž 
 
 > **Pozn.:** Umístění percepce (controller vs. postava — [LeafBranchGames](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) ji dává na postavu) je věc konvence; controller je čistší pro znovupoužití mozku napříč těly a odpovídá tomu, jak to dělá [GASP s NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente). Simple Move to Location je jednodušší příbuzný AI MoveTo — bez acceptance radius a callbacků; pro „doběhni na místo" stačí.
 
-**Souvislosti:** [Základy AI: vyšší liga](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) · [GASP: NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Objektový klíč a odklad ztráty cíle](#objektovy-klic-a-odklad-ztraty-cile-percepce-navazana-na-strom) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: Blackboard](../rejstrik.md#blackboard)
+**Souvislosti:** [Základy AI: vyšší liga](ai-zaklady.md#vyssi-liga-ai-controller-behavior-tree-a-blackboard) · [GASP: NPC](gasp.md#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) · [Objektový klíč a odklad ztráty cíle](#objektovy-klic-a-odklad-ztraty-cile-percepce-navazana-na-strom) · [Rejstřík: AI Perception](../rejstrik.md#ai-perception) · [Rejstřík: Blackboard](../rejstrik.md#blackboard) · [Ladění: AI, která nereaguje](debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) *(stimuli source a detekce podle příslušnosti)*
 
 ---
 

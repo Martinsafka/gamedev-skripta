@@ -28,7 +28,7 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
 
 U base class v Blueprintech se zapíná v `Class Settings → Generate Abstract Class`. Smysl: master má nést jen data a logiku, žádné meshe či materiály — cokoli master referencuje, se nahrává do paměti s každou referencí na něj. Abstraktní master nikdo omylem nespawne a size map zůstává štíhlá.
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat)
 
 ### Actor Component
 
@@ -68,7 +68,7 @@ Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](prax
 
 Mocnější nástupce Pawn Sensingu: víc smyslů, stárnutí vjemů, lose sight radius (hystereze ztrácení cíle). Dva zádrhely: cíl musí mít AI Perception Stimuli Source komponentu a každý sense config potřebuje zaškrtnout Detect Enemies/Neutrals/Friendlies. Sluch a damage se hlásí přes Report Noise/Damage Event — signály pro AI, ne herní zvuk či poškození.
 
-Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [State Trees](praxe/state-trees.md) · [Základy AI](praxe/ai-zaklady.md)
+Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [State Trees](praxe/state-trees.md) · [Základy AI](praxe/ai-zaklady.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny)
 
 ### Akord
 
@@ -238,6 +238,14 @@ Zdejší podoba singletonu: v nastavení projektu zaregistruješ scénu a Godot 
 
 Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni-hra.md#animationplayer-jako-casovac-sekvence-bez-jedineho-radku-kodu) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
 
+### Blueprint Debugger
+
+**Ladění blueprintů přímo v editoru za běhu hry: breakpointy, sledované hodnoty a zastavení při chybě.**
+
+Pravý klik na pin → *Watch this value* a v toolbaru vybrat ladicí objekt — hodnota pak běží přímo v grafu. Breakpoint zastaví hru na uzlu a dovolí krokovat; volba v Editor Preferences → Experimental zastaví blueprint automaticky na uzlu, kde nastala výjimka (třeba index mimo pole), místo aby hra běžela dál a chyby se objevily až v logu. Rychlejší než archeologie s print stringem, jakmile víš, kterou hodnotu hledáš.
+
+Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Nářadí z workshopu](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
+
 ### B-roll
 
 **Doplňkové záběry, které běží na obrazovce, zatímco mluvíš o něčem obecnějším — ve videích o hrách typicky záběry gameplaye.**
@@ -292,7 +300,7 @@ Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 
 Strom běží na AI controlleru a čte sdílenou tabuli (Blackboard); decoratory hlídají podmínky a s „observer aborts" přerušují běžící větve při změně dat. Vlastní tasky se píší v blueprintu (Receive Execute AI → Finish Execute). Pro nové projekty Epic tlačí State Trees — koncepty se ale přenášejí.
 
-Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md)
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny)
 
 ### Beta
 
@@ -308,7 +316,7 @@ Kde se s tím potkáš: [Playtesting: škálování](teorie/playtesting.md) · [
 
 Klíč typu Object→Actor umí Move To průběžně sledovat (žádné přepočítávání cíle); Blackboard decorator větví strom podle „Is Set / Is Not Set" a observer aborts okamžitě přepne chování při změně. Zápis z blueprintu: Set Blackboard Value as Bool/Vector/Object — jméno klíče musí sedět do písmene.
 
-Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md)
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny)
 
 ### Blend Space
 
@@ -492,7 +500,7 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
 Umožňuje vzor **„třída jako data"**: definici položky (název, ikona, popis) napíšeš jako `UObject` s `EditDefaultsOnly` vlastnostmi, konkrétní věci jsou blueprintoví potomci bez event grafu — a čte se z nich uzlem `Get Class Defaults`, respektive `GetDefaultObject()` v C++. Proti data assetu má jednu praktickou výhodu: **předáváš třídu, ne objektovou referenci**, takže nevzniká tvrdá reference na asset. Zásadní výhrada: **CDO je globální a sdílené** — cokoli, co se má lišit mezi jednotlivými kusy (opotřebení, náboje, vlastník), do něj nepatří.
 
-Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset) · [Rejstřík: Hard reference](#hard-reference)
+Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset) · [Rejstřík: Hard reference](#hard-reference) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus)
 
 ### Chaos Cloth
 
@@ -710,6 +718,14 @@ Setup a očekávání ustaví normál; anomálie ho nahlodají; diverze („ček
 
 Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
+### Data table
+
+**Tabulka řádků postavená na jednom structu — každý řádek má jméno a hodnoty se čtou podle něj.**
+
+Typické použití: jedna konfigurovatelná třída (pickup) drží jen jméno řádku a zbytek si dohledá v construction scriptu — žádné dítě pro každou položku. Hranice: tabulka je statická, nedá se k ní přidat funkčnost ani z ní dědit; to umí data asset a „třída jako data".
+
+Kde se s tím potkáš: [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset)
+
 ### Degenerate strategy
 
 **Strategie, která hru rozkládá: dominantní postup, po jehož objevení přestává být hra zajímavá.**
@@ -724,7 +740,7 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 
 V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blueprinty je čtou. Odděluje „co" od „jak" — stejná logika, jiná data, jiné chování. Mesh Terrain v data assetu (Mesh Partition Definition) drží materiál, texel size a definice channels.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table)
 
 ### Data layer
 
@@ -998,6 +1014,14 @@ Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Vedení hráč
 
 Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
+### Equipment Instance
+
+**Objekt, který vznikne při nasazení kusu vybavení a pamatuje si, co spawnul a co změnil — aby šlo všechno vrátit.**
+
+Jeden ze čtyř dílů systému vybavení: *definition* (jaký aktér, jaký socket), *instance* (účetní kniha jednoho nasazeného kusu), *manager* komponenta (vytváří instance, hlídá sloty) a samotný *actor* ve světě. Instance drží odkaz na zdrojovou [item instance](#item-instance) — položka v batohu a nasazený kus jsou dvě různé věci. Při sundání zničí aktéra, vynuluje referenci a vrátí aplikované staty. Stejné rozdělení používá Lyra.
+
+Kde se s tím potkáš: [Vybavení je samostatný systém](praxe/inventar.md#vybaveni-je-samostatny-system-definice-instance-manazer-a-akter) · [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni)
+
 ### Equity
 
 **Podíl na firmě — na rozdíl od půjčky se nesplácí, ale už nikdy se nevrátí.**
@@ -1086,6 +1110,14 @@ Talebův pojem: v Mediocristanu (tělesná výška) žádný jednotlivec statist
 
 Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-tri-mechanismy-ktere-vedou-ke-stejne-strategii)
 
+### File locking
+
+**Zamčení souboru tím, kdo na něm pracuje — ostatní ho nemůžou upravit; odpověď na binární assety, které se nedají sloučit.**
+
+Git počítá s tím, že se změny dvou lidí sloučí; u souborů z Photoshopu, Blenderu nebo u scény to nejde. Proto mají herní verzovací nástroje zámky (exclusive checkout) a nad Gitem se doplňují zvlášť. Pro sólo projekt zbytečné — potřeba začnou být s druhým člověkem na projektu.
+
+Kde se s tím potkáš: [Git v Unrealu: kde přestane stačit](praxe/organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case) · [Rejstřík: Version control](#version-control)
+
 ### Fill
 
 **Zahuštění rytmu na konci fráze, které připraví posluchače na příchod další sekce.**
@@ -1164,7 +1196,7 @@ Kde se s tím potkáš: [FM: když jeden zvuk ohýbá druhý](hudba/synteza-zvuk
 
 Řeší, že ne všechny položky mají totéž: co má reprezentaci ve světě, dostane fragment světové reprezentace; co se dá vybavit, fragment vybavení. Definice položky pak drží jen společné vlastnosti a **pole fragmentů**. Vzor stojí na třech C++ specifikátorech, které v blueprintu nejsou: **`DefaultToInstanced`** (instance se při vytvoření duplikují), **`EditInlineNew`** (fragment se přidá tlačítkem přímo v okně vlastností) a **`Instanced`** na tom poli (každá položka dostane vlastní kopii). Praktické měřítko: **vlastnost patří do fragmentu, jakmile ji nemá aspoň polovina položek.** Používá to inventář v Lyře.
 
-Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy-architektury.md#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: CDO](#cdo) · [Rejstřík: Data-driven design](#data-driven-design)
+Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy-architektury.md#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: CDO](#cdo) · [Rejstřík: Data-driven design](#data-driven-design) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus) · [Inventář: akce](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku)
 
 ### Frame time
 
@@ -1189,6 +1221,22 @@ Kde se s tím potkáš: [Škálování a pooling](praxe/niagara-vykon.md#skalova
 Klasická podoba (slohová práce v akademickém formátu) u sólo vývojářů umírá nedopsaná a nečtená. Funkční alternativa je vizuální nástěnka: reference s důvody, levely jako sekvence, mechaniky jako GIFy, centrální to-do. Jediná metrika kvality GDD je, jestli je *živý* — forma je vedlejší.
 
 Kde se s tím potkáš: [GDD: dokument jako způsob myšlení](teorie/gdd.md) · [Start projektu](teorie/jak-zacit.md) · [Zápisky: GDD review](zapisky/gdd-review.md)
+
+### Gameplay Debugger
+
+**Ladicí vrstva přímo ve hře (klávesa apostrof): navmesh, cesta AI, behavior tree, EQS a percepce.**
+
+Kategorie se přepínají numerickou klávesnicí (0 navmesh, 1 AI, 2 behavior tree, 4 EQS, dál percepce a smart objects). Ukáže kužel zraku, hranici ztráty cíle i to, který decorator ve stromu selhal a proč („value equals none"). U AI je to nejrychlejší cesta, protože její chyby nehlásí chybu — postava jen stojí.
+
+Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Rejstřík: Behavior Tree](#behavior-tree) · [Rejstřík: AI Perception](#ai-perception)
+
+### GAS
+
+**Gameplay Ability System — Epicův framework pro schopnosti, atributy a efekty, který hodnoty počítá ze základu a modifikátorů.**
+
+Atribut (rychlost, zdraví) se nemění přepsáním čísla, ale **gameplay efektem** s modifikátory, které jdou zase odebrat — dočasné vlivy se tak nemohou „slít" do základu (příklad, kdy prosté sčítání skončí na 400 místo 500, je v kapitole o statech). Efekt navíc mapuje hodnotu na atribut v datech, ne v kódu. Stojí na něm Lyra; principy, ze kterých vychází (separace, data, komponenty), jsou tytéž jako v Principech architektury.
+
+Kde se s tím potkáš: [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni) · [Použití jako seznam akcí](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Tři principy škálovatelnosti](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data)
 
 ### Gestalt
 
@@ -1252,7 +1300,7 @@ Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](
 
 V UE je objekt po zničení (`Destroy Actor`) nejdřív označen jako **pending kill** — existuje v paměti, ale je „mrtvý" — a fyzicky zmizí až při dalším úklidu. Reference na takový objekt projde, ale použití spadne na runtime error. Obrana v Blueprintech: Validated Get / `Is Valid` před každým použitím reference na objekt, který mohl zaniknout.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Když stav opouští inventář](praxe/inventar.md#kdyz-stav-opousti-inventar-cestuje-jako-data-ne-jako-objekt)
 
 ### GASP
 
@@ -1420,7 +1468,7 @@ Kde se s tím potkáš: [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md
 
 Vzniká castem, class referencí, přiřazeným meshem. Diagnóza: pravý klik na asset → Reference Viewer (kdo na kom závisí) a Size Map (kolik paměti reference stáhne). Následky: dlouhé loady, provázané levely, křehké systémy. Léky: abstraktní datový master, interfacy, event dispatchery, broadcast kanály — a u assetů soft reference, které se načítají až na vyžádání.
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Organizace projektu](praxe/organizace-projektu.md)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Organizace projektu](praxe/organizace-projektu.md) · [Soft reference: načti, až když to hra potřebuje](praxe/pamet-a-instance.md#soft-reference-nacti-az-kdyz-to-hra-potrebuje) · [Cast na lehkého rodiče](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast)
 
 ### Harmonická řada
 
@@ -1484,7 +1532,7 @@ Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-s
 
 Lakmusový test každého vztahu: „is it a?" — pes *je* mazlíček, dům není. Rodič je smlouva (co deklaruje, mají garantovaně všechny děti) a na smlouvě stojí polymorfismus: volající volá `Interact`, každé dítě odpoví po svém. Blueprint specifika: component eventy nejde overridnout (obal je do custom eventů), overridnutý event nespouští rodiče automaticky (Add Call to Parent Function).
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat)
 
 ### Idea reservoir
 
@@ -1532,7 +1580,7 @@ Kde se s tím potkáš: [2D vizuál: pixel art](teorie/2d-vizual.md)
 
 Jeden asset (mesh lampy) → stovky instancí (lampy po celé mapě). Rozlišení asset vs. instance je základ práce v editoru: úprava assetu se propíše všem instancím, úprava instance jen jí. Editor umí s instancemi pracovat hromadně — viz Shift+E pro výběr všech výskytů daného assetu.
 
-Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md)
+Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Rejstřík: Item Instance](#item-instance) *(jiný význam)*
 
 ### ISM
 
@@ -1589,6 +1637,14 @@ Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysle
 Zabíjí imerzi přesně mechanismem „vidím, že to jde, ale hra mi to nedovolí". Alternativy: tvrdé hranice z přirozených bariér světa (útes, řeka, oceán) a pět druhů měkkých hranic — narativní, countdown, nepřátelská, ekonomická, percepční. Pravidlo: hráč se má rozhodnout sám, že dál nepůjde.
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+
+### Item Instance
+
+**Konkrétní kus položky v inventáři — nese stav, který definice mít nemůže (zbývající použití, vylosované staty).**
+
+Vzniká z definice při zvednutí; fragmenty si v ní při vzniku založí svůj stav. Stohovatelné položky mají jednu instanci na stack, takže se „při vzniku instance" nic neděje, když do stacku jen přibude kus. Mezi systémy (zahození do světa, uložení) necestuje instance jako objekt, ale její stav jako data. Neplést s [Instance](#instance) — tam jde o umístěný výskyt assetu v levelu.
+
+Kde se s tím potkáš: [Definice popisuje druh, instance nese kus](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus) · [Když stav opouští inventář](praxe/inventar.md#kdyz-stav-opousti-inventar-cestuje-jako-data-ne-jako-objekt) · [Rejstřík: CDO](#cdo) · [Rejstřík: Fragment](#fragment)
 
 ### Iterace
 
@@ -2342,6 +2398,14 @@ Sinus (bez alikvót, teplý), obdélník a pila (bohaté na alikvóty), trojúhe
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
+### Outer
+
+**Objekt, ke kterému je `UObject` přivázaný — s ním žije a s ním ho uklidí garbage collector.**
+
+Určuje se při konstrukci objektu (`Construct Object from Class`, parametr *Outer*) a záleží na něm i v multiplayeru. Změnit ho dodatečně jde (v C++ `Rename`), ale je to drahé, protože to sahá na haldu a spustí garbage collector — proto se stav mezi pickupem ve světě a inventářem posílá jako data, ne jako objekt.
+
+Kde se s tím potkáš: [Když stav opouští inventář](praxe/inventar.md#kdyz-stav-opousti-inventar-cestuje-jako-data-ne-jako-objekt) · [Vybavení je samostatný systém](praxe/inventar.md#vybaveni-je-samostatny-system-definice-instance-manazer-a-akter) · [Rejstřík: Garbage collection](#garbage-collection)
+
 ### Overdraw
 
 **Tentýž pixel vykreslený vícekrát, protože se geometrie překrývá — tichý zabiják výkonu hustých scén.**
@@ -2980,7 +3044,7 @@ Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 
 Formulace nutí seřadit fakta a předpoklady, a přesně v tom seřazení bývá chyba vidět. Funguje s kachnou, kamarádem i AI; s člověkem má bonus druhé perspektivy („z ptačí vidím díru v úvaze").
 
-Kde se s tím potkáš: [Programátorské návyky](teorie/programatorske-navyky.md)
+Kde se s tím potkáš: [Programátorské návyky](teorie/programatorske-navyky.md) · [Ladění](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger)
 
 ### Runway
 
@@ -3228,7 +3292,7 @@ Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Princip
 
 Pravý klik na asset → Size Map → Memory Size. Nejlepší způsob, jak zviditelnit cenu tvrdých referencí: přidání jediného cast uzlu do blueprintu může jeho paměťovou stopu zdvojnásobit, protože cílová třída se od té chvíle nahrává s ním. Diagnostický protějšek Reference Vieweru, který ukazuje vazby, ne velikost.
 
-Kde se s tím potkáš: [Komunikace Blueprintů: kolik stojí cast](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Principy architektury](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data)
+Kde se s tím potkáš: [Komunikace Blueprintů: kolik stojí cast](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast) · [Principy architektury](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [Soft reference](praxe/pamet-a-instance.md#soft-reference-nacti-az-kdyz-to-hra-potrebuje)
 
 ### Skill ceiling
 
@@ -3269,6 +3333,14 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md)
 Pět vzorů: narativní (most se zřítí, postava odmítne jít dál), countdown (mráz, plyn, dezerce — tlak času místo kolize), nepřátelská (za hranicí loví něco silnějšího; nemusí zabíjet — stačí probrat se potlučený zpátky), ekonomická (kyslík/palivo nevystačí na návrat) a percepční (ztráta orientace a viditelnosti). Nejlépe fungují kombinované a vždy s fikčním alibi.
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+
+### Soft reference
+
+**Odkaz, který drží jen cestu k assetu — nic nenačte, dokud si o to hra neřekne.**
+
+Typ proměnné *Soft Object Reference* (pro třídy *Soft Class Reference*). Použití: `Is Valid?` → je-li asset načtený, použij ho; jinak `Async Load Asset` a pokračuj z pinu *Completed*. Šetří paměť (blueprint s jedním efektem 24,5 MB → 99 KB) i škubnutí při spawnu, protože se načítá na pozadí. Past: v editoru to často funguje i bez načtení, protože asset už je v paměti odjinud; po restartu se nenačte nic. Kdy: u assetů potřebných jen při konkrétní akci.
+
+Kde se s tím potkáš: [Soft reference: načti, až když to hra potřebuje](praxe/pamet-a-instance.md#soft-reference-nacti-az-kdyz-to-hra-potrebuje) · [Rejstřík: Hard reference](#hard-reference)
 
 ### Soft skills
 
@@ -3766,6 +3838,14 @@ Předchází UI: nejdřív se mapuje cesta hráče a minimalizuje počet nutnýc
 
 Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
 
+### Visual Logger
+
+**Nahrávač hodnot a ladicích tvarů v čase (Tools → Debug → Visual Logger); po hře se dá procházet po časové ose.**
+
+Zápisy se třídí do kategorií a dají se filtrovat; mimo text umí i tvary a segmenty, ze kterých jde poskládat graf hodnoty přímo v levelu. Odpovídá na otázku „jak se to vyvíjelo", na kterou print string neumí. Nejbližší příbuzný je Chaos Visual Debugger pro fyziku.
+
+Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Chaos Visual Debugger](praxe/gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky)
+
 ### VSync
 
 **Synchronizace výměny obrazových bufferů s obnovovacím cyklem monitoru — buď žádné trhání, nebo nejnižší latence.**
@@ -3804,7 +3884,7 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 
 Dvě služby: záchranné lano z každé katastrofy a viditelná historie pokroku (protilék na „nic nestíhám"). Zásada zrnitosti: commituj malé celky s popisnou zprávou — velký commit se špatně popisuje, vrací i slučuje. UE specifika: Blueprinty jsou binární (diff neuvidíš, zpráva je vše), na velké assety Git LFS, v editoru vestavěná integrace Revision Control.
 
-Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md)
+Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md) · [Rejstřík: File locking](#file-locking)
 
 ### Vizuální hierarchie
 
