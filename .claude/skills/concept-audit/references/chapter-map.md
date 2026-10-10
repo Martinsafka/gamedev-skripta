@@ -145,7 +145,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [MetaHuman v praxi](https://martinsafka.github.io/gamedev-skripta/praxe/metahuman/) — MetaHuman už není jen „digitální dvojník pro cinematiku" — markerless mocap z něj udělal mocap prostředníka a tahle kapitola pokrývá zbytek herního života: jak z MetaHumana udělat hratelnou…
 
 ### Terén a krajina
-- [Landscape tipy](https://martinsafka.github.io/gamedev-skripta/praxe/landscape-tipy/) — Než Mesh Terrain dozraje z experimentu, klasický Landscape zůstává produkční volbou — a tahle kapitola sbírá čtyři praktické recepty: Nanite displacement (terén s reliéfem z materiálu)…
+- [Landscape tipy](https://martinsafka.github.io/gamedev-skripta/praxe/landscape-tipy/) — Než Mesh Terrain dozraje z experimentu, klasický Landscape zůstává produkční volbou — a tahle kapitola sbírá pět praktických receptů: Nanite displacement (terén s reliéfem z materiálu)…
 - [Mesh Terrain (UE 5.8)](https://martinsafka.github.io/gamedev-skripta/praxe/mesh-terrain/) — Epic v UE 5.8 představil Mesh Terrain — nové pojetí terénu, které má výhledově nahradit klasický Landscape. Kapitola destiluje 47minutový deep dive do systému (proč vznikl, jak se zakládá…
 
 ### PCG a procedurální svět
@@ -163,10 +163,11 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Stavba prostředí](https://martinsafka.github.io/gamedev-skripta/praxe/env-tvorba/) — Praktická strana environment artu: nejdřív proč scéna vypadá dobře (design language a chiaroscuro — dřív, než sáhneš na jediný setting), pak kompletní kuchařka lesní pěšiny ze 132minutového…
 
 ### Materiály a VFX
-- [Materiály](https://martinsafka.github.io/gamedev-skripta/praxe/materialy/) — Materiálová kapitola pokrývá čtyři různě velké myšlenky: master material workflow (proč nemá každý mesh nosit pět vlastních textur), Nanite displacement na obyčejném meshi, velký…
+- [Materiály](https://martinsafka.github.io/gamedev-skripta/praxe/materialy/) — Materiálová kapitola pokrývá několik různě velkých myšlenek: master material workflow (proč nemá každý mesh nosit pět vlastních textur), Nanite displacement na obyčejném meshi, velký…
 
 ### Osvětlení a atmosféra
 - [Osvětlení](https://martinsafka.github.io/gamedev-skripta/praxe/osvetleni/) — Světlo od řemesla k náladě: PBL workflow (svítit podle skutečných hodnot v luxech a měřit to přímo v enginu), volumetrická mlha Silent Hill 2 jako materiál, hororová atmosféra vrstvená jako…
+- [MegaLights](https://martinsafka.github.io/gamedev-skripta/praxe/megalights/) — MegaLights je systém přímého osvětlení v Unrealu, který je od verze 5.8 připravený pro produkci. Mění otázku, kterou si herní osvětlovač dlouho kladl. Dřív se ptal, kolik světel si může…
 
 ### Výkon a profiling
 - [Profiling: měření místo odhadů](https://martinsafka.github.io/gamedev-skripta/praxe/profiling/) — Optimalizace bez měření je hádání a hádání v Unrealu skoro nikdy nevyjde — protože příčina bývá o dvě patra jinde, než kde se problém projeví. Tahle kapitola je o metodě: jak zjistit, co…
@@ -312,7 +313,9 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Async Physics](https://martinsafka.github.io/gamedev-skripta/rejstrik/#async-physics)
 - [Attachment rules](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attachment-rules)
 - [Attenuation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation)
+- [Attenuation radius](https://martinsafka.github.io/gamedev-skripta/rejstrik/#attenuation-radius)
 - [AutoBake](https://martinsafka.github.io/gamedev-skripta/rejstrik/#autobake)
+- [Auto exposure](https://martinsafka.github.io/gamedev-skripta/rejstrik/#auto-exposure)
 - [Autoload](https://martinsafka.github.io/gamedev-skripta/rejstrik/#autoload)
 - [Blend Poses by Bool](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blend-poses-by-bool)
 - [Blueprint Debugger](https://martinsafka.github.io/gamedev-skripta/rejstrik/#blueprint-debugger)
@@ -365,7 +368,9 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Closing doors](https://martinsafka.github.io/gamedev-skripta/rejstrik/#closing-doors)
 - [Cluster culling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cluster-culling)
 - [Cluster Union](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cluster-union)
+- [Color temperature](https://martinsafka.github.io/gamedev-skripta/rejstrik/#color-temperature)
 - [Construction Script](https://martinsafka.github.io/gamedev-skripta/rejstrik/#construction-script)
+- [Contact shadows](https://martinsafka.github.io/gamedev-skripta/rejstrik/#contact-shadows)
 - [Context switch](https://martinsafka.github.io/gamedev-skripta/rejstrik/#context-switch)
 - [Cognitive load](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cognitive-load)
 - [Cold open](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cold-open)
@@ -385,6 +390,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Coyote time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#coyote-time)
 - [Core loop](https://martinsafka.github.io/gamedev-skripta/rejstrik/#core-loop)
 - [CPU-bound / GPU-bound](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cpu-bound-gpu-bound)
+- [Cubemap](https://martinsafka.github.io/gamedev-skripta/rejstrik/#cubemap)
 - [Custom Depth](https://martinsafka.github.io/gamedev-skripta/rejstrik/#custom-depth)
 - [Custom resource](https://martinsafka.github.io/gamedev-skripta/rejstrik/#custom-resource)
 - [Custom Time Dilation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#custom-time-dilation)
@@ -392,6 +398,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Dataflow](https://martinsafka.github.io/gamedev-skripta/rejstrik/#dataflow)
 - [Data-oriented design](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-oriented-design)
 - [Data table](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-table)
+- [Deferred rendering](https://martinsafka.github.io/gamedev-skripta/rejstrik/#deferred-rendering)
 - [Degenerate strategy](https://martinsafka.github.io/gamedev-skripta/rejstrik/#degenerate-strategy)
 - [Data asset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-asset)
 - [Data layer](https://martinsafka.github.io/gamedev-skripta/rejstrik/#data-layer)
@@ -402,6 +409,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Decal](https://martinsafka.github.io/gamedev-skripta/rejstrik/#decal)
 - [Delegate](https://martinsafka.github.io/gamedev-skripta/rejstrik/#delegate)
 - [Delta time](https://martinsafka.github.io/gamedev-skripta/rejstrik/#delta-time)
+- [Denoiser](https://martinsafka.github.io/gamedev-skripta/rejstrik/#denoiser)
 - [Design by constraint](https://martinsafka.github.io/gamedev-skripta/rejstrik/#design-by-constraint)
 - [Demo](https://martinsafka.github.io/gamedev-skripta/rejstrik/#demo)
 - [Design pattern](https://martinsafka.github.io/gamedev-skripta/rejstrik/#design-pattern)
@@ -507,8 +515,10 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Hurtbox](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hurtbox)
 - [Hydratace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hydratace)
 - [Hook](https://martinsafka.github.io/gamedev-skripta/rejstrik/#hook)
+- [IES profile](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ies-profile)
 - [IK](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ik)
 - [Iluze plynulosti](https://martinsafka.github.io/gamedev-skripta/rejstrik/#iluze-plynulosti)
+- [Importance sampling](https://martinsafka.github.io/gamedev-skripta/rejstrik/#importance-sampling)
 - [Impostor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#impostor)
 - [Inertialization](https://martinsafka.github.io/gamedev-skripta/rejstrik/#inertialization)
 - [Inheritance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#inheritance)
@@ -556,6 +566,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Level Sequence](https://martinsafka.github.io/gamedev-skripta/rejstrik/#level-sequence)
 - [Level streaming](https://martinsafka.github.io/gamedev-skripta/rejstrik/#level-streaming)
 - [LFO](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lfo)
+- [Lighting channels](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lighting-channels)
 - [Liminální prostor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#liminalni-prostor)
 - [Line Trace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#line-trace)
 - [Linear grammar](https://martinsafka.github.io/gamedev-skripta/rejstrik/#linear-grammar)
@@ -564,6 +575,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Line of action](https://martinsafka.github.io/gamedev-skripta/rejstrik/#line-of-action)
 - [Live coding](https://martinsafka.github.io/gamedev-skripta/rejstrik/#live-coding)
 - [Live Link](https://martinsafka.github.io/gamedev-skripta/rejstrik/#live-link)
+- [Local exposure](https://martinsafka.github.io/gamedev-skripta/rejstrik/#local-exposure)
 - [Locomotor](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locomotor)
 - [Locus of control](https://martinsafka.github.io/gamedev-skripta/rejstrik/#locus-of-control)
 - [LOD](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lod)
@@ -577,6 +589,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [LUT](https://martinsafka.github.io/gamedev-skripta/rejstrik/#lut)
 - [Markerless mocap](https://martinsafka.github.io/gamedev-skripta/rejstrik/#markerless-mocap)
 - [Material Instance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#material-instance)
+- [Material Parameter Collection](https://martinsafka.github.io/gamedev-skripta/rejstrik/#material-parameter-collection)
 - [MAYA](https://martinsafka.github.io/gamedev-skripta/rejstrik/#maya)
 - [Map (dictionary)](https://martinsafka.github.io/gamedev-skripta/rejstrik/#map-dictionary)
 - [Marching cubes](https://martinsafka.github.io/gamedev-skripta/rejstrik/#marching-cubes)
@@ -600,6 +613,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [MetaHuman Collection](https://martinsafka.github.io/gamedev-skripta/rejstrik/#metahuman-collection)
 - [MetaSounds](https://martinsafka.github.io/gamedev-skripta/rejstrik/#metasounds)
 - [Mip mapa](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mip-mapa)
+- [Mobility](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mobility)
 - [Mód hry](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mod-hry)
 - [Mixels](https://martinsafka.github.io/gamedev-skripta/rejstrik/#mixels)
 - [Moderovaný playtest](https://martinsafka.github.io/gamedev-skripta/rejstrik/#moderovany-playtest)
@@ -669,6 +683,8 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Physics Constraint](https://martinsafka.github.io/gamedev-skripta/rejstrik/#physics-constraint)
 - [Physics Control](https://martinsafka.github.io/gamedev-skripta/rejstrik/#physics-control)
 - [Pitch deck](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pitch-deck)
+- [Pixel Depth Offset](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pixel-depth-offset)
+- [Pixel Inspector](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pixel-inspector)
 - [Player Camera Manager](https://martinsafka.github.io/gamedev-skripta/rejstrik/#player-camera-manager)
 - [Point cloud](https://martinsafka.github.io/gamedev-skripta/rejstrik/#point-cloud)
 - [Pixel-perfect](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pixel-perfect)
@@ -690,6 +706,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Pose Snapshot](https://martinsafka.github.io/gamedev-skripta/rejstrik/#pose-snapshot)
 - [Post-process AnimBP](https://martinsafka.github.io/gamedev-skripta/rejstrik/#post-process-animbp)
 - [Postmortem](https://martinsafka.github.io/gamedev-skripta/rejstrik/#postmortem)
+- [Post-process material](https://martinsafka.github.io/gamedev-skripta/rejstrik/#post-process-material)
 - [Predictive interpolation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#predictive-interpolation)
 - [Prefab](https://martinsafka.github.io/gamedev-skripta/rejstrik/#prefab)
 - [Premature optimization](https://martinsafka.github.io/gamedev-skripta/rejstrik/#premature-optimization)
@@ -710,8 +727,10 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Ragdoll](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ragdoll)
 - [Random pitch variation](https://martinsafka.github.io/gamedev-skripta/rejstrik/#random-pitch-variation)
 - [Raster bin](https://martinsafka.github.io/gamedev-skripta/rejstrik/#raster-bin)
+- [Ray tracing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#ray-tracing)
 - [Recall priming](https://martinsafka.github.io/gamedev-skripta/rejstrik/#recall-priming)
 - [Recoup](https://martinsafka.github.io/gamedev-skripta/rejstrik/#recoup)
+- [Rect light](https://martinsafka.github.io/gamedev-skripta/rejstrik/#rect-light)
 - [Refundace](https://martinsafka.github.io/gamedev-skripta/rejstrik/#refundace)
 - [Redirector](https://martinsafka.github.io/gamedev-skripta/rejstrik/#redirector)
 - [Referenční transparentnost](https://martinsafka.github.io/gamedev-skripta/rejstrik/#referencni-transparentnost)
@@ -741,6 +760,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [SaveGame objekt](https://martinsafka.github.io/gamedev-skripta/rejstrik/#savegame-objekt)
 - [Scalability groups](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scalability-groups)
 - [SCAMPER](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scamper)
+- [Scene Capture](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scene-capture)
 - [Scene Component](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scene-component)
 - [Screen percentage](https://martinsafka.github.io/gamedev-skripta/rejstrik/#screen-percentage)
 - [Scene inheritance](https://martinsafka.github.io/gamedev-skripta/rejstrik/#scene-inheritance)
@@ -784,6 +804,7 @@ Slugs and anchors are public API (see agent_docs/architecture.md) — they never
 - [Soft skills](https://martinsafka.github.io/gamedev-skripta/rejstrik/#soft-skills)
 - [Sound Cue](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sound-cue)
 - [Sound font](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sound-font)
+- [Source radius](https://martinsafka.github.io/gamedev-skripta/rejstrik/#source-radius)
 - [Sparse set](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sparse-set)
 - [Sphere tracing](https://martinsafka.github.io/gamedev-skripta/rejstrik/#sphere-tracing)
 - [Spline](https://martinsafka.github.io/gamedev-skripta/rejstrik/#spline)

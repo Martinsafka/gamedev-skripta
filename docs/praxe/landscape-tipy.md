@@ -1,6 +1,6 @@
 # Landscape: tipy pro klasický terén
 
-Než Mesh Terrain dozraje z experimentu, klasický **Landscape** zůstává produkční volbou — a tahle kapitola sbírá čtyři praktické recepty: Nanite displacement (terén s reliéfem z materiálu), skrytý copy/paste nástroj pro sculpting, malování PCG dat štětcem a dvě techniky proti opakujícím se texturám. Nový systém rozebírá [Mesh Terrain](mesh-terrain.md).
+Než Mesh Terrain dozraje z experimentu, klasický **Landscape** zůstává produkční volbou — a tahle kapitola sbírá pět praktických receptů: Nanite displacement (terén s reliéfem z materiálu), skrytý copy/paste nástroj pro sculpting, malování PCG dat štětcem, dvě techniky proti opakujícím se texturám a hloubku bez geometrie přes POM a contact shadows. Nový systém rozebírá [Mesh Terrain](mesh-terrain.md).
 
 ---
 
@@ -18,7 +18,7 @@ Než Mesh Terrain dozraje z experimentu, klasický **Landscape** zůstává prod
 
 > **Pozn.:** Displacement je tatáž technologie, na které stojí [Mesh Terrain materiály](mesh-terrain.md#materialy-a-channels) — Landscape s Nanite je mezikrok: pořád height mapa (žádné převisy), ale detail povrchu už z materiálu. Pozor na cenu: displacement + hustá teselace není zadarmo, na cílové platformě měř.
 
-**Souvislosti:** [Mesh Terrain](mesh-terrain.md) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: landscape](../rejstrik.md#landscape)
+**Souvislosti:** [Mesh Terrain](mesh-terrain.md) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: landscape](../rejstrik.md#landscape) · [Hloubka bez geometrie](#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) *(iluze místo geometrie)*
 
 ---
 
@@ -74,4 +74,43 @@ Než Mesh Terrain dozraje z experimentu, klasický **Landscape** zůstává prod
 
 > **Pozn.:** Stejné myšlenky, jiná jména: Faucherův EasyWaterscape tomu říká cell bombing a distance blend ([nástroje vody](nastroje-voda.md#easywaterscape-jak-je-poskladany-dobry-vodni-nastroj)) a Sensei terrain materiál to nabízí pro Mesh Terrain — anti-tiling dvojice „rozbij dlaždice + přepni měřítko v dálce" je univerzální slovník materiálů velkých ploch.
 
-**Souvislosti:** [Nástroje: EasyWaterscape](nastroje-voda.md#easywaterscape-jak-je-poskladany-dobry-vodni-nastroj) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance) · [Rejstřík: landscape](../rejstrik.md#landscape)
+**Souvislosti:** [Nástroje: EasyWaterscape](nastroje-voda.md#easywaterscape-jak-je-poskladany-dobry-vodni-nastroj) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance) · [Rejstřík: landscape](../rejstrik.md#landscape) · [Hloubka bez geometrie](#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) *(dvě měřítka dlaždic a k nim POM)*
+
+---
+
+## Hloubka bez geometrie: POM, contact shadows a plugin IHP
+
+**Zdroj:** [Landscape Lab #01 — The Perfect POM + Contact Shadows Combo in Unreal Engine 5](https://www.youtube.com/watch?v=gxk2ulmlkX8) · [Gatyh Interactive](https://www.youtube.com/channel/UCD0NoUWYncvEFwIgvul67yA) · ~21 min, tutoriál ·
+[NEXT-GEN Real-Time Displacement | IHP for Unreal Engine](https://www.youtube.com/watch?v=c9WhNdNLheY) · [Denizcan Gok](https://www.youtube.com/channel/UCj71BfR3Nhebwnb8AxFlw4g) · ~15 min, ukázka pluginu od jeho vývojáře
+
+**Shrnutí:** Plochý terén dostane reliéf z výškové mapy bez jediného polygonu navíc:
+- **parallax occlusion mapping** posouvá UV podle úhlu pohledu, takže povrch vypadá prostorově;
+- **contact shadows** berou tutéž výšku a podle polohy slunce z ní dělají drobné stíny reliéfu, skoro zadarmo.
+
+Obojí běží jen u kamery, dál se materiál přepne na levnější vzdálené dlaždicování. Háček: kvalitu POM určuje počet kroků a každý krok stojí výkon. Plugin IHP slibuje stejnou hloubku bez artefaktů POM, ale jeho čísla jsou zatím jen z ukázky jeho vývojáře.
+
+### Rozpad myšlenky
+
+**Princip.** Výšková mapa nese výšku povrchu: bílá je výš, černá níž. POM z ní předstírá hloubku podle toho, odkud se díváš, takže i úplně plochý povrch vypadá jako geometrie [(0:02)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=2s), [(0:49)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=49s). Contact shadows používají stejnou texturu a skoro bez ceny GPU z ní dělají stín. Hodí se i na vegetaci, třeba na vzdálené stromy, kam běžné stíny nedosáhnou [(0:49)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=49s). Na terénu vznikají z reliéfu textury a polohy slunce [(1:35)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=95s).
+
+**Blízko a daleko.** Materiál pracuje se dvěma měřítky dlaždic. Proti opakování to podle videa není nejkvalitnější technika, ale výkonem je nejlepší a dovolí pustit POM a contact shadows jen na blízký povrch. Texture bombing s POM podle videa nevypadá dobře [(1:35)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=95s), [(3:08)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=188s). Vzdálenost od kamery (uzel Distance mezi Camera Position a World Position) jde přes SmoothStep s parametry začátku a konce přechodu [(3:08)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=188s), [(3:54)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=234s). Vzdálené měřítko je tak malé číslo, že ho video ladí přes lerp mezi 0 a 0,0016 [(4:40)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=280s). Textury jsou zabalené po dvou, BCR (barva a roughness) a NSD (normála, specular a výška). Normála se proto skládá zpátky ze dvou kanálů, se samostatnými texturami to odpadá [(1:35)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=95s), [(8:33)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=513s), [(10:06)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=606s).
+
+**POM.** Vestavěný uzel ParallaxOcclusionMapping dostane [(5:26)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=326s), [(6:13)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=373s):
+- poměr výšky přes lerp mezi 0 a 0,1, aby se dal jemně ladit;
+- minimum a maximum kroků, v ukázce 16 a 32;
+- referenční rovinu 0,2 a kanál výškové mapy;
+- jen blízké UV. Static switch dovolí POM vypnout [(7:46)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=466s).
+
+Kroky jsou kvalita: při 2 a 4 jsou schody vidět. Pro nejlepší výsledek video radí minimum kolem 60 kroků, nad které už rozdíl podle něj není znát, a maximum 120. Každý krok navíc stojí výkon. Poměr výšky závisí na kontrastu výškové mapy, v ukázce sedí 3 [(18:41)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=1121s).
+
+**Contact shadows přes pixel depth offset.** Výška projde přes CheapContrast do Pixel Depth Offset [(10:54)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=654s). Materiál je kvůli tomu postavený na material attributes [(2:21)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=141s). Material function pro délku stínu posune ve stínovém průchodu (ShadowPassSwitch) vrcholy podél normály a pixel depth offset dopočítá z délky v prostoru kamery, vynásobené parametrem [(12:28)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=748s), [(13:14)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=794s), [(14:01)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=841s). Na směrovém světle je pak potřeba nastavit Contact Shadow Length, výchozí 0 video zvedá na 0,4 [(19:29)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=1169s). Cena v ukázce je orientační, video samo upozorňuje, že na pozadí běží spousta věcí. Vypnutí contact shadows podle stat GPU nic nezmění, vypnutí POM ušetří asi 0,4 ms z přibližně 6 až 7 ms [(20:15)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=1215s).
+
+**IHP od vývojáře.** IHP (Implicit Heightfield Projection) je plugin, jehož autor video natočil [(0:02)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=2s).
+- **Nastavení výškové textury**, jak ho video připravuje pro IHP (že se hodí i jinde, je naše úvaha): komprese Vector Displacement Map, když je výška v kanálu jiné textury, a Half Float, když je samostatná. Dál filtr Trilinear, Mip Gen Settings Simple Average, bez ztrátové komprese (No Lossy) a Mip Load Options All Mips [(1:39)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=99s), [(2:30)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=150s), [(3:16)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=196s).
+- **Uzel IHP Standard** dostane výšku jako texture object a UV. Normálu si dopočítá z výšky, normal mapa tedy není potřeba, a vrací i masku stínu, kterou se násobí base color [(4:04)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=244s), [(4:52)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=292s).
+- **Parametry:** síla výšky, kanál, rozlišení výškové mapy (má odpovídat skutečné textuře, v ukázce 8192), velikost plochy v UV, směr světla pro stíny, kvalita 0 až 3 (sám autor používá skoro jen 3), vlastní stínění a vrhání stínu. Siluetu jde zapnout přes masked blend mode a opacity mask [(8:16)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=496s), [(8:58)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=538s), [(9:49)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=589s), [(10:36)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=636s), [(11:22)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=682s), [(12:09)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=729s).
+- **Výkon podle autora:** malá plocha s IHP běží na 120 FPS (8,33 ms) a po zvětšení na 10 000 × 10 000 pořád na 119 až 120 FPS. Srovnání bez IHP ani s Nanitem nebo POM video neukazuje. Nanite podle autora takový výkon většinou nedá, aniž by projekt ztěžkl, a POM má artefakty a lepší výkon dá jen občas, za cenu vzhledu [(5:39)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=339s), [(6:26)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=386s), [(7:29)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=449s). Další video má ukázat IHP s runtime virtual texturou na velkém terénu [(13:48)](https://www.youtube.com/watch?v=c9WhNdNLheY&t=828s).
+
+> **Pozn.:** Dvě měřítka dlaždic jsou tatáž myšlenka jako blend podle vzdálenosti v [Anti-tilingu](#anti-tiling-texture-variation-a-blend-podle-vzdalenosti), jen tady navíc vypínají drahé efekty v dálce. [Nanite displacement](#nanite-displacement-a-krajina-jako-scena) stojí na opačné straně: vytváří skutečnou geometrii se skutečnými stíny, kdežto POM jen předstírá hloubku v pixelech a obrys povrchu nechá rovný. Siluetová maska IHP míří právě na tuhle slabinu. To je naše srovnání. IHP je vývojářův vlastní plugin a jeho výkon i kvalitu zatím ukazuje jen jeho scéna, cenu video neuvádí. Hodnota 8,33 ms je přesně 1000/120, takže měření může narážet na strop snímkové frekvence. To je náš odhad. Gatyh Interactive odkazuje na vlastní texture packer a vlastní web s texturami zdarma pod licencí CC0 [(2:21)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=141s), [(17:55)](https://www.youtube.com/watch?v=gxk2ulmlkX8&t=1075s).
+
+**Souvislosti:** [Rejstřík: Parallax occlusion mapping](../rejstrik.md#parallax-occlusion-mapping) · [Rejstřík: Contact shadows](../rejstrik.md#contact-shadows) · [Rejstřík: Pixel Depth Offset](../rejstrik.md#pixel-depth-offset) · [Rejstřík: Height mapa](../rejstrik.md#height-mapa) · [Nanite displacement: reliéf malovaný vertex colorem](materialy.md#nanite-displacement-relief-malovany-vertex-colorem) *(skutečná geometrie místo iluze)*

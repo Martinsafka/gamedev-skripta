@@ -96,6 +96,7 @@ Témata a kapitoly:
 **Osvětlení a atmosféra**
 
 - **[Osvětlení: fyzikální základ, mlha a nálady](osvetleni.md)** — PBL workflow s light metery a EV100, mlha ze Silent Hill 2 jako volumetrický materiál, horor ve vrstvách se světelnou navigací, noční scéna z defaultu, rychlé triky, proti PBL postavené malování světlem z falešných zdrojů, volumetrika přes EVDB — a tone mapper, tedy odkud se vlastně bere „unreal engine look".
+- **[MegaLights: stovky světel za pevný rozpočet](megalights.md)** — přímé světlo s pevným rozpočtem vzorků na pixel (5.8): co nahrazuje a kdy se nehodí, attenuation radius jako hlavní páka, svítidlo složené z víc světel (source radius, rect lights, kanály, IES), slunce bez MegaLights a expozice, která drží (kalibrace, local exposure, dva modely světla).
 
 **Výkon a profiling**
 

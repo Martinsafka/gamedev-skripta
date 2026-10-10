@@ -300,6 +300,14 @@ Ve stealth hrách často vizualizovaný v UI. Trik: dej vysokým frekvencím kr�
 
 Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
+### Attenuation radius
+
+**Poloměr, za kterým světlo v Unrealu přestane svítit, ať je jakkoli silné.**
+
+Uvnitř objemu se světlo počítá celé, i tam, kam už viditelně nedosvítí, a proto je zbytečně velký radius čistá ztráta. Nové světlo má 1000 cm. S MegaLights je počet radiů, která se překrývají na jednom místě, hlavní metrikou kvality, protože si pixel dělí vzorky mezi všechna světla, která na něj dosáhnou. Jak daleko světlo vypadá, že svítí, závisí i na expozici, a proto se radius ladí od oka v hotové scéně. Neplést s [Attenuation](#attenuation) u zvuku.
+
+Kde se s tím potkáš: [Attenuation radius jako hlavní páka](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla) · [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Rejstřík: MegaLights](#megalights)
+
 ### AutoBake
 
 **Funkce sequenceru (5.8), která jedním přepínačem střídá živý control rig a jeho zapečenou animation sequence.**
@@ -307,6 +315,14 @@ Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 Po nastavení (pravým na actor → Add AutoBake) přidá zapečenou verzi a ztlumí ji; ikona pak přepíná a změněnou animaci rychle přepeče. Výběr controlu vrátí postavu do živého rigu, ostatní postavy zůstanou zapečené, takže viewport s víc postavami zůstane rychlý. U fyziky (s warm-up snímky na usazení) dává deterministický výsledek, který jde scrubovat a pustit na něj motion trails.
 
 Kde se s tím potkáš: [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rejstřík: Control Rig](#control-rig)
+
+### Auto exposure
+
+**Automatická expozice (eye adaptation): engine podle jasu obrazu posouvá expozici, jako když si oko zvyká na tmu nebo na světlo.**
+
+Nastavuje se v post-process volume rozsahem minima a maxima v EV, rychlostí a kompenzací expozice. Pomůže tam, kde hra přechod opravdu potřebuje, třeba při výstupu z tmavého krytu na slunce. Ve scéně s řízeným světlem bývá lepší expozici zamknout nebo jí hodně zúžit rozsah, aby se světlo dalo kalibrovat. Záře, která po zhasnutí světla chvíli zůstane, bývá temporální akumulace, ne adaptace. Emisiv jde vydělit hodnotou adaptace, aby jeho jas zůstal v rozumném rozsahu.
+
+Kde se s tím potkáš: [Expozice, která drží](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Attenuation radius jako hlavní páka](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla) · [PBL: svítit podle skutečných hodnot](praxe/osvetleni.md#pbl-svitit-podle-skutecnych-hodnot) · [Rejstřík: Local exposure](#local-exposure)
 
 ### Autoload
 
@@ -734,6 +750,14 @@ Rozhoduje, které vnitřní částice patří do kterého unionu, a podporuje č
 
 Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
+### Color temperature
+
+**Barva světla zadaná teplotou v kelvinech: nízká je teplá a oranžová, vysoká studená a modrá.**
+
+Odpovídá barvě, kterou vyzařuje zahřáté černé těleso, a proto působí přirozeněji než ručně vybraná barva. Svíčka má kolem 1900 K, klasická žárovka kolem 2700 K, denní světlo zhruba 5500 až 6500 K. V Unrealu se na světle zapíná přes Use Temperature, pro emisivní materiál dá stejnou barvu uzel BlackBody. Ruční barva má smysl tam, kam teplota nedosáhne, třeba u neonu nebo červeného zadního světla.
+
+Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel)
+
 ### Construction Script
 
 **Graf actor blueprintu, který běží v editoru při umístění nebo změně actoru a při spawnu — ještě před BeginPlay.**
@@ -741,6 +765,14 @@ Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky
 Hodí se na přípravu dat, která závisí na komponentách konkrétní instance: třeba mapa stran dveří s odkazy na scene komponenty, které do výchozích hodnot proměnné zadat nejde, nebo reference, které mají fungovat i v sequenceru bez spuštěné hry. Nepatří do něj nic drahého — spouští se často, při každém posunu actoru v editoru.
 
 Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
+
+### Contact shadows
+
+**Krátké stíny dopočítané v obrazovém prostoru z hloubky scény, které doplní drobné kontakty, kam běžné stíny nedosáhnou.**
+
+V Unrealu se zapínají na světle hodnotou Contact Shadow Length (výchozí je 0). Paprsek se trasuje jen kousek po hloubkovém bufferu, takže jsou levné, ale umí jen krátké stíny. S pixel depth offsetem z výškové mapy dají stíny i reliéfu, který existuje jen v materiálu, třeba pod POM na terénu. Hodí se i na vzdálenou vegetaci.
+
+Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Pixel Depth Offset](#pixel-depth-offset) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping)
 
 ### Context switch
 
@@ -896,6 +928,14 @@ Rozhoduje se podle toho, které číslo v `stat unit` se blíží k `frame`: **g
 
 Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno)
 
+### Cubemap
+
+**Textura ze šesti čtvercových stěn krychle, která zachytí okolí ze všech směrů.**
+
+Používá se na odrazy, oblohu a HDRI a také na falešné interiéry za okny, kde ji uzel Interior Cubemap promítne tak, že plochá plocha vypadá jako místnost. V Unrealu je cube textura samostatný typ assetu. Vlastní jde vyrobit ze scény přes [Scene Capture](#scene-capture) Cube a Create Static Texture.
+
+Kde se s tím potkáš: [Falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Rejstřík: Interior mapping](#interior-mapping) · [Rejstřík: Render target](#render-target)
+
 ### Custom Depth
 
 **Zvláštní průchod hloubky, do kterého kreslí jen vybrané meshe (`Render CustomDepth Pass`), volitelně se stencil číslem pro rozlišení skupin.**
@@ -953,6 +993,14 @@ Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekt
 Typické použití: jedna konfigurovatelná třída (pickup) drží jen jméno řádku a zbytek si dohledá v construction scriptu — žádné dítě pro každou položku. Hranice: tabulka je statická, nedá se k ní přidat funkčnost ani z ní dědit; to umí data asset a „třída jako data".
 
 Kde se s tím potkáš: [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset)
+
+### Deferred rendering
+
+**Způsob vykreslování, který nejdřív uloží vlastnosti povrchů do bufferů (G-buffer) a světlo počítá až potom, pro každý pixel.**
+
+Cena světla tak nezávisí na počtu objektů, ale na počtu světel a pixelů, které zasáhnou. V Unrealu je to výchozí cesta pro desktop a konzole. Opakem je [forward rendering](#forward-rendering), který světlo počítá rovnou při kreslení objektu. MegaLights podle dokumentace nahrazují deferred shading s vyhodnocením světla vlastním průchodem a s forward shadingem nefungují.
+
+Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Rejstřík: Forward rendering](#forward-rendering) · [Rejstřík: MegaLights](#megalights)
 
 ### Degenerate strategy
 
@@ -1036,6 +1084,14 @@ Bez delty znamená `position.x += 1` „jeden pixel za snímek", tedy rychlost s
 
 Kde se s tím potkáš: [První hra: delta a physics process](godot/prvni-hra.md#delta-a-physics-process-proc-se-rychlost-nasobi-casem)
 
+### Denoiser
+
+**Filtr, který z obrazu spočítaného z málo vzorků odstraní šum, obvykle s pomocí předchozích snímků.**
+
+Ray tracing, Lumen i MegaLights počítají s omezeným počtem paprsků na pixel a výsledek by bez denoiseru zrnil. Čím méně vzorků připadne na jedno světlo, tím víc práce denoiser má a tím spíš obraz v čase bliká nebo se za pohybem táhne. Kvalita se proto ladí hlavně tím, kolik toho na jeden pixel připadne, ne silou filtru.
+
+Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Attenuation radius jako hlavní páka](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla) · [Rejstřík: TSR](#tsr)
+
 ### Design by constraint
 
 **Metoda hledání nápadů: nejdřív si zvol omezení, která řežou scope, a nápad nech vzniknout uvnitř nich.**
@@ -1082,7 +1138,7 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 
 Profily se dědí, takže se dá postavit celý strom (projekt → platforma → výkonový režim) a přenastavit v něm každou console variable i texture LOD group naráz. Typický obsah 60FPS profilu: scalability skupiny, rozlišovací žebřík (`r.DynamicRes`, `r.ScreenPercentage`, `r.SecondaryScreenPercentage.GameViewport`) a rozpočet snímku pro dynamické rozlišení. Past: **engine si profil sám nevybere** — potřebuješ device profile selector, který ho podle platformy zvolí. Zakládá se v prvním changelistu; dodělávat to v produkci je mnohem dražší.
 
-Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Rejstřík: Scalability groups](#scalability-groups)
+Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Rejstřík: Scalability groups](#scalability-groups) · [Škálování MegaLights na slabší hardware](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis)
 
 ### Devlog
 
@@ -1460,7 +1516,7 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.
 
 V Unrealu je to volba Forward Shading v nastavení projektu, typická pro VR a hry pro slabý hardware (běží na něm třeba bojovka 2XKO). V GPU profileru se u něj čtou poměry mezi passy: dlouhý depth pass ukazuje na moc polygonů, dlouhý base pass u jednoho draw callu na drahý shader, dlouhá translucency na [overdraw](#overdraw).
 
-Kde se s tím potkáš: [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo) · [Rejstřík: Overdraw](#overdraw)
+Kde se s tím potkáš: [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo) · [Rejstřík: Overdraw](#overdraw) · [MegaLights s forward shadingem nefungují](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis)
 
 ### Four-on-the-floor
 
@@ -1860,7 +1916,7 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí
 
 Formát, na kterém stojí klasický Landscape — a zdroj jeho hlavního limitu: jedna hodnota na pixel znamená jediný stupeň volnosti (nahoru/dolů), takže jeskyně a převisy nejdou. Zůstává ale skvělým výměnným formátem: sculpt z Gaey či World Machine se přenáší právě height mapou a Mesh Terrain ji umí importovat jako startovní tvar i promítat jako texture modifier.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [POM a contact shadows z výškové mapy](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
 
 ### Hurtbox
 
@@ -1886,6 +1942,14 @@ Portálové portály, vlak-monstrum z Choo Choo Charles, „staráš se o svoje 
 
 Kde se s tím potkáš: [Základy: engagement a appeal](teorie/zaklady.md) · [Prototypování](teorie/prototypovani.md) · [Nápad](teorie/napad.md) · [GDD: Monaco](teorie/gdd.md)
 
+### IES profile
+
+**Soubor s naměřeným rozložením světla skutečného svítidla, který dá světlu realistický tvar kuželu a kresbu.**
+
+Formát pochází z osvětlovací techniky (Illuminating Engineering Society) a výrobci svítidel ho dodávají ke svým výrobkům. Unreal ho použije jako masku jasu podle směru, takže reflektor nebo lampa vrhá typické kruhy a přechody. S MegaLights je podporovaný od 5.8 a pár profilů je přímo v enginu. Vnitřní kužel spotu má mít zhruba stejný úhel jako paprsek v profilu, aby se ukázala celá kresba.
+
+Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Rejstřík: Rect light](#rect-light)
+
 ### IK
 
 **Inverzní kinematika — výpočet, který natočí řetěz kostí tak, aby koncová kost (effector) dosáhla zadaného cíle.**
@@ -1901,6 +1965,14 @@ Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klic
 Klasický experiment: lidé si věří, že chápou kolo nebo zip, dokud nemají popsat, jak přesně fungují. Proti iluzi pomáhá vybavování (retrieval practice), učení druhých a psaní vlastními slovy — všechno formy nárazu na realitu.
 
 Kde se s tím potkáš: [Učení v éře AI](teorie/uceni-v-ere-ai.md) · [Zápisek: Kvízový protokol](zapisky/kvizovy-protokol.md)
+
+### Importance sampling
+
+**Vzorkování podle důležitosti: víc vzorků dostane to, co k výsledku víc přispívá.**
+
+Je to obecná technika výpočtů metodou Monte Carlo a stojí na ní path tracing i ray tracing, protože rozhazovat paprsky rovnoměrně se nevyplatí. MegaLights tak dělí omezený počet vzorků na pixel mezi světla podle jejich příspěvku. Má to stinnou stránku: velmi jasné světlo, které svítí na všechno, si vezme skoro celou důležitost a menším světlům ji bere. Proto se slunce do MegaLights nedává.
+
+Kde se s tím potkáš: [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-megalights-silne-svetlo-spolkne-rozpocet) · [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Rejstřík: Denoiser](#denoiser)
 
 ### Impostor
 
@@ -1988,7 +2060,7 @@ Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Rejstřík: 
 
 Okno je jedna plocha. Klasická varianta spočítá v pixel shaderu, kde paprsek pohledu protne virtuální krabici místnosti, a vzorkuje její stěny, podlahu a strop z textury. Jednodušší varianty jen posunou plochou texturu interiéru parallaxem. Hloubka vznikne bez jediného polygonu navíc, a proto se tak plní okna celých měst. Variaci mezi okny dodá náhodný výběr místnosti, jasu nebo rozsvícení podle denní doby. V UE na to existuje material function InteriorCubemap.
 
-Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping)
+Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Falešné okno v UE](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu)
 
 ### ISM
 
@@ -2282,6 +2354,14 @@ Zatímco obálka otočí knobem jednou (při notě), LFO ho otáčí pořád dok
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
+### Lighting channels
+
+**Kanály, kterými se v Unrealu určuje, na které objekty světlo svítí.**
+
+Světlo i objekt mají zapnuté některé z kanálů 0 až 2 a světlo zasáhne jen objekty se společným kanálem. Jsou jen tři, takže jde o jednoduchou náhradu light linkingu z filmových programů. Stačí ale třeba na to, aby pomocné světlo nepřepálilo samotné svítidlo. S MegaLights fungují od 5.8. Které světlo je v jakém kanálu, ukáže Light Mixer.
+
+Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-megalights-silne-svetlo-spolkne-rozpocet)
+
 ### Liminální prostor
 
 **Veřejný prostor zbavený lidí a účelu — mall, škola, letiště v prázdnu; děsí tím, že je skoro normální.**
@@ -2348,6 +2428,14 @@ Pro markerless mocap: Live Link Hub → Capture Manager → Mono Video Ingest p�
 
 Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [Markerless mocap: Live Link Hub a Capture Manager](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku)
 
+### Local exposure
+
+**Expozice, která se liší po částech obrazu: tmavé oblasti zesvětlí a světlé ztlumí, aniž by se změnila celková expozice.**
+
+V post-process volume se ladí kontrastem světel a stínů, prahy a detail strength. Funguje podobně, jako když se do HDR skládají dvě expozice. Šablony Unrealu mají kontrast 0,8, nově přidaný post-process volume 1,0, a to je častý zdroj nesouladu. Prahy dovolí nejtmavší pixely ze zvedání vynechat, aby obraz nepřišel o čistou černou.
+
+Kde se s tím potkáš: [Expozice, která drží](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Rejstřík: Auto exposure](#auto-exposure)
+
 ### Locomotor
 
 **Control Rig uzel pro procedurální chůzi: počítá došlapy dynamicky podle pohybu, žádné animační klipy.**
@@ -2410,7 +2498,7 @@ Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
 Orientační rozpočet od Epicu: **~4 ms na 60 FPS, ~8 ms na 30**. Ověřuje se operativně — vypni ho (`r.DynamicGlobalIlluminationMethod 0`, `r.ReflectionMethod 0`) a změř, o kolik se snímek zrychlí; to je jeho skutečná cena, protože v profileru je rozprostřený do víc položek (scene lighting, diffuse indirect a AO, reflections). Ladí se ve dvou větvích: **screen traces** (hodnoty z pixelů na obrazovce) proti **world traces** (z Lumen scény) — vypnutí screen traces je nejrychlejší způsob, jak zjistit, kterou půlku prohledávat.
 
-Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite) · [Mortal Shell 2: osekaný rozpočet](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite) · [Mortal Shell 2: osekaný rozpočet](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Lumen a MegaLights spolupracují](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Lumen po změně světla dohání](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla)
 
 ### Ludonarativní disonance
 
@@ -2451,6 +2539,14 @@ Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#marke
 Rodičovský materiál definuje logiku a parametry, instance je jen sada hodnot: tři barvy klíčů jsou tři instance, ne tři materiály. Změna rodiče se propíše do všech instancí. Instance se nastavuje v editoru; za běhu se parametry mění přes [Dynamic Material Instance](#dynamic-material-instance).
 
 Kde se s tím potkáš: [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [Master material](praxe/materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
+
+### Material Parameter Collection
+
+**Asset se sadou globálních parametrů, které čte libovolný počet materiálů najednou.**
+
+Změna jedné hodnoty, třeba z Blueprintu nebo editor utility, se hned projeví ve všech materiálech, které kolekci používají. Hodí se na denní dobu, počasí nebo globální efekty. Na rozdíl od parametru v material instanci nepatří jednomu materiálu, ale celé scéně.
+
+Kde se s tím potkáš: [Expozice, která drží: neony podle času](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Rejstřík: Material Instance](#material-instance)
 
 ### MAYA
 
@@ -2506,7 +2602,7 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Mass a ECS: 
 
 Se vstupem a výstupem typu material attributes funguje jako vrstva: materiál postavy → funkce (decay, sníh, mokro) → výstup. Uvnitř Get/Set Material Attributes upraví jen vybrané atributy, zbytek proteče beze změny. Jedna funkce pro celý projekt znamená i opravy na jednom místě.
 
-Kde se s tím potkáš: [Materiály](praxe/materialy.md) · [Kámen ze čtyř vrstev](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
+Kde se s tím potkáš: [Materiály](praxe/materialy.md) · [Kámen ze čtyř vrstev](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Contact shadows jako material function](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
 
 ### Matice
 
@@ -2562,7 +2658,9 @@ Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#
 
 Místo aby každé světlo platilo plnou cenu za stíny a výpočet, MegaLights je vzorkuje sdíleně, takže se desítky až stovky dynamických světel stanou realistickou volbou. Pro workflow, kde se scéna maluje z mnoha malých zdrojů místo jednoho směrového světla, je to zásadní rozdíl.
 
-Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Jiná cesta v 007 First Light](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka)
+Od 5.8 jsou připravené pro produkci. Každý pixel má pevný počet vzorků, takže cenu určuje hlavně rozlišení a kvalita klesá tam, kde se překrývá moc světel. Na silné slunce se nepoužívají, to patří virtuálním stínovým mapám. S forward shadingem nefungují a hardwarový ray tracing nepotřebují.
+
+Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Jiná cesta v 007 First Light](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Attenuation radius jako hlavní páka](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla) · [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-megalights-silne-svetlo-spolkne-rozpocet)
 
 ### Megascans
 
@@ -2636,7 +2734,15 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
 
 Mip bias výběr posouvá: +1 = poloviční hrana (čtvrtina paměti), −1 = detailnější. Ladí se per textura (LOD Bias v editoru), per materiál (Mip Value Mode = MipBias) nebo hromadně přes property matrix. Prakticky: base color snese bias klidně +5 — dojem detailu nese normal mapa; a při DLSS/upscalingu je potřeba bias kompenzovat záporně.
 
-Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
+Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md) · [Nastavení výškové textury pro IHP](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
+
+### Mobility
+
+**Nastavení, které určuje, jestli se aktér nebo světlo smí za běhu měnit: Static, Stationary, nebo Movable.**
+
+Static světlo se jen zapeče. Stationary se nehýbe, ale vedle zapečeného světla vrhá dynamický stín na pohyblivé objekty. Movable je plně dynamické. Stationary světla se kvůli stínovým kanálům smějí překrývat jen omezeně, a když se jich potká moc, editor ukáže varování. V plně dynamickém projektu s MegaLights se světla dávají na movable a v Project Settings se vypíná Allow Static Lighting, aby ubylo shaderových permutací.
+
+Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis)
 
 ### Mód hry
 
@@ -2834,7 +2940,7 @@ Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [State Trees](prax
 
 Výchozí *linear* filtrování mezi texely interpoluje, což je žádoucí u fotorealistických textur a katastrofa u pixel artu: přiblížený sprite se rozmaže. Přepnutí na *nearest* (jinde „point sampling") vezme nejbližší texel bez míchání a hrany zůstanou ostré. V Godotu je to `Rendering → Textures → Default Texture Filter`. Patří k témuž rodu rozhodnutí jako [integer scaling](#integer-scaling) a [pixel-perfect](#pixel-perfect) zobrazení.
 
-Kde se s tím potkáš: [První hra: nastavení projektu](godot/prvni-hra.md#nastaveni-projektu-je-soucast-hry-ne-administrativa) · [2D vizuál](teorie/2d-vizual.md#pixel-art-je-rozhodnuti-ne-nouzove-reseni) · [PS1 estetika](praxe/ps1-estetika.md)
+Kde se s tím potkáš: [První hra: nastavení projektu](godot/prvni-hra.md#nastaveni-projektu-je-soucast-hry-ne-administrativa) · [2D vizuál](teorie/2d-vizual.md#pixel-art-je-rozhodnuti-ne-nouzove-reseni) · [PS1 estetika](praxe/ps1-estetika.md) · [Pixely z UV jako jiná cesta](praxe/ps1-estetika.md#ps1-v-enginu-mlha-jako-post-process-material-a-pixely-z-uv)
 
 ### Network Prediction
 
@@ -3044,7 +3150,7 @@ Kde se s tím potkáš: [Level editor, který nakonec nebyl level editor](godot/
 
 Levnější než displacement (žádná tessellace), ale na hraně meshe „uřízne" — siluetu neumí; varianty silhouette POM a screen space displacement to řeší až přepisem hloubky v Z-bufferu. Základ kamenných zdí Crimson Desert i kované brány v TLOU (geometrii má jen rám, ornament je textura). Cena: flickering a wobble při ostrých úhlech kamery.
 
-Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [AC Black Flag: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [AC Black Flag: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
 
 ### Pareto distribuce
 
@@ -3203,6 +3309,22 @@ Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md) �
 Logika: první krok nákupu hry stejně neobsahuje hraní (trailer, GIF, screenshot) — pitch deck tenhle moment vyrobí bez jediného řádku kódu. Proces: brainstorm → hlasování → u top nápadů popsat smyčku (slabé se rozpadnou samy) → decky → nechat lidi vybírat. Opory: lidé skvěle *vybírají* a mizerně radí, jak zlepšovat; a deck za hodinu se zahazuje bez bolesti — málo vloženého času = málo biasu.
 
 Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) · [Nápad: test 300 znaků](teorie/napad.md)
+
+### Pixel Depth Offset
+
+**Výstup materiálu, který posune hloubku pixelu dál od kamery, aniž by se pohnula geometrie.**
+
+Posunutá hloubka mění, jak se povrch protíná s jinými objekty a jak na něj dopadají stíny. Hodí se na měkčí přechod mezi skálou a terénem nebo na to, aby reliéf z POM vrhal contact shadows. Hloubka se jen přičítá, takže povrch jde opticky „zatlačit" dovnitř, ale ne vytáhnout k divákovi.
+
+Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Contact shadows](#contact-shadows) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping)
+
+### Pixel Inspector
+
+**Nástroj editoru, který pro pixel pod kurzorem vypíše hodnoty z renderovací pipeline.**
+
+Ukáže pre-exposure, barvu scény před tone mappingem a po něm, finální barvu i data z G-bufferu. Hodí se na kontrolu expozice: střední šedá má být kolem 0,18 v každém kanálu.
+
+Kde se s tím potkáš: [Expozice, která drží](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Rejstřík: Auto exposure](#auto-exposure)
 
 ### Player Camera Manager
 
@@ -3372,6 +3494,14 @@ Nejhutnější studijní žánr gamedevu — na rozdíl od tutoriálů obsahuje 
 
 Kde se s tím potkáš: [Postmortem: tři roky na ShantyTown](teorie/postmortem-shantytown.md)
 
+### Post-process material
+
+**Materiál s doménou Post Process, který pracuje s hotovým obrazem scény místo s povrchem objektu.**
+
+Z uzlu SceneTexture čte obraz (PostProcessInput0), hloubku nebo G-buffer a výsledek posílá zpátky na obrazovku. Přidává se do pole Post Process Materials v post-process volume. Blendable location určuje, ve kterém místě pipeline se uplatní, třeba před tone mappingem nebo po hloubce ostrosti. Je levný, ale o světle a stínech ví jen to, co je vidět v obraze. Typické použití je stylizace, obrysy, retro mlha nebo filtry.
+
+Kde se s tím potkáš: [PS1 v enginu: mlha jako post-process materiál](praxe/ps1-estetika.md#ps1-v-enginu-mlha-jako-post-process-material-a-pixely-z-uv)
+
 ### Predictive interpolation
 
 **Režim replikace fyziky, ve kterém klient míří na stav mírně za serverem a dorovnává se rychlostí, ne skokem polohy.**
@@ -3532,6 +3662,14 @@ Sourozenec [shading binu](#shading-bin) a stejná logika: cenu určuje **rozmani
 
 Kde se s tím potkáš: [View modes](praxe/rozpocet-snimku.md#view-modes-kde-se-ztraci-nez-otevres-profiler) · [Rejstřík: Shading bin](#shading-bin) · [Rejstřík: Draw call](#draw-call)
 
+### Ray tracing
+
+**Výpočet světla sledováním paprsků scénou, místo aby se odhadovalo jen z rastrovaného obrazu.**
+
+V Unrealu existuje ve dvou podobách. Hardwarový ray tracing běží na RT jádrech grafické karty proti skutečné geometrii. Softwarový trasuje proti zjednodušené reprezentaci, třeba distance fields, a běží i bez RT hardwaru. Lumen umí obojí. MegaLights na ray tracingu stojí, ale hardwarový nevyžadují. Výsledky z malého počtu paprsků čistí [denoiser](#denoiser).
+
+Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-megalights-silne-svetlo-spolkne-rozpocet) · [007 First Light: GI bez hardwarového RT](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Lumen](#lumen)
+
 ### Recall priming
 
 **Level design technika: rozmístit do prostředí nenápadné nápovědy, které hráči zpřístupní správnou vzpomínku těsně před tím, než ji bude potřebovat.**
@@ -3547,6 +3685,14 @@ Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md)
 Do okamžiku recoupu obvykle plyne vydavateli 80 až 90 procent tržeb; teprve pak se poměr překlopí ve prospěch studia. Proto se na vydavatelskou smlouvu vyplatí dívat jako na půjčku splácenou z budoucích prodejů, ne jako na grant — a proto je klíčové, co všechno se do splácené částky započítá (marketing, lokalizace, portace).
 
 Kde se s tím potkáš: [Financování](teorie/financovani.md#vydavatel-je-banka-ne-darce)
+
+### Rect light
+
+**Obdélníkové plošné světlo, které svítí z plochy jedním směrem, jako panel, okno nebo softbox.**
+
+Intenzita se rozkládá do plochy, takže užší světlo se stejnou hodnotou svítí jasněji. Klapky (barn doors) zužují úhel, výchozí je 88°, a dají přirozený přechod světla, které padá dovnitř oknem. Bez MegaLights je to nejdražší typ světla. S MegaLights stojí skoro stejně jako bodové světlo se source radiem.
+
+Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Rejstřík: Source radius](#source-radius)
 
 ### Refundace
 
@@ -3594,7 +3740,7 @@ Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md) · [Akordy a harmo
 
 Slouží k obrazovkám kamer, zrcadlům nebo malování do textury za běhu. Šikovné vedlejší použití: materiál složený z noise uzlů se dá do render targetu vypéct a uložit jako obyčejnou texturu — takže na generování šumu nepotřebuješ žádný externí program.
 
-Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite)
+Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) · [Cube render target pro falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu)
 
 ### Renderovací vlákno
 
@@ -3781,6 +3927,14 @@ Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-sn
 Formální ideační technika — funguje na vylepšení rozdělané hry i generování nové z oblíbené. Nejužitečnější páky pro gamedev: Magnify (zazoomuj na nejzábavnější prvek a udělej z něj celou hru) a Eliminate (generátor „hra bez X": Skyrim bez magie, Fortnite bez stavění).
 
 Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md)
+
+### Scene Capture
+
+**Aktér, který snímá scénu kamerou do render targetu.**
+
+Scene Capture 2D dělá obyčejný obraz, třeba pro monitor ve hře, zrcadlo nebo minimapu. Scene Capture Cube snímá na všechny strany do cube render targetu, který jde jednorázově uložit jako statickou cube texturu (Create Static Texture), například pro falešný interiér za oknem. Živé snímání stojí výkon jako další vykreslení scény.
+
+Kde se s tím potkáš: [Falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Rejstřík: Render target](#render-target) · [Rejstřík: Cubemap](#cubemap)
 
 ### Scene Component
 
@@ -4125,6 +4279,14 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Pět potvrzení rány](p
 Charakteristický retro zvuk herní hudby (Undertale) často dělá paleta, ne skladba — Toby Fox použil fonty ze SNES her. Rychlá, autentická alternativa ke stavbě zvuku od nuly v synthu.
 
 Kde se s tím potkáš: [Tvorba herního soundtracku](hudba/tvorba-soundtracku.md)
+
+### Source radius
+
+**Velikost zdroje světla, která určuje, jak měkký stín světlo vrhá a jak velký dělá odlesk.**
+
+S nulovým radiem svítí světlo z jediného bodu a stíny jsou ostré jako vystřižené. Skutečné zdroje mají plochu, a tak větší radius dá přirozený polostín, třeba u svíčky nebo pochodně. Vedle něj má světlo i soft source radius, který změkčí okraj tvaru zdroje, a bodové světlo navíc délku zdroje (source length), se kterou svítí jako trubice. Zdroj je vidět i v odrazech, a proto se u pomocných světel vypíná specular scale.
+
+Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Attenuation radius jako hlavní páka](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla) · [Rejstřík: Rect light](#rect-light)
 
 ### Sparse set
 
@@ -4574,7 +4736,7 @@ Kde se s tím potkáš: [007 First Light: iterace jako zásada](praxe/env-techni
 
 Viewport typicky běží na 80–90 % screen percentage a TSR dopočítává — pohyblivá hladina pak ghostuje a smearuje. Diagnóza: screen percentage 100 % (či 125–200 %) a porovnat. Léčba: jiná AA metoda přes console variable, tonemapper sharpen 0,5–1, a hlavně vyhnout se upscalingu, kde to jde.
 
-Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md) · [Ze 100 na 200 FPS](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre)
+Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md) · [Ze 100 na 200 FPS](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre) · [Stopy v TSR a Output Depth and Velocity](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla)
 
 ### Tři C
 
@@ -4790,7 +4952,9 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 
 Nahrazuje klasické cascaded shadow maps: stíny se počítají po dlaždicích a v rozlišení, které odpovídá tomu, co je vidět. Prakticky to znamená ostré stíny zblízka i v dálce bez typického přeskakování kaskád. Je to doporučené nastavení všude, kde běží Nanite — s nímž si naopak ray traced shadows nerozumí.
 
-Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Rejstřík: Nanite](#nanite)
+Vedle MegaLights zůstávají správnou volbou pro slunce. Ray-traced slunce by na velké scéně potřebovalo velmi dlouhý dosah paprsků a jasné směrové světlo by MegaLights přetížilo.
+
+Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Rejstřík: Nanite](#nanite) · [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-megalights-silne-svetlo-spolkne-rozpocet)
 
 ### Virtual texture
 
@@ -4822,7 +4986,7 @@ Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md)
 
 Zapíná se na Exponential Height Fog; tvar řídí scattering distribution, start distance a height falloff. Materiály s domain Volume do ní kreslí vlastní objemy (mlha Silent Hill 2). Kvalita: r.VolumetricFog.GridPixelSize (default 8, nižší = jemnější) a GridSizeZ (128 → 256/512, ten dražší).
 
-Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md) · [Podíl světla v mlze](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Mlha, která rozmaže záři](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla)
 
 ### Oblique
 

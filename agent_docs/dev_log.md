@@ -15,6 +15,31 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-10 — Phase 13 dávka 53: světlo a materiály — nová kapitola MegaLights (Claude Code, Opus 5.5)
+
+**What:** 6 videí (~40k slov) → **1 nová kapitola / 5 myšlenek + 3 myšlenky do stávajících**:
+- `praxe/megalights.md` (5, ~3 700 slov, celé z 2,8h Inside Unreal k 5.8): rozpočet vzorků na pixel (co MegaLights nahrazuje, cena podle rozlišení, demo 200 světel, podmínky, kdy ne) · attenuation radius jako hlavní páka (překryvy, kalibrace od oka, smart light Blueprint, diagnostika šumu) · svítidlo z víc světel (source radius, rect lights a klapky, light channels a IES nově v 5.8) · slunce bez MegaLights (importance, VSM, měsíc, obloha) · expozice, která drží (kalibrace, local exposure, dva modely světla, emisiv a adaptace).
+- `praxe/materialy.md` +1: falešné okno přes Interior Cubemap a cube texturu ze Scene Capture Cube (Zima Env). Úvod kapitoly aktualizován.
+- `praxe/ps1-estetika.md` +1: PS1 v enginu, mlha jako post-process materiál (Eremental Studios) a pixelizace UV (Zima Env). Úvod odkazuje na novou myšlenku.
+- `praxe/landscape-tipy.md` +1: hloubka bez geometrie, POM a contact shadows přes pixel depth offset (Gatyh Interactive) a plugin IHP od jeho vývojáře (Denizcan Gok, označeno). Úvod aktualizován.
+
+Nav: „MegaLights" pod Osvětlení a atmosféra; `praxe/index.md` doplněn. Rejstřík 613 → **633**: 20 nových (Attenuation radius, Auto exposure, Color temperature, Contact shadows, Cubemap, Deferred rendering, Denoiser, IES profile, Importance sampling, Lighting channels, Local exposure, Material Parameter Collection, Mobility, Pixel Depth Offset, Pixel Inspector, Post-process material, Ray tracing, Rect light, Scene Capture, Source radius), 14 rozšířeno, z toho 2 o odstavec (MegaLights, Virtual Shadow Maps). 10 backlinků v 6 kapitolách. Chapter map 870 řádků.
+
+**Why:** Sedmá dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 53").
+
+**How:**
+- **Rozvržení podle plánu dávky** beze změny: stream o MegaLights dal celou kapitolu a čtyři krátká videa po jedné myšlence, dvě a dvě spojená.
+- **Řečníci streamu** jsou jen role: moderátor (artista z Epicu, dřív učil environment art) a host (technický marketing). Jména jsou v titulcích, ale role stačí. Tvrzení jsou přiřazená tomu, kdo je říká, včetně hostových výhrad (pomocné směrové světlo, pre-exposure, kalibrátor).
+- **Kontrola přesnosti** běžela levněji než v dávce 52: dva subagenti (Sonnet) s pokynem šetřit volání nástrojů, celkem ~323k tokenů proti ~590k minule. Nálezy: 32 (MegaLights 20, tři menší myšlenky 12), 31 zapracováno. Ponechána délka „~8 min" u falešného okna, protože odpovídá metadatům (8:07). Nejčastěji šlo o vypuštěné výhrady („pravděpodobně", „asi", „podle něj"), tvrzení přisouzená špatnému řečníkovi (moderátor proti hostovi), nepodložené detaily (důvod růžové barvy chytrého světla, emisivní „trubice", emisiv u obou herních příkladů falešného okna) a IHP „stejně jako bez efektu", ačkoli video žádné srovnání bez efektu neukazuje. Tři časové odkazy byly o blok vedle.
+- **Vlastní kontrola hned po napsání**, ještě před subagenty, včetně křížových odkazů v Pozn.: opraveno 16 formulací, mimo jiné chybný časový odkaz, tvrzení, že „Malovat světlem" staví na světlech bez stínu (nepodložené), nepodložený odkaz na Temný les a „soft source radius" místo source radius.
+- **Flagy:** IHP je vývojářův vlastní plugin a jeho výkon je jen z jeho scény, video neukazuje srovnání bez efektu. Eremental Studios propaguje vlastní projekty, Gatyh Interactive vlastní texture packer a web, stream ukazuje scénu jako Fab showcase.
+- **Časové odkazy:** všech 399 v dotčených kapitolách ověřeno skriptem proti blokům přepisů.
+
+**Follow-ups:**
+1. Další v pořadí je dávka 54 (PCG, terén, povrchy a velké světy). IHP s runtime virtual texturou slibuje autor v dalším videu; když se objeví v korpusu, patří k „Hloubce bez geometrie".
+2. Kandidáti do `content_gaps`: PS1 deformace textur (affine mapping) a třesoucí se vrcholy; korpus na ně nemá zdroj.
+3. `osvetleni.md` má od dávky 53 sesterskou kapitolu. Při příští práci s osvětlením zvážit, jestli „Malovat světlem" (5.5) nepotřebuje poznámku o MegaLights v 5.8; backlink už vede.
+
 ### 2026-10-10 — Phase 13 dávka 52: prostředí — blockout, modulární kity a breakdowny (Claude Code, Opus 5.5)
 
 **What:** 10 videí (~47k slov) → **3 nové kapitoly / 11 myšlenek**:

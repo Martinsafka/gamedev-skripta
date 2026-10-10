@@ -33,7 +33,9 @@
 *[Async Physics]: Fyzika s pevným krokem na vlastním vlákně; hra ji interpoluje a je o kousek pozadu.
 *[Attachment rules]: Pravidla připnutí objektu: Snap to Target ho okamžitě přesune, Keep World ho nechá na místě.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
+*[Attenuation radius]: Poloměr, za kterým světlo přestane svítit; s MegaLights je počet překrývajících se radiů hlavní metrika kvality.
 *[AutoBake]: Přepínání živého control rigu a jeho zapečené animation sequence v sequenceru (UE 5.8).
+*[Auto exposure]: Automatická expozice (eye adaptation) podle jasu obrazu; v řízené scéně se zamyká nebo zužuje.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
 *[Blend Poses by Bool]: Anim uzel, který podle boolu přepne mezi dvěma pózami — „if" v anim grafu.
 *[Blueprint Debugger]: Ladění blueprintů za běhu: breakpointy, sledované hodnoty a zastavení na uzlu, kde nastala chyba.
@@ -86,7 +88,9 @@
 *[Closing doors]: Iterace od širokého k úzkému; zavřené dveře se znovu neotevírají.
 *[Cluster culling]: Nanite zahazuje geometrii po clusterech — buď celý, nebo nic; rozhoduje topologie meshe.
 *[Cluster Union]: Komponenta Chaosu, která slepí víc geometry collections do jednoho tělesa s částečnou destrukcí.
+*[Color temperature]: Barva světla zadaná teplotou v kelvinech: nízká teplá, vysoká studená; pro emisiv uzel BlackBody.
 *[Construction Script]: Graf actor blueprintu, který běží v editoru při umístění či změně actoru a při spawnu.
+*[Contact shadows]: Krátké stíny trasované po hloubce scény; s pixel depth offsetem stíní i reliéf z materiálu.
 *[Context switch]: Přepnutí jádra mezi vlákny; časté přepínání je čistá režie, nevyvážená jádra blokují ostatní.
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
@@ -106,6 +110,7 @@
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
 *[Coyote time]: Krátká lhůta po opuštění hrany, během které skok pořád projde (asi 6 snímků).
 *[CPU-bound / GPU-bound]: Které zařízení na hru čeká; určuje, kterým směrem vůbec optimalizovat.
+*[Cubemap]: Textura ze šesti stěn krychle, zachytí okolí ze všech směrů; odrazy, obloha, falešné interiéry.
 *[Custom Depth]: Hloubkový průchod jen pro vybrané meshe, se stencil čísly; materiál ho čte přes SceneTexture.
 *[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
 *[Custom Time Dilation]: Násobitel času jednoho aktéra: 0 ho zmrazí, zbytek hry běží dál; základ hit stopu.
@@ -120,10 +125,12 @@
 *[Data validation]: Automatická kontrola assetů proti pravidlům projektu — v editoru, při odevzdání i v noci.
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
+*[Deferred rendering]: Vykreslování, které nejdřív uloží povrchy do G-bufferu a světlo počítá potom na pixel; výchozí v UE.
 *[Degenerate strategy]: Dominantní postup, po jehož objevení hra přestává bavit; cíl balancu je ho zabít.
 *[Delegate]: Seznam odběratelů zprávy (v BP event dispatcher); engine má vlastní, např. Landed a OnTakePointDamage.
 *[Delta time]: Čas od minulého snímku; násobí se jím pohyb, aby nezávisel na výkonu počítače.
 *[Demo]: Veřejná verze hry, jejímž úkolem je prodat — ne otestovat (to dělá playtest build).
+*[Denoiser]: Filtr, který čistí šum z obrazu spočítaného z málo vzorků; víc světel na pixel = víc práce a blikání.
 *[Dependency stack]: Strom závislostí systémů: dole core mechaniky, nahoře škrtnutelné obohacení.
 *[Design by constraint]: Návrh z omezení: nejdřív zvol limity (žádný příběh, jedna obrazovka), nápad hledej uvnitř nich.
 *[Design pattern]: Pojmenované řešení opakujícího se problému v kódu; katalog Gang of Four (1994), tři rodiny.
@@ -231,8 +238,10 @@
 *[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
+*[IES profile]: Naměřené rozložení světla skutečného svítidla; dá kužel a kresbu, s MegaLights od 5.8.
 *[IK]: Inverzní kinematika: řetěz kostí se natočí tak, aby koncová kost dosáhla cíle.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
+*[Importance sampling]: Vzorkování podle důležitosti: víc vzorků dostane, co víc přispívá; jasné slunce by MegaLights přetížilo.
 *[Inertialization]: Blend, který z rychlosti původního pohybu dopočítá plynulý přechod místo míchání dvou póz.
 *[Input decay]: Tlumení predikovaného vstupu při resimulaci; čím hlouběji v predikci, tím slabší vstup.
 *[Interior mapping]: Shaderová iluze místnosti za oknem: interiér z textury podle úhlu pohledu, bez geometrie za sklem.
@@ -278,6 +287,7 @@
 *[Level Sequence]: Asset sequenceru — časová osa se stopami actorů, kamer a událostí, přehrávaná i za běhu.
 *[Level streaming]: Načítání a uvolňování částí světa za běhu; persistent level je rám, sub-levely obsah.
 *[LFO]: Pomalý oscilátor otáčející donekonečna zvoleným knobem (vibrato, wobble, pohyb filtru).
+*[Lighting channels]: Tři kanály, kterými se určuje, na které objekty světlo svítí; s MegaLights od 5.8.
 *[Liminální prostor]: Veřejný prostor bez lidí a účelu — skoro normální, a proto zneklidňující.
 *[Lightweight emitter]: Niagara emitter s pevnou funkčností: řádově levnější a řádově omezenější (bez dynamických vstupů).
 *[Line of action]: Pomyslná linie procházející pózou; rovná a čitelná = jasný pohyb.
@@ -286,6 +296,7 @@
 *[Linked anim graph]: Samostatný anim graf připojený jako modul; přes tag na něj sáhnou komponenty zvenčí.
 *[Live coding]: Tvorba hudby psaním kódu, který zní okamžitě; skládání a vystoupení splývají.
 *[Live Link]: Streamování dat do enginu (mocap, kamery); Live Link Hub od 5.8 zpracuje i offline video na capture data.
+*[Local exposure]: Expozice po částech obrazu: zvedne stíny a ztlumí světla; šablony 0,8, nový post-process volume 1,0.
 *[Locomotor]: Control Rig uzel procedurální chůze: došlapy počítá dynamicky — foot sets, fázové offsety, žádné klipy.
 *[Locus of control]: Kde hledáš řídicí sílu jednání: uvnitř (rozhoduju sám), či venku (čekám na dotlačení).
 *[LOD]: Level of Detail: jednodušší verze meshe střídané podle vzdálenosti; bez dobrého přechodu je vidět doskakování.
@@ -305,6 +316,7 @@
 *[Mass Entity]: ECS framework pro tisíce entit (davy, doprava) — City Sample i MetaHuman Crowd; entity nejsou actory.
 *[Material function]: Znovupoužitelný blok materiálové logiky; s material attributes I/O funguje jako vrstva.
 *[Material Instance]: Potomek materiálu, který mění jen vystavené parametry (barva, textura); graf zůstává u rodiče.
+*[Material Parameter Collection]: Asset s globálními parametry, které čte mnoho materiálů najednou; denní doba, počasí, globální efekty.
 *[Matice]: Lineární transformace: sloupce říkají, kam se přesunou osy; násobení = skládání transformací.
 *[MAYA]: Most Advanced Yet Acceptable — nejpokročilejší varianta, kterou publikum ještě přijme.
 *[McNamarův klam]: Co jde snadno změřit, se prohlásí za jediné důležité; metriky rostou, věc se prohrává.
@@ -323,6 +335,7 @@
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
 *[Mixels]: Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.
+*[Mobility]: Static, Stationary, nebo Movable: smí se aktér či světlo za běhu měnit; v dynamickém projektu movable.
 *[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
 *[Modular kit]: Sada dílů na společné mřížce, ze kterých se skládají scény jako z lega; sdílí rozměry, pivoty a materiály.
@@ -393,6 +406,8 @@
 *[Physics Control]: Komponenta držící simulovaná tělesa u cíle laditelnou pružinou — fyzikální, ale ovladatelné.
 *[Pitch deck]: Prezentace hry, která ještě neexistuje; simuluje první kontakt zákazníka s nápadem.
 *[Pivot]: Vztažný bod objektu (rotace, scale, přichytávání); v enginu opravitelný přes modeling mode Edit Pivot.
+*[Pixel Depth Offset]: Výstup materiálu, který posune hloubku pixelu od kamery bez pohybu geometrie; průniky, stíny, POM.
+*[Pixel Inspector]: Nástroj editoru, který vypíše hodnoty pixelu pod kurzorem; kontrola expozice podle střední šedé 0,18.
 *[Player Camera Manager]: Objekt player controlleru spravující výsledný pohled hráče: zatmívačky, otřesy kamery.
 *[Point cloud]: Mračno bodů z laserového skenu; barva sedí na bodu, detail se vrství místo aby nahrazoval.
 *[Pixel-perfect]: Celočíselné škálování pixel artu; ve slepém testu necelé faktory skoro nepoznáš.
@@ -412,6 +427,7 @@
 *[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
 *[Post-process AnimBP]: AnimBP meshe vyhodnocovaný po hlavní animaci — vrstvení look-atu a korekcí; vázaný na skeleton.
 *[Postmortem]: Ohlédnutí za dokončeným projektem: co fungovalo, co ne a proč — nejhutnější studijní žánr gamedevu.
+*[Post-process material]: Materiál, který pracuje s hotovým obrazem scény; stylizace, obrysy, retro mlha; v post-process volume.
 *[Predictive interpolation]: Replikace fyziky s cílem mírně za serverem a dorovnáním přes rychlost; levnější než resimulace.
 *[Prefab]: Uložená skupina objektů vkládaná do scény jako celek; v UE Blueprint, Level Instance nebo Packed Level Actor.
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
@@ -432,8 +448,10 @@
 *[Ragdoll]: Postava, jejíž kostra simuluje jako fyzikální tělesa spojená klouby; active ragdoll ji táhne k póze.
 *[Random pitch variation]: Náhodný posun výšky při každém přehrání; ubíjí mechanickou repetici opakovaného zvuku.
 *[Raster bin]: Nanitová dávka se shodným stavem rasterizace; cenu určuje rozmanitost materiálů, ne počet meshů.
+*[Ray tracing]: Výpočet světla sledováním paprsků; hardwarový na RT jádrech, softwarový proti distance fields.
 *[Recall priming]: Nenápadné nápovědy v prostředí, které hráči zpřístupní správnou vzpomínku těsně před puzzlem.
 *[Recoup]: Splacení investice vydavatele z tržeb, než se vývojáři začne vyplácet jeho podíl.
+*[Rect light]: Obdélníkové plošné světlo jako panel nebo okno; klapky zužují úhel, s MegaLights skoro levné jako bodové.
 *[Redirector]: Ghost soubor po přesunu assetu; před smazáním složky spusť Update Redirector References.
 *[Referenční transparentnost]: Volání funkce lze nahradit její hodnotou beze změny programu — žádné skryté závislosti.
 *[Refundace]: Vrácení peněz za hru; první srážka z hrubé tržby před podílem obchodu a daněmi.
@@ -463,6 +481,7 @@
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
 *[Scalability groups]: Skupiny kvality renderování; *Epic* je režim pro 30 FPS, pro 60 je referenční *High*.
 *[SCAMPER]: Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.
+*[Scene Capture]: Aktér, který snímá scénu do render targetu; 2D pro monitory a zrcadla, Cube pro cube textury.
 *[Scene Component]: Komponenta jen s transformací a dětmi, bez geometrie — pivot, značka místa, warp target.
 *[Screen percentage]: V jakém rozlišení se scéna doopravdy renderuje; výchozí „based on display resolution" tiše jde pod 100 %.
 *[Scene inheritance]: Scéna odvozená z jiné: převezme celý strom nodů a přepíše jen odchylky.
@@ -506,6 +525,7 @@
 *[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
 *[Sound Cue]: Zvukový asset s grafem nad wave soubory — random variace, mix, attenuace; nástupce je MetaSounds.
 *[Sound font]: Kolekce nasamplovaných zvuků nástroje (.sf2); rychlá retro paleta (Undertale, SNES).
+*[Source radius]: Velikost zdroje světla; větší dá měkčí stín a větší odlesk, nulový svítí z bodu s ostrými stíny.
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.
 *[Sphere tracing]: Trasování po skocích o hodnotu distance fieldu; počítá s tloušťkou, neproklouzne škvírou.
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.

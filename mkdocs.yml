@@ -178,6 +178,7 @@ nav:
           - Materiály: praxe/materialy.md
       - Osvětlení a atmosféra:
           - Osvětlení: praxe/osvetleni.md
+          - MegaLights: praxe/megalights.md
       - Výkon a profiling:
           - "Profiling: měření místo odhadů": praxe/profiling.md
           - Rozpočet snímku: praxe/rozpocet-snimku.md

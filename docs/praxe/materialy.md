@@ -1,6 +1,6 @@
 # Materiály: sdílení, displacement, decay a toon
 
-Materiálová kapitola pokrývá čtyři různě velké myšlenky: **master material workflow** (proč nemá každý mesh nosit pět vlastních textur), **Nanite displacement** na obyčejném meshi, velký **procedurální decay systém** — jedna material function, která umí krev, špínu i toxin na čemkoli — a nový **toon shading** model z 5.8. Principy „jeden shader pro mnoho assetů" v produkčním měřítku ukazuje [kapitola Breakdowny](env-breakdowny.md); tady je stavíme vlastníma rukama.
+Materiálová kapitola pokrývá několik různě velkých myšlenek: **master material workflow** (proč nemá každý mesh nosit pět vlastních textur), **Nanite displacement** na obyčejném meshi, velký **procedurální decay systém** — jedna material function, která umí krev, špínu i toxin na čemkoli — nový **toon shading** model z 5.8, VFX textury a **falešné okno** přes interior cubemap. Principy „jeden shader pro mnoho assetů" v produkčním měřítku ukazuje [kapitola Breakdowny](env-breakdowny.md); tady je stavíme vlastníma rukama.
 
 ---
 
@@ -44,7 +44,7 @@ Materiálová kapitola pokrývá čtyři různě velké myšlenky: **master mate
 
 > **Pozn.:** Trojice kapitol teď pokrývá displacement ze tří stran: [Landscape](landscape-tipy.md#nanite-displacement-a-krajina-jako-scena) (terén z materiálu), tady mesh s vertex paintingem, a [Crimson Desert breakdown](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) připomíná, že existuje i shaderová iluze bez geometrie — každá vrstva má jinou cenu a jiné použití. Titulky videa jsou psané (manuální) a řídké — timestampy vedou na kroky, detaily zapojení odečteš z obrazu.
 
-**Souvislosti:** [Landscape tipy: Nanite displacement](landscape-tipy.md#nanite-displacement-a-krajina-jako-scena) · [Breakdowny: Crimson Desert](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: height mapa](../rejstrik.md#height-mapa) · [AC Black Flag: páry materiálů](env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) *(vertex blending celého města)*
+**Souvislosti:** [Landscape tipy: Nanite displacement](landscape-tipy.md#nanite-displacement-a-krajina-jako-scena) · [Breakdowny: Crimson Desert](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: height mapa](../rejstrik.md#height-mapa) · [AC Black Flag: páry materiálů](env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) *(vertex blending celého města)* · [POM a contact shadows na terénu](landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) *(hloubka bez geometrie)*
 
 ---
 
@@ -141,3 +141,34 @@ Tři techniky, které dělají většinu práce:
 > **Pozn.:** Zbytek videa je poctivé zhodnocení nástrojů, ze kterého stojí za převzetí hlavně **varování před Blenderem na tenhle účel**: *„technicky v něm textury vyrobit můžeš, ale nemám to rád — renderování simulací trvá věčnost a párkrát mi při bakování výbuchů spadl počítač. Pokud plánuješ péct realistické simulace, ještě dvakrát to zvaž."* Alternativu pro real-time simulace (EmberGen) sám odmítá pro sólo vývojáře jako předraženou a příliš specializovanou. Zmíněné bezplatné drobnosti: **Materialize** (z obrázku vygeneruje height, normal a AO posuvníky) a **OpenToonz** na ručně malované animované efekty.
 
 **Souvislosti:** [Master material](#master-material-pet-textur-nema-mit-kazdy-mesh) · [Nanite displacement](#nanite-displacement-relief-malovany-vertex-colorem) · [Tech art, VFX a UI](../teorie/art-specializace.md#vfx-primarni-sekundarni-terciarni-a-rozpocet-na-okazalost) *(kdy má efekt vůbec vzniknout)* · [Objemy přes EVDB](osvetleni.md#objemy-pres-evdb-mraky-a-mlha-jako-asset) · [Rejstřík: Flipbook](../rejstrik.md#flipbook) · [Rejstřík: Render target](../rejstrik.md#render-target)
+
+---
+
+## Falešné okno: interior cubemap a místnost nafocená v enginu
+
+**Zdroj:** [How to Create Fake Windows in Unreal Engine 5 | Fake 3D Interior](https://www.youtube.com/watch?v=OftM6QfMLtk) · [Zima Env](https://www.youtube.com/channel/UC1Ob_PAPVw5dL6XlpCfXuKg) · ~8 min, tutoriál
+
+**Shrnutí:** Okno, za kterým je vidět celá místnost, může být jediná plochá plocha. Uzel Interior Cubemap za ni promítne cube texturu tak, že se místnost při pohledu z různých úhlů chová prostorově. K tomu přijde špína na skle a emisiv, kterým okno rozsvítíš. Háček: cube texturu nemusíš shánět. Nafotíš si ji přímo v enginu z vlastní, klidně jednoduché místnosti přes Scene Capture Cube. Trik se hodí na okna, ke kterým hráč nepřijde blízko, a na okna vysoko na fasádě, aby budova nepůsobila prázdně a plochě.
+
+### Rozpad myšlenky
+
+**Kde se to používá.** Video ukazuje dva vzory: The Last of Us Part II a AC Black Flag Resynced. Ten druhý má v tmavém prostředí světlo řešené emisivem [(0:02)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=2s).
+
+**Materiál krok za krokem.**
+- Uzel Interior Cubemap. Do vstupu Tiling jde parametr se čtyřsložkovým vektorem (červená a zelená na 1) a vstup Randomize se povýší na parametr [(0:59)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=59s).
+- Cube textura nebo HDR v parametru textury. Když se textura nezobrazí, pomůže ji přetáhnout přímo do materiálu a teprve pak převést na parametr [(1:38)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=98s).
+- Špína: lerp mezi místností a barvou špíny, řízený maskou s vlastním dlaždicováním [(1:38)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=98s), [(2:33)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=153s).
+- Specular na 1 a roughness ze špínové textury s parametry intenzity a kontrastu [(3:20)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=200s), [(4:16)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=256s), [(4:42)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=282s).
+- Emisiv za static switch parametrem. Vypnutý dá nulu, zapnutý násobí výstup lerpu, tedy místnost se špínou, parametrem síly. Jedním přepínačem tak okno rozsvítíš i zhasneš [(3:20)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=200s), [(3:55)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=235s).
+
+Na zkoušku stačí obyčejná plocha [(5:09)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=309s).
+
+**Místnost nafocená v enginu** [(5:28)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=328s):
+1. postav jednoduchou místnost;
+2. doprostřed dej Scene Capture Cube a v jeho Texture Target vytvoř Cube Render Target, který ukazuje výsledek živě [(5:44)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=344s);
+3. otočení kamery se projeví, až když v detailech zapneš i rotaci;
+4. pravým tlačítkem na render target zvol Create Static Texture. Vznikne cube textura, kterou materiál použije [(6:30)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=390s).
+
+> **Pozn.:** Tentýž trik ve velkém ukazuje [AC Black Flag Resynced](env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost): dva UV kanály, parallax, náhodná místnost na okno a svícení podle denní doby. Uzel Interior Cubemap je nejjednodušší podoba téhož v Unrealu, obecný princip popisuje [Interior mapping](../rejstrik.md#interior-mapping). Okna, která se rozsvítí sama podle času dne, by šlo napojit na Material Parameter Collection stejně jako neony v [Expozici, která drží](megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla). To je naše návaznost, video řeší jen ruční přepínač. Projekt a textury jsou podle videa v popisu [(6:30)](https://www.youtube.com/watch?v=OftM6QfMLtk&t=390s).
+
+**Souvislosti:** [Rejstřík: Interior mapping](../rejstrik.md#interior-mapping) · [Rejstřík: Cubemap](../rejstrik.md#cubemap) · [Rejstřík: Scene Capture](../rejstrik.md#scene-capture) · [Rejstřík: Render target](../rejstrik.md#render-target) · [Beauclair: okleštěné interiéry](modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt)
