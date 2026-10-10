@@ -70,6 +70,14 @@ Attack = náběh po stisku, decay = pokles k sustainu, sustain = hlasitost při 
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md) · [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
+### Aerial perspective
+
+**Vzdušná perspektiva: čím dál objekt je, tím víc ho překryje barva atmosféry, nejdřív do modra a ve velké dálce do bíla.**
+
+Je to nejlevnější způsob, jak dát krajině měřítko a hloubku. Ve hrách ji obvykle dělá mlha nebo barevný gradient podle vzdálenosti v shaderu. Barva závisí na tom, kolik vzduchu leží mezi okem a cílem, a proto vzdálené hory blednou stejně jako obloha k horizontu. Přehnaná aerial perspective umí předstírat větší dohled, než jaký scéna skutečně má.
+
+Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou) · [Rejstřík: Volumetric fog](#volumetric-fog)
+
 ### Affordance
 
 **Vlastnost objektu či prostoru, která signalizuje, jak s ním jde interagovat — dřív, než to hráč zkusí.**
@@ -332,6 +340,14 @@ Zdejší podoba singletonu: v nastavení projektu zaregistruješ scénu a Godot 
 
 Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni-hra.md#animationplayer-jako-casovac-sekvence-bez-jedineho-radku-kodu) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
 
+### Biome map
+
+**Barevná mapa přes celý terén, kde každá barva označuje jeden biom a řídí, co se kde rozmístí.**
+
+Nejjednodušší je namalovat ji přes screenshot terénu shora v libovolném grafickém editoru, složitější mapy vznikají v nástrojích na stavbu světa. Musí na terén sedět přesně, jinak scatter roste vedle. Scatter každého biomu pak čte jen svou barvu. V ukázce s nástrojem QuickScatter doporučuje autor textuře mapy zapnout Never Stream, protože jinak se mu po znovuotevření levelu sama nenačítala.
+
+Kde se s tím potkáš: [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+
 ### Blend Poses by Bool
 
 **Anim uzel, který podle boolu přepíná mezi dvěma pózami — „if" v anim grafu.**
@@ -502,7 +518,7 @@ Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-
 
 Pojmenováno po booleovské logice — tělesa se skládají jako množiny bodů. V Mesh Terrainu boolean modifier skutečně vroubuje cizí mesh do terénu: union přiroste, subtract vyřízne díru a geometrie se na okrajích sešije. Klasický nástroj CSG modelování (Constructive Solid Geometry), který znáš z Blenderu i CADů.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Ostrov z booleanů](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly)
 
 ### Bounds
 
@@ -632,7 +648,7 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 
 Channels se definují v data assetu partition definice 1:1 podle vrstev materiálu a rovnou se z nich stávají malovatelné vrstvy, bez ceremonie layer info assetů starého Landscape. Navíc je umí přiřazovat i modifiery (weight channel) — boolean skála si tak vyřízne tvar a zároveň obarví materiál. Pozor na kolizi názvosloví: UE má i kolizní channels (WorldStatic, Pawn…), to je jiný mechanismus.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kanály z vertex colorů a pro PCG](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly)
 
 ### CDO
 
@@ -764,7 +780,7 @@ Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-
 
 Hodí se na přípravu dat, která závisí na komponentách konkrétní instance: třeba mapa stran dveří s odkazy na scene komponenty, které do výchozích hodnot proměnné zadat nejde, nebo reference, které mají fungovat i v sequenceru bez spuštěné hry. Nepatří do něj nic drahého — spouští se často, při každém posunu actoru v editoru.
 
-Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
+Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci) · [Run Construction Script on Drag](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny)
 
 ### Contact shadows
 
@@ -772,7 +788,7 @@ Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-a
 
 V Unrealu se zapínají na světle hodnotou Contact Shadow Length (výchozí je 0). Paprsek se trasuje jen kousek po hloubkovém bufferu, takže jsou levné, ale umí jen krátké stíny. S pixel depth offsetem z výškové mapy dají stíny i reliéfu, který existuje jen v materiálu, třeba pod POM na terénu. Hodí se i na vzdálenou vegetaci.
 
-Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Pixel Depth Offset](#pixel-depth-offset) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping)
+Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Pixel Depth Offset](#pixel-depth-offset) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Stíny pokryvu země](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
 
 ### Context switch
 
@@ -944,6 +960,14 @@ Zapíná se v Project Settings (Custom Depth-Stencil Pass, varianta Enabled with
 
 Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Profilovat cizí hru](praxe/gpu-pruchod.md#profilovat-cizi-hru-priprava-ktera-rozhoduje)
 
+### Custom Primitive Data
+
+**Hodnoty uložené na celé primitive komponentě, které materiál čte jako parametry, takže varianty nepotřebují nové material instances.**
+
+Nastavují se z blueprintu nebo v detailech komponenty a parametr v materiálu musí mít zapnuté Use Custom Primitive Data. Platí pro celou komponentu. Pro jednotlivé instance v ISM slouží sourozenec [Per-instance custom data](#per-instance-custom-data). Obojí šetří material instances, a tím i shading biny a draw cally. Přednáška Lucid Games tímhle pojmem označuje barvy budov předávané z PCG.
+
+Kde se s tím potkáš: [Variabilita z dat](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy) · [Rejstřík: Per-instance custom data](#per-instance-custom-data)
+
 ### Custom resource
 
 **Vlastní datový typ uložený jako soubor: `extends Resource` + `class_name`, hodnoty přes `@export`, instance jako `.tres`.**
@@ -1016,7 +1040,7 @@ Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences
 
 V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blueprinty je čtou. Odděluje „co" od „jak" — stejná logika, jiná data, jiné chování. Mesh Terrain v data assetu (Mesh Partition Definition) drží materiál, texel size a definice channels.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Nastavení look-at solveru](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Nastavení look-at solveru](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
 
 ### Data layer
 
@@ -1242,7 +1266,15 @@ Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Kit a slučov�
 
 Scalar/vector/texture parametry pojmenované v materiálu se nastavují uzly Set Parameter Value — jména musí sedět do písmene. Základ všeho, co se vizuálně mění za hry: slábnoucí stopy, zabarvení zásahu, progres přebíjení. MID žije per objekt — změna jedné instance neovlivní ostatní.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Health bar z materiálu](praxe/ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) · [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Health bar z materiálu](praxe/ui-ve-svete.md#health-bar-nad-hlavou-screen-space-ukazatel-z-materialu-a-dojezd-poskozeni) · [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Štětec a povrch přes MID](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
+
+### Dynamic Mesh
+
+**Mesh, který jde v editoru i za běhu měnit kódem; s touhle editovatelnou geometrií pracuje Geometry Script.**
+
+Dynamic mesh actor nebo komponenta drží geometrii, kterou nástroje tvarují, ořezávají booleanem nebo přemeshují. Do hry se výsledek obvykle zapeče do static meshe, který má Nanite, LODy a levnější render. Generated Dynamic Mesh Actor se přepočítá při každém pohybu podobně jako construction script, takže těžké operace v něm zdržují editor.
+
+Kde se s tím potkáš: [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Nástroj pro artisty](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny) · [Rejstřík: Geometry Script](#geometry-script)
 
 ### Dynamic resolution
 
@@ -1290,7 +1322,7 @@ Kde se s tím potkáš: [Nástroje pro sebe](godot/projekt-a-vykon.md#nastroje-p
 
 Spouští se pravým klikem → Run Editor Utility Widget a dá se ukotvit vedle ostatních panelů. Typické použití: dávkové přejmenování, kontrola konvencí, přepínání zobrazení scény. Protože je to obyčejný blueprint, jde cizí nástroj otevřít, přečíst a upravit — což je zásadní rozdíl proti zkompilovanému pluginu.
 
-Kde se s tím potkáš: [Animační nástroje: SAM](praxe/animace-nastroje.md#sam-izolace-jednoho-aktera-jako-animatorsky-rezim) · [Editor tipy](praxe/editor-tipy.md)
+Kde se s tím potkáš: [Animační nástroje: SAM](praxe/animace-nastroje.md#sam-izolace-jednoho-aktera-jako-animatorsky-rezim) · [Editor tipy](praxe/editor-tipy.md) · [Bake tlačítkem](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny)
 
 ### Effect type
 
@@ -1478,6 +1510,14 @@ Indikátor nalezení: přistihneš se, že si s barebones mechanikou hraješ mim
 
 Kde se s tím potkáš: [Scope: malé hry v praxi](teorie/scope.md) · [Nápad: ideace](teorie/napad.md)
 
+### Fixed point
+
+**Čísla s pevnou desetinnou čárkou: celé číslo, které znamená zlomky jednotky, třeba 256 dílků na metr.**
+
+Na rozdíl od floatu mají stejnou přesnost v jakékoli vzdálenosti od počátku, za cenu pevného rozsahu. Při 256 hodnotách na metr dá 32bitové celé číslo přesnost na pár milimetrů a rozsah zhruba ±8 000 km. Pasti jsou jiné než u floatu, hlavně přetečení, třeba při sčítání dvou velkých souřadnic.
+
+Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou) · [Rejstřík: Origin shifting](#origin-shifting)
+
 ### Flipbook
 
 **Mřížka snímků v jedné textuře, kterou materiál přehrává jako animaci.**
@@ -1618,6 +1658,14 @@ Kusy vznikají frakturou, nedestruktivně i v Dataflow grafu, a úrovně cluster
 
 Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu) · [Rejstřík: Cluster Union](#cluster-union)
 
+### Geometry Script
+
+**Knihovna funkcí v Unrealu pro modelování kódem: booleany, remesh, triangulace a další operace nad dynamic meshem.**
+
+Běží v blueprintech i v C++ a v editoru pohání procedurální nástroje, které geometrii vyrábějí, místo aby jen rozmisťovaly hotové meshe. Interop s PCG pošle data z grafu rovnou do dynamic mesh blueprintu. Typický postup je spočítat tvar a výsledek zapéct do static meshe.
+
+Kde se s tím potkáš: [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Liány po povrchu](praxe/pcg-liany.md#liany-po-povrchu-mesh-sampler-pathfinding) · [Rejstřík: Dynamic Mesh](#dynamic-mesh)
+
 ### Gestalt
 
 **Psychologická škola, podle níž člověk vnímá celý obraz a z uspořádání si odvozuje vztahy mezi částmi.**
@@ -1672,7 +1720,7 @@ Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md)
 
 Tag v containeru = true; síla je v hierarchii: dotaz na rodiče (`Status.MovementBlocked`) matchuje všechny potomky, takže nová schopnost blokující pohyb = nový sub-tag, nula změn v podmínkách. Spravují se v Gameplay Tag Manageru (soubory .ini, v týmu dělit podle domén). Pasti: struct z funkce je kopie (Add/Remove jen na skutečné proměnné) a ref counting (dva ohně, jeden tag). V GAS jsou tagy lepidlem celého systému.
 
-Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](praxe/telemetrie.md) · [Nepřítel v datech: tag → animace](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Tick podmínky reakcí](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve)
+Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](praxe/telemetrie.md) · [Nepřítel v datech: tag → animace](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Tick podmínky reakcí](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve) · [Presety budov pod tagy](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy) · [Filtr tagů v nástroji](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny)
 
 ### Garbage collection
 
@@ -1744,7 +1792,7 @@ Kde se s tím potkáš: [Živý svět z částic](praxe/niagara-vykon.md#zivy-sv
 
 Kromě efektů typu slow motion je to ladicí nástroj: zpomalená interakce ukáže, kdy se ruka chytí, kdy se předmět připne a kde výběr úchopu přeskočí. Nastavuje se uzlem `Set Global Time Dilation`, v editoru i konzolovým příkazem `slomo`.
 
-Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Hit stop per aktér](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak)
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Hit stop per aktér](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak) · [Zpomalení na ladění VFX](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti)
 
 ### GOAP
 
@@ -1832,7 +1880,7 @@ Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt
 
 Ve world-partition světech se staví po streamovacích buňkách a vyplatí se u něj zaškrtnout *use render LOD meshes*, aby se do sloučení použily fallback meshe místo plných Nanite dat (jinak dojde paměť při buildu). Méně zřejmé použití: **skrytá HLOD proxy, která pořád vrhá stín** — scéna pak má stovky stín vrhajících primitiv místo desetitisíců, což je zásadní tam, kde se nedá spolehnout na Nanite a virtuální stíny.
 
-Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite) · [Proxy v Beauclair](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt)
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite) · [Proxy v Beauclair](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Větší chunky v dálce](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou)
 
 ### Hitch resiliency
 
@@ -1842,6 +1890,14 @@ Plná pipeline v Unrealu drží šest snímků v enginu a dva v hardwaru; hotov�
 
 Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Rejstřík: Input latency](#input-latency) · [Rejstřík: Jitter](#jitter) · [Rejstřík: Hitch](#hitch)
 
+### HLSL
+
+**High-Level Shading Language: jazyk shaderů se syntaxí podobnou C, ve kterém píšeš vlastní výpočty pro GPU.**
+
+V Unrealu se objevuje v Custom uzlu materiálu a v Niagaře jako custom HLSL výraz nebo modul. Hodí se na krátký výpočet, který by v uzlech zabral moc místa, třeba přepočet počtu částic podle parametru. Výraz musí vracet správný typ, počet částic například celé číslo.
+
+Kde se s tím potkáš: [Částice podle povrchu](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Rejstřík: User Parameter](#user-parameter)
+
 ### Hot reload
 
 **Načtení změněného kódu nebo assetu do běžící hry bez restartu.**
@@ -1849,6 +1905,14 @@ Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-
 Změna se projeví hned, bez nového buildu a bez ztráty stavu hry, takže iterace trvá vteřiny místo minut. U assetů, jako jsou textury, meshe nebo data, je to běžné. U kódu je to těžší, protože se musí vyměnit funkce v běžícím procesu. Unreal pro C++ používá Live Coding, který přeloží změněné soubory a záplatuje běžící editor; starší mechanismus se jmenoval přímo Hot Reload a měl pověst nespolehlivého. Engine 007 First Light tvoří editor, runtime a resource server, takže hot reload funguje i napříč několika běžícími hrami. Neplést s [Live coding](#live-coding) v hudbě.
 
 Kde se s tím potkáš: [007 First Light: editor zvlášť od hry](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Trunk-based development](#trunk-based-development)
+
+### Houdini
+
+**Procedurální 3D software od SideFX, který staví geometrii a efekty uzlovými sítěmi; do Unrealu ho přenáší plugin Houdini Engine.**
+
+Studia v něm dlouho stavěla procedurální nástroje pro svět, třeba budovy, silnice nebo terén. S PCG a Geometry Scriptem část z nich přesouvají přímo do Unrealu, aby artist nemusel opouštět editor. Houdini má podle Lucid Games dál své využití, záleží na tom, čeho chceš dosáhnout.
+
+Kde se s tím potkáš: [Nástroj pro artisty](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny) · [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Modifier stack v Mesh Terrainu](praxe/mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani)
 
 ### HUD
 
@@ -1916,7 +1980,7 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí
 
 Formát, na kterém stojí klasický Landscape — a zdroj jeho hlavního limitu: jedna hodnota na pixel znamená jediný stupeň volnosti (nahoru/dolů), takže jeskyně a převisy nejdou. Zůstává ale skvělým výměnným formátem: sculpt z Gaey či World Machine se přenáší právě height mapou a Mesh Terrain ji umí importovat jako startovní tvar i promítat jako texture modifier.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [POM a contact shadows z výškové mapy](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [POM a contact shadows z výškové mapy](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Tři pouta height mapy](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime)
 
 ### Hurtbox
 
@@ -1980,7 +2044,9 @@ Kde se s tím potkáš: [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-m
 
 Z dostatečné vzdálenosti rozdíl nepoznáš — a stojí to zlomek původní ceny. Vyplácí se dotáhnout: renderovat k diffuse i normálovou mapu a vypéct víc pohledů, mezi kterými se blenduje. Ve scénách s desetitisíci stromů jsou impostory důvod, proč se to vůbec dá vykreslit. Proč to funguje tak nepoměrně dobře, vysvětluje [quad utilization](#quad-utilization) — nejde o počet vrcholů, ale o to, že mikrotrojúhelníky jsou pro GPU nejdražší možný vstup.
 
-Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-snimku.md#proc-male-trojuhelniky-nici-gpu) · [Rejstřík: Nanite](#nanite)
+Octahedral impostor jde dál. Strom se předrenderuje z mnoha úhlů a shader mezi pohledy skládá obraz, který se chová skoro jako geometrie a umí vrhat i přijímat stín. Bez stínů se vzdálený les slije do ploché barevné masy.
+
+Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-snimku.md#proc-male-trojuhelniky-nici-gpu) · [Rejstřík: Nanite](#nanite) · [Octahedral impostory](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou)
 
 ### Inertialization
 
@@ -2060,7 +2126,7 @@ Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Rejstřík: 
 
 Okno je jedna plocha. Klasická varianta spočítá v pixel shaderu, kde paprsek pohledu protne virtuální krabici místnosti, a vzorkuje její stěny, podlahu a strop z textury. Jednodušší varianty jen posunou plochou texturu interiéru parallaxem. Hloubka vznikne bez jediného polygonu navíc, a proto se tak plní okna celých měst. Variaci mezi okny dodá náhodný výběr místnosti, jasu nebo rozsvícení podle denní doby. V UE na to existuje material function InteriorCubemap.
 
-Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Falešné okno v UE](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu)
+Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Falešné okno v UE](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Interiér, kam hráč nesmí](praxe/pcg-mesta.md#interier-z-bodu-mistnosti-jako-subgrafy-a-devet-uzlu-na-bar)
 
 ### ISM
 
@@ -2198,6 +2264,14 @@ Vedle záblesku nejčitelnější reakce na zásah. Když se škáluje podle zbr
 
 Kde se s tím potkáš: [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Kostra pasti](praxe/pasti-a-mechaniky.md#kostra-pasti-a-tri-variace-bodaky-rameno-rotor)
 
+### Large World Coordinates
+
+**Souřadnice v double precision, které UE5 používá pro pozice, aby velké světy nenarážely na přesnost floatu.**
+
+32bitový float má pevný počet platných číslic, takže daleko od počátku se pozice začnou třást a výpočty selhávat. LWC tenhle strop posouvá o řády. Ne všechno v enginu ale počítá v doublech, GPU například pracuje s pozicemi vztaženými ke kameře. Mimo UE se stejný problém řeší origin shiftingem nebo fixed point čísly.
+
+Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou) · [Proč Mesh Terrain existuje](praxe/mesh-terrain.md#proc-mesh-terrain-existuje-limity-landscape) · [Rejstřík: Origin shifting](#origin-shifting)
+
 ### Legibilita
 
 **Čitelnost textu: jak snadno oko rozliší písmena a slova — ne totéž co velikost písma.**
@@ -2278,7 +2352,7 @@ Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Bea
 
 Pořád produkční volba, dokud Mesh Terrain nedozraje. Klíčové nástroje: sculpt/paint módy s edit layers, copy/paste gizmo (patche a import height map do zón), paint vrstvy jako data pro PCG, Nanite displacement pro reliéf z materiálu. Limity řeší nástupce Mesh Terrain (skutečná mesh geometrie).
 
-Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md) · [Limity Landscape podle Epicu](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Město na svahu](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany)
 
 ### Layered Blend Per Bone
 
@@ -2376,7 +2450,7 @@ Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
 Základní dotazovací nástroj: „na co koukám?", „stojím na zemi?", „vidí mě stráž?". Samotný trace je levný; problém je vzorec „trace každý frame v Event Ticku" — polling tam, kde stačí reagovat na změny. Alternativou pro detekci „něco vstoupilo do zóny" jsou overlap eventy kolizních komponent.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Trace z chodidla](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Přichycení města na terén](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany)
 
 ### Linear grammar
 
@@ -2384,7 +2458,7 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 
 Modulům (meshům) přiřadíš symboly a zapíšeš vzor: `[A,B]` je sekvence, číslo přesný počet (`A3`, `[A,B]2`), `*` opakuje vzor do vyplnění délky splinu a `+` navíc moduly roztáhne, aby délka vyšla přesně. Plot s brankami nebo zeď se sloupky je pak jeden řádek textu místo ručního skládání dílců.
 
-Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
+Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra)
 
 ### Linked anim graph
 
@@ -2668,7 +2742,7 @@ Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malov
 
 Skeny jsou kalibrované pro PBR, takže z nich i malý tým dostane realistický povrch bez vlastního skenování. Protože je používá spousta her i studentských prací, hrozí, že všechno vypadá stejně. Mortal Shell 2 ukazuje, že rozdíl dělá přizpůsobení: vlastní shadery, masky, LUTy a malá knihovna tilerů. Workshop o kitech je bere jako referenci tvarů pro kupky.
 
-Kde se s tím potkáš: [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Organický kit: kupky](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Rejstřík: Asset pack](#asset-pack) · [Rejstřík: PBR](#pbr)
+Kde se s tím potkáš: [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Organický kit: kupky](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Rejstřík: Asset pack](#asset-pack) · [Rejstřík: PBR](#pbr) · [Dark Ruins a volumetric sampling](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru)
 
 ### Mesh distance field
 
@@ -2685,6 +2759,22 @@ Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Rejstřík: Global
 Každý meshlet nese obal, typicky kouli a kužel normál, takže GPU může zahodit kousky mimo záběr, zakryté nebo odvrácené dřív, než je vykreslí. Je to stavební kámen mesh shaderů a virtualizované geometrie: Nanite stojí na stejném principu se svými clustery a navrch má hierarchii detailu. Alan Wake 2 má v ukázkové scéně kolem 4 milionů meshletů a u skinované vegetace jejich obaly přepočítává compute shaderem.
 
 Kde se s tím potkáš: [Alan Wake 2: meshlety](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Rejstřík: Cluster culling](#cluster-culling) · [Rejstřík: Nanite](#nanite)
+
+### Mesh Partition
+
+**Generická vrstva Unrealu pro autoring a streamování obřích meshů po sekcích; Mesh Terrain je terénní nástavba nad ní.**
+
+Mesh se dělí na libovolné sekce, klidně po trojúhelnících, a ty jde načítat, upravovat a zamykat zvlášť. Zdroj tvoří base sections a modifikátory. Mezivrstva dává náhled v editoru a runtime data se staví pro každou platformu zvlášť přes transformers a build variants. Za běhu z toho vznikají běžné Nanite meshe, static meshe a kolize.
+
+Kde se s tím potkáš: [Proč trojúhelníky a ne voxely](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Modifikátory v rukou Epicu](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly) · [Založení terénu](praxe/mesh-terrain.md#zalozeni-terenu-partitions-a-rozliseni) · [Rejstřík: Mesh Terrain](#mesh-terrain)
+
+### Mesh Terrain
+
+**Terénní systém z UE 5.8, ve kterém je terén skutečný trojúhelníkový mesh rozdělený na sekce, ne height mapa.**
+
+Umí převisy, tunely i létající ostrovy a tvaruje se nedestruktivním stackem modifikátorů. Stojí na generické vrstvě [Mesh Partition](#mesh-partition) a za běhu dává Nanite meshe, static meshe s LODy a Chaos kolize. V 5.8 je experimentální a Epic cílí produkční připravenost na konec roku 2027.
+
+Kde se s tím potkáš: [Mesh Terrain (UE 5.8)](praxe/mesh-terrain.md) · [Proč trojúhelníky a ne voxely](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Rejstřík: Landscape](#landscape)
 
 ### Mesh to MetaHuman
 
@@ -2774,7 +2864,7 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
 
 Filozofie „scéna je recept, ne výsledek" — známá z Houdini, Geometry Nodes či modifierů v Blenderu. Mesh Terrain na ní staví celé tvarování: brush, noise, spline, texture, mesh, boolean a remesh modifiery se skládají podle priorit a blend módů. Cena: recept se musí přepočítávat (build cost, FPS propady při editaci). Výhoda: žádné rozhodnutí není konečné.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Modifikátory v rukou Epicu](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly)
 
 ### Modular kit
 
@@ -2914,7 +3004,7 @@ Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kd
 
 Prakticky ruší ruční LOD řetězce — mesh se subdivuje a redukuje průběžně, po clusterech, podle toho, co kamera reálně vidí. Mesh Terrain je na Nanite postavený; právě adaptivní subdivize je jeden z důvodů, proč zvládá větší plochy než starý Landscape. Po editaci terénu se Nanite reprezentace přestavuje — proto FPS propad během úprav a krátký build po odkliknutí.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Ze 100 na 200 FPS: základní cena Nanitu](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre) · [Mortal Shell 2: Nanite a kity](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Meshlety v Alan Wake 2](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Ze 100 na 200 FPS: základní cena Nanitu](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre) · [Mortal Shell 2: Nanite a kity](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Meshlety v Alan Wake 2](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Sklo mimo Nanite](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Runtime bez nových systémů](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime)
 
 ### Narrative design
 
@@ -2984,13 +3074,21 @@ Jednotkové vektory vyžaduje skoro všechno: dot product jako kosinus, osvětle
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
 
+### Normal To Density
+
+**PCG uzel, který převede natočení bodu na hustotu podle toho, jak moc jeho normála míří zvoleným směrem.**
+
+S následným Density Filter z něj vznikne filtr sklonu. Osa Z s hodnotou 1 nechá podlahy, −1 stropy a čtyři uzly pro ±X a ±Y stěny, protože uzel bere jen jeden směr najednou. Dolní mez filtru určuje toleranci, 0,5 odpovídá zhruba 45°.
+
+Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru)
+
 ### Object pooling
 
 **Předem vytvořená zásoba objektů, které se recyklují místo neustálého vytváření a rušení.**
 
 Klasický lék na sekání u střel, částic nebo nepřátel: objekt se po „zničení" jen skryje a vrátí do zásoby, odkud si ho další výstřel vyzvedne. Šetří alokace i práci [garbage collectoru](#garbage-collection). Není to univerzální řešení — u problému s instanciací stovky složitých scén v jednom snímku pooling pomůže jen částečně a začne působit jako obcházení příčiny místo její opravy.
 
-Kde se s tím potkáš: [Když nody opravdu bolí](godot/kompozice.md#kdyz-nody-opravdu-boli-115-ms-na-jednu-obrazovku)
+Kde se s tím potkáš: [Když nody opravdu bolí](godot/kompozice.md#kdyz-nody-opravdu-boli-115-ms-na-jednu-obrazovku) · [Pooling efektů kroků](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti)
 
 ### Obrat akordu
 
@@ -3064,6 +3162,14 @@ Metafora dělí rozhodnutí na dva druhy: jednosměrné dveře (žánr hry, veř
 
 Kde se s tím potkáš: [Zápisky: derivační řetěz IZBY](zapisky/derivace-izby.md) · [Zápisky: cut line](zapisky/cut-line.md)
 
+### OpenStreetMap
+
+**Otevřená mapová databáze světa se silnicemi, půdorysy budov a jejich atributy, volně ke stažení.**
+
+Pro procedurální města je to hotový vstup. Půdorysy a uliční síť skutečného místa jde načíst třeba z JSONu a nechat nástroj, ať na ně postaví budovy. Data sama nejsou herní level, styl a úpravy jim dodá až nástroj a artist.
+
+Kde se s tím potkáš: [Variabilita z dat](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy)
+
 ### Orchestrace
 
 **Rozdělení hudby mezi nástroje a jejich smíchání do barvy (orchestration).**
@@ -3079,6 +3185,14 @@ Kde se s tím potkáš: [Cesta skladatele: sedm pilířů](hudba/cesta-skladatel
 Běžná průhlednost se musí řadit odzadu dopředu a u protínajících se ploch, částic v mlze nebo víc vrstev skla to selhává: vrstvy problikávají nebo se kreslí ve špatném pořadí. OIT místo řazení ukládá nebo aproximuje příspěvky všech vrstev v pixelu a skládá je dohromady. Varianta založená na momentech (MBOIT) drží v Alan Wake 2 pohromadě mlhu, průhlednou geometrii a efekty. Systém Smolder v 007 First Light díky OIT prolíná objemy s průhlednými objekty. Cenou je paměť a výpočet navíc.
 
 Kde se s tím potkáš: [Alan Wake 2: mlha a průhlednost](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [007 First Light: Smolder](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Overdraw](#overdraw)
+
+### Origin shifting
+
+**Varianta floating origin: když se hráč vzdálí od počátku scény, posune se zpátky i s celým světem.**
+
+Souřadnice pro logiku a generování světa zůstávají velké a přesné, zatímco scéna v enginu pracuje s malými čísly blízko nuly. Řeší rozbité stíny, UV a třesoucí se objekty daleko od počátku. UE5 místo toho sází hlavně na [Large World Coordinates](#large-world-coordinates).
+
+Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou) · [Rejstřík: Fixed point](#fixed-point)
 
 ### Oscilátor
 
@@ -3216,7 +3330,15 @@ Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [Textury a DLSS](prax
 
 Grafem definuješ pravidla (sampluj povrch, filtruj podle sklonu či namalované vrstvy, rozmísti stromy s hustotou X) a engine je aplikuje na libovolnou plochu. Typický řetěz: Get Landscape Data / Mesh Partition Query → Surface Sampler → Filter → Transform Points → Spawner. S Mesh Terrainem spolupracuje přes interop plugin — v beta fázi s beta mírou spolehlivosti (spolehlivější je World Ray Hit Query). V 5.7 plugin opustil betu (verze 1.0) a přibyl PCG Mode — kreslení grafů přímo v editoru.
 
-Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Instanced Actors](praxe/instanced-actors.md) · [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Instanced Actors](praxe/instanced-actors.md) · [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md) · [PCG města](praxe/pcg-mesta.md) · [Volumetric sampling](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+
+### PCGEx
+
+**PCG Extended Toolkit: plugin třetí strany, který rozšiřuje výchozí sadu PCG o širokou škálu uzlů.**
+
+Lucid Games ho v přednášce o městech používá na zaoblená nároží (bevel), čtení socketů z meshů a generování vodorovného značení. Podle přednášky je jeho čtení socketů výrazně rychlejší než stejná práce v blueprintu. Není součástí enginu, takže verze pluginu musí sedět s verzí UE projektu.
+
+Kde se s tím potkáš: [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Variabilita z dat](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy) · [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany)
 
 ### PCG Mode
 
@@ -3232,7 +3354,7 @@ Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
 
 Řeší přímý rozpor: instancování vyžaduje shodný materiál, ale scéna má být rozmanitá. Místo dvaceti materiálových instancí (dvacet [shading binů](#shading-bin)) se hodnoty posílají per instanci — je potřeba nastavit *Num Custom Data Floats*. Levnější sourozenec téhož triku: náhodná variace odvozená z **pozice instance** (například posun odstínu), která nepotřebuje ani ta data.
 
-Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: Shading bin](#shading-bin)
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: Shading bin](#shading-bin) · [Barvy budov z dat](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy)
 
 ### Pedal tone
 
@@ -3274,7 +3396,7 @@ Surface typy se definují v Project Settings (Physical Surface, až 62 + Default
 
 Physical materials na tělech physics assetu fungují i jako adresa zásahu: jméno materiálu z hit resultu řekne, kterou končetinu rána zasáhla.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Alan Wake 2: spouštěče podle povrchu](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Alan Wake 2: spouštěče podle povrchu](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Povrch z trace chodidla](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti)
 
 ### Physics Asset
 
@@ -3316,7 +3438,7 @@ Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) �
 
 Posunutá hloubka mění, jak se povrch protíná s jinými objekty a jak na něj dopadají stíny. Hodí se na měkčí přechod mezi skálou a terénem nebo na to, aby reliéf z POM vrhal contact shadows. Hloubka se jen přičítá, takže povrch jde opticky „zatlačit" dovnitř, ale ne vytáhnout k divákovi.
 
-Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Contact shadows](#contact-shadows) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping)
+Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Contact shadows](#contact-shadows) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Materiál pro Virtual Heightfield Mesh](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
 
 ### Pixel Inspector
 
@@ -3734,13 +3856,21 @@ C dur a A moll mají stejné tóny, liší se domovským tónem. Trik na radost 
 
 Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md) · [Akordy a harmonie](hudba/akordy-a-harmonie.md)
 
+### Remesh
+
+**Přestavba sítě trojúhelníků na novou, rovnoměrnější topologii podle cílové délky hrany.**
+
+Opravuje topologii po booleanech, zahušťuje řídký mesh před deformací a umí i vyhlazovat. V procedurálních nástrojích se často používá dvakrát: nejdřív hrubě, aby následný výpočet běžel rychle, pak jemně, aby se vrátil detail. V Mesh Terrainu je remesh samostatný modifikátor, který jde omezit kanálem.
+
+Kde se s tím potkáš: [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Modifikátory v rukou Epicu](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly) · [Modifier stack](praxe/mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani)
+
 ### Render target
 
 **Textura, do které engine vykresluje za běhu — použitelná jako vstup i jako výstup.**
 
 Slouží k obrazovkám kamer, zrcadlům nebo malování do textury za běhu. Šikovné vedlejší použití: materiál složený z noise uzlů se dá do render targetu vypéct a uložit jako obyčejnou texturu — takže na generování šumu nepotřebuješ žádný externí program.
 
-Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) · [Cube render target pro falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu)
+Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) · [Cube render target pro falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
 
 ### Renderovací vlákno
 
@@ -3888,6 +4018,22 @@ Formulace nutí seřadit fakta a předpoklady, a přesně v tom seřazení býv�
 
 Kde se s tím potkáš: [Programátorské návyky](teorie/programatorske-navyky.md) · [Ladění](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger)
 
+### Runtime generation
+
+**PCG generování za běhu: obsah vzniká jen v buňkách kolem hráče a s jeho pohybem se načítá a uvolňuje.**
+
+Vyžaduje Generate at Runtime a zároveň Is Partitioned, jinak se generuje celý objem najednou. Velikost buněk (grid size) a vzdálenost generování jsou kompromis. Méně velkých buněk je levnějších, menší buňky dají kulatější oblast kolem hráče, ale když jich je moc, výpočet zpomalí. Hodí se na hustý pokryv země, který by přes celý svět nešel.
+
+Kde se s tím potkáš: [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace) · [Foliage optimalizace II](praxe/optimalizace.md#foliage-optimalizace-ii-gpu-scatter-a-runtime-kvalita) · [Rejstřík: PCG](#pcg)
+
+### Runtime Virtual Texture
+
+**Virtuální textura, kterou engine za běhu vykresluje ze scény, typicky shora z terénu, a jiné materiály z ní čtou.**
+
+Obvykle nese barvu nebo výšku terénu. Objekty se pak do terénu prolnou a Virtual Heightfield Mesh podle ní ví, kde terén leží. Podle Epicu přesouvá cenu mnoha textur z renderu do načítání. Na terénu z height mapy stačí ortografická projekce shora, Mesh Terrain potřebuje obecnou 3D projekci, která do 5.8 nedorazila.
+
+Kde se s tím potkáš: [Proč trojúhelníky a ne voxely](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou) · [Rejstřík: Virtual texture](#virtual-texture)
+
 ### Runway
 
 **Kolik měsíců dokážeš pracovat, než dojdou peníze — ne kolik peněz máš.**
@@ -4014,7 +4160,7 @@ Kde se s tím potkáš: [Tvorba herního soundtracku](hudba/tvorba-soundtracku.m
 
 Překryvy měří podle bounds, volitelně podle skutečných kolizí (use collision attribute) — pozor, bere menší z obou, takže pro kolizní režim bounds záměrně nafoukni bounds modifierem. S bounds nastavenými na požadovaný rozestup funguje jako foliage garance minimální vzdálenosti, jen checkboxem v grafu.
 
-Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
+Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Shluky svíček](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru)
 
 ### Separation of concerns
 
@@ -4214,7 +4360,9 @@ Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md) · [Scop
 
 Sukně nese materiál, který se prolne s podkladem, třeba hlínu nebo mech, takže kus nevypadá postavený na zem, ale zasazený do ní. Ve workshopu o kitech je to jeden ze čtyř texturových spojů vedle vertex blendingu, decalů a světové projekce.
 
-Kde se s tím potkáš: [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Textury pro kit: sendvič](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen)
+V terénech rozdělených na chunky má slovo ještě druhý význam: svislý pruh geometrie na okraji chunku, který zakryje praskliny mezi sousedními chunky s různým LOD.
+
+Kde se s tím potkáš: [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Textury pro kit: sendvič](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Terrain skirts mezi chunky](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou)
 
 ### Smart Object
 
@@ -4230,7 +4378,7 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Hráč na lavičce v 5.8](prax
 
 Socket má vlastní offset a rotaci vůči kosti, takže se dá doladit, jak předmět v ruce sedí; v editoru skeletu pomůže preview asset. Když má každý předmět jiný úchop, má i vlastní socket a jeho jméno vrací předmět sám, třeba přes interface. Jak se předmět na socket dostane, určují [attachment rules](#attachment-rules).
 
-Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Řemeslo první osoby: pistole a baterka](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Hitbox mezi sockety zbraně](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames)
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Řemeslo první osoby: pistole a baterka](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Hitbox mezi sockety zbraně](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Sklo a doplňky přes sockety](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Sockety jako rozdělovník](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy)
 
 ### Soft boundary
 
@@ -4296,6 +4444,14 @@ Epicův recept proti mýtu „potřebuju 500 animací jako GASP": idle, run forw
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
+### Spatial Noise
+
+**PCG uzel, který bodům přiřadí hodnotu podle šumového vzoru ve world space.**
+
+S Density Filter z něj vznikají přirozené shluky místo čistě náhodného rozptylu. Měřítko vzoru určuje velikost shluků a kontrast rozdíl mezi shlukem a prázdným místem. Protože vzor drží ve světě, sousední grafy na sebe navazují. Podle Procedural Minds je uzel jen 2D.
+
+Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+
 ### Sphere tracing
 
 **Trasování podél paprsku po skocích dlouhých tolik, kolik říká distance field — bližší povrch tam není, takže se nic nepřeskočí.**
@@ -4318,7 +4474,15 @@ Kde se s tím potkáš: [State Trees](praxe/state-trees.md) · [GASP](praxe/gasp
 
 Každý segment dostane instanci meshe zdeformovanou mezi počátečním a koncovým bodem (Set Start and End v Blueprintu, spline mesh spawner v PCG). Na orientaci záleží: forward axis musí odpovídat ose meshe, jinak se geometrie kroutí. Liány a lana z obyčejného válce, oblouk předpovězené dráhy hodu z tenkého průsvitného válce.
 
-Kde se s tím potkáš: [PCG liány](praxe/pcg-liany.md) · [Interakce s předměty](praxe/interakce-predmety.md)
+Kde se s tím potkáš: [PCG liány](praxe/pcg-liany.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Zaoblené nároží](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Interiér z bodů](praxe/pcg-mesta.md#interier-z-bodu-mistnosti-jako-subgrafy-a-devet-uzlu-na-bar)
+
+### Spline Sampler
+
+**PCG uzel, který ze spline udělá body, buď podél křivky, nebo s volbou On Interior uvnitř uzavřené spline.**
+
+Je základem plotů, cest, mýtin i interiérů z půdorysu. S Fit to Curve rozprostře body rovnoměrně po celé délce. Výsledné body jde filtrovat, posouvat a spojovat do nových spline.
+
+Kde se s tím potkáš: [Interiér z bodů](praxe/pcg-mesta.md#interier-z-bodu-mistnosti-jako-subgrafy-a-devet-uzlu-na-bar) · [Mýtiny a cesty](praxe/pcg-vegetace.md#mytiny-a-cesty)
 
 ### Sprite sheet
 
@@ -4566,7 +4730,7 @@ Kde se s tím potkáš: [Telemetrie](praxe/telemetrie.md) · [Idea iceberg](teor
 
 V Mesh Terrainu ve dvou podobách: adaptivní teselace texture modifieru (zjemní síť tam, kde height mapa nese detail, řízeno error tolerancí) a Tessellate režim remesh modifieru. Protiklad k uniformnímu remeshi: adaptivní přístup šetří trojúhelníky, ale hůř se predikuje výsledný tvar. Obecná rada z praxe: hrubé tvarování s teselací vypnutou, detail zapínat cíleně na konci.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Texture modifier s teselací](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly)
 
 ### Texel density
 
@@ -4802,6 +4966,14 @@ Chodí se sem, když `stat unit` ukáže vysoký **game** nebo **draw** — oboj
 
 Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic) · [CVD na stejném Trace](praxe/debugging.md#chaos-visual-debugger-zevnitr-faze-solveru-kontakty-a-klient-vedle-serveru)
 
+### User Parameter
+
+**Parametr Niagara systému, který jde nastavit zvenčí, z blueprintu nebo kódu, a moduly v emitterech ho čtou.**
+
+Nastavuje se typicky přes Set Niagara Variable na komponentě, kterou vrátí spawn. Jeden systém tak může reagovat na hru, třeba škálovat počet částic podle rychlosti postavy. Jméno parametru musí v blueprintu přesně sedět.
+
+Kde se s tím potkáš: [Částice podle povrchu](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Rejstřík: HLSL](#hlsl)
+
 ### User story
 
 **Popis funkce jako kroky uživatele: co vidí a co dělá — ne jak je to naprogramované.**
@@ -4858,6 +5030,14 @@ Každý vrchol nese až čtyři kanály (RGBA) a materiál je čte jako masky, t
 
 Kde se s tím potkáš: [Nanite displacement](praxe/materialy.md#nanite-displacement-relief-malovany-vertex-colorem) · [Textury pro kit](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: jeden shader na čtvrť](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [AC Black Flag: páry materiálů](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Naughty Dog: hustota geometrie](praxe/env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani)
 
+### Virtual Heightfield Mesh
+
+**Plugin a komponenta, která podle výšky z runtime virtual texture vyrobí hustou geometrii terénu.**
+
+Potřebuje RVT volume se stejnou polohou a velikostí a MinMax texturu, která se postaví v jejích detailech. Materiál ji může dál posouvat world position offsetem, a proto se hodí na deformace typu stopy ve sněhu. Je to samostatný mesh nad terénem, ne úprava samotného landscape.
+
+Kde se s tím potkáš: [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou) · [Rejstřík: Runtime Virtual Texture](#runtime-virtual-texture)
+
 ### Visual blocker
 
 **Prvek levelu, který záměrně zkrátí průhled, třeba budova, zeď nebo zatáčka, aby řídil, co hráč vidí, a tím i co se musí načíst.**
@@ -4873,6 +5053,22 @@ Kde se s tím potkáš: [Beauclair: clony](praxe/modularni-kity.md#beauclair-500
 Zápisy se třídí do kategorií a dají se filtrovat; mimo text umí i tvary a segmenty, ze kterých jde poskládat graf hodnoty přímo v levelu. Odpovídá na otázku „jak se to vyvíjelo", na kterou print string neumí. Nejbližší příbuzný je Chaos Visual Debugger pro fyziku.
 
 Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Chaos Visual Debugger](praxe/gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky)
+
+### Volume Sampler
+
+**PCG uzel, který vyplní objem body v mřížce voxelů.**
+
+Sám dá plnou kostku bodů. S World Volumetric Query jako vstupem nechá jen body, které se překrývají se světem v daném collision channelu, a raycast je pak přichytí na povrch. V jiných grafech slouží jako výřez, třeba pro mýtinu z blocking volume.
+
+Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Mýtiny a cesty](praxe/pcg-vegetace.md#mytiny-a-cesty)
+
+### Voxel
+
+**Objemový pixel: buňka pravidelné 3D mřížky, která nese hodnotu, třeba jestli je v ní hmota.**
+
+Voxelové terény umí jeskyně a převisy. Podle Epicu jsou ale v podstatě 3D height mapa se stejnými limity rozlišení a mřížky a k renderu se stejně převádějí na trojúhelníky. Proto Mesh Terrain sází rovnou na trojúhelníkové meshe. V PCG se se slovem potkáš u voxel size Volume Sampleru.
+
+Kde se s tím potkáš: [Proč trojúhelníky a ne voxely](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Rejstřík: Volume Sampler](#volume-sampler) · [Algoritmy, které staví herní světy](teorie/algoritmy-prehled.md#algoritmy-ktere-stavi-herni-svety)
 
 ### VSync
 
@@ -4962,7 +5158,7 @@ Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malov
 
 Pevný pool stránek ve VRAM: při přeplnění nejhůř rozmazání, nikdy out-of-memory. Ulevuje CPU (méně unikátních materiálů) i paměti, daní je page table indirekce — extra GPU čas na každý přístup, takže ne na všechno. Ideální pro obří plochy s kritickým detailem; runtime virtual textures navíc pohánějí blending terénu.
 
-Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md) · [Breakdowny](praxe/env-breakdowny.md)
+Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md) · [Breakdowny](praxe/env-breakdowny.md) · [RVT na Mesh Terrainu](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [RVT pro Virtual Heightfield Mesh](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
 
 ### Voice leading
 
@@ -5034,7 +5230,7 @@ Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velk
 
 Slouží k větru v listí, vlnám a podobným deformacím a je to **programovatelná rasterizace**, tedy v Nanite světě výrazně dražší cesta. Dvě pole, která k němu vždycky patří: **WPO disabled distance** (za ní se přepne na rychlou fixed-function cestu) a u listí **shadow cache invalidation behavior**, protože pohybující se vrcholy jinak invalidují stínovou cache každý snímek. Diagnostika: Nanite visualization → *Evaluate WPO*; zelená znamená, že se vyhodnocuje.
 
-Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [AC Black Flag: okna s náhodnou místností](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
+Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [AC Black Flag: okna s náhodnou místností](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Prohlubně z render targetu](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
 
 ### Water Body
 

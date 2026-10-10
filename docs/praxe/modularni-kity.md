@@ -46,7 +46,7 @@ Háček: velikost kusu se řídí velikostí prostředí. Pro velké město ned�
 
 > **Pozn.:** Slučování v UE rozebírá [ISM, HISM a merge](pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie): méně draw callů, ale co se s čím sloučí, je potřeba plánovat dopředu. Autor proto slučuje až na úplném konci, kdy se už obvykle neiteruje. Mřížka v metrech zase usnadní, aby tileable textury mezi kusy navázaly, viz [další myšlenka](#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen). Video natáčel komunitní projekt, který na konci propaguje své placené členství [(1:25:41)](https://www.youtube.com/watch?v=77xPHfzciiY&t=5141s).
 
-**Souvislosti:** [Rejstřík: Modular kit](../rejstrik.md#modular-kit) · [Rejstřík: Texel density](../rejstrik.md#texel-density) · [Rejstřík: Pivot](../rejstrik.md#pivot) · [Blockout](blockout.md) *(odkud kit vzniká)* · [Pivot bez Blenderu](editor-tipy.md#pivot-bez-blenderu-a-rozmisteni-fyzikou) *(pivot opravený přímo v UE)*
+**Souvislosti:** [Rejstřík: Modular kit](../rejstrik.md#modular-kit) · [Rejstřík: Texel density](../rejstrik.md#texel-density) · [Rejstřík: Pivot](../rejstrik.md#pivot) · [Blockout](blockout.md) *(odkud kit vzniká)* · [Pivot bez Blenderu](editor-tipy.md#pivot-bez-blenderu-a-rozmisteni-fyzikou) *(pivot opravený přímo v UE)* · [PCG města: budova jako věta](pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) *(kit zapsaný gramatikou)*
 
 ---
 
@@ -180,7 +180,7 @@ Hodnota přiřazená vrcholu vybírá sadu textur [(15:05)](https://www.youtube.
 
 > **Pozn.:** Orientační body a clony jsou učebnicový level design. Pravidlo, že [landmark musí být jediný svého druhu](../teorie/level-design-solo.md#tema-ospravedlnuje-mechaniky-a-landmark-musi-byt-jediny-sveho-druhu), tu dostává i technický důvod: tatáž stavba vede hráče a zároveň šetří streamování. Resident Evil Requiem zase schovává nahrávání za dveře a cutscény, viz [Jak to dělá Resident Evil](levely-a-streaming.md#jak-to-dela-resident-evil-requiem). Proč u vertex blendingu záleží na hustotě geometrie, ukazuje [Naughty Dog](env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani): geometrie tam slouží blendování, ne siluetě. Video propaguje autorův kurz a partnerský web s balíčky tutoriálů [(11:12)](https://www.youtube.com/watch?v=cCovMWRSL6o&t=672s), [(17:48)](https://www.youtube.com/watch?v=cCovMWRSL6o&t=1068s).
 
-**Souvislosti:** [Rejstřík: Landmark](../rejstrik.md#landmark) · [Rejstřík: Visual blocker](../rejstrik.md#visual-blocker) · [Rejstřík: LOD](../rejstrik.md#lod) · [Rejstřík: Occlusion culling](../rejstrik.md#occlusion-culling) · [Rejstřík: Texture array](../rejstrik.md#texture-array) · [Rejstřík: Prefab](../rejstrik.md#prefab)
+**Souvislosti:** [Rejstřík: Landmark](../rejstrik.md#landmark) · [Rejstřík: Visual blocker](../rejstrik.md#visual-blocker) · [Rejstřík: LOD](../rejstrik.md#lod) · [Rejstřík: Occlusion culling](../rejstrik.md#occlusion-culling) · [Rejstřík: Texture array](../rejstrik.md#texture-array) · [Rejstřík: Prefab](../rejstrik.md#prefab) · [PCG města: variabilita z dat](pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy) *(čtvrť řízená daty i v rozmístění doplňků)*
 
 ---
 

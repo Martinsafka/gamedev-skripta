@@ -24,7 +24,7 @@ Pět pohledů pod kapotu velkých světů — od sólo rekonstrukce San Francisc
 
 > **Pozn.:** Hostující artist není ve videu ani popisu jmenován, kredit patří videu a kanálu. Právní drobnost, která se hodí: repliky **veřejných** prostor jsou v pořádku, u soukromých interiérů opatrně — proto má jeho pošta generický interiér [(3:55)](https://www.youtube.com/watch?v=TBGPbs9yjMM&t=235s). A sólo výhoda oproti AAA specializaci: „konečně jsem si udělal Niagara ptáky i vodu" — malé projekty učí šířku [(10:58)](https://www.youtube.com/watch?v=TBGPbs9yjMM&t=658s).
 
-**Souvislosti:** [Landscape tipy: Gaea a gizmo](landscape-tipy.md#copypaste-gizmo-sculpty-jako-znovupouzitelne-patche) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: instance](../rejstrik.md#instance) · [Rejstřík: draw call](../rejstrik.md#draw-call)
+**Souvislosti:** [Landscape tipy: Gaea a gizmo](landscape-tipy.md#copypaste-gizmo-sculpty-jako-znovupouzitelne-patche) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: instance](../rejstrik.md#instance) · [Rejstřík: draw call](../rejstrik.md#draw-call) · [PCG města](pcg-mesta.md) *(město nástrojem místo ruční stavby)*
 
 ---
 

@@ -6,6 +6,7 @@
 *[Actor Component]: Znovupoužitelný díl chování připnutý k aktérovi — schopnost bez identity.
 *[Additive animation]: Animace přičtená k základní póze místo její náhrady; past je přeaplikování, když se póza pohne sama.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
+*[Aerial perspective]: Vzdušná perspektiva: vzdálené objekty překrývá barva atmosféry, nejdřív modrá, ve velké dálce bílá.
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
 *[Aggro]: Skóre, podle kterého si nepřítel vybírá cíl — blízkost, vydržené poškození, umělé aggro, cooldown přepnutí.
 *[AI Controller]: Mozek AI postavy: posedne pawna a rozhoduje; spouští Behavior/State Tree, nese percepci.
@@ -37,6 +38,7 @@
 *[AutoBake]: Přepínání živého control rigu a jeho zapečené animation sequence v sequenceru (UE 5.8).
 *[Auto exposure]: Automatická expozice (eye adaptation) podle jasu obrazu; v řízené scéně se zamyká nebo zužuje.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
+*[Biome map]: Barevná mapa přes terén: každá barva je jeden biom a říká scatteru, co kde roste.
 *[Blend Poses by Bool]: Anim uzel, který podle boolu přepne mezi dvěma pózami — „if" v anim grafu.
 *[Blueprint Debugger]: Ladění blueprintů za běhu: breakpointy, sledované hodnoty a zastavení na uzlu, kde nastala chyba.
 *[Blueprint Macro]: Znovupoužitelný kus Blueprint grafu; na rozdíl od funkce smí obsahovat Delay a jiné latentní uzly.
@@ -112,6 +114,7 @@
 *[CPU-bound / GPU-bound]: Které zařízení na hru čeká; určuje, kterým směrem vůbec optimalizovat.
 *[Cubemap]: Textura ze šesti stěn krychle, zachytí okolí ze všech směrů; odrazy, obloha, falešné interiéry.
 *[Custom Depth]: Hloubkový průchod jen pro vybrané meshe, se stencil čísly; materiál ho čte přes SceneTexture.
+*[Custom Primitive Data]: Hodnoty na celé komponentě, které materiál čte jako parametry; varianty bez nových material instances.
 *[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
 *[Custom Time Dilation]: Násobitel času jednoho aktéra: 0 ho zmrazí, zbytek hry běží dál; základ hit stopu.
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
@@ -149,6 +152,7 @@
 *[Dot product]: Skalární součin jednotkových vektorů = kosinus úhlu: 1 stejný směr, 0 kolmost, −1 protisměr.
 *[Draw call]: Příkaz CPU pro GPU „vykresli tohle"; šetří se instancingem a sdílením materiálů (trim sheety).
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
+*[Dynamic Mesh]: Mesh měnitelný kódem v editoru i za běhu; s ním pracuje Geometry Script, do hry se obvykle zapeče.
 *[Dynamic resolution]: Rozlišení snižované za běhu, aby engine udržel cílový frame time (typicky 55–75 %).
 *[Early access]: Placený předběžný přístup k nedokončené hře s příslibem dalšího vývoje.
 *[ECS]: Entity Component System — entity jako skládanky dat, logika v systémech nad entitami stejného složení.
@@ -178,6 +182,7 @@
 *[File locking]: Zamčení souboru tím, kdo na něm pracuje; řešení pro binární assety, které se nedají sloučit.
 *[Fill]: Zahuštění rytmu na konci fráze před další sekcí; opakem je prázdno.
 *[Find the fun]: Fáze prototypování: experimentuj s jádrem, dokud nebaví samo — hraješ si s ním i mimo práci.
+*[Fixed point]: Čísla s pevnou desetinnou čárkou: stejná přesnost všude, ale pevný rozsah a riziko přetečení.
 *[Flipbook]: Mřížka snímků v jedné textuře, kterou materiál přehrává jako animaci.
 *[Flow]: Stav plného zaujetí, kdy výzva odpovídá dovednosti (Csíkszentmihályi); pásmo nejefektivnějšího učení.
 *[Foley]: Ruční výroba zvukových efektů z reálných předmětů, když knihovna nestačí.
@@ -206,6 +211,7 @@
 *[GDScript]: Skriptovací jazyk Godotu — blízký Pythonu, gradually typed, navržený pro strom scény.
 *[Genre descoping]: Jeden prvek velkého žánru nafouknutý na celou hru (TD z RTS, backpack z Diabla).
 *[Geometry Collection]: Asset rozbitného objektu v Chaosu: tělesa aktualizovaná a kreslená společně, s úrovněmi clusteringu.
+*[Geometry Script]: Modelování kódem v UE: booleany, remesh a další operace nad dynamic meshem, z blueprintu i C++.
 *[Gestalt]: Psychologie celku: člověk čte celý obraz a z uspořádání odvozuje vztahy mezi částmi.
 *[Ghost note]: Tišší verze téhož bicího na slabé dělené době; hustota bez důrazu.
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
@@ -230,9 +236,11 @@
 *[Hitbox]: Oblast, která při zásahu působí — proti hurtboxu, který zásah přijímá.
 *[Herní vlákno]: Vlákno s herní logikou, AI, fyzikou a blueprinty; v stat unit hodnota game.
 *[HLOD]: Sloučená náhrada za skupinu objektů v dálce; skrytá HLOD proxy může pořád vrhat stín.
+*[HLSL]: Jazyk shaderů se syntaxí podobnou C; v UE ho píšeš do Custom uzlu materiálu nebo do výrazů v Niagaře.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
 *[Hot reload]: Načtení změněného kódu nebo assetu do běžící hry bez restartu; v UE pro C++ přes Live Coding.
+*[Houdini]: Procedurální 3D software od SideFX; do Unrealu ho přenáší plugin Houdini Engine.
 *[Hurtbox]: Oblast, která zásah přijímá (protějšek hitboxu); menší než postava odpouští, vypnutá = nezranitelnost.
 *[Hydratace]: Přepnutí objektu z levné instance na plnohodnotného aktéra podle vzdálenosti — a zpátky.
 *[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
@@ -277,6 +285,7 @@
 *[Kvaternion]: Rotace čtyřmi čísly: bez gimbal locku, hladký slerp — výměnou za nulovou intuici.
 *[Landmark]: Výrazný orientační bod levelu; v postupu „landmark napřed" první rozhodnutí návrhu prostoru.
 *[Landscape]: Klasický terén UE: height mapa, jen nahoru/dolů; produkční volba, dokud Mesh Terrain nedozraje.
+*[Large World Coordinates]: Pozice v double precision v UE5, aby velké světy nenarážely na přesnost 32bitového floatu.
 *[Layered Blend Per Bone]: Anim uzel míchající dvě pózy od zadané kosti nahoru — vrstvení horního těla přes locomotion.
 *[Layered move]: Dočasný zdroj pohybu v Moveru (dash, skok) — nástupce root motion sources; víc jich běží naráz.
 *[Layering]: Vrstvení více zvuků na tutéž linku, aby zněla velce a plně.
@@ -328,6 +337,8 @@
 *[Megascans]: Knihovna fotogrammetrických skenů od Quixelu (Epic), dnes na Fabu; riziko je, že vše vypadá stejně.
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
 *[Meshlet]: Malý shluk trojúhelníků (např. 64/64) s obalem pro culling; stavební kámen mesh shaderů a Nanitu.
+*[Mesh Partition]: Generická vrstva UE pro obří meshe po sekcích; nad ní stojí Mesh Terrain.
+*[Mesh Terrain]: Terén z UE 5.8 jako skutečný mesh po sekcích místo height mapy; v 5.8 experimentální.
 *[Mesh to MetaHuman]: Převod cizího meshe na MetaHumana s rigem podle standardu Epicu; od 5.8 i celé tělo.
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaHuman Animator]: Nástroj, který z natočeného výkonu spočítá animaci MetaHumana; od 5.8 i tělo.
@@ -364,6 +375,7 @@
 *[Niagara Fluids]: Plugin simulačních šablon; Grid 2D SW Particle Collisions = interaktivní hladina s collider tagy.
 *[Normal mapa]: Textura kódující odraz světla — reliéf bez přidání polygonů, obvykle z baku.
 *[Normalizace vektoru]: Zmenšení vektoru na délku 1 se zachováním směru: složky děleno délkou (odmocnina!).
+*[Normal To Density]: PCG uzel: hustota bodu podle toho, jak moc jeho normála míří zvoleným směrem; základ filtru sklonu.
 *[Object pooling]: Zásoba předem vytvořených objektů, které se recyklují místo neustálého vytváření a rušení.
 *[Oblique]: Nakloněná perspektiva: vidíš horní i boční stranu objektů (Stardew Valley).
 *[Obrat akordu]: Tentýž akord s jiným pořadím tónů (nota posunutá o oktávu); hladší přechody.
@@ -375,8 +387,10 @@
 *[One-pager]: Pitch na jednu stránku: obrázek, co chci vyrobit a jak vypadá úspěch.
 *[One File Per Actor]: Každý aktér ve vlastním souboru; bez toho nemůže na mapě pracovat víc lidí naráz.
 *[One-way door]: Rozhodnutí drahé na reverz (žánr, API, engine) — dělá se vědomě, s premisami; opak: two-way door.
+*[OpenStreetMap]: Otevřená mapová databáze: silnice a půdorysy budov jako vstup pro procedurální města.
 *[Orchestrace]: Rozdělení hudby mezi nástroje a smíchání do barvy; až po melodii, harmonii a kontrapunktu.
 *[Order-independent transparency]: Průhlednost, jejíž výsledek nezávisí na pořadí kreslení (OIT); řeší problikávání vrstev, mlhy a částic.
+*[Origin shifting]: Floating origin: hráč i svět se posunou zpátky k počátku, aby scéna pracovala s malými čísly.
 *[Oscilátor]: Zdroj surového zvuku v synthu; tvar vlny (sinus/pila/obdélník) určuje barvu a alikvóty.
 *[Outer]: Objekt, ke kterému je UObject přivázaný — s ním žije a s ním ho uklidí garbage collector.
 *[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
@@ -394,6 +408,7 @@
 *[Pawn Sensing]: Jednoduchá smyslová komponenta (kužel zraku + sluch) s gizmem ve viewportu; event On See Pawn.
 *[PBR]: Physically Based Rendering — materiál z vlastností (albedo, roughness, metallic), bez zapečeného světla.
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
+*[PCGEx]: PCG Extended Toolkit: plugin třetí strany s mnoha uzly navíc pro PCG.
 *[PCG Mode]: Editorový režim (5.7): kreslení PCG grafů přímo do světa splinou, štětcem nebo volumem.
 *[Per-instance custom data]: Hodnoty nastavitelné pro každou instanci zvlášť — variace bez unikátních materiálů.
 *[Pedal tone]: Tón znějící pod celou progresí, který se nemění (prodleva); sjednotí přechody.
@@ -457,6 +472,7 @@
 *[Refundace]: Vrácení peněz za hru; první srážka z hrubé tržby před podílem obchodu a daněmi.
 *[Rekurze]: Funkce volající sama sebe: base case + zmenšování problému + skok důvěry.
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
+*[Remesh]: Přestavba trojúhelníkové sítě podle cílové délky hrany; opravuje topologii po booleanech.
 *[Render target]: Textura, do které engine vykresluje za běhu — jde do ní i vypéct materiál.
 *[Renderovací vlákno]: Čas CPU na přípravu práce pro GPU (culling, LODy, draw cally) — ne čas GPU.
 *[Resimulation]: Síťová korekce fyziky: rewind do minulého snímku, oprava podle serveru a přehrání do současnosti.
@@ -476,6 +492,8 @@
 *[Rovnoměrně temperované ladění]: Oktáva dělená na 12 stejných kroků; čisté intervaly jen přibližuje (equal temperament).
 *[Rubber banding]: Umělá podpora hráče pozadu / brzda napřed; opravuje signal-to-noise na okrajích obtížnosti.
 *[Rubber duck debugging]: Vysvětli problém nahlas (třeba kachně) — řešení se často ukáže v půlce vysvětlování.
+*[Runtime generation]: PCG generování za běhu jen v buňkách kolem hráče; potřebuje Generate at Runtime a Is Partitioned.
+*[Runtime Virtual Texture]: Virtuální textura vykreslovaná za běhu ze scény (barva, výška terénu), ze které čtou jiné materiály.
 *[Runway]: Kolik měsíců vydržíš pracovat, než dojdou peníze — ne kolik peněz máš.
 *[Sampling]: Použití kusu existující nahrávky jako materiálu nové skladby; pozor na práva.
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
@@ -527,9 +545,11 @@
 *[Sound font]: Kolekce nasamplovaných zvuků nástroje (.sf2); rychlá retro paleta (Undertale, SNES).
 *[Source radius]: Velikost zdroje světla; větší dá měkčí stín a větší odlesk, nulový svítí z bodu s ostrými stíny.
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.
+*[Spatial Noise]: PCG uzel: hodnota bodu podle šumu ve world space; s Density Filter dělá přirozené shluky.
 *[Sphere tracing]: Trasování po skocích o hodnotu distance fieldu; počítá s tloušťkou, neproklouzne škvírou.
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.
 *[Spline mesh]: Mesh natažený podél segmentu splinu — liány, lana, oblouky drah; pozor na forward axis.
+*[Spline Sampler]: PCG uzel: body podél spline nebo uvnitř uzavřené spline (On Interior).
 *[Sprite sheet]: Jeden obrázek s mřížkou snímků animace nebo sadou dlaždic.
 *[Square hole]: Chyba balancu: univerzální nástroj, který řeší každou situaci, a tím zabíjí rozhodování.
 *[Squash & stretch]: Animační princip: zploštit při dopadu, natáhnout při výskoku — levný juice.
@@ -590,6 +610,7 @@
 *[UMG]: Unreal Motion Graphics — systém UI v UE: widget blueprinty z panelů, tlačítek a textů.
 *[Unison]: Navrstvení více kopií vlny na jednu notu; rozšíří zvuk do sterea (supersaw).
 *[Unreal Insights]: Profiler CPU strany snímku (herní a render vlákno); spouštěj ho dřív než hru.
+*[User Parameter]: Parametr Niagara systému nastavitelný zvenčí (blueprint, kód), který čtou moduly emitterů.
 *[User story]: Popis funkce jako kroky uživatele: co vidí a dělá, ne jak je to naprogramované.
 *[USP]: Unique selling point — co má jen tvoje hra; nemusí existovat od začátku (GTA).
 *[Utility AI]: Každý úkol si spočítá skóre, spustí se nejvyšší; nenahrazuje stromy, řídí je.
@@ -597,8 +618,11 @@
 *[UX]: User experience — informační architektura: kde informace bydlí a kolika kroky se k nim dostaneš.
 *[Value pass]: Krok blockoutu s odstíny šedi, které oddělí tvary (vodorovné od svislých) a dají scéně hloubku.
 *[Vertex painting]: Malování masek do vrcholů meshe, podle kterých materiál prolíná vrstvy; jemnost závisí na hustotě geometrie.
+*[Virtual Heightfield Mesh]: Komponenta, která z výšky v runtime virtual texture vyrobí hustou geometrii terénu.
 *[Visual blocker]: Prvek levelu, který záměrně zkrátí průhled, aby řídil, co hráč vidí a co se musí načíst.
 *[Visual Logger]: Nahrávač hodnot a tvarů v čase; po hře se prochází po časové ose a kategoriích.
+*[Volume Sampler]: PCG uzel: body v mřížce voxelů uvnitř objemu; s World Volumetric Query jen tam, kde je svět.
+*[Voxel]: Objemový pixel, buňka 3D mřížky; voxelové terény umí převisy, ale mají limity mřížky.
 *[VSync]: Synchronizace výměny bufferů s cyklem monitoru: bez trhání, ale za cenu latence.
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).
 *[Value curve]: Profil hry přes dimenze appealu: klon trefující stejné kolonky nemá důvod existovat.

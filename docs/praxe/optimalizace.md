@@ -108,7 +108,7 @@ Výkonová kapitola od základů po specializaci: **proč jsou levely pomalé** 
 
 > **Pozn.:** Mega Plants skeletal stromy běží „překvapivě dobře" i podle autora s dekádou foliage praxe — bolest z milionů trianglů v enginu je z velké části už jen zvyk [(43:24)](https://www.youtube.com/watch?v=QvE_EUuGFm4&t=2604s). Celý setup navazuje na [PCG vegetaci](pcg-vegetace.md) (stejné wind providery a spawner vzory) — tahle kapitola je její výkonová druhá půlka.
 
-**Souvislosti:** [Foliage I](#foliage-optimalizace-i-kotva-vykonu-a-velka-trojka) · [PCG vegetace: les](pcg-vegetace.md#les-pcg-graf-se-skeletal-stromy) · [Rejstřík: PCG](../rejstrik.md#pcg) · [Rejstřík: overdraw](../rejstrik.md#overdraw)
+**Souvislosti:** [Foliage I](#foliage-optimalizace-i-kotva-vykonu-a-velka-trojka) · [PCG vegetace: les](pcg-vegetace.md#les-pcg-graf-se-skeletal-stromy) · [Rejstřík: PCG](../rejstrik.md#pcg) · [Rejstřík: overdraw](../rejstrik.md#overdraw) · [Les pro otevřený svět](pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace) *(dvě skupiny: zapéct, nebo generovat za běhu)*
 
 ---
 

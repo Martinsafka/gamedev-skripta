@@ -115,7 +115,7 @@ A rozlišení, kdy pooling **není** ta správná odpověď: u věcí spawnovan�
 
 > **Pozn.:** Ten rozkmitaný rozpočet je učebnicová **regulační smyčka bez hystereze** a stojí za pojmenování, protože se v hrách objevuje i jinde: dynamické rozlišení, LOD přepínání, adaptivní obtížnost. Pravidlo je vždycky totéž — **systém, který reaguje na svůj vlastní výstup, potřebuje asymetrii mezi zhoršením a zlepšením**; jinak osciluje. Právě proto tam Epic dal decay rate a ne jen práh. Druhá věc, kterou si odsud bereme, je autorova poctivost u poolingu: *„nic není nikdy zdarma"* zazní v přednášce třikrát u tří různých funkcí (cull proxy, pooling, pool prime) — a je to lepší rámec než seznam tipů, protože nutí ptát se, **čím se za každou úsporu platí**.
 
-**Souvislosti:** [Effect type](#effect-type-jeden-asset-ktery-rozhoduje-o-vsem) · [Dvě cesty, jak přestat spawnovat systémy](#dve-cesty-jak-prestat-spawnovat-systemy) · [Rozpočet snímku: rozpočet je peněženka](rozpocet-snimku.md#rozpocet-je-penezenka-ne-cil) · [Rejstřík: Object pooling](../rejstrik.md#object-pooling) · [Rejstřík: FX budget](../rejstrik.md#fx-budget) · [Rejstřík: Effect type](../rejstrik.md#effect-type)
+**Souvislosti:** [Effect type](#effect-type-jeden-asset-ktery-rozhoduje-o-vsem) · [Dvě cesty, jak přestat spawnovat systémy](#dve-cesty-jak-prestat-spawnovat-systemy) · [Rozpočet snímku: rozpočet je peněženka](rozpocet-snimku.md#rozpocet-je-penezenka-ne-cil) · [Rejstřík: Object pooling](../rejstrik.md#object-pooling) · [Rejstřík: FX budget](../rejstrik.md#fx-budget) · [Rejstřík: Effect type](../rejstrik.md#effect-type) · [Částice kroků podle povrchu](footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) *(pooling v praxi a proč u kroku auto release)*
 
 ---
 

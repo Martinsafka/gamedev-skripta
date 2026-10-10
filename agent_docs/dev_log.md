@@ -15,6 +15,39 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-10 — Phase 13 dávka 54: PCG, terén, povrchy a velké světy — nová kapitola PCG města (Claude Code, Opus 5.5)
+
+**What:** 7 videí (~39k slov) → **1 nová kapitola / 5 myšlenek + 7 myšlenek do pěti stávajících kapitol**:
+- `praxe/pcg-mesta.md` (5, ~3 600 slov, celé z přednášky Lucid Games na Unreal Festu): budova jako věta (panelové kity, grammar string, patra a strany, sklo přes sockety mimo Nanite, střechy z Geometry Scriptu, zaoblené nároží přes PCGEx) · variabilita z dat (sockety a čtvrti, barvy instancí, presety pod gameplay tagy, OSM) · interiér z bodů (místnosti jako subgrafy, devět uzlů, parallax okna) · blok napřed, silnice potom (block processor, material spline cuts, booleany s vertex colorem, world tiles, snap na terén, adaptivní panely, značení) · nástroj pro artisty (pluginy, bake v EUW, Run Construction Script on Drag, debug compute meshů, PCG profiler, filtr gameplay tagů).
+- `praxe/pcg-liany.md` +1: volumetric sampling místo mesh sampleru (Procedural Minds). Úvod aktualizován.
+- `praxe/pcg-vegetace.md` +1: les pro otevřený svět, onload vs. runtime (Aziel Arts, nástroj QuickScatter označen). Úvod aktualizován.
+- `praxe/mesh-terrain.md` +2 z oficiální přednášky Epicu: proč trojúhelníky a ne voxely (mesh partition od zdroje po runtime, kolize, výkon, stav) a modifikátory v rukou Epicu. Úvod a warning box doplněny o experimentální stav a cíl konec 2027.
+- `praxe/velke-svety.md` +1: dohled na kilometry (runevision, Unity a vlastní framework, mimo UE). Úvod aktualizován.
+- `praxe/footsteps.md` +2: částice podle povrchu (díl 3 série) a stopy do hloubky přes render target, VHM a RVT. Úvod aktualizován a zastaralá Pozn. v „Stopy jako decaly" opravena (díl s render targetem už v playlistu je).
+
+Nav: „PCG města" pod PCG a procedurální svět; `praxe/index.md` doplněn (nová položka a pět anotací). Rejstřík 633 → **657**: 24 nových (Aerial perspective, Biome map, Custom Primitive Data, Dynamic Mesh, Fixed point, Geometry Script, HLSL, Houdini, Large World Coordinates, Mesh Partition, Mesh Terrain, Normal To Density, OpenStreetMap, Origin shifting, PCGEx, Remesh, Runtime generation, Runtime Virtual Texture, Spatial Noise, Spline Sampler, User Parameter, Virtual Heightfield Mesh, Volume Sampler, Voxel), 32 rozšířeno, z toho 2 o odstavec (Impostor, Skirt). 12 backlinků v 11 kapitolách. Chapter map 895 řádků.
+
+**Why:** Osmá dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 54").
+
+**How:**
+- **Rozvržení podle plánu dávky** beze změny. Přednáška Lucid Games dala celou kapitolu, Mesh Terrain dvě myšlenky (oficiální zdroj k dosavadnímu deep divu), ostatní videa po jedné.
+- **Řečníci jen jako role:** tři tech arti z Lucid Games; engineering director a senior technical artist Epicu. U runevision jen „autor".
+- **Napětí přiznaná v Pozn.:** pooling Manual Release ve videu vs. doporučení Epicu (auto release pro kroky) z `niagara-vykon`; spawn systému na každý krok vs. NDC; „custom primitive data" v přednášce vs. per-instance custom data z instance data packeru (naše upřesnění, k ověření); Mesh Terrain jako beta (Aziel Arts) vs. experimental (Epic) a dva popisy limitu Landscape; vertex colory → kanály (deep dive netestoval, Epic předvedl).
+- **Garbles opravené z kontextu:** PCGX → PCGEx, mesh train → Mesh Terrain, OVT/AVT → RVT, 496 → 4096, Jason → JSON, whale tile → world tile, special noise → Spatial Noise, AI Arts → Aziel Arts, Photoia → Photopea a další. Nejisté jméno (zdroj štětce u deformace) je parafrázované jako „projekt jiného tvůrce", nejasné uzly PCGEx („self-finding") popsané funkcí.
+- **Kontrola přesnosti:** dva subagenti (Sonnet), jedno čtení na soubor, celkem ~409k tokenů (207k + 202k). Nálezy: subagent A 24 číslovaných nálezů, všechny zapracované (přeřeknutí u výkonu Landscape přeformulováno bez přiřazení systému), 11 vět kopírujících stavbu originálu (všechny přepsané vlastní stavbou, hlavně u runevision, který má ruční titulky) a 13 drobných výhrad (12 doplněno, délka videa zůstala podle metadat 18:01). Subagent B 20 nálezů, 19 zapracováno: doslovný překlad věty o poolingu přepsán, popis QuickScatteru jako GPU nástroje zůstal, protože pochází z popisu videa v info.json. Většina nálezů byly vypuštěné výhrady („probably", „often", „maybe").
+- **Vlastní revize** před subagenty: 11 formulací opraveno po vlastním čtení (hustota stromů → keřů, sedlová → šikmá střecha, formát render targetu zobecněn, Patreon přesunut do Pozn., vlastní závěry označené jako naše).
+- **Flagy:** QuickScatter (autorův nástroj) a akademie; Patreon (Procedural Minds). Balík Sidearm Studios je cizí a zdarma, bez flagu. Runevision je mimo UE, jeho hry jen zmíněné.
+- **Časové odkazy:** 569 odkazů v šesti dotčených kapitolách (281 nových) ověřeno skriptem proti blokům přepisů. Ve dvou starších kapitolách, kam vedou jen backlinky, sedí 30 starších odkazů mimo bloky současných přepisů; s dávkou to nesouvisí, viz Follow-ups.
+
+**Follow-ups:**
+1. Další v pořadí je dávka 55 (AI nástroje: MCP, agenti a AI animace). Z plánu: ML animační plugin z `6NYC4ryO9ik` patří do `ai-assety`.
+2. Tank Control Games slibuje v dalším dílu skutečné stopy ve sněhu a někdy později převod deformace na landscape. Až přibude do playlistu, patří ke „Stopy do hloubky" a stará Pozn. v „Stopy jako decaly" se dá zkrátit.
+3. Kandidáti do `content_gaps`: PCGEx jako samostatné téma (v korpusu jen zmínky v přednášce Lucid) a Geometry Script od základů.
+4. Ověřit naše upřesnění v `pcg-mesta` (instance data packer plní per-instance custom data) a `meta=(Categories=…)` pro filtr tagů na verzi 5.8.
+5. Rejstřík má z dřívějška místy porušené abecední pořadí (např. blok V, „Oblique" za „Volumetric fog"). Nová hesla se řadí do první seřazené části. Zvážit jednorázové seřazení, ale jen s uživatelem (velký diff).
+6. Starší časové odkazy v `gameplay-tags` (29, `UNDbcAMMJwk`) a `rozpocet-snimku` (1, `zVNViTNHHdA`) nesedí na bloky současných přepisů. Na YouTube fungují, jen nejsou zarovnané na bloky, nejspíš kvůli jinému blokování při dřívějším čištění. Zarovnat při příští práci s těmi kapitolami.
+7. Kontrola přesnosti stála ~409k (proti ~323k v dávce 53). Agenti četli soubory postupně a každé další volání neslo celý dosavadní kontext. Návrh pro uživatele: příště je nechat přečíst všechny soubory v jednom paralelním kroku, odhadem za polovinu.
+
 ### 2026-10-10 — Phase 13 dávka 53: světlo a materiály — nová kapitola MegaLights (Claude Code, Opus 5.5)
 
 **What:** 6 videí (~40k slov) → **1 nová kapitola / 5 myšlenek + 3 myšlenky do stávajících**:

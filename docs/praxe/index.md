@@ -37,7 +37,7 @@ Témata a kapitoly:
 
 **Herní systémy a interakce**
 
-- **[Kroky a povrchy](footsteps.md)** — physical materials, trace vs. anim notify, MetaSounds s hlasitostí podle rychlosti, stopy jako decaly s rozpadem a Niagara Data Channel optimalizace.
+- **[Kroky a povrchy](footsteps.md)** — physical materials, trace vs. anim notify, MetaSounds s hlasitostí podle rychlosti, částice podle povrchu s cákancem podle rychlosti, stopy jako decaly s rozpadem, prohlubně ve sněhu přes render target a Niagara Data Channel optimalizace.
 - **[Pasti, hádanky a arénové mechaniky](pasti-a-mechaniky.md)** — kostra pasti (overlap → damage → launch), kyvadlové sekery s pivotem a per-instance chováním, mizející podlaha à la Fall Guys, stavebnice hádanky se spínačem přes interface a levelem, který se nedá rozbít, barel, ze kterého teče voda k nejnižší díře, a férovost hitboxů.
 - **[Interakce s předměty a úkryty](interakce-predmety.md)** — házení s predikcí trajektorie (Predict Projectile Path + spline mesh) a úkryt ve skříni s choreografií přes montage notifies.
 - **[Souboj](souboj.md)** — melee systém jako dvě komponenty (útočník a terč): combo okna z notify state, útok za běhu s křivkou, která vrstvení vypne, hitbox podle poctivosti animace, damage jednou za útok, směrové reakce a ragdoll, hit stop per aktér, pět potvrzení rány, overlay záblesk a kapow přes custom stencil a zdraví po končetinách.
@@ -71,14 +71,15 @@ Témata a kapitoly:
 **Terén a krajina**
 
 - **[Landscape tipy](landscape-tipy.md)** — klasický terén: Nanite displacement, skrytý copy/paste gizmo nástroj, malování PCG dat štětcem a anti-tiling technika dvou měřítek.
-- **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels — nově s praxí kanálů, malování a PCG.
+- **[Mesh Terrain (UE 5.8)](mesh-terrain.md)** — nový terénní systém: partitioned Nanite mesh, nedestruktivní modifier stack, channels — nově s praxí kanálů, malování a PCG a s oficiálním pohledem Epicu: proč trojúhelníky a ne voxely, runtime data podle platformy a modifikátory jako komponenty.
 
 **PCG a procedurální svět**
 
 - **[PCG: základy a nástroje v editoru](pcg-zaklady.md)** — PCG Mode 5.7 (spline, paint, volume), plot přes linear grammar, vlastní štětec se skutečným scatteringem a výřezy podle kolizí + debug uzly.
 - **[Instanced Actors: instance, které ožijí](instanced-actors.md)** — svět z levných instancí, blueprint jen u hráče: setup přes Data Registry, manager pattern pro perzistenci a fyzika s eject prahem.
-- **[PCG vegetace: stromy a les](pcg-vegetace.md)** — Procedural Vegetation editor (5.7/5.8), les přes Instance Skinned Mesh Spawner s větrem, proxy kolize, mýtiny a cesty, a hotový nástroj PCG Forest jako srovnání.
-- **[PCG liány: po povrchu i zavěšené](pcg-liany.md)** — liány lezoucí po meshích (mesh sampler + pathfinding s fitness score) a závěsné křivky mezi dvěma kliky — od lián po vánoční světla.
+- **[PCG vegetace: stromy a les](pcg-vegetace.md)** — Procedural Vegetation editor (5.7/5.8), les přes Instance Skinned Mesh Spawner s větrem, proxy kolize, mýtiny a cesty, hotový nástroj PCG Forest jako srovnání a les pro otevřený svět: co zapéct a co generovat za běhu kolem hráče.
+- **[PCG liány: po povrchu i zavěšené](pcg-liany.md)** — liány lezoucí po meshích (mesh sampler + pathfinding s fitness score) a závěsné křivky mezi dvěma kliky — od lián po vánoční světla — a volume, který najde podlahu, stěny a strop bez mesh sampleru.
+- **[PCG města: budovy z gramatiky, bloky ze splinů](pcg-mesta.md)** — přednáška Lucid Games: budovy z panelových kitů a grammar stringu, variace ze socketů a dat, interiéry z bodů, bloky napřed a silnice z booleanů, a jak z grafů udělat nástroj, který artisti chtějí používat.
 - **[Případovka: Hex-A-Gone z PCG](pcg-hexagone.md)** — celá minihra z Fall Guys jedním grafem: hex mřížka aritmetikou řádků a mizející dlaždice přes Instanced Actors s eject trikem.
 
 **Prostředí a environment art**
@@ -109,7 +110,7 @@ Témata a kapitoly:
 - **[Niagara: výkon částic](niagara-vykon.md)** — pět statistik a past, bez které Niagara v Insights vůbec není; effect type jako jeden asset, který rozhoduje o všem (a projekt, kde se z něj stal problém); škálování, pooling a rozpočet, který se umí rozkmitat, dvě navzájem se vylučující cesty, jak přestat spawnovat systémy — a živý svět z tvorů, kteří na hráče reagují, ale nic nerozhodují (0,15 ms místo 2 ms).
 - **[Paměť, reference a instancování](pamet-a-instance.md)** — Size Map v režimu paměti a předmět, který kvůli jednomu castu zabíral 111 MB; soft reference a asynchronní načítání (a proč v editoru „funguje" i bez něj); ISM, HISM a merge včetně toho, kdy instancování scénu zhorší — a šest zásahů na jedno odpoledne, mezi nimi jedna tichá podmínka, která umí vypnout celé mipmapování.
 - **[Lehký render: co vypnout, když UE5 funkce nepotřebuješ](lehky-render.md)** — rozpad ceny výchozí scény, kde je každé vypnutí spárované s náhradou (a jedna rada, kterou měření nepotvrdilo); vlastní šablona projektu založená chytře ve 4.27, komunitní fork jako krajní varianta, ze které se nedá odejít — a skutečná hra ze 100 na 200 FPS, kde dvě největší položky nebylo nic, co by hra potřebovala.
-- **[Velké světy: sto tisíc aktérů a terabajty dat](velke-svety.md)** — měsíce práce na vlastním nástroji do koše (a proč u pluginů takové riziko není), dvě rozhodnutí z nultého dne, která rozhodla o všem, gameplay pověšený rovnou na mesh, animace přepsaná z tiku na události — a skořápka budovy, která odloží 98 % trojúhelníků.
+- **[Velké světy: sto tisíc aktérů a terabajty dat](velke-svety.md)** — měsíce práce na vlastním nástroji do koše (a proč u pluginů takové riziko není), dvě rozhodnutí z nultého dne, která rozhodla o všem, gameplay pověšený rovnou na mesh, animace přepsaná z tiku na události — a skořápka budovy, která odloží 98 % trojúhelníků. Nově i devlog z Unity o dohledu na kilometry: větší chunky v dálce, impostory se stínem a fixed point souřadnice.
 - **[Persistence a hydratace: svět, který si pamatuje](persistence-a-hydratace.md)** — kvíz o dveřích, na který celý sál odpoví špatně (záleží na garbage collectoru), trojice identita → stav → verze s pastí, která selže mlčky — a hydratace, kde volba reprezentace určuje, jak se ta věc vlastně ukládá.
 - **[Mass a ECS: data místo objektů](mass-ecs.md)** — kolem sta dereferencí kvůli jedné hodnotě a 97 % načtené paměti, která se zahodí; entita, která není actor (a postava ze stovek entit), fragmenty blíž členským proměnným než komponentám, debugger, který zastaví dřív, než se data změní — a rada, která jde přímo proti hydrataci.
 - **[Automatizované měření: benchmark, který se spustí sám](mereni-automaticky.md)** — benchmark z level sequence, který volá tvůj skutečný kód (a proč nahrávka hraní měří něco jiného), systematické čtení Insights včetně kliku, který ukáže, na co se čeká, tracing, kde přetečení neznamená zhoršení, ale zastavení — a nástroje, které artistům řeknou „přes rozpočet" dřív, než práci odevzdají.

@@ -70,7 +70,7 @@ Složením vzniknou rytmy jako `[A,B]2 A3 B*` — dvakrát pár, tři plaňky, s
 
 > **Pozn.:** Video je průzkum naživo — autor syntaxi zkouší a některé pokusy nevyjdou napoprvé, což je samo o sobě poučné (chování `*` vs. `+` odhaluje experimentem). Pro produkční použití si gramatiku ověř v oficiální dokumentaci PCG; tady je vidět hlavně to, jak málo stojí plot, který by ručně zabral odpoledne.
 
-**Souvislosti:** [PCG Mode: nástroje](#pcg-mode-spline-paint-a-volume-primo-v-editoru) · [Rejstřík: linear grammar](../rejstrik.md#linear-grammar) · [Rejstřík: spline](../rejstrik.md#spline)
+**Souvislosti:** [PCG Mode: nástroje](#pcg-mode-spline-paint-a-volume-primo-v-editoru) · [Rejstřík: linear grammar](../rejstrik.md#linear-grammar) · [Rejstřík: spline](../rejstrik.md#spline) · [Budova jako věta](pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) *(gramatika na celé fasádě)*
 
 ---
 
