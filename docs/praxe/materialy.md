@@ -22,7 +22,7 @@ Materiálová kapitola pokrývá čtyři různě velké myšlenky: **master mate
 
 > **Pozn.:** Tentýž princip, kterým [The Ascent utáhl 80 % assetů na jedné 4K sadě](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) a [TLOU nahradil tisíce bake trim sheetem](env-breakdowny.md#tlou-trim-sheet-ktery-nahradil-tisice-bake) — tohle je jeho miniaturní, okamžitě použitelná verze. Auto-titulky videa jsou hrubé („CS stack" = sea stack, „black hole" = blockout); postup je ale z obrazu jednoznačný.
 
-**Souvislosti:** [Breakdowny: The Ascent](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) · [Z fotky herní asset](foto-do-assetu.md#narovnat-obtahnout-promitnout) *(opačný pól: jeden asset, jedna textura)* · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance)
+**Souvislosti:** [Breakdowny: The Ascent](env-breakdowny.md#the-ascent-ctyri-artisti-jeden-shader) · [Z fotky herní asset](foto-do-assetu.md#narovnat-obtahnout-promitnout) *(opačný pól: jeden asset, jedna textura)* · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance) · [Textury pro kit: dvě textury na kámen](modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) *(sdílené tilery a masky pro celý kit)*
 
 ---
 
@@ -44,7 +44,7 @@ Materiálová kapitola pokrývá čtyři různě velké myšlenky: **master mate
 
 > **Pozn.:** Trojice kapitol teď pokrývá displacement ze tří stran: [Landscape](landscape-tipy.md#nanite-displacement-a-krajina-jako-scena) (terén z materiálu), tady mesh s vertex paintingem, a [Crimson Desert breakdown](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) připomíná, že existuje i shaderová iluze bez geometrie — každá vrstva má jinou cenu a jiné použití. Titulky videa jsou psané (manuální) a řídké — timestampy vedou na kroky, detaily zapojení odečteš z obrazu.
 
-**Souvislosti:** [Landscape tipy: Nanite displacement](landscape-tipy.md#nanite-displacement-a-krajina-jako-scena) · [Breakdowny: Crimson Desert](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: height mapa](../rejstrik.md#height-mapa)
+**Souvislosti:** [Landscape tipy: Nanite displacement](landscape-tipy.md#nanite-displacement-a-krajina-jako-scena) · [Breakdowny: Crimson Desert](env-breakdowny.md#crimson-desert-detektivka-kolem-displacementu) · [Rejstřík: Nanite](../rejstrik.md#nanite) · [Rejstřík: height mapa](../rejstrik.md#height-mapa) · [AC Black Flag: páry materiálů](env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) *(vertex blending celého města)*
 
 ---
 

@@ -45,7 +45,7 @@ Poslední vrstva kritiky se týká doručení obsahu [(12:54)](https://www.youtu
 
 > **Pozn.:** „Téma jako alibi pro mechaniku" je táž technika jako [omezení potřebuje herní alibi](scope.md#omezeni-potrebuje-herni-alibi), jen obráceně: tam fikce ospravedlňuje, co ve hře **není**, tady ospravedlňuje, co v ní **je** navíc. A pravidlo o jedinečnosti landmarku doplňuje [landmark napřed](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) o podmínku, kterou je snadné porušit kopírováním assetu.
 
-**Souvislosti:** [Scope: omezení potřebuje herní alibi](scope.md#omezeni-potrebuje-herni-alibi) · [Prostor a hranice: landmark napřed](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Ludotematický soulad](ludonarativni-soulad.md#zanr-je-gameplay-tema-je-jazyk-a-tema-uci-hru-za-tebe) · [Rejstřík: landmark](../rejstrik.md#landmark)
+**Souvislosti:** [Scope: omezení potřebuje herní alibi](scope.md#omezeni-potrebuje-herni-alibi) · [Prostor a hranice: landmark napřed](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Ludotematický soulad](ludonarativni-soulad.md#zanr-je-gameplay-tema-je-jazyk-a-tema-uci-hru-za-tebe) · [Rejstřík: landmark](../rejstrik.md#landmark) · [Beauclair: orientační body a clony](../praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) *(landmark, který šetří i streamování)*
 
 ---
 
@@ -106,7 +106,7 @@ Nakonec konkrétní ukázka toho, jak jemné rozhodování level design je [(17:
 
 > **Pozn.:** „Level je současně čtyři věci" je nejlepší shrnutí toho, proč je to tak těžké [(15:37)](https://www.youtube.com/watch?v=OLXn6YYAk7M&t=937s): je to **místo** (simulace prostoru), **zážitek** (emoce v sekvenci: souboj, ticho, střetnutí, puzzle), **cíl** (hráč musí vědět, o co jde — a cíl smí občas zmizet a znovu se objevit, aby vznikla úleva) a **jazyk** (nekonzistence mate). Mimochodem právě proto jsou sci-fi a fantasy dungeony pro malé týmy praktičtější [(17:11)](https://www.youtube.com/watch?v=OLXn6YYAk7M&t=1031s): u abstraktního prostoru nemusíš řešit, „kde je v dungeonu záchod nebo kde ve vesmírné lodi sídlí personální oddělení".
 
-**Souvislosti:** [Prototypování: iterační spirála](prototypovani.md#iteracni-spirala-ke-stredu-nevede-rychly-pruh) *(tentýž princip krátkých cyklů na úrovni celého projektu)* · [Herní art: prostředí a greybox pipeline](art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) · [Žrouti času: leštění bez validace](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · [Rejstřík: beautiful corner](../rejstrik.md#beautiful-corner) · [Rejstřík: graybox](../rejstrik.md#graybox)
+**Souvislosti:** [Prototypování: iterační spirála](prototypovani.md#iteracni-spirala-ke-stredu-nevede-rychly-pruh) *(tentýž princip krátkých cyklů na úrovni celého projektu)* · [Herní art: prostředí a greybox pipeline](art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) · [Žrouti času: leštění bez validace](produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem) · [Rejstřík: beautiful corner](../rejstrik.md#beautiful-corner) · [Rejstřík: graybox](../rejstrik.md#graybox) · [Blockout z pohledu env artu](../praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) *(čitelnost, silueta a měřítko)*
 
 ---
 

@@ -108,7 +108,7 @@ Past je gameplay systém v nejčistší podobě: detekce (overlap) → následek
 
 > **Pozn.:** Barel je malý příklad toho, čemu [teorie imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) říká svět, který odpovídá: zásah nezmizí, ale změní stav předmětu, který si ho pamatuje. Druhý díl autor podmiňuje odezvou diváků a chce zůstat u Blueprintů, protože výpočtů je málo [(10:22)](https://www.youtube.com/watch?v=8aDH2KUGdbE&t=622s). Kontrola na časovači místo ticku je stejný tah jako u [interakcí bez Event Ticku](interakce-bez-event-ticku.md#overlap-trigger-misto-trasovani-v-ticku).
 
-**Souvislosti:** [Rejstřík: Set Timer by Event](../rejstrik.md#set-timer-by-event) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: Particle system](../rejstrik.md#particle-system) · [Zdraví po končetinách](souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) *(jiný systém, který čte, kam hráč trefil)*
+**Souvislosti:** [Rejstřík: Set Timer by Event](../rejstrik.md#set-timer-by-event) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: Particle system](../rejstrik.md#particle-system) · [Zdraví po končetinách](souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) *(jiný systém, který čte, kam hráč trefil)* · [007 First Light: prostřelený barel](env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) *(AAA protějšek v enginu Glacier)*
 
 ---
 

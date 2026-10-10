@@ -169,7 +169,10 @@ nav:
           - PCG liány: praxe/pcg-liany.md
           - "Případovka: Hex-A-Gone": praxe/pcg-hexagone.md
       - Prostředí a environment art:
+          - Blockout: praxe/blockout.md
+          - Modulární kity a trim sheety: praxe/modularni-kity.md
           - "Breakdowny: herní světy": praxe/env-breakdowny.md
+          - "Breakdowny II: technika za vzhledem": praxe/env-technika.md
           - Stavba prostředí: praxe/env-tvorba.md
       - Materiály a VFX:
           - Materiály: praxe/materialy.md

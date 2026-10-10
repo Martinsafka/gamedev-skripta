@@ -73,6 +73,7 @@
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
 *[CDO]: Class Default Object — výchozí instance každé třídy; umožňuje vzor „třída jako data" bez konstruování.
+*[Channel packing]: Více šedotónových map v kanálech jedné textury (např. roughness, AO, výška v RGB); šetří paměť i vzorkování.
 *[Chaos Cloth]: Realtime fyzika látek: Cloth Asset graf s weight mapou, configem a colliderem z physics assetu.
 *[Chaos Mover]: Plugin, který z Mover postavy dělá fyzikální těleso tažené k cíli omezenou silou (experimentální, 5.7+).
 *[Chaos Visual Debugger]: Nahrávání fyzikální scény Chaosu po snímcích a fázích solveru: kontakty, dotazy, klient vedle serveru.
@@ -224,6 +225,7 @@
 *[HLOD]: Sloučená náhrada za skupinu objektů v dálce; skrytá HLOD proxy může pořád vrhat stín.
 *[Hook]: Prvek, který hru prodá na první pohled — mechanika, premisa nebo obraz, co zastaví palec při scrollování.
 *[Horizontal slice]: Celá hra skrz zlomek systémů — pro pomalé hry o odemykání, kde vertical slice selhává.
+*[Hot reload]: Načtení změněného kódu nebo assetu do běžící hry bez restartu; v UE pro C++ přes Live Coding.
 *[Hurtbox]: Oblast, která zásah přijímá (protějšek hitboxu); menší než postava odpouští, vypnutá = nezranitelnost.
 *[Hydratace]: Přepnutí objektu z levné instance na plnohodnotného aktéra podle vzdálenosti — a zpátky.
 *[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
@@ -233,6 +235,7 @@
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
 *[Inertialization]: Blend, který z rychlosti původního pohybu dopočítá plynulý přechod místo míchání dvou póz.
 *[Input decay]: Tlumení predikovaného vstupu při resimulaci; čím hlouběji v predikci, tím slabší vstup.
+*[Interior mapping]: Shaderová iluze místnosti za oknem: interiér z textury podle úhlu pohledu, bez geometrie za sklem.
 *[ISM]: Instanced Static Mesh — shodná geometrie i materiál v jednom draw callu; HISM přidává LODy.
 *[Indexical storytelling]: Vyprávění stopami a náznaky; hráč si příběh složí sám (Clara Fernández-Vara).
 *[Impostor]: Nejagresivnější LOD: asset nahrazený obrázkem otáčejícím se s kamerou.
@@ -255,6 +258,7 @@
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
 *[Keep Triangle Percent]: Nanite: kolik procent zdrojových trojúhelníků se uloží; zbytek zmizí z balíčku.
 *[Keyboard ghosting]: Hardwarový limit klávesnice: u některých kombinací kláves jeden vstup nedorazí do hry.
+*[Kitbashing]: Skládání nových objektů z dílů existujících kitů místo modelování od nuly; sdílené materiály drží jednotu.
 *[Klonování hlasu]: Model natrénovaný na tvém hlase, který přezpívá cizí výkon tvou barvou.
 *[Knockback]: Odhození zasaženého směrem od útoku; potvrzuje sílu rány (Launch Character, impulz).
 *[Konsonance]: Dojem klidu a souznění tónů; opak disonance, „domov" harmonie.
@@ -284,6 +288,7 @@
 *[Live Link]: Streamování dat do enginu (mocap, kamery); Live Link Hub od 5.8 zpracuje i offline video na capture data.
 *[Locomotor]: Control Rig uzel procedurální chůze: došlapy počítá dynamicky — foot sets, fázové offsety, žádné klipy.
 *[Locus of control]: Kde hledáš řídicí sílu jednání: uvnitř (rozhoduju sám), či venku (čekám na dotlačení).
+*[LOD]: Level of Detail: jednodušší verze meshe střídané podle vzdálenosti; bez dobrého přechodu je vidět doskakování.
 *[Look ahead]: Předsazení kamery za pozorností hráče: směr pohybu, fáze skoku (nad hlavu → pod nohy).
 *[Loose coupling]: Třídy na sobě závisejí co nejméně — komunikace přes smlouvy a eventy, ne tvrdé reference.
 *[Low-fi prototyp]: Schválně laciný prototyp (náčrt na papíře, čmáranice) — nízké úsilí zve k upřímné kritice nápadu.
@@ -291,6 +296,7 @@
 *[Lumen]: Realtime GI a odrazy v UE5; orientační rozpočet ~4 ms na 60 FPS, ~8 ms na 30.
 *[Ludonarativní disonance]: Nesoulad příběhu a gameplaye (hodný hrdina, stovky mrtvých). Neutrální nástroj — i humor.
 *[Ludus a paidia]: Caillois: hra podle pravidel vs. volné blbnutí. Holá hra = moc ludus, málo paidia.
+*[LUT]: Look-up table: tabulka přemapování barev, ve hrách obvykle textura pro color grading v postprocesu.
 *[Map (dictionary)]: Struktura klíč → hodnota: čitelný klíč místo indexu; překlep klíče = tichý bug.
 *[Marching cubes]: Z 3D skalárního pole mesh: krychle z 8 sousedů, 256 případů, předpočítané polygony.
 *[Markerless mocap]: Motion capture z obyčejného videa bez markerů a obleku.
@@ -307,7 +313,9 @@
 *[Mechanika]: Jednotka gameplaye z pravidel: sloveso hráče (skoč, seber) působící na herní svět.
 *[Mediator pattern]: Prostředník, přes kterého aktéři komunikují místo napřímo (věž místo letadel).
 *[MegaLights]: Systém UE od 5.5, který zlevňuje scény s velkým počtem stínících světel.
+*[Megascans]: Knihovna fotogrammetrických skenů od Quixelu (Epic), dnes na Fabu; riziko je, že vše vypadá stejně.
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
+*[Meshlet]: Malý shluk trojúhelníků (např. 64/64) s obalem pro culling; stavební kámen mesh shaderů a Nanitu.
 *[Mesh to MetaHuman]: Převod cizího meshe na MetaHumana s rigem podle standardu Epicu; od 5.8 i celé tělo.
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
 *[MetaHuman Animator]: Nástroj, který z natočeného výkonu spočítá animaci MetaHumana; od 5.8 i tělo.
@@ -317,6 +325,7 @@
 *[Mixels]: Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.
 *[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
+*[Modular kit]: Sada dílů na společné mřížce, ze kterých se skládají scény jako z lega; sdílí rozměry, pivoty a materiály.
 *[Montage section]: Pojmenovaný úsek anim montáže; navazování sekcí lze za běhu přesměrovat.
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
 *[Moodboard]: Sbírka referencí ukazující tón a směr dřív, než vznikne první vlastní kresba.
@@ -346,6 +355,7 @@
 *[Oblique]: Nakloněná perspektiva: vidíš horní i boční stranu objektů (Stardew Valley).
 *[Obrat akordu]: Tentýž akord s jiným pořadím tónů (nota posunutá o oktávu); hladší přechody.
 *[Observer pattern]: Objekty se přihlásí k odběru událostí zdroje; v UE doslova Event Dispatcher.
+*[Occlusion culling]: Vyřazení objektů schovaných za jinými, než je GPU nakreslí; funguje jen, když level má co zakrývat.
 *[Oktáva]: Vzdálenost tónu a jeho příštího výskytu; poměr 2:1, nejkonsonantnější interval.
 *[Octree]: Rekurzivní dělení prostoru na osminy; adaptivní varianta sleduje složitost místo souřadnic.
 *[Onboarding]: Prvních pár minut, kdy se hráč učí hru a rozhoduje se, jestli zůstane.
@@ -353,6 +363,7 @@
 *[One File Per Actor]: Každý aktér ve vlastním souboru; bez toho nemůže na mapě pracovat víc lidí naráz.
 *[One-way door]: Rozhodnutí drahé na reverz (žánr, API, engine) — dělá se vědomě, s premisami; opak: two-way door.
 *[Orchestrace]: Rozdělení hudby mezi nástroje a smíchání do barvy; až po melodii, harmonii a kontrapunktu.
+*[Order-independent transparency]: Průhlednost, jejíž výsledek nezávisí na pořadí kreslení (OIT); řeší problikávání vrstev, mlhy a částic.
 *[Oscilátor]: Zdroj surového zvuku v synthu; tvar vlny (sinus/pila/obdélník) určuje barvu a alikvóty.
 *[Outer]: Objekt, ke kterému je UObject přivázaný — s ním žije a s ním ho uklidí garbage collector.
 *[Overdraw]: Tentýž pixel kreslený vícekrát (překryvy listí, masky) — vizualizace v Nanite overdraw view.
@@ -402,6 +413,7 @@
 *[Post-process AnimBP]: AnimBP meshe vyhodnocovaný po hlavní animaci — vrstvení look-atu a korekcí; vázaný na skeleton.
 *[Postmortem]: Ohlédnutí za dokončeným projektem: co fungovalo, co ne a proč — nejhutnější studijní žánr gamedevu.
 *[Predictive interpolation]: Replikace fyziky s cílem mírně za serverem a dorovnáním přes rychlost; levnější než resimulace.
+*[Prefab]: Uložená skupina objektů vkládaná do scény jako celek; v UE Blueprint, Level Instance nebo Packed Level Actor.
 *[Premature optimization]: Optimalizace před důkazem, že je potřeba; deformuje workflow a žere čas.
 *[Press kit]: Balíček pro novináře: popis, kontakty, loga, screenshoty, trailer v plné kvalitě na jednom místě.
 *[Procedural Vegetation]: Editor stromů v enginu (5.7+): graf uzlů od presetu/growere po export s Nanite foliage a větrem.
@@ -464,6 +476,7 @@
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
 *[Sequencer]: Editor časových os v UE: cutscény, kamery, animace postav, render záběrů.
 *[Serif]: Patka na konci tahu písmene; nese historickou asociaci a mírně zpomaluje čtení.
+*[Set dressing]: Zaplnění hotového prostoru drobnými propy a detaily, které mu dají příběh a život.
 *[Set Timer by Event]: Časovač, který po zadané době (jednou či opakovaně) zavolá event; handle ho zastaví nebo změří.
 *[Shading bin]: Nanitová obdoba draw callu; vlastní bin chce každá materiálová instance, ~3 µs minimum.
 *[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
@@ -484,6 +497,7 @@
 *[Skill ceiling]: Strop dosažitelné dovednosti — prostor pro mastery.
 *[Skill floor]: Minimum dovednosti, abys vůbec hrál; komplexita ovládání je floor sama o sobě.
 *[Skills audit]: Inventura dovedností před volbou projektu: co umím, co ne, co napůl.
+*[Skirt]: Pruh geometrie kolem spodku kusu, který přechází do země a skrývá šev mezi objektem a terénem.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
 *[Socket]: Pojmenovaný bod na kosti nebo meshi, ke kterému se připínají jiné objekty.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
@@ -527,7 +541,10 @@
 *[Take Recorder]: Nahrává hraní jako sekvenci transformů — nespustí gameplay kód, takže benchmark z něj lže.
 *[Tell]: Signál prozrazující dopředu, co přijde; bez něj není útok výzva, ale loterie.
 *[Tessellation]: Dělení geometrie na jemnější trojúhelníky pro vyšší detail povrchu.
+*[Texel density]: Kolik pixelů textury připadá na metr plochy; sousedé s jinou hustotou se k sobě nehodí.
+*[Texture array]: Sada stejně velkých textur v jednom objektu, ze které shader vybírá vrstvu indexem.
 *[Texture atlas]: Jedna textura s povrchy pro mnoho objektů vedle sebe — méně materiálů, méně draw callů.
+*[Tileable texture]: Textura navazující do všech stran, opakovatelná přes libovolnou plochu (tiler); základ texturování kitů.
 *[Tile set]: Sada dlaždic pro 2D svět a pravidla, jak na sebe navazují; počet dlaždic je vždycky kompromis.
 *[Time slicing]: Drahý výpočet se nepočítá každý snímek, ale každý n-tý; mění frekvenci, ne algoritmus.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
@@ -540,6 +557,8 @@
 *[Trim Relative Error]: Nanite: zahodí detail pod danou relativní chybou; na listí vhodnější než procento.
 *[Trim sheet]: Sdílená textura z pásů detailů pro mnoho assetů — řádová úspora draw calls a VRAM.
 *[Triáda]: Nejzákladnější akord ze tří tónů (základ, tercie, kvinta); rozestupy určí dur/moll/zmenšená.
+*[Triplanar projection]: Textura promítnutá ze tří os světa místo UV a prolnutá podle normály; nepotřebuje UV, stojí tři vzorkování.
+*[Trunk-based development]: Všichni odevzdávají často do jedné hlavní větve; drží ji blízko hratelnému stavu, chce to automatické buildy.
 *[TSR]: Temporal Super Resolution — upscaler UE5; rozmazaná voda a ghosting jemných detailů = typicky jeho vina.
 *[Tutorial hell]: Smyčka „umím zopakovat tutoriál, sám nepostavím nic"; útěk: po každém videu malý vlastní projekt.
 *[Two-loop rule]: Každé dva loopy nejvýš dvě změny (přidat/ubrat nástroj či výraz); lešení pro aranžmá.
@@ -556,6 +575,9 @@
 *[Utility AI]: Každý úkol si spočítá skóre, spustí se nejvyšší; nenahrazuje stromy, řídí je.
 *[UV mapping]: Předpis, která část 2D textury se natáhne na kterou plochu modelu.
 *[UX]: User experience — informační architektura: kde informace bydlí a kolika kroky se k nim dostaneš.
+*[Value pass]: Krok blockoutu s odstíny šedi, které oddělí tvary (vodorovné od svislých) a dají scéně hloubku.
+*[Vertex painting]: Malování masek do vrcholů meshe, podle kterých materiál prolíná vrstvy; jemnost závisí na hustotě geometrie.
+*[Visual blocker]: Prvek levelu, který záměrně zkrátí průhled, aby řídil, co hráč vidí a co se musí načíst.
 *[Visual Logger]: Nahrávač hodnot a tvarů v čase; po hře se prochází po časové ose a kategoriích.
 *[VSync]: Synchronizace výměny bufferů s cyklem monitoru: bez trhání, ale za cenu latence.
 *[Value chain]: Hodnotový řetězec — smysl sběru dává až jeho zamýšlené použití (Dan Cook).

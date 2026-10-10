@@ -47,7 +47,7 @@ Praktický důsledek pro člověka, který art nedělá, ale nakupuje: asset pac
 
 > **Pozn.:** Tohle je výtvarná strana téhož jevu, který [vizuální komunikace](vizualni-komunikace.md#gestalt-a-vizualni-hierarchie-mozek-cte-cely-obraz) popisuje z psychologické strany (gestalt) — Riot ukazuje *páky*, Indie Game Clinic *proč na ně mozek reaguje*. A stejný princip v prostoru řeší [landmark napřed](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec): dominanta funguje jen tehdy, když okolí ustoupí.
 
-**Souvislosti:** [Vizuální komunikace: gestalt](vizualni-komunikace.md#gestalt-a-vizualni-hierarchie-mozek-cte-cely-obraz) · [Prostor a hranice: landmark napřed](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Kamera: hranice, které umí lhát](kamera.md#kamera-metroidvanie-hranice-ktere-umi-lhat) · [Rejstřík: silueta](../rejstrik.md#silueta) · [Rejstřík: vizuální hierarchie](../rejstrik.md#vizualni-hierarchie)
+**Souvislosti:** [Vizuální komunikace: gestalt](vizualni-komunikace.md#gestalt-a-vizualni-hierarchie-mozek-cte-cely-obraz) · [Prostor a hranice: landmark napřed](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Kamera: hranice, které umí lhát](kamera.md#kamera-metroidvanie-hranice-ktere-umi-lhat) · [Rejstřík: silueta](../rejstrik.md#silueta) · [Rejstřík: vizuální hierarchie](../rejstrik.md#vizualni-hierarchie) · [Blockout: detail a klid](../praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) *(poměr detailu a klidu už v blockoutu)*
 
 ---
 
@@ -153,7 +153,7 @@ Nejcennější rada dílu je ale o zpětné vazbě [(10:12)](https://www.youtube
 
 > **Pozn.:** Rada „zašpini místa, kterých se lidé dotýkají" [(10:58)](https://www.youtube.com/watch?v=37LVhP15zGw&t=658s) a věta **„kdokoli umí udělat luxusní láhev tequily — ale musíš postavit celý bar a vidět, jak to spolu funguje"** jsou nejlepší shrnutí rozdílu mezi portfoliovým assetem a herním prostředím: samostatný objekt hodnotíš podle sebe sama, prostředí podle vztahů.
 
-**Souvislosti:** [Prostor a hranice: blockout a metriky](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) *(greybox z druhé strany — očima level designéra)* · [Prostor vypráví](prostor-vypravi.md#vypraveni-na-rozpocet-navrhni-objekty-ktere-umi-vypravet) *(jak z týchž assetů dostat příběh)* · [Vedení hráče: scripted events](vedeni-hrace.md#scripted-events-veci-se-maji-stat-ve-spravnou-chvili) · [Tvorba prostředí v UE](../praxe/env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro) · [Rejstřík: environmental storytelling](../rejstrik.md#environmental-storytelling) · [Rejstřík: blockout](../rejstrik.md#blockout)
+**Souvislosti:** [Prostor a hranice: blockout a metriky](prostor-a-hranice.md#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) *(greybox z druhé strany — očima level designéra)* · [Prostor vypráví](prostor-vypravi.md#vypraveni-na-rozpocet-navrhni-objekty-ktere-umi-vypravet) *(jak z týchž assetů dostat příběh)* · [Vedení hráče: scripted events](vedeni-hrace.md#scripted-events-veci-se-maji-stat-ve-spravnou-chvili) · [Tvorba prostředí v UE](../praxe/env-tvorba.md#nejdriv-tvary-design-language-a-chiaroscuro) · [Rejstřík: environmental storytelling](../rejstrik.md#environmental-storytelling) · [Rejstřík: blockout](../rejstrik.md#blockout) · [Hybridní blockout](../praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) *(nálada prostředí dřív než materiály)*
 
 ---
 

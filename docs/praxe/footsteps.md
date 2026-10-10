@@ -61,7 +61,7 @@ Kroky jsou nejčastější zvuk i nejčastější vizuální otisk hry — a př
 
 > **Pozn.:** Otisky *do* sněhu (deformace, tání pod nohama) autor odkládá na render targets v dalším díle [(32:10)](https://www.youtube.com/watch?v=buQ6JvwvHuw&t=1930s) — ten v playlistu zatím není. Kdo chce hotové řešení hned: video REFORCH (bez titulků, popisujeme z popisu) ukazuje bezplatný plugin **Interactive World** (LingFeng) se sněžnými stopami, otisky v blátě, vlnami na vodě a ohýbáním trávy — pro prototyp rychlejší než stavět vlastní render-target systém. Pro stealth: stopy nejsou jen kosmetika, jsou *mechanika* — trail, který po tobě zůstává, může číst i nepřítel.
 
-**Souvislosti:** [Rejstřík: decal](../rejstrik.md#decal) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance) · [AI vnímání](ai-vnimani.md)
+**Souvislosti:** [Rejstřík: decal](../rejstrik.md#decal) · [Rejstřík: dynamic material instance](../rejstrik.md#dynamic-material-instance) · [AI vnímání](ai-vnimani.md) · [Alan Wake 2: stopy, které si pamatují](env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) *(týž nápad v AAA)*
 
 ---
 

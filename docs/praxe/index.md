@@ -83,7 +83,10 @@ Témata a kapitoly:
 
 **Prostředí a environment art**
 
+- **[Blockout: polovina projektu, kterou hráč nikdy neuvidí](blockout.md)** — zastav, omez, porovnej: rozklad na jednoduché tvary, hierarchie velikostí, test přimhouřených očí, šedá jako hodnota a postava ve scéně od prvního dne; hybridní blockout podle Naughty Dog přes průchod hodnot a barvy dřív, než vznikne první materiál.
+- **[Modulární kity a trim sheety](modularni-kity.md)** — kit jako lego (co nejméně kusů, mřížka v metrech, zoo na zkoušku), tilery, trimy a masky (dvě textury na kámen), trim sheet jako systém a kdy ne, organický kit a jeho spoje, Beauclair z Witcher 3 v rozpočtu 500 MB a Mortal Shell 2 od třiceti lidí.
 - **[Breakdowny: jak se staví herní světy](env-breakdowny.md)** — San Francisco 1:1 od jednoho člověka, The Ascent (4 artisti, jeden shader), TLOU trim sheety a Naughty Dog pipeline (shadery místo polygonů, Houdini nástroj místo modelování), RE Requiem vrstvy realismu a detektivka kolem Crimson Desert.
+- **[Breakdowny II: technika za vzhledem](env-technika.md)** — 007 First Light (editor z entit, templatů a bricks, nový build každou půlhodinu, objemy Smolder), Alan Wake 2 (spouštěče na zemi, stopy, které si pamatují povrch, vítr z SDF, 300 000 kostí vegetace, meshlety, mlha přes MBOIT) a AC Black Flag Resynced (páry materiálů, zdi ze simulace, falešné interiéry za okny).
 - **[Stavba prostředí: od kompozice po render](env-tvorba.md)** — chiaroscuro test před settingy, 132minutová lesní pěšina v PCG (vegetace, decaly, fyzikální světlo, MRQ), temný les za odpoledne, zvuk a listí jako finální vrstva — a přestavba hororovky, kterou si vynutila Steam stránka.
 
 **Materiály a VFX**

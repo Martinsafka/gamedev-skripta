@@ -436,7 +436,9 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Blend space ve st
 
 Blockout disciplína: grid/metrické materiály (okamžitě vidíš, že vchod je úzký nebo skok dlouhý), konzistentní barevný jazyk (cover jedna barva, traversal jiná) a „level design gym" — referenční mapa metrik sdílená napříč levely. Startovní bod hráče a hlavní landmark se rozhodují ještě před blockoutem.
 
-Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Prototypování](teorie/prototypovani.md)
+Z pohledu environment artu je blockout polovina projektu: rozhoduje o čitelnosti, siluetě a měřítku. Pomáhá test přimhouřených očí a postava ve scéně od prvního dne. Pipeline Naughty Dog ho dotahuje přes průchod hodnot a barvy, ještě než vznikne první materiál.
+
+Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Prototypování](teorie/prototypovani.md) · [Blockout: zastav, omez, porovnej](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Od blockoutu ke kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku)
 
 ### Beautiful corner
 
@@ -624,6 +626,14 @@ Umožňuje vzor **„třída jako data"**: definici položky (název, ikona, pop
 
 Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset) · [Rejstřík: Hard reference](#hard-reference) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus)
 
+### Channel packing
+
+**Uložení několika šedotónových map do kanálů jedné textury, třeba roughness, AO a výšky do R, G a B.**
+
+Šedotónová mapa potřebuje jen jeden kanál, takže tři mapy se vejdou do jedné RGB textury a čtvrtá do alfy. Ušetří se paměť i počet vzorkování v materiálu. Cenou je, že kanály sdílejí rozlišení a kompresi a že materiál musí vědět, co je v kterém kanálu, a proto se rozložení drží jako konvence projektu (třeba ORM: occlusion, roughness, metallic). V UE se pro takovou texturu volí komprese Masks, která vypne sRGB; jinak se hodnoty zkreslí. Workshop o kitech balí roughness, AO a výšku sdíleného tileru do jedné textury a Mortal Shell 2 má podle rozboru herních souborů zabalenou většinu sad textur z Megascans.
+
+Kde se s tím potkáš: [Textury pro kit: dvě textury na kámen](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: PBR](#pbr)
+
 ### Chaos Cloth
 
 **Realtime fyzika látek přes Cloth Asset graf: import meshe → skin weights z těla → weight mapa → config → collider.**
@@ -714,7 +724,7 @@ Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Nápa
 
 Z toho plyne, že o výkon rozhoduje **topologie**: stěna z dlouhých tenkých trojúhelníků je pár velkých clusterů, takže stačí kousek její hrany a musí se rasterizovat celá — i s tím, co je za ní. Rovnoměrně přesíťovaný mesh má clustery rozeseté po ploše a částečně se cullne, dokonce sám sebe. Druhá past: clustery se cullují **podle bounds**, takže do sebe namačkané meshe culling znemožní. Prakticky to znamená, že cluster culling patří do stylového průvodce k modelování, ne do optimalizačního sprintu na konci.
 
-Kde se s tím potkáš: [Overdraw se autoruje](praxe/nanite-do-hloubky.md#overdraw-se-autoruje-ne-opravuje) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Overdraw](#overdraw)
+Kde se s tím potkáš: [Overdraw se autoruje](praxe/nanite-do-hloubky.md#overdraw-se-autoruje-ne-opravuje) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Overdraw](#overdraw) · [Meshlety v Alan Wake 2](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les)
 
 ### Cluster Union
 
@@ -1006,7 +1016,9 @@ Kde se s tím potkáš: [Zdarma a rychle: nástroje a game jam](hudba/nastroje-z
 
 `Spawn Decal at Location` s velikostí a rotací; materiál v režimu deferred decal (translucent). Umístění: bod dopadu + normála × malý offset proti z-fightingu; rotace z normály povrchu, ať decal „leží". S dynamic material instancí jde per decal řídit texturu, barvu i fade-out v čase.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md)
+Decal nemusí být jen promítnutý materiál. Mesh decal je plovoucí geometrie s texturou z atlasu, která přikryje spoj nebo přidá poškození.
+
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Decaly jako spoj kusů](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Alan Wake 2: stopy, které si pamatují](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [AC Black Flag: mesh decaly](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
 
 ### Delegate
 
@@ -1166,7 +1178,7 @@ Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.m
 
 Tisíce draw calls zahltí CPU dřív, než GPU vůbec začne kreslit. Léky: instancing (stejný mesh + materiál = jeden call pro všechny výskyty), trim sheety a atlasy (víc objektů sdílí materiál) a auto-instancing enginu — v UE4 vázaný i na stejnou lightmapu (trik The Ascent: větší lightmapy = −10 % calls). Pro artistu metrika číslo jedna: šetří se návrhem assetů, ne až profilerem.
 
-Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Kit a slučování na konci](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Kitbashing se sdíleným shaderem](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev)
 
 ### Dynamic Material Instance
 
@@ -1198,7 +1210,7 @@ Kde se s tím potkáš: [Vydání hry](teorie/vydani-hry.md)
 
 Složení entity (které fragmenty a tagy má) rozhoduje, které systémy se jí věnují; změna stavu bývá jen přidání nebo odebrání tagu místo události. Data stejného složení leží v paměti za sebou, takže se procházejí levně, a protože každý systém předem deklaruje, co čte a co zapisuje, dají se systémy bez zámků plánovat paralelně. V Unrealu je to [Mass Entity](#mass-entity) — systémům se tam říká procesory a datům fragmenty. Pozor: „komponenta" v ECS je čistá data, ne actor component.
 
-Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Rejstřík: Data-oriented design](#data-oriented-design) · [Rejstřík: Fragment](#fragment)
+Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Rejstřík: Data-oriented design](#data-oriented-design) · [Rejstřík: Fragment](#fragment) · [Northlight v Alan Wake 2](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les)
 
 ### Edit layer
 
@@ -1716,7 +1728,7 @@ Kde se s tím potkáš: [Nástroje zdarma: CDP a SoundThread](hudba/nastroje-zda
 
 Správné použití: testování mechanik a metrik (gameplay prototyp, level blockout), kde by krása jen zkreslovala zpětnou vazbu. Špatné použití: testování prodejnosti a emoce — šedé kostky žádnou nemají, tam patří asset packy a hudba od prvního dne. Rozhodni, kterou otázku prototyp klade, a podle toho zvol formu.
 
-Kde se s tím potkáš: [Prototypování](teorie/prototypovani.md) · [Nápad: prototyp do týdne](teorie/napad.md) · [Prostor a hranice](teorie/prostor-a-hranice.md) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
+Kde se s tím potkáš: [Prototypování](teorie/prototypovani.md) · [Nápad: prototyp do týdne](teorie/napad.md) · [Prostor a hranice](teorie/prostor-a-hranice.md) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [Blockout z pohledu env artu](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist)
 
 ### Groom
 
@@ -1764,7 +1776,7 @@ Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt
 
 Ve world-partition světech se staví po streamovacích buňkách a vyplatí se u něj zaškrtnout *use render LOD meshes*, aby se do sloučení použily fallback meshe místo plných Nanite dat (jinak dojde paměť při buildu). Méně zřejmé použití: **skrytá HLOD proxy, která pořád vrhá stín** — scéna pak má stovky stín vrhajících primitiv místo desetitisíců, což je zásadní tam, kde se nedá spolehnout na Nanite a virtuální stíny.
 
-Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite)
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite) · [Proxy v Beauclair](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt)
 
 ### Hitch resiliency
 
@@ -1773,6 +1785,14 @@ Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-m
 Plná pipeline v Unrealu drží šest snímků v enginu a dva v hardwaru; hotová práce v back bufferech je rezerva, ze které se dá dohnat i zásek přes tři snímky rozpočtu. Cena je latence (šest snímků × frame time: ~200 ms na 30 FPS, ~100 na 60, ~50 na 120). Zkrátíš-li potrubí kvůli latenci, rezervu zahodíš — a to je v pořádku **jen když rozpočet skutečně držíš**, jinak snímky začnou padat. Tichá vedlejší cena i při úspěšném pohlcení: [jitter](#jitter).
 
 Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Rejstřík: Input latency](#input-latency) · [Rejstřík: Jitter](#jitter) · [Rejstřík: Hitch](#hitch)
+
+### Hot reload
+
+**Načtení změněného kódu nebo assetu do běžící hry bez restartu.**
+
+Změna se projeví hned, bez nového buildu a bez ztráty stavu hry, takže iterace trvá vteřiny místo minut. U assetů, jako jsou textury, meshe nebo data, je to běžné. U kódu je to těžší, protože se musí vyměnit funkce v běžícím procesu. Unreal pro C++ používá Live Coding, který přeloží změněné soubory a záplatuje běžící editor; starší mechanismus se jmenoval přímo Hot Reload a měl pověst nespolehlivého. Engine 007 First Light tvoří editor, runtime a resource server, takže hot reload funguje i napříč několika běžícími hrami. Neplést s [Live coding](#live-coding) v hudbě.
+
+Kde se s tím potkáš: [007 First Light: editor zvlášť od hry](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Trunk-based development](#trunk-based-development)
 
 ### HUD
 
@@ -1962,6 +1982,14 @@ Jeden asset (mesh lampy) → stovky instancí (lampy po celé mapě). Rozlišen�
 
 Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Rejstřík: Item Instance](#item-instance) *(jiný význam)*
 
+### Interior mapping
+
+**Shaderová iluze místnosti za oknem: interiér se promítne z textury podle úhlu pohledu a za sklem žádná geometrie není.**
+
+Okno je jedna plocha. Klasická varianta spočítá v pixel shaderu, kde paprsek pohledu protne virtuální krabici místnosti, a vzorkuje její stěny, podlahu a strop z textury. Jednodušší varianty jen posunou plochou texturu interiéru parallaxem. Hloubka vznikne bez jediného polygonu navíc, a proto se tak plní okna celých měst. Variaci mezi okny dodá náhodný výběr místnosti, jasu nebo rozsvícení podle denní doby. V UE na to existuje material function InteriorCubemap.
+
+Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping)
+
 ### ISM
 
 **Instanced Static Mesh — shodná geometrie vykreslená jedním draw callem místo jednoho na kopii.**
@@ -2082,6 +2110,14 @@ Klávesnice nemá vodič ke každé klávese — má matici řádků a sloupců.
 
 Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
 
+### Kitbashing
+
+**Skládání nových objektů z dílů existujících kitů, třeba architektury a trubek, místo modelování od nuly.**
+
+Termín pochází z modelářství, kde se z dílů různých stavebnic lepily nové modely. Ve hrách z kombinace dvou kitů vzniknou nové kusy a sdílené materiály pomůžou, aby k sobě pasovaly. Je to levné na výrobu i na paměť, protože nepřibývají nové textury. Rizikem je opakování a díly, které na sebe nesedí, a proto se švy kryjí stejnými spoji jako u kitů.
+
+Kde se s tím potkáš: [Organický kit a spoje: kitbashing](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Rejstřík: Modular kit](#modular-kit)
+
 ### Knockback
 
 **Odhození zasaženého směrem od útoku — potvrzení, že rána měla sílu.**
@@ -2160,7 +2196,9 @@ Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
 V postupu „landmark napřed": startovní bod hráče a hlavní point of interest jsou první dvě rozhodnutí návrhu levelu, ještě před blockoutem — dávají měřítko, směr a osu pro pacing a vertikalitu. Cestou k landmarku pak vedou funneling (zúžení prostoru), leading lines a světlo.
 
-Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+Ve Witcher 3: Blood and Wine má landmark i technický úkol. Ulice ústí na výhled k němu a stavba, která vede hráče, zároveň zkracuje průhledy a šetří streamování.
+
+Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Beauclair: orientační body](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt)
 
 ### Landscape
 
@@ -2234,7 +2272,7 @@ Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe
 
 Persistent level je rám; sub-levely (`Window → Levels`) se nahrávají přes Level Streaming Volumes nebo uzly Load/Unload Streaming Level, asynchronně — hra mezitím žije. Detaily: *loaded* ≠ *visible* (neviditelný level drží paměť); streaming volume musí ležet v persistent levelu; persistent nejde unloadnout (trik: veškerý obsah do sub-levelu „Base"). Pro open worldy je nástupcem World Partition.
 
-Kde se s tím potkáš: [Levely a streaming](praxe/levely-a-streaming.md)
+Kde se s tím potkáš: [Levely a streaming](praxe/levely-a-streaming.md) · [Beauclair: clony pro streamování](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Mortal Shell 2: úzké průchody](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### LFO
 
@@ -2326,6 +2364,14 @@ Pojem z psychologie: výchova, kde motivaci vždy dodával někdo zvenčí, pěs
 
 Kde se s tím potkáš: [Produktivita](teorie/produktivita.md)
 
+### LOD
+
+**Level of Detail: jednodušší verze meshe, které engine střídá podle vzdálenosti nebo velikosti na obrazovce.**
+
+LOD0 je plná verze, LOD1, LOD2 a další mají méně trojúhelníků a často i levnější materiál. Přepínání šetří geometrii i paměť, ale bez dobrého přechodu je vidět doskakování (popping); clony a zakřivené ulice ho dokážou schovat. Vzdálená náhrada celé skupiny objektů je [HLOD](#hlod), Witcher 3 jí říká proxy. Nanite v UE5 nahrazuje ruční LODy průběžnou volbou detailu. Kde Nanite použít nejde, a v jiných enginech, se LODy dělají dál.
+
+Kde se s tím potkáš: [Beauclair: streamování LODů](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [007 First Light: mech podle vzdálenosti](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: HLOD](#hlod) · [Rejstřík: Nanite](#nanite)
+
 ### Look ahead
 
 **Předsazení kamery směrem, kam se hráč dívá nebo poletí — kamera sleduje pozornost, ne sprite.**
@@ -2364,7 +2410,7 @@ Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
 Orientační rozpočet od Epicu: **~4 ms na 60 FPS, ~8 ms na 30**. Ověřuje se operativně — vypni ho (`r.DynamicGlobalIlluminationMethod 0`, `r.ReflectionMethod 0`) a změř, o kolik se snímek zrychlí; to je jeho skutečná cena, protože v profileru je rozprostřený do víc položek (scene lighting, diffuse indirect a AO, reflections). Ladí se ve dvou větvích: **screen traces** (hodnoty z pixelů na obrazovce) proti **world traces** (z Lumen scény) — vypnutí screen traces je nejrychlejší způsob, jak zjistit, kterou půlku prohledávat.
 
-Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite)
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite) · [Mortal Shell 2: osekaný rozpočet](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### Ludonarativní disonance
 
@@ -2381,6 +2427,14 @@ Kde se s tím potkáš: [Ludotematický soulad](teorie/ludonarativni-soulad.md)
 Videohry dnes potřebují obojí — když hra působí holá, má často moc ludus a málo paidia. Expresivní mechaniky (emoty, hlouposti bez užitku) jsou paidia vrstva nad pravidly. Od téhož autora pochází i čtveřice agon/alea/mimicry/ilinx.
 
 Kde se s tím potkáš: [Systémy a mechaniky](teorie/systemy-a-mechaniky.md) · [Zábava: taxonomie a pilíře](teorie/zabava.md)
+
+### LUT
+
+**Look-up table: tabulka, která přemapuje barvy obrazu na jiné, ve hrách typicky pro barevné ladění (color grading) v postprocesu.**
+
+Ve hrách je to obvykle malá textura, třeba 16 × 16 × 16 barev rozložených do pruhu, ve které každá vstupní barva najde svou výstupní. Grading se tak připraví v grafickém programu na screenshotu a engine ho levně aplikuje na celý snímek. UE ji bere v Post Process Volume jako Color Grading LUT. V rozboru pipeline Naughty Dog ji autor zmiňuje u posledního kroku, postprocesu, a Mortal Shell 2 má podle rozboru přes 25 LUTů.
+
+Kde se s tím potkáš: [Hybridní blockout: postprocess](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### Markerless mocap
 
@@ -2452,7 +2506,7 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Mass a ECS: 
 
 Se vstupem a výstupem typu material attributes funguje jako vrstva: materiál postavy → funkce (decay, sníh, mokro) → výstup. Uvnitř Get/Set Material Attributes upraví jen vybrané atributy, zbytek proteče beze změny. Jedna funkce pro celý projekt znamená i opravy na jednom místě.
 
-Kde se s tím potkáš: [Materiály](praxe/materialy.md)
+Kde se s tím potkáš: [Materiály](praxe/materialy.md) · [Kámen ze čtyř vrstev](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### Matice
 
@@ -2508,7 +2562,15 @@ Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#
 
 Místo aby každé světlo platilo plnou cenu za stíny a výpočet, MegaLights je vzorkuje sdíleně, takže se desítky až stovky dynamických světel stanou realistickou volbou. Pro workflow, kde se scéna maluje z mnoha malých zdrojů místo jednoho směrového světla, je to zásadní rozdíl.
 
-Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel)
+Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel) · [Jiná cesta v 007 First Light](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka)
+
+### Megascans
+
+**Knihovna fotogrammetrických skenů povrchů, skal a vegetace od Quixelu (Epic), dnes dostupná přes Fab.**
+
+Skeny jsou kalibrované pro PBR, takže z nich i malý tým dostane realistický povrch bez vlastního skenování. Protože je používá spousta her i studentských prací, hrozí, že všechno vypadá stejně. Mortal Shell 2 ukazuje, že rozdíl dělá přizpůsobení: vlastní shadery, masky, LUTy a malá knihovna tilerů. Workshop o kitech je bere jako referenci tvarů pro kupky.
+
+Kde se s tím potkáš: [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Organický kit: kupky](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Rejstřík: Asset pack](#asset-pack) · [Rejstřík: PBR](#pbr)
 
 ### Mesh distance field
 
@@ -2516,7 +2578,15 @@ Kde se s tím potkáš: [Osvětlení: malovat světlem](praxe/osvetleni.md#malov
 
 Zapíná se v project settings, kontroluje vizualizačním viewmodem. Uzel Distance to Nearest Surface na něm staví efekty obtékající objekty: mlha plazící se po zdech, sníh u stěn, ohořelé okraje. Stejná data pohání distance field stíny a AO.
 
-Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Rejstřík: Global Distance Field](#global-distance-field)
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Rejstřík: Global Distance Field](#global-distance-field) · [007 First Light: GI proti distance fields](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka)
+
+### Meshlet
+
+**Malý shluk trojúhelníků (třeba 64 trojúhelníků a 64 vrcholů), na které se rozdělí mesh, aby se dal ořezávat a kreslit po kouscích.**
+
+Každý meshlet nese obal, typicky kouli a kužel normál, takže GPU může zahodit kousky mimo záběr, zakryté nebo odvrácené dřív, než je vykreslí. Je to stavební kámen mesh shaderů a virtualizované geometrie: Nanite stojí na stejném principu se svými clustery a navrch má hierarchii detailu. Alan Wake 2 má v ukázkové scéně kolem 4 milionů meshletů a u skinované vegetace jejich obaly přepočítává compute shaderem.
+
+Kde se s tím potkáš: [Alan Wake 2: meshlety](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Rejstřík: Cluster culling](#cluster-culling) · [Rejstřík: Nanite](#nanite)
 
 ### Mesh to MetaHuman
 
@@ -2599,6 +2669,14 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
 Filozofie „scéna je recept, ne výsledek" — známá z Houdini, Geometry Nodes či modifierů v Blenderu. Mesh Terrain na ní staví celé tvarování: brush, noise, spline, texture, mesh, boolean a remesh modifiery se skládají podle priorit a blend módů. Cena: recept se musí přepočítávat (build cost, FPS propady při editaci). Výhoda: žádné rozhodnutí není konečné.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
+
+### Modular kit
+
+**Sada dílů na společné mřížce (stěny, podlahy, sloupy, okna), ze kterých se skládají scény jako z lega.**
+
+Kusy sdílejí rozměry, pivoty a materiály, takže zacvaknou k sobě a texturují se sdílenými tilery a trimy. Kit začíná co nejmenším počtem kusů a roste hlavně v konkrétních situacích: opakování, detail, nový prvek, destrukce. Velikost kusu se řídí velikostí prostředí, u města je kusem klidně celé patro. Nevýhodou je hodně objektů a draw callů, proto se kusy na konci produkce někdy slučují. Pevný kit řeší švy, organický snese kusy zabořené do sebe.
+
+Kde se s tím potkáš: [Kit jako lego](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: kit radnice](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Rejstřík: Trim sheet](#trim-sheet) · [Rejstřík: Kitbashing](#kitbashing)
 
 ### Montage section
 
@@ -2730,7 +2808,7 @@ Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kd
 
 Prakticky ruší ruční LOD řetězce — mesh se subdivuje a redukuje průběžně, po clusterech, podle toho, co kamera reálně vidí. Mesh Terrain je na Nanite postavený; právě adaptivní subdivize je jeden z důvodů, proč zvládá větší plochy než starý Landscape. Po editaci terénu se Nanite reprezentace přestavuje — proto FPS propad během úprav a krátký build po odkliknutí.
 
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Ze 100 na 200 FPS: základní cena Nanitu](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre)
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Ze 100 na 200 FPS: základní cena Nanitu](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre) · [Mortal Shell 2: Nanite a kity](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Meshlety v Alan Wake 2](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les)
 
 ### Narrative design
 
@@ -2790,7 +2868,7 @@ Kde se s tím potkáš: [Interaktivní voda](praxe/interaktivni-voda.md)
 
 Vzniká nejčastěji bakem z high-poly modelu na low-poly mesh: detail vysochaný v sochacím programu se promítne do textury. Spolu s height mapou (jak moc části vystupují) a barvou tvoří základní trojici map, ze které se skládá materiál.
 
-Kde se s tím potkáš: [Herní art: character art](teorie/art-pipeline.md) · [Materiály v UE](praxe/materialy.md)
+Kde se s tím potkáš: [Herní art: character art](teorie/art-pipeline.md) · [Materiály v UE](praxe/materialy.md) · [Unikátní normála s maskami](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen)
 
 ### Normalizace vektoru
 
@@ -2823,6 +2901,14 @@ Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md)
 YouTube zvoneček jako architektura: subscribe/unsubscribe u zdroje, notify při události. V UE je to doslova Event Dispatcher (bind/unbind/call). Pozor na event callback hell — událost spouštějící událost spouštějící událost.
 
 Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md)
+
+### Occlusion culling
+
+**Vyřazení objektů, které jsou v záběru, ale schované za jinými, dřív, než je GPU začne kreslit.**
+
+Frustum culling zahodí, co je mimo pohled, occlusion culling to, co zakrývá něco bližšího, třeba dům za zdí. Dělá se předpočítaně (Witcher 3 na to měl middleware Umbra), nebo za běhu z hloubky a hrubých obalů. V Unrealu je dynamická okluze zapnutá standardně a Nanite ořezává po clusterech. Funguje jen tehdy, když level má co zakrývat, a proto jsou clony a zakřivené ulice i výkonové rozhodnutí.
+
+Kde se s tím potkáš: [Beauclair: Umbra a clony](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Alan Wake 2: culling po stupních](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Rejstřík: Cluster culling](#cluster-culling) · [Rejstřík: Visual blocker](#visual-blocker)
 
 ### Oktáva
 
@@ -2879,6 +2965,14 @@ Kde se s tím potkáš: [Zápisky: derivační řetěz IZBY](zapisky/derivace-iz
 Často to, co odděluje začátečnicky znějící kus od profesionálního — ale má přijít až po zvládnutí melodie, harmonie a kontrapunktu, jinak „orchestruješ prázdno". V herní hudbě obdoba výběru a vrstvení zvuků a sound fontů.
 
 Kde se s tím potkáš: [Cesta skladatele: sedm pilířů](hudba/cesta-skladatele.md)
+
+### Order-independent transparency
+
+**Kreslení průhledných ploch tak, aby výsledek nezávisel na pořadí, ve kterém je GPU dostane (zkratka OIT).**
+
+Běžná průhlednost se musí řadit odzadu dopředu a u protínajících se ploch, částic v mlze nebo víc vrstev skla to selhává: vrstvy problikávají nebo se kreslí ve špatném pořadí. OIT místo řazení ukládá nebo aproximuje příspěvky všech vrstev v pixelu a skládá je dohromady. Varianta založená na momentech (MBOIT) drží v Alan Wake 2 pohromadě mlhu, průhlednou geometrii a efekty. Systém Smolder v 007 First Light díky OIT prolíná objemy s průhlednými objekty. Cenou je paměť a výpočet navíc.
+
+Kde se s tím potkáš: [Alan Wake 2: mlha a průhlednost](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [007 First Light: Smolder](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Overdraw](#overdraw)
 
 ### Oscilátor
 
@@ -2950,7 +3044,7 @@ Kde se s tím potkáš: [Level editor, který nakonec nebyl level editor](godot/
 
 Levnější než displacement (žádná tessellace), ale na hraně meshe „uřízne" — siluetu neumí; varianty silhouette POM a screen space displacement to řeší až přepisem hloubky v Z-bufferu. Základ kamenných zdí Crimson Desert i kované brány v TLOU (geometrii má jen rám, ornament je textura). Cena: flickering a wobble při ostrých úhlech kamery.
 
-Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [AC Black Flag: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
 
 ### Pareto distribuce
 
@@ -3008,7 +3102,7 @@ Kde se s tím potkáš: [AI vnímání](praxe/ai-vnimani.md) · [Základy AI](pr
 
 Standard herních materiálů — povrch reaguje na libovolné světlo správně, protože mapy nesou vlastnosti, ne výsledek. Proto dobrá textura nemá zapečené světlo ani stíny z reference (světlo dodá engine) a proto se AI generátorům PBR dogenerování vyplatí. Mapy nemusí sdílet rozlišení: roughness snese polovinu albeda.
 
-Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [Textury a DLSS](praxe/textury-a-dlss.md)
+Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [Textury a DLSS](praxe/textury-a-dlss.md) · [Barva v mezích PBR už v blockoutu](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy)
 
 ### PCG
 
@@ -3074,7 +3168,7 @@ Surface typy se definují v Project Settings (Physical Surface, až 62 + Default
 
 Physical materials na tělech physics assetu fungují i jako adresa zásahu: jméno materiálu z hit resultu řekne, kterou končetinu rána zasáhla.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Alan Wake 2: spouštěče podle povrchu](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les)
 
 ### Physics Asset
 
@@ -3140,7 +3234,7 @@ Kde se s tím potkáš: [Kamera](teorie/kamera.md)
 
 Nekonzistentní pivoty mezi asset packy rozbíjejí sockety (každá zbraň sedí v ruce jinak) i navazování dílců. Oprava bez DCC: modeling mode → Transform → Edit Pivot, přijmout a instance v levelu vyměnit. U kyvadel a pák je pivot přímo herní mechanika — bod závěsu určuje dráhu.
 
-Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Pasti a mechaniky](praxe/pasti-a-mechaniky.md)
+Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Pasti a mechaniky](praxe/pasti-a-mechaniky.md) · [Pivoty kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku)
 
 ### Pivot (design)
 
@@ -3286,6 +3380,14 @@ Cíl je zhruba o polovinu doby odezvy za serverem, takže serverové události, 
 
 Kde se s tím potkáš: [Rozbití v multiplayeru](praxe/destrukce-a-latky.md#rozbiti-v-multiplayeru-predictive-interpolation-misto-predikce) · [Rejstřík: Resimulation](#resimulation)
 
+### Prefab
+
+**Uložená skupina objektů i s nastavením, kterou jde opakovaně vkládat do scény jako jeden celek.**
+
+Termín je z Unity a dalších enginů. Prefab může nést i logiku a změna ve vzoru se propíše do všech kopií. V Unrealu tu roli plní Blueprint aktor, [Level instance](#level-instance) nebo [Packed Level Actor](#packed-level-actor). Witcher 3 tak zařizoval interiéry a tržní stánky z hotových balíčků deco týmu, v 007 First Light je obdobou template, sbírka entit včetně logiky.
+
+Kde se s tím potkáš: [Beauclair: dekorace jako balíčky](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [007 First Light: entita, template, brick](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Level instance](#level-instance) · [Rejstřík: Packed Level Actor](#packed-level-actor)
+
 ### Premature optimization
 
 **Optimalizace před důkazem, že je potřeba — přepis na ECS ve hře, která běží na 200 FPS.**
@@ -3372,7 +3474,7 @@ Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.
 
 Zásky z kompilace shaderů obstarává **procesor**, ne grafika, takže je rychlá grafická karta nespraví. Konzole je nemají tak zlé, protože hardware je ve všech kusech stejný a dá se zkompilovat jednou a rozdat předpřipravené; na PC to nelze. Řešení jsou dvě a nevylučují se: **bundlovat** PSO a **předcache**. Při testování je potřeba **mazat cache**, jinak lokálně neuvidíš, že s tím je problém.
 
-Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani)
+Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Mortal Shell 2: předkompilace](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### Pure function
 
@@ -3784,6 +3886,14 @@ Pracuje s [level sequences](#level-sequence): stopy actorů (transform, animace,
 
 Kde se s tím potkáš: [Cutscény](praxe/cutsceny.md) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
 
+### Set dressing
+
+**Zaplnění hotového prostoru drobnými propy a detaily, které mu dají příběh a život: nábytek, nádobí, nepořádek.**
+
+Přichází po stavbě z kitu a v něm vzniká velká část vyprávění prostředím: kdo tu bydlel a co se tu stalo. Kvůli rychlosti se často staví z předpřipravených balíčků ([prefabů](#prefab)). V rozboru Alan Wake 2 patří spolu s kity a vyprávěním prostředím k základům, které technologie artistovi nebere.
+
+Kde se s tím potkáš: [Alan Wake 2: lekce](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Beauclair: dekorace jako balíčky](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Rejstřík: Prefab](#prefab)
+
 ### Set Timer by Event
 
 **Uzel, který po zadané době (jednou, nebo opakovaně) zavolá event — časovač místo Delay nebo Event Ticku.**
@@ -3870,7 +3980,7 @@ Kde se s tím potkáš: [Velký nepřítel na malém agentovi](praxe/ai-ve-velke
 
 V prostředí siluety vyrábí kontrast světla a stínu (chiaroscuro): žádný kontrast = žádné tvary = „proč to vypadá špatně, když mám Nanite?". Test: screenshot → odbarvit → levels stáhnout na černobílou; když nezbydou čitelné plochy světla a tmy, žádný setting scénu nezachrání. U assetů rozhoduje silueta o rozpoznatelnosti víc než textury.
 
-Kde se s tím potkáš: [Stavba prostředí](praxe/env-tvorba.md) · [Breakdowny](praxe/env-breakdowny.md)
+Kde se s tím potkáš: [Stavba prostředí](praxe/env-tvorba.md) · [Breakdowny](praxe/env-breakdowny.md) · [Blockout se soudí podle siluety](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist)
 
 ### Simulated annealing
 
@@ -3943,6 +4053,14 @@ Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 Zdroje projektu nejsou jen čas a peníze — hlavně schopnosti. Audit vyřadí 90 % nápadů a zbydou proveditelné: máš ilustrátora bez animátora → hra s mluvícími portréty (Dredge nemá walk cycle, Mini Metro nemá postavy — dohromady přes 6 milionů kopií). Tvrdší varianta otázky: co neumím tak, že to do projektu nesmí?
 
 Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md) · [Scope: rozpočet pozornosti](teorie/scope.md)
+
+### Skirt
+
+**Pruh geometrie kolem spodku kusu, který přechází do země a skrývá ostrý šev mezi objektem a terénem.**
+
+Sukně nese materiál, který se prolne s podkladem, třeba hlínu nebo mech, takže kus nevypadá postavený na zem, ale zasazený do ní. Ve workshopu o kitech je to jeden ze čtyř texturových spojů vedle vertex blendingu, decalů a světové projekce.
+
+Kde se s tím potkáš: [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Textury pro kit: sendvič](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen)
 
 ### Smart Object
 
@@ -4288,13 +4406,37 @@ V Mesh Terrainu ve dvou podobách: adaptivní teselace texture modifieru (zjemn�
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
+### Texel density
+
+**Kolik pixelů textury připadá na jednotku plochy ve scéně, typicky v pixelech na metr.**
+
+Když mají sousední objekty rozdílnou hustotu, jeden vypadá ostře, druhý rozmazaně a je hned vidět, že k sobě nepatří. Studia proto volí jednu cílovou hodnotu; workshop o kitech pracuje s 512 px na metr, takže kus dlouhý 4 m odpovídá 2K textuře. Hustotu rozbije libovolné škálování kusů. Nízkou hustotu unikátní textury lze dorovnat opakováním tileru v materiálu. Witcher 3 ji v DLC Blood and Wine zdvojnásobil, a proto musel šetřit jinde.
+
+Kde se s tím potkáš: [Kit jako lego: mřížka v metrech](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Textury pro kit](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [Beauclair: jeden shader na čtvrť](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Rejstřík: UV mapping](#uv-mapping)
+
+### Texture array
+
+**Sada textur stejné velikosti a formátu uložená jako jeden objekt, ze kterého shader vybírá vrstvu indexem.**
+
+Na rozdíl od atlasu se vrstvy nepřelévají přes okraje a mipmapy fungují pro každou zvlášť. Shader tak drží mnoho sad textur v jednom vzorkovači a vybírá z nich třeba hodnotou z vertex color. Witcher 3 tak oblékal bohatou čtvrť Beauclair: barvu, normálu, roughness i masku sad textur měl v texture arrays. V UE existuje jako asset Texture 2D Array.
+
+Kde se s tím potkáš: [Beauclair: jeden shader na čtvrť](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Rejstřík: Texture atlas](#texture-atlas) · [Rejstřík: Vertex painting](#vertex-painting)
+
 ### Texture atlas
 
 **Jedna textura, ve které leží vedle sebe povrchy pro mnoho objektů nebo částí modelu.**
 
 Snižuje počet materiálů a tím i draw callů: místo dvaceti textur po 128 pixelech jedna 512, ve které si každá stěna vezme svůj výřez. Příbuzný trim sheetu, ale bez jeho pásové logiky — atlas je prostě mozaika. Cenou je ruční práce s UV a nutnost hlídat okraje, aby se sousední výřezy nepromíchaly filtrováním.
 
-Kde se s tím potkáš: [PS1 estetika](praxe/ps1-estetika.md#textura-dela-styl-rozliseni-kontrast-a-nearest) · [Rejstřík: trim sheet](#trim-sheet)
+Kde se s tím potkáš: [PS1 estetika](praxe/ps1-estetika.md#textura-dela-styl-rozliseni-kontrast-a-nearest) · [Rejstřík: trim sheet](#trim-sheet) · [AC Black Flag: atlas mesh decalů](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
+
+### Tileable texture
+
+**Textura, která na sebe navazuje ve všech směrech, takže se dá opakovat přes libovolně velkou plochu (tiler).**
+
+Jedna textura pokryje stěny, podlahy i skály celého prostředí, a proto je základem texturování kitů: nejdřív tilery, pak trimy a unikátní textury jen tam, kde nic jiného nestačí. Slabinou je viditelné opakování, které se rozbíjí vertex paintingem, decaly a sendvičem s trimy. Na kusech postavených na metrové mřížce tiler mezi kusy většinou naváže bez starostí. Neplést s [Tile set](#tile-set) z 2D her.
+
+Kde se s tím potkáš: [Textury pro kit](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Mortal Shell 2: málo tilerů](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Trim sheet](#trim-sheet) · [Rejstřík: Texel density](#texel-density)
 
 ### Tile set
 
@@ -4327,6 +4469,14 @@ Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md
 Protože jde o chybu, ne o procento, přizpůsobí se sama různě hustým meshům a hodí se i tam, kde [Keep Triangle Percent](#keep-triangle-percent) škodí — hlavně na listí, kde ubírání po procentech rozpojí větve. V příkladu z kapitoly o Nanitu stačila hodnota 0,1 bez viditelné ztráty a 0,5 už byla moc; na vlastních meshích je ale potřeba hodnoty ověřit.
 
 Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Rejstřík: Nanite](#nanite)
+
+### Triplanar projection
+
+**Promítnutí textury ze tří os světa místo UV, s prolnutím podle normály, takže textura sedí na jakkoli natočený tvar.**
+
+Shader vzorkuje texturu shora, zepředu a z boku a míchá výsledky podle toho, kam plocha míří. Hodí se na skály, terén a světovou projekci sněhu nebo mechu přes všechno, protože nepotřebuje UV a nedělá švy. Cenou jsou tři vzorkování místo jednoho a rozmazané přechody na šikmých plochách. V UE je na to material function WorldAlignedTexture.
+
+Kde se s tím potkáš: [Organický kit a spoje: světová projekce](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Mortal Shell 2: material functions](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Material function](#material-function)
 
 ### Tritón
 
@@ -4406,7 +4556,17 @@ Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Interakce 
 
 Jedna textura obslouží stovky modelů — draw calls i VRAM klesají řádově. Varianta baked bevel (TLOU): modely hard-edge v 90° úhlech a všechno zaoblení dodá normal mapa trimu. Bonusové triky: UV přeložené přes roh trimu = falešný bevel bez geometrie, bílý trim + color parametr = přebarvitelnost. Základ produkce od The Ascent po San Francisco 1:1.
 
-Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
+Trim se navrhuje s kitem, ne po něm. Workshop o kitech ho staví přímo z geometrie kitu, a aby zkosení na sebe navazovala, musí se potkat hrany stejného druhu. Pro unikátní hero asset a nepravidelné organické tvary obvykle dává větší smysl vlastní textura.
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Trim z vlastní geometrie](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [AC Black Flag: lodě](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
+
+### Trunk-based development
+
+**Vývoj, ve kterém všichni odevzdávají do jedné hlavní větve často a po malých krocích, místo dlouhých oddělených větví.**
+
+Konflikty se řeší průběžně a hlavní větev je pořád blízko hratelnému stavu. Potřebuje to ale automatické buildy a testy, které rozbití chytí hned. IO Interactive tak u 007 First Light skládá nový build editoru zhruba po každých 10 až 15 odevzdáních, tedy každých 15 až 30 minut.
+
+Kde se s tím potkáš: [007 First Light: iterace jako zásada](praxe/env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) · [Rejstřík: Hot reload](#hot-reload)
 
 ### TSR
 
@@ -4510,7 +4670,7 @@ Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md#utility-ai-rozhodovani
 
 U a V jsou souřadnice v textuře (obdoba X a Y), takže UV mapa je model rozstřižený a rozložený do roviny. Automatické rozbalení je rychlé, ale u stylizovaných assetů se UV umisťují ručně — a pak je to samo o sobě tvůrčí rozhodnutí: tatáž geometrie s jinými UV je jiný objekt.
 
-Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-obtahnout-promitnout) · [PS1 estetika](praxe/ps1-estetika.md#model-a-uv-po-stenach-krychle-quady-a-fotky-narovnane-do-obdelniku) · [Rejstřík: trim sheet](#trim-sheet)
+Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-obtahnout-promitnout) · [PS1 estetika](praxe/ps1-estetika.md#model-a-uv-po-stenach-krychle-quady-a-fotky-narovnane-do-obdelniku) · [Rejstřík: trim sheet](#trim-sheet) · [Rozbalení na mřížce a na trim](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Hrany, které navazují](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne)
 
 ### UX
 
@@ -4519,6 +4679,30 @@ Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-
 Předchází UI: nejdřív se mapuje cesta hráče a minimalizuje počet nutných akcí, teprve pak se staví vizuál. U malých týmů je to jedna role, a právě proto se vyplatí držet obě zadání oddělená — jinak se optimalizuje vzhled obrazovky, která neměla vzniknout.
 
 Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
+
+### Value pass
+
+**Krok blockoutu, ve kterém dostanou plochy různé odstíny šedi, aby se oddělily tvary a scéna získala hloubku.**
+
+Na rozdíl od jednotné 50% šedé nutí rozhodnout, co má být světlejší a co tmavší. Autor rozboru pipeline Naughty Dog k tomu radí oddělit vodorovné plochy od svislých. Naughty Dog použil kolem deseti odstínů, pro začátek stačí tři nebo čtyři. Hodnota, tedy šerosvit, je nejsilnější typ kontrastu, a proto ji blockout drží i bez barvy. Po value passu přichází průchod barvy.
+
+Kde se s tím potkáš: [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Zastav, omez, porovnej: šedá jako hodnota](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Rejstřík: Blockout](#blockout)
+
+### Vertex painting
+
+**Malování hodnot do vrcholů meshe (vertex color), podle kterých materiál prolíná vrstvy, třeba kámen, mech a špínu.**
+
+Každý vrchol nese až čtyři kanály (RGBA) a materiál je čte jako masky, takže stejný mesh bez nových textur vypadá na každém místě jinak. Přechod je ale jen tak jemný, jak hustá je geometrie, a proto mají modely určené k malování plochy rozdělené i tam, kde by tvar vrcholy nepotřeboval. Aby přechod nebyl jen rozmazaný, míchá se často podle výškové mapy (HeightLerp), takže štěrk vyleze z bláta nejdřív na hrbolech. V UE se maluje v Mesh Paint módu nebo v Modeling Tools.
+
+Kde se s tím potkáš: [Nanite displacement](praxe/materialy.md#nanite-displacement-relief-malovany-vertex-colorem) · [Textury pro kit](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: jeden shader na čtvrť](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [AC Black Flag: páry materiálů](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Naughty Dog: hustota geometrie](praxe/env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani)
+
+### Visual blocker
+
+**Prvek levelu, který záměrně zkrátí průhled, třeba budova, zeď nebo zatáčka, aby řídil, co hráč vidí, a tím i co se musí načíst.**
+
+Dlouhé průhledy jsou drahé, protože engine musí vykreslit a mít v paměti všechno, co je vidět. Clona je přeruší a dá streamování čas nahrát další část. Částečná clona nechá něco prosvítat, takže hráč ví, že tam něco je, a navíc schová doskakování LODů. Dobře postavená clona je zároveň level design: rámuje výhled a vede k orientačnímu bodu. Úzké průchody v Mortal Shell 2 mají stejný úkol.
+
+Kde se s tím potkáš: [Beauclair: clony](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Mortal Shell 2: výkon začíná u designu](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Landmark](#landmark) · [Rejstřík: Occlusion culling](#occlusion-culling) · [Rejstřík: Level streaming](#level-streaming)
 
 ### Visual Logger
 
@@ -4686,7 +4870,7 @@ Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velk
 
 Slouží k větru v listí, vlnám a podobným deformacím a je to **programovatelná rasterizace**, tedy v Nanite světě výrazně dražší cesta. Dvě pole, která k němu vždycky patří: **WPO disabled distance** (za ní se přepne na rychlou fixed-function cestu) a u listí **shadow cache invalidation behavior**, protože pohybující se vrcholy jinak invalidují stínovou cache každý snímek. Diagnostika: Nanite visualization → *Evaluate WPO*; zelená znamená, že se vyhodnocuje.
 
-Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
+Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [AC Black Flag: okna s náhodnou místností](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
 
 ### Water Body
 

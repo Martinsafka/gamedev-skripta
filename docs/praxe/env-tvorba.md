@@ -20,7 +20,7 @@ Praktická strana environment artu: nejdřív **proč scéna vypadá dobře** (d
 
 > **Pozn.:** Tentýž princip z opačné strany popisuje [RE Requiem breakdown](env-breakdowny.md#re-requiem-realismus-je-vrstveni) (kontrast směrového světla definuje tvar a hloubku) a z herně-designové strany [vedení hráče](../teorie/vedeni-hrace.md) — světlo je vodicí čára. Chiaroscuro test si zaslouží místo v rutině: levné, rychlé, nemilosrdné.
 
-**Souvislosti:** [RE Requiem](env-breakdowny.md#re-requiem-realismus-je-vrstveni) · [Teorie: vedení hráče](../teorie/vedeni-hrace.md) · [Rejstřík: silueta](../rejstrik.md#silueta)
+**Souvislosti:** [RE Requiem](env-breakdowny.md#re-requiem-realismus-je-vrstveni) · [Teorie: vedení hráče](../teorie/vedeni-hrace.md) · [Rejstřík: silueta](../rejstrik.md#silueta) · [Zastav, omez, porovnej](blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) *(tytéž tvary a hodnoty už v blockoutu)*
 
 ---
 

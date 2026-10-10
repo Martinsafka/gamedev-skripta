@@ -46,7 +46,7 @@ Pět pohledů pod kapotu velkých světů — od sólo rekonstrukce San Francisc
 
 > **Pozn.:** Video rámuje i kariérní lekce: škola učí ladit hero asset donekonečna, průmysl žije z limitů — staré enginy, chybějící dokumentace, komunikace místo dokonalosti. A prakticky: 4K texturu většinou nepotřebuješ a roughness klidně snese poloviční rozlišení než albedo [(20:42)](https://www.youtube.com/watch?v=a78WoZeZGqI&t=1242s). Jména (Tor Frick, Magnus Larsen) pocházejí z auto-titulků přepisu — psaná podoba ověřena podle veřejných GDC/ArtStation materiálů zmíněných ve videu.
 
-**Souvislosti:** [TLOU: trim sheety](#tlou-trim-sheet-ktery-nahradil-tisice-bake) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: draw call](../rejstrik.md#draw-call) · [Rejstřík: data-driven design](../rejstrik.md#data-driven-design)
+**Souvislosti:** [TLOU: trim sheety](#tlou-trim-sheet-ktery-nahradil-tisice-bake) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: draw call](../rejstrik.md#draw-call) · [Rejstřík: data-driven design](../rejstrik.md#data-driven-design) · [Beauclair: jeden shader na čtvrť](modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) *(totéž v otevřeném světě Witcher 3)*
 
 ---
 
@@ -66,7 +66,7 @@ Pět pohledů pod kapotu velkých světů — od sólo rekonstrukce San Francisc
 
 > **Pozn.:** Stejný závěr jako u [The Ascent](#the-ascent-ctyri-artisti-jeden-shader) z opačného konce rozpočtu: AAA kvalita nestojí na sochání, ale na **systémech** — sdílené trimy, knihovny materiálů, dokumentované pipeline. Pro portfolio to znamená: ukaž kit a shader úvahu, ne jen hezký kámen.
 
-**Souvislosti:** [The Ascent](#the-ascent-ctyri-artisti-jeden-shader) · [Crimson Desert](#crimson-desert-detektivka-kolem-displacementu) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: parallax occlusion mapping](../rejstrik.md#parallax-occlusion-mapping)
+**Souvislosti:** [The Ascent](#the-ascent-ctyri-artisti-jeden-shader) · [Crimson Desert](#crimson-desert-detektivka-kolem-displacementu) · [Rejstřík: trim sheet](../rejstrik.md#trim-sheet) · [Rejstřík: parallax occlusion mapping](../rejstrik.md#parallax-occlusion-mapping) · [Trim sheet jako systém](modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) *(trim navržený s kitem, a kdy ne)*
 
 ---
 
@@ -136,4 +136,4 @@ A hned poctivá výhrada, díky které je to použitelná rada a ne obdiv [(8:24
 
 > **Pozn.:** Závěrečná rada míří na portfolio, ale platí i pro sólo projekt [(10:47)](https://www.youtube.com/watch?v=dqfvgA7oKC4&t=647s): **„nestav jen assety, stav pipeline"** — modulární komponenty, které jdou sdílet, znovu použít a rychle iterovat. Pro nás to je táž myšlenka jako [master material](materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) v malém: jednorázová investice, která se vrací s každým dalším assetem. Video je zároveň propagací autorova placeného kurzu a partnerských balíčků tutoriálů; obsahu breakdownu to neubírá, ale patří to k obrázku.
 
-**Souvislosti:** [TLOU: trim sheet](#tlou-trim-sheet-ktery-nahradil-tisice-bake) *(tatáž hra, jiná část pipeline)* · [Z fotky herní asset](foto-do-assetu.md#hloubka-bez-druhe-textury) *(týž kompromis geometrie vs. textura o tři řády levněji)* · [Crimson Desert: detektivka kolem displacementu](#crimson-desert-detektivka-kolem-displacementu) *(parallax jako iluze hloubky podruhé)* · [Materiály: master material](materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) · [Herní art: prostředí je 90 % obrazovky](../teorie/art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) · [Rejstřík: BRDF](../rejstrik.md#brdf) · [Rejstřík: parallax occlusion mapping](../rejstrik.md#parallax-occlusion-mapping)
+**Souvislosti:** [TLOU: trim sheet](#tlou-trim-sheet-ktery-nahradil-tisice-bake) *(tatáž hra, jiná část pipeline)* · [Z fotky herní asset](foto-do-assetu.md#hloubka-bez-druhe-textury) *(týž kompromis geometrie vs. textura o tři řády levněji)* · [Crimson Desert: detektivka kolem displacementu](#crimson-desert-detektivka-kolem-displacementu) *(parallax jako iluze hloubky podruhé)* · [Materiály: master material](materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) · [Herní art: prostředí je 90 % obrazovky](../teorie/art-pipeline.md#prostredi-je-90-obrazovky-a-musi-mluvit) · [Rejstřík: BRDF](../rejstrik.md#brdf) · [Rejstřík: parallax occlusion mapping](../rejstrik.md#parallax-occlusion-mapping) · [Hybridní blockout](blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) *(pipeline Naughty Dog už od blockoutu)*

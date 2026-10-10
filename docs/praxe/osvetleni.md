@@ -171,7 +171,7 @@ Nad tím pak přijdou tři vrstvy, které s realitou nemají nic společného. *
 
 > **Pozn.:** Jde o **placený plugin třetí strany, v době natáčení v betě**, a autor v závěru děkuje jeho tvůrcům za poskytnutý přístup — čti to tedy jako představení nástroje, ne jako nezávislou recenzi. Pro nás jsou přenositelné dvě věci nezávisle na tom, jestli si ho pořídíš: **oddělení „data vs. zobrazovač"** (platí i pro Heterogeneous Volumes v základním enginu) a **parametry média** (albedo / absorpce / anisotropie / emise), které popisují jakoukoli volumetriku — včetně té, kterou si postavíš sám jako [volumetrický materiál v Silent Hill 2 mlze](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy).
 
-**Souvislosti:** [Mlha ze Silent Hill 2](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy) *(tatáž úloha ručně a zdarma)* · [Malovat světlem](#malovat-svetlem-scena-slozena-z-falesnych-svetel) *(mlžné karty jako nejlevnější varianta)* · [Materiály](materialy.md) · [Rejstřík: Volumetric fog](../rejstrik.md#volumetric-fog) · [Rejstřík: EVDB](../rejstrik.md#evdb)
+**Souvislosti:** [Mlha ze Silent Hill 2](#mlha-ze-silent-hill-2-volumetricky-material-kolem-postavy) *(tatáž úloha ručně a zdarma)* · [Malovat světlem](#malovat-svetlem-scena-slozena-z-falesnych-svetel) *(mlžné karty jako nejlevnější varianta)* · [Materiály](materialy.md) · [Rejstřík: Volumetric fog](../rejstrik.md#volumetric-fog) · [Rejstřík: EVDB](../rejstrik.md#evdb) · [007 First Light: Smolder](env-technika.md#007-first-light-editor-ve-kterem-se-vsechno-sklada-z-entit-a-nikdo-neceka) *(objemy v AAA enginu)*
 
 ---
 

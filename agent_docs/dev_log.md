@@ -15,6 +15,49 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-10 — Phase 13 dávka 52: prostředí — blockout, modulární kity a breakdowny (Claude Code, Opus 5.5)
+
+**What:** 10 videí (~47k slov) → **3 nové kapitoly / 11 myšlenek**:
+- `praxe/blockout.md` (2): zastav, omez, porovnej (JaviSkau: rozklad na tvary, hierarchie velikostí, test přimhouřených očí, šedá jako hodnota, měřítko s postavou) · hybridní blockout (EMC3D o pipeline Naughty Dog z GDC 2014: šedá → hodnoty → barva → postprocess, úrovně 0–2).
+- `praxe/modularni-kity.md` (6): kit jako lego · textury pro kit (tilery → trimy → masky) · trim sheet jako systém (Class Creatives + Zeref3DForge) · organický kit a spoje · Beauclair z Witcher 3 · Mortal Shell 2. Páteří jsou tři myšlenky z 87minutového workshopu Beyond Extent.
+- `praxe/env-technika.md` (3): 007 First Light (editor z entit, templatů a bricks) · Alan Wake 2 (neviditelné systémy) · AC Black Flag Resynced (prodat iluzi).
+
+Nav: tři kapitoly pod „Prostředí a environment art" v pořadí Blockout, Modulární kity, Breakdowny, Breakdowny II, Stavba prostředí; `praxe/index.md` doplněn. Rejstřík 591 → **613**: 22 nových (Channel packing, Hot reload, Interior mapping, Kitbashing, LOD, LUT, Megascans, Meshlet, Modular kit, Occlusion culling, Order-independent transparency, Prefab, Set dressing, Skirt, Texel density, Texture array, Tileable texture, Triplanar projection, Trunk-based development, Value pass, Vertex painting, Visual blocker), 25 rozšířeno, z toho 4 o odstavec (Blockout, Trim sheet, Landmark, Decal). 18 backlinků ve 13 kapitolách, mezi nimi slíbený z `pasti-a-mechaniky` (barel ← 007). Chapter map 849 řádků.
+
+**Why:** Šestá dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 52").
+
+**How:**
+- **Rozvržení:** pět videí Next Level Game Art se rozdělilo podle tématu. Witcher 3 a Mortal Shell 2 (kity a rozpočet) jdou do `modularni-kity`, 007, Alan Wake 2 a AC Black Flag (technika za vzhledem) do `env-technika`. Workshop Beyond Extent dal tři myšlenky, dvě videa o trim sheetech jednu.
+- **Hranice s existujícími kapitolami:** `env-breakdowny` zůstává u toho, jak se svět staví, nová `env-technika` u systémů za vzhledem. Blockout z pohledu level designu (graybox, beautiful corners) zůstává v `teorie/level-design-solo`; nová kapitola ho bere z pohledu env artu a odkazuje tam.
+- **Kontrola přesnosti po napsání** běžela poprvé přes tři subagenty (Sonnet) paralelně, každý na svůj blok zdrojů, s pokynem hlásit jen nesoulad s přepisem. Vrátili **59 nálezů**, každý jsem ověřil a 58 zapracoval (ponecháno „úroveň 2: hodnoty a barva", v titulcích zkomolené, čtení je nejpravděpodobnější). Typy:
+  - vypuštěné výhrady: tilery Mortal Shell 2 jsou autorův nález v souborech, nástroje z Fabu „pravděpodobně" ušetřily, Mirage „pravděpodobně" vertex blending, scéna jen „skoro" jako hotová hra, šum v testu přimhouřených očí „možná" znamená brzký detail;
+  - přisouzení: zásadu „oddělit vodorovné od svislých" má autor od kolegů, ne od Naughty Dog. Zabalené kanály z Megascans jsou autorův nález, ne výsledek měřicích webů. Designérský mesh přednáška Naughty Dog neukázala;
+  - nepodložené: „za okny" v Beauclair (video okna nezmiňuje), „osm spojů" ve workshopu (video počítá jen čtyři texturové), „AAA vzhled" Mortal Shell 2 (video to neříká), 72 MB jako skutečný dům (ve videu je to výpočet);
+  - čísla a záměny: „statisíckrát" → stotisíckrát, obložení místo lišty, mřížka bez výjimky pro dveře;
+  - šest posunutých časových odkazů.
+- **Dva nadpisy přejmenované i s kotvami** (ještě nepublikované): „Beauclair: 500 MB textur na celé město…" a „Mortal Shell 2: špičkový vzhled od třiceti lidí…".
+- **Vlastní křížové odkazy v Pozn.** jsem zkontroloval zvlášť proti cílovým kapitolám a 6 opravil:
+  - PSO knihovna má (heslo i `frame-pacing`);
+  - PBL je o světle, ne o albedu;
+  - `pcg-vegetace` šíření od zdroje neobsahuje;
+  - Lesní pěšina II vertex blending nemá, správný cíl je Nanite displacement;
+  - MegaLights vzorkují, necullují;
+  - Anvil je taky vlastní engine.
+- **Garble-fixy:** citovaní lidé v dabovaném přepisu JaviSkau i v rozborech jen jako role. Prodejní čísla Mortal Shell 2 jsou v titulcích nečitelná, vynechána. Názvy nástrojů z Fabu nepřebírám, protože jsou zkomolené.
+- **Promo** je vždy v Pozn.:
+  - JaviSkau: mentoring;
+  - EMC3D: Patreon;
+  - Beyond Extent: placené členství;
+  - Class Creatives: kurz (masterclass);
+  - čtyři rozbory Next Level Game Art: kurz a partnerský web.
+- **Časové odkazy:** všech 338 v nových kapitolách ověřeno skriptem proti blokům přepisů.
+
+**Follow-ups:**
+1. Další v pořadí je dávka 53 (světlo a materiály).
+2. Kandidát do `content_gaps`: blockout přímo v UE (Modeling Mode, Cube Grid). Knihovna má princip, ne nástroj. Před zápisem pustit `gap_scan.py`.
+3. Šíření vegetace od zdroje jako PCG pravidlo (Pozn. v „Organický kit a spoje") nemá v korpusu zdroj.
+4. Kontrola přesnosti přes subagenty stála ~590k tokenů subagentů a našla 59 nálezů proti 10 v dávce 51. Rozhodnout, jestli tak pokračovat, nebo kontrolovat jen kapitoly s nejvíc čísly.
+
 ### 2026-10-10 — Phase 13 dávka 51: fyzika a GASP 5.8 (Claude Code, Opus 5.5)
 
 **What:** 5 videí (~50k slov) → **1 nová kapitola / 4 myšlenky + 10 myšlenek do stávajících**:
