@@ -20,7 +20,7 @@ Základní nástroj je **trigger volume** [(0:39)](https://www.youtube.com/watch
 
 Nejcennější rada videa je pořadí otázek [(3:41)](https://www.youtube.com/watch?v=tRBGGuh1ajY&t=221s): začátečníci skočí do Blueprintů; level designér se nejdřív ptá — *jaký zážitek tvořím? co má hráč cítit? jakou informaci dostat? co má udělat dál?* S odpověďmi je skriptování triviální; bez nich je to jen technika bez obsahu. Event slouží zážitku, ne obráceně.
 
-**Souvislosti:** [Recall priming](#recall-priming-nachystej-vzpominku-driv-nez-bude-potreba) níže · [Game feel a imerze](game-feel.md) · [Rejstřík: trigger volume](../rejstrik.md#trigger-volume) · [Rejstřík: pacing](../rejstrik.md#pacing)
+**Souvislosti:** [Recall priming](#recall-priming-nachystej-vzpominku-driv-nez-bude-potreba) níže · [Game feel a imerze](game-feel.md) · [Rejstřík: trigger volume](../rejstrik.md#trigger-volume) · [Rejstřík: pacing](../rejstrik.md#pacing) · [Cutscény v UE: spouštěč a návrat do hry](../praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila) *(implementace přes level sequence)*
 
 ---
 

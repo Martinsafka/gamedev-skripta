@@ -53,11 +53,13 @@ Témata a kapitoly:
 
 **Animace: nástroje a mocap**
 
-- **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (video → animace přes MetaHuman Performance), procedurální pavouk na Locomotoru a SAM pro izolaci aktéra při animování.
+- **[Animační nástroje](animace-nastroje.md)** — AnimBP se state machine od nuly (třídílný skok, AnimBP bez castu), markerless mocap v 5.8 (co natočit, zpracování, dočištění a hranice podle oficiálního dema), procedurální pavouk na Locomotoru, SAM pro izolaci aktéra, řemeslo první osoby (i úprava hotových animací přímo v UE) a co 5.8 přidává animátorům a riggerům: Control Rig Dynamics, fyzika jako vrstva, AutoBake, controly na kůži a přenos rigu.
+- **[Interakční animace](interakcni-animace.md)** — postava sahá na svět: data interakce patří k objektu, motion warping s krokem v animaci, IK ruky v Control Rigu, normalizované křivky v montáži, grip pointy a pózy ruky, attach bez teleportu, Contextual Animation a párový zápas se sekcemi montáže.
+- **[Cutscény](cutsceny.md)** — level sequence, která vrátí hru tam, kde skončila (Keep State, control rotation, spouštěč s Do Once, zatmívačka v makru), a finisher bez střihu přehraný relativně k hráči.
 
 **MetaHuman**
 
-- **[MetaHuman v praxi](metahuman.md)** — hratelná postava (retarget jedním klikem, virtual bones foot IK), look-at systém přes post-process AnimBP, Chaos Cloth oblečení, Crowd plugin s Mass Entity, lekce z optimalizace obličeje a převod cizího statického meshe na plnohodnotného MetaHumana.
+- **[MetaHuman v praxi](metahuman.md)** — hratelná postava (retarget jedním klikem, virtual bones foot IK), look-at systém přes post-process AnimBP, Chaos Cloth oblečení, Crowd plugin s Mass Entity, lekce z optimalizace obličeje a převod cizího statického meshe na plnohodnotného MetaHumana — a proč ho Epic po pěti letech prezentuje jako standard postav (Mesh to MetaHuman pro celé tělo, MetaHuman Collection, open source DNA a RigLogic).
 
 **Terén a krajina**
 

@@ -26,7 +26,7 @@ A dvě mechaniky dědičnosti, které v Blueprintech překvapí:
 
 > **Pozn.:** Pointa celého workshopu je v závěru [(1:20:17)](https://www.youtube.com/watch?v=zTsJM9T0NjM&t=4817s): po čtyřech úrovních (obyčejné dveře → auto dveře → spínače a multi-dveře → zámky s klíči) zůstal master štíhlý a nové chování vznikalo skládáním existujících funkcí. „Skill není v dveřích — každý actor, item a nepřítel ve tvé hře má svou verzi téhle hierarchie." Srovnej s [enginy v enginu](../teorie/produktivita.md#investice-bez-validace-lesteni-systemy-a-optimalizace-predem): tohle je přesně ta architektura, kterou stavíš, *až když* je systém validovaný.
 
-**Souvislosti:** [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Kdy dědit a kdy jen konfigurovat](#kdy-dedit-a-kdy-jen-konfigurovat) · [Rejstřík: inheritance](../rejstrik.md#inheritance) · [Rejstřík: abstract class](../rejstrik.md#abstract-class) · [Rejstřík: god class](../rejstrik.md#god-class)
+**Souvislosti:** [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Komunikace Blueprintů](komunikace-blueprintu.md) · [Kdy dědit a kdy jen konfigurovat](#kdy-dedit-a-kdy-jen-konfigurovat) · [Rejstřík: inheritance](../rejstrik.md#inheritance) · [Rejstřík: abstract class](../rejstrik.md#abstract-class) · [Rejstřík: god class](../rejstrik.md#god-class) · [Master actor interakcí a BP_BaseItem](interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) *(rodič jako smlouva u interaktivních objektů)*
 
 ---
 

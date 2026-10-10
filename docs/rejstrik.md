@@ -28,7 +28,7 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
 
 U base class v Blueprintech se zapíná v `Class Settings → Generate Abstract Class`. Smysl: master má nést jen data a logiku, žádné meshe či materiály — cokoli master referencuje, se nahrává do paměti s každou referencí na něj. Abstraktní master nikdo omylem nespawne a size map zůstává štíhlá.
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat)
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [BP_BaseItem pro předměty](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave)
 
 ### ABTest
 
@@ -126,13 +126,23 @@ Nezaměňovat s [anchorem z marketingu](#anchor-marketing). Řeší jediný prob
 
 Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-layout-ktery-prezije-jine-rozliseni)
 
+### Animation curve
+
+**Pojmenovaná křivka hodnot uložená v animaci nebo montáži — AnimBP ji každý snímek přečte (`Get Curve Value`) a řídí jí cokoli, co má jet v rytmu animace.**
+
+Typické použití: alfa IK ruky, která se zapne jen ve chvíli úchopu, úhel dveří nebo kliky sladěný s rukou, váha pózy prstů. Hodnoty se vyplatí ukládat normalizované (0–1) a maximem násobit až v kódu — změna maxima pak neznamená přepisovat animace. Po skončení montáže křivka čte nulu, takže trvalý stav světa (otevřené dveře) je potřeba podržet zvlášť. Křivkami se dá i upravit animace samotná přímo v editoru: posunout kost a uložit klíč.
+
+Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby)
+
 ### Anim montage
 
 **Animační asset pro jednorázové akce (útok, interakce), přehrávaný přes sloty do vybraných částí skeletu.**
 
 Nad Motion Matchingem je montáž základ combatu: spodní tělo matchuje locomotion, horní hraje montáž ve slotu Upper Body (Layered Blend Per Bone + Blend Poses by Bool). Anim notifies uvnitř montáže řídí comba (AddCombo/ResetCombo okna); sloty pro zbraně patří do vlastní slot skupiny, ať výměna nepřeruší jiné montáže. Pro matchování do montáže slouží Pose Search Branch In.
 
-Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md)
+Montáž se dělí na [sekce](#montage-section), mezi kterými lze za běhu přepínat, a nese [křivky](#animation-curve), které řídí věci jedoucí v jejím rytmu (úhel dveří, alfa IK, póza prstů).
+
+Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md) · [Zápas se smyčkou: sekce](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Animace řídí svět: křivky v montáži](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi)
 
 ### Animation cancel
 
@@ -148,7 +158,7 @@ Kde se s tím potkáš: [Útočit v pohybu, nebo se zastavit](godot/pripadovka-p
 
 Vestavěné (Play Sound) i vlastní blueprint třídy (override Receive Notify) s instance editable parametry — notify pak nese data (která noha, který moment hodu). Notify state je varianta s trváním (od–do framu): motion warping okna, Pose Search Branch In. Pozor v blend space: Notify Trigger Mode default spouští jen nejváženější animaci.
 
-Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Systémy nad MM](praxe/mm-systemy.md)
+Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Interakce s předměty](praxe/interakce-predmety.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Jedna animace zvednutí: notify OnGrab](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Zápas se smyčkou](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace)
 
 ### Apofenie
 
@@ -230,6 +240,14 @@ Termín z politiky (astroturf je umělý trávník — falešná „grassroots")
 
 Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#kdy-indie-hra-neni-indie-hra)
 
+### Attachment rules
+
+**Pravidla, podle kterých `Attach Actor to Component` naloží s polohou, rotací a měřítkem připínaného objektu — Snap to Target, Keep Relative, nebo Keep World.**
+
+Snap to Target spojuje dvě rozhodnutí: připnout (objekt se dál hýbe s rodičem) a okamžitě přesunout na cíl, typicky [socket](#socket). Keep World připne, ale nechá objekt vizuálně tam, kde byl; zbytek cesty pak může dorovnat krátký lerp. Proto předmět při zvednutí nemusí „skočit" do ruky. Pravidla se nastavují zvlášť pro polohu, rotaci a měřítko.
+
+Kde se s tím potkáš: [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky)
+
 ### Attenuation
 
 **Útlum hlasitosti zvuku se vzdáleností od zdroje.**
@@ -237,6 +255,14 @@ Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#kdy-indie-hra-n
 Ve stealth hrách často vizualizovaný v UI. Trik: dej vysokým frekvencím krátký útlum a nízkým dlouhý — zblízka je výstřel ostrý, z dálky jen temné dunění.
 
 Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
+
+### AutoBake
+
+**Funkce sequenceru (5.8), která jedním přepínačem střídá živý control rig a jeho zapečenou animation sequence.**
+
+Po nastavení (pravým na actor → Add AutoBake) přidá zapečenou verzi a ztlumí ji; ikona pak přepíná a změněnou animaci rychle přepeče. Výběr controlu vrátí postavu do živého rigu, ostatní postavy zůstanou zapečené, takže viewport s víc postavami zůstane rychlý. U fyziky (s warm-up snímky na usazení) dává deterministický výsledek, který jde scrubovat a pustit na něj motion trails.
+
+Kde se s tím potkáš: [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rejstřík: Control Rig](#control-rig)
 
 ### Autoload
 
@@ -253,6 +279,14 @@ Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni
 Pravý klik na pin → *Watch this value* a v toolbaru vybrat ladicí objekt — hodnota pak běží přímo v grafu. Breakpoint zastaví hru na uzlu a dovolí krokovat; volba v Editor Preferences → Experimental zastaví blueprint automaticky na uzlu, kde nastala výjimka (třeba index mimo pole), místo aby hra běžela dál a chyby se objevily až v logu. Rychlejší než archeologie s print stringem, jakmile víš, kterou hodnotu hledáš.
 
 Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Nářadí z workshopu](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
+
+### Blueprint Macro
+
+**Znovupoužitelný kus Blueprint grafu, který se rozbalí na místě volání — na rozdíl od funkce smí obsahovat latentní uzly jako Delay a mít víc exec vstupů i výstupů.**
+
+Hodí se tam, kde má volající počkat, než se něco dokončí: zatmívačka kamery před cutscénou (start fade, Delay stejné délky, teprve pak výstup) se do funkce nevejde, protože funkce Delay obsahovat nemůže. Pro jednorázovou čekací logiku stačí i custom event; makro se vyplatí, když se stejný latentní kus opakuje.
+
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
 
 ### B-roll
 
@@ -380,7 +414,7 @@ Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Ukládání]
 
 Volající posílá zprávu (message call) na libovolný actor; pokud actor interface implementuje, zareaguje vlastní logikou, pokud ne, nestane se nic — žádný pád, žádná závislost. Je to enginová podoba principu „programuj proti rozhraní": character nemusí znát třídu dveří, truhly ani panelu, stačí mu smlouva „umíš interagovat?". Přidání nového typu interaktivního objektu pak neznamená žádnou změnu ve volajícím.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave)
 
 ### Boids
 
@@ -477,6 +511,14 @@ Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md)
 Formuluje, kdo koho smí znát. Volání směrem dolů je v pořádku, protože rodič své děti vlastní a zná je. Opačný směr — dítě sahající na rodiče — vytváří závislost, která rozbije znovupoužitelnost dítěte. Místo toho dítě vyšle [signál](#signal) a rodič se rozhodne. Sourozenci se propojují přes společného rodiče, obvykle v `_ready()`. Efekt: závislosti kopírují hierarchii a strom scény zůstane čitelný.
 
 Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-down-signal-up-kdo-koho-smi-znat) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#observer-pattern-nejcastejsi-chyba-zacatecniku-a-jeji-oprava)
+
+### Camera shake
+
+**Krátký otřes kamery definovaný jako asset (amplituda, frekvence, šum) — spouští se z kódu, z anim notify nebo jako stopa v sequenceru.**
+
+Starší „legacy" camera shake blueprint nastavuje oscilaci rotace (pitch, yaw, roll) třeba Perlinovým šumem. V sequenceru délku otřesu určuje sekce stopy, ne oscillation duration. Otřes patří jen na okamžik dopadu; přes celou animaci by byl k nevydržení — stejná střídmost jako u ostatního [juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku).
+
+Kde se s tím potkáš: [Finisher bez střihu](praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) · [Rejstřík: Player Camera Manager](#player-camera-manager)
 
 ### Capsule
 
@@ -590,6 +632,14 @@ Z toho plyne, že o výkon rozhoduje **topologie**: stěna z dlouhých tenkých 
 
 Kde se s tím potkáš: [Overdraw se autoruje](praxe/nanite-do-hloubky.md#overdraw-se-autoruje-ne-opravuje) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Overdraw](#overdraw)
 
+### Construction Script
+
+**Graf actor blueprintu, který běží v editoru při umístění nebo změně actoru a při spawnu — ještě před BeginPlay.**
+
+Hodí se na přípravu dat, která závisí na komponentách konkrétní instance: třeba mapa stran dveří s odkazy na scene komponenty, které do výchozích hodnot proměnné zadat nejde, nebo reference, které mají fungovat i v sequenceru bez spuštěné hry. Nepatří do něj nic drahého — spouští se často, při každém posunu actoru v editoru.
+
+Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
+
 ### Context switch
 
 **Přepnutí jádra z jednoho vlákna na druhé; stojí čas na uložení a obnovu stavu.**
@@ -646,6 +696,30 @@ Protipól gameplaye (mechanik a systémů). Rozlišení má praktický důsledek
 
 Kde se s tím potkáš: [Level design: game design vs. level design](teorie/level-design-solo.md) · [Scope](teorie/scope.md)
 
+### Contextual Animation
+
+**Plugin pro synchronizované animace víc účastníků (postava a objekt, dvě postavy): role, montáže stejné délky a warp pointy v jednom scene assetu.**
+
+Rules asset popisuje role (rozměry kapsle, offset meshe), scene asset přiřazuje rolím animace a určuje, kdo se ke komu warpuje. Za běhu se z binding contextů obou účastníků vytvoří bindings a scéna se spustí na komponentě postavy. Řeší zarovnání a synchronizaci, ne dotyk — IK ruky na kliku musíš dodat sám. V seznamu pluginů je označený jako experimentální.
+
+Kde se s tím potkáš: [Contextual Animation](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) · [Zápas se smyčkou](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Finisher bez střihu](praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) · [Rejstřík: Motion Warping](#motion-warping)
+
+### Control Rig Dynamics
+
+**Částicový systém sekundárního pohybu v Control Rigu (5.8) — pružné řetězy pro culíky, pouzdra a podobné doplňky, laditelné jedním uzlem a běžící i ve hře.**
+
+Podle Epicu zhruba pětkrát rychlejší než Control Rig Physics a stavěný pro postavy: tuhost, tlumení a křivky po délce řetězu, kolize s tělem. Za běhu jede přes Control Rig uzel v AnimBP; debug okno ukazuje tělesa i kolize, i v PIE. S fyzikou se dá kombinovat — dynamics na drobnosti, fyzika na tělo.
+
+Kde se s tím potkáš: [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rejstřík: Control Rig](#control-rig)
+
+### Control Rotation
+
+**Rotace, kterou drží player controller — úhel pohledu, který hráč ovládá myší nebo pravou páčkou.**
+
+Kamera s `Use Pawn Control Rotation` a postava s `Use Controller Desired Rotation` se podle ní natáčejí. Po cutscéně má pohled hodnotu z doby před zakázáním vstupu; `Set Control Rotation` ho nastaví na zvolený vstupní úhel. Hodnotu se vyplatí odečíst přímo ve hře (stiskem klávesy uložit aktuální control rotation), ne odhadovat.
+
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
+
 ### Cook
 
 **Převod editorových assetů do formátu pro cílovou platformu; probíhá při balení hry.**
@@ -692,7 +766,9 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
 V GASP pohání foot placement Mover postavy (slope warping, pinning, root damping) a Locomotor (procedurální chůze bez jediné animace). Zároveň směr, kterým Epic míří s budoucím animačním frameworkem: animační systémy jako vizuální grafy, které si tech animátor otevře a ohne sám. Řemeslný vzor null + control zachovává hratelnost grafu ve viewportu.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md)
+Pro gameplay je Control Rig uzel v AnimGraph místo, kde [IK](#ik) dotáhne ruku na kliku nebo předmět — za slotem, který hraje montáže. Ve verzi 5.8 přibyly [Control Rig Dynamics](#control-rig-dynamics) pro sekundární pohyb, fyzika přímo v rig modulech a [Direct Mesh Controls](#direct-mesh-controls).
+
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi)
 
 ### Coyote time
 
@@ -733,6 +809,14 @@ Kde se s tím potkáš: [Resource: data mimo kód](godot/resources.md) · [Strat
 Setup a očekávání ustaví normál; anomálie ho nahlodají; diverze („čekáš úder — nic") napětí zdvojnásobí; akce ho vybije. Diverze užívej střídmě, jinak hráč prokoukne rytmus. Obecnější verze téhož: oscilace intenzity rozhodování.
 
 Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
+
+### Dataflow
+
+**Grafový systém Unrealu pro zpracování dat assetů — například přenos rigu, vah a tvarů z jednoho meshe na druhý.**
+
+V přednášce o riggingu v 5.8 přenáší uzel Transfer Attributes celý rig z hrubšího meshe, na kterém se pohodlně riguje, na mesh s vyšším rozlišením — a stejně tak z jedné postavy na druhou (zebra → monstrum), takže vysochané tvary jdou použít znovu. Graf se přidává ke skeletal meshi.
+
+Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Morph target](#morph-target)
 
 ### Data-oriented design
 
@@ -878,6 +962,14 @@ Dvě funkční podoby: showcase (rozbor jedné feature: proč → proces → vý
 
 Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Zápisky: devlog jako mapa](zapisky/devlog-jako-mapa.md) *(devlog jako interní nástroj, ne marketing)*
 
+### Direct Mesh Controls
+
+**Controly rigu, které animátor ovládá tahem přímo za povrch postavy místo kroužků a tvarů kolem ní (5.8, experimentální).**
+
+Rigger přiřadí controlům skupiny polygonů (polygroups uložené ve skeletal meshi, start odvozený ze skin weights) a animátor si je může přemalovat. Vrstvy polygroups sledují stav rigu: ve FK patří plochy paže k jednotlivým kostem, v IK k pole vectoru a IK controlu. Do existujícího rigu se přidávají pluginem a modulem, bez přestavby.
+
+Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Control Rig](#control-rig)
+
 ### Distance field AO
 
 **Ambient occlusion počítaný z mesh distance fields; v UE se tiše zapíná spolu s movable skylightem.**
@@ -916,7 +1008,7 @@ Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md)
 
 Vzniká krokem Save Pose v MetaHuman Creatoru po úspěšném solve a je vstupem pro všechno další: z něj se generuje skeletal mesh pro přenos textury a podle jeho referenční pózy se zarovnávají doplňky, které solver ignoroval (rohy, velké uši). Bez uloženého DNA se pozdější kroky nedají zopakovat.
 
-Kde se s tím potkáš: [MetaHuman: z cizího meshe](praxe/metahuman.md#z-ciziho-meshe-metahuman-solve-prenos-textury-a-prichyceni-rohu)
+Kde se s tím potkáš: [MetaHuman: z cizího meshe](praxe/metahuman.md#z-ciziho-meshe-metahuman-solve-prenos-textury-a-prichyceni-rohu) · [DevKit: DNA jako open source](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig)
 
 ### Dogfooding
 
@@ -926,13 +1018,21 @@ Nejlevnější test, že nástroj, komponenta nebo engine unese reálnou práci:
 
 Kde se s tím potkáš: [Zápisky: pravidlo 70/30](zapisky/pravidlo-70-30.md) · [Zápisky: devlog jako mapa](zapisky/devlog-jako-mapa.md)
 
+### Do Once
+
+**Blueprint uzel, který propustí exekuci jen poprvé — další průchody blokuje, dokud ho něco nezresetuje.**
+
+Nejjednodušší pojistka proti opakovanému spuštění, typicky u trigger boxu: cutscéna se nespustí znovu, když postava během sekvence projde triggerem podruhé. Reset z jiného místa (druhý trigger, časovač) z něj udělá jednoduchou stavovou logiku — elegantní pro jeden případ, nepřehlednou pro víc.
+
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila) · [Chase a ztráta zájmu](praxe/ai-zaklady.md#chase-a-ztrata-zajmu-do-once-a-retriggerable-delay) · [Rejstřík: Trigger volume](#trigger-volume)
+
 ### Dot product
 
 **Skalární součin dvou jednotkových vektorů = kosinus úhlu mezi nimi: 1 stejný směr, 0 kolmost, −1 protisměr.**
 
 Nejlevnější odpověď na otázku „jak moc se dva směry shodují": pár násobení a součtů, žádná goniometrie za běhu. Stojí na něm osvětlení (L·N), zorná pole AI (porovnej dot s cos poloviny FOV) i rozhodnutí „je cíl přede mnou, nebo za mnou" (znaménko).
 
-Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md) · [AI vnímání](praxe/ai-vnimani.md)
+Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md) · [AI vnímání](praxe/ai-vnimani.md) · [Výběr grip pointu](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky)
 
 ### Draw call
 
@@ -1416,6 +1516,14 @@ Skládá se z [mesh distance fieldů](#mesh-distance-field) jednotlivých objekt
 
 Kde se s tím potkáš: [Živý svět z částic](praxe/niagara-vykon.md#zivy-svet-z-castic-tvorove-kteri-poslouchaji-ale-nehlasuji) · [Rejstřík: Mesh distance field](#mesh-distance-field)
 
+### Global Time Dilation
+
+**Násobitel rychlosti času celé hry — hodnota 0,1 zpomalí všechno včetně animací na desetinu.**
+
+Kromě efektů typu slow motion je to ladicí nástroj: zpomalená interakce ukáže, kdy se ruka chytí, kdy se předmět připne a kde výběr úchopu přeskočí. Nastavuje se uzlem `Set Global Time Dilation`, v editoru i konzolovým příkazem `slomo`.
+
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled)
+
 ### GOAP
 
 **Goal-Oriented Action Planning: AI si sama poskládá posloupnost akcí vedoucí k cíli.**
@@ -1584,6 +1692,14 @@ Portálové portály, vlak-monstrum z Choo Choo Charles, „staráš se o svoje 
 
 Kde se s tím potkáš: [Základy: engagement a appeal](teorie/zaklady.md) · [Prototypování](teorie/prototypovani.md) · [Nápad](teorie/napad.md) · [GDD: Monaco](teorie/gdd.md)
 
+### IK
+
+**Inverzní kinematika — výpočet, který natočí řetěz kostí tak, aby koncová kost (effector) dosáhla zadaného cíle.**
+
+Opak FK, kde se natáčí kost po kosti od kořene. Ve hrách typicky opravuje animaci na posledním metru podle světa: nohy na nerovném terénu, ruka na klice nebo na předmětu. V Control Rigu ji řeší uzly Basic IK (tři kosti), Full Body IK a další; podstatné je nastavit osy řetězu a [pole vector](#pole-vector) a převést cíl do správného prostoru (u postav do prostoru meshe). Váha uzlu slouží jako alfa, kterou může řídit [křivka v animaci](#animation-curve).
+
+Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Hratelný MetaHuman: foot IK](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [GASP: foot placement](praxe/gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor)
+
 ### Iluze plynulosti
 
 **Pocit „rozumím tomu", který vzniká z plynulého čtení — a zhroutí se při prvním pokusu věc vysvětlit krok za krokem.**
@@ -1599,6 +1715,14 @@ Kde se s tím potkáš: [Učení v éře AI](teorie/uceni-v-ere-ai.md) · [Zápi
 Z dostatečné vzdálenosti rozdíl nepoznáš — a stojí to zlomek původní ceny. Vyplácí se dotáhnout: renderovat k diffuse i normálovou mapu a vypéct víc pohledů, mezi kterými se blenduje. Ve scénách s desetitisíci stromů jsou impostory důvod, proč se to vůbec dá vykreslit. Proč to funguje tak nepoměrně dobře, vysvětluje [quad utilization](#quad-utilization) — nejde o počet vrcholů, ale o to, že mikrotrojúhelníky jsou pro GPU nejdražší možný vstup.
 
 Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-snimku.md#proc-male-trojuhelniky-nici-gpu) · [Rejstřík: Nanite](#nanite)
+
+### Inertialization
+
+**Způsob blendování animací, který nemíchá dvě pózy, ale z rychlosti původního pohybu dopočítá plynulý doběh do nové animace.**
+
+Na rozdíl od crossfadu se nemusí vyhodnocovat obě animace současně a přechod působí přirozeně i u prudkých změn. V montážích se volí jako blend mode in/out; aby fungoval, musí být v AnimBP uzel Inertialization.
+
+Kde se s tím potkáš: [Contextual Animation](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
 
 ### Inheritance
 
@@ -1862,7 +1986,7 @@ Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terra
 
 V layer setupu se uvádí jméno kosti (přesný spelling!), od které blend působí — typicky clavicle nebo spine; blend depth a weight ladí měkkost přechodu. Nad Motion Matchingem dvě klasická použití: montáž útoku do horního těla (s Blend Poses by Bool) a overlay póza držené zbraně (single frame animace).
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Pózy prstů od hand_r](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Pistole s baterkou](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby)
 
 ### Layered move
 
@@ -1894,7 +2018,7 @@ Kde se s tím potkáš: [Tvorba herního soundtracku](hudba/tvorba-soundtracku.m
 
 A a B může být pozice, scale, barva i délka health baru. Strohost lineárního průběhu opravují shaping functions (smoothstep a spol.) aplikované na parametr t; barevné přechody vylepší interpolace v jiném prostoru (HSV, Lab) místo RGB.
 
-Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled)
 
 ### Level instance
 
@@ -1903,6 +2027,14 @@ Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.m
 Vytváří se výběrem aktorů → right-click → Level → Create Level Instance; sourozenec Packed Level Actor dělá totéž jen pro static meshe a převádí je na instance (jeden draw call, ideální pro modulární budovy). Editace se propíše všem kopiím — varianta se dělá z duplikátu. Vzor „dům z Warzone": jednou postavit, šestkrát položit.
 
 Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md)
+
+### Level Sequence
+
+**Asset [sequenceru](#sequencer): časová osa se stopami actorů, kamer a událostí, kterou lze přehrát v editoru i za běhu hry.**
+
+Za běhu ji přehrává Level Sequence Player (`Create Level Sequence Player` → `Play`). Pro návrat do hry rozhoduje `When Finished: Keep State` na stopách (postava zůstane tam, kam ji sekvence dovedla) a `Can Blend` na camera cuts. `Transform Origin Actor` přehraje sekvenci relativně k zadanému actoru, takže jeden záběr funguje kdekoli v levelu. Slouží i jako měřidlo — pro benchmark nebo pro ladění synchronizace animace s objektem.
+
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila) · [Finisher bez střihu](praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) · [Benchmark z level sequence](praxe/mereni-automaticky.md#benchmark-z-level-sequence-mereni-jako-soucast-prace) · [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi)
 
 ### Level streaming
 
@@ -1982,7 +2114,7 @@ Kde se s tím potkáš: [Live coding: hudba jako kód](hudba/live-coding.md) · 
 
 Pro markerless mocap: Live Link Hub → Capture Manager → Mono Video Ingest převede MP4 na capture data, které umí číst MetaHuman Performance. Živá cesta (telefon jako facial kamera, mocap obleky) používá tentýž systém — proto to jméno.
 
-Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md)
+Kde se s tím potkáš: [Animační nástroje](praxe/animace-nastroje.md) · [Markerless mocap: Live Link Hub a Capture Manager](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku)
 
 ### Locomotor
 
@@ -2056,6 +2188,14 @@ Videohry dnes potřebují obojí — když hra působí holá, má často moc lu
 
 Kde se s tím potkáš: [Systémy a mechaniky](teorie/systemy-a-mechaniky.md) · [Zábava: taxonomie a pilíře](teorie/zabava.md)
 
+### Markerless mocap
+
+**Motion capture z obyčejného videa bez markerů a obleku — pohyb se odhadne z obrazu jedné kamery.**
+
+Klasické cesty, optický systém s markery nebo inerciální oblek, potřebují hardware, čas na nasazení i na čištění dat. Markerless snižuje vstupní bariéru na kameru a světlo — kvalita výsledku ale přímo závisí na záznamu (celé tělo v záběru, pevná kamera, rovnoměrné světlo, kontrastní a nevolné oblečení). V Unrealu ho od 5.8 experimentálně umí [MetaHuman Animator](#metahuman-animator); výstup je výchozí bod pro dočištění.
+
+Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig)
+
 ### MAYA
 
 **Most Advanced Yet Acceptable: nejpokročilejší varianta, kterou publikum ještě přijme.**
@@ -2070,7 +2210,7 @@ Kde se s tím potkáš: [Co prodává: hraj hry jako profesní povinnost](teorie
 
 Klíč je čitelný a smysluplný; přidání a úprava mají stejnou syntax (nový klíč přidá, existující přepíše), klíč musí sedět přesně (překlep = nový klíč = tichý bug) a nesmí být měnitelný. V Blueprintech je to node Map; příbuzné jsou Data Table s Row Name jako klíčem.
 
-Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md) · [Ukládání](praxe/ukladani.md)
+Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md) · [Ukládání](praxe/ukladani.md) · [Strana dveří → data](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Výška → montáž zvednutí](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled)
 
 ### Marching cubes
 
@@ -2102,7 +2242,7 @@ Kde se s tím potkáš: [Markovovy řetězce a Monte Carlo](teorie/markovovy-ret
 
 Entity nejsou actory: data žijí ve fragmentech zpracovávaných hromadně, proto škálování na tisíce NPC s navigací a vyhýbáním. Pro viditelnost se kombinuje s instancovanými meshi a streamováním plných actorů u kamery.
 
-Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Mass a ECS: proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou)
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Mass a ECS: proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) · [Davy MetaHumanů v 5.8](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig)
 
 ### Material function
 
@@ -2176,13 +2316,39 @@ Zapíná se v project settings, kontroluje vizualizačním viewmodem. Uzel Dista
 
 Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Rejstřík: Global Distance Field](#global-distance-field)
 
+### Mesh to MetaHuman
+
+**Převod cizího meshe (skenu, sculptu, modelu) na plnohodnotného MetaHumana s rigem podle standardu Epicu.**
+
+Solver obalí mesh topologií MetaHumana a postaví skeleton a rig, takže výsledek je kompatibilní s úpravami v Creatoru, groomy, oblečením, retargetem i GASP. Dlouho šlo jen o hlavu; od 5.8 pracuje s celou postavou a Epic mu interně říká auto rigging. Co přesahuje lidský tvar (rohy, velké uši), solver ignoruje — to se přišívá ručně.
+
+Kde se s tím potkáš: [Z cizího meshe MetaHuman](praxe/metahuman.md#z-ciziho-meshe-metahuman-solve-prenos-textury-a-prichyceni-rohu) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Rejstřík: MetaHuman](#metahuman)
+
 ### MetaHuman
 
 **Epicův systém fotorealistických postav: creator, rig obličeje i těla a nástroje (Animator, Performance) kolem.**
 
 Od 5.8 žije tvorba přímo v enginu (MetaHuman Creator plugin; Core Data při instalaci enginu). MetaHuman Performance asset zpracuje capture data na animaci — s Body Trackingem tělo i obličej (blend shapes). První rig vyžaduje potvrzení licence na webu. Výstup jde retargetovat na libovolný skeleton — MetaHuman může sloužit jen jako mocap prostředník.
 
-Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Animační nástroje](praxe/animace-nastroje.md) · [GASP](praxe/gasp.md)
+Od 5.8 ho Epic prezentuje jako standard digitálních postav: [Mesh to MetaHuman](#mesh-to-metahuman) riguje cizí postavy celé, [MetaHuman Collection](#metahuman-collection) skládá davy a DNA s [RigLogic](#riglogic) jsou open source.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md) · [Animační nástroje](praxe/animace-nastroje.md) · [GASP](praxe/gasp.md) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Markerless mocap](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku)
+
+### MetaHuman Animator
+
+**Nástroj, který z natočeného výkonu (video, hloubková data, zvuk) spočítá animaci MetaHumana — od roku 2023 obličej, od 5.8 experimentálně i celé tělo.**
+
+Výkon se zpracuje v MetaHuman Performance assetu z capture dat (Live Link Hub → Capture Manager); výstupem je animation sequence pro skeleton MetaHumana, kterou jde retargetovat. Obličej umí z iPhonu, ze stereo kamer i jen ze zvuku, tělo přes markerless plugin z Fabu. Zpracování běží lokálně, ne v cloudu.
+
+Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Rejstřík: Live Link](#live-link)
+
+### MetaHuman Collection
+
+**Asset (5.8, experimentální), ze kterého se z malé sady dílů skládají velké a pestré davy MetaHumanů.**
+
+Postavy v davu se v dálce kreslí jako instancované skinned meshe (podle Epicu s asi desetinou paměti) a u kamery plynule přejdou na plnohodnotné MetaHuman actory; simulace jede přes [Mass](#mass-entity). Epic ukazuje tisíc oblečených postav na základním PS5 a 500 na mobilu. Najdeš ho v menu MetaHuman → MetaHuman Collections.
+
+Kde se s tím potkáš: [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Crowd plugin](praxe/metahuman.md#crowd-plugin-tisic-metahumanu-pres-mass)
 
 ### MetaSounds
 
@@ -2232,6 +2398,14 @@ Filozofie „scéna je recept, ne výsledek" — známá z Houdini, Geometry Nod
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
+### Montage section
+
+**Pojmenovaný úsek anim montáže; sekce na sebe navazují podle nastavených linků a kód může za běhu přesměrovat, kam se pokračuje.**
+
+Typický tvar je start → smyčka → konec, kde smyčka navazuje sama na sebe, dokud `Montage Set Next Section` neřekne jinak — tak vznikne zápas, který čeká na reakci hráče. U párové animace se sekce přepínají na obou postavách současně, každá ve své montáži. Sekce se hledají podle jména, takže jméno v kódu musí přesně odpovídat jménu v montáži.
+
+Kde se s tím potkáš: [Zápas se smyčkou](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Rejstřík: Anim montage](#anim-montage)
+
 ### Monte Carlo metoda
 
 **Neumíš to spočítat? Nasimuluj tisíce náhodných běhů a přečti odpověď z histogramu.**
@@ -2248,6 +2422,14 @@ Dělá se před kreslením ze dvou důvodů: dá týmu možnost zkorigovat směr
 
 Kde se s tím potkáš: [Herní art: concept art](teorie/art-pipeline.md) · [GDD](teorie/gdd.md)
 
+### Morph target
+
+**Uložená deformace vrcholů meshe (blend shape), kterou lze plynule zapínat váhou — základ obličejových výrazů a korektivních tvarů.**
+
+V riggingu je alternativou ke kostem: obličej zebry v ukázce 5.8 stojí na morph targetech řízených Control Rigem. Korektivní tvar opravuje konkrétní pózu; „shot corrective" dokonce jen pózu v jednom záběru, bez zásahu do rigu (v 5.8 přes Morph Target Driver z Animator Kitu). Optimalizace obličeje MetaHumana může naopak kosti nahradit tvary.
+
+Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Optimalizace obličeje](praxe/metahuman.md#optimalizace-obliceje-co-dela-metapipe-nitrous)
+
 ### Motion matching
 
 **Dotazový systém výběru animací: každý frame hledá v databázi pózu, která nejlépe naváže na trajektorii a aktuální pózu.**
@@ -2262,7 +2444,9 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](
 
 Základ traversalu a interakcí: Motion Matching vybere nejbližší vhodnou animaci a warp uvnitř svého okna dožene zbytkovou chybu pozice i rotace. Precomputed warp (5.7, z Witcher dema) přidává oddělené křivky pro translaci a rotaci (posun na začátku, dotočení na konci) a steering, který dráhu k cíli ohne do přirozeného oblouku.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md)
+U interakcí bez Motion Matchingu (dveře, zvednutí předmětu, párový útok) musí zbytkovou chybu unést samotná animace — proto se do ní záměrně přidává přístupový krok. U dvou postav lze warp rozdělit: obě se k sobě přiblíží napůl (váha 0,5 u obou rolí).
+
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Dojít na místo: krok v animaci](praxe/interakcni-animace.md#dojit-na-misto-motion-warping-potrebuje-krok-ktery-je-v-animaci-schvalne) · [Contextual Animation](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
 
 ### Motiv
 
@@ -2678,7 +2862,7 @@ Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Kabely, lana a Physics C
 
 `Create Control` + `Create Body Modifier` (bez něj se nastavení neaplikuje); cíl se posouvá přes `Set Control Target Position and Orientation` — pozor, uzel chce auto-generované jméno controlu. Linear Strength = poddajnost, Damping Ratio = dohoupání. Obecnější sourozenec Physical Animation komponenty — funguje na libovolných tělesech.
 
-Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md)
+Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md) · [Fyzika v Control Rigu při animování](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani)
 
 ### Pitch deck
 
@@ -2687,6 +2871,14 @@ Kde se s tím potkáš: [Kabely, lana a Physics Control](praxe/lana-kabely.md)
 Logika: první krok nákupu hry stejně neobsahuje hraní (trailer, GIF, screenshot) — pitch deck tenhle moment vyrobí bez jediného řádku kódu. Proces: brainstorm → hlasování → u top nápadů popsat smyčku (slabé se rozpadnou samy) → decky → nechat lidi vybírat. Opory: lidé skvěle *vybírají* a mizerně radí, jak zlepšovat; a deck za hodinu se zahazuje bez bolesti — málo vloženého času = málo biasu.
 
 Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) · [Nápad: test 300 znaků](teorie/napad.md)
+
+### Player Camera Manager
+
+**Objekt player controlleru, který spravuje výsledný pohled hráče — mimo jiné zatmívačky (camera fade) a otřesy kamery.**
+
+`Start Camera Fade` zatmí obraz do barvy během zadané doby, `Set Manual Camera Fade` nastaví míru zatmění ručně. Po zatmívačce před cutscénou je potřeba vrátit ji na nulu, jinak hra zůstane potemnělá. Přes něj se spouštějí i [camera shaky](#camera-shake).
+
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
 
 ### Point cloud
 
@@ -2744,6 +2936,14 @@ Nejmenší funkční forma je „ukaž rozdělanou věc kamarádovi": i to je zp
 
 Kde se s tím potkáš: [Playtesting](teorie/playtesting.md) · [Vydání hry: demo prodává](teorie/vydani-hry.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Idea iceberg: the Gap](teorie/rady-z-praxe.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 
+### Pole vector
+
+**Cíl, který IK řešiči určuje, kterým směrem se má ohnout prostřední kloub řetězu (loket, koleno).**
+
+Bez něj má řetěz ze tří kostí nekonečně mnoho řešení a loket se může stočit libovolně. V Control Rigu ho jde dopočítat automaticky (Compute Pole Vector), nebo zadat ručním controlem. Automatika vychází z aktuální polohy kostí, takže v krajních pózách (skoro natažená paže) může řetěz překroutit — tam je ruční control spolehlivější.
+
+Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Rejstřík: IK](#ik)
+
 ### POM
 
 **Zkratka pro parallax occlusion mapping — viz [Parallax occlusion mapping](#parallax-occlusion-mapping).**
@@ -2767,6 +2967,14 @@ Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-piz
 Klasika je 3:2 — tři noty ve stejném čase jako dvě. Nezaměňovat s [polymetrem](#polymetr), kde je to naopak (mřížka sedí, těžké doby ne). Doporučení pro začátečníky je opatrnost, aby skladba nezněla zmateně — přesnější formulace ale je, že polyrytmus je nečitelný jen tehdy, když posluchač nemá čeho se držet; nad pevnou páteří naopak funguje.
 
 Kde se s tím potkáš: [Za jeden takt: fráze, fill a prázdno](hudba/rytmus.md#za-jeden-takt-fraze-fill-a-prazdno) · [Rejstřík: Polymetr](#polymetr)
+
+### Pose Asset
+
+**Asset s pojmenovanými pózami, které AnimBP vybírá a míchá podle jména — typicky pózy prstů pro různé úchopy.**
+
+Vzniká z animace, kde každý snímek je jedna póza. V AnimGraph se póza vytáhne uzlem `Pose by Name` a přes [Layered Blend Per Bone](#layered-blend-per-bone) přepíše jen část skeletu (od ruky dolů); váhu může řídit křivka v montáži. Jedna animace zvednutí tak pokryje nůž, láhev i krabici.
+
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky)
 
 ### Pose Search Database
 
@@ -3014,7 +3222,7 @@ Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/pr
 
 Bez něj by každá postava potřebovala vlastní sadu animací. V UE se řeší IK Rigem a IK Retargeterem: řekneš, které kosti si odpovídají, a engine dopočítá zbytek. Právě proto je u AI generovaných animací důležité, na jaké standardní kostře model exportuje — mapování na běžný skeleton je rozdíl mezi „použitelné" a „k ničemu".
 
-Kde se s tím potkáš: [AI assety: animace v reálném čase](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy) · [MetaHuman v praxi](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones)
+Kde se s tím potkáš: [AI assety: animace v reálném čase](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy) · [MetaHuman v praxi](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [Export markerless animace](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku)
 
 ### Retopologie
 
@@ -3056,6 +3264,14 @@ Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [GASP](praxe/gasp.md)
 
+### RigLogic
+
+**Knihovna, která za běhu vyhodnocuje rig MetaHumana podle jeho [DNA](#dna-soubor) — od roku 2026 open source pod licencí MIT.**
+
+Spolu s DNA tvoří MetaHuman DevKit, který Epic uvolnil, aby šli MetaHumani načíst a animovat stejnou logikou rigu i mimo Unreal — součást snahy udělat z MetaHumana standard digitálních postav.
+
+Kde se s tím potkáš: [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig)
+
 ### RITE
 
 **Rapid Iterative Testing and Evaluation: jeden tester → oprav vážné problémy → další tester.**
@@ -3078,7 +3294,7 @@ Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-
 
 Následuje weight painting (malování vlivu jednotlivých kostí, aby deformace vypadala přirozeně) a stavba ovladačů, které animátorovi umožní hýbat kostrou jednoduše — jako provázky loutky. Na téhle vrstvě se řeší i to, aby chodidlo drželo na zemi, když se hýbe zbytek těla. Typická práce technického artisty.
 
-Kde se s tím potkáš: [Art specializace: tech art](teorie/art-specializace.md) · [Animace v UE](praxe/animace-nastroje.md)
+Kde se s tím potkáš: [Art specializace: tech art](teorie/art-specializace.md) · [Animace v UE](praxe/animace-nastroje.md) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi)
 
 ### Roguelike
 
@@ -3102,7 +3318,7 @@ Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruch
 
 Protiklad capsule driven přístupu (vstup hýbe kapslí, animace se lepí). Motion Matching root motion data vyžaduje — z nich čte trajektorie klipů; hromadně se zapíná přes Property Matrix (Enable Root Motion + Force Root Lock, u smyček Looping). GASP je capsule driven, ale animace root motion mají — budoucnost je blending obou přístupů po částech animace.
 
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Dojít na místo](praxe/interakcni-animace.md#dojit-na-misto-motion-warping-potrebuje-krok-ktery-je-v-animaci-schvalne) · [Contextual Animation: movement mode Flying](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
 
 ### Rovnoměrně temperované ladění
 
@@ -3167,6 +3383,14 @@ Kde se s tím potkáš: [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-sn
 Formální ideační technika — funguje na vylepšení rozdělané hry i generování nové z oblíbené. Nejužitečnější páky pro gamedev: Magnify (zazoomuj na nejzábavnější prvek a udělej z něj celou hru) a Eliminate (generátor „hra bez X": Skyrim bez magie, Fortnite bez stavění).
 
 Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md)
+
+### Scene Component
+
+**Komponenta, která má jen transformaci (polohu, rotaci, měřítko) a může nést děti — bez geometrie a bez logiky.**
+
+Slouží jako pivot (pant dveří), jako značka místa (kam se postava postaví, kam sáhne ruka, warp target) nebo jako základ vlastní třídy: grip point odvozený od Scene Component najde `Get Components by Class` a odliší ho od ostatních bodů. Reference na scene komponenty nejde zadat do výchozích hodnot proměnných; plní se v [construction scriptu](#construction-script).
+
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Úkryt ve skříni](praxe/interakce-predmety.md#ukryt-ve-skrini-markery-lerpy-a-synchronizace-s-animaci)
 
 ### Screen percentage
 
@@ -3255,6 +3479,14 @@ Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) 
 Je to koření žánru: bez septakordů nezní funk funkově a jazz jazzově. Zároveň platí varování, které stojí za zapamatování, protože je proti intuici — **neudělej septakord z každého akordu v progresi**, protože tím emoci „vymyješ". Septakordy fungují jako kontrast, ne jako výchozí stav.
 
 Kde se s tím potkáš: [Katalog progresí podle nálady](hudba/akordy-a-harmonie.md#katalog-progresi-podle-nalady) · [Rejstřík: Akord](#akord) · [Rejstřík: chord progression](#chord-progression)
+
+### Sequencer
+
+**Editor časových os v Unrealu — cutscény, kamerové záběry, animace postav a jejich úpravy, render filmových záběrů.**
+
+Pracuje s [level sequences](#level-sequence): stopy actorů (transform, animace, control rig), camera cuts (s `Can Blend` pro plynulý přechod z herní kamery a zpět), fade, camera shake, události. V 5.8 se rozrostl o animátorské nástroje — výběr synchronizovaný s curve editorem, Simple View, fyziku vrstvenou nad animací a [AutoBake](#autobake). Hodí se i mimo cutscény, třeba jako měřidlo synchronizace animace s objektem.
+
+Kde se s tím potkáš: [Cutscény](praxe/cutsceny.md) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
 
 ### Short description
 
@@ -3407,6 +3639,14 @@ Kde se s tím potkáš: [Nápad: ideace jako řemeslo](teorie/napad.md) · [Scop
 Lavička nese smart object komponentu a definition data asset; NPC si najde volný slot, claimne ho (druhé NPC už ho nedostane) a spustí injektovaný strom — jiný objekt dodá jinou logiku, beze změny AI postavy. V GASP navázané na Motion Matching: vstupní montáž se vybírá pose match sloupcem podle pózy a vzdálenosti od vstupního bodu.
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md)
+
+### Socket
+
+**Pojmenovaný bod na kosti skeletal meshe (nebo na static meshi), ke kterému se připínají jiné objekty — zbraň do ruky, předmět při zvednutí.**
+
+Socket má vlastní offset a rotaci vůči kosti, takže se dá doladit, jak předmět v ruce sedí; v editoru skeletu pomůže preview asset. Když má každý předmět jiný úchop, má i vlastní socket a jeho jméno vrací předmět sám, třeba přes interface. Jak se předmět na socket dostane, určují [attachment rules](#attachment-rules).
+
+Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Předmět do ruky bez teleportu](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Řemeslo první osoby: pistole a baterka](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby)
 
 ### Soft boundary
 
@@ -3598,7 +3838,7 @@ Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-piz
 
 Místo osmi vstupů do funkce jeden; místo osmi proměnných v SaveGame objektu jedna. Kromě čitelnosti přináší hlavně jedno místo změny: přidáš-li do struktury pole, všechna místa, která ji předávají, fungují dál. V save systémech je to rozdíl mezi rozšiřitelným formátem a rozsypaným seznamem.
 
-Kde se s tím potkáš: [Ukládání: struktury a interface](praxe/ukladani.md#save-system-ktery-prezije-druhy-projekt-struktury-interface-a-async)
+Kde se s tím potkáš: [Ukládání: struktury a interface](praxe/ukladani.md#save-system-ktery-prezije-druhy-projekt-struktury-interface-a-async) · [Data stran dveří](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave)
 
 ### Stupnice
 
@@ -3750,7 +3990,7 @@ Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovk
 
 Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, Auto = ease); looping track 0→360 = rotace. Ping-pong vzor: na Finished přečti Direction enum a zavolej Reverse/Play. Set Timeline Length za běhu mění tempo — délka nad poslední klíč vyrábí pauzu v krajní poloze. Latentní uzel — jen v event graphu, ne ve funkcích.
 
-Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md)
+Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md) · [Lerp předmětu do ruky](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Plošina s pákou](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
 
 ### Trim Relative Error
 
@@ -3830,7 +4070,7 @@ Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.
 
 Základní nástroj skriptovaných momentů: rozhovor NPC na tržišti, změna hudby, otevření cesty, cinematika na správném místě. Designové pravidlo: nejdřív otázky „jaký zážitek, jaká emoce, jaká informace, jaká další akce?" — trigger je jen doručovací mechanismus. V UE odpovídá trigger box/volume s overlap eventy (viz praxe: interakce bez Event Ticku).
 
-Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
+Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Cutscéna: spouštěč, který nezlobí](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
 
 ### Trim sheet
 

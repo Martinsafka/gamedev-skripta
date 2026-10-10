@@ -150,6 +150,8 @@ nav:
           - "Nástroje: EasyWaterscape": praxe/nastroje-voda.md
       - "Animace: nástroje a mocap":
           - Animační nástroje: praxe/animace-nastroje.md
+          - Interakční animace: praxe/interakcni-animace.md
+          - Cutscény: praxe/cutsceny.md
       - MetaHuman:
           - MetaHuman v praxi: praxe/metahuman.md
       - Terén a krajina:

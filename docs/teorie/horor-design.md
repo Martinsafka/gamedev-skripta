@@ -18,7 +18,7 @@ Horor je podle Devilish Inks nejtěžší žánr: neprodává gameplay, ale **na
 
 **Chování** [(8:33)](https://www.youtube.com/watch?v=JVTWbRMHYeY&t=513s): volný pohyb, skripty, nebo neukázat vůbec — měřítko je jediné: přidává to strach? Alien: Isolation má AI, která se učí hráče lovit — „netušíš, čeho je schopná" [(9:19)](https://www.youtube.com/watch?v=JVTWbRMHYeY&t=559s); Iron Lungu stačí naskriptovaný radar; animatronici eskalují chování noc za nocí. Složitost není cíl, tenze ano.
 
-**Souvislosti:** [Ludotematický soulad](ludonarativni-soulad.md) *(gameplay doplňuje monstrum = ludotematika v hororu)* · [Rešerše: bestiář slovanské mytologie](slovanska-monstra.md) *(bytosti jako systémy s pravidly)* · [Rejstřík: Silueta](../rejstrik.md#silueta)
+**Souvislosti:** [Ludotematický soulad](ludonarativni-soulad.md) *(gameplay doplňuje monstrum = ludotematika v hororu)* · [Rešerše: bestiář slovanské mytologie](slovanska-monstra.md) *(bytosti jako systémy s pravidly)* · [Rejstřík: Silueta](../rejstrik.md#silueta) · [Zápas se smyčkou](../praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) *(chycení monstrem jako čitelná mechanika)*
 
 ---
 

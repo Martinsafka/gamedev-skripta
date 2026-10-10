@@ -66,7 +66,7 @@ Bez presetu „Ragdoll" simulace nefunguje správně — nastavuje objektový ty
 
 > **Pozn.:** LocoDev staví nad [GASP](gasp.md) a narazil na tvrdou verzní past (5.5): kombinace Physical Animation komponenty a simulace **mrazí engine**, dokud se na BeginPlay GASP postavy neodpojí uzel `Add Tick Prerequisite Component` [(36:32)](https://www.youtube.com/watch?v=R5o2CjPb3Tk&t=2192s) — přesně ten typ „proč mi to padá" zádrhelu, který stojí za zápis. Hodnoty všech mapování ber jako startovní: oba autoři přiznávají, že čísla vyladili iterováním na vlastních animacích.
 
-**Souvislosti:** [GASP](gasp.md) · [Rejstřík: physical animation component](../rejstrik.md#physical-animation-component) · [Rejstřík: physics asset](../rejstrik.md#physics-asset)
+**Souvislosti:** [GASP](gasp.md) · [Rejstřík: physical animation component](../rejstrik.md#physical-animation-component) · [Rejstřík: physics asset](../rejstrik.md#physics-asset) · [Fyzika v Control Rigu při animování](animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) *(ragdoll časovaný v sequenceru a zapečený)*
 
 ---
 

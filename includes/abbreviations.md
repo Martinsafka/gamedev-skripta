@@ -12,6 +12,7 @@
 *[ALS]: Advanced Locomotion System — komunitní locomotion framework; jeho autor dnes v Epicu vede design GASP.
 *[Ambient occlusion]: Ztmavení míst, kam se hůř dostane rozptýlené světlo — kouty, spáry, styky ploch.
 *[Anchor (UI)]: Kotva Control nodu — číslo 0–1 určující místo v rodičově obdélníku; přežije změnu rozlišení.
+*[Animation curve]: Pojmenovaná křivka v animaci či montáži, kterou AnimBP čte každý snímek (alfa IK, úhel dveří…).
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Animation cancel]: Přerušení animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.
@@ -25,9 +26,12 @@
 *[Assist mode]: Volitelný režim, kde si hráč upraví obtížnost po jednotlivých pákách místo výběru „easy".
 *[Asset User Data]: Data pověšená na asset, která s ním cestují všude; gameplay na meshi bez blueprintu.
 *[Astroturfing]: Marketing předstírající, že vznikl zdola z komunity, i když ho platí firma.
+*[Attachment rules]: Pravidla připnutí objektu: Snap to Target ho okamžitě přesune, Keep World ho nechá na místě.
 *[Attenuation]: Útlum hlasitosti se vzdáleností; per-frekvenčně dělá zblízka ostrý, z dálky dunivý zvuk.
+*[AutoBake]: Přepínání živého control rigu a jeho zapečené animation sequence v sequenceru (UE 5.8).
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
 *[Blueprint Debugger]: Ladění blueprintů za běhu: breakpointy, sledované hodnoty a zastavení na uzlu, kde nastala chyba.
+*[Blueprint Macro]: Znovupoužitelný kus Blueprint grafu; na rozdíl od funkce smí obsahovat Delay a jiné latentní uzly.
 *[B-roll]: Doplňkové záběry pod mluvené slovo; v devlozích typicky záběry gameplaye.
 *[Backbeat]: Rytmický důraz na sudé doby taktu; místo pro snare a clap.
 *[Backlog]: Zásobník všeho, co projekt čeká (úkoly i nápady); priority se z něj tahají po dávkách.
@@ -57,6 +61,7 @@
 *[Call down, signal up]: Pravidlo Godotu: rodič volá funkce na dětech, dítě posílá signály nahoru.
 *[Call to action]: Závěrečná výzva traileru/videa: co má divák udělat teď („Wishlist on Steam"). Právě jedna.
 *[Camera director]: Objekt vlastnící pravidla kamery pro oblast: hranice, výjimky, plynulé předání řízení.
+*[Camera shake]: Krátký otřes kamery jako asset (amplituda, frekvence, šum); z kódu, notify nebo v sequenceru.
 *[Capsule]: Náhledový obrázek hry na Steamu — nejdůležitější kus grafiky celé stránky.
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
@@ -70,12 +75,16 @@
 *[Cipher]: Typ hráčské postavy: prázdná nádoba bez osobnosti a hlasu; oživí ji až hráčova imaginace.
 *[Closing doors]: Iterace od širokého k úzkému; zavřené dveře se znovu neotevírají.
 *[Cluster culling]: Nanite zahazuje geometrii po clusterech — buď celý, nebo nic; rozhoduje topologie meshe.
+*[Construction Script]: Graf actor blueprintu, který běží v editoru při umístění či změně actoru a při spawnu.
 *[Context switch]: Přepnutí jádra mezi vlákny; časté přepínání je čistá režie, nevyvážená jádra blokují ostatní.
 *[Cognitive load]: Kolik mozku aktivita žere; nové dovednosti jsou drahé — onboarding = řízení komplexity.
 *[Cold open]: Otvírák traileru: prvních 10–15 s nabitých highlighty v rychlých střizích, pak teprve klid.
 *[Collision mask]: „Co mě zajímá" — proti vrstvě, která říká „co jsem"; filtr kolizí v konfiguraci místo v kódu.
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
 *[Constraints]: Nepsané dohody, se kterými musí souhlasit každý nový řádek kódu.
+*[Contextual Animation]: Plugin pro synchronizované animace víc účastníků: role, montáže stejné délky, warp pointy.
+*[Control Rig Dynamics]: Částicový sekundární pohyb v Control Rigu (5.8): culíky, pouzdra, řetězy; běží i ve hře.
+*[Control Rotation]: Rotace player controlleru — úhel pohledu, který hráč ovládá myší nebo páčkou.
 *[Cook]: Převod assetů do formátu cílové platformy při balení; čtyři nastavení umí zmenšit balíček o desítky procent.
 *[Contact curve]: Animační křivka 0/1 „chodidlo na zemi" — řídí foot pinning; nahradila foot velocity curves.
 *[Content]: Vše, co jde opakovat s variacemi: levely, nepřátelé, příběh, odemykatelné věci.
@@ -89,6 +98,7 @@
 *[Custom resource]: Vlastní datový typ uložený jako soubor (.tres) — balancování hry bez otevírání skriptů.
 *[Cyklus napětí]: Horor v pěti krocích: setup → očekávání → pochyby → diverze → akce; a znovu.
 *[Data asset]: Asset nesoucí čistá strukturovaná data (konfiguraci) bez logiky.
+*[Dataflow]: Grafový systém UE pro zpracování dat assetů, např. přenos rigu a tvarů mezi meshi.
 *[Data layer]: Kontejner aktorů (world partition): Unloaded/Loaded/Activated — načítání zón triggerem za běhu.
 *[Data-oriented design]: Návrh podle toho, jak leží data v paměti a jak se k nim přistupuje; neplést s data-driven.
 *[Data Registry]: Registr konfiguračních dat (data tables) — systémy se ptají jménem místo tvrdých odkazů na tabulky.
@@ -106,12 +116,14 @@
 *[Design pillars]: 2–3 pojmy o tom, co má hráč cítit; váha pro každé rozhodnutí. Žánr ani art style pilíř není.
 *[Device profile]: Hierarchická sada nastavení a CVarů pro platformu; engine si ji sám nevybere — musíš ji zvolit.
 *[Devlog]: Video či zápis o vývoji vlastní hry — marketingový kanál a žánr s vlastním řemeslem.
+*[Direct Mesh Controls]: Controly rigu ovládané tahem přímo za povrch postavy, ne za kroužky kolem ní (UE 5.8).
 *[Distance field AO]: AO z mesh distance fields; tiše se zapíná spolu s movable skylightem, takže ho platíš bez vědomí.
 *[Difficulty curve]: Průběh obtížnosti hry v čase; skládá se z novelty (učení nového) a mastery (zvládání známého).
 *[Disonance]: Dojem napětí či drsnosti při znění tónů; opak konsonance, spojitá páka napětí.
 *[DLSS]: NVIDIA upscaler: render v nižším rozlišení + AI dopočet; s Frame Generation a Reflex; kompenzuj mip bias.
 *[DNA soubor]: Popis vyřešené MetaHuman hlavy; vzniká krokem Save Pose a je vstupem pro texturu i doplňky.
 *[Dogfooding]: Používání vlastního produktu jako jeho první zákazník — nejlevnější test, že unese reálnou práci.
+*[Do Once]: Blueprint uzel, který propustí exekuci jen poprvé, dokud ho něco nezresetuje.
 *[Dot product]: Skalární součin jednotkových vektorů = kosinus úhlu: 1 stejný směr, 0 kolmost, −1 protisměr.
 *[Draw call]: Příkaz CPU pro GPU „vykresli tohle"; šetří se instancingem a sdílením materiálů (trim sheety).
 *[Dynamic Material Instance]: Runtime kopie materiálu s parametry měnitelnými z kódu (Set Parameter Value); žije per objekt.
@@ -174,6 +186,7 @@
 *[Gimbal lock]: Ztráta stupně volnosti: prostřední osa na 90° zarovná zbylé dvě a rotace se slepí.
 *[Git LFS]: Rozšíření gitu pro velké binárky: v repozitáři odkaz, obsah zvlášť; na GitHubu 1 GB zdarma.
 *[Global Distance Field]: Hrubé sloučené pole vzdáleností k povrchům celé scény kolem kamery (Lumen, DFAO, Niagara).
+*[Global Time Dilation]: Násobitel rychlosti času celé hry; zpomalí všechno včetně animací, hodí se i na ladění.
 *[GOAP]: Goal-Oriented Action Planning — AI si posloupnost akcí k cíli poskládá sama za běhu.
 *[God class]: Antipattern: třída, do které se postupně nastěhuje logika všech ostatních.
 *[Gradual typing]: Typy jsou volitelné a přidávají se postupně; statický zápis hlásí chyby před spuštěním.
@@ -197,7 +210,9 @@
 *[Hitch resiliency]: Schopnost potrubí pohltit zásek bez zahozeného snímku; platí se vstupní latencí.
 *[HUD]: Heads-up display — informace zobrazené přes gameplay: zdraví, munice, minimapa, cíle.
 *[Idea reservoir]: Zásobník NEschválených nápadů před to-do; taháš, až se ukáže, co ve hře funguje.
+*[IK]: Inverzní kinematika: řetěz kostí se natočí tak, aby koncová kost dosáhla cíle.
 *[Iluze plynulosti]: Pocit „rozumím" z plynulého čtení; zhroutí se při vysvětlování krok za krokem.
+*[Inertialization]: Blend, který z rychlosti původního pohybu dopočítá plynulý přechod místo míchání dvou póz.
 *[ISM]: Instanced Static Mesh — shodná geometrie i materiál v jednom draw callu; HISM přidává LODy.
 *[Indexical storytelling]: Vyprávění stopami a náznaky; hráč si příběh složí sám (Clara Fernández-Vara).
 *[Impostor]: Nejagresivnější LOD: asset nahrazený obrázkem otáčejícím se s kamerou.
@@ -235,6 +250,7 @@
 *[Leitmotiv]: Melodie svázaná s postavou/místem, která se vrací a mění podle scény; pojivo světa.
 *[Lerp]: Lineární interpolace A + (B − A)·t: plynulý přechod čehokoli, co jde vyjádřit čísly.
 *[Level instance]: Znovupoužitelný sub-level; Packed Level Actor = totéž pro static meshe (převod na instance).
+*[Level Sequence]: Asset sequenceru — časová osa se stopami actorů, kamer a událostí, přehrávaná i za běhu.
 *[Level streaming]: Načítání a uvolňování částí světa za běhu; persistent level je rám, sub-levely obsah.
 *[LFO]: Pomalý oscilátor otáčející donekonečna zvoleným knobem (vibrato, wobble, pohyb filtru).
 *[Liminální prostor]: Veřejný prostor bez lidí a účelu — skoro normální, a proto zneklidňující.
@@ -256,6 +272,7 @@
 *[Ludus a paidia]: Caillois: hra podle pravidel vs. volné blbnutí. Holá hra = moc ludus, málo paidia.
 *[Map (dictionary)]: Struktura klíč → hodnota: čitelný klíč místo indexu; překlep klíče = tichý bug.
 *[Marching cubes]: Z 3D skalárního pole mesh: krychle z 8 sousedů, 256 případů, předpočítané polygony.
+*[Markerless mocap]: Motion capture z obyčejného videa bez markerů a obleku.
 *[Market research]: Průzkum trhu: žánrové výdělky (medián!), tagy, recenze konkurence — objektivita proti zamilovanosti.
 *[Markovův řetěz]: Stavy a pravděpodobnosti přechodů; memoryless — pro další krok stačí současný stav.
 *[Mass Entity]: ECS framework pro tisíce entit (davy, doprava) — City Sample i MetaHuman Crowd; entity nejsou actory.
@@ -269,14 +286,19 @@
 *[Mediator pattern]: Prostředník, přes kterého aktéři komunikují místo napřímo (věž místo letadel).
 *[MegaLights]: Systém UE od 5.5, který zlevňuje scény s velkým počtem stínících světel.
 *[Mesh distance field]: Pole vzdáleností k povrchu meshe — efekty obtékající geometrii (Distance to Nearest Surface).
+*[Mesh to MetaHuman]: Převod cizího meshe na MetaHumana s rigem podle standardu Epicu; od 5.8 i celé tělo.
 *[MetaHuman]: Epicův systém fotorealistických postav; Performance asset zpracuje video na animaci těla i obličeje.
+*[MetaHuman Animator]: Nástroj, který z natočeného výkonu spočítá animaci MetaHumana; od 5.8 i tělo.
+*[MetaHuman Collection]: Asset pro davy MetaHumanů z malé sady dílů; v dálce instance, u kamery plný MetaHuman.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
 *[Mixels]: Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.
 *[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
 *[Modifier stack]: Vrstvené nedestruktivní úpravy; každou lze dodatečně měnit, přesouvat či smazat.
+*[Montage section]: Pojmenovaný úsek anim montáže; navazování sekcí lze za běhu přesměrovat.
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
 *[Moodboard]: Sbírka referencí ukazující tón a směr dřív, než vznikne první vlastní kresba.
+*[Morph target]: Uložená deformace vrcholů meshe (blend shape) zapínaná váhou — výrazy a korektivy.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
 *[Motion Warping]: Ohnutí root motion animace, aby trefila cílový transform; okno řídí notify state v montáži.
 *[Motiv]: Krátká zapamatovatelná dvou- až pětitónová buňka melodie; jde ji opakovat, obrátit, posunout.
@@ -335,14 +357,17 @@
 *[Physics Control]: Komponenta držící simulovaná tělesa u cíle laditelnou pružinou — fyzikální, ale ovladatelné.
 *[Pitch deck]: Prezentace hry, která ještě neexistuje; simuluje první kontakt zákazníka s nápadem.
 *[Pivot]: Vztažný bod objektu (rotace, scale, přichytávání); v enginu opravitelný přes modeling mode Edit Pivot.
+*[Player Camera Manager]: Objekt player controlleru spravující výsledný pohled hráče: zatmívačky, otřesy kamery.
 *[Point cloud]: Mračno bodů z laserového skenu; barva sedí na bodu, detail se vrství místo aby nahrazoval.
 *[Pixel-perfect]: Celočíselné škálování pixel artu; ve slepém testu necelé faktory skoro nepoznáš.
 *[Placeholder]: Provizorní asset držící místo finálnímu; schválně ošklivý, aby nesváděl k ladění.
 *[Player State]: Objekt s daty jednoho hráče (inventář, skóre) nezávisle na pawnovi; v multiplayeru se replikuje.
 *[Playtest]: Testování hry skutečnými hráči za účelem zpětné vazby.
+*[Pole vector]: Cíl, který IK řešiči určuje směr ohybu prostředního kloubu (loket, koleno).
 *[POM]: Parallax occlusion mapping — pixel-shader iluze hloubky posunem UV; na hranách řeže, siluety neumí.
 *[Polymetr]: Souběžné rytmické řady různé délky; dlouhý groove z krátkého zápisu.
 *[Polyrytmus]: Dva vzorce ve stejném metru: první doby sedí, dělení ne.
+*[Pose Asset]: Asset s pojmenovanými pózami, které AnimBP vybírá a míchá podle jména (např. úchopy).
 *[Pose Search Database]: PSD — kolekce animací jednoho typu pohybu, ve které Motion Matching hledá pózy.
 *[Pose Search Schema]: Definice, co MM měří: kanály (trajektorie, kosti) s vahami; ladí se experimentem.
 *[Pose Snapshot]: Zmrazení pózy skeletu jako blendovací zdroj v AnimBP — most z ragdoll fyziky zpět do animace.
@@ -381,6 +406,7 @@
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
 *[RHI]: Render Hardware Interface — vrstva mezi rendererem a grafickým API dané platformy.
 *[Rigging]: Vložení kostry do modelu a nastavení, jak kosti ovládají mesh.
+*[RigLogic]: Knihovna vyhodnocující rig MetaHumana podle DNA; open source (MIT) v MetaHuman DevKitu.
 *[RITE]: Rapid Iterative Testing and Evaluation: jeden tester → oprav vážné problémy → další tester.
 *[Roguelike]: Žánr postavený na opakovaných bězích, smrti jako součásti smyčky a procedurální generaci.
 *[Roughness]: Drsnost povrchu v PBR; zároveň práh, pod kterým Lumen trasuje dedikované odrazové paprsky.
@@ -393,6 +419,7 @@
 *[SaveGame objekt]: Blueprint třída nesoucí ukládané proměnné; přes pojmenovaný slot se zapisuje na disk.
 *[Scalability groups]: Skupiny kvality renderování; *Epic* je režim pro 30 FPS, pro 60 je referenční *High*.
 *[SCAMPER]: Sedm pák na nápad: Substitute, Combine, Adapt, Magnify, Purpose, Eliminate, Rearrange.
+*[Scene Component]: Komponenta jen s transformací a dětmi, bez geometrie — pivot, značka místa, warp target.
 *[Screen percentage]: V jakém rozlišení se scéna doopravdy renderuje; výchozí „based on display resolution" tiše jde pod 100 %.
 *[Scene inheritance]: Scéna odvozená z jiné: převezme celý strom nodů a přepíše jen odchylky.
 *[Scene tree]: Strom nodů a vnořených scén, ze kterého se skládá běžící hra; nese i transformace a pořadí kreslení.
@@ -403,6 +430,7 @@
 *[Self Pruning]: PCG uzel mazající překrývající se body podle bounds či kolizí — garance rozestupů checkboxem.
 *[Semiotika]: Nauka o tom, co symboly znamenají a proč — u písma dřív, než přečteš obsah.
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
+*[Sequencer]: Editor časových os v UE: cutscény, kamery, animace postav, render záběrů.
 *[Serif]: Patka na konci tahu písmene; nese historickou asociaci a mírně zpomaluje čtení.
 *[Shading bin]: Nanitová obdoba draw callu; vlastní bin chce každá materiálová instance, ~3 µs minimum.
 *[Shape language]: Standardizace tvarů pro významy: plus je zdraví, kruh štít, špice poškození.
@@ -423,6 +451,7 @@
 *[Skill floor]: Minimum dovednosti, abys vůbec hrál; komplexita ovládání je floor sama o sobě.
 *[Skills audit]: Inventura dovedností před volbou projektu: co umím, co ne, co napůl.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
+*[Socket]: Pojmenovaný bod na kosti nebo meshi, ke kterému se připínají jiné objekty.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
 *[Soft reference]: Odkaz jen s cestou k assetu; nic nenačte, dokud si o to hra neřekne (Async Load Asset).
 *[Soft skills]: Dovednosti bez viditelného výstupu (úsudek, empatie, komunikace); učí se objevováním, ne návodem.
