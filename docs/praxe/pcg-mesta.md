@@ -92,7 +92,7 @@ Město je největší zkouška procedurálního nástroje. Opakuje se v něm tol
 
 > **Pozn.:** Blok napřed je obecnější trik, než vypadá. Generuješ z toho, co má artist pod kontrolou a co má jasnou hranici, a prostor mezi tím se dopočítá. Ulice jako negativní prostor jde z hotových bloků odvodit snáz, než se z ulic skládají bloky. Toto čtení je naše. Booleany s vertex colorem na nové hraně jsou příbuzné [Nanite displacementu malovanému vertex colorem](materialy.md#nanite-displacement-relief-malovany-vertex-colorem): v obou případech nese informaci pro materiál sama geometrie.
 
-**Souvislosti:** [Nástroj pro artisty](#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny) · [Mesh Terrain: modifier stack](mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani) *(booleany a remesh na terénu)* · [Rejstřík: Boolean](../rejstrik.md#boolean) · [Rejstřík: Remesh](../rejstrik.md#remesh) · [Rejstřík: Dynamic Mesh](../rejstrik.md#dynamic-mesh) · [Rejstřík: Houdini](../rejstrik.md#houdini)
+**Souvislosti:** [Nástroj pro artisty](#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny) · [Mesh Terrain: modifier stack](mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani) *(booleany a remesh na terénu)* · [Rejstřík: Boolean](../rejstrik.md#boolean) · [Rejstřík: Remesh](../rejstrik.md#remesh) · [Rejstřík: Dynamic Mesh](../rejstrik.md#dynamic-mesh) · [Rejstřík: Houdini](../rejstrik.md#houdini) · [Město z promptů a PCG primitiv](mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) *(Epic staví město agentem)*
 
 ---
 

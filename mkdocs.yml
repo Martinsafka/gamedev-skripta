@@ -199,6 +199,7 @@ nav:
           - Textury a DLSS: praxe/textury-a-dlss.md
       - AI nástroje ve vývoji:
           - "AI agenti: Claude Code a MCP": praxe/claude-code-ue.md
+          - MCP v editoru: praxe/mcp-v-editoru.md
           - AI assety: praxe/ai-assety.md
       - Editor a workflow:
           - Tipy do editoru: praxe/editor-tipy.md

@@ -1,6 +1,6 @@
 # 2D vizuál: pixel art a izometrie
 
-Dvě rozhodnutí, která u 2D hry padnou nejdřív a nejdéle drží: **jaké má hra rozlišení** a **z jakého úhlu se na svět díváš**. Obě vypadají jako technikálie a obě jsou ve skutečnosti designové volby s dlouhým stínem — určují, kolik práce dá jeden asset, jak čitelná bude scéna a co všechno hráč uvidí. Tahle kapitola spojuje dva zdroje z opačných konců zkušenosti: vývojáře, který přesvědčuje netvůrce, že na pixel art stačí hrstka nastavení, a autorku, která na vlastní hře popisuje, co izometrie stojí.
+Dvě rozhodnutí, která u 2D hry padnou nejdřív a nejdéle drží: **jaké má hra rozlišení** a **z jakého úhlu se na svět díváš**. Obě vypadají jako technikálie a obě jsou ve skutečnosti designové volby s dlouhým stínem — určují, kolik práce dá jeden asset, jak čitelná bude scéna a co všechno hráč uvidí. Tahle kapitola spojuje dva zdroje z opačných konců zkušenosti: vývojáře, který přesvědčuje netvůrce, že na pixel art stačí hrstka nastavení, a autorku, která na vlastní hře popisuje, co izometrie stojí. Na okraji přibyl krátký návod, jak z AI obrázků poskládat [parallax vrstvy](#layering-a-verticalita-staticka-kamera-jako-scenografie), které k sobě sedí.
 
 ---
 
@@ -65,7 +65,8 @@ Zajímavý je poznatek o tom, kde na přesnosti záleží víc a kde míň [(4:0
 
 ## Layering a verticalita: statická kamera jako scénografie
 
-**Zdroj:** [How we made our Isometric Game Art! ★ || GOLEMBERT Devlog #12](https://www.youtube.com/watch?v=UYBzqCldDDI) · [Studio Firlefanz](https://www.youtube.com/channel/UCAfPaxLy2g5uy7IrQToCcCg) · druhá půlka devlogu
+**Zdroj:** [How we made our Isometric Game Art! ★ || GOLEMBERT Devlog #12](https://www.youtube.com/watch?v=UYBzqCldDDI) · [Studio Firlefanz](https://www.youtube.com/channel/UCAfPaxLy2g5uy7IrQToCcCg) · druhá půlka devlogu ·
+[Create a FREE 2D Parallax System Using AI ( Game Ready )](https://www.youtube.com/watch?v=4_u5Ues1zPY) · [Iris Ogli - Modeling, AI Animation & Game Assets](https://www.youtube.com/channel/UC9NUEIVt0LPz0KA4SUWO9Hg) · ~4 min, tutoriál (doplněk o parallaxu)
 
 **Shrnutí:** Se statickou kamerou vznikají dva problémy, které 3D hry řeší samy: **co je před čím** a **co komu zakrývá výhled**. První se řeší řazením vrstev podle pozice na ose Y, druhý designem samotného světa — mřížkou pro umísťování, „zdí" na horním okraji mapy nebo stupňovitým rozvržením. Autorka to popisuje jako práci scénografa, a to je přesná metafora.
 
@@ -83,6 +84,8 @@ Zajímavý je poznatek o tom, kde na přesnosti záleží víc a kde míň [(4:0
 Jejich vlastní řešení stojí na pojmu **frame** [(7:06)](https://www.youtube.com/watch?v=UYBzqCldDDI&t=426s) — tak si pojmenovaly oblast, kterou je vidět celou na jednu obrazovku (zahrada je jeden frame, přístav druhý). Schody vedou jen mezi framy a **celý layout ostrova je kolem toho postavený**: každá další oblast leží o kus výš, aby loď, strom ani dům nezakrývaly to za sebou [(7:54)](https://www.youtube.com/watch?v=UYBzqCldDDI&t=474s). Autorka dodává, že totéž jde udělat do šířky s pomyslnou zdí v pozadí, a že hry jako Stardew si problém zjednodušují **rozdělením na víc scén**, takže nemusí všechno navazovat bezešvě [(8:41)](https://www.youtube.com/watch?v=UYBzqCldDDI&t=521s).
 
 Závěrečná formulace je nejlepší část devlogu [(8:41)](https://www.youtube.com/watch?v=UYBzqCldDDI&t=521s): **„přemýšlet o věcech jako verticalita je sám o sobě fakt cool designový trik — připomíná to scénografii. Obzvlášť se statickou kamerou pro to musíš najít chytré řešení."** Statická kamera totiž nedovolí uhnout: co je špatně komponované, zůstane špatně komponované po celou hru.
+
+**Doplněk: parallax vrstvy z AI.** Boční 2D hra řeší s vrstvami jiný problém než izometrie, totiž rychlost posunu podle hloubky. Krátký návod z kanálu Iris Ogli ukazuje, jak takové vrstvy vyrobit z AI obrázků, aby k sobě seděly [(0:00)](https://www.youtube.com/watch?v=4_u5Ues1zPY&t=0s). Nejdřív vznikne jediná scéna ve striktním 16:9, která má vypadat jako screenshot z hotové hry. Prompt v ní drží pevný úhel kamery a horizont, aby výsledek působil jako hratelná scéna, a ne jako obrázek [(0:48)](https://www.youtube.com/watch?v=4_u5Ues1zPY&t=48s). Ze stejné scény se pak generují samostatné vrstvy (vzdálené pozadí, střední plán a popředí), které po složení sedí, protože sdílejí styl, světlo i záběr kamery [(1:39)](https://www.youtube.com/watch?v=4_u5Ues1zPY&t=99s). Další vrstvy, třeba mlhu, vzdálené hory nebo listí v popředí, přidá další běh téhož promptu se stejnou referencí [(2:27)](https://www.youtube.com/watch?v=4_u5Ues1zPY&t=147s). Nakonec se z vrstev odstraní pozadí a uloží se jako průhledná PNG. Každá vrstva pak může mít v enginu vlastní rychlost a mezi vrstvy jdou vložit herní prvky [(3:13)](https://www.youtube.com/watch?v=4_u5Ues1zPY&t=193s). Celé prompty odkazuje popis videa na web kanálu. Zamčený horizont je tu stejná disciplína jako statická kamera výš: když nesedí perspektiva, rozpadne se celá kompozice. Toto čtení je naše.
 
 > **Pozn.:** Tohle je 2D obdoba práce, kterou ve 3D dělá [kamera](kamera.md#kamera-metroidvanie-hranice-ktere-umi-lhat) — jen s obráceným zadáním. Ve 3D se kamera přizpůsobuje světu; tady se **svět staví tak, aby vyhověl nehybné kameře**. Proto je „stupňovitý ostrov" plnohodnotné designové rozhodnutí, ne dekorace.
 

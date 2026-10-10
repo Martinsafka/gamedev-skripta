@@ -122,8 +122,9 @@ Témata a kapitoly:
 
 **AI nástroje ve vývoji**
 
-- **[AI agenti: Claude Code a MCP v enginu](claude-code-ue.md)** — nativní MCP v 5.8 (setup a první testy), komunitní cesta s endless runner stress testem, agent v Blenderu a ComfyUI, 72hodinová hra jako mapa dělby člověk–AI, proč nativní MCP samo nestačí (a stavba přes PCG, aby výsledek zůstal ovladatelný), produkty okolo a Convai NPC.
-- **[AI assety: z obrázku po postavu v enginu](ai-assety.md)** — bezplatná pipeline za hodinu, srovnání Tripo/Hunyuan/Rodin s cenami, hratelná postava v tandemu, modulární systém s AccuRigem, konverze na MetaHumana v 5.8, AI animace Kimodo + 2D PixelLab a real-time generace pohybu ovládaná klávesnicí (ARDY).
+- **[AI agenti: Claude Code a MCP v enginu](claude-code-ue.md)** — nativní MCP v 5.8 (setup a první testy), komunitní cesta s endless runner stress testem, agent v Blenderu a ComfyUI, 72hodinová hra jako mapa dělby člověk–AI, proč nativní MCP samo nestačí (a stavba přes PCG, aby výsledek zůstal ovladatelný), produkty okolo a Convai NPC, nově i agent v Blenderu přes MCP místo klikání.
+- **[MCP v editoru: jak ho Epic postavil a jak s ním mluvit](mcp-v-editoru.md)** — pohled zevnitř: proč agent staví přes PCG primitiva, příklady a skills, rozjetí MCP včetně chyb, kvůli kterým agent nic nevidí, čtyři návyky pro prompty a kontext, který se vejde, vlastní tool sety a skills, a agent v IDE s indexem a debuggerem (Rider).
+- **[AI assety: z obrázku po postavu v enginu](ai-assety.md)** — bezplatná pipeline za hodinu, srovnání Tripo/Hunyuan/Rodin s cenami, hratelná postava v tandemu, modulární systém s AccuRigem, konverze na MetaHumana v 5.8, AI animace Kimodo + 2D PixelLab a real-time generace pohybu ovládaná klávesnicí (ARDY), nově AnimGen v 5.8 a lokální porty MotionBricks a Kimoda.
 
 **Editor a workflow**
 

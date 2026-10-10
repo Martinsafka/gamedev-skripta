@@ -1,6 +1,6 @@
 # AI agenti: Claude Code a MCP v enginu
 
-Rok 2026 přinesl do Unrealu **agentní AI**: 5.8 má nativní **MCP** (Model Context Protocol) a AI agent s přístupem do editoru staví blueprinty, materiály i celé levely. Kapitola jde od setupu přes poctivé stress testy až po největší lekci celého tématu: **agent je násobič pro toho, kdo věcem rozumí** — obecný prompt dá obecný výsledek. Generování assetů (obrázky → 3D) řeší [sesterská kapitola](ai-assety.md).
+Rok 2026 přinesl do Unrealu **agentní AI**: 5.8 má nativní **MCP** (Model Context Protocol) a AI agent s přístupem do editoru staví blueprinty, materiály i celé levely. Kapitola jde od setupu přes poctivé stress testy až po největší lekci celého tématu: **agent je násobič pro toho, kdo věcem rozumí** — obecný prompt dá obecný výsledek. Generování assetů (obrázky → 3D) řeší [sesterská kapitola](ai-assety.md). Jak MCP v editoru navrhl Epic, jak ho rozjet bez chyb a jak s agentem mluvit, rozebírá kapitola [MCP v editoru](mcp-v-editoru.md).
 
 ---
 
@@ -20,7 +20,7 @@ Rok 2026 přinesl do Unrealu **agentní AI**: 5.8 má nativní **MCP** (Model Co
 
 > **Pozn.:** Oba autoři opakují stejnou podmínku: znej základy enginu, než si pustíš agenta — AI dělá chyby a bez vlastní diagnózy se v nich utopíš [(0:02)](https://www.youtube.com/watch?v=0tzXVwDxzt8&t=2s). To je tatáž rada jako v [Jak se učit engine](editor-tipy.md#jak-se-ucit-engine-rady-po-peti-letech) — agent nezkracuje učení, zkracuje práci naučených.
 
-**Souvislosti:** [Editor tipy: jak se učit engine](editor-tipy.md#jak-se-ucit-engine-rady-po-peti-letech) · [Rejstřík: MCP](../rejstrik.md#mcp)
+**Souvislosti:** [Editor tipy: jak se učit engine](editor-tipy.md#jak-se-ucit-engine-rady-po-peti-letech) · [Rejstřík: MCP](../rejstrik.md#mcp) · [MCP v editoru: rozjet MCP](mcp-v-editoru.md#rozjet-mcp-tri-pluginy-agent-ze-spravne-slozky-a-co-delat-kdyz-nic-nevidi) *(trojice pluginů podle Epicu a co dělat, když agent nic nevidí)*
 
 ---
 
@@ -40,7 +40,7 @@ Rok 2026 přinesl do Unrealu **agentní AI**: 5.8 má nativní **MCP** (Model Co
 
 > **Pozn.:** Debugging přes screenshoty funguje (bug s game over při úkroku, mezery mezi dlaždicemi) [(14:38)](https://www.youtube.com/watch?v=iRcrZjOt5H8&t=878s) — ale vizuální kontrola stojí tokeny; viz [72hodinová hra](#72-hodin-delba-prace-clovekai) pro dotažení téhle ekonomie.
 
-**Souvislosti:** [72 hodin: dělba práce](#72-hodin-delba-prace-clovekai) · [Zápisky: devlog jako mapa](../zapisky/devlog-jako-mapa.md) *(stavba celého enginu s agentem z první ruky: verifikační hranice, devlog jako paměť agenta)* · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: version control](../rejstrik.md#version-control)
+**Souvislosti:** [72 hodin: dělba práce](#72-hodin-delba-prace-clovekai) · [Zápisky: devlog jako mapa](../zapisky/devlog-jako-mapa.md) *(stavba celého enginu s agentem z první ruky: verifikační hranice, devlog jako paměť agenta)* · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: version control](../rejstrik.md#version-control) · [Jak s agentem mluvit](mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) *(čtyři návyky od Epic Education)*
 
 ---
 
@@ -63,6 +63,30 @@ Rok 2026 přinesl do Unrealu **agentní AI**: 5.8 má nativní **MCP** (Model Co
 > **Pozn.:** Část videa o Rodin Gen 2.5 je **sponzorovaný segment** (hero postavy, smart low poly, 12K textury) — nástroj je reálný, ale čti to jako inzerci [(15:35)](https://www.youtube.com/watch?v=KdYv_TT-ZnQ&t=935s). Autorův verdikt k agentům sedí s ostatními: generování trvá, síla je v **pipeline, kterou agenta naučíš** — a v debuggingu instalací, kde je Claude výborný [(22:36)](https://www.youtube.com/watch?v=KdYv_TT-ZnQ&t=1356s). Kimodo samotné rozebírá [AI assety](ai-assety.md#animace-a-2d-kimodo-a-pixellab). *(V indexu přeřazeno ze slugu ai-assets — obsahově patří k agentům.)*
 
 **Souvislosti:** [AI assety: Kimodo](ai-assety.md#animace-a-2d-kimodo-a-pixellab) · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: retopologie](../rejstrik.md#retopologie)
+
+---
+
+## MCP místo klikání: agent v Blenderu od blockingu po rig
+
+**Zdroj:** [New Absolute King of 3D & Blender - GPT-6 Astra](https://www.youtube.com/watch?v=8MUk-tQTiwE) · [Stefan 3D AI](https://www.youtube.com/channel/UCRW08KcTVjXEmBzBsVl7XjA) · ~14 min, test
+
+**Shrnutí:** Autor testuje GPT-6 v Blenderu a video je natočené v nadšeném tónu. Nejcennější je ale srovnání dvou cest, jak agent program ovládá. Computer use, tedy klikání po obrazovce, je podle autora příliš pomalé, jen uložení souboru trvalo deset minut. Přes MCP, které vystaví funkce programu, zvládne agent mnohem víc. Postupuje přitom od hrubého blockingu k detailu. Háček: i v nejlepších ukázkách autor přiznává nesrovnalosti a jedna z působivých scén nevznikla procedurálně, ale z modelů vygenerovaných 3D AI.
+
+### Rozpad myšlenky
+
+**Klikání proti API.** Setup tvoří Codex CLI a Blender plugin od Higgsfieldu, který agentovi vystaví nástroje [(1:32)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=92s). Pokus přes computer use dopadl špatně. Samuraje podle obrázku stavěl hodinu, protože všechno dělal klikáním, a jen uložení souboru trvalo deset minut [(2:18)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=138s). Přes MCP, které vystaví funkce programu, zvládne agent podle autora mnohem víc. Samuraj poskládaný z primitiv ale ani tak nevyšel dobře a postavy z primitiv podle autora obecně nefungují. Dokud model neumí pracovat s polygony, je lepší nechat mesh vygenerovat 3D AI a agentovi k němu dát přístup [(3:05)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=185s).
+
+**Rig, o který nikdo neřekl.** Úkol zněl: postava, rig a chůze. Srovnávací model Fable 5.1 to zvládl s nerozbitými vahami, jen trochu ztuhle [(0:46)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=46s). GPT-6 dodal chůzi bez problémů s vahami a navíc jednoduchý control rig s IK, který v zadání nebyl [(1:32)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=92s).
+
+**Blocking napřed.** U lokace z jednoho promptu agent nejdřív rozvrhne hrubé tvary a pak postupně přidává objekty. Pozadí i animované plameny dělá procedurálně [(4:37)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=277s). Scéna podle referenčního obrázku, tentokrát čistě procedurálně bez 3D AI a generování obrázků, vznikla zhruba za hodinu. Agent přitom nastavil světlo, uspořádal projekt, uložil k němu referenci a vyrenderoval mezistavy, podle kterých jde postup sledovat [(5:23)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=323s) [(6:09)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=369s). Auto podle výkresů staví stejně, od blockingu ke zpřesňování, a na požádání přidá i animaci skládání z dílů [(7:41)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=461s).
+
+**Co autor přiznává.** Auto není přesně podle výkresu a nesrovnalostí je hodně [(7:41)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=461s). Jedna z jeho působivých scén vznikla přes Higgsfield MCP z objektů, které vygenerovala 3D AI, takže podle autora „rozhodně ne procedurálně" [(8:27)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=507s) [(9:14)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=554s). U dynamického závodu bylo promptů víc a AI podle autora udělala 95 % práce [(10:00)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=600s). Výsledkem je playblast, ze kterého pak videomodel v Higgsfieldu udělá film. Cenu autor měří limity předplatného: přes deset testů spotřebovalo 7 % týdenního limitu, zatímco u srovnávacího modelu stačil k vyčerpání jeden úkol [(8:27)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=507s).
+
+**Logika místo modelování.** Agent napíše i add-on, třeba konfigurátor LED nápisů s presety a vlastním logem [(11:32)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=692s) [(12:18)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=738s). Za hodinu podle autora vznikla i aplikace, která z 3D objektu vyrobí sekvenci spritů [(13:05)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=785s).
+
+> **Pozn.:** Video je plné nadšení, autor je podle svých slov „v šoku a má strach" [(6:09)](https://www.youtube.com/watch?v=8MUk-tQTiwE&t=369s), a odkaz na plugin v popisu je affiliate. Srovnání modelů ber jako jeho dobový test, ne ověřený fakt, jména modelů se mění rychleji než tahle stránka. Přenositelné jsou tři věci, které sedí s [lokální pipeline v Blenderu](#agent-v-blenderu-a-comfyui-lokalni-pipeline) i s [prací přes PCG](#proc-nativni-mcp-samo-nestaci-a-co-s-tim). API je rychlejší a přesnější než klikání. Postavy je lepší dodat hotové než skládat z primitiv, scény a tvrdé tvary z primitiv autor naopak chválí. A ověřovat se musí výsledek, ne demo. Toto čtení je naše. Jak MCP navrhl Epic, rozebírá [MCP v editoru](mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta).
+
+**Souvislosti:** [Agent v Blenderu a ComfyUI](#agent-v-blenderu-a-comfyui-lokalni-pipeline) · [MCP v editoru: vlastní tool set](mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) *(proč API místo klikání)* · [Rejstřík: Computer use](../rejstrik.md#computer-use) · [Rejstřík: Playblast](../rejstrik.md#playblast) · [Rejstřík: MCP](../rejstrik.md#mcp)
 
 ---
 
@@ -142,4 +166,4 @@ Detail, který ukazuje, že to autor opravdu dělal [(10:46)](https://www.youtub
 
 > **Pozn.:** Dva praktické údaje na závěr. **Kolik to stojí času** [(16:10)](https://www.youtube.com/watch?v=I5WLl4MdK28&t=970s): *„celý proces v tomhle videu zabere kolem dvou hodin, protože každý prompt je pět až deset minut — podle toho, kolik toho o Unrealu víte. Když se ptáte na správné věci, projdete tím rychleji."* Což je tatáž podmínka jako v [prvním MCP entry](#nativni-mcp-v-58-setup-a-prvni-testy): **agent zkracuje práci naučených.** A **dosah mimo engine** [(13:52)](https://www.youtube.com/watch?v=I5WLl4MdK28&t=832s): agent umí přes API sáhnout na generátor textur i na Blender — *„úspěšně vygeneroval stébla trávy v Blenderu, vyexportoval je jako GLB a naimportoval do Unrealu"* — což je [lokální pipeline](#agent-v-blenderu-a-comfyui-lokalni-pipeline) z jiné myšlenky téhle kapitoly, jen řízená odjinud. Video obsahuje affiliate odkaz na 3D generátor a autorovy vlastní konfigurační soubory ke stažení.
 
-**Souvislosti:** [Nativní MCP v 5.8: setup a první testy](#nativni-mcp-v-58-setup-a-prvni-testy) *(co video koriguje)* · [Agent v Blenderu a ComfyUI](#agent-v-blenderu-a-comfyui-lokalni-pipeline) · [72 hodin: dělba práce člověk–AI](#72-hodin-delba-prace-clovekai) · [PCG základy](pcg-zaklady.md) *(co agent vlastně staví)* · [Organizace projektu: Git v Unrealu](organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case) · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: PCG](../rejstrik.md#pcg)
+**Souvislosti:** [Nativní MCP v 5.8: setup a první testy](#nativni-mcp-v-58-setup-a-prvni-testy) *(co video koriguje)* · [Agent v Blenderu a ComfyUI](#agent-v-blenderu-a-comfyui-lokalni-pipeline) · [72 hodin: dělba práce člověk–AI](#72-hodin-delba-prace-clovekai) · [PCG základy](pcg-zaklady.md) *(co agent vlastně staví)* · [Organizace projektu: Git v Unrealu](organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case) · [Rejstřík: MCP](../rejstrik.md#mcp) · [Rejstřík: PCG](../rejstrik.md#pcg) · [MCP v editoru: asistent, ne zázrak](mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) *(co Epic k demu sám dodává: primitiva, příklady, skills)*

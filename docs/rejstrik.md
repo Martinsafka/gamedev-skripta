@@ -38,6 +38,14 @@ Hodí se, když se rozhoduješ mezi dvěma hodnotami jednoho nastavení a nechce
 
 Kde se s tím potkáš: [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Profiling: reprodukovatelný test](praxe/profiling.md#reprodukovatelny-test-bez-nej-neporovnas-nic)
 
+### ACP
+
+**Otevřený protokol pro připojení coding agentů k nástrojům; podle popisu přednášky JetBrains funguje po vzoru LSP.**
+
+Rider přes něj bere agenty z registru i vlastní agenty a Rider Kit tak pouští agenta s plnou integrací IDE i do Unreal Editoru. Pro uživatele to znamená, že agenta jde vyměnit, aniž by se měnilo napojení na nástroje.
+
+Kde se s tím potkáš: [Agent v IDE](praxe/mcp-v-editoru.md#agent-v-ide-index-a-debugger-misto-hledani-v-textu) · [Rejstřík: Rider](#rider) · [Rejstřík: MCP](#mcp)
+
 ### Active frames
 
 **Snímky útoku, ve kterých útok opravdu zraňuje — mezi nápřahem (startup) a zotavením (recovery).**
@@ -85,6 +93,14 @@ Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kil
 Pojem z designové psychologie (Gibson, Norman): klika říká „stiskni", římsa říká „vylez". V level designu se affordances vyrábějí světlem, kompozicí a kontrastem — tajná odbočka musí *vypadat* zajímavě a interaktivně, jinak ji hráč mine. Zrádné jsou falešné affordances: co vypadá průchozí a není, rozbíjí důvěru (viz invisible wall).
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Vedení hráče](teorie/vedeni-hrace.md)
+
+### Agent skill
+
+**Text s know-how, které model sám nemá, načítaný podle úkolu; Unreal i Claude Code ho berou podle otevřeného standardu Agent Skills.**
+
+Typicky jde o drobné pravidlo zkušeného člověka, třeba „nastav slunce dřív než oblohu". V Unrealu jde skill napsat v C++, v Pythonu nebo jako blueprint asset, který se verzuje s projektem a sdílí s týmem. Epic radí psát skills nově (jen to, co model neví), kolegiálně, trvanlivě (bez jmen properties, která se můžou změnit) a stručně.
+
+Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: Tool set](#tool-set)
 
 ### Aggro
 
@@ -165,6 +181,14 @@ Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-la
 Typické použití: alfa IK ruky, která se zapne jen ve chvíli úchopu, úhel dveří nebo kliky sladěný s rukou, váha pózy prstů. Hodnoty se vyplatí ukládat normalizované (0–1) a maximem násobit až v kódu — změna maxima pak neznamená přepisovat animace. Po skončení montáže křivka čte nulu, takže trvalý stav světa (otevřené dveře) je potřeba podržet zvlášť. Křivkami se dá i upravit animace samotná přímo v editoru: posunout kost a uložit klíč.
 
 Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Křivka BlendOff v útoku](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Síla ragdollu z křivek](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu) · [Přepis limitů look-atu](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
+
+### AnimGen
+
+**Experimentální plugin v UE 5.8 pro vlastní animační controllery na strojovém učení, které se trénují přímo v editoru.**
+
+Ukázka na Fabu generuje z jednoho controlleru chůzi hráče s pistolí i NPC v asi čtyřiceti stylech, od nesení tašky po kulhání. Podle Epicu stačilo na demo zhruba 5–10 minut mocapu v řadě stylů a controller běží za rozumný rozpočet výkonu i paměti. Bližší má k Motion Matchingu než ke generátoru klipů: ze záznamu pohybu dělá ovladatelnou postavu.
+
+Kde se s tím potkáš: [Animace z modelu přímo ve hře](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) · [Rejstřík: Motion matching](#motion-matching)
 
 ### Anim montage
 
@@ -339,6 +363,14 @@ Kde se s tím potkáš: [Expozice, která drží](praxe/megalights.md#expozice-k
 Zdejší podoba singletonu: v nastavení projektu zaregistruješ scénu a Godot ji drží naživu bez ohledu na to, která scéna zrovna běží. Typické použití je hudba (jinak se restartuje při každém načtení levelu), skóre, audio mixer a save data. Platí na něj tytéž výhrady jako na každý globální stav — skvělý sluha, špatný pán: jakmile se z autoloadu stane odkladiště pro všechno, co se nehodí jinam, máš [God class](#god-class).
 
 Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni-hra.md#animationplayer-jako-casovac-sekvence-bez-jedineho-radku-kodu) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
+
+### Biome Core
+
+**Data-driven nástroj nad PCG pro stavbu biomů; je mocný, ale náročný na znalosti.**
+
+Epic k němu napsal skill, takže agent zná jeho datové struktury a umí biom postavit od nuly. Je to dobrý příklad, kdy model nestaví novou věc, ale pomáhá ovládat systém, který už funguje.
+
+Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: PCG](#pcg) · [Rejstřík: Agent skill](#agent-skill)
 
 ### Biome map
 
@@ -774,6 +806,14 @@ Odpovídá barvě, kterou vyzařuje zahřáté černé těleso, a proto působí
 
 Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel)
 
+### Computer use
+
+**Režim, ve kterém AI ovládá program jako člověk: dívá se na obrazovku a kliká myší.**
+
+Funguje s čímkoli, ale je pomalý a drahý na tokeny. V testu v Blenderu trvalo jen uložení souboru deset minut. Kde je k dispozici API přes MCP, je programové volání podle Epicu úspornější i rychlejší.
+
+Kde se s tím potkáš: [MCP místo klikání](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig) · [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: MCP](#mcp)
+
 ### Construction Script
 
 **Graf actor blueprintu, který běží v editoru při umístění nebo změně actoru a při spawnu — ještě před BeginPlay.**
@@ -854,6 +894,14 @@ Rules asset popisuje role (rozměry kapsle, offset meshe), scene asset přiřazu
 
 Kde se s tím potkáš: [Contextual Animation](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) · [Zápas se smyčkou](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Finisher bez střihu](praxe/cutsceny.md#finisher-bez-strihu-sekvence-ktera-se-prehraje-kolem-hrace) · [Rejstřík: Motion Warping](#motion-warping)
 
+### Context window
+
+**Kolik textu model najednou udrží: prompt, historii, popisy nástrojů i výsledky.**
+
+S MCP od Epicu je to praktický limit, protože popis jediného tool setu bývá obrovský, u Niagary podle webináře skoro čtvrt milionu jednotek, nejspíš tokenů. Harness s malým oknem popis ořízne a model pak zkouší naslepo, pomalu a draze. Proto taky Epic radí psát skills stručně.
+
+Kde se s tím potkáš: [Jak s agentem v editoru mluvit](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) · [Rejstřík: Harness](#harness)
+
 ### Control Rig Dynamics
 
 **Částicový systém sekundárního pohybu v Control Rigu (5.8) — pružné řetězy pro culíky, pouzdra a podobné doplňky, laditelné jedním uzlem a běžící i ve hře.**
@@ -918,7 +966,7 @@ V GASP pohání foot placement Mover postavy (slope warping, pinning, root dampi
 
 Pro gameplay je Control Rig uzel v AnimGraph místo, kde [IK](#ik) dotáhne ruku na kliku nebo předmět — za slotem, který hraje montáže. Ve verzi 5.8 přibyly [Control Rig Dynamics](#control-rig-dynamics) pro sekundární pohyb, fyzika přímo v rig modulech a [Direct Mesh Controls](#direct-mesh-controls).
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Aditivní look-at](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Vazby končetin přes FBIK](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Aditivní look-at](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Vazby končetin přes FBIK](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin) · [Rig, o který nikdo neřekl](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig)
 
 ### Coyote time
 
@@ -1452,7 +1500,7 @@ Kde se s tím potkáš: [Komunikace Blueprintů](praxe/komunikace-blueprintu.md)
 
 Kód v Ticku běží 60× i vícekrát za vteřinu, ať se děje cokoli — je to polling: neustálé kladení otázky, jejíž odpověď se většinou nemění. Občas je nutný (plynulý pohyb, interpolace), ale většina herní logiky patří do eventů, timerů a delegátů, které se spouštějí při změnách. „Dostaň to z Ticku" je jedna z nejčastějších optimalizačních rad v UE — a hlavně rada architektonická.
 
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Sto health barů](praxe/ui-ve-svete.md#sto-health-baru-logika-na-ticku-a-prekresleni-jsou-dve-ruzne-ceny) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo)
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Sto health barů](praxe/ui-ve-svete.md#sto-health-baru-logika-na-ticku-a-prekresleni-jsou-dve-ruzne-ceny) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Build, který Event Tick odmítne](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde)
 
 ### Export template
 
@@ -1736,7 +1784,7 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 
 Zdarma, blueprint-only. Smysl projektu: zvednout minimální laťku kvality herní animace a dát šablonu, jak MM stavět — databáze per stav, choosery, procedurální doladění. Není to plugin: do vlastního projektu se migruje content (+ console variables a pluginy) a každá verze enginu přináší výrazné změny.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Update 5.8: poslední pro UE5](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework)
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Update 5.8: poslední pro UE5](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework) · [AnimGen ve streamu o GASP](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
 
 ### GDScript
 
@@ -1850,6 +1898,14 @@ Zní akademicky, funguje jako kompas hranic řešitelnosti: každé „najdeme a
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
 
+### Harness
+
+**Program, ve kterém agent s modelem běží: posílá prompty, spravuje kontext a volá nástroje (Claude Code, Codex, Cursor a další).**
+
+Stejný model se v různých harnessech chová různě, protože každý jinak hospodaří s kontextem. Když jednoduchý úkol trvá nečekaně dlouho, bývá podle webináře Epic Education problém mezi MCP a harnessem, ne v promptu.
+
+Kde se s tím potkáš: [Jak s agentem v editoru mluvit](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) · [Rejstřík: Context window](#context-window)
+
 ### Herní vlákno
 
 **Vlákno, na kterém běží všechno, co bys označil za „tvoji hru" — herní logika, AI, fyzika, blueprinty.**
@@ -1896,7 +1952,7 @@ Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-
 
 V Unrealu se objevuje v Custom uzlu materiálu a v Niagaře jako custom HLSL výraz nebo modul. Hodí se na krátký výpočet, který by v uzlech zabral moc místa, třeba přepočet počtu částic podle parametru. Výraz musí vracet správný typ, počet částic například celé číslo.
 
-Kde se s tím potkáš: [Částice podle povrchu](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Rejstřík: User Parameter](#user-parameter)
+Kde se s tím potkáš: [Částice podle povrchu](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Rejstřík: User Parameter](#user-parameter) · [Agent a materiál v HLSL](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde)
 
 ### Hot reload
 
@@ -2020,7 +2076,7 @@ Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-
 
 Opak FK, kde se natáčí kost po kosti od kořene. Ve hrách typicky opravuje animaci na posledním metru podle světa: nohy na nerovném terénu, ruka na klice nebo na předmětu. V Control Rigu ji řeší uzly Basic IK (tři kosti), Full Body IK a další; podstatné je nastavit osy řetězu a [pole vector](#pole-vector) a převést cíl do správného prostoru (u postav do prostoru meshe). Váha uzlu slouží jako alfa, kterou může řídit [křivka v animaci](#animation-curve).
 
-Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Hratelný MetaHuman: foot IK](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [GASP: foot placement](praxe/gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) · [Vazby končetin u párových akcí](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin)
+Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Hratelný MetaHuman: foot IK](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [GASP: foot placement](praxe/gasp.md#proceduralni-vrstva-v-control-rigu-foot-placement-springy-a-locomotor) · [Vazby končetin u párových akcí](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin) · [Control rig s IK od agenta](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig)
 
 ### Iluze plynulosti
 
@@ -2216,6 +2272,14 @@ Delta time pro simulaci je frame time **předchozího** snímku, ale zobrazovan�
 
 Kde se s tím potkáš: [Jitter](praxe/frame-pacing.md#jitter-nespadne-ani-jeden-snimek-a-presto-to-skube) · [Rejstřík: Delta time](#delta-time) · [Rejstřík: Hitch resiliency](#hitch-resiliency)
 
+### JSON Schema
+
+**Popis typů v JSONu: jak se jmenují argumenty funkce a jakého jsou typu.**
+
+MCP potřebuje dvojici schema (typy) a data (hodnoty). V Unrealu 5.8 obojí vyrábí reflexe ze signatur UFunctions, včetně enumů, structů a vnořených kontejnerů, takže autor nástroje JSON nepíše ručně.
+
+Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: Reflection system](#reflection-system)
+
 ### Juice
 
 **Vrstva audiovizuálního feedbacku, která prodává akce: screen shake, particles, squash & stretch, flash při zásahu.**
@@ -2247,6 +2311,14 @@ Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md
 Klávesnice nemá vodič ke každé klávese — má matici řádků a sloupců. Při více současných stiscích může signál projít matricí neočekávanou cestou a vypadat jako stisk klávesy, kterou nikdo nezmáčkl (odtud „duch"). Moderní klávesnice tomu předcházejí tím, že místo vymyšlené klávesy jednu skutečnou **zahodí** (*key jamming*). Které kombinace selžou, se liší podle značky a modelu. **Kódem se to opravit nedá** — brání se tomu design ovládání: přemapovatelné klávesy, víc výchozích rozložení, podpora gamepadu, žádné kritické akce na třech současně držených klávesách. Viz [N-key rollover](#n-key-rollover).
 
 Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
+
+### Kimodo
+
+**Model NVIDIA, který generuje animaci z textu a dalších omezení, jako jsou dráha, pózy a waypointy.**
+
+Je trénovaný na 700 hodinách optického mocapu. C++ port běží i bez GPU, animace na tři vteřiny ale na CPU trvá až pět minut. Pro komerční použití vol kostry SOMA nebo G1, ne SMPL-X, a počítej s tím, že prsty se zatím nehýbou.
+
+Kde se s tím potkáš: [Animace a 2D: Kimodo a PixelLab](praxe/ai-assety.md#animace-a-2d-kimodo-a-pixellab) · [Animace z modelu přímo ve hře](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) · [Agent v Blenderu a ComfyUI](praxe/claude-code-ue.md#agent-v-blenderu-a-comfyui-lokalni-pipeline)
 
 ### Kitbashing
 
@@ -2604,7 +2676,7 @@ Kde se s tím potkáš: [Hybridní blockout: postprocess](praxe/blockout.md#hybr
 
 Klasické cesty, optický systém s markery nebo inerciální oblek, potřebují hardware, čas na nasazení i na čištění dat. Markerless snižuje vstupní bariéru na kameru a světlo — kvalita výsledku ale přímo závisí na záznamu (celé tělo v záběru, pevná kamera, rovnoměrné světlo, kontrastní a nevolné oblečení). V Unrealu ho od 5.8 experimentálně umí [MetaHuman Animator](#metahuman-animator); výstup je výchozí bod pro dočištění.
 
-Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig)
+Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Ruce, které Kimodo nemá](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
 
 ### Material Instance
 
@@ -2700,7 +2772,17 @@ Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#mcnamaruv-kl
 
 Trojice pluginů Unreal MCP + Terminal + Editor Toolset dá agentovi kontext projektu a kontrolu nad editorem: blueprinty, materiály, PCG, level design. Config per agent generuje konzolový příkaz (.mcp.json). Stejný protokol propojuje agenty s Blenderem i ComfyUI. Zlaté pravidlo: obecný prompt = obecný výsledek — rozepsaná logika a detailní zadání dělají rozdíl.
 
-Kde se s tím potkáš: [AI agenti: Claude Code a MCP](praxe/claude-code-ue.md)
+Webinář Epic Education uvádí jako potřebnou trojici Unreal MCP, All Tool Sets a Editor Tool Set; Terminal je podle všeho potřeba jen pro terminál přímo v editoru. Plugin MCP sám nástroje nemá, dodávají je tool sety, a protože jejich popisy zabírají hodně kontextu, záleží i na harnessu a modelu.
+
+Kde se s tím potkáš: [AI agenti: Claude Code a MCP](praxe/claude-code-ue.md) · [MCP v editoru](praxe/mcp-v-editoru.md) · [MCP místo klikání](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig)
+
+### MCP Inspector
+
+**Oficiální ladicí klient pro MCP: vypíše všechny nabízené nástroje a dovolí je volat přímo, bez agenta.**
+
+Hodí se, když agent hlásí, že nástroje nevidí, a nepomohl ani Output Log s podrobnějším výpisem. Lektor Epic Education ho ale za měsíce práce nepotřeboval.
+
+Kde se s tím potkáš: [Rozjet MCP](praxe/mcp-v-editoru.md#rozjet-mcp-tri-pluginy-agent-ze-spravne-slozky-a-co-delat-kdyz-nic-nevidi) · [Rejstřík: MCP](#mcp)
 
 ### MDA framework
 
@@ -2826,6 +2908,14 @@ Mip bias výběr posouvá: +1 = poloviční hrana (čtvrtina paměti), −1 = de
 
 Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md) · [Nastavení výškové textury pro IHP](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
 
+### Mixamo
+
+**Webová služba Adobe s automatickým rigem a knihovnou animací, oblíbená jako mezikrok retargetingu.**
+
+Postava z AI pipeline často dostane rig právě tady. AI animace z Kimoda jde retargetovat na kostru Mixama a odtud dál na jakoukoli jinou.
+
+Kde se s tím potkáš: [Animace z modelu přímo ve hře](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) · [Rejstřík: Retargeting](#retargeting)
+
 ### Mobility
 
 **Nastavení, které určuje, jestli se aktér nebo světlo smí za běhu měnit: Static, Stationary, nebo Movable.**
@@ -2906,13 +2996,21 @@ V riggingu je alternativou ke kostem: obličej zebry v ukázce 5.8 stojí na mor
 
 Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Optimalizace obličeje](praxe/metahuman.md#optimalizace-obliceje-co-dela-metapipe-nitrous)
 
+### MotionBricks
+
+**Model NVIDIA, který místo klasického animačního systému předpovídá pohyb postavy za běhu podle ovládání.**
+
+Negeneruje klipy z promptu a ovládá se hlavně stylem pózy. Slibované „smart primitives" pro interakci s předměty zatím nevyšly. C++ port běží i na CPU, autor testu to ale bere spíš jako výzkumné použití.
+
+Kde se s tím potkáš: [Animace z modelu přímo ve hře](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) · [Kam se posunulo ARDY](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy)
+
 ### Motion matching
 
 **Dotazový systém výběru animací: každý frame hledá v databázi pózu, která nejlépe naváže na trajektorii a aktuální pózu.**
 
 Nahrazuje state machines — žádné stavy a přechody, jen databáze (PSD), schema (co a s jakou vahou měřit) a cena kandidátů; vítězí nejnižší. Stavební kameny: trajektorie (predikce pohybu), pose history (odkud jdu), chooser (která databáze), continuing pose (koho porazit). Od 5.4 v UE, showcase je Game Animation Sample; Fortnite s ním shipuje na všech platformách. Nepotřebuje stovky animací — viz sparse set.
 
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md)
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [AnimGen jako příbuzný](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
 
 ### Motion Warping
 
@@ -3256,7 +3354,7 @@ Kde se s tím potkáš: [Barvy: hue shifting a palette swap](godot/pripadovka-vi
 
 Napodobuje to, jak vzdálené objekty ve skutečnosti zdánlivě putují pomaleji. Rychlost vrstvy přitom neurčuje jen hloubku, ale i **vnímanou velikost**: pomalejší pozadí působí větší a vzdálenější, rychlejší menší a bližší. Nepříjemnost při vývoji: v editoru se parallax počítá proti pozici editorového pohledu, takže se vrstvy „samy" posunou i při změně velikosti okna — pomůže vložit do scény referenční postavu s obrysem herní kamery.
 
-Kde se s tím potkáš: [Level editor, který nakonec nebyl level editor](godot/pripadovka-level-a-mapa.md#level-editor-ktery-nakonec-nebyl-level-editor) · [Mapa 2D nodů](godot/zaklady.md#mapa-2d-nodu-vyber-tela-je-prvni-designove-rozhodnuti)
+Kde se s tím potkáš: [Level editor, který nakonec nebyl level editor](godot/pripadovka-level-a-mapa.md#level-editor-ktery-nakonec-nebyl-level-editor) · [Mapa 2D nodů](godot/zaklady.md#mapa-2d-nodu-vyber-tela-je-prvni-designove-rozhodnuti) · [Parallax vrstvy z AI](teorie/2d-vizual.md#layering-a-verticalita-staticka-kamera-jako-scenografie)
 
 ### Parallax occlusion mapping
 
@@ -3330,7 +3428,7 @@ Kde se s tím potkáš: [AI assety](praxe/ai-assety.md) · [Textury a DLSS](prax
 
 Grafem definuješ pravidla (sampluj povrch, filtruj podle sklonu či namalované vrstvy, rozmísti stromy s hustotou X) a engine je aplikuje na libovolnou plochu. Typický řetěz: Get Landscape Data / Mesh Partition Query → Surface Sampler → Filter → Transform Points → Spawner. S Mesh Terrainem spolupracuje přes interop plugin — v beta fázi s beta mírou spolehlivosti (spolehlivější je World Ray Hit Query). V 5.7 plugin opustil betu (verze 1.0) a přibyl PCG Mode — kreslení grafů přímo v editoru.
 
-Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Instanced Actors](praxe/instanced-actors.md) · [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md) · [PCG města](praxe/pcg-mesta.md) · [Volumetric sampling](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [PCG vegetace](praxe/pcg-vegetace.md) · [Instanced Actors](praxe/instanced-actors.md) · [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md) · [PCG města](praxe/pcg-mesta.md) · [Volumetric sampling](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace) · [Agent staví přes PCG](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta)
 
 ### PCGEx
 
@@ -3347,6 +3445,14 @@ Kde se s tím potkáš: [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-
 Aktor s grafem vzniká sám a panel nástroje zrcadlí exposed parametry grafu; vlastní graf zaregistruješ přes Tool Data sekci (compatible tool tags — konvence „zahoď draw, zbytek bez mezer + tool"). Pasti verze 1.0: paint klade body podle vzdálenosti od posledního bodu (ne plochou štětce), guma maže na původních pozicích před transformy a Ctrl+Z ruší celý rozdělaný nástroj.
 
 Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md)
+
+### PCG Primitives
+
+**Knihovna přes 80 drobných prostorových operací z PCG subgrafů, kterou Epic vydal jako slovník pro agenty.**
+
+Jsou to plně parametrizované a zdokumentované subgrafy pro tvary, skládání, transformace, sampling, filtering a spawning. Jazykový model je řetězí jako slova a nemusí uvažovat o každém kroku. Fungují ale i bez něj a výsledek je deterministický, protože je to obyčejné PCG.
+
+Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: PCG](#pcg)
 
 ### Per-instance custom data
 
@@ -3447,6 +3553,14 @@ Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-
 Ukáže pre-exposure, barvu scény před tone mappingem a po něm, finální barvu i data z G-bufferu. Hodí se na kontrolu expozice: střední šedá má být kolem 0,18 v každém kanálu.
 
 Kde se s tím potkáš: [Expozice, která drží](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Rejstřík: Auto exposure](#auto-exposure)
+
+### Playblast
+
+**Rychlý náhledový render animace přímo z viewportu, bez finálního renderu.**
+
+Slouží ke kontrole timingu a kamery. V AI pipeline z něj může vycházet videomodel, který z jednoduchých primitiv udělá hotový záběr, a režírovaný pohyb pro playblasty je podle kapitoly o AI animaci její nejbližší praktické využití.
+
+Kde se s tím potkáš: [MCP místo klikání](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig) · [Kam se posunulo ARDY](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy)
 
 ### Player Camera Manager
 
@@ -3816,6 +3930,14 @@ Intenzita se rozkládá do plochy, takže užší světlo se stejnou hodnotou sv
 
 Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Rejstřík: Source radius](#source-radius)
 
+### Reflection system
+
+**Systém Unrealu, díky kterému engine za běhu zná typy, properties a funkce označené makry UCLASS, USTRUCT, UPROPERTY a UFUNCTION.**
+
+Stojí na něm editor, blueprinty, serializace i Python. Ve verzi 5.8 z něj MCP automaticky vyrábí JSON pro agenty, takže nový nástroj pro agenta je obyčejná UFunction s tooltipem.
+
+Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: JSON Schema](#json-schema)
+
 ### Refundace
 
 **Vrácení peněz za koupenou hru — na Steamu automatické do dvou hodin hraní a dvou týdnů od nákupu.**
@@ -3894,7 +4016,7 @@ Kde se s tím potkáš: [Síťová fyzika zevnitř](praxe/mover.md#sitova-fyzika
 
 Bez něj by každá postava potřebovala vlastní sadu animací. V UE se řeší IK Rigem a IK Retargeterem: řekneš, které kosti si odpovídají, a engine dopočítá zbytek. Právě proto je u AI generovaných animací důležité, na jaké standardní kostře model exportuje — mapování na běžný skeleton je rozdíl mezi „použitelné" a „k ničemu".
 
-Kde se s tím potkáš: [AI assety: animace v reálném čase](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy) · [MetaHuman v praxi](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [Export markerless animace](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku)
+Kde se s tím potkáš: [AI assety: animace v reálném čase](praxe/ai-assety.md#animace-generovana-v-realnem-case-kam-se-posunulo-ardy) · [MetaHuman v praxi](praxe/metahuman.md#hratelny-metahuman-retarget-jednim-klikem-a-virtual-bones) · [Export markerless animace](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [Kimodo na Mixamo a dál](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
 
 ### Retopologie
 
@@ -3935,6 +4057,14 @@ Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 `Debug → Rewind Debugger`, zapni auto-record (+ auto-eject). Dvojklik na track otevře asset na správném framu; šipkami jdeš frame po framu; eject kamery přehraje pohyb ve světě. Pose search debugger uvnitř ukazuje kandidáty, ceny a channels breakdown; od 5.7 má vlastní track i State Tree — vidíš přesný frame, kdy padlo rozhodnutí.
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [GASP](praxe/gasp.md) · [Look-at v GASP 5.8](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
+
+### Rider
+
+**IDE od JetBrains pro herní vývoj s hlubokou podporou Unrealu: indexy blueprintů a assetů a debugger.**
+
+V éře agentů půjčuje svoje indexy, debugger a kontroly kódu i agentům. Přednáška JetBrains ukazuje, že hledání potomků třídy s indexem trvá zlomek času a najde víc než hledání podle jmen souborů.
+
+Kde se s tím potkáš: [Agent v IDE](praxe/mcp-v-editoru.md#agent-v-ide-index-a-debugger-misto-hledani-v-textu) · [Rejstřík: ACP](#acp)
 
 ### RigLogic
 
@@ -4137,6 +4267,14 @@ Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Scope: nápa
 Oproti kanbanu (plynulý tok karet) přidává rytmus: pevné bloky času s jasným cílem a review na konci. Indie hybrid: kanban board + měsíční „sprint" zakončený týdnem playtestů. Kříženec obou metodik se jmenuje scrumban.
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md) · [Playtesting: kadence](teorie/playtesting.md)
+
+### Semantic search
+
+**Vyhledávání podle významu místo přesných slov; agent jím najde asset podle popisu.**
+
+V ukázce Epicu agent zařizuje obývák a gauč nebo konferenční stolek najde podle popisu. Ukázková implementace je součástí MCP z 5.8. Funguje tím líp, čím lépe jsou assety pojmenované a popsané.
+
+Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta)
 
 ### Semiotika
 
@@ -4371,6 +4509,14 @@ Kde se s tím potkáš: [Organický kit a spoje](praxe/modularni-kity.md#organic
 Lavička nese smart object komponentu a definition data asset; NPC si najde volný slot, claimne ho (druhé NPC už ho nedostane) a spustí injektovaný strom — jiný objekt dodá jinou logiku, beze změny AI postavy. V GASP navázané na Motion Matching: vstupní montáž se vybírá pose match sloupcem podle pózy a vzdálenosti od vstupního bodu.
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Hráč na lavičce v 5.8](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework)
+
+### SMPL-X
+
+**Parametrický model lidského těla a kostry z výzkumu, který nejde použít komerčně.**
+
+Kimodo.cpp ho zpočátku podporoval jako jedinou kostru. Do hry vol licenčně čisté kostry, u Kimoda SOMA nebo G1, a animaci retargetuj.
+
+Kde se s tím potkáš: [Animace z modelu přímo ve hře](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) · [Rejstřík: Retargeting](#retargeting)
 
 ### Socket
 
@@ -4786,7 +4932,15 @@ Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovk
 
 Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, Auto = ease); looping track 0→360 = rotace. Ping-pong vzor: na Finished přečti Direction enum a zavolej Reverse/Play. Set Timeline Length za běhu mění tempo — délka nad poslední klíč vyrábí pauzu v krajní poloze. Latentní uzel — jen v event graphu, ne ve funkcích.
 
-Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md) · [Lerp předmětu do ruky](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Plošina s pákou](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
+Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md) · [Lerp předmětu do ruky](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Plošina s pákou](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) · [Agent a delaye místo Timeline](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde)
+
+### Tool set
+
+**Sada nástrojů v Unreal MCP: API, přes které agent sahá na jeden systém editoru, třeba PCG, materiály nebo blueprinty.**
+
+Plugin MCP sám nástroje nemá, dodávají je tool sety v pluginech All Tool Sets a Editor Tool Set. Ve verzi 5.8 je tool set třída, jejíž nástroje jsou statické UFunctions. Reflexe z nich sama vyrobí JSON, takže jdou psát v C++ i v Pythonu. Dobrý tool set je čistý, úplný (getter, setter i výpis), skladebný a vrací chyby, které radí, co dál.
+
+Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rozjet MCP](praxe/mcp-v-editoru.md#rozjet-mcp-tri-pluginy-agent-ze-spravne-slozky-a-co-delat-kdyz-nic-nevidi) · [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: MCP](#mcp)
 
 ### Trim Relative Error
 

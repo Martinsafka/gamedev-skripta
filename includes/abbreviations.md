@@ -2,12 +2,14 @@
 *[AAA]: Termín z financí, ne z kvality: největší a nejbezpečnější finanční sázky v oboru.
 *[Abstract class]: Třída, kterou nejde umístit do světa ani referencovat — existuje jen jako rodič pro děti.
 *[ABTest]: Konzolový příkaz střídající dvě hodnoty jedné proměnné a vypisující výkon obou.
+*[ACP]: Otevřený protokol pro připojení coding agentů k nástrojům; Rider přes něj pouští agenty i do Unrealu.
 *[Active frames]: Snímky, ve kterých útok zraňuje — mezi nápřahem a zotavením; v UE typicky notify state.
 *[Actor Component]: Znovupoužitelný díl chování připnutý k aktérovi — schopnost bez identity.
 *[Additive animation]: Animace přičtená k základní póze místo její náhrady; past je přeaplikování, když se póza pohne sama.
 *[ADSR]: Attack/Decay/Sustain/Release — jak zvuk naběhne, klesne, drží a dozní (obálka zvuku).
 *[Aerial perspective]: Vzdušná perspektiva: vzdálené objekty překrývá barva atmosféry, nejdřív modrá, ve velké dálce bílá.
 *[Affordance]: Vlastnost objektu/prostoru signalizující, jak s ním jde interagovat — klika říká „stiskni".
+*[Agent skill]: Text s know-how, které model nemá, načítaný podle úkolu; standard Agent Skills v Unrealu i Claude Code.
 *[Aggro]: Skóre, podle kterého si nepřítel vybírá cíl — blízkost, vydržené poškození, umělé aggro, cooldown přepnutí.
 *[AI Controller]: Mozek AI postavy: posedne pawna a rozhoduje; spouští Behavior/State Tree, nese percepci.
 *[AI Perception]: Percepční systém UE: smysly (sight, hearing, damage) jedné komponenty; cíl musí mít Stimuli Source.
@@ -17,6 +19,7 @@
 *[Ambient occlusion]: Ztmavení míst, kam se hůř dostane rozptýlené světlo — kouty, spáry, styky ploch.
 *[Anchor (UI)]: Kotva Control nodu — číslo 0–1 určující místo v rodičově obdélníku; přežije změnu rozlišení.
 *[Animation curve]: Pojmenovaná křivka v animaci či montáži, kterou AnimBP čte každý snímek (alfa IK, úhel dveří…).
+*[AnimGen]: Experimentální plugin UE 5.8: vlastní ML animační controllery trénované v editoru na vlastním mocapu.
 *[Anim montage]: Animační asset pro jednorázové akce, hraný přes sloty; nad MM základ combatu (horní tělo).
 *[Anim Notify]: Značka na časové ose animace spouštějící logiku v daném framu; notify state = varianta s trváním.
 *[Animation cancel]: Přerušení animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.
@@ -38,6 +41,7 @@
 *[AutoBake]: Přepínání živého control rigu a jeho zapečené animation sequence v sequenceru (UE 5.8).
 *[Auto exposure]: Automatická expozice (eye adaptation) podle jasu obrazu; v řízené scéně se zamyká nebo zužuje.
 *[Autoload]: Scéna zaregistrovaná jako globální — načte se sama a přežije výměnu scén (zdejší singleton).
+*[Biome Core]: Data-driven PCG nástroj na stavbu biomů; mocný, ale náročný na znalosti.
 *[Biome map]: Barevná mapa přes terén: každá barva je jeden biom a říká scatteru, co kde roste.
 *[Blend Poses by Bool]: Anim uzel, který podle boolu přepne mezi dvěma pózami — „if" v anim grafu.
 *[Blueprint Debugger]: Ladění blueprintů za běhu: breakpointy, sledované hodnoty a zastavení na uzlu, kde nastala chyba.
@@ -91,6 +95,7 @@
 *[Cluster culling]: Nanite zahazuje geometrii po clusterech — buď celý, nebo nic; rozhoduje topologie meshe.
 *[Cluster Union]: Komponenta Chaosu, která slepí víc geometry collections do jednoho tělesa s částečnou destrukcí.
 *[Color temperature]: Barva světla zadaná teplotou v kelvinech: nízká teplá, vysoká studená; pro emisiv uzel BlackBody.
+*[Computer use]: AI ovládá program jako člověk, přes obrazovku a myš; univerzální, ale pomalé a drahé.
 *[Construction Script]: Graf actor blueprintu, který běží v editoru při umístění či změně actoru a při spawnu.
 *[Contact shadows]: Krátké stíny trasované po hloubce scény; s pixel depth offsetem stíní i reliéf z materiálu.
 *[Context switch]: Přepnutí jádra mezi vlákny; časté přepínání je čistá režie, nevyvážená jádra blokují ostatní.
@@ -100,6 +105,7 @@
 *[Collision preset]: Předpis, jak objekt reaguje na kolizní kanály: Block / Overlap / Ignore.
 *[Constraints]: Nepsané dohody, se kterými musí souhlasit každý nový řádek kódu.
 *[Contextual Animation]: Plugin pro synchronizované animace víc účastníků: role, montáže stejné délky, warp pointy.
+*[Context window]: Kolik textu model najednou udrží; s velkými tool sety MCP praktický limit agenta.
 *[Control Rig Dynamics]: Částicový sekundární pohyb v Control Rigu (5.8): culíky, pouzdra, řetězy; běží i ve hře.
 *[Control Rotation]: Rotace player controlleru — úhel pohledu, který hráč ovládá myší nebo páčkou.
 *[Cook]: Převod assetů do formátu cílové platformy při balení; čtyři nastavení umí zmenšit balíček o desítky procent.
@@ -228,6 +234,7 @@
 *[Hard coding]: Hodnoty zadrátované přímo v kódu; v produkci antipattern, v prototypu ctnost.
 *[Hard reference]: Přímý odkaz, který s sebou tahá vše, co cíl referencuje — do paměti i do buildů.
 *[Harmonická řada]: Alikvóty struny/píšťaly jako celočíselné násobky základní frekvence; zdroj západních intervalů.
+*[Harness]: Program, ve kterém agent s modelem běží a volá nástroje (Claude Code, Codex, Cursor…).
 *[HDRI]: Panorama s vysokým dynamickým rozsahem — obloha a světlo místa; backdrop + skylight z téže mapy.
 *[Height mapa]: Černobílá textura kódující výšku terénu jasem pixelu.
 *[Hitch]: Jednotlivý výrazně dlouhý snímek — škubnutí, které průměrné FPS schová.
@@ -270,11 +277,13 @@
 *[Iterace]: Jedno kolo smyčky uprav → otestuj → vyhodnoť; hry nevznikají tahem, ale koly.
 *[Izometrie]: Perspektiva bez úběžníku — vzdálené objekty se nezmenšují, scéna je čitelná v hloubce.
 *[Jitter]: Mikro-škubání z rozhoupaného delta timu — nastane, i když nespadne ani jeden snímek.
+*[JSON Schema]: Popis typů v JSONu (jména a typy argumentů); v UE 5.8 ho pro MCP vyrábí reflexe.
 *[Juice]: Feedback vrstva prodávající akce: shake, particles, squash — signál, že svět akci zaznamenal.
 *[Jump scare]: Úleková špička: hlasité 2–3 na hodinu, tiché dle potřeby; stavěj jako mini-dramaturgii.
 *[Kanban]: Řízení práce kartami To Do → Doing → Done: jeden vlastník na kartu, limit rozdělanosti.
 *[Keep Triangle Percent]: Nanite: kolik procent zdrojových trojúhelníků se uloží; zbytek zmizí z balíčku.
 *[Keyboard ghosting]: Hardwarový limit klávesnice: u některých kombinací kláves jeden vstup nedorazí do hry.
+*[Kimodo]: Model NVIDIA na animaci z textu a omezení; C++ port běží i na CPU, komerčně jen kostry SOMA a G1.
 *[Kitbashing]: Skládání nových objektů z dílů existujících kitů místo modelování od nuly; sdílené materiály drží jednotu.
 *[Klonování hlasu]: Model natrénovaný na tvém hlase, který přezpívá cizí výkon tvou barvou.
 *[Knockback]: Odhození zasaženého směrem od útoku; potvrzuje sílu rány (Launch Character, impulz).
@@ -330,6 +339,7 @@
 *[MAYA]: Most Advanced Yet Acceptable — nejpokročilejší varianta, kterou publikum ještě přijme.
 *[McNamarův klam]: Co jde snadno změřit, se prohlásí za jediné důležité; metriky rostou, věc se prohrává.
 *[MCP]: Model Context Protocol — AI agent s kontextem a kontrolou editoru; od 5.8 nativně v UE (3 pluginy).
+*[MCP Inspector]: Oficiální ladicí klient MCP: vypíše nabízené nástroje a dovolí je volat bez agenta.
 *[MDA framework]: Mechanics→Dynamics→Aesthetics: kód → chování hráče → pocity; designér sahá jen na první článek.
 *[Mechanika]: Jednotka gameplaye z pravidel: sloveso hráče (skoč, seber) působící na herní svět.
 *[Mediator pattern]: Prostředník, přes kterého aktéři komunikují místo napřímo (věž místo letadel).
@@ -345,6 +355,7 @@
 *[MetaHuman Collection]: Asset pro davy MetaHumanů z malé sady dílů; v dálce instance, u kamery plný MetaHuman.
 *[MetaSounds]: Grafový audio systém UE5 — nástupce Sound Cues; parametry za běhu přes audio komponentu.
 *[Mip mapa]: Zmenšené kopie textury; bias +1 = poloviční hrana. Base color snese víc, detail nese normálka.
+*[Mixamo]: Služba Adobe s automatickým rigem a animacemi; častý mezikrok retargetingu.
 *[Mixels]: Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.
 *[Mobility]: Static, Stationary, nebo Movable: smí se aktér či světlo za běhu měnit; v dynamickém projektu movable.
 *[Moderovaný playtest]: Test, u kterého sedíš: díváš se, mlčíš, čteš chování — a ptáš se v místě tření.
@@ -354,6 +365,7 @@
 *[Monte Carlo metoda]: Simuluj tisíce náhodných běhů a odpověď přečti z histogramu — místo výpočtu, který nejde.
 *[Moodboard]: Sbírka referencí ukazující tón a směr dřív, než vznikne první vlastní kresba.
 *[Morph target]: Uložená deformace vrcholů meshe (blend shape) zapínaná váhou — výrazy a korektivy.
+*[MotionBricks]: Model NVIDIA, který místo animačního systému předpovídá pohyb za běhu; C++ port běží i na CPU.
 *[Motion matching]: Dotazový výběr animací: každý frame hledá v databázi pózu nejlépe navazující na trajektorii.
 *[Motion Warping]: Ohnutí root motion animace, aby trefila cílový transform; okno řídí notify state v montáži.
 *[Motiv]: Krátká zapamatovatelná dvou- až pětitónová buňka melodie; jde ji opakovat, obrátit, posunout.
@@ -410,6 +422,7 @@
 *[PCG]: Procedural Content Generation — UE framework pro procedurální osazování světa.
 *[PCGEx]: PCG Extended Toolkit: plugin třetí strany s mnoha uzly navíc pro PCG.
 *[PCG Mode]: Editorový režim (5.7): kreslení PCG grafů přímo do světa splinou, štětcem nebo volumem.
+*[PCG Primitives]: Přes 80 malých prostorových operací z PCG subgrafů, které Epic vydal jako slovník pro agenty.
 *[Per-instance custom data]: Hodnoty nastavitelné pro každou instanci zvlášť — variace bez unikátních materiálů.
 *[Pedal tone]: Tón znějící pod celou progresí, který se nemění (prodleva); sjednotí přechody.
 *[Persistence key]: Záznam o změně světa uložený mimo objekt, kterého se týká — přežije odložení z paměti.
@@ -423,6 +436,7 @@
 *[Pivot]: Vztažný bod objektu (rotace, scale, přichytávání); v enginu opravitelný přes modeling mode Edit Pivot.
 *[Pixel Depth Offset]: Výstup materiálu, který posune hloubku pixelu od kamery bez pohybu geometrie; průniky, stíny, POM.
 *[Pixel Inspector]: Nástroj editoru, který vypíše hodnoty pixelu pod kurzorem; kontrola expozice podle střední šedé 0,18.
+*[Playblast]: Rychlý náhledový render animace z viewportu na kontrolu timingu a kamery.
 *[Player Camera Manager]: Objekt player controlleru spravující výsledný pohled hráče: zatmívačky, otřesy kamery.
 *[Point cloud]: Mračno bodů z laserového skenu; barva sedí na bodu, detail se vrství místo aby nahrazoval.
 *[Pixel-perfect]: Celočíselné škálování pixel artu; ve slepém testu necelé faktory skoro nepoznáš.
@@ -469,6 +483,7 @@
 *[Rect light]: Obdélníkové plošné světlo jako panel nebo okno; klapky zužují úhel, s MegaLights skoro levné jako bodové.
 *[Redirector]: Ghost soubor po přesunu assetu; před smazáním složky spusť Update Redirector References.
 *[Referenční transparentnost]: Volání funkce lze nahradit její hodnotou beze změny programu — žádné skryté závislosti.
+*[Reflection system]: Systém UE, který za běhu zná typy, properties a funkce; v 5.8 z něj MCP vyrábí JSON pro agenty.
 *[Refundace]: Vrácení peněz za hru; první srážka z hrubé tržby před podílem obchodu a daněmi.
 *[Rekurze]: Funkce volající sama sebe: base case + zmenšování problému + skok důvěry.
 *[Relativní dur]: Durová tónina se stejnými tóny jako daná mollová; třetí stupeň moll vlévá radost.
@@ -483,6 +498,7 @@
 *[Reverb]: Odraz zvuku od prostředí (dozvuk); slepí zvuky nebo vyjádří prostor (chodba, kaňon).
 *[Rewind Debugger]: Nahraje běh hry a nechá tě scrollovat časem: co hrálo, proč to MM vybralo, jak rozhodl State Tree.
 *[RHI]: Render Hardware Interface — vrstva mezi rendererem a grafickým API dané platformy.
+*[Rider]: IDE od JetBrains s hlubokou podporou Unrealu; indexy a debugger půjčuje i agentům.
 *[Rigging]: Vložení kostry do modelu a nastavení, jak kosti ovládají mesh.
 *[RigLogic]: Knihovna vyhodnocující rig MetaHumana podle DNA; open source (MIT) v MetaHuman DevKitu.
 *[RITE]: Rapid Iterative Testing and Evaluation: jeden tester → oprav vážné problémy → další tester.
@@ -509,6 +525,7 @@
 *[Scrum]: Agilní metodika: sprinty s pevným cílem, priority z backlogu na sprint meetinzích.
 *[Seamless loop]: Smyčka, jejíž konec plynule navazuje na začátek bez slyšitelného švu; nutnost herní hudby.
 *[Self Pruning]: PCG uzel mazající překrývající se body podle bounds či kolizí — garance rozestupů checkboxem.
+*[Semantic search]: Vyhledávání podle významu místo přesných slov; agent jím najde asset podle popisu.
 *[Semiotika]: Nauka o tom, co symboly znamenají a proč — u písma dřív, než přečteš obsah.
 *[Separation of concerns]: Systém z malých částí s jedinou zodpovědností — jako motor z vyměnitelných dílů.
 *[Sequencer]: Editor časových os v UE: cutscény, kamery, animace postav, render záběrů.
@@ -536,6 +553,7 @@
 *[Skills audit]: Inventura dovedností před volbou projektu: co umím, co ne, co napůl.
 *[Skirt]: Pruh geometrie kolem spodku kusu, který přechází do země a skrývá šev mezi objektem a terénem.
 *[Smart Object]: Objekt světa inzerující interakce: sloty k zabrání + State Tree chování spuštěné na postavě.
+*[SMPL-X]: Výzkumný model těla a kostry, který nejde použít komerčně; u Kimoda radši SOMA nebo G1.
 *[Socket]: Pojmenovaný bod na kosti nebo meshi, ke kterému se připínají jiné objekty.
 *[Soft boundary]: Překročitelná hranice mapy, u které svět dává najevo „špatný nápad": příběh, čas, nepřítel, cena, mlha.
 *[Softlock]: Stav, kdy hra běží, ale nejde dohrát — hráč uvízl bez cesty dál (ztracený předmět, obejitá podmínka).
@@ -589,6 +607,7 @@
 *[Time slicing]: Drahý výpočet se nepočítá každý snímek, ale každý n-tý; mění frekvenci, ne algoritmus.
 *[Timeline]: Blueprint uzel s křivkami v čase (Play/Reverse/Finished) — animace hodnot bez animačního assetu.
 *[Tone mapper]: Převod HDR na obraz monitoru; výchozí ACES stojí za „unreal engine lookem", alternativa je AGX.
+*[Tool set]: Sada nástrojů v Unreal MCP: API pro agenta k jednomu systému editoru, psané jako UFunctions.
 *[Toon shading]: Stínování v pásech; od 5.8 Substrate Toon BSDF + Toon Profile, funguje s Lumenem i barevnými světly.
 *[Trace channel]: Přepínač, co se zapíše do trace; přeteče-li šířka pásma, aplikace se zastaví, nedegraduje.
 *[Trajektorie]: Historie + predikce pohybu postavy, proti které MM matchuje animace (modrá budoucnost, červená minulost).

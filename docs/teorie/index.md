@@ -69,7 +69,7 @@ Témata a kapitoly:
 - **[Tech art, animace, VFX a UI](art-specializace.md)** — čtyři řemesla, která nejde posoudit na statickém obrázku: rigging a nástroje, line of action a easing, primární/sekundární/terciární efekt, pět cílů pohybu v UI.
 - **[Vizuální komunikace](vizualni-komunikace.md)** — proč art rozhoduje o hratelnosti: gestalt a vizuální hierarchie, mechanika, kterou hráč nevidí, a afordance jako návod v tvaru předmětu.
 - **[Typografie](typografie.md)** — pravidlo dvou fontů, čtyři zločiny proti čitelnosti (a basketbalová studie), semiotika písma a balancování flair vs. funkce.
-- **[2D vizuál](2d-vizual.md)** — pixel art jako rozhodnutí (nearest, 640×360, integer scaling) a izometrie se statickou kamerou: layering podle osy Y a verticalita jako scénografie.
+- **[2D vizuál](2d-vizual.md)** — pixel art jako rozhodnutí (nearest, 640×360, integer scaling) a izometrie se statickou kamerou: layering podle osy Y a verticalita jako scénografie, a jak z AI obrázků poskládat parallax vrstvy, které k sobě sedí.
 
 **Level design**
 

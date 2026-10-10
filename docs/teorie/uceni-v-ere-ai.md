@@ -42,7 +42,7 @@ Pointa pro éru AI: všichni budou mít stejná shrnutí — **výhoda je to, co
 
 > **Pozn.:** ACTOR je použitelný beze změny na herní videa a GDC talky — Aim („co z toho potřebuju pro svůj projekt"), Compress (kmen talku), Test (kde by to u mé hry selhalo?), Own (zápisek), Run (jedna změna v projektu). Tahle skripta jsou v podstatě industrializovaný ACTOR. A „Own" krok je věda za [kvízovým protokolem](../zapisky/kvizovy-protokol.md).
 
-**Souvislosti:** [Zápisek: Kvízový protokol](../zapisky/kvizovy-protokol.md) · [Programátorské návyky](programatorske-navyky.md) · [Rejstřík: Retrieval practice](../rejstrik.md#retrieval-practice) · [Rejstřík: Iluze plynulosti](../rejstrik.md#iluze-plynulosti)
+**Souvislosti:** [Zápisek: Kvízový protokol](../zapisky/kvizovy-protokol.md) · [Programátorské návyky](programatorske-navyky.md) · [Rejstřík: Retrieval practice](../rejstrik.md#retrieval-practice) · [Rejstřík: Iluze plynulosti](../rejstrik.md#iluze-plynulosti) · [Agent jako učitel editoru](../praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) *(ptej se, proč to udělal takhle)*
 
 ---
 

@@ -15,6 +15,34 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-10 — Phase 13 dávka 55: AI nástroje — nová kapitola MCP v editoru (Claude Code, Opus 5.5)
+
+**What:** 8 videí (~27k slov) a dva úseky GASP streamu → **1 nová kapitola / 5 myšlenek + 2 myšlenky a 1 doplněk do stávajících**:
+- `praxe/mcp-v-editoru.md` (5, ~3 700 slov): asistent, ne zázrak (přednáška Epicu: principy, PCG primitiva, příklady, skills, město za den) · rozjet MCP (webinář Epic Education: tři pluginy, troubleshooting, ladění, limity) · jak s agentem mluvit (čtyři návyky, kontextové okno a harness, co agent nesvede) · vlastní tool set a skill (reflexe → JSON, pravidla tool setů a skills, příklady) · agent v IDE (JetBrains Rider, index a debugger pro agenty, Rider Kit přes ACP).
+- `praxe/claude-code-ue.md` +1: MCP místo klikání, agent v Blenderu od blockingu po rig (Stefan 3D AI, GPT-6; hype a affiliate označeny). Úvod odkazuje na novou kapitolu.
+- `praxe/ai-assety.md` +1: animace z modelu přímo ve hře — AnimGen v 5.8 (Smart Poly + vývojář Epicu ze streamu o GASP, včetně Q&A), MotionBricks.cpp a Kimodo.cpp na CPU. Úvod aktualizován.
+- `teorie/2d-vizual.md` doplněk v „Layering a verticalita": parallax vrstvy z AI se zamčenou kamerou a horizontem. Úvod aktualizován.
+
+Nav: „MCP v editoru" pod AI nástroje ve vývoji; `praxe/index.md` (nová položka a dvě anotace) a `teorie/index.md` (anotace 2D vizuálu) doplněny. Rejstřík 657 → **676**: 19 nových (ACP, Agent skill, AnimGen, Biome Core, Computer use, Context window, Harness, JSON Schema, Kimodo, MCP Inspector, Mixamo, MotionBricks, PCG Primitives, Playblast, Reflection system, Rider, Semantic search, SMPL-X, Tool set), 12 rozšířeno, z toho 1 o odstavec (MCP). 11 backlinků v 9 kapitolách. Chapter map 915 řádků.
+
+**Why:** Devátá dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 55").
+
+**How:**
+- **Rozvržení podle plánu dávky** beze změny. Tři zdroje o MCP daly kapitolu o pěti myšlenkách (webinář Epic Education dvě, přednáška Epicu dvě, Rider jednu). Krátké video o parallaxu (~4 min) je podle pravidla o tenkých zdrojích doplněk uvnitř existující myšlenky, ne vlastní myšlenka.
+- **Úsek GASP streamu** (`6NYC4ryO9ik`, 10:09–14:00 a Q&A 2:35:57–2:38:16) odpovídá na to, co Smart Poly jen hádá: AnimGen se trénuje na vlastním mocapu (5–10 minut, ~40 stylů se zrcadlením), interpoluje jen v rámci trénovacích dat a po tréninku animace v paměti nedrží.
+- **Napětí přiznaná v Pozn.:** dvě různé trojice pluginů pro MCP (`claude-code-ue` vs. Epic Education); námitka „demo bylo připravené" z `claude-code-ue` vs. Epic, který tu přípravu (primitiva, příklady, skills) sám popisuje a část vydává; AnimGen jako první protipříklad k závěru ARDY myšlenky o VRAM; popis Rider videa slibuje víc (GAS, build triage, DataTables), než záznam ukazuje.
+- **Jména:** přednášející jen jako role (tým Epicu, lektoři Epic Education, tým Rider, vývojář Epicu, který na AnimGenu pracuje). Jména tříd z přednášky o MCP zazní jen mluveně, proto v textu nejsou a Pozn. odkazuje na dokumentaci. Zkomolená jména autorů portů a harness služby parafrázována.
+- **Kontrola přesnosti:** dva subagenti (Sonnet) s novým pokynem načíst všechny soubory v jednom paralelním kroku, celkem ~381k tokenů (189k + 192k). To je jen asi o 7 % méně než v dávce 54 (~409k), takže pokyn k paralelnímu čtení očekávanou polovinu nepřinesl. Nálezy: subagent A 22 nálezů, 21 zapracováno (affiliate odkaz u Higgsfield pluginu zůstal, protože ho dokládá referral parametr v popisu videa); subagent B 24 nálezů, všechny zapracované (některé upraveně), plus tři neověřitelná místa, z nichž dvě jsou teď zmírněná (jednotka u velikosti popisů tool setů, role vývojáře Epicu). Převažovaly vypuštěné výhrady a věty, které příliš věrně kopírovaly stavbu anglického originálu (MCP Inspector, MotionBricks, demo AnimGenu, prompt v parallaxu); ty jsou přepsané. Věcně důležité: porty MotionBricks a Kimoda nejsou od NVIDIA, ale od nezávislého vývojáře (nadpis i kotva přejmenovány, odkazy opraveny), Ctrl+Z ve webináři vrací smazanou krabici, ne práci agenta, a pojistka proti Event Ticku nesouvisí s problémem delayů.
+- **Vlastní revize** před subagenty: 7 formulací (vypuštěné výhrady, „podle lektora", „pod dohledem" bez opory) a pět míst s rodem u řečníků přepsaných do neutrální podoby. Q&A o AnimGenu (2:35:57–2:39:02) jsem doplnil až po kontrole subagentů a ověřil ho sám proti přepisu.
+- **Flagy:** Higgsfield (affiliate a sponzor) u obou videí Stefan 3D AI, kurzy Smart Poly a Stefan 3D AI, prompty na webu kanálu Iris Ogli, Rider jako prezentace výrobce.
+- **Časové odkazy:** 415 odkazů ve čtyřech dotčených kapitolách (190 nových) ověřeno skriptem proti blokům přepisů.
+
+**Follow-ups:**
+1. Další a poslední dávka čtvrté vlny je 56 (teorie: příběh, plánování, design a level design). Z plánu: Cyberpunk `G_te2IkVVi4` dává backlinky do `ui-ve-svete` a `blockout`.
+2. Epic slibuje plugin s PCG městem z přednášky o MCP (cíl konec léta 2026). Až bude, patří k „Asistent, ne zázrak" a jako srovnání k `pcg-mesta`.
+3. Stefan 3D AI slibuje test GPT-6 v Unity a Unrealu; NVIDIA slibuje smart primitives pro MotionBricks. Obojí patří do `claude-code-ue` resp. `ai-assety`, až bude v playlistu.
+4. Glosář `MCP` teď nese obě trojice pluginů. Až se dokumentace Epicu ustálí, zjednodušit.
+
 ### 2026-10-10 — Phase 13 dávka 54: PCG, terén, povrchy a velké světy — nová kapitola PCG města (Claude Code, Opus 5.5)
 
 **What:** 7 videí (~39k slov) → **1 nová kapitola / 5 myšlenek + 7 myšlenek do pěti stávajících kapitol**:

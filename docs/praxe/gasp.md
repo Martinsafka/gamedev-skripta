@@ -102,7 +102,7 @@ GASP je Epicův „živý projekt" pro gameplay animaci — 500+ animací, hotov
 
 > **Pozn.:** Proti [starší kontrole výběru](#kontrola-vyberu-databaze-podle-stavu-nested-choosery-interrupt-mode), kde chooser jen nastavoval databáze pro motion matching uzel, je tohle o krok dál: matching je jedním sloupcem tabulky a designér má výběr i hledání na jednom místě. Gorka Games to shrnuje přesně: místo „vyber databázi a pak v ní hledej" je obojí v jedné tabulce [(6:15)](https://www.youtube.com/watch?v=UP3zWCMPn3E&t=375s). Pose match sloupec už v 5.7 vybíral [dosednutí na lavičku](#npc-pres-state-tree-a-smart-objects-mozek-na-serveru-motor-v-komponente) a v 5.8 vybírá i [vstávání z ragdollu](ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser).
 
-**Souvislosti:** [Rejstřík: Pose Match column](../rejstrik.md#pose-match-column) · [Rejstřík: Chooser](../rejstrik.md#chooser) · [Rejstřík: Blend stack](../rejstrik.md#blend-stack) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database)
+**Souvislosti:** [Rejstřík: Pose Match column](../rejstrik.md#pose-match-column) · [Rejstřík: Chooser](../rejstrik.md#chooser) · [Rejstřík: Blend stack](../rejstrik.md#blend-stack) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database) · [AnimGen ze stejného streamu](ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) *(ML controllery v 5.8)*
 
 ---
 

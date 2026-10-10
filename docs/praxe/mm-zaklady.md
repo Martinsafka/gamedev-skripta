@@ -26,7 +26,7 @@ Motion Matching je největší změna v herní animaci od state machines — a o
 
 > **Pozn.:** MM není zadarmo: GASP používá ~500–900 animací jen na locomotion a DevEdge správně varuje, že s combat systémy poroste váha dál [(41:01)](https://www.youtube.com/watch?v=9BWLj98pekM&t=2461s) — ale Fortnite s MM shipuje na všech platformách včetně mobilů a hlavně: **nepotřebuješ stovky animací** (viz sparse set níže). DevEdge navíc ukazuje 5.7 novinky (Mover pawn místo CMC, procedurální Locomotor, hybridní blend stack + state machine) — to pokrývá [kapitola o GASP](gasp.md).
 
-**Souvislosti:** [GASP: Game Animation Sample](gasp.md) · [Rejstřík: motion matching](../rejstrik.md#motion-matching) · [Rejstřík: trajektorie](../rejstrik.md#trajektorie) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database)
+**Souvislosti:** [GASP: Game Animation Sample](gasp.md) · [Rejstřík: motion matching](../rejstrik.md#motion-matching) · [Rejstřík: trajektorie](../rejstrik.md#trajektorie) · [Rejstřík: Pose Search Database](../rejstrik.md#pose-search-database) · [AnimGen](ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) *(controller natrénovaný na mocapu místo databáze)*
 
 ---
 
