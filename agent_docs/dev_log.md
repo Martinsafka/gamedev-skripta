@@ -15,6 +15,24 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-11 — Údržba: abecední pořadí rejstříku a jeho kontrola (Claude Code, Opus 5.5)
+
+**What:** `docs/rejstrik.md` je seřazený abecedně, jak žádá `content_conventions.md` („Alphabetical order within rejstrik.md"). Mimo pořadí stálo **143 hesel** ze 685, na 79 místech pořadí klesalo. Obsah je beze změny: 685 hesel, stejné řádky i počet znaků jako v HEAD, jen v jiném pořadí. Chapter map je přegenerovaná, protože hesla vypisuje v pořadí souboru. Pořadí a soulad obou vrstev teď hlídá **`scripts/check_rejstrik.py`** (`--fix` hesla seřadí). Jediný odkaz podle polohy („viz předchozí heslo" u „Pivot (design)") je nahrazený odkazem na heslo.
+
+**Why:** Druhá údržba z reportu k dávce 56 (uživatel: „ok, pokračuj"). Kontrola do `scripts/` na pokyn uživatele („ano, přidej kontrolu pořadí rejstříku do scripts/").
+
+**How:**
+- **Klíč řazení** je stejný, jaký používají skripty při vkládání nových hesel: bez diakritiky, bez ohledu na velikost písmen a interpunkci. Část odchylek odpovídá přímému porovnání řetězců (třeba „B-roll" před „Backbeat"), část jsou hesla vložená na špatné místo („Oblique" mezi „Volumetric fog" a „Widget Blueprint", „Jump scare" za „Kvaternion"). České řazení s „ch" za „h" by u převážně anglických termínů rozhodilo třeba „Channel" nebo „Chunking", proto ne.
+- **Stabilní řazení:** hesla se stejným klíčem drží dosavadní pořadí. Jediná taková dvojice, „A/B test" (playtesting) a „ABTest" (konzolový příkaz), jsou dvě různá hesla, ne duplicita.
+- **Odkaz podle polohy:** „Pivot (design)" psalo „viz předchozí heslo". Po seřazení stálo dál hned za „Pivot", jenže budoucí heslo s klíčem mezi `pivot` a `pivotdesign` by odkaz tiše rozbilo, proto je to teď odkaz na `#pivot`.
+- **Kontrola** `scripts/check_rejstrik.py` hlídá pořadí podle klíče, duplicitní hesla i tooltipy, heslo bez tooltipu a tooltip bez hesla (záměrné výjimky v `NO_TOOLTIP` a `NO_ENTRY`), nadpis `#`/`##` uvnitř seznamu a odkazy podle polohy. `--fix` přesouvá jen celá hesla a odmítne řadit, dokud v rejstříku zůstává nadpis nebo odkaz podle polohy. Rejstřík: 685 hesel a 684 tooltipů, 0 problémů. Testovací rejstřík: šest nálezů, po `--fix` zůstanou čtyři, které řazení neopraví, a řádky jsou stejné jako předtím. S odkazem podle polohy `--fix` odmítne a soubor nechá být.
+- **Kotvy se nemění**, protože se odvozují z textu nadpisu.
+- **Rozdíl 685 hesel proti 684 tooltipům je záměrný:** „Anchor (marketing)" a „Pivot (design)" tooltip nemají a „GDD" je tooltip bez vlastního hesla. Skript má tyto výjimky vyjmenované.
+- **Gates:** `--strict` bez varování, `scripts/check_anchors.py` 5 103/0 (přibyl odkaz `#pivot`), `scripts/check_rejstrik.py` 685 hesel a 684 tooltipů, 0 problémů, chapter map 924 řádků (v obou kopiích se změnilo jen pořadí hesel a datum generování v hlavičce).
+
+**Follow-ups:**
+Žádné. Další dávky vkládají hesla stejným klíčem, případně po vložení spustí `--fix` (pravidlo v `content_conventions.md`).
+
 ### 2026-10-11 — Údržba: staré časové odkazy a kontroly ve `scripts/` (Claude Code, Opus 5.5)
 
 **What:** Kontrola časových odkazů přes celý web (8 324 odkazů) hlásila **820 problémů ve 44 kapitolách**, ne jen 79 ve čtyřech, jak uváděly follow-upy dávek 54 a 56. Opraveno **26 odkazů v 8 kapitolách**:

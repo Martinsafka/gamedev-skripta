@@ -14,14 +14,6 @@ Analogie s ratingem dluhopisů. Neříká nic o tom, jestli je hra dobrá — ř
 
 Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#kdy-indie-hra-neni-indie-hra)
 
-### A/B test
-
-**Dvě verze téže hry dvěma skupinám testerů — rozhodne chování hráčů, ne jejich názor.**
-
-Testerům se často neříká, co se testuje, ani že existuje druhá verze. Ukázkový případ: puzzle hra řešila, jestli zrušit skok — verze s nízkým skokem sklidila „na co tu je?", ve verzi bez skoku si většina hráčů absence ani nevšimla. Škrt potvrzen daty, ne debatou.
-
-Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
-
 ### Abstract class
 
 **Třída, kterou nejde umístit do světa ani vybrat v referencích — existuje jen jako rodič pro děti.**
@@ -29,6 +21,14 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
 U base class v Blueprintech se zapíná v `Class Settings → Generate Abstract Class`. Smysl: master má nést jen data a logiku, žádné meshe či materiály — cokoli master referencuje, se nahrává do paměti s každou referencí na něj. Abstraktní master nikdo omylem nespawne a size map zůstává štíhlá.
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [BP_BaseItem pro předměty](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave)
+
+### A/B test
+
+**Dvě verze téže hry dvěma skupinám testerů — rozhodne chování hráčů, ne jejich názor.**
+
+Testerům se často neříká, co se testuje, ani že existuje druhá verze. Ukázkový případ: puzzle hra řešila, jestli zrušit skok — verze s nízkým skokem sklidila „na co tu je?", ve verzi bez skoku si většina hráčů absence ani nevšimla. Škrt potvrzen daty, ne debatou.
+
+Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
 
 ### ABTest
 
@@ -174,6 +174,14 @@ Nezaměňovat s [anchorem z marketingu](#anchor-marketing). Řeší jediný prob
 
 Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-layout-ktery-prezije-jine-rozliseni) · [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys)
 
+### Animation cancel
+
+**Přerušení probíhající animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.**
+
+Technický předpoklad je jediný: **efekt, který má dohrát, nesmí být dítětem věci, která se může přerušit.** Rozmazaný pruh za mečem přehrávaný jako samostatná animace dohraje i tehdy, když se útok postavy zruší dopadem — a z opravy vizuální vady se rázem stane prostor pro dovednost: dash z útoku, skok z útoku, combo přes zrušení dopadem. Zvedá to [skill ceiling](#skill-ceiling), protože hráč, který se naučí rušit ve správný okamžik, získává tempo.
+
+Kde se s tím potkáš: [Útočit v pohybu, nebo se zastavit](godot/pripadovka-pohyb.md#utocit-v-pohybu-nebo-se-zastavit)
+
 ### Animation curve
 
 **Pojmenovaná křivka hodnot uložená v animaci nebo montáži — AnimBP ji každý snímek přečte (`Get Curve Value`) a řídí jí cokoli, co má jet v rytmu animace.**
@@ -181,6 +189,14 @@ Kde se s tím potkáš: [Kotvy a offsety](godot/ui-control.md#kotvy-a-offsety-la
 Typické použití: alfa IK ruky, která se zapne jen ve chvíli úchopu, úhel dveří nebo kliky sladěný s rukou, váha pózy prstů. Hodnoty se vyplatí ukládat normalizované (0–1) a maximem násobit až v kódu — změna maxima pak neznamená přepisovat animace. Po skončení montáže křivka čte nulu, takže trvalý stav světa (otevřené dveře) je potřeba podržet zvlášť. Křivkami se dá i upravit animace samotná přímo v editoru: posunout kost a uložit klíč.
 
 Kde se s tím potkáš: [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Ruka na klice: alfa z křivky](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Řemeslo první osoby: úprava hotové animace](praxe/animace-nastroje.md#krivky-kamera-a-past-30-snimku-remeslo-prvni-osoby) · [Křivka BlendOff v útoku](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Síla ragdollu z křivek](praxe/ragdoll.md#ragdoll-ktery-se-chrani-pozy-z-animace-sila-z-krivek-a-cas-do-dopadu) · [Přepis limitů look-atu](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
+
+### Anim Budget Allocator
+
+**Plugin, který rozděluje pevný rozpočet na animace mezi skeletal meshe podle významnosti.**
+
+Funguje z krabice se spravovanými skeletal mesh komponentami a dá se do něj dopsat vlastní výpočet priority — typicky aby hlavní tvorové či postavy **nikdy** nedostali osekané ticky, zatímco kulisa v dálce ano. Nasadit ho stojí za to **hned na začátku**: zpětné doplnění vyžaduje přerodičování a je nepříjemné. Bývá to nejnižší patro delšího žebříku: budget → zjednodušené behavior tree → pohybující se statický mesh → statický mesh.
+
+Kde se s tím potkáš: [Animace ve velkém](praxe/velke-svety.md#animace-ve-velkem-od-tiku-k-udalostem) · [Rejstřík: Mass Entity](#mass-entity) · [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo)
 
 ### AnimGen
 
@@ -201,14 +217,6 @@ Montáž se dělí na [sekce](#montage-section), mezi kterými lze za běhu pře
 Do výsledné pózy se montáž dostane jen přes uzel `Slot` v AnimBP; sekvence sama přes slot neprojde. Svižný útok chce blend in 0 a blend out kolem 0,2 s. Pozor na `Play Montage`: spuštění nové montáže zastaví ostatní a přerušená montáž nedoběhne do On Completed (přijde On Interrupted).
 
 Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [MM základy](praxe/mm-zaklady.md) · [Zápas se smyčkou: sekce](praxe/interakcni-animace.md#zapas-se-smyckou-sekce-montaze-a-rozhodnuti-hrace) · [Animace řídí svět: křivky v montáži](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Útok je časová osa](praxe/souboj.md#utok-je-casova-osa-montaz-okna-z-notify-a-stav-ktery-se-musi-vratit) · [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
-
-### Animation cancel
-
-**Přerušení probíhající animace jinou akcí; v akčních hrách zdroj většiny pokročilých technik.**
-
-Technický předpoklad je jediný: **efekt, který má dohrát, nesmí být dítětem věci, která se může přerušit.** Rozmazaný pruh za mečem přehrávaný jako samostatná animace dohraje i tehdy, když se útok postavy zruší dopadem — a z opravy vizuální vady se rázem stane prostor pro dovednost: dash z útoku, skok z útoku, combo přes zrušení dopadem. Zvedá to [skill ceiling](#skill-ceiling), protože hráč, který se naučí rušit ve správný okamžik, získává tempo.
-
-Kde se s tím potkáš: [Útočit v pohybu, nebo se zastavit](godot/pripadovka-pohyb.md#utocit-v-pohybu-nebo-se-zastavit)
 
 ### Anim Notify
 
@@ -252,14 +260,6 @@ Vzniká paralelně s gameplay prototypem jako samostatná linka práce — a ve 
 
 Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Prototypování](teorie/prototypovani.md) · [Herní art: concept art](teorie/art-pipeline.md)
 
-### Anim Budget Allocator
-
-**Plugin, který rozděluje pevný rozpočet na animace mezi skeletal meshe podle významnosti.**
-
-Funguje z krabice se spravovanými skeletal mesh komponentami a dá se do něj dopsat vlastní výpočet priority — typicky aby hlavní tvorové či postavy **nikdy** nedostali osekané ticky, zatímco kulisa v dálce ano. Nasadit ho stojí za to **hned na začátku**: zpětné doplnění vyžaduje přerodičování a je nepříjemné. Bývá to nejnižší patro delšího žebříku: budget → zjednodušené behavior tree → pohybující se statický mesh → statický mesh.
-
-Kde se s tím potkáš: [Animace ve velkém](praxe/velke-svety.md#animace-ve-velkem-od-tiku-k-udalostem) · [Rejstřík: Mass Entity](#mass-entity) · [Bojovka pro desetiletý hardware](praxe/gpu-pruchod.md#bojovka-pro-desetilety-hardware-rozpocet-po-castech-a-co-se-v-nem-naslo)
-
 ### Aspirační obtížnost
 
 **Jak těžké je uspět DOBŘE: lepší cesta, víc bodů, volitelná hloubka — obtížnost, po které hráč sahá sám.**
@@ -267,22 +267,6 @@ Kde se s tím potkáš: [Animace ve velkém](praxe/velke-svety.md#animace-ve-vel
 Protipól průběžné obtížnosti (jak moc tě hra tlačí k prohře). Jahody v Celeste jsou učebnice: místo hard módu zvoleného předem se hráč rozhoduje v každém okamžiku, jestli si troufne na těžší verzi. Aspirační obtížnost vyrábí pocit dobře odvedené práce.
 
 Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
-
-### Assist mode
-
-**Volitelný režim, který dovolí hráči upravit si obtížnost po jednotlivých pákách místo výběru „easy".**
-
-Rozdíl proti posuvníku obtížnosti je v kontrole: hráč nedostane „hraju na lehkou a nevím, co to znamená", ale konkrétní volby — víc života, nižší poškození, pomalejší čas. Vzniklo to jako přístupnostní nástroj (někdo nezvládne mačkat dost rychle, aby porazil bosse v limitu) a používá se i obráceně — jako sada dobrovolných ztížení pro ty, co si o ně řeknou. Elegantní implementace je přes systém, který už ve hře je: [odznaky](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) v assist režimu prostě dovolí hodnoty, které by jinak byly příliš silné.
-
-Kde se s tím potkáš: [Odznaky: odměna, která nezlehčí hru](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) · [Obtížnost a výzva](teorie/obtiznost.md)
-
-### Async compute
-
-**Druhá fronta GPU, která umí jen compute shadery a běží souběžně s grafickou.**
-
-Fronty sdílejí výpočetní jednotky a synchronizují se přes fences — z čehož vznikají **bubliny**: fronta stojí, protože čeká na signál z druhé. Praktický důsledek pro čtení profileru: vysoký *wait* na compute frontě je normální a sám o sobě není chyba, na grafické frontě by měl být blízko nule. A při měření konkrétního průchodu se async compute vyplatí vypnout (`r.RDG.AsyncCompute 0`), protože překrývající se práce zkresluje časy obou front.
-
-Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-rika-novy-gpu-profiler) · [Rejstřík: RHI](#rhi)
 
 ### Asset pack
 
@@ -300,6 +284,14 @@ Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Nápad](teor
 
 Kde se s tím potkáš: [Gameplay na meshi bez blueprintu](praxe/velke-svety.md#gameplay-na-meshi-bez-blueprintu) · [Rejstřík: Gameplay tag](#gameplay-tag) · [Rejstřík: Data asset](#data-asset)
 
+### Assist mode
+
+**Volitelný režim, který dovolí hráči upravit si obtížnost po jednotlivých pákách místo výběru „easy".**
+
+Rozdíl proti posuvníku obtížnosti je v kontrole: hráč nedostane „hraju na lehkou a nevím, co to znamená", ale konkrétní volby — víc života, nižší poškození, pomalejší čas. Vzniklo to jako přístupnostní nástroj (někdo nezvládne mačkat dost rychle, aby porazil bosse v limitu) a používá se i obráceně — jako sada dobrovolných ztížení pro ty, co si o ně řeknou. Elegantní implementace je přes systém, který už ve hře je: [odznaky](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) v assist režimu prostě dovolí hodnoty, které by jinak byly příliš silné.
+
+Kde se s tím potkáš: [Odznaky: odměna, která nezlehčí hru](godot/pripadovka-systemy.md#odznaky-odmena-ktera-nezlehci-hru) · [Obtížnost a výzva](teorie/obtiznost.md)
+
 ### Astroturfing
 
 **Marketing, který předstírá, že vznikl zdola z komunity, i když ho platí firma.**
@@ -307,6 +299,14 @@ Kde se s tím potkáš: [Gameplay na meshi bez blueprintu](praxe/velke-svety.md#
 Termín z politiky (astroturf je umělý trávník — falešná „grassroots"). V herním kontextu se tak označuje snaha velkého vydavatele vypadat jako indie: cílit na estetiku, tón a hodnoty nezávislé scény bez odpovídajícího produkčního kontextu. Indie publikum na to reaguje citlivě právě proto, že u něj jde o hodnotový systém, ne jen o vkus.
 
 Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#kdy-indie-hra-neni-indie-hra)
+
+### Async compute
+
+**Druhá fronta GPU, která umí jen compute shadery a běží souběžně s grafickou.**
+
+Fronty sdílejí výpočetní jednotky a synchronizují se přes fences — z čehož vznikají **bubliny**: fronta stojí, protože čeká na signál z druhé. Praktický důsledek pro čtení profileru: vysoký *wait* na compute frontě je normální a sám o sobě není chyba, na grafické frontě by měl být blízko nule. A při měření konkrétního průchodu se async compute vyplatí vypnout (`r.RDG.AsyncCompute 0`), protože překrývající se práce zkresluje časy obou front.
+
+Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-rika-novy-gpu-profiler) · [Rejstřík: RHI](#rhi)
 
 ### Async Physics
 
@@ -364,54 +364,6 @@ Zdejší podoba singletonu: v nastavení projektu zaregistruješ scénu a Godot 
 
 Kde se s tím potkáš: [První hra: AnimationPlayer jako časovač](godot/prvni-hra.md#animationplayer-jako-casovac-sekvence-bez-jedineho-radku-kodu) · [Godot: co si přinést, než otevřeš editor](godot/zaklady.md#co-si-prinest-nez-otevres-editor)
 
-### Biome Core
-
-**Data-driven nástroj nad PCG pro stavbu biomů; je mocný, ale náročný na znalosti.**
-
-Epic k němu napsal skill, takže agent zná jeho datové struktury a umí biom postavit od nuly. Je to dobrý příklad, kdy model nestaví novou věc, ale pomáhá ovládat systém, který už funguje.
-
-Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: PCG](#pcg) · [Rejstřík: Agent skill](#agent-skill)
-
-### Biome map
-
-**Barevná mapa přes celý terén, kde každá barva označuje jeden biom a řídí, co se kde rozmístí.**
-
-Nejjednodušší je namalovat ji přes screenshot terénu shora v libovolném grafickém editoru, složitější mapy vznikají v nástrojích na stavbu světa. Musí na terén sedět přesně, jinak scatter roste vedle. Scatter každého biomu pak čte jen svou barvu. V ukázce s nástrojem QuickScatter doporučuje autor textuře mapy zapnout Never Stream, protože jinak se mu po znovuotevření levelu sama nenačítala.
-
-Kde se s tím potkáš: [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
-
-### Blend Poses by Bool
-
-**Anim uzel, který podle boolu přepíná mezi dvěma pózami — „if" v anim grafu.**
-
-Klasicky rozhoduje, jestli se útok vrství přes locomotion (v pohybu), nebo hraje celé tělo (ve stoje), případně jestli postava právě útočí (`IsAttacking`). Podmínka se dá skládat z víc vstupů: pohyb, vzduch, hodnota křivky z animace.
-
-Kde se s tím potkáš: [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Combat nad MM](praxe/mm-systemy.md#combat-nad-mm-horni-telo-v-montazi-spodni-v-matchingu)
-
-### Blueprint Debugger
-
-**Ladění blueprintů přímo v editoru za běhu hry: breakpointy, sledované hodnoty a zastavení při chybě.**
-
-Pravý klik na pin → *Watch this value* a v toolbaru vybrat ladicí objekt — hodnota pak běží přímo v grafu. Breakpoint zastaví hru na uzlu a dovolí krokovat; volba v Editor Preferences → Experimental zastaví blueprint automaticky na uzlu, kde nastala výjimka (třeba index mimo pole), místo aby hra běžela dál a chyby se objevily až v logu. Rychlejší než archeologie s print stringem, jakmile víš, kterou hodnotu hledáš.
-
-Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Nářadí z workshopu](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
-
-### Blueprint Macro
-
-**Znovupoužitelný kus Blueprint grafu, který se rozbalí na místě volání — na rozdíl od funkce smí obsahovat latentní uzly jako Delay a mít víc exec vstupů i výstupů.**
-
-Hodí se tam, kde má volající počkat, než se něco dokončí: zatmívačka kamery před cutscénou (start fade, Delay stejné délky, teprve pak výstup) se do funkce nevejde, protože funkce Delay obsahovat nemůže. Pro jednorázovou čekací logiku stačí i custom event; makro se vyplatí, když se stejný latentní kus opakuje.
-
-Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
-
-### B-roll
-
-**Doplňkové záběry, které běží na obrazovce, zatímco mluvíš o něčem obecnějším — ve videích o hrách typicky záběry gameplaye.**
-
-Pravidlo devlogů: na obrazovce má být hra, pořád — ideálně přesně to, o čem zrovna mluvíš, jinak aspoň obecný B-roll. Chytrý zdroj záběrů starších verzí hry: version control — checkout starého commitu a natoč, co potřebuješ.
-
-Kde se s tím potkáš: [Devlogy](teorie/devlogy.md)
-
 ### Backbeat
 
 **Rytmický důraz na sudé doby taktu — na dvojky a čtyřky.**
@@ -452,6 +404,14 @@ Derek Yu (Spelunky): hráč chtěl „odstranit síť", protože nepřehodil mí
 
 Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 
+### Beautiful corner
+
+**Jeden malý kus hry dotažený do cílové kvality, zatímco zbytek zůstává v grayboxu.**
+
+Mikroverze vertical slice: jedna místnost nebo jeden výjev jako art prototyp, podle kterého se pozná, kam hra míří vizuálně — aniž bys zabetonoval celý projekt. Řeší napětí mezi „drž iterační cykly krátké" a „potřebuju vidět, jak to bude vypadat"; sólo vývojáři navíc slouží jako legitimní odměna, která drží chuť do práce.
+
+Kde se s tím potkáš: [Level design pro sólo vývojáře](teorie/level-design-solo.md) · [Prototypování](teorie/prototypovani.md)
+
 ### Behavior Tree
 
 **Klasický rozhodovací strom AI v UE: selectory a sequence uzly volí tasky podle podmínek z Blackboardu.**
@@ -468,6 +428,22 @@ Na Steamu jde veřejnou betu spustit přes playtest feature — a vyplatí se z 
 
 Kde se s tím potkáš: [Playtesting: škálování](teorie/playtesting.md) · [Steam stránka](teorie/steam-stranka.md)
 
+### Biome Core
+
+**Data-driven nástroj nad PCG pro stavbu biomů; je mocný, ale náročný na znalosti.**
+
+Epic k němu napsal skill, takže agent zná jeho datové struktury a umí biom postavit od nuly. Je to dobrý příklad, kdy model nestaví novou věc, ale pomáhá ovládat systém, který už funguje.
+
+Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: PCG](#pcg) · [Rejstřík: Agent skill](#agent-skill)
+
+### Biome map
+
+**Barevná mapa přes celý terén, kde každá barva označuje jeden biom a řídí, co se kde rozmístí.**
+
+Nejjednodušší je namalovat ji přes screenshot terénu shora v libovolném grafickém editoru, složitější mapy vznikají v nástrojích na stavbu světa. Musí na terén sedět přesně, jinak scatter roste vedle. Scatter každého biomu pak čte jen svou barvu. V ukázce s nástrojem QuickScatter doporučuje autor textuře mapy zapnout Never Stream, protože jinak se mu po znovuotevření levelu sama nenačítala.
+
+Kde se s tím potkáš: [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+
 ### Blackboard
 
 **Sdílená tabule AI: pojmenované klíče (vector, object, bool…), přes které si percepce, tasky a strom předávají data.**
@@ -475,6 +451,14 @@ Kde se s tím potkáš: [Playtesting: škálování](teorie/playtesting.md) · [
 Klíč typu Object→Actor umí Move To průběžně sledovat (žádné přepočítávání cíle); Blackboard decorator větví strom podle „Is Set / Is Not Set" a observer aborts okamžitě přepne chování při změně. Zápis z blueprintu: Set Blackboard Value as Bool/Vector/Object — jméno klíče musí sedět do písmene.
 
 Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny)
+
+### Blend Poses by Bool
+
+**Anim uzel, který podle boolu přepíná mezi dvěma pózami — „if" v anim grafu.**
+
+Klasicky rozhoduje, jestli se útok vrství přes locomotion (v pohybu), nebo hraje celé tělo (ve stoje), případně jestli postava právě útočí (`IsAttacking`). Podmínka se dá skládat z víc vstupů: pohyb, vzduch, hodnota křivky z animace.
+
+Kde se s tím potkáš: [Útok za běhu](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne) · [Combat nad MM](praxe/mm-systemy.md#combat-nad-mm-horni-telo-v-montazi-spodni-v-matchingu)
 
 ### Blend Space
 
@@ -504,14 +488,6 @@ Z pohledu environment artu je blockout polovina projektu: rozhoduje o čitelnost
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Prototypování](teorie/prototypovani.md) · [Blockout: zastav, omez, porovnej](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Od blockoutu ke kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Night City od blockoutu ke kitům](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav)
 
-### Beautiful corner
-
-**Jeden malý kus hry dotažený do cílové kvality, zatímco zbytek zůstává v grayboxu.**
-
-Mikroverze vertical slice: jedna místnost nebo jeden výjev jako art prototyp, podle kterého se pozná, kam hra míří vizuálně — aniž bys zabetonoval celý projekt. Řeší napětí mezi „drž iterační cykly krátké" a „potřebuju vidět, jak to bude vypadat"; sólo vývojáři navíc slouží jako legitimní odměna, která drží chuť do práce.
-
-Kde se s tím potkáš: [Level design pro sólo vývojáře](teorie/level-design-solo.md) · [Prototypování](teorie/prototypovani.md)
-
 ### Blue ocean
 
 **Trh bez konkurence: hra vytváří novou poptávku, místo aby se prala o etablované publikum (red ocean).**
@@ -519,6 +495,14 @@ Kde se s tím potkáš: [Level design pro sólo vývojáře](teorie/level-design
 Termín z byznys strategie: red ocean = přeplněné žánry, kde rozhodují zdroje (battle royale, souls-like); blue ocean = unikátní zážitek, který si publikum teprve vyrobí (Minecraft, Undertale). Pro indie bez rozpočtu velkých studií je modrý oceán — unikátní twist — obvykle lepší sázka.
 
 Kde se s tím potkáš: [Sólo vývoj](teorie/solo-vyvoj.md) · [Nápad](teorie/napad.md)
+
+### Blueprint Debugger
+
+**Ladění blueprintů přímo v editoru za běhu hry: breakpointy, sledované hodnoty a zastavení při chybě.**
+
+Pravý klik na pin → *Watch this value* a v toolbaru vybrat ladicí objekt — hodnota pak běží přímo v grafu. Breakpoint zastaví hru na uzlu a dovolí krokovat; volba v Editor Preferences → Experimental zastaví blueprint automaticky na uzlu, kde nastala výjimka (třeba index mimo pole), místo aby hra běžela dál a chyby se objevily až v logu. Rychlejší než archeologie s print stringem, jakmile víš, kterou hodnotu hledáš.
+
+Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Nářadí z workshopu](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
 
 ### Blueprint Function Library
 
@@ -535,6 +519,14 @@ Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Ukládání]
 Volající posílá zprávu (message call) na libovolný actor; pokud actor interface implementuje, zareaguje vlastní logikou, pokud ne, nestane se nic — žádný pád, žádná závislost. Je to enginová podoba principu „programuj proti rozhraní": character nemusí znát třídu dveří, truhly ani panelu, stačí mu smlouva „umíš interagovat?". Přidání nového typu interaktivního objektu pak neznamená žádnou změnu ve volajícím.
 
 Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
+
+### Blueprint Macro
+
+**Znovupoužitelný kus Blueprint grafu, který se rozbalí na místě volání — na rozdíl od funkce smí obsahovat latentní uzly jako Delay a mít víc exec vstupů i výstupů.**
+
+Hodí se tam, kde má volající počkat, než se něco dokončí: zatmívačka kamery před cutscénou (start fade, Delay stejné délky, teprve pak výstup) se do funkce nevejde, protože funkce Delay obsahovat nemůže. Pro jednorázovou čekací logiku stačí i custom event; makro se vyplatí, když se stejný latentní kus opakuje.
+
+Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
 
 ### Boids
 
@@ -575,6 +567,14 @@ Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md)
 Bidirectional Reflectance Distribution Function popisuje, kolik světla se odrazí kterým směrem podle úhlu pohledu a dopadu. V praxi ho artista potkává jako sadu vstupů (base color, roughness, metallic, normal) a jako rozpad, na kterém se dá ladit jednotlivá složka zvlášť. Podle artistů Naughty Dog je nejpodceňovanější z nich roughness.
 
 Kde se s tím potkáš: [Breakdowny: Naughty Dog](praxe/env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani) · [Rejstřík: PBR](#pbr)
+
+### B-roll
+
+**Doplňkové záběry, které běží na obrazovce, zatímco mluvíš o něčem obecnějším — ve videích o hrách typicky záběry gameplaye.**
+
+Pravidlo devlogů: na obrazovce má být hra, pořád — ideálně přesně to, o čem zrovna mluvíš, jinak aspoň obecný B-roll. Chytrý zdroj záběrů starších verzí hry: version control — checkout starého commitu a natoč, co potřebuješ.
+
+Kde se s tím potkáš: [Devlogy](teorie/devlogy.md)
 
 ### Building in public
 
@@ -624,6 +624,14 @@ Paměť se do cache načítá po celých řádcích (cache lines), takže rozhod
 
 Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Entita není actor: malé fragmenty](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy) · [Rejstřík: ECS](#ecs)
 
+### Call down, signal up
+
+**Pravidlo palce pro komunikaci ve stromu scény: rodič smí volat funkce na dětech, dítě má vysílat signály nahoru.**
+
+Formuluje, kdo koho smí znát. Volání směrem dolů je v pořádku, protože rodič své děti vlastní a zná je. Opačný směr — dítě sahající na rodiče — vytváří závislost, která rozbije znovupoužitelnost dítěte. Místo toho dítě vyšle [signál](#signal) a rodič se rozhodne. Sourozenci se propojují přes společného rodiče, obvykle v `_ready()`. Efekt: závislosti kopírují hierarchii a strom scény zůstane čitelný.
+
+Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-down-signal-up-kdo-koho-smi-znat) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#observer-pattern-nejcastejsi-chyba-zacatecniku-a-jeji-oprava)
+
 ### Call to action
 
 **Závěrečná výzva trailer u nebo videa: co má divák udělat teď — „Wishlist on Steam", „Demo out now".**
@@ -632,13 +640,13 @@ Formát pro herní trailer: 5–8 vteřin na konci, key art + název + jedna vý
 
 Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md)
 
-### Call down, signal up
+### Camera director
 
-**Pravidlo palce pro komunikaci ve stromu scény: rodič smí volat funkce na dětech, dítě má vysílat signály nahoru.**
+**Objekt, který vlastní pravidla kamery pro danou oblast: hranice, čeho si všímat, jak plynule předat řízení dalšímu.**
 
-Formuluje, kdo koho smí znát. Volání směrem dolů je v pořádku, protože rodič své děti vlastní a zná je. Opačný směr — dítě sahající na rodiče — vytváří závislost, která rozbije znovupoužitelnost dítěte. Místo toho dítě vyšle [signál](#signal) a rodič se rozhodne. Sourozenci se propojují přes společného rodiče, obvykle v `_ready()`. Efekt: závislosti kopírují hierarchii a strom scény zůstane čitelný.
+Každá místnost má výchozího režiséra (hranice nastavené tak, aby tajemství zůstala skrytá) a trigger zóny s vlastními režiséry pro výjimky — tajné chodby, cinematic framing vysokých stropů. Předání se tweenuje; detail, na kterém stojí game feel celé kamery.
 
-Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-down-signal-up-kdo-koho-smi-znat) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md#observer-pattern-nejcastejsi-chyba-zacatecniku-a-jeji-oprava)
+Kde se s tím potkáš: [Kamera](teorie/kamera.md)
 
 ### Camera shake
 
@@ -658,14 +666,6 @@ Nejdůležitější kus grafiky celé stránky. Zásady: žádné AI generované
 
 Kde se s tím potkáš: [Steam stránka](teorie/steam-stranka.md) · [Co prodává](teorie/co-prodava.md)
 
-### Camera director
-
-**Objekt, který vlastní pravidla kamery pro danou oblast: hranice, čeho si všímat, jak plynule předat řízení dalšímu.**
-
-Každá místnost má výchozího režiséra (hranice nastavené tak, aby tajemství zůstala skrytá) a trigger zóny s vlastními režiséry pro výjimky — tajné chodby, cinematic framing vysokých stropů. Předání se tweenuje; detail, na kterém stojí game feel celé kamery.
-
-Kde se s tím potkáš: [Kamera](teorie/kamera.md)
-
 ### Cast
 
 **Přetypování obecné reference na konkrétní třídu, aby šlo volat její specifické funkce.**
@@ -673,6 +673,14 @@ Kde se s tím potkáš: [Kamera](teorie/kamera.md)
 `Cast To DestroyDoor` řekne enginu „zkus s tímhle actorem zacházet jako s třídou DestroyDoor". Cena: volající Blueprint získává tvrdou závislost na cílové třídě (a tahá si její referenci do paměti), takže s každým novým typem objektu roste řetěz castů. Tam, kde jde jen o „pošli zprávu, kdo umí, zareaguje", je lepší Blueprint Interface.
 
 Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
+
+### CDO
+
+**Class Default Object — výchozí instance, kterou Unreal vytvoří pro každou třídu sám; dá se z ní číst, aniž bys cokoli konstruoval.**
+
+Umožňuje vzor **„třída jako data"**: definici položky (název, ikona, popis) napíšeš jako `UObject` s `EditDefaultsOnly` vlastnostmi, konkrétní věci jsou blueprintoví potomci bez event grafu — a čte se z nich uzlem `Get Class Defaults`, respektive `GetDefaultObject()` v C++. Proti data assetu má jednu praktickou výhodu: **předáváš třídu, ne objektovou referenci**, takže nevzniká tvrdá reference na asset. Zásadní výhrada: **CDO je globální a sdílené** — cokoli, co se má lišit mezi jednotlivými kusy (opotřebení, náboje, vlastník), do něj nepatří.
+
+Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset) · [Rejstřík: Hard reference](#hard-reference) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus)
 
 ### Cellular automaton
 
@@ -689,14 +697,6 @@ Kde se s tím potkáš: [Emergence a Game of Life](teorie/algoritmy-prehled.md#e
 Channels se definují v data assetu partition definice 1:1 podle vrstev materiálu a rovnou se z nich stávají malovatelné vrstvy, bez ceremonie layer info assetů starého Landscape. Navíc je umí přiřazovat i modifiery (weight channel) — boolean skála si tak vyřízne tvar a zároveň obarví materiál. Pozor na kolizi názvosloví: UE má i kolizní channels (WorldStatic, Pawn…), to je jiný mechanismus.
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kanály z vertex colorů a pro PCG](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly)
-
-### CDO
-
-**Class Default Object — výchozí instance, kterou Unreal vytvoří pro každou třídu sám; dá se z ní číst, aniž bys cokoli konstruoval.**
-
-Umožňuje vzor **„třída jako data"**: definici položky (název, ikona, popis) napíšeš jako `UObject` s `EditDefaultsOnly` vlastnostmi, konkrétní věci jsou blueprintoví potomci bez event grafu — a čte se z nich uzlem `Get Class Defaults`, respektive `GetDefaultObject()` v C++. Proti data assetu má jednu praktickou výhodu: **předáváš třídu, ne objektovou referenci**, takže nevzniká tvrdá reference na asset. Zásadní výhrada: **CDO je globální a sdílené** — cokoli, co se má lišit mezi jednotlivými kusy (opotřebení, náboje, vlastník), do něj nepatří.
-
-Kde se s tím potkáš: [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset) · [Rejstřík: Hard reference](#hard-reference) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus)
 
 ### Channel packing
 
@@ -742,22 +742,6 @@ Od 5.8 může být posledním sloupcem [pose match](#pose-match-column), tedy mo
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Motion matching uvnitř chooseru](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku) · [Výběr vstávání](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser)
 
-### Chunking
-
-**Rozpad velkého úkolu na kusy tak malé, že každý jde dokončit za jedno sezení.**
-
-Unreal University tomu říká breakdown method: souboj se rozpadne na pohyb, animaci úderu a detekci zásahu, systém lodi na čtyři úkoly a ty případně ještě dál. Pomáhá proti zaseknutí kvůli velikosti úkolu, ne proti projektu, který pořád roste o nové featury.
-
-Kde se s tím potkáš: [Hora po kamenech](teorie/planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni) · [Rejstřík: Kanban](#kanban) · [Rejstřík: Scope creep](#scope-creep)
-
-### CI/CD
-
-**Automatizovaný kontrolní seznam, který po každém pushi ověří změnu a udrží projekt ve stavu, kdy se dá vydat.**
-
-*Continuous integration* = kód se po každém pushi automaticky otestuje proti zbytku; *continuous delivery* = po projití testů je vždycky připravený k vydání. Pod tím je jediná změna návyku: **místo „otestuju, až budu hotový" → každá změna je malá, otestovaná a připravená jít ven.** U GitHubu se nic neinstaluje — stačí složka `.github/workflows` a soubor `.yml`. Pro herní projekt je největší přínos **čistý stroj u každého běhu**: chytí celou třídu chyb typu „u mě to funguje" (chybějící asset, nezakomitovaná změna). Realistický první krok u UE není automatické nasazení, ale **automatické ověření, že projekt jde zabalit**.
-
-Kde se s tím potkáš: [CI/CD je automatizovaný kontrolní seznam](teorie/programatorske-navyky.md#cicd-je-automatizovany-kontrolni-seznam-ne-devops-ritual) · [Rejstřík: Version control](#version-control)
-
 ### Chord extension
 
 **Tón přidaný k triádě nad kvintu — septima, nona, undecima… (rozšíření akordu).**
@@ -781,6 +765,22 @@ Kde se s tím potkáš: [Zdarma a rychle: nástroje a game jam](hudba/nastroje-z
 Vyklikáš ji po zvýrazněných tónech tóniny; emoci nese hlavně pohyb mezi akordy (vzestup pozitivní, sestup smutný), ne jednotlivé akordy. Generátory (chordchord.com) rozjezd usnadní, ale stavět ji ručně je z dlouhodobého hlediska lepší.
 
 Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md) · [Jak psát melodie](hudba/melodie.md)
+
+### Chunking
+
+**Rozpad velkého úkolu na kusy tak malé, že každý jde dokončit za jedno sezení.**
+
+Unreal University tomu říká breakdown method: souboj se rozpadne na pohyb, animaci úderu a detekci zásahu, systém lodi na čtyři úkoly a ty případně ještě dál. Pomáhá proti zaseknutí kvůli velikosti úkolu, ne proti projektu, který pořád roste o nové featury.
+
+Kde se s tím potkáš: [Hora po kamenech](teorie/planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni) · [Rejstřík: Kanban](#kanban) · [Rejstřík: Scope creep](#scope-creep)
+
+### CI/CD
+
+**Automatizovaný kontrolní seznam, který po každém pushi ověří změnu a udrží projekt ve stavu, kdy se dá vydat.**
+
+*Continuous integration* = kód se po každém pushi automaticky otestuje proti zbytku; *continuous delivery* = po projití testů je vždycky připravený k vydání. Pod tím je jediná změna návyku: **místo „otestuju, až budu hotový" → každá změna je malá, otestovaná a připravená jít ven.** U GitHubu se nic neinstaluje — stačí složka `.github/workflows` a soubor `.yml`. Pro herní projekt je největší přínos **čistý stroj u každého běhu**: chytí celou třídu chyb typu „u mě to funguje" (chybějící asset, nezakomitovaná změna). Realistický první krok u UE není automatické nasazení, ale **automatické ověření, že projekt jde zabalit**.
+
+Kde se s tím potkáš: [CI/CD je automatizovaný kontrolní seznam](teorie/programatorske-navyky.md#cicd-je-automatizovany-kontrolni-seznam-ne-devops-ritual) · [Rejstřík: Version control](#version-control)
 
 ### Cipher
 
@@ -814,46 +814,6 @@ Rozhoduje, které vnitřní částice patří do kterého unionu, a podporuje č
 
 Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
-### Color temperature
-
-**Barva světla zadaná teplotou v kelvinech: nízká je teplá a oranžová, vysoká studená a modrá.**
-
-Odpovídá barvě, kterou vyzařuje zahřáté černé těleso, a proto působí přirozeněji než ručně vybraná barva. Svíčka má kolem 1900 K, klasická žárovka kolem 2700 K, denní světlo zhruba 5500 až 6500 K. V Unrealu se na světle zapíná přes Use Temperature, pro emisivní materiál dá stejnou barvu uzel BlackBody. Ruční barva má smysl tam, kam teplota nedosáhne, třeba u neonu nebo červeného zadního světla.
-
-Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel)
-
-### Computer use
-
-**Režim, ve kterém AI ovládá program jako člověk: dívá se na obrazovku a kliká myší.**
-
-Funguje s čímkoli, ale je pomalý a drahý na tokeny. V testu v Blenderu trvalo jen uložení souboru deset minut. Kde je k dispozici API přes MCP, je programové volání podle Epicu úspornější i rychlejší.
-
-Kde se s tím potkáš: [MCP místo klikání](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig) · [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: MCP](#mcp)
-
-### Construction Script
-
-**Graf actor blueprintu, který běží v editoru při umístění nebo změně actoru a při spawnu — ještě před BeginPlay.**
-
-Hodí se na přípravu dat, která závisí na komponentách konkrétní instance: třeba mapa stran dveří s odkazy na scene komponenty, které do výchozích hodnot proměnné zadat nejde, nebo reference, které mají fungovat i v sequenceru bez spuštěné hry. Nepatří do něj nic drahého — spouští se často, při každém posunu actoru v editoru.
-
-Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci) · [Run Construction Script on Drag](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny)
-
-### Contact shadows
-
-**Krátké stíny dopočítané v obrazovém prostoru z hloubky scény, které doplní drobné kontakty, kam běžné stíny nedosáhnou.**
-
-V Unrealu se zapínají na světle hodnotou Contact Shadow Length (výchozí je 0). Paprsek se trasuje jen kousek po hloubkovém bufferu, takže jsou levné, ale umí jen krátké stíny. S pixel depth offsetem z výškové mapy dají stíny i reliéfu, který existuje jen v materiálu, třeba pod POM na terénu. Hodí se i na vzdálenou vegetaci.
-
-Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Pixel Depth Offset](#pixel-depth-offset) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Stíny pokryvu země](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
-
-### Context switch
-
-**Přepnutí jádra z jednoho vlákna na druhé; stojí čas na uložení a obnovu stavu.**
-
-V Insights se sleduje vlastním kanálem a čte se ze dvou stran: **jedno jádro obsazené jediným vláknem** může blokovat ostatní, a **příliš časté přepínání** je čistá režie navíc (typicky když je hodně krátce žijících vláken). Otázka, kterou to zodpovídá, je jednoduchá: **je zatížení jader vyvážené?**
-
-Kde se s tím potkáš: [Insights jako disciplína](praxe/mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine) · [Rejstřík: Multithreading](#multithreading)
-
 ### Cognitive load
 
 **Kolik mozkové kapacity aktivita právě žere; učení nové dovednosti je vědomé a drahé, automatizace ji zlevňuje.**
@@ -886,6 +846,22 @@ Preset je první a nejlevnější filtr kolizního systému — rozhoduje se je�
 
 Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
 
+### Color temperature
+
+**Barva světla zadaná teplotou v kelvinech: nízká je teplá a oranžová, vysoká studená a modrá.**
+
+Odpovídá barvě, kterou vyzařuje zahřáté černé těleso, a proto působí přirozeněji než ručně vybraná barva. Svíčka má kolem 1900 K, klasická žárovka kolem 2700 K, denní světlo zhruba 5500 až 6500 K. V Unrealu se na světle zapíná přes Use Temperature, pro emisivní materiál dá stejnou barvu uzel BlackBody. Ruční barva má smysl tam, kam teplota nedosáhne, třeba u neonu nebo červeného zadního světla.
+
+Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Malovat světlem](praxe/osvetleni.md#malovat-svetlem-scena-slozena-z-falesnych-svetel)
+
+### Computer use
+
+**Režim, ve kterém AI ovládá program jako člověk: dívá se na obrazovku a kliká myší.**
+
+Funguje s čímkoli, ale je pomalý a drahý na tokeny. V testu v Blenderu trvalo jen uložení souboru deset minut. Kde je k dispozici API přes MCP, je programové volání podle Epicu úspornější i rychlejší.
+
+Kde se s tím potkáš: [MCP místo klikání](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig) · [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: MCP](#mcp)
+
 ### Constraints
 
 **Nepsané dohody, se kterými musí souhlasit každý nový řádek kódu, aby program zůstal správný.**
@@ -894,6 +870,30 @@ Příklad: gameplay pozice se drží v desetinných číslech, ale zaokrouhluje 
 
 Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#proc-ai-neumi-velky-kod-argument-o-omezenich) · [Principy architektury](praxe/principy-architektury.md)
 
+### Construction Script
+
+**Graf actor blueprintu, který běží v editoru při umístění nebo změně actoru a při spawnu — ještě před BeginPlay.**
+
+Hodí se na přípravu dat, která závisí na komponentách konkrétní instance: třeba mapa stran dveří s odkazy na scene komponenty, které do výchozích hodnot proměnné zadat nejde, nebo reference, které mají fungovat i v sequenceru bez spuštěné hry. Nepatří do něj nic drahého — spouští se často, při každém posunu actoru v editoru.
+
+Kde se s tím potkáš: [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci) · [Run Construction Script on Drag](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny)
+
+### Contact curve
+
+**Animační křivka 0/1 říkající, kdy je chodidlo na zemi — řídí foot pinning; v GASP nahradila foot velocity curves.**
+
+Hodnota 0 = noha ve vzduchu, 1 = došlap. Proti rychlostním křivkám je konzistentní napříč gaity (walk i sprint sdílí stejnou škálu) a snadno se ručně edituje, když noha „lepí" špatně. Epic je generuje interním batch nástrojem; starý foot placement anim uzel pořád chce velocity curve, remapuje se přes Curve Expressions plugin.
+
+Kde se s tím potkáš: [GASP](praxe/gasp.md)
+
+### Contact shadows
+
+**Krátké stíny dopočítané v obrazovém prostoru z hloubky scény, které doplní drobné kontakty, kam běžné stíny nedosáhnou.**
+
+V Unrealu se zapínají na světle hodnotou Contact Shadow Length (výchozí je 0). Paprsek se trasuje jen kousek po hloubkovém bufferu, takže jsou levné, ale umí jen krátké stíny. S pixel depth offsetem z výškové mapy dají stíny i reliéfu, který existuje jen v materiálu, třeba pod POM na terénu. Hodí se i na vzdálenou vegetaci.
+
+Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Rejstřík: Pixel Depth Offset](#pixel-depth-offset) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Stíny pokryvu země](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+
 ### Content
 
 **Vše, co jde ve hře opakovat s variacemi: levely, nepřátelé, příběh, odemykatelné věci.**
@@ -901,6 +901,30 @@ Kde se s tím potkáš: [Indie kariéra](teorie/indie-kariera.md#proc-ai-neumi-v
 Protipól gameplaye (mechanik a systémů). Rozlišení má praktický důsledek: levely testují hráčovo porozumění mechanikám, takže je nelze rozumně navrhovat dřív, než víš, o čem hra je. Nejčastější chyba je vyrábět hory contentu do hry, která na to ještě není připravená — u malé hry se proto škrtá content, ne mechaniky.
 
 Kde se s tím potkáš: [Level design: game design vs. level design](teorie/level-design-solo.md) · [Scope](teorie/scope.md)
+
+### Content scheduling
+
+**Kdy a jak často se ve hře věci dějí — rytmus obsahu, ne jeho množství.**
+
+Nejčastější oprava hry, která „má všechno a nudí": nepřidat obsah, ale přeskládat ho v čase. Série dobrých částí bez rytmu je standup, kde každý vtip funguje a routine nedrží pohromadě.
+
+Kde se s tím potkáš: [Případovky designu](teorie/pripadovky-designu.md)
+
+### Context steering
+
+**Technika pohybu AI: entita průběžně hodnotí všechny směry vahami a vybírá nejlepší proveditelný.**
+
+Vylepšení klasických steering behaviors (boids), jejichž protichůdné vektory se umí vyrušit — AI pak zamrzne u zdi, místo aby ji obešla. Context steering drží ohodnocení celé růžice směrů (typicky přes dot product vůči kýženému směru); zablokovaný nejlepší směr prostě nahradí druhý nejlepší. Tvarováním vah vznikají chování jako kroužení kolem cíle nebo nájezdy a odskoky — základ soubojů, které jsou zábavné pohybem, ne čísly.
+
+Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
+
+### Context switch
+
+**Přepnutí jádra z jednoho vlákna na druhé; stojí čas na uložení a obnovu stavu.**
+
+V Insights se sleduje vlastním kanálem a čte se ze dvou stran: **jedno jádro obsazené jediným vláknem** může blokovat ostatní, a **příliš časté přepínání** je čistá režie navíc (typicky když je hodně krátce žijících vláken). Otázka, kterou to zodpovídá, je jednoduchá: **je zatížení jader vyvážené?**
+
+Kde se s tím potkáš: [Insights jako disciplína](praxe/mereni-automaticky.md#insights-jako-disciplina-od-symptomu-ke-pricine) · [Rejstřík: Multithreading](#multithreading)
 
 ### Contextual Animation
 
@@ -917,6 +941,24 @@ Kde se s tím potkáš: [Contextual Animation](praxe/interakcni-animace.md#conte
 S MCP od Epicu je to praktický limit, protože popis jediného tool setu bývá obrovský, u Niagary podle webináře skoro čtvrt milionu jednotek, nejspíš tokenů. Harness s malým oknem popis ořízne a model pak zkouší naslepo, pomalu a draze. Proto taky Epic radí psát skills stručně.
 
 Kde se s tím potkáš: [Jak s agentem v editoru mluvit](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) · [Rejstřík: Harness](#harness)
+
+### Continuing pose
+
+**„Co by hrálo dál, kdybych nic neměnil" — kandidát, kterého musí každá nová animace v Motion Matchingu porazit cenou.**
+
+Klíč k ladění MM: v pose search debuggeru vidíš cenu continuing pose vedle vítěze a channels breakdown řekne, který kanál rozhodl. Continuing pose cost bias (záporný) drží systém déle v jedné animaci; notify tag Override Continuing Pose Bias protlačí hezkou animaci, i když matematicky nevyhrává.
+
+Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
+
+### Control Rig
+
+**Grafový rigging a procedurální animace přímo v enginu — běží i za runtime, bez rekompilace.**
+
+V GASP pohání foot placement Mover postavy (slope warping, pinning, root damping) a Locomotor (procedurální chůze bez jediné animace). Zároveň směr, kterým Epic míří s budoucím animačním frameworkem: animační systémy jako vizuální grafy, které si tech animátor otevře a ohne sám. Řemeslný vzor null + control zachovává hratelnost grafu ve viewportu.
+
+Pro gameplay je Control Rig uzel v AnimGraph místo, kde [IK](#ik) dotáhne ruku na kliku nebo předmět — za slotem, který hraje montáže. Ve verzi 5.8 přibyly [Control Rig Dynamics](#control-rig-dynamics) pro sekundární pohyb, fyzika přímo v rig modulech a [Direct Mesh Controls](#direct-mesh-controls).
+
+Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Aditivní look-at](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Vazby končetin přes FBIK](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin) · [Rig, o který nikdo neřekl](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig)
 
 ### Control Rig Dynamics
 
@@ -942,47 +984,13 @@ Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe
 
 Kde se s tím potkáš: [Drobky: šest zásahů](praxe/pamet-a-instance.md#drobky-sest-zasahu-na-jedno-odpoledne)
 
-### Contact curve
+### Core loop
 
-**Animační křivka 0/1 říkající, kdy je chodidlo na zemi — řídí foot pinning; v GASP nahradila foot velocity curves.**
+**Základní smyčka činností, kterou hráč ve hře opakuje nejčastěji — jádro, na kterém všechno ostatní stojí.**
 
-Hodnota 0 = noha ve vzduchu, 1 = došlap. Proti rychlostním křivkám je konzistentní napříč gaity (walk i sprint sdílí stejnou škálu) a snadno se ručně edituje, když noha „lepí" špatně. Epic je generuje interním batch nástrojem; starý foot placement anim uzel pořád chce velocity curve, remapuje se přes Curve Expressions plugin.
+„Plíž se → pozoruj → proklouzni" nebo „těž → vyrob → prodej". Užitečný pojem při analýze (co hráč *reálně* dělá většinu času?) i při ořezávání scope — co nesytí core loop, je kandidát na vyhození. Zároveň platí výhrada z kapitoly o smyčkách: popisuje strukturu, nevysvětluje kvalitu.
 
-Kde se s tím potkáš: [GASP](praxe/gasp.md)
-
-### Content scheduling
-
-**Kdy a jak často se ve hře věci dějí — rytmus obsahu, ne jeho množství.**
-
-Nejčastější oprava hry, která „má všechno a nudí": nepřidat obsah, ale přeskládat ho v čase. Série dobrých částí bez rytmu je standup, kde každý vtip funguje a routine nedrží pohromadě.
-
-Kde se s tím potkáš: [Případovky designu](teorie/pripadovky-designu.md)
-
-### Context steering
-
-**Technika pohybu AI: entita průběžně hodnotí všechny směry vahami a vybírá nejlepší proveditelný.**
-
-Vylepšení klasických steering behaviors (boids), jejichž protichůdné vektory se umí vyrušit — AI pak zamrzne u zdi, místo aby ji obešla. Context steering drží ohodnocení celé růžice směrů (typicky přes dot product vůči kýženému směru); zablokovaný nejlepší směr prostě nahradí druhý nejlepší. Tvarováním vah vznikají chování jako kroužení kolem cíle nebo nájezdy a odskoky — základ soubojů, které jsou zábavné pohybem, ne čísly.
-
-Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
-
-### Continuing pose
-
-**„Co by hrálo dál, kdybych nic neměnil" — kandidát, kterého musí každá nová animace v Motion Matchingu porazit cenou.**
-
-Klíč k ladění MM: v pose search debuggeru vidíš cenu continuing pose vedle vítěze a channels breakdown řekne, který kanál rozhodl. Continuing pose cost bias (záporný) drží systém déle v jedné animaci; notify tag Override Continuing Pose Bias protlačí hezkou animaci, i když matematicky nevyhrává.
-
-Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
-
-### Control Rig
-
-**Grafový rigging a procedurální animace přímo v enginu — běží i za runtime, bez rekompilace.**
-
-V GASP pohání foot placement Mover postavy (slope warping, pinning, root damping) a Locomotor (procedurální chůze bez jediné animace). Zároveň směr, kterým Epic míří s budoucím animačním frameworkem: animační systémy jako vizuální grafy, které si tech animátor otevře a ohne sám. Řemeslný vzor null + control zachovává hratelnost grafu ve viewportu.
-
-Pro gameplay je Control Rig uzel v AnimGraph místo, kde [IK](#ik) dotáhne ruku na kliku nebo předmět — za slotem, který hraje montáže. Ve verzi 5.8 přibyly [Control Rig Dynamics](#control-rig-dynamics) pro sekundární pohyb, fyzika přímo v rig modulech a [Direct Mesh Controls](#direct-mesh-controls).
-
-Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Aditivní look-at](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Vazby končetin přes FBIK](praxe/gasp.md#parove-akce-pres-motion-matching-role-rozdeleny-warp-a-vazby-koncetin) · [Rig, o který nikdo neřekl](praxe/claude-code-ue.md#mcp-misto-klikani-agent-v-blenderu-od-blockingu-po-rig)
+Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md) · [Nápad](teorie/napad.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 
 ### Coyote time
 
@@ -991,14 +999,6 @@ Kde se s tím potkáš: [GASP](praxe/gasp.md) · [Ruka na klice](praxe/interakcn
 Jméno je z kresleného Coyota, který po výběhu z útesu chvíli běží ve vzduchu — a podle autorů Celeste ho vymysleli hráči, ne vývojáři. Typická hodnota je kolem desetiny sekundy (asi šest snímků při 60 FPS). Patří do rodiny „tichých úlev", které pracují se **záměrem hráče místo přesné simulace stisků**: sourozencem je [input buffering](#input-buffering) (stisk těsně *před* dopadem se provede při dopadu) a korekce rohu. Nezvyšuje to jen pohodlí — profesionální hráči ty snímky navíc vyžívají na skoky, které by jinak nevyšly.
 
 Kde se s tím potkáš: [Celeste: křivky v snímcích](teorie/game-feel.md#celeste-krivky-v-snimcich-a-hrst-tichych-ulev) · [Godot: skok, který rozumí hráči](godot/animace-a-pohyb.md#skok-ktery-rozumi-tomu-co-hrac-chtel)
-
-### Core loop
-
-**Základní smyčka činností, kterou hráč ve hře opakuje nejčastěji — jádro, na kterém všechno ostatní stojí.**
-
-„Plíž se → pozoruj → proklouzni" nebo „těž → vyrob → prodej". Užitečný pojem při analýze (co hráč *reálně* dělá většinu času?) i při ořezávání scope — co nesytí core loop, je kandidát na vyhození. Zároveň platí výhrada z kapitoly o smyčkách: popisuje strukturu, nevysvětluje kvalitu.
-
-Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md) · [Nápad](teorie/napad.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 
 ### CPU-bound / GPU-bound
 
@@ -1064,6 +1064,22 @@ Setup a očekávání ustaví normál; anomálie ho nahlodají; diverze („ček
 
 Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
+### Data asset
+
+**Asset nesoucí čistá strukturovaná data — konfiguraci bez logiky.**
+
+V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blueprinty je čtou. Odděluje „co" od „jak" — stejná logika, jiná data, jiné chování. Mesh Terrain v data assetu (Mesh Partition Definition) drží materiál, texel size a definice channels.
+
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Nastavení look-at solveru](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
+
+### Data-driven design
+
+**Princip: hodnoty a konfigurace žijí v datech (data assety, tabulky), logika je jen čte.**
+
+Damage, animace, zvuky ani cooldowny nepatří natvrdo do grafu — patří do data assetu, který ability/systém čte. Fragmenty (malé datové objekty pro volitelné části: animace, VFX, damage) řeší, že ne každá entita potřebuje všechno. Odměna: designér vytvoří novou ability výměnou dat, bez zásahu do logiky. UE Gameplay Ability System je tenhle princip dotažený do konce.
+
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset) · [Neplést s data-oriented design](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
+
 ### Dataflow
 
 **Grafový systém Unrealu pro zpracování dat assetů — například přenos rigu, vah a tvarů z jednoho meshe na druhý.**
@@ -1074,54 +1090,6 @@ Dataflow slouží i destrukci (nedestruktivní lámání assetů v LEGO Fortnite
 
 Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Morph target](#morph-target) · [Lámání v Dataflow](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Látka přes Dataflow](praxe/destrukce-a-latky.md#latka-jako-samostatny-asset-chaos-cloth-pres-dataflow)
 
-### Data-oriented design
-
-**Návrh kódu podle toho, jak leží data v paměti a jak se k nim přistupuje — ne podle pojmů ze hry.**
-
-Měřítkem je paměťová efektivita: kolik z paměti, kterou procesor načte, opravdu použiješ. Typické důsledky: data zpracovávaná spolu leží za sebou; místo reakcí na jednotlivé události se často každý snímek projdou všechna data najednou; a návrh se kreslí jako tok dat, protože kód pojmům ze hry neodpovídá jedna k jedné. [ECS](#ecs) je jedno z jeho paradigmat. **Neplést s [data-driven design](#data-driven-design)** — ten říká, že hodnoty patří do dat místo do kódu; data-oriented říká, jak data uspořádat pro procesor.
-
-Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) · [Rejstřík: Cache miss](#cache-miss) · [Částice Chaosu jako struct of arrays](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
-
-### Data table
-
-**Tabulka řádků postavená na jednom structu — každý řádek má jméno a hodnoty se čtou podle něj.**
-
-Typické použití: jedna konfigurovatelná třída (pickup) drží jen jméno řádku a zbytek si dohledá v construction scriptu — žádné dítě pro každou položku. Hranice: tabulka je statická, nedá se k ní přidat funkčnost ani z ní dědit; to umí data asset a „třída jako data".
-
-Kde se s tím potkáš: [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset)
-
-### Day-one patch
-
-**Záplata vydaná v den vydání hry, která opravuje chyby nalezené po uzavření buildu.**
-
-Je to běžná praxe, ale nebezpečná, když nahrazuje testování. U Cyberpunku 2077 měla podle rozboru opravit chyby, na které se kvůli malému testování na konzolích nepřišlo včas, a nestačila.
-
-Kde se s tím potkáš: [Cyberpunk 2077](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav) · [Rejstřík: Crunch](#crunch)
-
-### Deferred rendering
-
-**Způsob vykreslování, který nejdřív uloží vlastnosti povrchů do bufferů (G-buffer) a světlo počítá až potom, pro každý pixel.**
-
-Cena světla tak nezávisí na počtu objektů, ale na počtu světel a pixelů, které zasáhnou. V Unrealu je to výchozí cesta pro desktop a konzole. Opakem je [forward rendering](#forward-rendering), který světlo počítá rovnou při kreslení objektu. MegaLights podle dokumentace nahrazují deferred shading s vyhodnocením světla vlastním průchodem a s forward shadingem nefungují.
-
-Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Rejstřík: Forward rendering](#forward-rendering) · [Rejstřík: MegaLights](#megalights)
-
-### Degenerate strategy
-
-**Strategie, která hru rozkládá: dominantní postup, po jehož objevení přestává být hra zajímavá.**
-
-V kompetitivním prostředí ničí zážitek ostatním (combo winter v Magicu), v singleplayeru hráč „prokletý znalostí" zkazí hru sám sobě. Balanc existuje hlavně proto, aby žádná cesta nebyla čtvercovou dírou na všechno.
-
-Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zábava: balanc](teorie/zabava.md)
-
-### Data asset
-
-**Asset nesoucí čistá strukturovaná data — konfiguraci bez logiky.**
-
-V UE typicky potomek `UDataAsset`: designér edituje hodnoty v editoru, kód/Blueprinty je čtou. Odděluje „co" od „jak" — stejná logika, jiná data, jiné chování. Mesh Terrain v data assetu (Mesh Partition Definition) drží materiál, texel size a definice channels.
-
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Rejstřík: Data table](#data-table) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Nastavení look-at solveru](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace) · [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
-
 ### Data layer
 
 **Kontejner aktorů ve world-partition světě se třemi stavy: Unloaded / Loaded (v paměti, neviditelné) / Activated.**
@@ -1129,6 +1097,14 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Kolik kódu po
 Aktory se přiřazují výběrem + right-clickem ve data layer outlineru, vrstvy se dají parentovat (celé patro jedním přepnutím) a aktor smí do víc vrstev. Za běhu je řídí Get Data Layer Manager → Set Data Layer Runtime State — typicky z trigger boxu s počítadlem hráčů. Pro interiéry uvnitř world-partition buňky a stavy „načti až po odemčení"; velké venkovní světy nech streamovat World Partition samotný.
 
 Kde se s tím potkáš: [Optimalizace scény](praxe/optimalizace.md) · [Levely a streaming](praxe/levely-a-streaming.md)
+
+### Data-oriented design
+
+**Návrh kódu podle toho, jak leží data v paměti a jak se k nim přistupuje — ne podle pojmů ze hry.**
+
+Měřítkem je paměťová efektivita: kolik z paměti, kterou procesor načte, opravdu použiješ. Typické důsledky: data zpracovávaná spolu leží za sebou; místo reakcí na jednotlivé události se často každý snímek projdou všechna data najednou; a návrh se kreslí jako tok dat, protože kód pojmům ze hry neodpovídá jedna k jedné. [ECS](#ecs) je jedno z jeho paradigmat. **Neplést s [data-driven design](#data-driven-design)** — ten říká, že hodnoty patří do dat místo do kódu; data-oriented říká, jak data uspořádat pro procesor.
+
+Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Jak s Mass pracovat](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou) · [Rejstřík: Cache miss](#cache-miss) · [Částice Chaosu jako struct of arrays](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
 ### Data Registry
 
@@ -1138,13 +1114,13 @@ Systémy se ptají registru jménem („dej mi settings pro tuhle třídu") mís
 
 Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md)
 
-### Data-driven design
+### Data table
 
-**Princip: hodnoty a konfigurace žijí v datech (data assety, tabulky), logika je jen čte.**
+**Tabulka řádků postavená na jednom structu — každý řádek má jméno a hodnoty se čtou podle něj.**
 
-Damage, animace, zvuky ani cooldowny nepatří natvrdo do grafu — patří do data assetu, který ability/systém čte. Fragmenty (malé datové objekty pro volitelné části: animace, VFX, damage) řeší, že ne každá entita potřebuje všechno. Odměna: designér vytvoří novou ability výměnou dat, bez zásahu do logiky. UE Gameplay Ability System je tenhle princip dotažený do konce.
+Typické použití: jedna konfigurovatelná třída (pickup) drží jen jméno řádku a zbytek si dohledá v construction scriptu — žádné dítě pro každou položku. Hranice: tabulka je statická, nedá se k ní přidat funkčnost ani z ní dědit; to umí data asset a „třída jako data".
 
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Rejstřík: data asset](#data-asset) · [Neplést s data-oriented design](praxe/mass-ecs.md#proc-objekty-zpomaluji-pamet-kterou-nactes-a-zahodis) · [Nepřítel v datech](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
+Kde se s tím potkáš: [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset)
 
 ### Data validation
 
@@ -1162,6 +1138,14 @@ FL Studio, Ableton, Reaper, GarageBand nebo bezplatné LMMS. Srdce celého proce
 
 Kde se s tím potkáš: [Zdarma a rychle: nástroje a game jam](hudba/nastroje-zdarma-a-game-jam.md)
 
+### Day-one patch
+
+**Záplata vydaná v den vydání hry, která opravuje chyby nalezené po uzavření buildu.**
+
+Je to běžná praxe, ale nebezpečná, když nahrazuje testování. U Cyberpunku 2077 měla podle rozboru opravit chyby, na které se kvůli malému testování na konzolích nepřišlo včas, a nestačila.
+
+Kde se s tím potkáš: [Cyberpunk 2077](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav) · [Rejstřík: Crunch](#crunch)
+
 ### Decal
 
 **Materiál promítnutý na povrch světa — otisky, cákance, graffiti; spawnuje se za běhu bez úpravy podkladu.**
@@ -1171,6 +1155,22 @@ Kde se s tím potkáš: [Zdarma a rychle: nástroje a game jam](hudba/nastroje-z
 Decal nemusí být jen promítnutý materiál. Mesh decal je plovoucí geometrie s texturou z atlasu, která přikryje spoj nebo přidá poškození.
 
 Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Decaly jako spoj kusů](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Alan Wake 2: stopy, které si pamatují](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [AC Black Flag: mesh decaly](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
+
+### Deferred rendering
+
+**Způsob vykreslování, který nejdřív uloží vlastnosti povrchů do bufferů (G-buffer) a světlo počítá až potom, pro každý pixel.**
+
+Cena světla tak nezávisí na počtu objektů, ale na počtu světel a pixelů, které zasáhnou. V Unrealu je to výchozí cesta pro desktop a konzole. Opakem je [forward rendering](#forward-rendering), který světlo počítá rovnou při kreslení objektu. MegaLights podle dokumentace nahrazují deferred shading s vyhodnocením světla vlastním průchodem a s forward shadingem nefungují.
+
+Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Rejstřík: Forward rendering](#forward-rendering) · [Rejstřík: MegaLights](#megalights)
+
+### Degenerate strategy
+
+**Strategie, která hru rozkládá: dominantní postup, po jehož objevení přestává být hra zajímavá.**
+
+V kompetitivním prostředí ničí zážitek ostatním (combo winter v Magicu), v singleplayeru hráč „prokletý znalostí" zkazí hru sám sobě. Balanc existuje hlavně proto, aby žádná cesta nebyla čtvercovou dírou na všechno.
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zábava: balanc](teorie/zabava.md)
 
 ### Delegate
 
@@ -1188,6 +1188,14 @@ Bez delty znamená `position.x += 1` „jeden pixel za snímek", tedy rychlost s
 
 Kde se s tím potkáš: [První hra: delta a physics process](godot/prvni-hra.md#delta-a-physics-process-proc-se-rychlost-nasobi-casem)
 
+### Demo
+
+**Veřejná verze hry, jejímž úkolem je hru prodat — ne ji otestovat.**
+
+Rozdíl proti playtestovacímu buildu je zásadní: demo předpokládá, že už víš, že hra baví. Většina hráčů od něj čeká vertical slice; nejčastější chyba je „diagonální řez", kdy demo naznačí systémy, které pak neukáže. Test dobrého dema: odpovídá na pochybnosti, které bude mít fanoušek žánru.
+
+Kde se s tím potkáš: [Vydání hry: demo prodává, prototyp validuje](teorie/vydani-hry.md) · [Playtesting](teorie/playtesting.md)
+
 ### Denoiser
 
 **Filtr, který z obrazu spočítaného z málo vzorků odstraní šum, obvykle s pomocí předchozích snímků.**
@@ -1196,6 +1204,14 @@ Ray tracing, Lumen i MegaLights počítají s omezeným počtem paprsků na pixe
 
 Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Attenuation radius jako hlavní páka](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla) · [Rejstřík: TSR](#tsr)
 
+### Dependency stack
+
+**Diagram závislostí systémů hry: dole core mechaniky, nahoře obohacení, které jde kdykoli škrtnout.**
+
+Rodiny potřebují postavy, místnosti potřebují stavební mechaniku — pořadí práce padá ze stromu samo a škrty se dělají shora. Sdílený spodek stacku je důvod, proč studia vyrábějí variace téže hry (Fallout/Elder Scrolls).
+
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zápisek: Derivační řetěz IZBY](zapisky/derivace-izby.md)
+
 ### Design by constraint
 
 **Metoda hledání nápadů: nejdřív si zvol omezení, která řežou scope, a nápad nech vzniknout uvnitř nich.**
@@ -1203,14 +1219,6 @@ Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpoce
 „Žádný příběh", „celá hra na jedné obrazovce", „žádné viditelné postavy", „jeden level" — omezení zmenší prostor možností tak, že se v něm dá tvořit. Postup: zvol omezení → posbírej hry se stejným omezením jako katalog interakcí → nech omezení třít o téma, dokud nevypadne nápad (piráti × jedna obrazovka = ostrov). Mini Metro tak vzniklo doslova. Druhá půlka metody: každé vývojářské omezení potřebuje player-facing alibi — téma, které ho vysvětlí a prodá.
 
 Kde se s tím potkáš: [Scope: malé hry a design by constraint](teorie/scope.md) · [Prototypování](teorie/prototypovani.md)
-
-### Demo
-
-**Veřejná verze hry, jejímž úkolem je hru prodat — ne ji otestovat.**
-
-Rozdíl proti playtestovacímu buildu je zásadní: demo předpokládá, že už víš, že hra baví. Většina hráčů od něj čeká vertical slice; nejčastější chyba je „diagonální řez", kdy demo naznačí systémy, které pak neukáže. Test dobrého dema: odpovídá na pochybnosti, které bude mít fanoušek žánru.
-
-Kde se s tím potkáš: [Vydání hry: demo prodává, prototyp validuje](teorie/vydani-hry.md) · [Playtesting](teorie/playtesting.md)
 
 ### Design pattern
 
@@ -1227,14 +1235,6 @@ Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Komunik
 Pilíře nejsou žánr ani art style („third person shooter" je popis kamery, ne pilíř) — popisují emoce a zkušenost koncového hráče. God of War 2018: exploration, combat, pouto otce a syna; SOMA: everything is story, trust the player. Šetří rozhodování: co pilíře nesytí, letí.
 
 Kde se s tím potkáš: [Zábava: taxonomie a pilíře](teorie/zabava.md) · [Ludotematický soulad](teorie/ludonarativni-soulad.md) · [GDD: pilíře, publikum, jádro](teorie/gdd.md)
-
-### Dependency stack
-
-**Diagram závislostí systémů hry: dole core mechaniky, nahoře obohacení, které jde kdykoli škrtnout.**
-
-Rodiny potřebují postavy, místnosti potřebují stavební mechaniku — pořadí práce padá ze stromu samo a škrty se dělají shora. Sdílený spodek stacku je důvod, proč studia vyrábějí variace téže hry (Fallout/Elder Scrolls).
-
-Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Zápisek: Derivační řetěz IZBY](zapisky/derivace-izby.md)
 
 ### Device profile
 
@@ -1260,22 +1260,6 @@ Opakem je klasické UI přes obrazovku. Diegetické menu prodlouží imerzi až 
 
 Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys) · [Imerze](teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [HUD Cyberpunku přes implantáty v očích](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav)
 
-### Direct Mesh Controls
-
-**Controly rigu, které animátor ovládá tahem přímo za povrch postavy místo kroužků a tvarů kolem ní (5.8, experimentální).**
-
-Rigger přiřadí controlům skupiny polygonů (polygroups uložené ve skeletal meshi, start odvozený ze skin weights) a animátor si je může přemalovat. Vrstvy polygroups sledují stav rigu: ve FK patří plochy paže k jednotlivým kostem, v IK k pole vectoru a IK controlu. Do existujícího rigu se přidávají pluginem a modulem, bez přestavby.
-
-Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Control Rig](#control-rig)
-
-### Distance field AO
-
-**Ambient occlusion počítaný z mesh distance fields; v UE se tiše zapíná spolu s movable skylightem.**
-
-Je to jedna ze tří různých metod AO, které v UE5 mohou běžet naráz (dál Lumen AO a post-process AO), a je to nejméně známá skrytá cena: nastavíš-li skylight na *movable*, platíš ji, i když o ní nevíš. Přepnutí na *stationary* ji vypne. Rozdíl je nejlépe vidět ve scénách s vegetací.
-
-Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: Ambient occlusion](#ambient-occlusion) · [Rejstřík: Mesh distance field](#mesh-distance-field)
-
 ### Difficulty curve
 
 **Průběh obtížnosti hry v čase — a hlavní nástroj, jak držet hráče ve flow.**
@@ -1284,6 +1268,14 @@ Skládá se ze dvou složek: novelty (učení nového) a mastery (zvládání na
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 
+### Direct Mesh Controls
+
+**Controly rigu, které animátor ovládá tahem přímo za povrch postavy místo kroužků a tvarů kolem ní (5.8, experimentální).**
+
+Rigger přiřadí controlům skupiny polygonů (polygroups uložené ve skeletal meshi, start odvozený ze skin weights) a animátor si je může přemalovat. Vrstvy polygroups sledují stav rigu: ve FK patří plochy paže k jednotlivým kostem, v IK k pole vectoru a IK controlu. Do existujícího rigu se přidávají pluginem a modulem, bez přestavby.
+
+Kde se s tím potkáš: [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi) · [Rejstřík: Control Rig](#control-rig)
+
 ### Disonance
 
 **Dojem napětí či drsnosti při současném znění tónů; opak konsonance.**
@@ -1291,6 +1283,14 @@ Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 Fyzikálně vzniká ze záznějů blízkých frekvencí a nedokonalého rozlišení ucha. Není to vypínač, ale spojité pásmo — použitelné jako řízená páka napětí (horor, boss vs. klid, domov).
 
 Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
+
+### Distance field AO
+
+**Ambient occlusion počítaný z mesh distance fields; v UE se tiše zapíná spolu s movable skylightem.**
+
+Je to jedna ze tří různých metod AO, které v UE5 mohou běžet naráz (dál Lumen AO a post-process AO), a je to nejméně známá skrytá cena: nastavíš-li skylight na *movable*, platíš ji, i když o ní nevíš. Přepnutí na *stationary* ji vypne. Rozdíl je nejlépe vidět ve scénách s vegetací.
+
+Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: Ambient occlusion](#ambient-occlusion) · [Rejstřík: Mesh distance field](#mesh-distance-field)
 
 ### DLSS
 
@@ -1484,14 +1484,6 @@ Typická cena inkubátoru: 25 000 až 50 000 € za deset procent firmy. Rozdíl
 
 Kde se s tím potkáš: [Financování](teorie/financovani.md#granty-inkubatory-a-investori-co-za-penize-odevzdas)
 
-### Eulerovy úhly
-
-**Rotace jako trojice yaw/pitch/roll aplikovaná v pevném pořadí — intuitivní, kompaktní, ale trpí gimbal lockem.**
-
-Standard pro UI (v UE je to Rotator): tři čísla, kterým rozumíš. Cena: mizerná interpolace a gimbal lock — po otočení prostřední osy o 90° se vnější a vnitřní osa zarovnají a ztratíš stupeň volnosti. Uvnitř enginu proto rotace drží kvaterniony.
-
-Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
-
 ### Euklidovský rytmus
 
 **Zápis `(n,k)`: rozprostři `n` hitů co nejrovnoměrněji do `k` kroků.**
@@ -1499,6 +1491,14 @@ Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.m
 Vznikl ve fyzice — šlo o to, jak v daném časovém okně poslat částice co nejvíc rozestoupené — a ukázalo se, že výsledné vzorce **odpovídají rytmům z mnoha různých kultur**. V praxi je to nástroj na objevování: nevíš, jak má groove znít, změníš jedno číslo a dostaneš jiný. Protiklad k tomu je zápis, kde přesně řekneš, na kterých krocích se hraje. Výhrada: prostor možností je úzký, takže po chvíli **zní euklidovské rytmy poznatelně** — dobré na základ, ne na všechno.
 
 Kde se s tím potkáš: [Euklidovské rytmy a řízená náhoda](hudba/live-coding.md#euklidovske-rytmy-a-rizena-nahoda) · [Rejstřík: Synkopa](#synkopa)
+
+### Eulerovy úhly
+
+**Rotace jako trojice yaw/pitch/roll aplikovaná v pevném pořadí — intuitivní, kompaktní, ale trpí gimbal lockem.**
+
+Standard pro UI (v UE je to Rotator): tři čísla, kterým rozumíš. Cena: mizerná interpolace a gimbal lock — po otočení prostřední osy o 90° se vnější a vnitřní osa zarovnají a ztratíš stupeň volnosti. Uvnitř enginu proto rotace drží kvaterniony.
+
+Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
 
 ### EV100
 
@@ -1622,6 +1622,14 @@ Podmínky: častá a rychlá zpětná vazba, hluboké soustředění, výzva ~ s
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
 
+### FM syntéza
+
+**Syntéza, kde jeden signál rozkmitává frekvenci druhého — místo aby se z bohatého zvuku ubíralo filtrem.**
+
+Nejdůležitější parametr není hloubka modulace, ale **harmonicita** — poměr frekvence modulátoru k nosné. Nízké poměry zní jako vibráto, vysoké a neceločíselné dávají kovové alikvóty, celočíselné drží zvuk laděný. Výpočetně levné a zvukově drahé, proto na tom stála éra konzolového a automatového zvuku. Úzký použitelný recept: **sinus + FM + krátká obálka = zvonek nebo perkuse**. Výhrada: ladí se hůř než subtraktivní řetězec — nejdřív hledej poměr, pak tvaruj obálkou.
+
+Kde se s tím potkáš: [FM: když jeden zvuk ohýbá druhý](hudba/synteza-zvuku.md#fm-kdyz-jeden-zvuk-ohyba-druhy) · [Rejstřík: subtraktivní syntéza](#subtraktivni-synteza) · [Rejstřík: oscilátor](#oscilator)
+
 ### Foley
 
 **Ruční výroba zvukových efektů z reálných předmětů.**
@@ -1654,22 +1662,6 @@ Základ house a další taneční hudby. Protože je pravidelný, staví se prot
 
 Kde se s tím potkáš: [Žánry a jejich melodie](hudba/zanry-a-styl.md) · [Aranžmá: z loopu skladba](hudba/aranz.md)
 
-### Frame data
-
-**Popis útoku po snímcích: kolik snímků trvá nápřah, které snímky jsou aktivní, jak dlouho je zotavení.**
-
-Slovník bojovek, použitelný v každé akční hře. Ke každému aktivnímu snímku se dají navěsit vlastnosti — poškození, síla odhozu, [hit stop](#hit-stop), otřes obrazovky, stavové efekty — a protože jeden snímek animace může mít víc [hitboxů](#hitbox), dá se útok rozřezat na části s různým chováním (odhoz jen na chodidlech, jed jen na špičce biče). Kritická podmínka při stavbě: **časování musí mít jediný zdroj pravdy**, typicky animaci samotnou — data ve dvou místech se při první úpravě animace rozejdou.
-
-Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Active frames v UE](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames)
-
-### FM syntéza
-
-**Syntéza, kde jeden signál rozkmitává frekvenci druhého — místo aby se z bohatého zvuku ubíralo filtrem.**
-
-Nejdůležitější parametr není hloubka modulace, ale **harmonicita** — poměr frekvence modulátoru k nosné. Nízké poměry zní jako vibráto, vysoké a neceločíselné dávají kovové alikvóty, celočíselné drží zvuk laděný. Výpočetně levné a zvukově drahé, proto na tom stála éra konzolového a automatového zvuku. Úzký použitelný recept: **sinus + FM + krátká obálka = zvonek nebo perkuse**. Výhrada: ladí se hůř než subtraktivní řetězec — nejdřív hledej poměr, pak tvaruj obálkou.
-
-Kde se s tím potkáš: [FM: když jeden zvuk ohýbá druhý](hudba/synteza-zvuku.md#fm-kdyz-jeden-zvuk-ohyba-druhy) · [Rejstřík: subtraktivní syntéza](#subtraktivni-synteza) · [Rejstřík: oscilátor](#oscilator)
-
 ### Fragment
 
 **Objekt, který k definici položky připojí kus dat a kus funkčnosti — kompozice místo jedné obří třídy.**
@@ -1679,6 +1671,14 @@ Kde se s tím potkáš: [FM: když jeden zvuk ohýbá druhý](hudba/synteza-zvuk
 V [Mass](#mass-entity) znamená fragment něco jiného: čistá data bez chování, která hromadně zpracovávají procesory — blíž členské proměnné než komponentě. Společná je jen myšlenka skládání; liší se tím, kde žije logika.
 
 Kde se s tím potkáš: [Fragmenty: skládání položky z kusů](praxe/principy-architektury.md#fragmenty-skladani-polozky-z-kusu-misto-jedne-obri-tridy) · [Rejstřík: CDO](#cdo) · [Rejstřík: Data-driven design](#data-driven-design) · [Inventář: definice a instance](praxe/inventar.md#definice-popisuje-druh-instance-nese-kus) · [Inventář: akce](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Entita není actor: fragment v Mass](praxe/mass-ecs.md#entita-neni-actor-rozkladej-podle-pristupu-do-pameti-ne-podle-postavy)
+
+### Frame data
+
+**Popis útoku po snímcích: kolik snímků trvá nápřah, které snímky jsou aktivní, jak dlouho je zotavení.**
+
+Slovník bojovek, použitelný v každé akční hře. Ke každému aktivnímu snímku se dají navěsit vlastnosti — poškození, síla odhozu, [hit stop](#hit-stop), otřes obrazovky, stavové efekty — a protože jeden snímek animace může mít víc [hitboxů](#hitbox), dá se útok rozřezat na části s různým chováním (odhoz jen na chodidlech, jed jen na špičce biče). Kritická podmínka při stavbě: **časování musí mít jediný zdroj pravdy**, typicky animaci samotnou — data ve dvou místech se při první úpravě animace rozejdou.
+
+Kde se s tím potkáš: [Frame data: definuj systém dřív, než ho postavíš](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Active frames v UE](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames)
 
 ### Frame time
 
@@ -1712,64 +1712,6 @@ Klasická podoba (slohová práce v akademickém formátu) u sólo vývojářů 
 
 Kde se s tím potkáš: [GDD: dokument jako způsob myšlení](teorie/gdd.md) · [Start projektu](teorie/jak-zacit.md) · [Zápisky: GDD review](zapisky/gdd-review.md)
 
-### Game of Life
-
-**Celulární automat Johna Conwaye z roku 1970: dva stavy, tři pravidla a nekonečná složitost.**
-
-Buňka s přesně třemi živými sousedy ožije, s méně než dvěma nebo s víc než třemi umře a se dvěma nebo třemi přežije. Z toho vznikají stabilní útvary, oscilátory a pohyblivé „lodě" jako glider. Systém je dokazatelně Turingovsky úplný.
-
-Kde se s tím potkáš: [Emergence a Game of Life](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) · [Rejstřík: Cellular automaton](#cellular-automaton) · [Rejstřík: Turing completeness](#turing-completeness)
-
-### Gameplay Debugger
-
-**Ladicí vrstva přímo ve hře (klávesa apostrof): navmesh, cesta AI, behavior tree, EQS a percepce.**
-
-Kategorie se přepínají numerickou klávesnicí (0 navmesh, 1 AI, 2 behavior tree, 4 EQS, dál percepce a smart objects). Ukáže kužel zraku, hranici ztráty cíle i to, který decorator ve stromu selhal a proč („value equals none"). U AI je to nejrychlejší cesta, protože její chyby nehlásí chybu — postava jen stojí.
-
-Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Rejstřík: Behavior Tree](#behavior-tree) · [Rejstřík: AI Perception](#ai-perception) · [Mass Debugger](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou)
-
-### GAS
-
-**Gameplay Ability System — Epicův framework pro schopnosti, atributy a efekty, který hodnoty počítá ze základu a modifikátorů.**
-
-Atribut (rychlost, zdraví) se nemění přepsáním čísla, ale **gameplay efektem** s modifikátory, které jdou zase odebrat — dočasné vlivy se tak nemohou „slít" do základu (příklad, kdy prosté sčítání skončí na 400 místo 500, je v kapitole o statech). Efekt navíc mapuje hodnotu na atribut v datech, ne v kódu. Stojí na něm Lyra; principy, ze kterých vychází (separace, data, komponenty), jsou tytéž jako v Principech architektury.
-
-I AI může jednat přes abilitu: úloha behavior tree jen rozhodne a předá abilitě data (chůze nebo běh, animace přes tag); abilita akci provede a stromu ohlásí konec.
-
-Kde se s tím potkáš: [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni) · [Použití jako seznam akcí](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Tři principy škálovatelnosti](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [AI: akce v gameplay abilitách](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
-
-### Gauntlet
-
-**Automatizační framework Unrealu, který spouští hru na cílových zařízeních (i víc instancí naráz) a řídí na nich testy.**
-
-Typicky ho spouští build systém: build se rozešle na min spec PC nebo konzoli, proběhne smoke test (připojit se, projít level) nebo výkonový průchod a výsledky jdou do reportu či dashboardu. Smysl dostává ve chvíli, kdy ruční testování po každé změně přestane stačit — u her v raném přístupu s častými aktualizacemi, u výkonových dashboardů a u smoke testů na víc platformách.
-
-Kde se s tím potkáš: [Výkon jako věc celého týmu](praxe/mereni-automaticky.md#vykon-jako-vec-celeho-tymu-dashboard-validace-a-kontrola-pameti) · [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Sto tisíc aktérů: automatizované testy](praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor)
-
-### Geometry Collection
-
-**Asset rozbitného objektu v Chaosu: sada fyzikálních těles, která se aktualizují a kreslí společně, s úrovněmi clusteringu.**
-
-Kusy vznikají frakturou, nedestruktivně i v Dataflow grafu, a úrovně clusteringu je seskupují do větších hmot pro simulaci. Za běhu má neměnnou rest collection z assetu a dynamickou kopii, kterou mění simulace. Opakované kusy jde kreslit jako sdílené instance a odlomené drobky jako debris bez vlivu na hru.
-
-Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu) · [Rejstřík: Cluster Union](#cluster-union)
-
-### Geometry Script
-
-**Knihovna funkcí v Unrealu pro modelování kódem: booleany, remesh, triangulace a další operace nad dynamic meshem.**
-
-Běží v blueprintech i v C++ a v editoru pohání procedurální nástroje, které geometrii vyrábějí, místo aby jen rozmisťovaly hotové meshe. Interop s PCG pošle data z grafu rovnou do dynamic mesh blueprintu. Typický postup je spočítat tvar a výsledek zapéct do static meshe.
-
-Kde se s tím potkáš: [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Liány po povrchu](praxe/pcg-liany.md#liany-po-povrchu-mesh-sampler-pathfinding) · [Rejstřík: Dynamic Mesh](#dynamic-mesh)
-
-### Gestalt
-
-**Psychologická škola, podle níž člověk vnímá celý obraz a z uspořádání si odvozuje vztahy mezi částmi.**
-
-Do grafického designu se dostala dávno před videohrami a odtud se přelily konvence rozhraní. Pro vývojáře z ní plyne obrácený postup: nezačínej jednotlivým assetem (na který jsi vždy zazoomovaný), ale kompozicí celku, protože hráč uvidí obrazovku najednou. Prakticky: prvky v jedné řadě čteme jako příbuzné, oddělené skupiny jako různé kategorie.
-
-Kde se s tím potkáš: [Vizuální komunikace](teorie/vizualni-komunikace.md) · [Art specializace: UI](teorie/art-specializace.md)
-
 ### Game feel
 
 **Hmatový dojem z ovládání hry: odezva, váha, šťavnatost interakcí — souhrn tisíce drobností, které dělají z klikání požitek.**
@@ -1794,13 +1736,21 @@ Institucionalizovaný „malý rozsah": deadline ořeže scope za tebe a vynutí
 
 Kde se s tím potkáš: [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Scope](teorie/scope.md) · [Idea iceberg](teorie/rady-z-praxe.md)
 
-### Game State
+### Game of Life
 
-**Objekt se stavem probíhající hry, dostupný všem a replikovaný na server i klienty.**
+**Celulární automat Johna Conwaye z roku 1970: dva stavy, tři pravidla a nekonečná složitost.**
 
-Zatímco Game Instance přežívá levely a Player State patří jednomu hráči, Game State drží to, co platí pro celou aktuální partii — skóre, fázi kola, počet zbývajících nepřátel. Právě proto je to přirozený domov pro event manager: dispatchery na Game State může kdokoli odebírat, aniž by měl referenci na vysílajícího aktéra.
+Buňka s přesně třemi živými sousedy ožije, s méně než dvěma nebo s víc než třemi umře a se dvěma nebo třemi přežije. Z toho vznikají stabilní útvary, oscilátory a pohyblivé „lodě" jako glider. Systém je dokazatelně Turingovsky úplný.
 
-Kde se s tím potkáš: [Komunikace Blueprintů: mediator](praxe/komunikace-blueprintu.md#mediator-koordinator-uprostred-a-event-manager-v-game-state) · [Principy architektury](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
+Kde se s tím potkáš: [Emergence a Game of Life](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) · [Rejstřík: Cellular automaton](#cellular-automaton) · [Rejstřík: Turing completeness](#turing-completeness)
+
+### Gameplay Debugger
+
+**Ladicí vrstva přímo ve hře (klávesa apostrof): navmesh, cesta AI, behavior tree, EQS a percepce.**
+
+Kategorie se přepínají numerickou klávesnicí (0 navmesh, 1 AI, 2 behavior tree, 4 EQS, dál percepce a smart objects). Ukáže kužel zraku, hranici ztráty cíle i to, který decorator ve stromu selhal a proč („value equals none"). U AI je to nejrychlejší cesta, protože její chyby nehlásí chybu — postava jen stojí.
+
+Kde se s tím potkáš: [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Rejstřík: Behavior Tree](#behavior-tree) · [Rejstřík: AI Perception](#ai-perception) · [Mass Debugger](praxe/mass-ecs.md#jak-s-mass-pracovat-diagram-debugger-a-jedna-implementace-misto-dvou)
 
 ### Gameplay loop
 
@@ -1818,6 +1768,14 @@ Tag v containeru = true; síla je v hierarchii: dotaz na rodiče (`Status.Moveme
 
 Kde se s tím potkáš: [Gameplay Tags](praxe/gameplay-tags.md) · [Telemetrie](praxe/telemetrie.md) · [Nepřítel v datech: tag → animace](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Tick podmínky reakcí](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve) · [Presety budov pod tagy](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy) · [Filtr tagů v nástroji](praxe/pcg-mesta.md#nastroj-pro-artisty-bake-tlacitkem-a-drobnosti-ktere-setri-hodiny)
 
+### Game State
+
+**Objekt se stavem probíhající hry, dostupný všem a replikovaný na server i klienty.**
+
+Zatímco Game Instance přežívá levely a Player State patří jednomu hráči, Game State drží to, co platí pro celou aktuální partii — skóre, fázi kola, počet zbývajících nepřátel. Právě proto je to přirozený domov pro event manager: dispatchery na Game State může kdokoli odebírat, aniž by měl referenci na vysílajícího aktéra.
+
+Kde se s tím potkáš: [Komunikace Blueprintů: mediator](praxe/komunikace-blueprintu.md#mediator-koordinator-uprostred-a-event-manager-v-game-state) · [Principy architektury](praxe/principy-architektury.md#naradi-z-workshopu-kde-co-bydli-a-jak-se-to-hybe)
+
 ### Garbage collection
 
 **Automatická správa paměti: engine periodicky uklízí objekty, na které už nikdo neukazuje.**
@@ -1826,6 +1784,16 @@ V UE je objekt po zničení (`Destroy Actor`) nejdřív označen jako **pending 
 
 Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Když stav opouští inventář](praxe/inventar.md#kdyz-stav-opousti-inventar-cestuje-jako-data-ne-jako-objekt) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani)
 
+### GAS
+
+**Gameplay Ability System — Epicův framework pro schopnosti, atributy a efekty, který hodnoty počítá ze základu a modifikátorů.**
+
+Atribut (rychlost, zdraví) se nemění přepsáním čísla, ale **gameplay efektem** s modifikátory, které jdou zase odebrat — dočasné vlivy se tak nemohou „slít" do základu (příklad, kdy prosté sčítání skončí na 400 místo 500, je v kapitole o statech). Efekt navíc mapuje hodnotu na atribut v datech, ne v kódu. Stojí na něm Lyra; principy, ze kterých vychází (separace, data, komponenty), jsou tytéž jako v Principech architektury.
+
+I AI může jednat přes abilitu: úloha behavior tree jen rozhodne a předá abilitě data (chůze nebo běh, animace přes tag); abilita akci provede a stromu ohlásí konec.
+
+Kde se s tím potkáš: [Staty: modifikátory při vybavení](praxe/inventar.md#staty-nahoda-pri-vzniku-modifikatory-pri-vybaveni) · [Použití jako seznam akcí](praxe/inventar.md#pouziti-jako-seznam-akci-chovani-slozene-z-malych-kroku) · [Tři principy škálovatelnosti](praxe/principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data) · [AI: akce v gameplay abilitách](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech)
+
 ### GASP
 
 **Game Animation Sample Project — Epicův „živý" ukázkový projekt gameplay animace: 500+ animací, hotový Motion Matching, traversal a od 5.7 Mover.**
@@ -1833,6 +1801,14 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 Zdarma, blueprint-only. Smysl projektu: zvednout minimální laťku kvality herní animace a dát šablonu, jak MM stavět — databáze per stav, choosery, procedurální doladění. Není to plugin: do vlastního projektu se migruje content (+ console variables a pluginy) a každá verze enginu přináší výrazné změny.
 
 Kde se s tím potkáš: [GASP](praxe/gasp.md) · [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Update 5.8: poslední pro UE5](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework) · [AnimGen ve streamu o GASP](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
+
+### Gauntlet
+
+**Automatizační framework Unrealu, který spouští hru na cílových zařízeních (i víc instancí naráz) a řídí na nich testy.**
+
+Typicky ho spouští build systém: build se rozešle na min spec PC nebo konzoli, proběhne smoke test (připojit se, projít level) nebo výkonový průchod a výsledky jdou do reportu či dashboardu. Smysl dostává ve chvíli, kdy ruční testování po každé změně přestane stačit — u her v raném přístupu s častými aktualizacemi, u výkonových dashboardů a u smoke testů na víc platformách.
+
+Kde se s tím potkáš: [Výkon jako věc celého týmu](praxe/mereni-automaticky.md#vykon-jako-vec-celeho-tymu-dashboard-validace-a-kontrola-pameti) · [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Sto tisíc aktérů: automatizované testy](praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor)
 
 ### GDScript
 
@@ -1849,6 +1825,30 @@ Kde se s tím potkáš: [GDScript](godot/gdscript.md) · [Nody, scény a strom](
 Tower defense je RTS bez jednotek a útočení; backpack hry jsou Diablo svařené na inventář. Škrt musí něco přidat (fokus, přístupnost): dobrý nápad řeší dva problémy — méně práce pro vývojáře a ostřejší zážitek pro hráče.
 
 Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md) · [Scope a malé hry](teorie/scope.md)
+
+### Geometry Collection
+
+**Asset rozbitného objektu v Chaosu: sada fyzikálních těles, která se aktualizují a kreslí společně, s úrovněmi clusteringu.**
+
+Kusy vznikají frakturou, nedestruktivně i v Dataflow grafu, a úrovně clusteringu je seskupují do větších hmot pro simulaci. Za běhu má neměnnou rest collection z assetu a dynamickou kopii, kterou mění simulace. Opakované kusy jde kreslit jako sdílené instance a odlomené drobky jako debris bez vlivu na hru.
+
+Kde se s tím potkáš: [Budova, kterou rozbije kdokoli](praxe/destrukce-a-latky.md#budova-kterou-rozbije-kdokoli-graf-spojeni-na-serveru-cluster-union-ve-fyzice) · [Destrukce, kterou procesor unese](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu) · [Rejstřík: Cluster Union](#cluster-union)
+
+### Geometry Script
+
+**Knihovna funkcí v Unrealu pro modelování kódem: booleany, remesh, triangulace a další operace nad dynamic meshem.**
+
+Běží v blueprintech i v C++ a v editoru pohání procedurální nástroje, které geometrii vyrábějí, místo aby jen rozmisťovaly hotové meshe. Interop s PCG pošle data z grafu rovnou do dynamic mesh blueprintu. Typický postup je spočítat tvar a výsledek zapéct do static meshe.
+
+Kde se s tím potkáš: [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra) · [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Liány po povrchu](praxe/pcg-liany.md#liany-po-povrchu-mesh-sampler-pathfinding) · [Rejstřík: Dynamic Mesh](#dynamic-mesh)
+
+### Gestalt
+
+**Psychologická škola, podle níž člověk vnímá celý obraz a z uspořádání si odvozuje vztahy mezi částmi.**
+
+Do grafického designu se dostala dávno před videohrami a odtud se přelily konvence rozhraní. Pro vývojáře z ní plyne obrácený postup: nezačínej jednotlivým assetem (na který jsi vždy zazoomovaný), ale kompozicí celku, protože hráč uvidí obrazovku najednou. Prakticky: prvky v jedné řadě čteme jako příbuzné, oddělené skupiny jako různé kategorie.
+
+Kde se s tím potkáš: [Vizuální komunikace](teorie/vizualni-komunikace.md) · [Art specializace: UI](teorie/art-specializace.md)
 
 ### Ghost note
 
@@ -1946,6 +1946,30 @@ Zní akademicky, funguje jako kompas hranic řešitelnosti: každé „najdeme a
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
 
+### Hard coding
+
+**Hodnoty napsané natvrdo přímo v kódu místo v proměnné či konfiguraci.**
+
+Funguje přesně do chvíle, kdy je potřeba hodnotu změnit — pak ji lovíš po celém projektu a jednu zapomeneš. Pravidlo: každé surové číslo, které budeš někdy ladit, patří do proměnné; stejný princip platí pro vstupy (pojmenované akce místo kláves). Výjimka potvrzující pravidlo: v prototypu na vyhození je hard coding ctnost — rychlost tam poráží čistotu.
+
+Kde se s tím potkáš: [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Nápad: prototyp do týdne](teorie/napad.md)
+
+### Hard reference
+
+**Přímý odkaz na asset/třídu, který s sebou tahá vše, co cíl referencuje — do paměti i do buildů.**
+
+Vzniká castem, class referencí, přiřazeným meshem. Diagnóza: pravý klik na asset → Reference Viewer (kdo na kom závisí) a Size Map (kolik paměti reference stáhne). Následky: dlouhé loady, provázané levely, křehké systémy. Léky: abstraktní datový master, interfacy, event dispatchery, broadcast kanály — a u assetů soft reference, které se načítají až na vyžádání.
+
+Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Organizace projektu](praxe/organizace-projektu.md) · [Soft reference: načti, až když to hra potřebuje](praxe/pamet-a-instance.md#soft-reference-nacti-az-kdyz-to-hra-potrebuje) · [Cast na lehkého rodiče](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast)
+
+### Harmonická řada
+
+**Řada alikvót struny nebo píšťaly: celočíselné násobky základní frekvence (1×, 2×, 3×…).**
+
+Právě z ní vypadnou intervaly západní hudby — oktáva (2:1), kvinta (3:2), kvarta (4:3). Jiné nástroje (zvony, kovové tyče) mají neharmonické alikvóty, a proto vedou k jiným stupnicím.
+
+Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
+
 ### Harness
 
 **Program, ve kterém agent s modelem běží: posílá prompty, spravuje kontext a volá nástroje (Claude Code, Codex, Cursor a další).**
@@ -1953,6 +1977,22 @@ Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysle
 Stejný model se v různých harnessech chová různě, protože každý jinak hospodaří s kontextem. Když jednoduchý úkol trvá nečekaně dlouho, bývá podle webináře Epic Education problém mezi MCP a harnessem, ne v promptu.
 
 Kde se s tím potkáš: [Jak s agentem v editoru mluvit](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) · [Rejstřík: Context window](#context-window)
+
+### HDRI
+
+**Panoramatická fotografie s vysokým dynamickým rozsahem — obloha a světlo skutečného místa v jednom assetu.**
+
+HDRI Backdrop plugin ji promítne na kupoli a skylight z téže mapy vezme indirect — konzistentní intenzita oblohy i odrazů. Alternativa bez pluginu: obří sphere s Unlit materiálem a isSky checkboxem. Zdroje: Poly Haven, locationtextures.com (s časem a místem pořízení — hodí se pro fyzikální kalibraci světla).
+
+Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
+
+### Height mapa
+
+**Černobílá textura kódující výšku terénu jasem pixelu: černá dole, bílá nahoře.**
+
+Formát, na kterém stojí klasický Landscape — a zdroj jeho hlavního limitu: jedna hodnota na pixel znamená jediný stupeň volnosti (nahoru/dolů), takže jeskyně a převisy nejdou. Zůstává ale skvělým výměnným formátem: sculpt z Gaey či World Machine se přenáší právě height mapou a Mesh Terrain ji umí importovat jako startovní tvar i promítat jako texture modifier.
+
+Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [POM a contact shadows z výškové mapy](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Tři pouta height mapy](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime)
 
 ### Herní vlákno
 
@@ -1962,6 +2002,16 @@ V `stat unit` je to hodnota **game**. Přeroste-li renderovací vlákno, jsi CPU
 
 Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Renderovací vlákno](#renderovaci-vlakno) · [Rejstřík: Frame time](#frame-time)
 
+### Hitbox
+
+**Oblast, která při zásahu působí — proti hurtboxu, což je oblast, která zásah přijímá.**
+
+Rozdělení na dvě oblasti je základ čitelného soubojového systému: útok má hitbox, tělo má hurtbox, a teprve jejich překryv znamená zásah. Umožňuje to věci, které by jinak nešly — hitbox větší než zbraň (velkorysost), hurtbox menší než postava (odpuštění), nebo dočasné vypnutí hurtboxu (nezranitelnost po zásahu). Ve [frame datech](#frame-data) je hitbox jednotka, ke které se váže poškození, odhoz a efekty.
+
+V UE se hitbox útoku typicky dělá tracem během animace: box před postavou na jednom snímku (impact frame), nebo koule tažená mezi sockety zbraně po celé [active frames](#active-frames). Kolikrát smí jeden útok zasáhnout tentýž cíl, hlídá seznam zasažených, který se s každým útokem vyprázdní.
+
+Kde se s tím potkáš: [Frame data](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Komponenta má být sobecká](godot/kompozice.md#komponenta-ma-byt-sobecka-test-kamene) · [Hitbox podle poctivosti animace](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Damage jednou za útok](praxe/souboj.md#damage-jednou-za-utok-seznam-zasazenych-patri-utoku-ne-terci)
+
 ### Hitch
 
 **Jednotlivý snímek, který trvá výrazně déle než ostatní — škubnutí, které hráč vidí, i když průměrné FPS vypadá dobře.**
@@ -1969,22 +2019,6 @@ Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/pr
 Průměr ho schová, a proto se hitche hledají na časové ose snímků. Obvyklé příčiny podle týmu technical developer relations Epicu: streaming levelů, fyzika, spawn aktérů, synchronní načítání, kompilace [PSO](#pso), [garbage collection](#garbage-collection), blueprinty a samotné množství obsahu. Nejsou jen estetická vada — v souboji nebo v multiplayeru mění výsledek. Neplést s [jitterem](#jitter) (nerovnoměrné tempo bez jediného dlouhého snímku) ani s [hitch resiliency](#hitch-resiliency) (rezerva potrubí, která krátký výpadek pohltí).
 
 Kde se s tím potkáš: [Technické zdraví projektu](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Rejstřík: PSO](#pso) · [Rejstřík: Hitch resiliency](#hitch-resiliency)
-
-### Hit flash
-
-**Krátké rozsvícení nebo zbarvení zasaženého — vizuální potvrzení, že rána dopadla.**
-
-Jedna z nejlevnějších vrstev [juice](#juice). V UE vede ke dvěma cestám: výměna materiálu za jiný (třeba červený) a zpátky, nebo [overlay material](#overlay-material), který se jen položí přes stávající materiál a po zásahu se odebere. Overlay funguje přes jakýkoli materiál, ale nevidí jeho WPO deformaci. Blikání jde udělat přímo v materiálu (čas → sinus → round); rychlé blikání je i otázka přístupnosti.
-
-Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku)
-
-### HLOD
-
-**Hierarchical LOD — sloučená náhrada za skupinu objektů v dálce; jeden mesh místo stovky.**
-
-Ve world-partition světech se staví po streamovacích buňkách a vyplatí se u něj zaškrtnout *use render LOD meshes*, aby se do sloučení použily fallback meshe místo plných Nanite dat (jinak dojde paměť při buildu). Méně zřejmé použití: **skrytá HLOD proxy, která pořád vrhá stín** — scéna pak má stovky stín vrhajících primitiv místo desetitisíců, což je zásadní tam, kde se nedá spolehnout na Nanite a virtuální stíny.
-
-Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite) · [Proxy v Beauclair](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Větší chunky v dálce](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou)
 
 ### Hitch resiliency
 
@@ -1994,6 +2028,32 @@ Plná pipeline v Unrealu drží šest snímků v enginu a dva v hardwaru; hotov�
 
 Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Rejstřík: Input latency](#input-latency) · [Rejstřík: Jitter](#jitter) · [Rejstřík: Hitch](#hitch)
 
+### Hit flash
+
+**Krátké rozsvícení nebo zbarvení zasaženého — vizuální potvrzení, že rána dopadla.**
+
+Jedna z nejlevnějších vrstev [juice](#juice). V UE vede ke dvěma cestám: výměna materiálu za jiný (třeba červený) a zpátky, nebo [overlay material](#overlay-material), který se jen položí přes stávající materiál a po zásahu se odebere. Overlay funguje přes jakýkoli materiál, ale nevidí jeho WPO deformaci. Blikání jde udělat přímo v materiálu (čas → sinus → round); rychlé blikání je i otázka přístupnosti.
+
+Kde se s tím potkáš: [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku)
+
+### Hit stop
+
+**Krátké zamrznutí hry v okamžiku zásahu; dodá útoku váhu a dá hráči čas si zásah uvědomit.**
+
+Technika převzatá z bojovek, jeden z nejlevnějších juice triků vůbec — pár řádků kódu, žádný asset. Použitelné rozmezí pro běžný sek je zhruba **1/20 až 1/10 sekundy**; silné údery snesou víc. Škáluje se podle síly útoku: má-li silný hit stop každý zásah, přestane znamenat cokoli. Jedna past, na kterou se zapomíná: **hit stop zdržuje vstup**, takže se během něj vyplatí vstupy [bufferovat](#input-buffering), ne zahazovat.
+
+V UE se dá postavit per aktér přes [Custom Time Dilation](#custom-time-dilation): zasažený stojí, útočník jen zpomalí (třeba na 5 %). Patří k němu i otřes meshe (ne aktéra, ať se netřese kapsle), silnější u zasaženého a slábnoucí ke konci.
+
+Kde se s tím potkáš: [Combo a hit stop](godot/pripadovka-nepratele.md#combo-a-hit-stop-dva-casovace-a-ctvrt-sekundy) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Hit stop: zastav oba, ale každého jinak](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak)
+
+### HLOD
+
+**Hierarchical LOD — sloučená náhrada za skupinu objektů v dálce; jeden mesh místo stovky.**
+
+Ve world-partition světech se staví po streamovacích buňkách a vyplatí se u něj zaškrtnout *use render LOD meshes*, aby se do sloučení použily fallback meshe místo plných Nanite dat (jinak dojde paměť při buildu). Méně zřejmé použití: **skrytá HLOD proxy, která pořád vrhá stín** — scéna pak má stovky stín vrhajících primitiv místo desetitisíců, což je zásadní tam, kde se nedá spolehnout na Nanite a virtuální stíny.
+
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Nanite](#nanite) · [Proxy v Beauclair](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Větší chunky v dálce](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou)
+
 ### HLSL
 
 **High-Level Shading Language: jazyk shaderů se syntaxí podobnou C, ve kterém píšeš vlastní výpočty pro GPU.**
@@ -2001,6 +2061,22 @@ Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-
 V Unrealu se objevuje v Custom uzlu materiálu a v Niagaře jako custom HLSL výraz nebo modul. Hodí se na krátký výpočet, který by v uzlech zabral moc místa, třeba přepočet počtu částic podle parametru. Výraz musí vracet správný typ, počet částic například celé číslo.
 
 Kde se s tím potkáš: [Částice podle povrchu](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Rejstřík: User Parameter](#user-parameter) · [Agent a materiál v HLSL](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde)
+
+### Hook
+
+**Prvek, který hru prodá na první pohled: mechanika, premisa nebo obraz, u kterého se scrollující palec zastaví.**
+
+Portálové portály, vlak-monstrum z Choo Choo Charles, „staráš se o svoje auto v psychedelické Zóně". Hook je vstupní bod trychtýře appealu — bez něj hra nemá jak oslovit lidi, kteří o ní nikdy neslyšeli. Test: dokážeš hook vtěsnat do titulku na Redditu nebo do 300 znaků short description? Hra bez jediné inovace hook nemá — a bez hooku není důvod, aby vznikla.
+
+Kde se s tím potkáš: [Základy: engagement a appeal](teorie/zaklady.md) · [Prototypování](teorie/prototypovani.md) · [Nápad](teorie/napad.md) · [GDD: Monaco](teorie/gdd.md)
+
+### Horizontal slice
+
+**Ukázka celé hry skrz zlomek jejích systémů — opak vertical slice.**
+
+Vertikální řez předpokládá, že se všechny podstatné části hry vejdou do jednoho úseku. U pomalých her o postupném odemykání (management, budovatelské strategie, 4X) to neplatí: hráč potřebuje odehrát celou seanci. Řešením je dát mu celou hru, ale jen třicet až čtyřicet procent systémů — a zbytek naznačit jako slib do plné verze.
+
+Kde se s tím potkáš: [Vydání hry: vertikální a horizontální řez](teorie/vydani-hry.md) · [Prototypování](teorie/prototypovani.md)
 
 ### Hot reload
 
@@ -2026,66 +2102,6 @@ Jen jedna část UI: patří k němu i mapy, výběr postav, inventář, skill t
 
 Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md) · [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [UI ve světě](praxe/ui-ve-svete.md)
 
-### Hit stop
-
-**Krátké zamrznutí hry v okamžiku zásahu; dodá útoku váhu a dá hráči čas si zásah uvědomit.**
-
-Technika převzatá z bojovek, jeden z nejlevnějších juice triků vůbec — pár řádků kódu, žádný asset. Použitelné rozmezí pro běžný sek je zhruba **1/20 až 1/10 sekundy**; silné údery snesou víc. Škáluje se podle síly útoku: má-li silný hit stop každý zásah, přestane znamenat cokoli. Jedna past, na kterou se zapomíná: **hit stop zdržuje vstup**, takže se během něj vyplatí vstupy [bufferovat](#input-buffering), ne zahazovat.
-
-V UE se dá postavit per aktér přes [Custom Time Dilation](#custom-time-dilation): zasažený stojí, útočník jen zpomalí (třeba na 5 %). Patří k němu i otřes meshe (ne aktéra, ať se netřese kapsle), silnější u zasaženého a slábnoucí ke konci.
-
-Kde se s tím potkáš: [Combo a hit stop](godot/pripadovka-nepratele.md#combo-a-hit-stop-dva-casovace-a-ctvrt-sekundy) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Hit stop: zastav oba, ale každého jinak](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak)
-
-### Hitbox
-
-**Oblast, která při zásahu působí — proti hurtboxu, což je oblast, která zásah přijímá.**
-
-Rozdělení na dvě oblasti je základ čitelného soubojového systému: útok má hitbox, tělo má hurtbox, a teprve jejich překryv znamená zásah. Umožňuje to věci, které by jinak nešly — hitbox větší než zbraň (velkorysost), hurtbox menší než postava (odpuštění), nebo dočasné vypnutí hurtboxu (nezranitelnost po zásahu). Ve [frame datech](#frame-data) je hitbox jednotka, ke které se váže poškození, odhoz a efekty.
-
-V UE se hitbox útoku typicky dělá tracem během animace: box před postavou na jednom snímku (impact frame), nebo koule tažená mezi sockety zbraně po celé [active frames](#active-frames). Kolikrát smí jeden útok zasáhnout tentýž cíl, hlídá seznam zasažených, který se s každým útokem vyprázdní.
-
-Kde se s tím potkáš: [Frame data](godot/pripadovka-nepratele.md#frame-data-definuj-system-driv-nez-ho-postavis) · [Komponenta má být sobecká](godot/kompozice.md#komponenta-ma-byt-sobecka-test-kamene) · [Hitbox podle poctivosti animace](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Damage jednou za útok](praxe/souboj.md#damage-jednou-za-utok-seznam-zasazenych-patri-utoku-ne-terci)
-
-### Hard coding
-
-**Hodnoty napsané natvrdo přímo v kódu místo v proměnné či konfiguraci.**
-
-Funguje přesně do chvíle, kdy je potřeba hodnotu změnit — pak ji lovíš po celém projektu a jednu zapomeneš. Pravidlo: každé surové číslo, které budeš někdy ladit, patří do proměnné; stejný princip platí pro vstupy (pojmenované akce místo kláves). Výjimka potvrzující pravidlo: v prototypu na vyhození je hard coding ctnost — rychlost tam poráží čistotu.
-
-Kde se s tím potkáš: [Kolik kódu potřebuješ na start](teorie/co-se-ucit.md) · [Nápad: prototyp do týdne](teorie/napad.md)
-
-### Hard reference
-
-**Přímý odkaz na asset/třídu, který s sebou tahá vše, co cíl referencuje — do paměti i do buildů.**
-
-Vzniká castem, class referencí, přiřazeným meshem. Diagnóza: pravý klik na asset → Reference Viewer (kdo na kom závisí) a Size Map (kolik paměti reference stáhne). Následky: dlouhé loady, provázané levely, křehké systémy. Léky: abstraktní datový master, interfacy, event dispatchery, broadcast kanály — a u assetů soft reference, které se načítají až na vyžádání.
-
-Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Komunikace Blueprintů](praxe/komunikace-blueprintu.md) · [Organizace projektu](praxe/organizace-projektu.md) · [Soft reference: načti, až když to hra potřebuje](praxe/pamet-a-instance.md#soft-reference-nacti-az-kdyz-to-hra-potrebuje) · [Cast na lehkého rodiče](praxe/komunikace-blueprintu.md#interface-nebo-dispatcher-a-kolik-doopravdy-stoji-cast)
-
-### Harmonická řada
-
-**Řada alikvót struny nebo píšťaly: celočíselné násobky základní frekvence (1×, 2×, 3×…).**
-
-Právě z ní vypadnou intervaly západní hudby — oktáva (2:1), kvinta (3:2), kvarta (4:3). Jiné nástroje (zvony, kovové tyče) mají neharmonické alikvóty, a proto vedou k jiným stupnicím.
-
-Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
-
-### HDRI
-
-**Panoramatická fotografie s vysokým dynamickým rozsahem — obloha a světlo skutečného místa v jednom assetu.**
-
-HDRI Backdrop plugin ji promítne na kupoli a skylight z téže mapy vezme indirect — konzistentní intenzita oblohy i odrazů. Alternativa bez pluginu: obří sphere s Unlit materiálem a isSky checkboxem. Zdroje: Poly Haven, locationtextures.com (s časem a místem pořízení — hodí se pro fyzikální kalibraci světla).
-
-Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md)
-
-### Height mapa
-
-**Černobílá textura kódující výšku terénu jasem pixelu: černá dole, bílá nahoře.**
-
-Formát, na kterém stojí klasický Landscape — a zdroj jeho hlavního limitu: jedna hodnota na pixel znamená jediný stupeň volnosti (nahoru/dolů), takže jeskyně a převisy nejdou. Zůstává ale skvělým výměnným formátem: sculpt z Gaey či World Machine se přenáší právě height mapou a Mesh Terrain ji umí importovat jako startovní tvar i promítat jako texture modifier.
-
-Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [POM a contact shadows z výškové mapy](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp) · [Tři pouta height mapy](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime)
-
 ### Hurtbox
 
 **Oblast, která zásah přijímá — protějšek [hitboxu](#hitbox), který zásah působí.**
@@ -2102,13 +2118,13 @@ V dálce instance v ISM komponentě, u hráče aktér se vší logikou. Naměře
 
 Kde se s tím potkáš: [Hydratace: instance actory a mass](praxe/persistence-a-hydratace.md#hydratace-instance-actory-a-mass) · [Rejstřík: Instanced Actors](#instanced-actors) · [Rejstřík: ISM](#ism)
 
-### Hook
+### Idea reservoir
 
-**Prvek, který hru prodá na první pohled: mechanika, premisa nebo obraz, u kterého se scrollující palec zastaví.**
+**Zásobník nápadů, které NEJSOU schválené: kanban sloupec před to-do, ze kterého se tahá podle vývoje hry.**
 
-Portálové portály, vlak-monstrum z Choo Choo Charles, „staráš se o svoje auto v psychedelické Zóně". Hook je vstupní bod trychtýře appealu — bez něj hra nemá jak oslovit lidi, kteří o ní nikdy neslyšeli. Test: dokážeš hook vtěsnat do titulku na Redditu nebo do 300 znaků short description? Hra bez jediné inovace hook nemá — a bez hooku není důvod, aby vznikla.
+Rozdíl proti klasickému backlogu: nic v rezervoáru není slib. Když se ukáže, co ve hře funguje, taháš nápady, které to sytí — pivot bez přepisování plánu. Protilék na „therapeutic planning": dlouhé dokumenty psané pro dobrý pocit z nejistoty.
 
-Kde se s tím potkáš: [Základy: engagement a appeal](teorie/zaklady.md) · [Prototypování](teorie/prototypovani.md) · [Nápad](teorie/napad.md) · [GDD: Monaco](teorie/gdd.md)
+Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Tvůrčí zásek: Grail metoda](teorie/tvurci-zasek.md)
 
 ### IES profile
 
@@ -2152,6 +2168,14 @@ Octahedral impostor jde dál. Strom se předrenderuje z mnoha úhlů a shader me
 
 Kde se s tím potkáš: [Proč malé trojúhelníky ničí GPU](praxe/rozpocet-snimku.md#proc-male-trojuhelniky-nici-gpu) · [Rejstřík: Nanite](#nanite) · [Octahedral impostory](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou)
 
+### Indexical storytelling
+
+**Vyprávění stopami a náznaky: hráč čte důsledky událostí a příběh si složí sám.**
+
+Termín Clary Fernández-Vary; „index" je ze semiotiky znak, který zastupuje něco jiného, ale poznáš to jen proto, že ses to naučil — kouř znamená oheň, stopy znamenají, že tudy někdo šel. Prakticky to znamená rozmístit vodítka detektivního typu (vlečné stopy, podezřele čistá část místnosti) místo dopisů, které všechno vysvětlí.
+
+Kde se s tím potkáš: [Prostor vypráví](teorie/prostor-vypravi.md) · [Příběh a postavy](teorie/pribeh-a-postavy.md)
+
 ### Inertialization
 
 **Způsob blendování animací, který nemíchá dvě pózy, ale z rychlosti původního pohybu dopočítá plynulý doběh do nové animace.**
@@ -2167,22 +2191,6 @@ Kde se s tím potkáš: [Contextual Animation](praxe/interakcni-animace.md#conte
 Lakmusový test každého vztahu: „is it a?" — pes *je* mazlíček, dům není. Rodič je smlouva (co deklaruje, mají garantovaně všechny děti) a na smlouvě stojí polymorfismus: volající volá `Interact`, každé dítě odpoví po svém. Blueprint specifika: component eventy nejde overridnout (obal je do custom eventů), overridnutý event nespouští rodiče automaticky (Add Call to Parent Function).
 
 Kde se s tím potkáš: [Principy architektury](praxe/principy-architektury.md) · [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Pasti z jednoho rodiče](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit)
-
-### Idea reservoir
-
-**Zásobník nápadů, které NEJSOU schválené: kanban sloupec před to-do, ze kterého se tahá podle vývoje hry.**
-
-Rozdíl proti klasickému backlogu: nic v rezervoáru není slib. Když se ukáže, co ve hře funguje, taháš nápady, které to sytí — pivot bez přepisování plánu. Protilék na „therapeutic planning": dlouhé dokumenty psané pro dobrý pocit z nejistoty.
-
-Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Tvůrčí zásek: Grail metoda](teorie/tvurci-zasek.md)
-
-### Horizontal slice
-
-**Ukázka celé hry skrz zlomek jejích systémů — opak vertical slice.**
-
-Vertikální řez předpokládá, že se všechny podstatné části hry vejdou do jednoho úseku. U pomalých her o postupném odemykání (management, budovatelské strategie, 4X) to neplatí: hráč potřebuje odehrát celou seanci. Řešením je dát mu celou hru, ale jen třicet až čtyřicet procent systémů — a zbytek naznačit jako slib do plné verze.
-
-Kde se s tím potkáš: [Vydání hry: vertikální a horizontální řez](teorie/vydani-hry.md) · [Prototypování](teorie/prototypovani.md)
 
 ### Input buffering
 
@@ -2208,14 +2216,6 @@ Pozor na to, co pod tím jménem měří Unreal: statistika `input` v `stat unit
 
 Kde se s tím potkáš: [Latence proti odolnosti](praxe/frame-pacing.md#latence-proti-odolnosti-co-za-co-menis) · [Snímek není fronta](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi)
 
-### Integer scaling
-
-**Zvětšování obrazu celými násobky (2x, 3x) místo desetinných — jediný způsob, jak udržet pixel art ostrý.**
-
-Neceločíselné zvětšení rozdělí jeden zdrojový pixel mezi dva cílové a hrana se rozmaže. Jde ruku v ruce s filtrováním textur na nearest a se zachováním poměru stran; společně to jsou tři nastavení, na kterých stojí, jestli hra vypadá ostře, nebo jako kaše.
-
-Kde se s tím potkáš: [2D vizuál: pixel art](teorie/2d-vizual.md)
-
 ### Instance
 
 **Konkrétní umístěný výskyt assetu v levelu.**
@@ -2223,30 +2223,6 @@ Kde se s tím potkáš: [2D vizuál: pixel art](teorie/2d-vizual.md)
 Jeden asset (mesh lampy) → stovky instancí (lampy po celé mapě). Rozlišení asset vs. instance je základ práce v editoru: úprava assetu se propíše všem instancím, úprava instance jen jí. Editor umí s instancemi pracovat hromadně — viz Shift+E pro výběr všech výskytů daného assetu.
 
 Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Rejstřík: Item Instance](#item-instance) *(jiný význam)*
-
-### Interior mapping
-
-**Shaderová iluze místnosti za oknem: interiér se promítne z textury podle úhlu pohledu a za sklem žádná geometrie není.**
-
-Okno je jedna plocha. Klasická varianta spočítá v pixel shaderu, kde paprsek pohledu protne virtuální krabici místnosti, a vzorkuje její stěny, podlahu a strop z textury. Jednodušší varianty jen posunou plochou texturu interiéru parallaxem. Hloubka vznikne bez jediného polygonu navíc, a proto se tak plní okna celých měst. Variaci mezi okny dodá náhodný výběr místnosti, jasu nebo rozsvícení podle denní doby. V UE na to existuje material function InteriorCubemap.
-
-Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Falešné okno v UE](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Interiér, kam hráč nesmí](praxe/pcg-mesta.md#interier-z-bodu-mistnosti-jako-subgrafy-a-devet-uzlu-na-bar)
-
-### ISM
-
-**Instanced Static Mesh — shodná geometrie vykreslená jedním draw callem místo jednoho na kopii.**
-
-Podmínka je tvrdší, než se čeká: **naprosto identická geometrie i materiál**. Barel a bedna se nesloučí ani se stejným materiálem; na to je *Merge Actors*, který vyrobí nový sloučený mesh (hrubší metoda, funguje u objektů blízko sebe — ale slučuje i LOD logiku). **HISM** je varianta s podporou LODů, vhodná pro objekty rozeseté po velké ploše. Past: instance se cullují jako **jeden celek**, takže sloučíš-li i stromy za budovami, budou se kreslit pořád. Máš-li zapnutý [Nanite](#nanite), ISM nepotřebuješ — Nanite culluje sám.
-
-Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: Packed Level Actor](#packed-level-actor) · [Sdílené instance kusů destrukce](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
-
-### Indexical storytelling
-
-**Vyprávění stopami a náznaky: hráč čte důsledky událostí a příběh si složí sám.**
-
-Termín Clary Fernández-Vary; „index" je ze semiotiky znak, který zastupuje něco jiného, ale poznáš to jen proto, že ses to naučil — kouř znamená oheň, stopy znamenají, že tudy někdo šel. Prakticky to znamená rozmístit vodítka detektivního typu (vlečné stopy, podezřele čistá část místnosti) místo dopisů, které všechno vysvětlí.
-
-Kde se s tím potkáš: [Prostor vypráví](teorie/prostor-vypravi.md) · [Příběh a postavy](teorie/pribeh-a-postavy.md)
 
 ### Instanced Actors
 
@@ -2263,6 +2239,22 @@ Kde se s tím potkáš: [Instanced Actors](praxe/instanced-actors.md) · [Příp
 32bitové celé číslo má jeden bit na znaménko a 31 na hodnotu, takže strop je zhruba **2,1 miliardy**. Překročíš-li ho, procesor „vesele" překlopí znaménkový bit a z obřího kladného čísla je obří záporné — hráč nasbírá miliardy mincí a najednou je v mínusu. Řešení jsou dvě: **omez maximum**, aby se ke stropu nepřiblížilo, nebo **použij víc bitů**. Příbuzná past u desetinných čísel je nepřesnost floatů, kde s velikostí čísla roste velikost kroku, takže se fyzika daleko od počátku souřadnic rozpadá.
 
 Kde se s tím potkáš: [Čísla mají meze](godot/pripadovka-systemy.md#cisla-maji-meze-overflow-a-nepresnost-floatu)
+
+### Integer scaling
+
+**Zvětšování obrazu celými násobky (2x, 3x) místo desetinných — jediný způsob, jak udržet pixel art ostrý.**
+
+Neceločíselné zvětšení rozdělí jeden zdrojový pixel mezi dva cílové a hrana se rozmaže. Jde ruku v ruce s filtrováním textur na nearest a se zachováním poměru stran; společně to jsou tři nastavení, na kterých stojí, jestli hra vypadá ostře, nebo jako kaše.
+
+Kde se s tím potkáš: [2D vizuál: pixel art](teorie/2d-vizual.md)
+
+### Interior mapping
+
+**Shaderová iluze místnosti za oknem: interiér se promítne z textury podle úhlu pohledu a za sklem žádná geometrie není.**
+
+Okno je jedna plocha. Klasická varianta spočítá v pixel shaderu, kde paprsek pohledu protne virtuální krabici místnosti, a vzorkuje její stěny, podlahu a strop z textury. Jednodušší varianty jen posunou plochou texturu interiéru parallaxem. Hloubka vznikne bez jediného polygonu navíc, a proto se tak plní okna celých měst. Variaci mezi okny dodá náhodný výběr místnosti, jasu nebo rozsvícení podle denní doby. V UE na to existuje material function InteriorCubemap.
+
+Kde se s tím potkáš: [AC Black Flag Resynced: falešný interiér](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Beauclair: okleštěné interiéry](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [RE Requiem: interiéry jako textury](praxe/levely-a-streaming.md#jak-to-dela-resident-evil-requiem) · [Rejstřík: Parallax occlusion mapping](#parallax-occlusion-mapping) · [Falešné okno v UE](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Interiér, kam hráč nesmí](praxe/pcg-mesta.md#interier-z-bodu-mistnosti-jako-subgrafy-a-devet-uzlu-na-bar)
 
 ### Interval
 
@@ -2287,6 +2279,14 @@ Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysle
 Zabíjí imerzi přesně mechanismem „vidím, že to jde, ale hra mi to nedovolí". Alternativy: tvrdé hranice z přirozených bariér světa (útes, řeka, oceán) a pět druhů měkkých hranic — narativní, countdown, nepřátelská, ekonomická, percepční. Pravidlo: hráč se má rozhodnout sám, že dál nepůjde.
 
 Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md)
+
+### ISM
+
+**Instanced Static Mesh — shodná geometrie vykreslená jedním draw callem místo jednoho na kopii.**
+
+Podmínka je tvrdší, než se čeká: **naprosto identická geometrie i materiál**. Barel a bedna se nesloučí ani se stejným materiálem; na to je *Merge Actors*, který vyrobí nový sloučený mesh (hrubší metoda, funguje u objektů blízko sebe — ale slučuje i LOD logiku). **HISM** je varianta s podporou LODů, vhodná pro objekty rozeseté po velké ploše. Past: instance se cullují jako **jeden celek**, takže sloučíš-li i stromy za budovami, budou se kreslit pořád. Máš-li zapnutý [Nanite](#nanite), ISM nepotřebuješ — Nanite culluje sám.
+
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: Packed Level Actor](#packed-level-actor) · [Sdílené instance kusů destrukce](praxe/destrukce-a-latky.md#destrukce-kterou-procesor-unese-konvexy-debris-sdilene-instance-a-strop-zlomu)
 
 ### Item Instance
 
@@ -2336,6 +2336,14 @@ Stejné mechaniky s juice a bez něj jsou dvě různé hry — dash stejné rych
 
 Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Záblesk a kapow](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely)
 
+### Jump scare
+
+**Úleková špička hororu: náhlý audiovizuální úder, který vybije nasbírané napětí.**
+
+Rozpočet žánru: hlasité 2–3 na hodinu, tiché (leknutí bez plného vybití tenze) podle potřeby. Nejlepší scary jsou mini-dramaturgie — oči ve tmě, dohrávající písnička, natažené ticho, teprve pak úder — a monstrum smí jen implikovat.
+
+Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
+
 ### Kanban
 
 **Řízení práce kartami ve sloupcích To Do → Doing → Done: tok, jasné vlastnictví, limit rozdělanosti.**
@@ -2376,30 +2384,6 @@ Termín pochází z modelářství, kde se z dílů různých stavebnic lepily n
 
 Kde se s tím potkáš: [Organický kit a spoje: kitbashing](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Rejstřík: Modular kit](#modular-kit)
 
-### Knockback
-
-**Odhození zasaženého směrem od útoku — potvrzení, že rána měla sílu.**
-
-Vedle záblesku nejčitelnější reakce na zásah. Když se škáluje podle zbraně, zároveň rozlišuje mechaniky (dýka málo, kopí hodně). V UE ho typicky dělá `Launch Character` nebo impulz na fyzikální tělo.
-
-Kde se s tím potkáš: [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Kostra pasti](praxe/pasti-a-mechaniky.md#kostra-pasti-a-tri-variace-bodaky-rameno-rotor)
-
-### Large World Coordinates
-
-**Souřadnice v double precision, které UE5 používá pro pozice, aby velké světy nenarážely na přesnost floatu.**
-
-32bitový float má pevný počet platných číslic, takže daleko od počátku se pozice začnou třást a výpočty selhávat. LWC tenhle strop posouvá o řády. Ne všechno v enginu ale počítá v doublech, GPU například pracuje s pozicemi vztaženými ke kameře. Mimo UE se stejný problém řeší origin shiftingem nebo fixed point čísly.
-
-Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou) · [Proč Mesh Terrain existuje](praxe/mesh-terrain.md#proc-mesh-terrain-existuje-limity-landscape) · [Rejstřík: Origin shifting](#origin-shifting)
-
-### Legibilita
-
-**Čitelnost textu: jak snadno oko rozliší písmena a slova — ne totéž co velikost písma.**
-
-Čtyři nejčastější prohřešky ve hrách: celé věty verzálkami (stejná výška písmen ruší tvar slova, nejvíc to dopadá na dyslektiky), zbytečně dekorativní řezy, velké skoky ve velikosti (oko musí přeostřovat) a slabý kontrast, ve hrách vyhrocený tím, že text leží přes pohyblivé pozadí. Není to kosmetika: hůř čitelná instrukce prokazatelně zhoršuje výkon v úkolu, který popisuje.
-
-Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [První dojem](teorie/prvni-dojem.md)
-
 ### Klonování hlasu
 
 **Model vytrénovaný na nahrávkách konkrétního hlasu, který pak umí přezpívat nebo přemluvit cizí výkon jeho barvou.**
@@ -2407,6 +2391,14 @@ Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [První dojem](teo
 V praxi se kombinuje se dvěma dalšími kroky: generátor přezpívá tvůj text a melodii pořádně (ale cizím hlasem), stem separace z výsledku vytáhne samotný zpěv a klon ho převede zpátky na tvou barvu. Výstup je **suchý** — bez dozvuku a efektů — a to je jeho hlavní přednost, protože se dá posadit do mixu jako běžná nahrávka. Vážit je potřeba tři věci: běží to v cloudu (nahráváš otisk vlastního hlasu na cizí server), licenčně to má dvě vrstvy a nástroje se často propagují placenou spoluprací.
 
 Kde se s tím potkáš: [AI na vokál](hudba/nastroje-zdarma-a-game-jam.md#ai-na-vokal-prezpivat-ale-zustat-sam-sebou) · [Rejstřík: Stem separace](#stem-separace)
+
+### Knockback
+
+**Odhození zasaženého směrem od útoku — potvrzení, že rána měla sílu.**
+
+Vedle záblesku nejčitelnější reakce na zásah. Když se škáluje podle zbraně, zároveň rozlišuje mechaniky (dýka málo, kopí hodně). V UE ho typicky dělá `Launch Character` nebo impulz na fyzikální tělo.
+
+Kde se s tím potkáš: [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem) · [Katalog juice](teorie/game-feel.md#katalog-juice-deset-detailu-ktere-prodavaji-tutez-mechaniku) · [Kostra pasti](praxe/pasti-a-mechaniky.md#kostra-pasti-a-tri-variace-bodaky-rameno-rotor)
 
 ### Konsonance
 
@@ -2432,14 +2424,6 @@ Známé i jako Matoušův efekt nebo „bohatí bohatnou". Na Steamu funguje mec
 
 Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-tri-mechanismy-ktere-vedou-ke-stejne-strategii) · [Co prodává](teorie/co-prodava.md)
 
-### Kvintový kruh
-
-**Schéma dvanácti tónů seřazených po kvintách, které se po dvanácti krocích vrací na začátek — jenže nevrací.**
-
-Kvinta je definovaná jako frekvenční poměr 3:2, ale ta, kterou skutečně hrajeme, je o třetinu procenta jinde. Po dvanácti krocích tedy skončíš zhruba **24 centů** vedle — je to **pythagorejské koma** — takže kvintový kruh je ve skutečnosti spirála. Rovnoměrné temperování ten rozdíl rozprostře po všech dvanácti tónech: žádný interval není úplně čistý, ale všechny tóniny znějí stejně a dá se mezi nimi modulovat. Je to obchod, ne pravda.
-
-Kde se s tím potkáš: [Kvintový kruh je ve skutečnosti spirála](hudba/fyzika-souzvuku.md#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Rejstřík: rovnoměrně temperované ladění](#rovnomerne-temperovane-ladeni) · [Rejstřík: Tritón](#triton)
-
 ### Kvaternion
 
 **Reprezentace 3D rotace čtyřmi čísly: imunní vůči gimbal locku a hladce interpolovatelná (slerp) — výměnou za nulovou intuici.**
@@ -2448,13 +2432,13 @@ Rozšíření komplexních čísel o tři imaginární složky; násobení sklá
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
 
-### Jump scare
+### Kvintový kruh
 
-**Úleková špička hororu: náhlý audiovizuální úder, který vybije nasbírané napětí.**
+**Schéma dvanácti tónů seřazených po kvintách, které se po dvanácti krocích vrací na začátek — jenže nevrací.**
 
-Rozpočet žánru: hlasité 2–3 na hodinu, tiché (leknutí bez plného vybití tenze) podle potřeby. Nejlepší scary jsou mini-dramaturgie — oči ve tmě, dohrávající písnička, natažené ticho, teprve pak úder — a monstrum smí jen implikovat.
+Kvinta je definovaná jako frekvenční poměr 3:2, ale ta, kterou skutečně hrajeme, je o třetinu procenta jinde. Po dvanácti krocích tedy skončíš zhruba **24 centů** vedle — je to **pythagorejské koma** — takže kvintový kruh je ve skutečnosti spirála. Rovnoměrné temperování ten rozdíl rozprostře po všech dvanácti tónech: žádný interval není úplně čistý, ale všechny tóniny znějí stejně a dá se mezi nimi modulovat. Je to obchod, ne pravda.
 
-Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
+Kde se s tím potkáš: [Kvintový kruh je ve skutečnosti spirála](hudba/fyzika-souzvuku.md#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Rejstřík: rovnoměrně temperované ladění](#rovnomerne-temperovane-ladeni) · [Rejstřík: Tritón](#triton)
 
 ### Landmark
 
@@ -2473,6 +2457,14 @@ Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Bea
 Pořád produkční volba, dokud Mesh Terrain nedozraje. Klíčové nástroje: sculpt/paint módy s edit layers, copy/paste gizmo (patche a import height map do zón), paint vrstvy jako data pro PCG, Nanite displacement pro reliéf z materiálu. Limity řeší nástupce Mesh Terrain (skutečná mesh geometrie).
 
 Kde se s tím potkáš: [Landscape tipy](praxe/landscape-tipy.md) · [Mesh Terrain](praxe/mesh-terrain.md) · [Limity Landscape podle Epicu](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Město na svahu](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany)
+
+### Large World Coordinates
+
+**Souřadnice v double precision, které UE5 používá pro pozice, aby velké světy nenarážely na přesnost floatu.**
+
+32bitový float má pevný počet platných číslic, takže daleko od počátku se pozice začnou třást a výpočty selhávat. LWC tenhle strop posouvá o řády. Ne všechno v enginu ale počítá v doublech, GPU například pracuje s pozicemi vztaženými ke kameře. Mimo UE se stejný problém řeší origin shiftingem nebo fixed point čísly.
+
+Kde se s tím potkáš: [Dohled na kilometry](praxe/velke-svety.md#dohled-na-kilometry-vetsi-chunky-v-dalce-stromy-se-stinem-a-souradnice-ktere-nepretecou) · [Proč Mesh Terrain existuje](praxe/mesh-terrain.md#proc-mesh-terrain-existuje-limity-landscape) · [Rejstřík: Origin shifting](#origin-shifting)
 
 ### Layered Blend Per Bone
 
@@ -2499,6 +2491,14 @@ Kde se s tím potkáš: [Mover](praxe/mover.md)
 Tatáž melodie na jednom tenkém synthu je „skoro ono"; teprve několik vrstev (piano + bright lead + bas) dá plný zvuk. Melodie a akordy jsou kostra, dojem dělá aranž a vrstvení.
 
 Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md)
+
+### Legibilita
+
+**Čitelnost textu: jak snadno oko rozliší písmena a slova — ne totéž co velikost písma.**
+
+Čtyři nejčastější prohřešky ve hrách: celé věty verzálkami (stejná výška písmen ruší tvar slova, nejvíc to dopadá na dyslektiky), zbytečně dekorativní řezy, velké skoky ve velikosti (oko musí přeostřovat) a slabý kontrast, ve hrách vyhrocený tím, že text leží přes pohyblivé pozadí. Není to kosmetika: hůř čitelná instrukce prokazatelně zhoršuje výkon v úkolu, který popisuje.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [První dojem](teorie/prvni-dojem.md)
 
 ### Leitmotiv
 
@@ -2556,6 +2556,14 @@ Světlo i objekt mají zapnuté některé z kanálů 0 až 2 a světlo zasáhne 
 
 Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Slunce bez MegaLights](praxe/megalights.md#slunce-bez-megalights-silne-svetlo-spolkne-rozpocet)
 
+### Lightweight emitter
+
+**Niagara emitter s pevně danou funkčností — řádově levnější a řádově omezenější.**
+
+Naměřeno na krocích deseti postav: herní vlákno **1,3 → 0,2 ms**, paměť **2,7 → 0,27 MB**, GPU cena na nule (nedispatchuje se). Cena je zásadní: bez scratch padu, s minimálním napojením dat a **bez dynamických vstupů** — takže se hodí na jednoduché opakující se efekty, ne na cokoli, co potřebuje dostávat data z gameplaye. Rozšířit se dá v C++. Nejde kombinovat s [Niagara Data Channelem](#niagara-data-channel), protože neumí vlastní uzly.
+
+Kde se s tím potkáš: [Dvě cesty, jak přestat spawnovat systémy](praxe/niagara-vykon.md#dve-cesty-jak-prestat-spawnovat-systemy) · [Rejstřík: Effect type](#effect-type)
+
 ### Liminální prostor
 
 **Veřejný prostor zbavený lidí a účelu — mall, škola, letiště v prázdnu; děsí tím, že je skoro normální.**
@@ -2564,14 +2572,6 @@ Repetitivní vzory, dlouhé prázdné chodby, známá infrastruktura bez života
 
 Kde se s tím potkáš: [Horor design](teorie/horor-design.md)
 
-### Line Trace
-
-**Raycast — neviditelný paprsek vyslaný z bodu daným směrem, který vrátí první (nebo všechny) kolize na dráze.**
-
-Základní dotazovací nástroj: „na co koukám?", „stojím na zemi?", „vidí mě stráž?". Samotný trace je levný; problém je vzorec „trace každý frame v Event Ticku" — polling tam, kde stačí reagovat na změny. Alternativou pro detekci „něco vstoupilo do zóny" jsou overlap eventy kolizních komponent.
-
-Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Trace z chodidla](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Přichycení města na terén](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany)
-
 ### Linear grammar
 
 **Gramatika PCG nástrojů: string symbolů, který určuje rytmus modulů podél splinu.**
@@ -2579,6 +2579,22 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 Modulům (meshům) přiřadíš symboly a zapíšeš vzor: `[A,B]` je sekvence, číslo přesný počet (`A3`, `[A,B]2`), `*` opakuje vzor do vyplnění délky splinu a `+` navíc moduly roztáhne, aby délka vyšla přesně. Plot s brankami nebo zeď se sloupky je pak jeden řádek textu místo ručního skládání dílců.
 
 Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Budova jako věta](praxe/pcg-mesta.md#budova-jako-veta-panelovy-kit-gramatika-a-patra)
+
+### Line of action
+
+**Pomyslná linie procházející pózou postavy; udává, kam pohyb směřuje.**
+
+Chceš ji rovnou a čitelnou, s částmi těla, které ji následují — zlomená nebo komplikovaná linie ničí účel pózy a pohyb se hůř čte. Spolu s těžištěm (musí padat nad chodidla, pokud zrovna nechceš ukázat ztrátu rovnováhy) je to základ, který stojí před vším ostatním: animace je série póz, takže špatná póza se nedá zachránit časováním.
+
+Kde se s tím potkáš: [Art specializace: animace](teorie/art-specializace.md)
+
+### Line Trace
+
+**Raycast — neviditelný paprsek vyslaný z bodu daným směrem, který vrátí první (nebo všechny) kolize na dráze.**
+
+Základní dotazovací nástroj: „na co koukám?", „stojím na zemi?", „vidí mě stráž?". Samotný trace je levný; problém je vzorec „trace každý frame v Event Ticku" — polling tam, kde stačí reagovat na změny. Alternativou pro detekci „něco vstoupilo do zóny" jsou overlap eventy kolizních komponent.
+
+Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav) · [Trace z chodidla](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti) · [Přichycení města na terén](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany)
 
 ### Linked anim graph
 
@@ -2589,22 +2605,6 @@ Vzor z traversal/cover systémů nad GASP: parkour či overlay logika žije ve v
 Modul jde vytvořit jako template AnimBP bez skeletu, se vstupem přes `Input Pose`. Sloty uvnitř linked grafu se ale ve výchozím stavu nevyhodnocují, takže modul potřebuje v Class Defaults `Use Main Instance Montage Evaluation Data`. Branch filtry Layered Blend Per Bone se z modulu vystavit nedají.
 
 Kde se s tím potkáš: [Systémy nad MM](praxe/mm-systemy.md) · [Útok za běhu: modul pro další postavy](praxe/souboj.md#utok-za-behu-horni-pulka-bojuje-dolni-bezi-a-krivka-rekne-kdy-ne)
-
-### Lightweight emitter
-
-**Niagara emitter s pevně danou funkčností — řádově levnější a řádově omezenější.**
-
-Naměřeno na krocích deseti postav: herní vlákno **1,3 → 0,2 ms**, paměť **2,7 → 0,27 MB**, GPU cena na nule (nedispatchuje se). Cena je zásadní: bez scratch padu, s minimálním napojením dat a **bez dynamických vstupů** — takže se hodí na jednoduché opakující se efekty, ne na cokoli, co potřebuje dostávat data z gameplaye. Rozšířit se dá v C++. Nejde kombinovat s [Niagara Data Channelem](#niagara-data-channel), protože neumí vlastní uzly.
-
-Kde se s tím potkáš: [Dvě cesty, jak přestat spawnovat systémy](praxe/niagara-vykon.md#dve-cesty-jak-prestat-spawnovat-systemy) · [Rejstřík: Effect type](#effect-type)
-
-### Line of action
-
-**Pomyslná linie procházející pózou postavy; udává, kam pohyb směřuje.**
-
-Chceš ji rovnou a čitelnou, s částmi těla, které ji následují — zlomená nebo komplikovaná linie ničí účel pózy a pohyb se hůř čte. Spolu s těžištěm (musí padat nad chodidla, pokud zrovna nechceš ukázat ztrátu rovnováhy) je to základ, který stojí před vším ostatním: animace je série póz, takže špatná póza se nedá zachránit časováním.
-
-Kde se s tím potkáš: [Art specializace: animace](teorie/art-specializace.md)
 
 ### Live coding
 
@@ -2686,14 +2686,6 @@ Základní nástroj subtraktivní syntézy: z bohaté vlny „ořízne" výšky.
 
 Kde se s tím potkáš: [Syntéza zvuku od nuly](hudba/synteza-zvuku.md)
 
-### Lumen
-
-**Realtime globální osvětlení a odrazy v UE5 — nepřímé světlo bez pečení, za cenu stálého rozpočtu.**
-
-Orientační rozpočet od Epicu: **~4 ms na 60 FPS, ~8 ms na 30**. Ověřuje se operativně — vypni ho (`r.DynamicGlobalIlluminationMethod 0`, `r.ReflectionMethod 0`) a změř, o kolik se snímek zrychlí; to je jeho skutečná cena, protože v profileru je rozprostřený do víc položek (scene lighting, diffuse indirect a AO, reflections). Ladí se ve dvou větvích: **screen traces** (hodnoty z pixelů na obrazovce) proti **world traces** (z Lumen scény) — vypnutí screen traces je nejrychlejší způsob, jak zjistit, kterou půlku prohledávat.
-
-Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite) · [Mortal Shell 2: osekaný rozpočet](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Lumen a MegaLights spolupracují](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Lumen po změně světla dohání](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla)
-
 ### Ludonarativní disonance
 
 **Nesoulad mezi tím, co hra říká příběhem, a tím, co odměňuje gameplayem (Hocking o BioShocku, 2007).**
@@ -2710,6 +2702,14 @@ Videohry dnes potřebují obojí — když hra působí holá, má často moc lu
 
 Kde se s tím potkáš: [Systémy a mechaniky](teorie/systemy-a-mechaniky.md) · [Zábava: taxonomie a pilíře](teorie/zabava.md)
 
+### Lumen
+
+**Realtime globální osvětlení a odrazy v UE5 — nepřímé světlo bez pečení, za cenu stálého rozpočtu.**
+
+Orientační rozpočet od Epicu: **~4 ms na 60 FPS, ~8 ms na 30**. Ověřuje se operativně — vypni ho (`r.DynamicGlobalIlluminationMethod 0`, `r.ReflectionMethod 0`) a změř, o kolik se snímek zrychlí; to je jeho skutečná cena, protože v profileru je rozprostřený do víc položek (scene lighting, diffuse indirect a AO, reflections). Ladí se ve dvou větvích: **screen traces** (hodnoty z pixelů na obrazovce) proti **world traces** (z Lumen scény) — vypnutí screen traces je nejrychlejší způsob, jak zjistit, kterou půlku prohledávat.
+
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: Surface cache](#surface-cache) · [Rejstřík: Nanite](#nanite) · [Mortal Shell 2: osekaný rozpočet](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Lumen a MegaLights spolupracují](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis) · [Lumen po změně světla dohání](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla)
+
 ### LUT
 
 **Look-up table: tabulka, která přemapuje barvy obrazu na jiné, ve hrách typicky pro barevné ladění (color grading) v postprocesu.**
@@ -2717,38 +2717,6 @@ Kde se s tím potkáš: [Systémy a mechaniky](teorie/systemy-a-mechaniky.md) ·
 Ve hrách je to obvykle malá textura, třeba 16 × 16 × 16 barev rozložených do pruhu, ve které každá vstupní barva najde svou výstupní. Grading se tak připraví v grafickém programu na screenshotu a engine ho levně aplikuje na celý snímek. UE ji bere v Post Process Volume jako Color Grading LUT. V rozboru pipeline Naughty Dog ji autor zmiňuje u posledního kroku, postprocesu, a Mortal Shell 2 má podle rozboru přes 25 LUTů.
 
 Kde se s tím potkáš: [Hybridní blockout: postprocess](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
-
-### Markerless mocap
-
-**Motion capture z obyčejného videa bez markerů a obleku — pohyb se odhadne z obrazu jedné kamery.**
-
-Klasické cesty, optický systém s markery nebo inerciální oblek, potřebují hardware, čas na nasazení i na čištění dat. Markerless snižuje vstupní bariéru na kameru a světlo — kvalita výsledku ale přímo závisí na záznamu (celé tělo v záběru, pevná kamera, rovnoměrné světlo, kontrastní a nevolné oblečení). V Unrealu ho od 5.8 experimentálně umí [MetaHuman Animator](#metahuman-animator); výstup je výchozí bod pro dočištění.
-
-Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Ruce, které Kimodo nemá](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
-
-### Material Instance
-
-**Potomek materiálu, který přebírá jeho graf a mění jen vystavené parametry — barvu, texturu, číslo.**
-
-Rodičovský materiál definuje logiku a parametry, instance je jen sada hodnot: tři barvy klíčů jsou tři instance, ne tři materiály. Změna rodiče se propíše do všech instancí. Instance se nastavuje v editoru; za běhu se parametry mění přes [Dynamic Material Instance](#dynamic-material-instance).
-
-Kde se s tím potkáš: [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [Master material](praxe/materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
-
-### Material Parameter Collection
-
-**Asset se sadou globálních parametrů, které čte libovolný počet materiálů najednou.**
-
-Změna jedné hodnoty, třeba z Blueprintu nebo editor utility, se hned projeví ve všech materiálech, které kolekci používají. Hodí se na denní dobu, počasí nebo globální efekty. Na rozdíl od parametru v material instanci nepatří jednomu materiálu, ale celé scéně.
-
-Kde se s tím potkáš: [Expozice, která drží: neony podle času](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Rejstřík: Material Instance](#material-instance)
-
-### MAYA
-
-**Most Advanced Yet Acceptable: nejpokročilejší varianta, kterou publikum ještě přijme.**
-
-Princip z průmyslového designu, který se dobře hodí na volbu míry inovace ve hře — obvyklé doporučení zní, že hra má být zhruba z třetiny nová a ze zbytku srozumitelně žánrová. Chrání před dvěma extrémy: klonem, který nemá důvod existovat, a hrou tak originální, že jí nikdo nerozumí (viz hook a anchor).
-
-Kde se s tím potkáš: [Co prodává: hraj hry jako profesní povinnost](teorie/co-prodava.md) · [Nápad](teorie/napad.md)
 
 ### Map (dictionary)
 
@@ -2765,6 +2733,14 @@ Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysle
 Původně pro vizualizaci CT/MRI; dnes základ voxelových terénů, deformovatelných jeskyní a metaballů. Hodnoty nad/pod prahem čte jako bity 8bitového čísla a „pochoduje" polem, dokud nevyskládá celý povrch.
 
 Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-prehled.md) · [Mesh Terrain (UE 5.8)](praxe/mesh-terrain.md)
+
+### Markerless mocap
+
+**Motion capture z obyčejného videa bez markerů a obleku — pohyb se odhadne z obrazu jedné kamery.**
+
+Klasické cesty, optický systém s markery nebo inerciální oblek, potřebují hardware, čas na nasazení i na čištění dat. Markerless snižuje vstupní bariéru na kameru a světlo — kvalita výsledku ale přímo závisí na záznamu (celé tělo v záběru, pevná kamera, rovnoměrné světlo, kontrastní a nevolné oblečení). V Unrealu ho od 5.8 experimentálně umí [MetaHuman Animator](#metahuman-animator); výstup je výchozí bod pro dočištění.
+
+Kde se s tím potkáš: [Markerless mocap v 5.8](praxe/animace-nastroje.md#markerless-mocap-v-58-z-videa-na-animaci-bez-obleku) · [MetaHuman jako standard](praxe/metahuman.md#metahuman-jako-standard-auto-rigging-cizich-postav-davy-a-otevreny-rig) · [Ruce, které Kimodo nemá](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu)
 
 ### Market research
 
@@ -2798,6 +2774,22 @@ Se vstupem a výstupem typu material attributes funguje jako vrstva: materiál p
 
 Kde se s tím potkáš: [Materiály](praxe/materialy.md) · [Kámen ze čtyř vrstev](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Mortal Shell 2](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Contact shadows jako material function](praxe/landscape-tipy.md#hloubka-bez-geometrie-pom-contact-shadows-a-plugin-ihp)
 
+### Material Instance
+
+**Potomek materiálu, který přebírá jeho graf a mění jen vystavené parametry — barvu, texturu, číslo.**
+
+Rodičovský materiál definuje logiku a parametry, instance je jen sada hodnot: tři barvy klíčů jsou tři instance, ne tři materiály. Změna rodiče se propíše do všech instancí. Instance se nastavuje v editoru; za běhu se parametry mění přes [Dynamic Material Instance](#dynamic-material-instance).
+
+Kde se s tím potkáš: [Hádanka ze stavebnice](praxe/pasti-a-mechaniky.md#hadanka-ze-stavebnice-spinac-nic-nezna-a-level-se-nesmi-dat-rozbit) · [Master material](praxe/materialy.md#master-material-pet-textur-nema-mit-kazdy-mesh) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
+
+### Material Parameter Collection
+
+**Asset se sadou globálních parametrů, které čte libovolný počet materiálů najednou.**
+
+Změna jedné hodnoty, třeba z Blueprintu nebo editor utility, se hned projeví ve všech materiálech, které kolekci používají. Hodí se na denní dobu, počasí nebo globální efekty. Na rozdíl od parametru v material instanci nepatří jednomu materiálu, ale celé scéně.
+
+Kde se s tím potkáš: [Expozice, která drží: neony podle času](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Rejstřík: Material Instance](#material-instance)
+
 ### Matice
 
 **Blok čísel čtený jako lineární transformace: sloupce říkají, kam se přesunou osy prostoru.**
@@ -2805,6 +2797,14 @@ Kde se s tím potkáš: [Materiály](praxe/materialy.md) · [Kámen ze čtyř vr
 Identity nedělá nic, diagonála škáluje osy, záporná čísla zrcadlí, rotační matice je bod na jednotkové kružnici. Násobení matic = skládání transformací do jedné. Homogenní souřadnice (4×4 v enginech) propašují do matice i translaci — proto je transform jedna matice.
 
 Kde se s tím potkáš: [Lineární algebra vizuálně](teorie/linearni-algebra-vizualne.md) · [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+
+### MAYA
+
+**Most Advanced Yet Acceptable: nejpokročilejší varianta, kterou publikum ještě přijme.**
+
+Princip z průmyslového designu, který se dobře hodí na volbu míry inovace ve hře — obvyklé doporučení zní, že hra má být zhruba z třetiny nová a ze zbytku srozumitelně žánrová. Chrání před dvěma extrémy: klonem, který nemá důvod existovat, a hrou tak originální, že jí nikdo nerozumí (viz hook a anchor).
+
+Kde se s tím potkáš: [Co prodává: hraj hry jako profesní povinnost](teorie/co-prodava.md) · [Nápad](teorie/napad.md)
 
 ### McNamarův klam
 
@@ -2964,22 +2964,6 @@ Postava z AI pipeline často dostane rig právě tady. AI animace z Kimoda jde r
 
 Kde se s tím potkáš: [Animace z modelu přímo ve hře](praxe/ai-assety.md#animace-z-modelu-primo-ve-hre-animgen-se-trenuje-v-editoru-porty-modelu-nvidia-bezi-i-na-cpu) · [Rejstřík: Retargeting](#retargeting)
 
-### Mobility
-
-**Nastavení, které určuje, jestli se aktér nebo světlo smí za běhu měnit: Static, Stationary, nebo Movable.**
-
-Static světlo se jen zapeče. Stationary se nehýbe, ale vedle zapečeného světla vrhá dynamický stín na pohyblivé objekty. Movable je plně dynamické. Stationary světla se kvůli stínovým kanálům smějí překrývat jen omezeně, a když se jich potká moc, editor ukáže varování. V plně dynamickém projektu s MegaLights se světla dávají na movable a v Project Settings se vypíná Allow Static Lighting, aby ubylo shaderových permutací.
-
-Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis)
-
-### Mód hry
-
-**Struktura hraní přes sezení: roguelike, metroidvania, souls-like — neříká nic o tom, co držíš v rukou.**
-
-Prostřední patro pyramidy žánr → mód → nálada: žánr je moment-to-moment činnost (platformer), mód je důvod pokračovat (permadeath, mapa, corpse run), nálada jsou vibes (cozy, horor). Spelunky je platformer v roguelike módu — při jednom hraní mód ani nepoznáš.
-
-Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
-
 ### Mixels
 
 **Míchání různě velkých pixelů v jedné scéně; v pixel artu skoro vždycky vypadá špatně.**
@@ -2988,6 +2972,14 @@ Vzniká zvětšením jednoho spritu v enginu — jeho pixel je pak větší než
 
 Kde se s tím potkáš: [Pixel art má měřítko](godot/pripadovka-vizual-a-zvuk.md#pixel-art-ma-meritko-mixely-a-velikost-platna)
 
+### Mobility
+
+**Nastavení, které určuje, jestli se aktér nebo světlo smí za běhu měnit: Static, Stationary, nebo Movable.**
+
+Static světlo se jen zapeče. Stationary se nehýbe, ale vedle zapečeného světla vrhá dynamický stín na pohyblivé objekty. Movable je plně dynamické. Stationary světla se kvůli stínovým kanálům smějí překrývat jen omezeně, a když se jich potká moc, editor ukáže varování. V plně dynamickém projektu s MegaLights se světla dávají na movable a v Project Settings se vypíná Allow Static Lighting, aby ubylo shaderových permutací.
+
+Kde se s tím potkáš: [Rozpočet vzorků na pixel](praxe/megalights.md#rozpocet-vzorku-na-pixel-co-megalights-meni-a-co-za-to-platis)
+
 ### Moderovaný playtest
 
 **Test, u kterého sedíš: díváš se, jak člověk hraje, mlčíš — a ptáš se přesně v místě tření.**
@@ -2995,6 +2987,14 @@ Kde se s tím potkáš: [Pixel art má měřítko](godot/pripadovka-vizual-a-zvu
 Setup: „máš 30 minut? chci se dívat, jak to hraješ" — osobně nebo videohovor se sdílenou obrazovkou. Pravidla: think-aloud (komentuj myšlenky nahlas), nezasahovat ani u trápení s tutoriálem, standardní otázky na konec. Protiváha: sledovaný hráč hraje jinak, proto se doplňuje širokým testem bez tebe.
 
 Kde se s tím potkáš: [Playtesting](teorie/playtesting.md)
+
+### Mód hry
+
+**Struktura hraní přes sezení: roguelike, metroidvania, souls-like — neříká nic o tom, co držíš v rukou.**
+
+Prostřední patro pyramidy žánr → mód → nálada: žánr je moment-to-moment činnost (platformer), mód je důvod pokračovat (permadeath, mapa, corpse run), nálada jsou vibes (cozy, horor). Spelunky je platformer v roguelike módu — při jednom hraní mód ani nepoznáš.
+
+Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
 
 ### Modifier stack
 
@@ -3112,38 +3112,6 @@ Ve hrách: přihlas se → udělej věc → viz výsledek; leaderboardy, dark mo
 
 Kde se s tím potkáš: [Jak se učit kódovat](teorie/jak-se-ucit-kodovat.md) · [Prototypování](teorie/prototypovani.md) · [GDD](teorie/gdd.md)
 
-### Nav Agent
-
-**Profil, pro který Unreal generuje nav data — hlavně poloměr a výška agenta.**
-
-Poloměr agenta je odstup okraje navigace od překážek: AI se stejně velkou kapslí se pak o nic neodře a navigace nevznikne tam, kam se nevejde. Každý další agent znamená další sadu nav dat (paměť, generování). Hře s mnoha velikostmi nepřátel se proto může vyplatit jeden agent pro nejmenší velikost a šířka chodeb zapsaná do nav dat jako flag.
-
-Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Velký nepřítel na malém agentovi](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace) · [Rejstřík: Nav Mesh](#nav-mesh)
-
-### Navigation Query Filter
-
-**Pravidla, která při výpočtu cesty zvýhodní, zdraží nebo vyřadí určité oblasti a flagy navigace.**
-
-Filtr se předá s požadavkem na pohyb a běží během pathfindingu. Nav data nemění, mění jen to, jak je konkrétní dotaz čte. Typické použití: nepřítel, který neprojde ohněm, vyřadí flag ohně, a velký nepřítel vyřadí flagy úzkých chodeb. Vlastní filtry mohou dědit z výchozího.
-
-Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Rejstřík: Nav Agent](#nav-agent)
-
-### N-gon
-
-**Polygon s víc než čtyřmi hranami — na ploché ploše neškodný, jinde zdroj chyb.**
-
-Enginy si při importu vše stejně převedou na trojúhelníky, takže n-gon sám o sobě nevadí. Problém nastává na zakřivených plochách (nepředvídatelná triangulace, ošklivé stínování) a při dalších operacích jako subdivision nebo loop cut, které počítají s quady. Pravidlo palce: quady všude, kde se bude ještě modelovat; n-gon jen tam, kde je hotovo a rovno.
-
-Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-obtahnout-promitnout) · [PS1 estetika](praxe/ps1-estetika.md#model-a-uv-po-stenach-krychle-quady-a-fotky-narovnane-do-obdelniku)
-
-### N-key rollover
-
-**Schopnost klávesnice správně nahlásit N současně stisknutých kláves; obrana proti [keyboard ghostingu](#keyboard-ghosting).**
-
-Marketingový termín z klávesnic („anti-ghosting", „6-key rollover", „full N-key rollover"), pod kterým je konkrétní hardware — izolační diody v matici, které zabrání falešným cestám signálu. Pro vývojáře je to hlavně připomínka, že **vlastní dobrá klávesnice je nereprezentativní testovací prostředí**: co ti funguje, může u hráče s levnou membránovou klávesnicí selhat.
-
-Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
-
 ### Nanite
 
 **Virtualizovaná geometrie UE5: engine dynamicky přizpůsobuje detail meshů vzdálenosti a velikosti na obrazovce.**
@@ -3159,6 +3127,22 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velik
 Pojem posledních ~20 let; zahrnuje volbu typu protagonisty, směr dialogů, rejstříky řeči i vyprávěcí prostředky, které mají jen hry (flavor texty, prostředí, mechaniky). Pro malé týmy začíná třemi branami: kolik implementace vyprávění přinese, jaká je tvá spisovatelská praxe a jaké příběhy ti nabízejí tvoje nástroje.
 
 Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md) · [Šest otázek, bez kterých nemáš příběh](teorie/pribeh-a-postavy.md#sest-otazek-bez-kterych-nemas-pribeh)
+
+### Nav Agent
+
+**Profil, pro který Unreal generuje nav data — hlavně poloměr a výška agenta.**
+
+Poloměr agenta je odstup okraje navigace od překážek: AI se stejně velkou kapslí se pak o nic neodře a navigace nevznikne tam, kam se nevejde. Každý další agent znamená další sadu nav dat (paměť, generování). Hře s mnoha velikostmi nepřátel se proto může vyplatit jeden agent pro nejmenší velikost a šířka chodeb zapsaná do nav dat jako flag.
+
+Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Velký nepřítel na malém agentovi](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace) · [Rejstřík: Nav Mesh](#nav-mesh)
+
+### Navigation Query Filter
+
+**Pravidla, která při výpočtu cesty zvýhodní, zdraží nebo vyřadí určité oblasti a flagy navigace.**
+
+Filtr se předá s požadavkem na pohyb a běží během pathfindingu. Nav data nemění, mění jen to, jak je konkrétní dotaz čte. Typické použití: nepřítel, který neprojde ohněm, vyřadí flag ohně, a velký nepřítel vyřadí flagy úzkých chodeb. Vlastní filtry mohou dědit z výchozího.
+
+Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Rejstřík: Nav Agent](#nav-agent)
 
 ### Nav Mesh
 
@@ -3188,6 +3172,14 @@ Protože Mover tiká na začátku snímku, nový pohybový mód zařazený z her
 
 Kde se s tím potkáš: [Mover](praxe/mover.md) · [GASP](praxe/gasp.md) · [Síťová fyzika zevnitř](praxe/mover.md#sitova-fyzika-zevnitr-snimky-misto-casu-resimulace-a-input-decay)
 
+### N-gon
+
+**Polygon s víc než čtyřmi hranami — na ploché ploše neškodný, jinde zdroj chyb.**
+
+Enginy si při importu vše stejně převedou na trojúhelníky, takže n-gon sám o sobě nevadí. Problém nastává na zakřivených plochách (nepředvídatelná triangulace, ošklivé stínování) a při dalších operacích jako subdivision nebo loop cut, které počítají s quady. Pravidlo palce: quady všude, kde se bude ještě modelovat; n-gon jen tam, kde je hotovo a rovno.
+
+Kde se s tím potkáš: [Z fotky herní asset](praxe/foto-do-assetu.md#narovnat-obtahnout-promitnout) · [PS1 estetika](praxe/ps1-estetika.md#model-a-uv-po-stenach-krychle-quady-a-fotky-narovnane-do-obdelniku)
+
 ### Niagara Data Channel
 
 **Kanál, do kterého gameplay jen zapisuje data (pozice, normála…) a jediný běžící Niagara systém z nich spawnuje částice.**
@@ -3204,13 +3196,13 @@ Kde se s tím potkáš: [Kroky](praxe/footsteps.md) · [Živý svět z částic]
 
 Kde se s tím potkáš: [Interaktivní voda](praxe/interaktivni-voda.md)
 
-### Normal mapa
+### N-key rollover
 
-**Textura kódující, jak má povrch odrážet světlo — dodá reliéf bez přidání polygonů.**
+**Schopnost klávesnice správně nahlásit N současně stisknutých kláves; obrana proti [keyboard ghostingu](#keyboard-ghosting).**
 
-Vzniká nejčastěji bakem z high-poly modelu na low-poly mesh: detail vysochaný v sochacím programu se promítne do textury. Spolu s height mapou (jak moc části vystupují) a barvou tvoří základní trojici map, ze které se skládá materiál.
+Marketingový termín z klávesnic („anti-ghosting", „6-key rollover", „full N-key rollover"), pod kterým je konkrétní hardware — izolační diody v matici, které zabrání falešným cestám signálu. Pro vývojáře je to hlavně připomínka, že **vlastní dobrá klávesnice je nereprezentativní testovací prostředí**: co ti funguje, může u hráče s levnou membránovou klávesnicí selhat.
 
-Kde se s tím potkáš: [Herní art: character art](teorie/art-pipeline.md) · [Materiály v UE](praxe/materialy.md) · [Unikátní normála s maskami](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen)
+Kde se s tím potkáš: [GDScript: když bug není v kódu](godot/gdscript.md#kdyz-bug-neni-v-kodu-keyboard-ghosting)
 
 ### Normalizace vektoru
 
@@ -3219,6 +3211,14 @@ Kde se s tím potkáš: [Herní art: character art](teorie/art-pipeline.md) · [
 Jednotkové vektory vyžaduje skoro všechno: dot product jako kosinus, osvětlení, raycasty, klouzání po zdi. Právě cena té odmocniny zrodila slavný Quake 3 hack rychlé inverzní odmocniny — dnes ji řeší hardwarová instrukce.
 
 Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+
+### Normal mapa
+
+**Textura kódující, jak má povrch odrážet světlo — dodá reliéf bez přidání polygonů.**
+
+Vzniká nejčastěji bakem z high-poly modelu na low-poly mesh: detail vysochaný v sochacím programu se promítne do textury. Spolu s height mapou (jak moc části vystupují) a barvou tvoří základní trojici map, ze které se skládá materiál.
+
+Kde se s tím potkáš: [Herní art: character art](teorie/art-pipeline.md) · [Materiály v UE](praxe/materialy.md) · [Unikátní normála s maskami](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen)
 
 ### Normal To Density
 
@@ -3235,6 +3235,14 @@ Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany
 Klasický lék na sekání u střel, částic nebo nepřátel: objekt se po „zničení" jen skryje a vrátí do zásoby, odkud si ho další výstřel vyzvedne. Šetří alokace i práci [garbage collectoru](#garbage-collection). Není to univerzální řešení — u problému s instanciací stovky složitých scén v jednom snímku pooling pomůže jen částečně a začne působit jako obcházení příčiny místo její opravy.
 
 Kde se s tím potkáš: [Když nody opravdu bolí](godot/kompozice.md#kdyz-nody-opravdu-boli-115-ms-na-jednu-obrazovku) · [Pooling efektů kroků](praxe/footsteps.md#castice-podle-povrchu-trace-z-chodidla-pooling-a-sila-podle-rychlosti)
+
+### Oblique
+
+**Perspektiva, ve které je scéna nakloněná tak, že vidíš horní i boční stranu objektů.**
+
+Perspektiva her jako Harvest Moon nebo Stardew Valley — není to čistý pohled shora, ale ani izometrie. Rozdíl proti izometrii je v tom, jak se osy sbíhají; prakticky se volí tam, kde je potřeba čitelný půdorys a zároveň rozpoznatelné postavy zpředu.
+
+Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
 
 ### Obrat akordu
 
@@ -3260,14 +3268,6 @@ Frustum culling zahodí, co je mimo pohled, occlusion culling to, co zakrývá n
 
 Kde se s tím potkáš: [Beauclair: Umbra a clony](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Alan Wake 2: culling po stupních](praxe/env-technika.md#alan-wake-2-neviditelne-systemy-ktere-za-artisty-ozivi-les) · [Rejstřík: Cluster culling](#cluster-culling) · [Rejstřík: Visual blocker](#visual-blocker)
 
-### Oktáva
-
-**Vzdálenost mezi tónem a jeho příštím výskytem; frekvenční poměr 2:1.**
-
-Dvanáct tónů se dokola opakuje po oktávách; C o oktávu výš je „totéž C, jen výš" a spolu splývají. Nejkonsonantnější interval — přímý důsledek zarovnání první alikvóty.
-
-Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
-
 ### Octree
 
 **Rekurzivní dělení prostoru na osminy; základ prostorových indexů a streamovacích dlaždic.**
@@ -3275,6 +3275,14 @@ Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.
 Proti pravidelné mřížce má jednu zásadní výhodu: dá se udělat **adaptivní** — každá dlaždice se testuje proti prahu (třeba 20 000 trojúhelníků) a dělí se dál jen tam, kde je detail. Dělení pak sleduje složitost obsahu místo aby ho ignorovalo, což u naskenovaných dat znamená řádově méně dlaždic při stejné kvalitě. Táž logika jako u Nanite clusterů: **struktura má kopírovat obsah, ne souřadnice.**
 
 Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: Cluster culling](#cluster-culling)
+
+### Oktáva
+
+**Vzdálenost mezi tónem a jeho příštím výskytem; frekvenční poměr 2:1.**
+
+Dvanáct tónů se dokola opakuje po oktávách; C o oktávu výš je „totéž C, jen výš" a spolu splývají. Nejkonsonantnější interval — přímý důsledek zarovnání první alikvóty.
+
+Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
 
 ### Onboarding
 
@@ -3284,14 +3292,6 @@ Nejhůř testovatelná část hry vlastníma očima: svoje hře rozumíš, takž
 
 Kde se s tím potkáš: [Playtesting](teorie/playtesting.md) · [První dojem](teorie/prvni-dojem.md)
 
-### One-pager
-
-**Pitch na jednu stránku: jeden obrázek, co chci vyrobit a jak vypadá úspěch.**
-
-Nejmenší dokument v rodině GDD — předchází i minimalistickému návrhu; slouží k prvnímu testu, jestli myšlenka unese větu a obrázek. Když one-pager nejde napsat, je pozdě na dokumenty a brzy na engine: nápad ještě není hra.
-
-Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Nápad: test 300 znaků](teorie/napad.md)
-
 ### One File Per Actor
 
 **Režim, ve kterém má každý aktér vlastní soubor místo jednoho velkého souboru levelu.**
@@ -3299,6 +3299,14 @@ Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Nápad: test 300 znaků](teorie
 Bez něj nemůže na téže mapě pracovat víc lidí naráz, protože level je jeden binární soubor a konflikty se neslučují. S ním je merge triviální a mapa se sto tisíci aktéry se dá vůbec otevřít. Spolu s [World Partition](#world-partition) je to rozhodnutí **z nultého dne**: dodělat se dá, ale přepisuje historii verzování. Vývojáři Subnautiky 2 to shrnuli takto: *„upřímně si neumím představit, jak bychom tu hru bez nich udělali."*
 
 Kde se s tím potkáš: [Sto tisíc aktérů](praxe/velke-svety.md#sto-tisic-akteru-co-unese-editor) · [Rejstřík: World Partition](#world-partition) · [Rejstřík: Version control](#version-control)
+
+### One-pager
+
+**Pitch na jednu stránku: jeden obrázek, co chci vyrobit a jak vypadá úspěch.**
+
+Nejmenší dokument v rodině GDD — předchází i minimalistickému návrhu; slouží k prvnímu testu, jestli myšlenka unese větu a obrázek. Když one-pager nejde napsat, je pozdě na dokumenty a brzy na engine: nápad ještě není hra.
+
+Kde se s tím potkáš: [GDD](teorie/gdd.md) · [Nápad: test 300 znaků](teorie/napad.md)
 
 ### One-way door
 
@@ -3388,6 +3396,14 @@ Nástroj režie levelů i celých her: scripted events doručují momenty „ve 
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Zábava a flow](teorie/zabava.md)
 
+### Packed Level Actor
+
+**Skupina aktérů zabalená do jednoho assetu, který je vykreslí jako instance.**
+
+Vzniká výběrem aktérů → pravý klik → Level → Create Packed Level Actor; alternativou je *Harvest Instances* v modeling mode nebo pole transformů v construction scriptu. Pozor na velikost: **hranice packed level actoru rozhodují, do které streamovací buňky spadne** — pokrývá-li dva bloky města a buňka je poloviční, bude načtený pořád.
+
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: World Partition](#world-partition)
+
 ### Palette swap
 
 **Barevná varianta spritu vyrobená přemapováním palety, ne překreslením.**
@@ -3427,14 +3443,6 @@ Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#extremistan-
 Emitter je neviditelný bod v prostoru; nastavením se z něj stane proud vody reagující na gravitaci i jediný nehybný obrázek. Základní stavební kámen herních VFX, které na rozdíl od filmových musí běžet v reálném čase, a proto se počítají každý snímek.
 
 Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md)
-
-### Packed Level Actor
-
-**Skupina aktérů zabalená do jednoho assetu, který je vykreslí jako instance.**
-
-Vzniká výběrem aktérů → pravý klik → Level → Create Packed Level Actor; alternativou je *Harvest Instances* v modeling mode nebo pole transformů v construction scriptu. Pozor na velikost: **hranice packed level actoru rozhodují, do které streamovací buňky spadne** — pokrývá-li dva bloky města a buňka je poloviční, bude načtený pořád.
-
-Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: World Partition](#world-partition)
 
 ### Pass by reference
 
@@ -3502,14 +3510,6 @@ Jsou to plně parametrizované a zdokumentované subgrafy pro tvary, skládání
 
 Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: PCG](#pcg)
 
-### Per-instance custom data
-
-**Pole hodnot nastavitelné pro každou instanci zvlášť — variace bez unikátních materiálů.**
-
-Řeší přímý rozpor: instancování vyžaduje shodný materiál, ale scéna má být rozmanitá. Místo dvaceti materiálových instancí (dvacet [shading binů](#shading-bin)) se hodnoty posílají per instanci — je potřeba nastavit *Num Custom Data Floats*. Levnější sourozenec téhož triku: náhodná variace odvozená z **pozice instance** (například posun odstínu), která nepotřebuje ani ta data.
-
-Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: Shading bin](#shading-bin) · [Barvy budov z dat](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy)
-
 ### Pedal tone
 
 **Tón, který zní pod celou progresí a nikdy se nemění (česky prodleva).**
@@ -3517,6 +3517,14 @@ Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a
 Sjednotí přechody — všechny akordy teď sdílejí aspoň jeden tón — a přidá dojemnost. Když je pak zvuku moc, postav akordy kolem prodlevy: sundej kvinty a nech ji uprostřed.
 
 Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md)
+
+### Per-instance custom data
+
+**Pole hodnot nastavitelné pro každou instanci zvlášť — variace bez unikátních materiálů.**
+
+Řeší přímý rozpor: instancování vyžaduje shodný materiál, ale scéna má být rozmanitá. Místo dvaceti materiálových instancí (dvacet [shading binů](#shading-bin)) se hodnoty posílají per instanci — je potřeba nastavit *Num Custom Data Floats*. Levnější sourozenec téhož triku: náhodná variace odvozená z **pozice instance** (například posun odstínu), která nepotřebuje ani ta data.
+
+Kde se s tím potkáš: [ISM, HISM a merge](praxe/pamet-a-instance.md#ism-hism-a-merge-draw-cally-podle-geometrie) · [Rejstřík: ISM](#ism) · [Rejstřík: Shading bin](#shading-bin) · [Barvy budov z dat](praxe/pcg-mesta.md#variabilita-z-dat-sockety-barvy-instanci-a-presety-pod-tagy)
 
 ### Persistence key
 
@@ -3586,6 +3594,22 @@ Logika: první krok nákupu hry stejně neobsahuje hraní (trailer, GIF, screens
 
 Kde se s tím potkáš: [Idea iceberg: pracuj zpátky](teorie/rady-z-praxe.md) · [Nápad: test 300 znaků](teorie/napad.md)
 
+### Pivot
+
+**Vztažný bod objektu: kolem něj se rotuje a škáluje, k němu se přichytává — na jeho umístění záleží víc, než je vidět.**
+
+Nekonzistentní pivoty mezi asset packy rozbíjejí sockety (každá zbraň sedí v ruce jinak) i navazování dílců. Oprava bez DCC: modeling mode → Transform → Edit Pivot, přijmout a instance v levelu vyměnit. U kyvadel a pák je pivot přímo herní mechanika — bod závěsu určuje dráhu.
+
+Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Pasti a mechaniky](praxe/pasti-a-mechaniky.md) · [Pivoty kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku)
+
+### Pivot (design)
+
+**Změna směru projektu: hra našla těžiště jinde, než byl plán — a plán se přizpůsobí hře.**
+
+Nezaměňovat s [pivotem objektu](#pivot). Signál bývá „monstrum v rohu": oblast, které se měsíce vyhýbáš, i když technicky zvládnutelná je. Recept: pivotuj k subsystému, který už prokazatelně funguje — a ověř rychlým prototypem („je to jiná hra, ale lepší"). Historická opora: GTA vzniklo pivotem z policejní honičky Race’n’Chase.
+
+Kde se s tím potkáš: [Scope: pivot](teorie/scope.md) · [GDD: dokument není smlouva](teorie/gdd.md)
+
 ### Pixel Depth Offset
 
 **Výstup materiálu, který posune hloubku pixelu dál od kamery, aniž by se pohnula geometrie.**
@@ -3601,6 +3625,22 @@ Kde se s tím potkáš: [Hloubka bez geometrie](praxe/landscape-tipy.md#hloubka-
 Ukáže pre-exposure, barvu scény před tone mappingem a po něm, finální barvu i data z G-bufferu. Hodí se na kontrolu expozice: střední šedá má být kolem 0,18 v každém kanálu.
 
 Kde se s tím potkáš: [Expozice, která drží](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla) · [Rejstřík: Auto exposure](#auto-exposure)
+
+### Pixel-perfect
+
+**Celočíselné škálování pixel artu, kde každý herní pixel je stejně velká mřížka pixelů monitoru.**
+
+360p se škáluje 3× na 1080p a 4× na 1440p beze zbytku; necelé faktory míchají velikosti pixelů. Dogma s trhlinou: ve slepém testu necelé faktory skoro nikdo nepozná — teoretická vada není automaticky vnímaná vada. Zoom se řeší škálováním finálního renderu, ne kamerou.
+
+Kde se s tím potkáš: [Kamera](teorie/kamera.md)
+
+### Placeholder
+
+**Provizorní asset, který drží místo finálnímu — kostka místo postavy, čmáranice místo ilustrace.**
+
+Nástroj řazení priorit: dokud není jisté, že mechanika žije, každá hodina v grafice je sázka naslepo. Rada z praxe: dělej vlastní placeholdery *záměrně špatně* — hezký provizorní asset svádí k ladění, ošklivý ne. Pozor na licence: placeholdery z cizích her nesmí do ničeho vydaného, včetně dema.
+
+Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md) · [Prototypování](teorie/prototypovani.md)
 
 ### Playblast
 
@@ -3618,46 +3658,6 @@ Kde se s tím potkáš: [MCP místo klikání](praxe/claude-code-ue.md#mcp-misto
 
 Kde se s tím potkáš: [Cutscéna, která vrátí hru tam, kde skončila](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila) · [Hit stop: třes z pohledu kamery](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak) · [Pět potvrzení rány](praxe/souboj.md#rana-ktere-hrac-uveri-pet-potvrzeni-kazde-o-necem-jinem)
 
-### Point cloud
-
-**Mračno bodů z laserového skenu — surová prostorová data bez ploch a bez topologie.**
-
-Do enginu se dostává přes prostorové dělení do dlaždic a streamování; barva sedí na bodu jako vertex color, takže odpadá starost s texturami. Na rozdíl od meshových dlaždic se **vrství**: detail se přidává na sebe místo aby nahrazoval, což je vlastnost octree indexu. V herní praxi se s tím potkáš hlavně u digitálních dvojčat a reality capture pipeline — a jako referenci, podle které se modeluje.
-
-Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: Octree](#octree)
-
-### Pixel-perfect
-
-**Celočíselné škálování pixel artu, kde každý herní pixel je stejně velká mřížka pixelů monitoru.**
-
-360p se škáluje 3× na 1080p a 4× na 1440p beze zbytku; necelé faktory míchají velikosti pixelů. Dogma s trhlinou: ve slepém testu necelé faktory skoro nikdo nepozná — teoretická vada není automaticky vnímaná vada. Zoom se řeší škálováním finálního renderu, ne kamerou.
-
-Kde se s tím potkáš: [Kamera](teorie/kamera.md)
-
-### Pivot
-
-**Vztažný bod objektu: kolem něj se rotuje a škáluje, k němu se přichytává — na jeho umístění záleží víc, než je vidět.**
-
-Nekonzistentní pivoty mezi asset packy rozbíjejí sockety (každá zbraň sedí v ruce jinak) i navazování dílců. Oprava bez DCC: modeling mode → Transform → Edit Pivot, přijmout a instance v levelu vyměnit. U kyvadel a pák je pivot přímo herní mechanika — bod závěsu určuje dráhu.
-
-Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Pasti a mechaniky](praxe/pasti-a-mechaniky.md) · [Pivoty kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku)
-
-### Pivot (design)
-
-**Změna směru projektu: hra našla těžiště jinde, než byl plán — a plán se přizpůsobí hře.**
-
-Nezaměňovat s pivotem objektu (viz předchozí heslo). Signál bývá „monstrum v rohu": oblast, které se měsíce vyhýbáš, i když technicky zvládnutelná je. Recept: pivotuj k subsystému, který už prokazatelně funguje — a ověř rychlým prototypem („je to jiná hra, ale lepší"). Historická opora: GTA vzniklo pivotem z policejní honičky Race’n’Chase.
-
-Kde se s tím potkáš: [Scope: pivot](teorie/scope.md) · [GDD: dokument není smlouva](teorie/gdd.md)
-
-### Placeholder
-
-**Provizorní asset, který drží místo finálnímu — kostka místo postavy, čmáranice místo ilustrace.**
-
-Nástroj řazení priorit: dokud není jisté, že mechanika žije, každá hodina v grafice je sázka naslepo. Rada z praxe: dělej vlastní placeholdery *záměrně špatně* — hezký provizorní asset svádí k ladění, ošklivý ne. Pozor na licence: placeholdery z cizích her nesmí do ničeho vydaného, včetně dema.
-
-Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md) · [Prototypování](teorie/prototypovani.md)
-
 ### Player State
 
 **Objekt nesoucí data jednoho hráče — inventář, skóre, klíče — nezávisle na jeho pawnovi.**
@@ -3674,6 +3674,14 @@ Nejmenší funkční forma je „ukaž rozdělanou věc kamarádovi": i to je zp
 
 Kde se s tím potkáš: [Playtesting](teorie/playtesting.md) · [Vydání hry: demo prodává](teorie/vydani-hry.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Idea iceberg: the Gap](teorie/rady-z-praxe.md) · [Postmortem ShantyTown](teorie/postmortem-shantytown.md)
 
+### Point cloud
+
+**Mračno bodů z laserového skenu — surová prostorová data bez ploch a bez topologie.**
+
+Do enginu se dostává přes prostorové dělení do dlaždic a streamování; barva sedí na bodu jako vertex color, takže odpadá starost s texturami. Na rozdíl od meshových dlaždic se **vrství**: detail se přidává na sebe místo aby nahrazoval, což je vlastnost octree indexu. V herní praxi se s tím potkáš hlavně u digitálních dvojčat a reality capture pipeline — a jako referenci, podle které se modeluje.
+
+Kde se s tím potkáš: [Odložit místo zlevnit](praxe/velke-svety.md#odlozit-misto-zlevnit-skorapka-prvni-interier-na-vyzadani) · [Rejstřík: Octree](#octree)
+
 ### Pole vector
 
 **Cíl, který IK řešiči určuje, kterým směrem se má ohnout prostřední kloub řetězu (loket, koleno).**
@@ -3681,14 +3689,6 @@ Kde se s tím potkáš: [Playtesting](teorie/playtesting.md) · [Vydání hry: d
 Bez něj má řetěz ze tří kostí nekonečně mnoho řešení a loket se může stočit libovolně. V Control Rigu ho jde dopočítat automaticky (Compute Pole Vector), nebo zadat ručním controlem. Automatika vychází z aktuální polohy kostí, takže v krajních pózách (skoro natažená paže) může řetěz překroutit — tam je ruční control spolehlivější.
 
 Kde se s tím potkáš: [Ruka na klice](praxe/interakcni-animace.md#ruka-na-klice-ik-v-control-rigu-prevod-prostoru-a-alfa-z-krivky) · [Rejstřík: IK](#ik)
-
-### POM
-
-**Zkratka pro parallax occlusion mapping — viz [Parallax occlusion mapping](#parallax-occlusion-mapping).**
-
-Pixel-shader trik hloubky bez geometrie; v breakdownech a diskusích se běžně používá jen zkratka.
-
-Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
 ### Polymetr
 
@@ -3705,6 +3705,14 @@ Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-piz
 Klasika je 3:2 — tři noty ve stejném čase jako dvě. Nezaměňovat s [polymetrem](#polymetr), kde je to naopak (mřížka sedí, těžké doby ne). Doporučení pro začátečníky je opatrnost, aby skladba nezněla zmateně — přesnější formulace ale je, že polyrytmus je nečitelný jen tehdy, když posluchač nemá čeho se držet; nad pevnou páteří naopak funguje.
 
 Kde se s tím potkáš: [Za jeden takt: fráze, fill a prázdno](hudba/rytmus.md#za-jeden-takt-fraze-fill-a-prazdno) · [Rejstřík: Polymetr](#polymetr)
+
+### POM
+
+**Zkratka pro parallax occlusion mapping — viz [Parallax occlusion mapping](#parallax-occlusion-mapping).**
+
+Pixel-shader trik hloubky bez geometrie; v breakdownech a diskusích se běžně používá jen zkratka.
+
+Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md)
 
 ### Pose Asset
 
@@ -3762,14 +3770,6 @@ Klíč k plynulému vstávání z ragdollu: tělo leží v póze, kterou žádn�
 
 Kde se s tím potkáš: [Ragdoll](praxe/ragdoll.md) · [Vstávání přes motion matching](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser)
 
-### Post-process AnimBP
-
-**Animation blueprint přiřazený meshi (ne postavě), který se vyhodnocuje po hlavní animaci — vždy poslední.**
-
-Ideální pro vrstvení: look-at hlavy a očí, korekce, cloth logika — cokoli, co se má aplikovat „přes" libovolnou animaci. Vázaný na skeleton (nový skeleton = duplikát + Assign Skeleton) a sdílený všemi instancemi meshe — logika pro víc postav se větví přes Get Owning Actor.
-
-Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
-
 ### Postmortem
 
 **Ohlédnutí za dokončeným (nebo pohřbeným) projektem: co fungovalo, co ne a proč.**
@@ -3777,6 +3777,14 @@ Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 Nejhutnější studijní žánr gamedevu — na rozdíl od tutoriálů obsahuje i cenu rozhodnutí a slepé uličky. Dobrý postmortem přiznává čísla (wishlisty, prodeje, časové odhady vs. realita) i emoce (launch blues). Psát vlastní postmortemy je nejrychlejší způsob, jak z odehraných projektů vytěžit zkušenost — viz Zápisky.
 
 Kde se s tím potkáš: [Postmortem: tři roky na ShantyTown](teorie/postmortem-shantytown.md)
+
+### Post-process AnimBP
+
+**Animation blueprint přiřazený meshi (ne postavě), který se vyhodnocuje po hlavní animaci — vždy poslední.**
+
+Ideální pro vrstvení: look-at hlavy a očí, korekce, cloth logika — cokoli, co se má aplikovat „přes" libovolnou animaci. Vázaný na skeleton (nový skeleton = duplikát + Assign Skeleton) a sdílený všemi instancemi meshe — logika pro víc postav se větví přes Get Owning Actor.
+
+Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
 
 ### Post-process material
 
@@ -3793,6 +3801,14 @@ Kde se s tím potkáš: [PS1 v enginu: mlha jako post-process materiál](praxe/p
 Cíl je zhruba o polovinu doby odezvy za serverem, takže serverové události, třeba zlomy, přicházejí skoro načas, a mezi zprávami se cíl extrapoluje. Je levnější než resimulace a obejde se bez rewindu, hodí se tedy na objekty, se kterými hráč přímo neinteraguje (LEGO Fortnite). Zapíná se v nastavení physics replication aktéra.
 
 Kde se s tím potkáš: [Rozbití v multiplayeru](praxe/destrukce-a-latky.md#rozbiti-v-multiplayeru-predictive-interpolation-misto-predikce) · [Rejstřík: Resimulation](#resimulation)
+
+### Předznamenání
+
+**Dvojice čísel na začátku skladby, která říká, kolik dob je v taktu a jaká nota je jedna doba.**
+
+Horní číslo je počet, spodní hodnota noty. 4/4 jsou čtyři čtvrťové (proto se počítá „1 2 3 4"), 3/4 tři (valčík), a 6/8 počítá osminy — šest jich v taktu dá **triolový pocit** místo čtyřdobého. Anglicky *time signature*. Pro herní hudbu drobná výhrada: triolová předznamenání znějí svěže ve smyčce na deset vteřin, ale při hodině hraní unavují rychleji než čtyřdobý takt.
+
+Kde se s tím potkáš: [Mřížka: takt, dělení a swing](hudba/rytmus.md#mrizka-takt-deleni-a-swing) · [Rejstřík: BPM](#bpm) · [Rejstřík: Swing](#swing)
 
 ### Prefab
 
@@ -3866,13 +3882,13 @@ Protipól aspirační obtížnosti. Bullet hell má průběžnou obtížnost vys
 
 Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 
-### Předznamenání
+### PSO
 
-**Dvojice čísel na začátku skladby, která říká, kolik dob je v taktu a jaká nota je jedna doba.**
+**Pipeline state object — předpřipravený stav grafického potrubí; když chybí, kompiluje se shader za běhu a hra sekne.**
 
-Horní číslo je počet, spodní hodnota noty. 4/4 jsou čtyři čtvrťové (proto se počítá „1 2 3 4"), 3/4 tři (valčík), a 6/8 počítá osminy — šest jich v taktu dá **triolový pocit** místo čtyřdobého. Anglicky *time signature*. Pro herní hudbu drobná výhrada: triolová předznamenání znějí svěže ve smyčce na deset vteřin, ale při hodině hraní unavují rychleji než čtyřdobý takt.
+Zásky z kompilace shaderů obstarává **procesor**, ne grafika, takže je rychlá grafická karta nespraví. Konzole je nemají tak zlé, protože hardware je ve všech kusech stejný a dá se zkompilovat jednou a rozdat předpřipravené; na PC to nelze. Řešení jsou dvě a nevylučují se: **bundlovat** PSO a **předcache**. Při testování je potřeba **mazat cache**, jinak lokálně neuvidíš, že s tím je problém.
 
-Kde se s tím potkáš: [Mřížka: takt, dělení a swing](hudba/rytmus.md#mrizka-takt-deleni-a-swing) · [Rejstřík: BPM](#bpm) · [Rejstřík: Swing](#swing)
+Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Mortal Shell 2: předkompilace](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### Půltón
 
@@ -3881,14 +3897,6 @@ Kde se s tím potkáš: [Mřížka: takt, dělení a swing](hudba/rytmus.md#mriz
 Se svým dvojčetem (celý tón) je stavební jednotkou stupnic i akordů. Sám o sobě není „čistý" interval; zblízka ve stejné oktávě pere výrazně víc než rozhozený po oktávách.
 
 Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
-
-### PSO
-
-**Pipeline state object — předpřipravený stav grafického potrubí; když chybí, kompiluje se shader za běhu a hra sekne.**
-
-Zásky z kompilace shaderů obstarává **procesor**, ne grafika, takže je rychlá grafická karta nespraví. Konzole je nemají tak zlé, protože hardware je ve všech kusech stejný a dá se zkompilovat jednou a rozdat předpřipravené; na PC to nelze. Řešení jsou dvě a nevylučují se: **bundlovat** PSO a **předcache**. Při testování je potřeba **mazat cache**, jinak lokálně neuvidíš, že s tím je problém.
-
-Kde se s tím potkáš: [Jak to vidí hráč](praxe/frame-pacing.md#jak-to-vidi-hrac-360p-upscaling-a-stutter) · [Prvních 16,66 ms se rozdává v CL1](praxe/rozpocet-snimku.md#prvnich-1666-ms-se-rozdava-v-cl1) · [Technické zdraví projektu: příčiny hitchů](praxe/organizace-projektu.md#technicke-zdravi-projektu-kontroly-od-prvniho-dne-po-vydani) · [Mortal Shell 2: předkompilace](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek)
 
 ### Pure function
 
@@ -3978,22 +3986,6 @@ Intenzita se rozkládá do plochy, takže užší světlo se stejnou hodnotou sv
 
 Kde se s tím potkáš: [Svítidlo z víc světel](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Rejstřík: Source radius](#source-radius)
 
-### Reflection system
-
-**Systém Unrealu, díky kterému engine za běhu zná typy, properties a funkce označené makry UCLASS, USTRUCT, UPROPERTY a UFUNCTION.**
-
-Stojí na něm editor, blueprinty, serializace i Python. Ve verzi 5.8 z něj MCP automaticky vyrábí JSON pro agenty, takže nový nástroj pro agenta je obyčejná UFunction s tooltipem.
-
-Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: JSON Schema](#json-schema)
-
-### Refundace
-
-**Vrácení peněz za koupenou hru — na Steamu automatické do dvou hodin hraní a dvou týdnů od nákupu.**
-
-Z pohledu vývojáře je to první srážka z hrubé tržby, po níž následuje podíl obchodu, bankovní poplatky a daně. Praktický důsledek: číslo na dashboardu není příjem — v rozpadu jednoho indie studia zbyla z hrubé tržby po všech srážkách zhruba polovina, a to ještě před zdaněním.
-
-Kde se s tím potkáš: [Vydání hry: co ti reálně zbyde](teorie/vydani-hry.md)
-
 ### Redirector
 
 **Ghost soubor, který po přesunu assetu zůstává na starém místě a přesměrovává reference na nové.**
@@ -4009,6 +4001,22 @@ Kde se s tím potkáš: [Organizace projektu](praxe/organizace-projektu.md)
 Odměna: triviální testování, paralelizace i cachování. Užitečnější jako čočka na design než jako akademický pojem: když se něco blbě testuje, neptej se po mock knihovně — ptej se, proč ta funkce není referenčně transparentní. V UE: pure funkce bez side-effectů.
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
+
+### Reflection system
+
+**Systém Unrealu, díky kterému engine za běhu zná typy, properties a funkce označené makry UCLASS, USTRUCT, UPROPERTY a UFUNCTION.**
+
+Stojí na něm editor, blueprinty, serializace i Python. Ve verzi 5.8 z něj MCP automaticky vyrábí JSON pro agenty, takže nový nástroj pro agenta je obyčejná UFunction s tooltipem.
+
+Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rejstřík: JSON Schema](#json-schema)
+
+### Refundace
+
+**Vrácení peněz za koupenou hru — na Steamu automatické do dvou hodin hraní a dvou týdnů od nákupu.**
+
+Z pohledu vývojáře je to první srážka z hrubé tržby, po níž následuje podíl obchodu, bankovní poplatky a daně. Praktický důsledek: číslo na dashboardu není příjem — v rozpadu jednoho indie studia zbyla z hrubé tržby po všech srážkách zhruba polovina, a to ještě před zdaněním.
+
+Kde se s tím potkáš: [Vydání hry: co ti reálně zbyde](teorie/vydani-hry.md)
 
 ### Rekurze
 
@@ -4034,14 +4042,6 @@ Opravuje topologii po booleanech, zahušťuje řídký mesh před deformací a u
 
 Kde se s tím potkáš: [Blok napřed, silnice potom](praxe/pcg-mesta.md#blok-napred-silnice-potom-block-processor-a-booleany) · [Modifikátory v rukou Epicu](praxe/mesh-terrain.md#modifikatory-v-rukou-epicu-poradi-vrstev-rovina-pod-poi-a-pcg-ktere-rozmistuje-skaly) · [Modifier stack](praxe/mesh-terrain.md#modifier-stack-nedestruktivni-tvarovani)
 
-### Render target
-
-**Textura, do které engine vykresluje za běhu — použitelná jako vstup i jako výstup.**
-
-Slouží k obrazovkám kamer, zrcadlům nebo malování do textury za běhu. Šikovné vedlejší použití: materiál složený z noise uzlů se dá do render targetu vypéct a uložit jako obyčejnou texturu — takže na generování šumu nepotřebuješ žádný externí program.
-
-Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) · [Cube render target pro falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
-
 ### Renderovací vlákno
 
 **Čas, který procesor stráví přípravou práce pro GPU — ne čas GPU.**
@@ -4049,6 +4049,14 @@ Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury
 V `stat unit` je to hodnota **draw** a je to nejčastěji špatně čtené číslo v celém panelu. Odehrává se tam **culling** (příkazy pro deset tisíc objektů se musí připravit, i když jich uvidíš zlomek), **výběr LODů** podle vzdálenosti a **sestavení a odeslání draw callů**. Praktický důsledek: LODy a culling nešetří jen GPU, ale i procesor — takže „mám málo trojúhelníků, LODy nepotřebuju" přestává platit, jakmile je objektů hodně.
 
 Kde se s tím potkáš: [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno) · [Rejstřík: Draw call](#draw-call) · [Rejstřík: RHI](#rhi)
+
+### Render target
+
+**Textura, do které engine vykresluje za běhu — použitelná jako vstup i jako výstup.**
+
+Slouží k obrazovkám kamer, zrcadlům nebo malování do textury za běhu. Šikovné vedlejší použití: materiál složený z noise uzlů se dá do render targetu vypéct a uložit jako obyčejnou texturu — takže na generování šumu nepotřebuješ žádný externí program.
+
+Kde se s tím potkáš: [Materiály: VFX textury](praxe/materialy.md#vfx-textury-nedelat-je-a-kdyz-uz-tak-v-krite) · [Cube render target pro falešné okno](praxe/materialy.md#falesne-okno-interior-cubemap-a-mistnost-nafocena-v-enginu) · [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
 
 ### Resimulation
 
@@ -4106,6 +4114,14 @@ Kde se s tím potkáš: [Sound design ve hře](hudba/sound-design-ve-hre.md)
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [GASP](praxe/gasp.md) · [Look-at v GASP 5.8](praxe/gasp.md#look-at-jako-aditivni-solver-pohled-bez-ztraty-animace)
 
+### RHI
+
+**Render Hardware Interface — vrstva enginu mezi rendererem a grafickým API dané platformy.**
+
+Implementuje se jedna na platformu (D3D12, Vulkan, Metal…) a překládá zaznamenané příkazy do skutečných GPU command listů. Pro ladění výkonu jsou zajímavé dvě věci: **paralelní překlad** se ladí přes `r.RHICommand.ParallelTranslate.MaxCommandsPerTranslate` (na víc jádrech jít do šířky, na omezeném stroji naopak), a **použití immediate command listu vynutí jednovláknový překlad**, tedy bublinu v potrubí — v RDG průchodech proto ber základní typ, ne immediate.
+
+Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-rika-novy-gpu-profiler) · [Potrubí snímku](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi)
+
 ### Rider
 
 **IDE od JetBrains pro herní vývoj s hlubokou podporou Unrealu: indexy blueprintů a assetů a debugger.**
@@ -4113,6 +4129,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [GASP](praxe/gasp.
 V éře agentů půjčuje svoje indexy, debugger a kontroly kódu i agentům. Přednáška JetBrains ukazuje, že hledání potomků třídy s indexem trvá zlomek času a najde víc než hledání podle jmen souborů.
 
 Kde se s tím potkáš: [Agent v IDE](praxe/mcp-v-editoru.md#agent-v-ide-index-a-debugger-misto-hledani-v-textu) · [Rejstřík: ACP](#acp)
+
+### Rigging
+
+**Vložení kostry do modelu a nastavení, jak kosti ovládají mesh — bez toho zůstane model socha.**
+
+Následuje weight painting (malování vlivu jednotlivých kostí, aby deformace vypadala přirozeně) a stavba ovladačů, které animátorovi umožní hýbat kostrou jednoduše — jako provázky loutky. Na téhle vrstvě se řeší i to, aby chodidlo drželo na zemi, když se hýbe zbytek těla. Typická práce technického artisty.
+
+Kde se s tím potkáš: [Art specializace: tech art](teorie/art-specializace.md) · [Animace v UE](praxe/animace-nastroje.md) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi)
 
 ### RigLogic
 
@@ -4130,22 +4154,6 @@ Metoda z UX designu pro vývojáře bez velkého poolu testerů: sleduj jednoho 
 
 Kde se s tím potkáš: [Playtesting: kadence a RITE](teorie/playtesting.md)
 
-### RHI
-
-**Render Hardware Interface — vrstva enginu mezi rendererem a grafickým API dané platformy.**
-
-Implementuje se jedna na platformu (D3D12, Vulkan, Metal…) a překládá zaznamenané příkazy do skutečných GPU command listů. Pro ladění výkonu jsou zajímavé dvě věci: **paralelní překlad** se ladí přes `r.RHICommand.ParallelTranslate.MaxCommandsPerTranslate` (na víc jádrech jít do šířky, na omezeném stroji naopak), a **použití immediate command listu vynutí jednovláknový překlad**, tedy bublinu v potrubí — v RDG průchodech proto ber základní typ, ne immediate.
-
-Kde se s tím potkáš: [Busy, wait, idle](praxe/gpu-pamet.md#busy-wait-idle-co-rika-novy-gpu-profiler) · [Potrubí snímku](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi)
-
-### Rigging
-
-**Vložení kostry do modelu a nastavení, jak kosti ovládají mesh — bez toho zůstane model socha.**
-
-Následuje weight painting (malování vlivu jednotlivých kostí, aby deformace vypadala přirozeně) a stavba ovladačů, které animátorovi umožní hýbat kostrou jednoduše — jako provázky loutky. Na téhle vrstvě se řeší i to, aby chodidlo drželo na zemi, když se hýbe zbytek těla. Typická práce technického artisty.
-
-Kde se s tím potkáš: [Art specializace: tech art](teorie/art-specializace.md) · [Animace v UE](praxe/animace-nastroje.md) · [Rig, který se přenese](praxe/animace-nastroje.md#rig-ktery-se-prenese-controly-na-kuzi-moduly-a-tvary-bez-navratu-k-riggerovi)
-
 ### Roguelike
 
 **Žánr postavený na opakovaných bězích: smrt je součást smyčky, svět se generuje procedurálně, znalost hráče je hlavní trvalý pokrok.**
@@ -4154,14 +4162,6 @@ Pro design je podstatný důsledek mnoha běhů: hráč potkává stejné systé
 
 Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md)
 
-### Roughness
-
-**Drsnost povrchu v PBR: 0 = zrcadlo, 1 = zcela matný — a v UE5 zároveň prahová hodnota pro cenu odrazů.**
-
-Výkonový háček, který se snadno přehlédne: Lumen trasuje **dedikované odrazové paprsky** pro pixely pod prahem `r.Lumen.Reflections.MaxRoughnessToTrace` (výchozí 0,4). Hodně projektů má většinu materiálů kolem 0,35, takže valná část obrazovky trasuje odrazy, aniž by to někdo chtěl. Zvlášť zákeřné je to u listí (vlastní proměnná `…ForFoliage`, klidně 0) a u shaderů počasí, které za deště srazí roughness všemu.
-
-Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: PBR](#pbr) · [Rejstřík: Lumen](#lumen)
-
 ### Root motion
 
 **Pohyb uložený v animaci samotné (v root kosti) — postava se hýbe tak, jak animátor animoval, kapsle následuje.**
@@ -4169,6 +4169,14 @@ Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruch
 Protiklad capsule driven přístupu (vstup hýbe kapslí, animace se lepí). Motion Matching root motion data vyžaduje — z nich čte trajektorie klipů; hromadně se zapíná přes Property Matrix (Enable Root Motion + Force Root Lock, u smyček Looping). GASP je capsule driven, ale animace root motion mají — budoucnost je blending obou přístupů po částech animace.
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Dojít na místo](praxe/interakcni-animace.md#dojit-na-misto-motion-warping-potrebuje-krok-ktery-je-v-animaci-schvalne) · [Contextual Animation: movement mode Flying](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie)
+
+### Roughness
+
+**Drsnost povrchu v PBR: 0 = zrcadlo, 1 = zcela matný — a v UE5 zároveň prahová hodnota pro cenu odrazů.**
+
+Výkonový háček, který se snadno přehlédne: Lumen trasuje **dedikované odrazové paprsky** pro pixely pod prahem `r.Lumen.Reflections.MaxRoughnessToTrace` (výchozí 0,4). Hodně projektů má většinu materiálů kolem 0,35, takže valná část obrazovky trasuje odrazy, aniž by to někdo chtěl. Zvlášť zákeřné je to u listí (vlastní proměnná `…ForFoliage`, klidně 0) a u shaderů počasí, které za deště srazí roughness všemu.
+
+Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruchod.md#lumen-rozpocet-a-binarni-hledani) · [Rejstřík: PBR](#pbr) · [Rejstřík: Lumen](#lumen)
 
 ### Rovnoměrně temperované ladění
 
@@ -4268,14 +4276,6 @@ Slouží jako pivot (pant dveří), jako značka místa (kam se postava postaví
 
 Kde se s tím potkáš: [Jedna animace zvednutí](praxe/interakcni-animace.md#jedna-animace-zvednuti-pro-vsechno-grip-pointy-a-pozy-ruky) · [Objekt ví, jak se s ním zachází](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Úkryt ve skříni](praxe/interakce-predmety.md#ukryt-ve-skrini-markery-lerpy-a-synchronizace-s-animaci)
 
-### Screen percentage
-
-**V jakém rozlišení se scéna doopravdy renderuje, než ji upscaler dotáhne na výstupní.**
-
-Zákeřné je výchozí nastavení: UE5 má screen percentage **„based on display resolution"**, takže na vyšších rozlišeních tiše renderuje **pod 100 %**. Kdo o tom neví, srovnává dvě měření v různém rozlišení a netuší, že měří něco jiného. Přepíná se na **manual** na dvou místech nastavení projektu (hra a editor). Souvisí s tím **temporal upscaling**: se zapnutým vypadá 80 % skoro jako 100, s vypnutým je i 80 % rozmazané.
-
-Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: Dynamic resolution](#dynamic-resolution) · [Rejstřík: TSR](#tsr)
-
 ### Scene inheritance
 
 **Nová scéna odvozená z existující: převezme celý strom nodů a dovolí přepsat jen to, co se liší.**
@@ -4308,6 +4308,14 @@ Dvojsečná past: někdy je to přesně ten twist, který hře chyběl, častěj
 
 Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Scope: nápad zaparkuj, nezabíjej](teorie/scope.md) · [Nápad](teorie/napad.md) · [Start projektu](teorie/jak-zacit.md) · [Rozpad pomůže, jen když projekt neroste](teorie/planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni)
 
+### Screen percentage
+
+**V jakém rozlišení se scéna doopravdy renderuje, než ji upscaler dotáhne na výstupní.**
+
+Zákeřné je výchozí nastavení: UE5 má screen percentage **„based on display resolution"**, takže na vyšších rozlišeních tiše renderuje **pod 100 %**. Kdo o tom neví, srovnává dvě měření v různém rozlišení a netuší, že měří něco jiného. Přepíná se na **manual** na dvou místech nastavení projektu (hra a editor). Souvisí s tím **temporal upscaling**: se zapnutým vypadá 80 % skoro jako 100, s vypnutým je i 80 % rozmazané.
+
+Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: Dynamic resolution](#dynamic-resolution) · [Rejstřík: TSR](#tsr)
+
 ### Scrum
 
 **Agilní metodika: práce ve sprintech, priority se na sprint meetingu tahají z backlogu.**
@@ -4315,22 +4323,6 @@ Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Scope: nápa
 Oproti kanbanu (plynulý tok karet) přidává rytmus: pevné bloky času s jasným cílem a review na konci. Indie hybrid: kanban board + měsíční „sprint" zakončený týdnem playtestů. Kříženec obou metodik se jmenuje scrumban.
 
 Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md) · [Playtesting: kadence](teorie/playtesting.md)
-
-### Semantic search
-
-**Vyhledávání podle významu místo přesných slov; agent jím najde asset podle popisu.**
-
-V ukázce Epicu agent zařizuje obývák a gauč nebo konferenční stolek najde podle popisu. Ukázková implementace je součástí MCP z 5.8. Funguje tím líp, čím lépe jsou assety pojmenované a popsané.
-
-Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta)
-
-### Semiotika
-
-**Nauka o tom, co symboly znamenají a proč — u písma a tvarů dřív, než přečteš obsah.**
-
-Typografie nese význam třemi cestami: materiálem a nástrojem vzniku (dláto do kamene, brk, tiskový lis), historickou epochou a odkazy na jiná média (filmové plakáty, umělecká hnutí). Proto font sdělí žánr a dobu dřív, než hráč přečte první slovo — a proto hra zasazená do konkrétní éry znamená spoustu práce na cedulích a plakátech ve světě.
-
-Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [Ludotematický soulad](teorie/ludonarativni-soulad.md)
 
 ### Seamless loop
 
@@ -4347,6 +4339,22 @@ Kde se s tím potkáš: [Tvorba herního soundtracku](hudba/tvorba-soundtracku.m
 Překryvy měří podle bounds, volitelně podle skutečných kolizí (use collision attribute) — pozor, bere menší z obou, takže pro kolizní režim bounds záměrně nafoukni bounds modifierem. S bounds nastavenými na požadovaný rozestup funguje jako foliage garance minimální vzdálenosti, jen checkboxem v grafu.
 
 Kde se s tím potkáš: [PCG základy](praxe/pcg-zaklady.md) · [Shluky svíček](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru)
+
+### Semantic search
+
+**Vyhledávání podle významu místo přesných slov; agent jím najde asset podle popisu.**
+
+V ukázce Epicu agent zařizuje obývák a gauč nebo konferenční stolek najde podle popisu. Ukázková implementace je součástí MCP z 5.8. Funguje tím líp, čím lépe jsou assety pojmenované a popsané.
+
+Kde se s tím potkáš: [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta)
+
+### Semiotika
+
+**Nauka o tom, co symboly znamenají a proč — u písma a tvarů dřív, než přečteš obsah.**
+
+Typografie nese význam třemi cestami: materiálem a nástrojem vzniku (dláto do kamene, brk, tiskový lis), historickou epochou a odkazy na jiná média (filmové plakáty, umělecká hnutí). Proto font sdělí žánr a dobu dřív, než hráč přečte první slovo — a proto hra zasazená do konkrétní éry znamená spoustu práce na cedulích a plakátech ve světě.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [Ludotematický soulad](teorie/ludonarativni-soulad.md)
 
 ### Separation of concerns
 
@@ -4372,6 +4380,14 @@ Pracuje s [level sequences](#level-sequence): stopy actorů (transform, animace,
 
 Kde se s tím potkáš: [Cutscény](praxe/cutsceny.md) · [Sekundární pohyb v Control Rigu](praxe/animace-nastroje.md#sekundarni-pohyb-v-control-rigu-dynamics-za-behu-fyzika-a-autobake-pri-animovani) · [Animace řídí svět](praxe/interakcni-animace.md#animace-ridi-svet-normalizovane-krivky-v-montazi) · [Look-at systém](praxe/metahuman.md#look-at-system-pohled-vrstveny-pres-jakoukoli-animaci)
 
+### Serif
+
+**Patka: drobné zakončení na koncích tahů písmene. Nese historickou asociaci a mírně zpomaluje čtení.**
+
+Vznikla v době fyzického tisku, kde bránila rozpíjení inkoustu a opotřebení stroje — proto s patkovým písmem podvědomě spojujeme starší dobu. Praktický důsledek pro hry: dekorativní patkový font se hodí na názvy a nápisy ve světě, ale funkční text (popisy schopností, tutoriály) patří do bezpatkového, protože se čte rychleji.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md)
+
 ### Set dressing
 
 **Zaplnění hotového prostoru drobnými propy a detaily, které mu dají příběh a život: nábytek, nádobí, nepořádek.**
@@ -4388,6 +4404,22 @@ Vrací timer handle, přes který jde časovač zastavit (`Clear and Invalidate 
 
 Kde se s tím potkáš: [Hit stop](praxe/souboj.md#hit-stop-zastav-oba-ale-kazdeho-jinak) · [Barel, který teče](praxe/pasti-a-mechaniky.md#barel-ktery-tece-diry-jako-data-hladina-jako-jedno-cislo) · [Terč: odstranění těla](praxe/souboj.md#terc-smer-rany-zdravi-a-smrt-bez-radku-v-postave)
 
+### Shading bin
+
+**Nanitová obdoba draw callu: každý materiál ve scéně si vyžádá vlastní bin, s minimem ~3 µs na GPU.**
+
+Vlastní bin potřebuje **každá materiálová instance** — konstantní i dynamická — takže počet binů roste s rozmanitostí materiálů, ne s počtem meshů. Řádová orientace z profilování reálné hry: naměřeno ~2 100 raster a ~4 000 shading binů, cíl ~50 raster a ~1 000 shading. Cesta dolů je architektonická: pevná topologie materiálu a znovupoužité instance, kterým se hodnoty předávají přes custom primitive data, material parameter collections nebo per-instance custom data — místo skládání materiálových vrstev jako v Photoshopu.
+
+Kde se s tím potkáš: [Čísla, se kterými se dá srovnávat](praxe/profiling.md#cisla-se-kterymi-se-da-srovnavat) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Draw call](#draw-call)
+
+### Shape language
+
+**Standardizace tvarů pro významy napříč celou hrou: plus je zdraví, kruh štít, špičaté tvary poškození.**
+
+Nutnost všude, kde je efektů nebo ikon hodně — konzistentní tvarosloví umožní pochopit funkci prvku bez čtení. Klíčová vlastnost: když jsou barvy podobné, tvar je jediné, co prvky rozliší. Používá se stejně ve VFX i v rozhraní, a spolu s barvou a pozicí tvoří pravidla, kterým se říká vizuální jazyk hry.
+
+Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md) · [Game feel](teorie/game-feel.md)
+
 ### Short description
 
 **Krátký popis hry na Steamu — ~300 znaků pod capsule obrázkem, první text, který potenciální hráč čte.**
@@ -4395,14 +4427,6 @@ Kde se s tím potkáš: [Hit stop](praxe/souboj.md#hit-stop-zastav-oba-ale-kazde
 Zároveň nejlevnější validační nástroj nápadu: „test 300 znaků" = zkus popis napsat v den nula. Dvě věty se žánrem, perspektivou, hlavními činnostmi (hodně sloves!), cílem a prostředím. Když to nejde, nemáš vágní popis — máš vágní hru. Rozšířená verze testu je mock Steam page: dlouhý popis, features, zkusmá capsule.
 
 Kde se s tím potkáš: [Nápad: test 300 znaků](teorie/napad.md) · [Scope](teorie/scope.md)
-
-### Serif
-
-**Patka: drobné zakončení na koncích tahů písmene. Nese historickou asociaci a mírně zpomaluje čtení.**
-
-Vznikla v době fyzického tisku, kde bránila rozpíjení inkoustu a opotřebení stroje — proto s patkovým písmem podvědomě spojujeme starší dobu. Praktický důsledek pro hry: dekorativní patkový font se hodí na názvy a nápisy ve světě, ale funkční text (popisy schopností, tutoriály) patří do bezpatkového, protože se čte rychleji.
-
-Kde se s tím potkáš: [Typografie](teorie/typografie.md)
 
 ### Sidechain
 
@@ -4427,22 +4451,6 @@ Kde se s tím potkáš: [GDScript: call down, signal up](godot/gdscript.md#call-
 Učení je budování prediktivního modelu světa a potřebuje data, ze kterých se dá učit. Frustrace = konstantní „špatně" (nulový signál), nuda = konstantní „dobře" (nulový signál); flow kanál je pásmo, kde některé akce fungují a jiné ne — nejlepší signál. Jasné cíle jsou filtr šumu; soustředění je totéž z druhé strany (rozptýlení a vizuální balast = šum).
 
 Kde se s tím potkáš: [Zábava: flow](teorie/zabava.md)
-
-### Shading bin
-
-**Nanitová obdoba draw callu: každý materiál ve scéně si vyžádá vlastní bin, s minimem ~3 µs na GPU.**
-
-Vlastní bin potřebuje **každá materiálová instance** — konstantní i dynamická — takže počet binů roste s rozmanitostí materiálů, ne s počtem meshů. Řádová orientace z profilování reálné hry: naměřeno ~2 100 raster a ~4 000 shading binů, cíl ~50 raster a ~1 000 shading. Cesta dolů je architektonická: pevná topologie materiálu a znovupoužité instance, kterým se hodnoty předávají přes custom primitive data, material parameter collections nebo per-instance custom data — místo skládání materiálových vrstev jako v Photoshopu.
-
-Kde se s tím potkáš: [Čísla, se kterými se dá srovnávat](praxe/profiling.md#cisla-se-kterymi-se-da-srovnavat) · [Rejstřík: Nanite](#nanite) · [Rejstřík: Draw call](#draw-call)
-
-### Shape language
-
-**Standardizace tvarů pro významy napříč celou hrou: plus je zdraví, kruh štít, špičaté tvary poškození.**
-
-Nutnost všude, kde je efektů nebo ikon hodně — konzistentní tvarosloví umožní pochopit funkci prvku bez čtení. Klíčová vlastnost: když jsou barvy podobné, tvar je jediné, co prvky rozliší. Používá se stejně ve VFX i v rozhraní, a spolu s barvou a pozicí tvoří pravidla, kterým se říká vizuální jazyk hry.
-
-Kde se s tím potkáš: [Art specializace: VFX](teorie/art-specializace.md) · [Game feel](teorie/game-feel.md)
 
 ### Significance handler
 
@@ -4694,14 +4702,6 @@ Alternativou by byl soubor na každý snímek, což se u animované postavy rych
 
 Kde se s tím potkáš: [První hra](godot/prvni-hra.md) · [Rejstřík: Flipbook](#flipbook)
 
-### Squeeze and release
-
-**Rytmus střídání tlaku a úlevy: výzva hráče stiskne, checkpoint nebo odměna povolí.**
-
-Hry stresují záměrně, protože stres je nosič výzvy — jenže obě krajnosti končí stejně: samý tlak vede k frustraci, samá úleva k nudě, a hráč v obou případech skončí. Nejúčinnější a nejlevnější forma úlevy je **checkpoint**, který nic nedává, jen přestane hrozit. Prakticky z toho plyne, že rozmístění checkpointů není technické rozhodnutí, ale dramaturgické — a v pasáži, kde chceš držet napětí, se vynechává schválně.
-
-Kde se s tím potkáš: [Squeeze and release](godot/pripadovka-proces.md#squeeze-and-release-hra-bez-stresu-neni-hra) · [Horor design](teorie/horor-design.md)
-
 ### Square hole
 
 **Chyba balancu: univerzální nástroj či strategie, která řeší každou situaci — a tím zabíjí všechna rozhodnutí.**
@@ -4717,6 +4717,14 @@ Kde se s tím potkáš: [Zábava: balanc rozhodnutí](teorie/zabava.md)
 Nejstarší trik animace (Disney) přenesený do her: skok s deformací působí pružně, nepřítel, který se při zásahu „zmáčkne", působí živě. Levný a účinný kus juice — mění pocit, ne mechaniku.
 
 Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md)
+
+### Squeeze and release
+
+**Rytmus střídání tlaku a úlevy: výzva hráče stiskne, checkpoint nebo odměna povolí.**
+
+Hry stresují záměrně, protože stres je nosič výzvy — jenže obě krajnosti končí stejně: samý tlak vede k frustraci, samá úleva k nudě, a hráč v obou případech skončí. Nejúčinnější a nejlevnější forma úlevy je **checkpoint**, který nic nedává, jen přestane hrozit. Prakticky z toho plyne, že rozmístění checkpointů není technické rozhodnutí, ale dramaturgické — a v pasáži, kde chceš držet napětí, se vynechává schválně.
+
+Kde se s tím potkáš: [Squeeze and release](godot/pripadovka-proces.md#squeeze-and-release-hra-bez-stresu-neni-hra) · [Horor design](teorie/horor-design.md)
 
 ### State alias
 
@@ -4766,14 +4774,6 @@ Dnes to zvládají modely překvapivě dobře a v praxi se to používá jinak, 
 
 Kde se s tím potkáš: [AI na vokál](hudba/nastroje-zdarma-a-game-jam.md#ai-na-vokal-prezpivat-ale-zustat-sam-sebou) · [Rejstřík: Klonování hlasu](#klonovani-hlasu) · [Rejstřík: Sampling](#sampling)
 
-### Streaming pool
-
-**Pevně vyhrazená část VRAM pro streamované textury; při přeplnění spadne rozlišení mipy.**
-
-Výchozích 2 000 MB bylo zvoleno pro cizí projekt — a příliš velký pool je stejná chyba jako příliš malý, jen tišší, protože ta paměť chybí jinde. Postup, jak zjistit skutečnou potřebu: **zmenšuj `r.Streaming.PoolSize`, dokud engine nezačne hlásit „streaming pool over budget"** — to je tvůj vodočet. Virtuální textury mají pooly zvlášť pro každý kompresní formát; od 5.4 si engine vede transient list dosažených maxim, ze kterého se hodnoty opíšou do fixed poolu.
-
-Kde se s tím potkáš: [Pooly a jejich vodočty](praxe/gpu-pamet.md#pooly-a-jejich-vodocty) · [Rejstřík: Virtual texture](#virtual-texture) · [Rejstřík: Mip mapa](#mip-mapa)
-
 ### Stitching
 
 **Experimentální MM technika: místo lineárního blendu najde animaci, která tě za daný čas dostane z aktuální pózy do cílové.**
@@ -4790,6 +4790,14 @@ Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md)
 
 Kde se s tím potkáš: [Design patterns](teorie/design-patterns.md) · [Mover](praxe/mover.md)
 
+### Streaming pool
+
+**Pevně vyhrazená část VRAM pro streamované textury; při přeplnění spadne rozlišení mipy.**
+
+Výchozích 2 000 MB bylo zvoleno pro cizí projekt — a příliš velký pool je stejná chyba jako příliš malý, jen tišší, protože ta paměť chybí jinde. Postup, jak zjistit skutečnou potřebu: **zmenšuj `r.Streaming.PoolSize`, dokud engine nezačne hlásit „streaming pool over budget"** — to je tvůj vodočet. Virtuální textury mají pooly zvlášť pro každý kompresní formát; od 5.4 si engine vede transient list dosažených maxim, ze kterého se hodnoty opíšou do fixed poolu.
+
+Kde se s tím potkáš: [Pooly a jejich vodočty](praxe/gpu-pamet.md#pooly-a-jejich-vodocty) · [Rejstřík: Virtual texture](#virtual-texture) · [Rejstřík: Mip mapa](#mip-mapa)
+
 ### String pulling
 
 **Zkrácení cesty přes navigační polygony na nejkratší možnou — body se přitáhnou k rohům a přebytečné zmizí (funnel algoritmus).**
@@ -4798,14 +4806,6 @@ S agentem stejně velkým jako postava funguje. Je-li agent menší, vede velkou
 
 Kde se s tím potkáš: [Velký nepřítel na malém agentovi](praxe/ai-ve-velkem.md#velky-nepritel-na-malem-agentovi-offset-cesty-ktery-nevyjede-z-navigace) · [Rejstřík: Nav Agent](#nav-agent)
 
-### Strudel
-
-**Prohlížečové prostředí pro live coding hudby — JavaScriptová verze jazyka TidalCycles.**
-
-Nic se neinstaluje, běží na `strudel.cc`, vestavěné zvuky nesou jména z klasických bicích automatů (`bd`, `hh`, `cp`). Základ je **mini notace**: `*4` dělí cyklus na čtvrtiny, `[a b]` dělí dál, `~` je pomlka, `<a b>` střídá po cyklech, `{}` je polymetr. Dvě věci, které začátečníka nutně potkají: **vzory zleva doprava určují, jak často se vzorkuje ten vpravo** (léčí `setDefaultJoin('mix')`) a **dlouhé vzorky se bez `clip(1)` vrství samy na sebe**.
-
-Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-pizza-mini-notace) · [Rejstřík: Live coding](#live-coding) · [Rejstřík: Euklidovský rytmus](#euklidovsky-rytmus)
-
 ### Struct
 
 **Pojmenovaná skupina proměnných, se kterou se zachází jako s jednou hodnotou.**
@@ -4813,6 +4813,14 @@ Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-piz
 Místo osmi vstupů do funkce jeden; místo osmi proměnných v SaveGame objektu jedna. Kromě čitelnosti přináší hlavně jedno místo změny: přidáš-li do struktury pole, všechna místa, která ji předávají, fungují dál. V save systémech je to rozdíl mezi rozšiřitelným formátem a rozsypaným seznamem.
 
 Kde se s tím potkáš: [Ukládání: struktury a interface](praxe/ukladani.md#save-system-ktery-prezije-druhy-projekt-struktury-interface-a-async) · [Data stran dveří](praxe/interakcni-animace.md#objekt-vi-jak-se-s-nim-zachazi-data-interakce-patri-k-veci-ne-k-postave) · [Hitbox: profil útoku](praxe/souboj.md#hitbox-podle-toho-jak-poctiva-je-animace-impact-frame-nebo-active-frames) · [Zdraví po končetinách](praxe/souboj.md#zdravi-po-koncetinach-physical-material-jako-adresa-struct-jako-stav)
+
+### Strudel
+
+**Prohlížečové prostředí pro live coding hudby — JavaScriptová verze jazyka TidalCycles.**
+
+Nic se neinstaluje, běží na `strudel.cc`, vestavěné zvuky nesou jména z klasických bicích automatů (`bd`, `hh`, `cp`). Základ je **mini notace**: `*4` dělí cyklus na čtvrtiny, `[a b]` dělí dál, `~` je pomlka, `<a b>` střídá po cyklech, `{}` je polymetr. Dvě věci, které začátečníka nutně potkají: **vzory zleva doprava určují, jak často se vzorkuje ten vpravo** (léčí `setDefaultJoin('mix')`) a **dlouhé vzorky se bez `clip(1)` vrství samy na sebe**.
+
+Kde se s tím potkáš: [Cyklus jako pizza](hudba/live-coding.md#cyklus-jako-pizza-mini-notace) · [Rejstřík: Live coding](#live-coding) · [Rejstřík: Euklidovský rytmus](#euklidovsky-rytmus)
 
 ### Stupnice
 
@@ -4886,13 +4894,13 @@ Bez markerů se walk/run/sprint v blend space fázově rozjedou a mix „plave".
 
 Kde se s tím potkáš: [Základy pohybu](praxe/pohyb-zaklady.md)
 
-### Tagy
+### Synkopa
 
-**Štítky hry na obchodní platformě; primárně vstup pro doporučovací algoritmus, ne popis pro zákazníka.**
+**Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny.**
 
-Vybírají se obráceně, než by člověk čekal: najdi hru se stejným publikem a opiš si její tagy, protože cílem je dostat se v databázi vedle správných her. Nejčastější chyba je použít nejgeneričtější tagy (promarníš místo) — a poznávacím znamením špatných tagů jsou nesourodé hry v sekci doporučení.
+Přesun not z přízvučných dob na „mezidoby" oživí mrtvou melodii. Dobrý rytmus balancuje opakování a proměnu — a synkopa je nejlevnější způsob, jak dodat proměnu.
 
-Kde se s tím potkáš: [Steam stránka: screenshoty a tagy](teorie/steam-stranka.md)
+Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md)
 
 ### TAA
 
@@ -4902,13 +4910,13 @@ Naměřený rozdíl ve výchozí scéně UE5: **TSR ~1,7 ms proti TAA 0,15 ms.**
 
 Kde se s tím potkáš: [Rozpad ceny výchozí scény](praxe/lehky-render.md#rozpad-ceny-vychozi-sceny-a-cim-ji-nahradit) · [Rejstřík: TSR](#tsr) · [Rejstřík: Screen percentage](#screen-percentage) · [Ze 100 na 200 FPS](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre)
 
-### Synkopa
+### Tagy
 
-**Akcent na nepřízvučnou dobu; hlavní koření rytmické proměny.**
+**Štítky hry na obchodní platformě; primárně vstup pro doporučovací algoritmus, ne popis pro zákazníka.**
 
-Přesun not z přízvučných dob na „mezidoby" oživí mrtvou melodii. Dobrý rytmus balancuje opakování a proměnu — a synkopa je nejlevnější způsob, jak dodat proměnu.
+Vybírají se obráceně, než by člověk čekal: najdi hru se stejným publikem a opiš si její tagy, protože cílem je dostat se v databázi vedle správných her. Nejčastější chyba je použít nejgeneričtější tagy (promarníš místo) — a poznávacím znamením špatných tagů jsou nesourodé hry v sekci doporučení.
 
-Kde se s tím potkáš: [Jak psát melodie](hudba/melodie.md)
+Kde se s tím potkáš: [Steam stránka: screenshoty a tagy](teorie/steam-stranka.md)
 
 ### Take Recorder
 
@@ -4918,14 +4926,6 @@ Nahrává **transformy**, takže přehrání sekvence sice pohybuje postavou př
 
 Kde se s tím potkáš: [Benchmark z level sequence](praxe/mereni-automaticky.md#benchmark-z-level-sequence-mereni-jako-soucast-prace) · [Rejstřík: Unreal Insights](#unreal-insights)
 
-### Tell
-
-**Signál, kterým se dopředu prozradí, co přijde — nápřah, blik, zvuk, změna pózy.**
-
-Bez tellu není útok výzva, ale loterie: hráč nemá podle čeho se rozhodnout, takže uhýbá naslepo. Tři varianty téhož útoku se stejným nápřahem jsou proto fakticky neuhnutelné. Praktický postup, který se vyplatí: **prototypuj signál dřív než jeho podobu** — barevný obdélník vedle hlavy nepřítele odpoví na otázku „stihne to hráč přečíst?" za pět minut, zatímco nakreslit animaci a teprve pak zjistit, že tell nefunguje, stojí dny.
-
-Kde se s tím potkáš: [Boss se staví z otázek](godot/pripadovka-nepratele.md#boss-se-stavi-z-otazek-ne-z-atributu) · [Obtížnost a výzva](teorie/obtiznost.md)
-
 ### Telemetrie
 
 **Sběr dat o tom, co hráči ve hře skutečně dělají — lokálně (čítače, achievementy) i vzdáleně (analytický backend).**
@@ -4933,6 +4933,14 @@ Kde se s tím potkáš: [Boss se staví z otázek](godot/pripadovka-nepratele.md
 Lokální patro: activity tracker — gameplay tagy hlášené centrální funkci, dispatcher pro odběratele, mapa tag→počet. Vzdálené patro: plugin (TrackEdge) + backend (PostHog): person properties, eventy s vlastnostmi, sessions s trváním, dashboardy. K vydání patří privacy rozvaha (poloha, GDPR). Telemetrie je chování, ne slova — sesterská měna „the gap".
 
 Kde se s tím potkáš: [Telemetrie](praxe/telemetrie.md) · [Idea iceberg](teorie/rady-z-praxe.md)
+
+### Tell
+
+**Signál, kterým se dopředu prozradí, co přijde — nápřah, blik, zvuk, změna pózy.**
+
+Bez tellu není útok výzva, ale loterie: hráč nemá podle čeho se rozhodnout, takže uhýbá naslepo. Tři varianty téhož útoku se stejným nápřahem jsou proto fakticky neuhnutelné. Praktický postup, který se vyplatí: **prototypuj signál dřív než jeho podobu** — barevný obdélník vedle hlavy nepřítele odpoví na otázku „stihne to hráč přečíst?" za pět minut, zatímco nakreslit animaci a teprve pak zjistit, že tell nefunguje, stojí dny.
+
+Kde se s tím potkáš: [Boss se staví z otázek](godot/pripadovka-nepratele.md#boss-se-stavi-z-otazek-ne-z-atributu) · [Obtížnost a výzva](teorie/obtiznost.md)
 
 ### Tessellation
 
@@ -4982,14 +4990,6 @@ Počet dlaždic je kompromis. Chtít vlastní obrázek pro každou kombinaci osm
 
 Kde se s tím potkáš: [Dual-grid: 16 dlaždic místo 256](godot/2d-svet.md#dual-grid-16-dlazdic-misto-256) · [Pixel art do Godotu](godot/2d-svet.md#pixel-art-do-godotu-paleta-silueta-a-jedno-nastaveni)
 
-### Time slicing
-
-**Rozložení drahého výpočtu do času: místo každý snímek se počítá každý n-tý.**
-
-Nejlevnější optimalizace, jaká existuje, protože nemění algoritmus — mění jen frekvenci. Hledání cesty počítané stokrát za sekundu srazí hru na 10 FPS; totéž desetkrát za sekundu ji vrátí nad 100, a hráč rozdíl nepozná, protože se cíl za tři setiny sekundy nikam nepřesune. Rozhodovací otázka zní **„jak často se to musí opravdu přepočítat?"** a platí na dohled nepřátel, vzdálenosti, UI i kontrolu podmínek. Nezaměňovat s asynchronním kódem — ten neblokuje, ale nezlevňuje.
-
-Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovka-proces.md#dve-veci-o-vykonu-ktere-se-pletou) · [Co skutečně stojí výkon](godot/projekt-a-vykon.md#co-skutecne-stoji-vykon-ne-nody-ale-co-v-nich-bezi-kazdy-snimek)
-
 ### Timeline
 
 **Blueprint uzel s křivkami v čase: Play/Reverse/Finished — animace hodnot bez animačního assetu.**
@@ -4998,37 +4998,21 @@ Float track 0→1 + Lerp = pohyb A→B (linear klíče = konstantní rychlost, A
 
 Kde se s tím potkáš: [Pasti a arénové mechaniky](praxe/pasti-a-mechaniky.md) · [Lerp předmětu do ruky](praxe/interakcni-animace.md#predmet-do-ruky-bez-teleportu-attach-neni-snap-a-dosah-neni-dohled) · [Plošina s pákou](praxe/interakcni-animace.md#contextual-animation-scena-s-rolemi-misto-rucni-choreografie) · [Agent a delaye místo Timeline](praxe/mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde)
 
-### Tool set
+### Time slicing
 
-**Sada nástrojů v Unreal MCP: API, přes které agent sahá na jeden systém editoru, třeba PCG, materiály nebo blueprinty.**
+**Rozložení drahého výpočtu do času: místo každý snímek se počítá každý n-tý.**
 
-Plugin MCP sám nástroje nemá, dodávají je tool sety v pluginech All Tool Sets a Editor Tool Set. Ve verzi 5.8 je tool set třída, jejíž nástroje jsou statické UFunctions. Reflexe z nich sama vyrobí JSON, takže jdou psát v C++ i v Pythonu. Dobrý tool set je čistý, úplný (getter, setter i výpis), skladebný a vrací chyby, které radí, co dál.
+Nejlevnější optimalizace, jaká existuje, protože nemění algoritmus — mění jen frekvenci. Hledání cesty počítané stokrát za sekundu srazí hru na 10 FPS; totéž desetkrát za sekundu ji vrátí nad 100, a hráč rozdíl nepozná, protože se cíl za tři setiny sekundy nikam nepřesune. Rozhodovací otázka zní **„jak často se to musí opravdu přepočítat?"** a platí na dohled nepřátel, vzdálenosti, UI i kontrolu podmínek. Nezaměňovat s asynchronním kódem — ten neblokuje, ale nezlevňuje.
 
-Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rozjet MCP](praxe/mcp-v-editoru.md#rozjet-mcp-tri-pluginy-agent-ze-spravne-slozky-a-co-delat-kdyz-nic-nevidi) · [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: MCP](#mcp)
+Kde se s tím potkáš: [Dvě věci o výkonu, které se pletou](godot/pripadovka-proces.md#dve-veci-o-vykonu-ktere-se-pletou) · [Co skutečně stojí výkon](godot/projekt-a-vykon.md#co-skutecne-stoji-vykon-ne-nody-ale-co-v-nich-bezi-kazdy-snimek)
 
-### Trim Relative Error
+### Tone mapper
 
-**Nastavení Nanite meshe: zahodí všechny detaily pod danou relativní chybou — místo procenta trojúhelníků povolená odchylka tvaru.**
+**Převod HDR hodnot renderu na to, co zobrazí monitor — a hlavní příčina toho, čemu se říká „unreal engine look".**
 
-Protože jde o chybu, ne o procento, přizpůsobí se sama různě hustým meshům a hodí se i tam, kde [Keep Triangle Percent](#keep-triangle-percent) škodí — hlavně na listí, kde ubírání po procentech rozpojí větve. V příkladu z kapitoly o Nanitu stačila hodnota 0,1 bez viditelné ztráty a 0,5 už byla moc; na vlastních meshích je ale potřeba hodnoty ověřit.
+UE5 posílá ve výchozím stavu **ACES**, filmový tone mapper navržený pro záběry, které se pak barevně korigují v postprodukci. Ve hrách ta postprodukce nikdy nepřijde, a ACES má návyk, který v reálném čase vadí: **sytě jasné barvy netlačí plynule do bílé, ale posouvá je** — odtud vymyté šedivé střední tóny a plochý přechod. Alternativa, kterou přejala Blenderová komunita, je **AGX**: jas přechází do bílé přirozeněji a detail v normálových mapách a albedu je čitelnější. Nasazuje se **zásahem do shaderu enginu** (`PostProcessTonemap.usf`), takže se to týká všech projektů na dané verzi enginu — a mění to pracovní postup, protože světla s AGX rychleji zesvětlují.
 
-Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Rejstřík: Nanite](#nanite)
-
-### Triplanar projection
-
-**Promítnutí textury ze tří os světa místo UV, s prolnutím podle normály, takže textura sedí na jakkoli natočený tvar.**
-
-Shader vzorkuje texturu shora, zepředu a z boku a míchá výsledky podle toho, kam plocha míří. Hodí se na skály, terén a světovou projekci sněhu nebo mechu přes všechno, protože nepotřebuje UV a nedělá švy. Cenou jsou tři vzorkování místo jednoho a rozmazané přechody na šikmých plochách. V UE je na to material function WorldAlignedTexture.
-
-Kde se s tím potkáš: [Organický kit a spoje: světová projekce](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Mortal Shell 2: material functions](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Material function](#material-function)
-
-### Tritón
-
-**Interval přesně uprostřed oktávy — dokonalé rozpůlení kruhu dvanácti tónů.**
-
-Notoricky nestabilní dvojice, která „se chce ohnout a rozvést". Zajímavé je, že jeho pověst nejdisonantnějšího intervalu je z velké části kulturní: v grafu disonance na tom není o moc hůř než malá sexta. A obecnější poučení, které z něj plyne: **na kruhu tónů znamená symetrie nestabilitu**, ne stabilitu — dokonale pravidelný tvar (tritón, zvětšený akord, zmenšený akord) nemá kam gravitovat.
-
-Kde se s tím potkáš: [Kvintový kruh je ve skutečnosti spirála](hudba/fyzika-souzvuku.md#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Jiné alikvóty, jiné stupnice](hudba/fyzika-souzvuku.md#jine-alikvoty-jine-stupnice) · [Rejstřík: Konsonance](#konsonance)
+Kde se s tím potkáš: [Tone mapper: odkud je „unreal engine look"](praxe/osvetleni.md#tone-mapper-odkud-je-unreal-engine-look) · [Rejstřík: EV100](#ev100)
 
 ### Tónina
 
@@ -5038,13 +5022,13 @@ V piano rollu ji nastavíš přes scale highlighting; „špatné" tóny pak zmi
 
 Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
 
-### Tone mapper
+### Tool set
 
-**Převod HDR hodnot renderu na to, co zobrazí monitor — a hlavní příčina toho, čemu se říká „unreal engine look".**
+**Sada nástrojů v Unreal MCP: API, přes které agent sahá na jeden systém editoru, třeba PCG, materiály nebo blueprinty.**
 
-UE5 posílá ve výchozím stavu **ACES**, filmový tone mapper navržený pro záběry, které se pak barevně korigují v postprodukci. Ve hrách ta postprodukce nikdy nepřijde, a ACES má návyk, který v reálném čase vadí: **sytě jasné barvy netlačí plynule do bílé, ale posouvá je** — odtud vymyté šedivé střední tóny a plochý přechod. Alternativa, kterou přejala Blenderová komunita, je **AGX**: jas přechází do bílé přirozeněji a detail v normálových mapách a albedu je čitelnější. Nasazuje se **zásahem do shaderu enginu** (`PostProcessTonemap.usf`), takže se to týká všech projektů na dané verzi enginu — a mění to pracovní postup, protože světla s AGX rychleji zesvětlují.
+Plugin MCP sám nástroje nemá, dodávají je tool sety v pluginech All Tool Sets a Editor Tool Set. Ve verzi 5.8 je tool set třída, jejíž nástroje jsou statické UFunctions. Reflexe z nich sama vyrobí JSON, takže jdou psát v C++ i v Pythonu. Dobrý tool set je čistý, úplný (getter, setter i výpis), skladebný a vrací chyby, které radí, co dál.
 
-Kde se s tím potkáš: [Tone mapper: odkud je „unreal engine look"](praxe/osvetleni.md#tone-mapper-odkud-je-unreal-engine-look) · [Rejstřík: EV100](#ev100)
+Kde se s tím potkáš: [Vlastní tool set a skill](praxe/mcp-v-editoru.md#vlastni-tool-set-a-skill-api-pro-juniora-a-rada-kolegovi) · [Rozjet MCP](praxe/mcp-v-editoru.md#rozjet-mcp-tri-pluginy-agent-ze-spravne-slozky-a-co-delat-kdyz-nic-nevidi) · [Asistent, ne zázrak](praxe/mcp-v-editoru.md#asistent-ne-zazrak-slovnik-priklady-a-skills-delaji-z-llm-stavitele-sveta) · [Rejstřík: MCP](#mcp)
 
 ### Toon shading
 
@@ -5086,6 +5070,14 @@ Rozestupy určí barvu: 4+3 půltóny = durová, 3+4 = mollová, 3+3 = zmenšen�
 
 Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.md)
 
+### Tři C
+
+**Character, camera, controls — trojice, kterou žánr definuje: koho ovládáš, odkud se díváš, čím to řídíš.**
+
+Průmyslový termín; ve velkých studiích existují vyhraněné 3C designérské role. „Platformer" nebo „RTS" v hlavě okamžitě vykreslí všechny tři C — proto jsou to žánry; „roguelike" nevykreslí žádné — proto je to mód.
+
+Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
+
 ### Trigger volume
 
 **Neviditelná zóna v levelu, která při vstupu hráče (či jiné entity) spustí událost.**
@@ -5093,6 +5085,14 @@ Kde se s tím potkáš: [Základy hudební teorie](hudba/hudebni-teorie-zaklady.
 Základní nástroj skriptovaných momentů: rozhovor NPC na tržišti, změna hudby, otevření cesty, cinematika na správném místě. Designové pravidlo: nejdřív otázky „jaký zážitek, jaká emoce, jaká informace, jaká další akce?" — trigger je jen doručovací mechanismus. V UE odpovídá trigger box/volume s overlap eventy (viz praxe: interakce bez Event Ticku).
 
 Kde se s tím potkáš: [Vedení hráče](teorie/vedeni-hrace.md) · [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md) · [Cutscéna: spouštěč, který nezlobí](praxe/cutsceny.md#cutscena-ktera-vrati-hru-tam-kde-skoncila)
+
+### Trim Relative Error
+
+**Nastavení Nanite meshe: zahodí všechny detaily pod danou relativní chybou — místo procenta trojúhelníků povolená odchylka tvaru.**
+
+Protože jde o chybu, ne o procento, přizpůsobí se sama různě hustým meshům a hodí se i tam, kde [Keep Triangle Percent](#keep-triangle-percent) škodí — hlavně na listí, kde ubírání po procentech rozpojí větve. V příkladu z kapitoly o Nanitu stačila hodnota 0,1 bez viditelné ztráty a 0,5 už byla moc; na vlastních meshích je ale potřeba hodnoty ověřit.
+
+Kde se s tím potkáš: [Nanite a velikost balíčku](praxe/nanite-do-hloubky.md#nanite-a-velikost-balicku-data-ktera-se-nikdy-nevykresli) · [Rejstřík: Nanite](#nanite)
 
 ### Trim sheet
 
@@ -5103,6 +5103,22 @@ Jedna textura obslouží stovky modelů — draw calls i VRAM klesají řádově
 Trim se navrhuje s kitem, ne po něm. Workshop o kitech ho staví přímo z geometrie kitu, a aby zkosení na sebe navazovala, musí se potkat hrany stejného druhu. Pro unikátní hero asset a nepravidelné organické tvary obvykle dává větší smysl vlastní textura.
 
 Kde se s tím potkáš: [Breakdowny](praxe/env-breakdowny.md) · [Trim z vlastní geometrie](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [AC Black Flag: lodě](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost)
+
+### Triplanar projection
+
+**Promítnutí textury ze tří os světa místo UV, s prolnutím podle normály, takže textura sedí na jakkoli natočený tvar.**
+
+Shader vzorkuje texturu shora, zepředu a z boku a míchá výsledky podle toho, kam plocha míří. Hodí se na skály, terén a světovou projekci sněhu nebo mechu přes všechno, protože nepotřebuje UV a nedělá švy. Cenou jsou tři vzorkování místo jednoho a rozmazané přechody na šikmých plochách. V UE je na to material function WorldAlignedTexture.
+
+Kde se s tím potkáš: [Organický kit a spoje: světová projekce](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Mortal Shell 2: material functions](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Material function](#material-function)
+
+### Tritón
+
+**Interval přesně uprostřed oktávy — dokonalé rozpůlení kruhu dvanácti tónů.**
+
+Notoricky nestabilní dvojice, která „se chce ohnout a rozvést". Zajímavé je, že jeho pověst nejdisonantnějšího intervalu je z velké části kulturní: v grafu disonance na tom není o moc hůř než malá sexta. A obecnější poučení, které z něj plyne: **na kruhu tónů znamená symetrie nestabilitu**, ne stabilitu — dokonale pravidelný tvar (tritón, zvětšený akord, zmenšený akord) nemá kam gravitovat.
+
+Kde se s tím potkáš: [Kvintový kruh je ve skutečnosti spirála](hudba/fyzika-souzvuku.md#kvintovy-kruh-je-ve-skutecnosti-spirala) · [Jiné alikvóty, jiné stupnice](hudba/fyzika-souzvuku.md#jine-alikvoty-jine-stupnice) · [Rejstřík: Konsonance](#konsonance)
 
 ### Trunk-based development
 
@@ -5120,14 +5136,6 @@ Viewport typicky běží na 80–90 % screen percentage a TSR dopočítává —
 
 Kde se s tím potkáš: [Nástroje: EasyWaterscape](praxe/nastroje-voda.md) · [Ze 100 na 200 FPS](praxe/lehky-render.md#ze-100-na-200-fps-co-stalo-za-vypnuti-ve-skutecne-hre) · [Stopy v TSR a Output Depth and Velocity](praxe/megalights.md#attenuation-radius-jako-hlavni-paka-pocitej-prekryvy-ne-svetla)
 
-### Tři C
-
-**Character, camera, controls — trojice, kterou žánr definuje: koho ovládáš, odkud se díváš, čím to řídíš.**
-
-Průmyslový termín; ve velkých studiích existují vyhraněné 3C designérské role. „Platformer" nebo „RTS" v hlavě okamžitě vykreslí všechny tři C — proto jsou to žánry; „roguelike" nevykreslí žádné — proto je to mód.
-
-Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
-
 ### Turing completeness
 
 **Vlastnost systému, který dokáže spočítat cokoli, co spočítat jde, pokud má dost času a paměti.**
@@ -5144,14 +5152,6 @@ Sledování není učení. Útěk je vždycky stejný: po každém tutoriálu za
 
 Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Jak se učit z GASP](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework) · [Pět věcí po pěti letech v Unrealu](teorie/jak-se-ucit-kodovat.md#aktivni-sledovani-tutorial-je-odrazovy-mustek-ne-recept) · [Pět kostek každé mechaniky](teorie/systemy-a-mechaniky.md#pet-kostek-kazde-mechaniky-vstup-detekce-transformace-komunikace-a-stav)
 
-### Typografie
-
-**Řemeslo práce s písmem: volba řezů, jejich role v hierarchii textu a pravidla, kdy se který používá.**
-
-Praktické minimum pro hru: dva fonty s jasnou rolí (nadpisy, tělo), a každý další styl — tučné, kurzíva, jiný řez — jen s důvodem, který platí v celé hře. Kurzíva vyhrazená pro flavor text hráči napoví, že tohle nemusí číst kvůli hraní; tučné klíčové slovo naopak říká, že tohle je mechanika.
-
-Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [Art specializace: UI](teorie/art-specializace.md)
-
 ### Two-loop rule
 
 **Aranžérské pravidlo: každé dva loopy hlavního nástroje uděláš nejvýš dvě změny.**
@@ -5167,6 +5167,14 @@ Kde se s tím potkáš: [Aranžmá: z loopu skladba](hudba/aranz.md)
 Z třístupňové Fun Scale (Newberry): Type 1 baví hned, Type 2 až zpětně (výstup na horu, soulsovka), Type 3 je „zábava, co se pokazila" — a rage hry ji vyrábějí schválně. Co je pro jednoho Type 2, je pro jiného Type 3; volba publika, ne kvality.
 
 Kde se s tím potkáš: [Zábava: taxonomie a pilíře](teorie/zabava.md) · [Obtížnost a výzva](teorie/obtiznost.md)
+
+### Typografie
+
+**Řemeslo práce s písmem: volba řezů, jejich role v hierarchii textu a pravidla, kdy se který používá.**
+
+Praktické minimum pro hru: dva fonty s jasnou rolí (nadpisy, tělo), a každý další styl — tučné, kurzíva, jiný řez — jen s důvodem, který platí v celé hře. Kurzíva vyhrazená pro flavor text hráči napoví, že tohle nemusí číst kvůli hraní; tučné klíčové slovo naopak říká, že tohle je mechanika.
+
+Kde se s tím potkáš: [Typografie](teorie/typografie.md) · [Art specializace: UI](teorie/art-specializace.md)
 
 ### UMG
 
@@ -5240,70 +5248,6 @@ Předchází UI: nejdřív se mapuje cesta hráče a minimalizuje počet nutnýc
 
 Kde se s tím potkáš: [Art specializace: UI a UX](teorie/art-specializace.md) · [První dojem](teorie/prvni-dojem.md)
 
-### Value pass
-
-**Krok blockoutu, ve kterém dostanou plochy různé odstíny šedi, aby se oddělily tvary a scéna získala hloubku.**
-
-Na rozdíl od jednotné 50% šedé nutí rozhodnout, co má být světlejší a co tmavší. Autor rozboru pipeline Naughty Dog k tomu radí oddělit vodorovné plochy od svislých. Naughty Dog použil kolem deseti odstínů, pro začátek stačí tři nebo čtyři. Hodnota, tedy šerosvit, je nejsilnější typ kontrastu, a proto ji blockout drží i bez barvy. Po value passu přichází průchod barvy.
-
-Kde se s tím potkáš: [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Zastav, omez, porovnej: šedá jako hodnota](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Rejstřík: Blockout](#blockout)
-
-### Vertex painting
-
-**Malování hodnot do vrcholů meshe (vertex color), podle kterých materiál prolíná vrstvy, třeba kámen, mech a špínu.**
-
-Každý vrchol nese až čtyři kanály (RGBA) a materiál je čte jako masky, takže stejný mesh bez nových textur vypadá na každém místě jinak. Přechod je ale jen tak jemný, jak hustá je geometrie, a proto mají modely určené k malování plochy rozdělené i tam, kde by tvar vrcholy nepotřeboval. Aby přechod nebyl jen rozmazaný, míchá se často podle výškové mapy (HeightLerp), takže štěrk vyleze z bláta nejdřív na hrbolech. V UE se maluje v Mesh Paint módu nebo v Modeling Tools.
-
-Kde se s tím potkáš: [Nanite displacement](praxe/materialy.md#nanite-displacement-relief-malovany-vertex-colorem) · [Textury pro kit](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: jeden shader na čtvrť](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [AC Black Flag: páry materiálů](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Naughty Dog: hustota geometrie](praxe/env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani)
-
-### Virtual Heightfield Mesh
-
-**Plugin a komponenta, která podle výšky z runtime virtual texture vyrobí hustou geometrii terénu.**
-
-Potřebuje RVT volume se stejnou polohou a velikostí a MinMax texturu, která se postaví v jejích detailech. Materiál ji může dál posouvat world position offsetem, a proto se hodí na deformace typu stopy ve sněhu. Je to samostatný mesh nad terénem, ne úprava samotného landscape.
-
-Kde se s tím potkáš: [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou) · [Rejstřík: Runtime Virtual Texture](#runtime-virtual-texture)
-
-### Visual blocker
-
-**Prvek levelu, který záměrně zkrátí průhled, třeba budova, zeď nebo zatáčka, aby řídil, co hráč vidí, a tím i co se musí načíst.**
-
-Dlouhé průhledy jsou drahé, protože engine musí vykreslit a mít v paměti všechno, co je vidět. Clona je přeruší a dá streamování čas nahrát další část. Částečná clona nechá něco prosvítat, takže hráč ví, že tam něco je, a navíc schová doskakování LODů. Dobře postavená clona je zároveň level design: rámuje výhled a vede k orientačnímu bodu. Úzké průchody v Mortal Shell 2 mají stejný úkol.
-
-Kde se s tím potkáš: [Beauclair: clony](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Mortal Shell 2: výkon začíná u designu](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Landmark](#landmark) · [Rejstřík: Occlusion culling](#occlusion-culling) · [Rejstřík: Level streaming](#level-streaming)
-
-### Visual Logger
-
-**Nahrávač hodnot a ladicích tvarů v čase (Tools → Debug → Visual Logger); po hře se dá procházet po časové ose.**
-
-Zápisy se třídí do kategorií a dají se filtrovat; mimo text umí i tvary a segmenty, ze kterých jde poskládat graf hodnoty přímo v levelu. Odpovídá na otázku „jak se to vyvíjelo", na kterou print string neumí. Nejbližší příbuzný je Chaos Visual Debugger pro fyziku.
-
-Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Chaos Visual Debugger](praxe/gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky)
-
-### Volume Sampler
-
-**PCG uzel, který vyplní objem body v mřížce voxelů.**
-
-Sám dá plnou kostku bodů. S World Volumetric Query jako vstupem nechá jen body, které se překrývají se světem v daném collision channelu, a raycast je pak přichytí na povrch. V jiných grafech slouží jako výřez, třeba pro mýtinu z blocking volume.
-
-Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Mýtiny a cesty](praxe/pcg-vegetace.md#mytiny-a-cesty)
-
-### Voxel
-
-**Objemový pixel: buňka pravidelné 3D mřížky, která nese hodnotu, třeba jestli je v ní hmota.**
-
-Voxelové terény umí jeskyně a převisy. Podle Epicu jsou ale v podstatě 3D height mapa se stejnými limity rozlišení a mřížky a k renderu se stejně převádějí na trojúhelníky. Proto Mesh Terrain sází rovnou na trojúhelníkové meshe. V PCG se se slovem potkáš u voxel size Volume Sampleru.
-
-Kde se s tím potkáš: [Proč trojúhelníky a ne voxely](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Rejstřík: Volume Sampler](#volume-sampler) · [Algoritmy, které staví herní světy](teorie/algoritmy-prehled.md#algoritmy-ktere-stavi-herni-svety)
-
-### VSync
-
-**Synchronizace výměny obrazových bufferů s obnovovacím cyklem monitoru — buď žádné trhání, nebo nejnižší latence.**
-
-Bez VSyncu se buffery vymění uprostřed vykreslování a snímek se rozdělí (**tearing**); s VSyncem se čeká na konec cyklu. Vypnutý VSync dává nižší [vstupní latenci](#input-latency), ale kromě trhání ubere i schopnost potrubí pohltit zásek. Většina konzolových her ho má zapnutý. Praktické doporučení z Epicu: **zapnout ve výchozím stavu a nechat hráči možnost vypnout.** Bonus: proměnná obnovovací frekvence (VRR/G-Sync/FreeSync) se v Unrealu zapíná právě tím, že necháš VSync zapnutý — o ostatní se stará hardware hráče.
-
-Kde se s tím potkáš: [Snímek není fronta](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi) · [Rejstřík: Frame time](#frame-time)
-
 ### Value chain
 
 **Hodnotový řetězec (Dan Cook): smysl a zábavnost sběrné činnosti nedává činnost sama, ale její zamýšlené použití dál v řetězci.**
@@ -5311,14 +5255,6 @@ Kde se s tím potkáš: [Snímek není fronta](praxe/frame-pacing.md#snimek-neni
 Sbírání klacíků nudí, dokud z nich hráč nestaví něco, co sytí fantazii hry — pak se každé rozhodnutí „co sebrat" stává plánováním. Prakticky: nudnou mechaniku neoživuj pozlátkem, dej jí destinaci. Cíl řetězce zpětně obarvuje všechny jeho články.
 
 Kde se s tím potkáš: [Smyčky a řetězce](teorie/smycky-a-retezce.md)
-
-### Vektor
-
-**Dvojice/trojice čísel se dvěma čteními: bod v prostoru (pozice), nebo směr s velikostí (velocity, síla).**
-
-Rozlišení užití chrání před nesmysly: pozice + vektor = nová pozice, pozice − pozice = vektor „odsud tam", pozice + pozice = nesmysl. Z pár operací padá celý pohyb (Eulerova integrace: pozice += velocity·dt) i dotazy na svět (dot product).
-
-Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
 
 ### Value curve
 
@@ -5328,6 +5264,22 @@ Rozepiš, co hru prodává (téma, mechanický hook, atmosféra…), oskóruj d�
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md) · [Rady z praxe: idea iceberg](teorie/rady-z-praxe.md)
 
+### Value pass
+
+**Krok blockoutu, ve kterém dostanou plochy různé odstíny šedi, aby se oddělily tvary a scéna získala hloubku.**
+
+Na rozdíl od jednotné 50% šedé nutí rozhodnout, co má být světlejší a co tmavší. Autor rozboru pipeline Naughty Dog k tomu radí oddělit vodorovné plochy od svislých. Naughty Dog použil kolem deseti odstínů, pro začátek stačí tři nebo čtyři. Hodnota, tedy šerosvit, je nejsilnější typ kontrastu, a proto ji blockout drží i bez barvy. Po value passu přichází průchod barvy.
+
+Kde se s tím potkáš: [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Zastav, omez, porovnej: šedá jako hodnota](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Rejstřík: Blockout](#blockout)
+
+### Vektor
+
+**Dvojice/trojice čísel se dvěma čteními: bod v prostoru (pozice), nebo směr s velikostí (velocity, síla).**
+
+Rozlišení užití chrání před nesmysly: pozice + vektor = nová pozice, pozice − pozice = vektor „odsud tam", pozice + pozice = nesmysl. Z pár operací padá celý pohyb (Eulerova integrace: pozice += velocity·dt) i dotazy na svět (dot product).
+
+Kde se s tím potkáš: [Matematika pro gamedev](teorie/matematika-pro-gamedev.md)
+
 ### Version control
 
 **Verzování projektu (typicky Git): každá změna se ukládá jako commit, ke kterému se lze kdykoli vrátit.**
@@ -5336,13 +5288,13 @@ Dvě služby: záchranné lano z každé katastrofy a viditelná historie pokrok
 
 Kde se s tím potkáš: [Start projektu](teorie/jak-zacit.md) · [Rejstřík: File locking](#file-locking)
 
-### Vizuální hierarchie
+### Vertex painting
 
-**Uspořádání scény tak, aby nejdůležitější informace byla nejsnáze vidět.**
+**Malování hodnot do vrcholů meshe (vertex color), podle kterých materiál prolíná vrstvy, třeba kámen, mech a špínu.**
 
-Vzniká kontrastem — v tvaru, velikosti, barvě, saturaci i míře detailu. Kontraintuitivní jádro: fokus se nedělá zvýrazněním jednoho místa, ale potlačením všech ostatních (na šachovnici, kde má stejný kontrast všechno, oko nemá kde přistát). Postup je dvoukrokový: nejdřív informační hierarchie (co je jak důležité), pak její překlad do vizuálních prostředků.
+Každý vrchol nese až čtyři kanály (RGBA) a materiál je čte jako masky, takže stejný mesh bez nových textur vypadá na každém místě jinak. Přechod je ale jen tak jemný, jak hustá je geometrie, a proto mají modely určené k malování plochy rozdělené i tam, kde by tvar vrcholy nepotřeboval. Aby přechod nebyl jen rozmazaný, míchá se často podle výškové mapy (HeightLerp), takže štěrk vyleze z bláta nejdřív na hrbolech. V UE se maluje v Mesh Paint módu nebo v Modeling Tools.
 
-Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Vizuální komunikace](teorie/vizualni-komunikace.md) · [Prostor a hranice](teorie/prostor-a-hranice.md)
+Kde se s tím potkáš: [Nanite displacement](praxe/materialy.md#nanite-displacement-relief-malovany-vertex-colorem) · [Textury pro kit](praxe/modularni-kity.md#textury-pro-kit-tilery-trimy-a-masky-dve-textury-na-kamen) · [Trim sheet jako systém](praxe/modularni-kity.md#trim-sheet-jako-system-jedna-textura-mnoho-assetu-a-kdy-ne) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: jeden shader na čtvrť](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [AC Black Flag: páry materiálů](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Naughty Dog: hustota geometrie](praxe/env-breakdowny.md#naughty-dog-shadery-misto-polygonu-a-nastroj-misto-modelovani)
 
 ### Vertical slice
 
@@ -5352,14 +5304,6 @@ Ne nutně začátek hry: libovolných 5–60 minut zážitku, na kterém se popr
 
 Kde se s tím potkáš: [Prototypování a vertical slice](teorie/prototypovani.md) · [Základy designu](teorie/zaklady.md) · [Zápisky: cut line](zapisky/cut-line.md)
 
-### Virtual texture stack
-
-**Počet unikátních UV kombinací v materiálu — cena zpětné vazby virtuálních textur se počítá na stack, ne na texturu.**
-
-Tři různá dláždění znamenají tři stacky, protože pro každý se musí zvlášť vyhodnotit, které mipy a dlaždice nahrát. Vzorkovat víc textur toutéž UV kombinací stack **nepřidá**; dát normálce vlastní dláždění ano. Praktické pravidlo při stavbě master materiálu: sdílej UV kombinace, kde to jde, a nové zaváděj vědomě.
-
-Kde se s tím potkáš: [Virtualizace](praxe/gpu-pamet.md#virtualizace-kniha-ze-ktere-ctes-jen-otevrenou-stranku) · [Rejstřík: Virtual texture](#virtual-texture)
-
 ### Virtual bone
 
 **Kost existující jen v enginu — přidá se na skeleton (Add Virtual Bone) bez re-exportu z DCC nástroje.**
@@ -5367,6 +5311,14 @@ Kde se s tím potkáš: [Virtualizace](praxe/gpu-pamet.md#virtualizace-kniha-ze-
 Sleduje transform zdrojové kosti vůči jiné; typické použití: IK cíle (foot IK pro skeleton, který IK kosti nemá — MetaHuman) a odvozené sockety. Rychlá cesta, jak cizímu skeletonu doplnit, co rig očekává.
 
 Kde se s tím potkáš: [MetaHuman v praxi](praxe/metahuman.md)
+
+### Virtual Heightfield Mesh
+
+**Plugin a komponenta, která podle výšky z runtime virtual texture vyrobí hustou geometrii terénu.**
+
+Potřebuje RVT volume se stejnou polohou a velikostí a MinMax texturu, která se postaví v jejích detailech. Materiál ji může dál posouvat world position offsetem, a proto se hodí na deformace typu stopy ve sněhu. Je to samostatný mesh nad terénem, ne úprava samotného landscape.
+
+Kde se s tím potkáš: [Stopy do hloubky](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou) · [Rejstřík: Runtime Virtual Texture](#runtime-virtual-texture)
 
 ### Virtual Shadow Maps
 
@@ -5386,6 +5338,38 @@ Pevný pool stránek ve VRAM: při přeplnění nejhůř rozmazání, nikdy out-
 
 Kde se s tím potkáš: [Textury a DLSS](praxe/textury-a-dlss.md) · [Breakdowny](praxe/env-breakdowny.md) · [RVT na Mesh Terrainu](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [RVT pro Virtual Heightfield Mesh](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
 
+### Virtual texture stack
+
+**Počet unikátních UV kombinací v materiálu — cena zpětné vazby virtuálních textur se počítá na stack, ne na texturu.**
+
+Tři různá dláždění znamenají tři stacky, protože pro každý se musí zvlášť vyhodnotit, které mipy a dlaždice nahrát. Vzorkovat víc textur toutéž UV kombinací stack **nepřidá**; dát normálce vlastní dláždění ano. Praktické pravidlo při stavbě master materiálu: sdílej UV kombinace, kde to jde, a nové zaváděj vědomě.
+
+Kde se s tím potkáš: [Virtualizace](praxe/gpu-pamet.md#virtualizace-kniha-ze-ktere-ctes-jen-otevrenou-stranku) · [Rejstřík: Virtual texture](#virtual-texture)
+
+### Visual blocker
+
+**Prvek levelu, který záměrně zkrátí průhled, třeba budova, zeď nebo zatáčka, aby řídil, co hráč vidí, a tím i co se musí načíst.**
+
+Dlouhé průhledy jsou drahé, protože engine musí vykreslit a mít v paměti všechno, co je vidět. Clona je přeruší a dá streamování čas nahrát další část. Částečná clona nechá něco prosvítat, takže hráč ví, že tam něco je, a navíc schová doskakování LODů. Dobře postavená clona je zároveň level design: rámuje výhled a vede k orientačnímu bodu. Úzké průchody v Mortal Shell 2 mají stejný úkol.
+
+Kde se s tím potkáš: [Beauclair: clony](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Mortal Shell 2: výkon začíná u designu](praxe/modularni-kity.md#mortal-shell-2-spickovy-vzhled-od-triceti-lidi-malo-materialu-a-hodne-masek) · [Rejstřík: Landmark](#landmark) · [Rejstřík: Occlusion culling](#occlusion-culling) · [Rejstřík: Level streaming](#level-streaming)
+
+### Visual Logger
+
+**Nahrávač hodnot a ladicích tvarů v čase (Tools → Debug → Visual Logger); po hře se dá procházet po časové ose.**
+
+Zápisy se třídí do kategorií a dají se filtrovat; mimo text umí i tvary a segmenty, ze kterých jde poskládat graf hodnoty přímo v levelu. Odpovídá na otázku „jak se to vyvíjelo", na kterou print string neumí. Nejbližší příbuzný je Chaos Visual Debugger pro fyziku.
+
+Kde se s tím potkáš: [Ladění: čtyři otázky, čtyři nástroje](praxe/debugging.md#ctyri-otazky-ctyri-nastroje-od-print-stringu-po-visual-logger) · [Chaos Visual Debugger](praxe/gpu-pruchod.md#chaos-visual-debugger-rentgen-fyziky)
+
+### Vizuální hierarchie
+
+**Uspořádání scény tak, aby nejdůležitější informace byla nejsnáze vidět.**
+
+Vzniká kontrastem — v tvaru, velikosti, barvě, saturaci i míře detailu. Kontraintuitivní jádro: fokus se nedělá zvýrazněním jednoho místa, ale potlačením všech ostatních (na šachovnici, kde má stejný kontrast všechno, oko nemá kde přistát). Postup je dvoukrokový: nejdřív informační hierarchie (co je jak důležité), pak její překlad do vizuálních prostředků.
+
+Kde se s tím potkáš: [Herní art: pipeline](teorie/art-pipeline.md) · [Vizuální komunikace](teorie/vizualni-komunikace.md) · [Prostor a hranice](teorie/prostor-a-hranice.md)
+
 ### Voice leading
 
 **Vedení tónů tak, aby přechody mezi akordy byly co nejjemnější (vedení hlasů).**
@@ -5402,6 +5386,14 @@ Základní tvar (root–tercie–kvinta natěsno) zní basicky; zvedneš-li jedn
 
 Kde se s tím potkáš: [Akordy a harmonie](hudba/akordy-a-harmonie.md)
 
+### Volume Sampler
+
+**PCG uzel, který vyplní objem body v mřížce voxelů.**
+
+Sám dá plnou kostku bodů. S World Volumetric Query jako vstupem nechá jen body, které se překrývají se světem v daném collision channelu, a raycast je pak přichytí na povrch. V jiných grafech slouží jako výřez, třeba pro mýtinu z blocking volume.
+
+Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Mýtiny a cesty](praxe/pcg-vegetace.md#mytiny-a-cesty)
+
 ### Volumetric fog
 
 **Objemová mlha: světlo se rozptyluje v „hustotě vzduchu" — paprsky, god rays a atmosféra s hloubkou.**
@@ -5410,13 +5402,37 @@ Zapíná se na Exponential Height Fog; tvar řídí scattering distribution, sta
 
 Kde se s tím potkáš: [Osvětlení](praxe/osvetleni.md) · [Stavba prostředí](praxe/env-tvorba.md) · [Podíl světla v mlze](praxe/megalights.md#svitidlo-z-vic-svetel-odraz-mlha-a-stin-se-ladi-zvlast) · [Mlha, která rozmaže záři](praxe/megalights.md#expozice-ktera-drzi-kalibrace-local-exposure-a-dva-modely-svetla)
 
-### Oblique
+### Voxel
 
-**Perspektiva, ve které je scéna nakloněná tak, že vidíš horní i boční stranu objektů.**
+**Objemový pixel: buňka pravidelné 3D mřížky, která nese hodnotu, třeba jestli je v ní hmota.**
 
-Perspektiva her jako Harvest Moon nebo Stardew Valley — není to čistý pohled shora, ale ani izometrie. Rozdíl proti izometrii je v tom, jak se osy sbíhají; prakticky se volí tam, kde je potřeba čitelný půdorys a zároveň rozpoznatelné postavy zpředu.
+Voxelové terény umí jeskyně a převisy. Podle Epicu jsou ale v podstatě 3D height mapa se stejnými limity rozlišení a mřížky a k renderu se stejně převádějí na trojúhelníky. Proto Mesh Terrain sází rovnou na trojúhelníkové meshe. V PCG se se slovem potkáš u voxel size Volume Sampleru.
 
-Kde se s tím potkáš: [2D vizuál: izometrie](teorie/2d-vizual.md)
+Kde se s tím potkáš: [Proč trojúhelníky a ne voxely](praxe/mesh-terrain.md#proc-trojuhelniky-a-ne-voxely-mesh-partition-od-zdroje-po-runtime) · [Rejstřík: Volume Sampler](#volume-sampler) · [Algoritmy, které staví herní světy](teorie/algoritmy-prehled.md#algoritmy-ktere-stavi-herni-svety)
+
+### VSync
+
+**Synchronizace výměny obrazových bufferů s obnovovacím cyklem monitoru — buď žádné trhání, nebo nejnižší latence.**
+
+Bez VSyncu se buffery vymění uprostřed vykreslování a snímek se rozdělí (**tearing**); s VSyncem se čeká na konec cyklu. Vypnutý VSync dává nižší [vstupní latenci](#input-latency), ale kromě trhání ubere i schopnost potrubí pohltit zásek. Většina konzolových her ho má zapnutý. Praktické doporučení z Epicu: **zapnout ve výchozím stavu a nechat hráči možnost vypnout.** Bonus: proměnná obnovovací frekvence (VRR/G-Sync/FreeSync) se v Unrealu zapíná právě tím, že necháš VSync zapnutý — o ostatní se stará hardware hráče.
+
+Kde se s tím potkáš: [Snímek není fronta](praxe/frame-pacing.md#snimek-neni-fronta-je-to-potrubi) · [Rejstřík: Frame time](#frame-time)
+
+### Water Body
+
+**Actor Water pluginu: ocean, lake, river, island — vodní tělesa tvarovaná splinami, vzájemně propojitelná.**
+
+Klávesa G ukáže spline pointy; řeka má rychlost proudu per point (alt+tažení přidává body). Vztah k terénu řeší Edge Offset / Channel Edge Offset a falloff mode (Angle→Width proti hřebeni u břehu); landscape drž ~1 cm nad nulou. Vestavěné: waterline efekt kamery a podvodní post-process.
+
+Kde se s tím potkáš: [Voda a buoyancy](praxe/voda-a-buoyancy.md) · [Interaktivní voda](praxe/interaktivni-voda.md)
+
+### Wave Function Collapse
+
+**Procedurální generátor: každé políčko je superpozicí všech dlaždic a „pozorování" ho zkolabuje podle pravidel sousedství.**
+
+Metafora z kvantové mechaniky, mechanika ze sudoku: vyber políčko, zkolabuj na dlaždici konzistentní se sousedy (silnice navazují), opakuj. Výsledek náhodný, a přitom soudržný — nekonečné mapy bez ruční práce a bez generativní AI.
+
+Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-prehled.md) · [PCG: základy a nástroje](praxe/pcg-zaklady.md)
 
 ### Widget Blueprint
 
@@ -5442,38 +5458,6 @@ Zdrojem paprsku může být kurzor myši (Interaction Source = Mouse) nebo směr
 
 Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys)
 
-### World Composition
-
-**Starší systém UE 4 pro velké světy: svět složený ze sublevelů v mřížce, které se streamují podle vzdálenosti.**
-
-Předchůdce [World Partition](#world-partition). Projekty začaté před jeho příchodem na něm stavěly i v UE 5; Lords of the Fallen po sublevelech streamují i nav data.
-
-Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Rejstřík: World Partition](#world-partition)
-
-### WPO
-
-**World Position Offset — posun vrcholů v materiálu; nejčastější tichá příčina drahých stínů.**
-
-Slouží k větru v listí, vlnám a podobným deformacím a je to **programovatelná rasterizace**, tedy v Nanite světě výrazně dražší cesta. Dvě pole, která k němu vždycky patří: **WPO disabled distance** (za ní se přepne na rychlou fixed-function cestu) a u listí **shadow cache invalidation behavior**, protože pohybující se vrcholy jinak invalidují stínovou cache každý snímek. Diagnostika: Nanite visualization → *Evaluate WPO*; zelená znamená, že se vyhodnocuje.
-
-Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [AC Black Flag: okna s náhodnou místností](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Prohlubně z render targetu](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
-
-### Water Body
-
-**Actor Water pluginu: ocean, lake, river, island — vodní tělesa tvarovaná splinami, vzájemně propojitelná.**
-
-Klávesa G ukáže spline pointy; řeka má rychlost proudu per point (alt+tažení přidává body). Vztah k terénu řeší Edge Offset / Channel Edge Offset a falloff mode (Angle→Width proti hřebeni u břehu); landscape drž ~1 cm nad nulou. Vestavěné: waterline efekt kamery a podvodní post-process.
-
-Kde se s tím potkáš: [Voda a buoyancy](praxe/voda-a-buoyancy.md) · [Interaktivní voda](praxe/interaktivni-voda.md)
-
-### Wave Function Collapse
-
-**Procedurální generátor: každé políčko je superpozicí všech dlaždic a „pozorování" ho zkolabuje podle pravidel sousedství.**
-
-Metafora z kvantové mechaniky, mechanika ze sudoku: vyber políčko, zkolabuj na dlaždici konzistentní se sousedy (silnice navazují), opakuj. Výsledek náhodný, a přitom soudržný — nekonečné mapy bez ruční práce a bez generativní AI.
-
-Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-prehled.md) · [PCG: základy a nástroje](praxe/pcg-zaklady.md)
-
 ### WIP limit
 
 **Strop rozdělané práce v kanbanu: jedna, maximálně dvě karty v Doing na osobu.**
@@ -5490,6 +5474,14 @@ Wishlisty pohánějí doporučování a rozhodují o síle launche; Steam Next F
 
 Kde se s tím potkáš: [Postmortem ShantyTown](teorie/postmortem-shantytown.md) · [Idea iceberg](teorie/rady-z-praxe.md)
 
+### World Composition
+
+**Starší systém UE 4 pro velké světy: svět složený ze sublevelů v mřížce, které se streamují podle vzdálenosti.**
+
+Předchůdce [World Partition](#world-partition). Projekty začaté před jeho příchodem na něm stavěly i v UE 5; Lords of the Fallen po sublevelech streamují i nav data.
+
+Kde se s tím potkáš: [Jeden nav mesh pro všechny velikosti](praxe/ai-ve-velkem.md#jeden-nav-mesh-pro-vsechny-velikosti-sirka-chodby-jako-flag-v-nav-datech) · [Rejstřík: World Partition](#world-partition)
+
 ### World Partition
 
 **Streamovací systém UE5: svět rozdělený na buňky, které se nahrávají a uvolňují podle vzdálenosti či logiky.**
@@ -5498,13 +5490,21 @@ Nahrazuje starší ruční level streaming; open world level je level s aktivní
 
 Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md)
 
-### Zákon opaků
+### WPO
 
-**Marketingová technika: najdi slabinu, na kterou si stěžují fanoušci žánru, odstraň ji a postav na tom svůj slib.**
+**World Position Offset — posun vrcholů v materiálu; nejčastější tichá příčina drahých stínů.**
 
-Případovka: survival hra si všimla, že hráči mají dost mechaniky hladovění, vyřadila ji a udělala z toho hlavní sdělení — hra zůstala z devadesáti procent žánrová a prodávala se tou jednou změnou. Působí to jako honba za trendem, ale je to opak: vidíš, čeho mají lidé dost, a jdeš před ně.
+Slouží k větru v listí, vlnám a podobným deformacím a je to **programovatelná rasterizace**, tedy v Nanite světě výrazně dražší cesta. Dvě pole, která k němu vždycky patří: **WPO disabled distance** (za ní se přepne na rychlou fixed-function cestu) a u listí **shadow cache invalidation behavior**, protože pohybující se vrcholy jinak invalidují stínovou cache každý snímek. Diagnostika: Nanite visualization → *Evaluate WPO*; zelená znamená, že se vyhodnocuje.
 
-Kde se s tím potkáš: [Co prodává: zákon opaků](teorie/co-prodava.md) · [Žánry očima designéra](teorie/zanry.md)
+Kde se s tím potkáš: [Kdo invaliduje stínovou cache](praxe/nanite-do-hloubky.md#kdo-invaliduje-stinovou-cache) · [Rejstřík: Virtual Shadow Maps](#virtual-shadow-maps) · [Rejstřík: Nanite](#nanite) · [Overlay a WPO](praxe/souboj.md#zablesk-a-kapow-efekt-musi-sedet-na-tele-i-mezi-tely) · [AC Black Flag: okna s náhodnou místností](praxe/env-technika.md#ac-black-flag-resynced-prodat-iluzi-ne-postavit-skutecnost) · [Prohlubně z render targetu](praxe/footsteps.md#stopy-do-hloubky-render-target-jako-platno-pod-postavou)
+
+### Yoink & twist
+
+**Vzorec tvorby nápadu: vezmi žánr s prokázaným publikem (yoink) a přidej vlastní vylepšení nebo obrat (twist).**
+
+Protiklad honby za stoprocentní originalitou, která znamená nulovou validaci trhu a chybějící referenční body. Rozhodovací pravidlo: v mladém žánru stačí být *lepší* (oprav pár bolestí z negativních recenzí — Fields of Mistria vs. Stardew Valley), ve starém žánru musíš být *jiný* (Age of Empires neporazíš kvalitou). Twist často stojí jen reskin a fikci — v kódu se nemusí změnit nic.
+
+Kde se s tím potkáš: [Nápad: yoink & twist](teorie/napad.md) · [Prototypování: standardy vs. inovace](teorie/prototypovani.md)
 
 ### Yomi
 
@@ -5514,13 +5514,13 @@ Termín z fighting her: mind game nad mechanikami. Šachy proti dítěti nebaví
 
 Kde se s tím potkáš: [Engineering experiences](teorie/engineering-experiences.md)
 
-### Yoink & twist
+### Zákon opaků
 
-**Vzorec tvorby nápadu: vezmi žánr s prokázaným publikem (yoink) a přidej vlastní vylepšení nebo obrat (twist).**
+**Marketingová technika: najdi slabinu, na kterou si stěžují fanoušci žánru, odstraň ji a postav na tom svůj slib.**
 
-Protiklad honby za stoprocentní originalitou, která znamená nulovou validaci trhu a chybějící referenční body. Rozhodovací pravidlo: v mladém žánru stačí být *lepší* (oprav pár bolestí z negativních recenzí — Fields of Mistria vs. Stardew Valley), ve starém žánru musíš být *jiný* (Age of Empires neporazíš kvalitou). Twist často stojí jen reskin a fikci — v kódu se nemusí změnit nic.
+Případovka: survival hra si všimla, že hráči mají dost mechaniky hladovění, vyřadila ji a udělala z toho hlavní sdělení — hra zůstala z devadesáti procent žánrová a prodávala se tou jednou změnou. Působí to jako honba za trendem, ale je to opak: vidíš, čeho mají lidé dost, a jdeš před ně.
 
-Kde se s tím potkáš: [Nápad: yoink & twist](teorie/napad.md) · [Prototypování: standardy vs. inovace](teorie/prototypovani.md)
+Kde se s tím potkáš: [Co prodává: zákon opaků](teorie/co-prodava.md) · [Žánry očima designéra](teorie/zanry.md)
 
 ### Zákop (trench)
 
@@ -5538,14 +5538,6 @@ Vzniká střídavým sčítáním a odečítáním vln („wa-wa-wa"). Čím dá
 
 Kde se s tím potkáš: [Fyzika souzvuku](hudba/fyzika-souzvuku.md)
 
-### Z index
-
-**Číslo, které určuje pořadí vykreslení 2D objektů nezávisle na jejich pozici ve stromu.**
-
-Ve výchozím stavu mají všechny viditelné nody Z index 0, a proto se kreslí v pořadí, v jakém jsou ve [stromu scény](#scene-tree) — což znamená, že přeuspořádání stromu tiše změní, co je vidět. Nastavit hráči vyšší Z index je explicitní pravidlo („hráč je vždycky vepředu") místo skryté závislosti na pořadí. Obecně platí: kde na překrývání záleží, zapiš to číslem, ne pořadím.
-
-Kde se s tím potkáš: [Nody, scény a strom](godot/zaklady.md#nody-a-sceny-strom-ktery-je-zaroven-architekturou)
-
 ### Zero indexing
 
 **První prvek má index 0: lidské „první" je strojová nula — a na záměně padly nespočetné hodiny ladění.**
@@ -5553,3 +5545,11 @@ Kde se s tím potkáš: [Nody, scény a strom](godot/zaklady.md#nody-a-sceny-str
 Konvence většiny jazyků (i UE polí): n-tý prvek sedí na indexu n − 1. Klasický důsledek je off-by-one chyba — smyčka o jedno projede či nedojede. Kdykoli sáhneš po indexu, řekni si nahlas, jestli počítáš od nuly.
 
 Kde se s tím potkáš: [Programátorské myšlení](teorie/programatorske-mysleni.md)
+
+### Z index
+
+**Číslo, které určuje pořadí vykreslení 2D objektů nezávisle na jejich pozici ve stromu.**
+
+Ve výchozím stavu mají všechny viditelné nody Z index 0, a proto se kreslí v pořadí, v jakém jsou ve [stromu scény](#scene-tree) — což znamená, že přeuspořádání stromu tiše změní, co je vidět. Nastavit hráči vyšší Z index je explicitní pravidlo („hráč je vždycky vepředu") místo skryté závislosti na pořadí. Obecně platí: kde na překrývání záleží, zapiš to číslem, ne pořadím.
+
+Kde se s tím potkáš: [Nody, scény a strom](godot/zaklady.md#nody-a-sceny-strom-ktery-je-zaroven-architekturou)

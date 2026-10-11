@@ -55,7 +55,7 @@ Rules:
   `### Term` → one-line definition (bold) → 2–5 sentence explanation → „Kde se s tím potkáš:" links to chapters.
 - Every entry's term also gets a `*[Term]: one-line Czech definition` line in `includes/abbreviations.md` (tooltips). Keep the one-liner under ~120 characters.
 - **When processing any video: extract new terms, add both layers.** The glossary grows with content, never as a bulk import.
-- Alphabetical order within `rejstrik.md`. Anchors: lowercase-hyphenated.
+- Alphabetical order within `rejstrik.md` by the key in `scripts/check_rejstrik.py` (diacritics dropped, case and punctuation ignored, so „B-roll" sorts as `broll`). Insert new terms with that key, or run the script with `--fix`. Never point at a neighbouring entry by position („předchozí heslo"), link the term. Anchors: lowercase-hyphenated.
 - Multi-word terms work in tooltips (`*[Blueprint Interface]: …`) — prefer the exact casing used in text.
 
 ## Zápisky conventions

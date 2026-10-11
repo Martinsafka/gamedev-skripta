@@ -141,7 +141,7 @@ These are established batch routines — details and war stories live in `dev_lo
 4. ~10 strongest links made bidirectional (backlink edits in old chapters).
 5. Follow-ups from the previous batch's dev_log honored or explicitly deferred.
 6. Glyph grep clean; build --strict exit 0; `scripts/check_anchors.py` 0 problems (both link kinds); `scripts/check_timestamps.py` on the touched chapters 0 problems; chapter map regenerated.
-7. rejstrik.md + abbreviations.md both extended; counts reported.
+7. rejstrik.md + abbreviations.md both extended; `scripts/check_rejstrik.py` 0 problems; counts reported.
 8. processing_index rows + header updated; teorie/index.md + mkdocs.yml nav updated.
 9. dev_log entry written (What/Why/How/Follow-ups), roadmap ticked.
 10. Commit message proposed; **no git commit/push** — the user commits.
