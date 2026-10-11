@@ -15,6 +15,23 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-11 — Údržba: dvě upřesnění ověřená na UE 5.8 a MegaLights v „Malovat světlem" (Claude Code, Opus 5.5)
+
+**What:** Dva follow-upy z dávek 53 a 54, obojí v Praxi.
+- `praxe/pcg-mesta.md`: obě naše upřesnění jsou ověřená proti dokumentaci Epicu. Instance data packer plní per-instance custom data. Poznámka už neříká „podle všeho" a uvádí, čím to API dokumentace 5.8 dokládá. Filtr tagů přes metadata `Categories` je potvrzený a doplněný o obdobu `GameplayTagFilter` pro parametry funkcí.
+- `praxe/osvetleni.md`: poznámka v „Malovat světlem" (video pro 5.5) má dodatek o MegaLights v 5.8. Rozpočet se počítá podle překryvů attenuation radiů na pixelu, ne podle počtu světel, a scéna z desítek pomocných světel je přesně případ, kdy obraz začne šumět. Odkaz vede do kapitoly MegaLights; označeno „Toto čtení je naše".
+
+**Why:** Follow-upy dávky 53 (č. 3) a dávky 54 (č. 4). Uživatel: „ok, pusť se do bodů 1 a 2".
+
+**How:**
+- **Packer:** API stránky k UE 5.8. `UPCGInstanceDataPackerBase::PackCustomDataFromAttributes` skládá atributy po bodech do `FPCGPackedCustomData`, která má pole floatů `CustomData` a `NumCustomDataFloats`, tedy formát per-instance custom data u ISM. V materiálu je čte výraz Per Instance Custom Data. Dokumentace to výslovně netvrdí, proto poznámka píše „potvrzuje nepřímo".
+- **`Categories`:** API reference `UGameplayTagsManager` v aktuální dokumentaci uvádí `GetCategoriesMetaFromField`, který čte metadata `Categories` z vlastnosti, a `GetCategoriesMetaFromFunction` pro `GameplayTagFilter` u funkcí.
+- **Co do textu nešlo:** hlášení UE-360388 (falešná varování u filtru s víc kategoriemi) zná jen výsledek vyhledávání. Stránka bug trackeru vrátila 403, takže neověřené zůstává mimo text.
+- **MegaLights:** zdrojem je kapitola `megalights` (dávka 53, stream Inside Unreal k 5.8). Heslo MegaLights už zmiňovalo (autor je zapíná od 5.5) a odkaz na „Svítidlo z víc světel" vedl. Chyběl jen praktický důsledek pro scénu z mnoha falešných světel.
+- **Gates:** `--strict` bez varování, `scripts/check_anchors.py` 5 104/0 (nový odkaz do `megalights`), `scripts/check_timestamps.py` na obou kapitolách 0 problémů. Kontrola znaků hlásí jen „²" v jednotce cd/m² na řádku 15 `osvetleni`, který tam byl už před úpravou.
+
+**Follow-ups:** Žádné.
+
 ### 2026-10-11 — Mapa děr v obsahu: průchod Teorií a Godotem (Claude Code, Opus 5.5)
 
 **What:** `content_gaps.md` už není psaná jen z pohledu Praxe v UE5. `scripts/gap_scan.py` má 26 nových klíčů (11 Teorie, 9 Godot, 6 kandidátů z dávek 50–56), celkem 40. Tabulka má 15 nových řádků:
