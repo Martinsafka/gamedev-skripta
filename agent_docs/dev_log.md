@@ -15,6 +15,33 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-11 — Mapa děr v obsahu: průchod Teorií a Godotem (Claude Code, Opus 5.5)
+
+**What:** `content_gaps.md` už není psaná jen z pohledu Praxe v UE5. `scripts/gap_scan.py` má 26 nových klíčů (11 Teorie, 9 Godot, 6 kandidátů z dávek 50–56), celkem 40. Tabulka má 15 nových řádků:
+- **5× P2:** herní ekonomika a balancování, náhoda v designu, onboarding, blockout přímo v UE, ukládání hry v Godotu.
+- **10× P3:** cena hry, questy a větvení, hráčská motivace, puzzle design, lock-on a parry, PS1 artefakty, Geometry Script od základů, PCGEx, celulární automaty v praxi, Godot mimo 2D.
+
+Stávajících 14 řádků má čísla z nového scanu a v Evidence nově i klíč ze scanu, jak žádá pravidlo „klíč stejný v obou souborech". Řádky UI a PSO mají opravený zastaralý text. Nová podsekce „Prověřeno: díra to není" obsahuje 7 kandidátů.
+
+**Why:** Bod v roadmapě („Proskenovat Teorii a Godot") a follow-upy dávek 50–56 s kandidáty do `content_gaps`. Uživatel: „ok, pusť se do mapy děr v obsahu".
+
+**How:**
+- **Kandidáti:** u Teorie podle běžné osnovy herního designu proti seznamu kapitol v chapter map, u Godotu podle hlavních oblastí jeho dokumentace, plus kandidáti z follow-upů dávek 50–56.
+- **Scan a ověření u zdroje.** Regex často klame, proto je každé podezřelé číslo ověřené na konkrétních videích:
+  - nejsilnější „zdroj" náhody je hudební video o randomizaci rytmu,
+  - „tutorial level" v kurzu pro začátečníky není onboarding,
+  - „smlouva" v kapitolách bývá programátorský kontrakt,
+  - „pricing" v podcastu je cenová změna Unity,
+  - parry v přednášce o AI pro souls-like je reakce nepřátel.
+- **Čtení cílových kapitol** před zápisem (poučení z planého poplachu u „Editor proti buildu"): Godot editorové nástroje mají vlastní heslo, PS1 artefakty kapitola zmiňuje bez zdroje a komunitu i tvůrce obsahu `prezit-jako-studio` z podcastu BiteMe už cituje.
+- **Opravy stávajících řádků:** u PSO už neplatí „knihovna o tom neví nic". Od čtvrté vlny ví, že se PSO musí zabalit nebo předpřipravit (`frame-pacing`, `modularni-kity`), chybí postup; P1 zůstává. U UI neplatí „57 kapitol a ani jedna o rozhraní", protože existuje `ui-ve-svete`; jádro UMG ale dál chybí.
+- **Předpoklady, které neprošly:** onboarding pokrytý „Vedením hráče", smlouvy pokryté podle čísla kapitol a spolupráce v týmu v `prezit-jako-studio`. Do tabulky se v téhle podobě nedostaly.
+- **Gates:** změny jsou jen v `agent_docs/` a `scripts/`; `--strict` bez varování a `scripts/check_anchors.py` 5 103/0 pro jistotu i tak.
+
+**Follow-ups:**
+1. Před dalším fetchem pro Godot projít 24 nestažených videí z Godot playlistu; část děr v Godotu může zavřít obyčejný fetch.
+2. Rozhodnutí o cíleném fetchi (roadmapa) teď kromě tří P1 může zahrnout i pět nových P2.
+
 ### 2026-10-11 — Údržba: přečištění 10 starších přepisů ze zpětného překladu (Claude Code, Opus 5.5)
 
 **What:** 10 starších přepisů je znovu vyčištěných opravenou pipeline, tentokrát z ruční anglické stopy místo strojového zpětného překladu. Jde o `37LVhP15zGw`, `3QKK2o5rWSQ`, `VmNUAX2V8JQ`, `kr7XYXMM7-U`, `yYYtBFSxoCg`, `hbzGO_Qonu0`, `4itMlAQC3LE`, `4w7oA4oJMqs`, `k9cbm5jSOxk` a skip `ExFF5gXVhDU`. Ruční stopa je `en`, u `4itMlAQC3LE` `en-US`; dřív to byl zpětný překlad `en-pl`, `en-es`, `en-ro`, `en-cs`, `en-de`, `en-it` nebo `en-ko`. V šesti dotčených kapitolách jsou opravená tři místa: dva časové odkazy v `teorie/zaklady.md` a jedna citace v `praxe/claude-code-ue.md`. `processing_index.md` má u všech deseti nové počty slov a poznámku o přečištění, `transcript_pipeline.md` větu, že přečištění proběhlo.

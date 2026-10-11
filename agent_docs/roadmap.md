@@ -167,8 +167,8 @@ Zbytek vlny:
 Třetí vlna vyčerpala playlisty. Odteď se díry hledají aktivně: `agent_docs/content_gaps.md` je seznam témat, na která korpus nemá odpověď, `scripts/gap_scan.py` k tomu dodává čísla a odliší re-read od nového fetche.
 
 - [x] **Dávka 46 (re-read CPU strany + gap tabulka)** _(2026-07-31)_: založena `content_gaps.md` (13 řádků, 3× P1) a `scripts/gap_scan.py`, zapojeno do `AGENTS.md`. Re-read `bfkbwXVMtn8` → **+2 myšlenky do `praxe/profiling.md`** (anatomie herního a renderovacího vlákna · tvůj kód v profileru není vidět). Rejstřík 495 → **498**. Odhad díry byl nadsazený — dvě třetiny už byly napsané v `mereni-automaticky.md` a `gpu-pruchod.md`, jen jinými slovy; řádek „editor vs build" proto uzavřen jako falešný poplach.
-- [ ] **Rozhodnutí: cílený fetch pro P1 díry** — UI/UMG (největší, 57 kapitol Praxe a ani jedna o rozhraní), PSO a kompilace shaderů, Blueprint vs C++. Je to změna režimu: hledá se odpověď na otázku, ne zpracovává playlist. Čeká na uživatele.
-- [ ] **Proskenovat Teorii a Godot** — `content_gaps.md` je zatím psaná jen z pohledu Praxe v UE5.
+- [ ] **Rozhodnutí: cílený fetch pro P1 díry** — UI/UMG (největší; jádro UMG chybí, `ui-ve-svete` je jen okraj), PSO a kompilace shaderů, Blueprint vs C++. Od 2026-10-11 je k rozhodnutí i pět P2 z průchodu Teorií a Godotem (ekonomika a balancování, náhoda, onboarding, blockout přímo v UE, ukládání v Godotu). Je to změna režimu: hledá se odpověď na otázku, ne zpracovává playlist. Čeká na uživatele.
+- [x] **Proskenovat Teorii a Godot** — `content_gaps.md` je zatím psaná jen z pohledu Praxe v UE5. _(Hotovo 2026-10-11: 26 nových klíčů v `gap_scan.py`, 15 nových řádků (5× P2, 10× P3), 7 kandidátů prověřeno jako pokrytých, čísla u stávajících řádků aktualizovaná.)_
 
 ### ▶ Phase 13 (navrženo) — čtvrtá vlna hlavního playlistu (+93)
 
