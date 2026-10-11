@@ -112,7 +112,7 @@ A historka za tím, kterou vypráví workshop [(40:41)](https://www.youtube.com/
 
 **Odkud brát zvuky** [(1:20)](https://www.youtube.com/watch?v=m7Rp46AU8dw&t=80s): vlastní vzorky se nahrají přes nastavení — **složka se stane jménem, které píšeš do `s()`**, podsložky jsou banky. Autorka na to nedělá vědu: *„napsala jsem pad a bass drum do Splice a vzala prvních deset od každého."* Vestavěné jsou k dispozici klasické bicí automaty, oscilátory (`saw`, `square`, `pink`) a **sound fonty** — *„to jsou ty zvuky, jaké se používaly ve starých videohrách."* Konkrétní vzorek z banky vybere `n(3)`.
 
-**A ta past** [(11:00)](https://www.youtube.com/watch?v=m7Rp46AU8dw&t=660s), kterou autorka označí jako věc, na které se sama opakovaně spálila: **u dlouhých vzorků piš `clip(1)`.** Bez toho Strudel nechá vzorek dohrát celý **a zároveň ho spustí znovu každý takt** — takže se ti pětiminutová stopa začne vrstvit sama na sebe.
+**A ta past** [(10:57)](https://www.youtube.com/watch?v=m7Rp46AU8dw&t=657s), kterou autorka označí jako věc, na které se sama opakovaně spálila: **u dlouhých vzorků piš `clip(1)`.** Bez toho Strudel nechá vzorek dohrát celý **a zároveň ho spustí znovu každý takt** — takže se ti pětiminutová stopa začne vrstvit sama na sebe.
 
 **Signálový řetězec**, ve zkratce:
 

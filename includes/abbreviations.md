@@ -79,6 +79,7 @@
 *[Camera shake]: Krátký otřes kamery jako asset (amplituda, frekvence, šum); z kódu, notify nebo v sequenceru.
 *[Capsule]: Náhledový obrázek hry na Steamu — nejdůležitější kus grafiky celé stránky.
 *[Cast]: Přetypování reference na konkrétní třídu; vytváří tvrdou závislost volajícího na dané třídě.
+*[Cellular automaton]: Mřížka buněk, které krok po kroku mění stav podle pravidel a sousedů; třeba Game of Life.
 *[Channel]: V Mesh Terrainu malovatelná materiálová vrstva — nástupce landscape layers.
 *[CDO]: Class Default Object — výchozí instance každé třídy; umožňuje vzor „třída jako data" bez konstruování.
 *[Channel packing]: Více šedotónových map v kanálech jedné textury (např. roughness, AO, výška v RGB); šetří paměť i vzorkování.
@@ -86,6 +87,7 @@
 *[Chaos Mover]: Plugin, který z Mover postavy dělá fyzikální těleso tažené k cíli omezenou silou (experimentální, 5.7+).
 *[Chaos Visual Debugger]: Nahrávání fyzikální scény Chaosu po snímcích a fázích solveru: kontakty, dotazy, klient vedle serveru.
 *[Chooser]: Datová tabulka „za těchto podmínek vyber tenhle asset“; v MM přepíná databáze.
+*[Chunking]: Rozpad velkého úkolu na kusy, které jdou dokončit za jedno sezení.
 *[CI/CD]: Automatizovaný kontrolní seznam po každém pushi; u her je největší přínos čistý build stroj.
 *[Chord extension]: Tón přidaný k triádě nad kvintu (septima, nona…); bohatší zvuk lo-fi, R&B, house.
 *[Chord generator]: Web generující smysluplnou akordovou progresi (chordchord.com); rychlý start bez teorie.
@@ -118,6 +120,7 @@
 *[Core loop]: Základní opakovaná smyčka činností, na které hra stojí.
 *[Coyote time]: Krátká lhůta po opuštění hrany, během které skok pořád projde (asi 6 snímků).
 *[CPU-bound / GPU-bound]: Které zařízení na hru čeká; určuje, kterým směrem vůbec optimalizovat.
+*[Crunch]: Dlouhodobé přesčasy před vydáním, často nařízené; krátkodobě hodiny navíc, dlouhodobě únava a chyby.
 *[Cubemap]: Textura ze šesti stěn krychle, zachytí okolí ze všech směrů; odrazy, obloha, falešné interiéry.
 *[Custom Depth]: Hloubkový průchod jen pro vybrané meshe, se stencil čísly; materiál ho čte přes SceneTexture.
 *[Custom Primitive Data]: Hodnoty na celé komponentě, které materiál čte jako parametry; varianty bez nových material instances.
@@ -133,6 +136,7 @@
 *[Data table]: Tabulka řádků podle jednoho structu; konfigurovatelná třída si podle jména řádku dohledá data.
 *[Data validation]: Automatická kontrola assetů proti pravidlům projektu — v editoru, při odevzdání i v noci.
 *[DAW]: Digital audio workstation — program na tvorbu hudby (FL, Ableton, Reaper, LMMS zdarma).
+*[Day-one patch]: Záplata vydaná v den vydání hry; nebezpečná, když nahrazuje testování.
 *[Decal]: Materiál promítnutý na povrch světa (otisky, cákance) — spawnuje se za běhu bez úpravy podkladu.
 *[Deferred rendering]: Vykreslování, které nejdřív uloží povrchy do G-bufferu a světlo počítá potom na pixel; výchozí v UE.
 *[Degenerate strategy]: Dominantní postup, po jehož objevení hra přestává bavit; cíl balancu je ho zabít.
@@ -169,6 +173,7 @@
 *[Eigenvektor]: Směr, který transformace nevychýlí — jen natáhne či zkrátí o eigenvalue.
 *[Elemental tetrad]: Schellovy čtyři části hry: estetika, mechaniky, technologie, příběh — iteruj přes všechny.
 *[Elevator pitch]: Popis hry na délku jízdy výtahem, nejčastěji „X meets Y"; nesmí být redundantní ani nespojitelný.
+*[Emergence]: Chování celku, které vznikne z jednoduchých pravidel samo, bez explicitního naprogramování.
 *[Enum]: Typ s pevným seznamem pojmenovaných hodnot (směr, druh klíče); Switch, Select, klíč mapy.
 *[Environmental storytelling]: Vyprávění prostorem: rozmístění objektů a stopy používání říkají, co se tu stalo.
 *[EQ]: Zesílení či potlačení konkrétních frekvencí; čištění šumu a prosazení zvuku v mixu.
@@ -205,6 +210,7 @@
 *[Game feel]: Hmatový dojem z ovládání: odezva, váha, šťavnatost interakcí. „Game feel je cheat code."
 *[Game Instance]: Objekt žijící od spuštění aplikace po její konec — přežívá přechody mezi levely.
 *[Game jam]: Časově omezená akce (hodiny až dny), během níž vzniká celá malá hra.
+*[Game of Life]: Conwayův celulární automat z roku 1970: dva stavy, tři pravidla, Turingovsky úplný.
 *[Gameplay Debugger]: Ladicí vrstva ve hře (apostrof): navmesh, cesta AI, behavior tree, EQS a percepce.
 *[Game State]: Stav probíhající partie, dostupný všem a replikovaný; domov pro event manager.
 *[Gameplay loop]: Smyčka činností, kterou hráč opakuje; popisný nástroj game designu.
@@ -564,6 +570,7 @@
 *[Source radius]: Velikost zdroje světla; větší dá měkčí stín a větší odlesk, nulový svítí z bodu s ostrými stíny.
 *[Sparse set]: Minimální MM sada: ~13 klipů bez strafu, ~26 se strafem — mýtus 500 animací neplatí.
 *[Spatial Noise]: PCG uzel: hodnota bodu podle šumu ve world space; s Density Filter dělá přirozené shluky.
+*[Spawn closet]: Místo, odkud posily věrohodně přicházejí (často nepřístupná místnost), aby se nezjevily z ničeho.
 *[Sphere tracing]: Trasování po skocích o hodnotu distance fieldu; počítá s tloušťkou, neproklouzne škvírou.
 *[Spline]: Komponenta s křivkou z tažitelných bodů — patrol trasy, hrany překážek, tvary krytí.
 *[Spline mesh]: Mesh natažený podél segmentu splinu — liány, lana, oblouky drah; pozor na forward axis.
@@ -589,6 +596,7 @@
 *[Subtraktivní syntéza]: Oscilátor generuje bohatý zvuk, filtr ubírá; řetězec oscilátor → filtr → obálka/LFO.
 *[Surface cache]: Zjednodušené povrchy, ze kterých Lumen čte; žlutá = vyřazeno, fialová = nevykresleno.
 *[Survivorship bias]: Vidíš jen ty, kdo přežili; neúspěšné pokusy z dohledu zmizely.
+*[Suspension of disbelief]: Ochota hráče přijmout pravidla fikce, dokud ho z ní hra sama nevytrhne.
 *[SVD]: Každá matice = rotace → škálování se změnou dimenze → rotace (A = UΣVᵀ).
 *[Swing]: Prodloužení liché šestnáctiny na úkor sudé; klíč k houseovému groovu.
 *[Sync marker]: Značka v animaci (došlap L/R) synchronizující klipy různých délek při blendování; jména musí sedět.
@@ -619,6 +627,7 @@
 *[Triplanar projection]: Textura promítnutá ze tří os světa místo UV a prolnutá podle normály; nepotřebuje UV, stojí tři vzorkování.
 *[Trunk-based development]: Všichni odevzdávají často do jedné hlavní větve; drží ji blízko hratelnému stavu, chce to automatické buildy.
 *[TSR]: Temporal Super Resolution — upscaler UE5; rozmazaná voda a ghosting jemných detailů = typicky jeho vina.
+*[Turing completeness]: Schopnost systému spočítat cokoli spočitatelného; má ji i Game of Life.
 *[Tutorial hell]: Smyčka „umím zopakovat tutoriál, sám nepostavím nic"; útěk: po každém videu malý vlastní projekt.
 *[Two-loop rule]: Každé dva loopy nejvýš dvě změny (přidat/ubrat nástroj či výraz); lešení pro aranžmá.
 *[Type 2 fun]: Bolí teď, těší ve vzpomínce (hora, soulsovka). Pro jiného hráče Type 3 — volba publika.

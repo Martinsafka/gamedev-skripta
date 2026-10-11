@@ -1,6 +1,6 @@
 # Prostor: blockout, kompozice a hranice mapy
 
-Druhá dvojice level design technik se týká prostoru samotného: jak ho navrhnout, aby hráče vedl bez šipek a UI markerů — a jak ho ohraničit, aby si hráč hranic ideálně vůbec nevšiml. Případovka na jeskyni z UE5 a systematika hranic mapy pro sólo vývojáře.
+Druhá dvojice level design technik se týká prostoru samotného: jak ho navrhnout, aby hráče vedl bez šipek a UI markerů — a jak ho ohraničit, aby si hráč hranic ideálně vůbec nevšiml. Případovka na jeskyni z UE5 a systematika hranic mapy pro sólo vývojáře. Třetí technika řeší, odkud do už prozkoumaného prostoru přicházejí posily: [spawn closet](#spawn-closet-posily-ktere-odnekud-prijdou).
 
 ---
 
@@ -47,3 +47,25 @@ Závěrečné pravidlo [(6:10)](https://www.youtube.com/watch?v=tcXGVyy4Mm8&t=37
 > **Pozn.:** Tohle je level designová obdoba [alibi pro omezení](scope.md#omezeni-potrebuje-herni-alibi): invisible wall je omezení bez alibi; padlý strom, mráz i kyslík jsou totéž omezení s fikcí, která ho prodá. Stejný princip, jiná měřítka.
 
 **Souvislosti:** [Scope: omezení potřebuje alibi](scope.md#omezeni-potrebuje-herni-alibi) · [Vedení hráče](vedeni-hrace.md) · [Vizuální komunikace: afordance](vizualni-komunikace.md#afordance-tvar-predmetu-je-jeho-navod-k-pouziti) *(sutiny přede dveřmi dají důvod, neviditelná zeď ne)* · [Rejstřík: invisible wall](../rejstrik.md#invisible-wall) · [Rejstřík: soft boundary](../rejstrik.md#soft-boundary)
+
+---
+
+## Spawn closet: posily, které odněkud přijdou
+
+**Zdroj:** [Spawn Closets in Video Game Level Design](https://www.youtube.com/watch?v=YjZVo8RO0xQ) · [timdoesleveldesign (TimDoesLevelDesign)](https://www.youtube.com/channel/UCTjhFJvDYh1uWT0705LAKFg) · ~6 min, technika level designu (autor s praxí na AAA hrách)
+
+**Shrnutí:** Nepřátelé bývají drazí a přísný rozpočet na to, kolik jich smí být aktivních najednou, měly podle videa i AAA hry z autorovy praxe. Když má boj pokračovat další vlnou nebo poplach přivolat posily, musíš nové nepřátele dostat do prostoru, který hráč už viděl. Spawn closet, jinak monster closet, je místo, odkud posily věrohodně vyjdou, často nepřístupná místnost. Háček: nemusí to být komůrka. Zombie lezou z bláta, posily přijedou autem nebo spadnou z oběžné dráhy, hlavně když to sedí k fikci světa.
+
+### Rozpad myšlenky
+
+**Rozpočet.** Level designér nepřátele rozmisťuje a často řídí i jejich chování [(0:15)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=15s). Nepřátelé stojí výkon i paměť, kvůli vizuálnímu detailu i logice, která pořád běží. I na AAA hrách z autorovy praxe platil podle videa přísný rozpočet aktivních nepřátel [(1:05)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=65s). Aktivní všude obvykle být nemůžou, a přesto je chceš přidávat, buď jako vlny, nebo jako důsledek hráčovy akce, třeba spuštěného poplachu ve stealthu.
+
+**Od Dooma po současnost.** Původní Doom z roku 1993 nové nepřátele za hry vytvářet neuměl. Čekali proto zavření v nepřístupných místnostech, které se ve správnou chvíli otevřely, nebo se do hry teleportovali [(1:05)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=65s) [(1:55)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=115s). Half-Life 2 otevírá dveře s posilami nebo nechá nepřátele prorazit zem či zavřené dveře. Star Wars Outlaws dbá, aby posily měly věrohodný původ, ať je přivolá poplach, nebo skript. Přicházejí dveřmi, chodbami nebo z okolních budov, ne vedle hráče [(1:55)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=115s).
+
+**Proč ne prostě spawn.** V otevřeném světě se logika a nepřátelé obvykle zapínají, až když se hráč přiblíží [(2:44)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=164s). Problém je pokračování boje. Nepřítel, který se zjeví z ničeho, by v mnoha hrách rozbil suspension of disbelief. Control to tematicky unese, řada jiných her ne. Spawn v koutech a za objekty s kontrolou vzdálenosti a toho, jestli se hráč dívá jinam, používá hodně her, ale nesedí do každého layoutu [(3:30)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=210s). Nepřátelé se pak často objeví daleko a hráč se může divit, odkud se vzali. Closet dovolí spawnovat blíž akci. Pořád jde zkoušet spawnovat mimo zorné pole, jen ne tak přísně, protože když hráč příchod uvidí, je ospravedlněný.
+
+**Aby closet nebyl komůrka.** Pokud do closetu hráč smí, holá komůrka vypadá jako sklad natěsnaných nepřátel [(4:19)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=259s). Pomůžou neinteraktivní dveře, které naznačí, že posily přišly z jiné části komplexu. Podoba může být jakákoli, která sedí ke světu. Dead Island 2 nechává zombie lézt z bláta, písku, kanálových mříží a ventilací. Far Cry vozí posily autem nebo vrtulníkem a zkrátí jim cestu k boji [(4:19)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=259s). ARC Raiders sází na výsadek z oběžné dráhy. Je efektní, hodí se k opakovanému doplňování nepřátel a zapadá do fikce, takže jejich původ nikdo nezpochybní [(5:08)](https://www.youtube.com/watch?v=YjZVo8RO0xQ&t=308s). Všechny varianty řeší stejný problém: známý prostor potřebuje nové nepřátele s věrohodným příchodem.
+
+> **Pozn.:** Spawn closet je stejná disciplína jako [hranice mapy](#hranice-mapy-hrac-se-ma-rozhodnout-sam-ze-dal-nepujde): technické omezení se schová do fikce, aby si hráč stroje pod hrou nevšiml. Rozpočet aktivních nepřátel ze strany kódu řeší [AI ve velkém](../praxe/ai-ve-velkem.md#kdo-utoci-a-kdo-ceka-aggro-skore-a-bojove-role), a kdo posily spouští poplachem, potřebuje i [vnímání nepřátel](../praxe/ai-vnimani.md). Toto čtení je naše.
+
+**Souvislosti:** [Jeskyně, která se hraje](#jeskyne-ktera-se-hraje-landmark-napred-detail-nakonec) · [Hranice mapy](#hranice-mapy-hrac-se-ma-rozhodnout-sam-ze-dal-nepujde) · [Rejstřík: Spawn closet](../rejstrik.md#spawn-closet)

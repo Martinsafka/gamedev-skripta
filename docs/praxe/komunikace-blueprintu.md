@@ -22,7 +22,7 @@ Druhá polovina kapitoly jde od mechaniky k **vzorům**: série Aliho Elzoheiryh
 
 > **Pozn.:** Rozhodovací zkratka, kterou video neříká explicitně, ale plyne z [loose couplingu](principy-architektury.md#tri-principy-skalovatelnosti-separace-volne-vazby-data): **cast**, když třídu garantuješ (vlastní player, GameMode); **interface**, když se ptáš cizího „umíš tohle?"; **dispatcher**, když oznamuješ „stalo se tohle" a nechceš vědět komu. Směr závislosti: cast váže volajícího na třídu, interface na smlouvu, dispatcher nikoho na nic — posluchač závisí na vysílači, ne obráceně.
 
-**Souvislosti:** [Principy architektury](principy-architektury.md) · [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Design patterns: strategy a observer](../teorie/design-patterns.md#strategy-a-observer-dva-vzory-ktere-v-ue-pouzivas-denne) *(dispatcher je observer pattern jménem)* · [Rejstřík: Cast](../rejstrik.md#cast) · [Rejstřík: Blueprint Interface](../rejstrik.md#blueprint-interface) · [Rejstřík: event dispatcher](../rejstrik.md#event-dispatcher)
+**Souvislosti:** [Principy architektury](principy-architektury.md) · [Interakce bez Event Ticku](interakce-bez-event-ticku.md) · [Design patterns: strategy a observer](../teorie/design-patterns.md#strategy-a-observer-dva-vzory-ktere-v-ue-pouzivas-denne) *(dispatcher je observer pattern jménem)* · [Rejstřík: Cast](../rejstrik.md#cast) · [Rejstřík: Blueprint Interface](../rejstrik.md#blueprint-interface) · [Rejstřík: event dispatcher](../rejstrik.md#event-dispatcher) · [Pět kostek každé mechaniky](../teorie/systemy-a-mechaniky.md#pet-kostek-kazde-mechaniky-vstup-detekce-transformace-komunikace-a-stav) *(komunikace jako kostka mechaniky)*
 
 ---
 

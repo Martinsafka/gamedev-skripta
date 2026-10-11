@@ -15,6 +15,58 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-11 — Údržba: staré časové odkazy (Claude Code, Opus 5.5)
+
+**What:** Kontrola časových odkazů přes celý web (8 324 odkazů) hlásila **820 problémů ve 44 kapitolách**, ne jen 79 ve čtyřech, jak uváděly follow-upy dávek 54 a 56. Opraveno **26 odkazů v 8 kapitolách**:
+- 15 popisků v hodinovém formátu („70:43" → „1:10:43") v `zabava`, `napad` a `prezit-jako-studio`.
+- 3 nesoulady popisku a `t=` v `akordy-a-harmonie` a `synteza-zvuku`.
+- 8 zaokrouhlených časů posunutých o 1–3 s na přesný začátek titulku v `live-coding`, `nastroje-zdarma-a-game-jam`, `rytmus`, `synteza-zvuku` a `prezit-jako-studio`.
+
+Zbylých 794 nahlášených odkazů zůstává beze změny. `content_conventions.md` k nim dostal pravidlo platnosti.
+
+**Why:** Zadání uživatele: „oprav ty staré časové odkazy skriptem". Analýza ukázala, že 803 nahlášených odkazů není rozbitých: míří přesně na začátek titulku (cue) ve zdrojové stopě surového přepisu. Pocházejí ze záznamů psaných v červenci (29 ze 44 kapitol vzniklo 9. 7., zbytek do 31. 7.), většinou ještě před pravidlem „`t=` jen ze začátku bloku" v `synthesis_guide` (18. 7.). Zarovnání na bloky by je posunulo v průměru o 22 s dřív a 257 by ukazovalo na stejný blok jako předchozí odkaz v odstavci. Volba uživatele: opravit jen rozbité, přesné časy ponechat.
+
+**How:**
+- **Analýza skriptem.** U každého nesedícího odkazu poloha vůči blokům (0–45 s od začátku bloku, zhruba rovnoměrně) a vůči titulkům stopy z hlavičky `# source_file:` (803 přesně, 5 do 1 s, 3 do 3 s). Příčinou tedy není posun bloků, starší záznamy braly čas z titulků.
+- **Tři nesoulady ověřené proti přepisu.** U ADSR je chybný popisek (6:26 → 7:16, `t=436` sedí). U „intervalů místo akordů" (645 → 629) a „úkolu obálek a LFO" (1049 → 1037) vede odkaz na titulek, kde tvrzení začíná. První verze opravy je dala na začátky bloků s chybným zdůvodněním, že kapitoly o hudbě vznikly až podle pravidla o blocích. Vznikly 17. 7., proto přesný titulek.
+- **Zaokrouhlené časy** jdou na nejbližší dřívější titulek do 3 s. U `rytmus` 8:19 leží čas uvnitř titulku [Music] (483–502 s), proto dopředu na začátek řeči 8:22.
+- **Kontrola** (`ts_check.py` ve scratchpadu) bere jako platný začátek bloku i přesný začátek titulku ze stopy z hlavičky a hlídá kanonický formát popisku. Celý web: 8 324 odkazů, 7 514 na blocích, 810 na titulcích, 0 problémů. Žádné dva stejné odkazy těsně vedle sebe.
+- **Gates:** `--strict` bez varování, anchor-check 5 102/0, obojí na finálním stavu.
+
+**Follow-ups:**
+1. Kontrola časů žije jen ve scratchpadu této session. Kandidát na přesun do `scripts/`, aby ji měla i další session.
+2. Až se bude přečišťovat 10 starších přepisů (follow-up z fetche v roadmapě), změní se u nich bloky i zdrojová stopa. Odkazy na ta videa pak znovu projít touto kontrolou.
+3. Follow-upy o starých časech z dávek 54 a 56 jsou tímto vyřízené.
+
+### 2026-10-10 — Phase 13 dávka 56: teorie — příběh, plánování, mechaniky, level design a Cyberpunk (Claude Code, Opus 5.5)
+
+**What:** 7 videí (~15k slov), poslední dávka čtvrté vlny → **5 nových myšlenek a 2 doplňky v sedmi kapitolách Teorie**:
+- `teorie/pribeh-a-postavy.md` +1: šest otázek, bez kterých nemáš příběh (scenárista Glenn Gers, Film Courage). Úvod aktualizován.
+- `teorie/planovani-nastroje.md` +1: hora po kamenech, featuru rozpadni, dokud nejde dokončit za jedno sezení (Unreal University, kurz označen). Úvod aktualizován.
+- `teorie/jak-se-ucit-kodovat.md` doplněk v „Aktivní sledování": pět rad z pěti let v Unrealu (Unreal University). Jen nové důrazy, protože starší rady téhož autora už má `praxe/editor-tipy`.
+- `teorie/systemy-a-mechaniky.md` +1: pět kostek každé mechaniky (PtroDev, Godot kanál, engine-agnostické). Úvod aktualizován.
+- `teorie/algoritmy-prehled.md` doplněk v „Emergence": Game of Life (Ominous Dev). Úvod aktualizován.
+- `teorie/prostor-a-hranice.md` +1: spawn closet, posily, které odněkud přijdou (TimDoesLevelDesign). Úvod aktualizován.
+- `teorie/vydani-hry.md` +1: Cyberpunk 2077, launch, který se rozbil, a roky oprav (ByteSeb, sekundární zdroj označen). Úvod aktualizován.
+
+`teorie/index.md`: sedm anotací doplněno. Rejstřík 676 → **685**: 9 nových (Cellular automaton, Chunking, Crunch, Day-one patch, Emergence, Game of Life, Spawn closet, Suspension of disbelief, Turing completeness), 9 rozšířeno. 11 backlinků v 11 kapitolách (včetně plánovaných z Cyberpunku do `ui-ve-svete` a `blockout`). Chapter map 924 řádků.
+
+**Why:** Desátá a poslední dávka čtvrté vlny podle schváleného plánu (uživatel: „pokračuj dávkou 56"). Čtvrtá vlna je tím kompletní: 81 published, 0 todo.
+
+**How:**
+- **Rozvržení podle plánu dávky.** Dvě tenká videa (pět rad k Unrealu ~7 min, Game of Life ~6 min) jsou podle pravidla o tenkých zdrojích doplňky uvnitř existujících myšlenek. Spawn closet (~6 min) dostal vlastní myšlenku, protože v kapitole nemá hostitele a je to samostatná technika s vlastními příklady.
+- **Cyberpunk** je sekundární zdroj od indie vývojáře, který sám spekulace přiznává. Spekulace o původním příběhu a o Keanu Reevesovi jsou vynechané, čísla a citace jsou přiřazené zdrojům, které rozbor jmenuje (Kotaku, Bloomberg, dokument). Napětí s „pastí post-launch updatů" je v Pozn.: velké studio s desítkami milionů hráčů si dlouhé opravy dovolit může, malá indie hra ne.
+- **Rod u řečníků:** přítomný čas a role, bez rodových sloves v minulém čase.
+- **Kontrola přesnosti:** dva subagenti (Sonnet), celkem ~269k tokenů (132k + 137k); dávka byla menší, takže levnější i bez změny metody. Nálezy: subagent A 19 nálezů, subagent B 17, všech 36 zapracováno (jeden už předem při vlastní revizi). Převažovaly vypuštěné výhrady („might", „probably", „sometimes") a věty příliš blízké stavbě originálu (výsadek v ARC Raiders, otázka o známé místnosti, výčet urbanistických principů Night City, věta o Fabu, horolezecký obraz); ty jsou přepsané. Věcné opravy: jen jedna z prvních her autora, čísla 30 minut a 5 hodin jsou z přirovnání k posilovně, update 2.0 strom dovedností přepracoval (nenahradil), interiéry Cyberpunku mají výjimky, spawn closet nemusí ležet mimo hratelný prostor (heslo v rejstříku opraveno), Conway se von Neumannem jen inspiroval a o Godotu mluví popis kanálu, ne video.
+- **Vlastní revize** před subagenty: 4 formulace (jedna z prvních her, „někdy" místo „často", neutrální formulace u recepční a u autorovy praxe) a chybná věta o délce videa o Game of Life, kterou jsem opravil hned po zápisu.
+- **Flagy:** kurz zdarma (Unreal University, 3×), vlastní kanál scenáristy, členové kanálu (Ominous Dev), Discord a komunita kanálu (PtroDev), vlastní hra autora rozboru Cyberpunku.
+- **Časové odkazy:** 100 nových odkazů v sedmi dotčených kapitolách ověřeno skriptem, žádný problém. Kontrola celých kapitol hlásí 49 starších odkazů mimo bloky současných přepisů (`pribeh-a-postavy` 32, `prostor-a-hranice` 17); jsou i v HEAD a s dávkou nesouvisí, viz Follow-ups.
+
+**Follow-ups:**
+1. Čtvrtá vlna je hotová. Další krok je na uživateli: nová vlna (fetch), nebo údržba.
+2. Údržba starých časových odkazů roste: kromě `gameplay-tags` (29) a `rozpocet-snimku` (1) z dávky 54 nesedí na bloky současných přepisů i 32 odkazů v `pribeh-a-postavy` (`orvZIxC54NU`) a 17 v `prostor-a-hranice` (`tcXGVyy4Mm8`, `lSrDXaTwvNU`). Na YouTube fungují. Kandidát na jednorázovou opravu skriptem.
+3. Kandidát do `content_gaps`: celulární automaty v praxi (jeskyně, šíření ohně) — korpus má jen Game of Life jako princip.
+
 ### 2026-10-10 — Phase 13 dávka 55: AI nástroje — nová kapitola MCP v editoru (Claude Code, Opus 5.5)
 
 **What:** 8 videí (~27k slov) a dva úseky GASP streamu → **1 nová kapitola / 5 myšlenek + 2 myšlenky a 1 doplněk do stávajících**:

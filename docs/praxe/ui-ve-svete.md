@@ -26,7 +26,7 @@ První kapitola tématu **UI a rozhraní** a zatím jen jeho okraj: rozhraní, k
 
 > **Pozn.:** Menu, které je předmětem v herním světě, je diegetic UI. Video ten pojem nepoužívá, ale staví učebnicový příklad. Výhodou je [imerze](../teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida): hra začíná už v menu a [horor](../teorie/horor-design.md#zvuk-tma-a-prostredi-atmosfera-jako-system) tím získá první minutu atmosféry. Cenou je ovládání. Tohle menu umí jen myš, protože gamepad a klávesnice potřebují fokus a navigaci, které video neřeší a které v knihovně zatím chybějí.
 
-**Souvislosti:** [Rejstřík: Widget Component](../rejstrik.md#widget-component) · [Rejstřík: Widget Interaction Component](../rejstrik.md#widget-interaction-component) · [Rejstřík: Diegetic UI](../rejstrik.md#diegetic-ui) · [Rejstřík: Widget Blueprint](../rejstrik.md#widget-blueprint) · [Rejstřík: Anchor (UI)](../rejstrik.md#anchor-ui)
+**Souvislosti:** [Rejstřík: Widget Component](../rejstrik.md#widget-component) · [Rejstřík: Widget Interaction Component](../rejstrik.md#widget-interaction-component) · [Rejstřík: Diegetic UI](../rejstrik.md#diegetic-ui) · [Rejstřík: Widget Blueprint](../rejstrik.md#widget-blueprint) · [Rejstřík: Anchor (UI)](../rejstrik.md#anchor-ui) · [Cyberpunk 2077](../teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav) *(diegetický HUD přes implantáty v očích)*
 
 ---
 

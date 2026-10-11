@@ -38,7 +38,7 @@ Rules:
 
 - **Name entries after ideas, never after videos.** "Interakce přes overlap místo per-tick trace", not "How to Line Trace Without Event Tick".
 - **Shrnutí is self-sufficient**; Rozpad is where depth lives.
-- **Timestamp links** (`&t=SECONDSs`) at every moment worth jumping to — this is the project's core searchability promise. Compute seconds from the cleaned transcript's `t=` markers.
+- **Timestamp links** (`&t=SECONDSs`) at every moment worth jumping to — this is the project's core searchability promise. Compute seconds from the cleaned transcript's `t=` markers. Older entries (mostly July 2026, before the block rule in `synthesis_guide.md` §7) link exact cue starts from the raw `.srt` track named in the cleaned transcript's `# source_file:` header instead; those are valid and more precise than blocks — keep them, never snap them to block starts. A link is valid when its label is `m:ss` / `h:mm:ss` of `t` (`1:04:09`, never `64:09`) and `t` is a block marker or such a cue start.
 - **Credit block is mandatory and complete**: video link + channel link. Channel name/URL come from the video's `info.json` (`channel`, `channel_url`). Missing → `<!-- TODO: credit z info.json -->` placeholder, never a guess.
 - A chapter merging several videos still keeps one credit block per entry/source.
 

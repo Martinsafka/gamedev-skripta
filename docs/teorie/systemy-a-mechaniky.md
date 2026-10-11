@@ -1,6 +1,6 @@
 # Systémy a mechaniky: hra jako stroj
 
-Joe Baxter-Webb (Indie Game Clinic) rozplétá tři pojmy, které se běžně melou dohromady — pravidla, mechaniky, systémy — a staví nad nimi systémové myšlení: hra je stroj se zamýšleným výstupem, kterým jsou pocity hráče. Kapitola navazuje na [Smyčky a řetězce](smycky-a-retezce.md) (tam tvary, tady slovník a stavba) a na [MDA framework](zaklady.md#mda-mechaniky-chovani-pocity) — a končí u dvou podceňovaných druhů mechanik: expresivních a kognitivních.
+Joe Baxter-Webb (Indie Game Clinic) rozplétá tři pojmy, které se běžně melou dohromady — pravidla, mechaniky, systémy — a staví nad nimi systémové myšlení: hra je stroj se zamýšleným výstupem, kterým jsou pocity hráče. Kapitola navazuje na [Smyčky a řetězce](smycky-a-retezce.md) (tam tvary, tady slovník a stavba) a na [MDA framework](zaklady.md#mda-mechaniky-chovani-pocity) — a končí u dvou podceňovaných druhů mechanik: expresivních a kognitivních. Poslední myšlenka jde o patro níž, k [pěti kostkám](#pet-kostek-kazde-mechaniky-vstup-detekce-transformace-komunikace-a-stav), ze kterých se staví skoro každý interaktivní objekt.
 
 ---
 
@@ -38,7 +38,7 @@ A varování pro stavitele: **systémy nestavěj dřív, než víš, co s nimi m
 
 > **Pozn.:** Boční poznámka videa o studiích jako továrnách [(21:53)](https://www.youtube.com/watch?v=nkLmjJK3vOw&t=1313s) stojí za přenos na jednotlivce: tvá „továrna" je nástrojovaná na určité stroje — a rady „dělej, co zrovna trendí" ignorují, že byznys znamená zarovnat díru na trhu s tím, *co umíš vyrobit*. „Instalatéra si na opravu auta nenajmeš."
 
-**Souvislosti:** [Základy: MDA](zaklady.md#mda-mechaniky-chovani-pocity) · [Sólo vývoj](solo-vyvoj.md) · [Zábava a flow](zabava.md) · [Rejstřík: Design pattern](../rejstrik.md#design-pattern) *(tentýž princip v kódu)*
+**Souvislosti:** [Základy: MDA](zaklady.md#mda-mechaniky-chovani-pocity) · [Sólo vývoj](solo-vyvoj.md) · [Zábava a flow](zabava.md) · [Rejstřík: Design pattern](../rejstrik.md#design-pattern) *(tentýž princip v kódu)* · [Emergence a Game of Life](algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) *(složitost ze tří pravidel)*
 
 ---
 
@@ -57,3 +57,27 @@ A varování pro stavitele: **systémy nestavěj dřív, než víš, co s nimi m
 > **Pozn.:** Video se výslovně hlásí k formátu „thought exercises, ne listicle" — indie vývoj je podnikání a chce vůdčí myšlení, ne následování [(36:40)](https://www.youtube.com/watch?v=nkLmjJK3vOw&t=2200s); tentýž postoj rozvíjí [Rady nefungují tam, kde začíná design](rady-z-praxe.md#rady-nefunguji-tam-kde-zacina-design). Pro naše poměry: expresivní mechanika je přesně to, co dělá [imerzi balvanu](game-feel.md#imerze-svet-ktery-na-tebe-odpovida) — zválcovaná tráva nikomu nepřičítá skóre, a přesto nese hru.
 
 **Souvislosti:** [Game feel a imerze](game-feel.md) · [Příběh a postavy](pribeh-a-postavy.md) · [Rejstřík: Expresivní mechanika](../rejstrik.md#expresivni-mechanika) · [Rejstřík: Ludus a paidia](../rejstrik.md#ludus-a-paidia)
+
+---
+
+## Pět kostek každé mechaniky: vstup, detekce, transformace, komunikace a stav
+
+**Zdroj:** [You can create any game mechanic once you understand this](https://www.youtube.com/watch?v=vZkAbeMLcvc) · [PtroDev](https://www.youtube.com/channel/UCOwdhNdkv1CLGdFHMSGw59g) · ~11 min, výklad (kanál o Godotu, rámec bez vazby na engine)
+
+**Shrnutí:** Většina tutoriálů naučí jednu mechaniku, ale ne to, z čeho se mechaniky skládají, a proto se po něm v novém projektu zasekneš. PtroDev tvrdí, že zkušení vývojáři neznají stovky tajných systémů. Vidí jen vzor: skoro každá interaktivní věc je kombinace pěti kostek. Vstup (jak se to ovládá), detekce (jak to ví, co se děje kolem), transformace (jak se to hýbe nebo mění), komunikace (jak to mluví s jinými objekty) a stav s logikou (pravidla a paměť). Háček: kostky nejsou povinné. Kulka nemá vstup a checkpoint se nejspíš obejde bez transformace.
+
+### Rozpad myšlenky
+
+**Proč tutoriál nestačí.** Zkopíruješ kód, hra funguje, otevřeš vlastní projekt a zasekneš se [(0:01)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=1s). Většina tutoriálů ukáže, jak postavit jedny konkrétní dveře nebo truhlu, ale ne proč takové věci obecně fungují [(0:49)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=49s). Jsou užitečné, jen když se z nich učíš vzory a ne zapamatováváš řešení [(1:35)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=95s).
+
+**Truhla jako vzorek.** Truhla se má otevřít po stisku klávesy, to je vstup [(2:26)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=146s). Hráč musí stát blízko, to je detekce. Víko se otočí nebo se vymění sprite. Tahle změna je pro hráče potvrzení, že interakce proběhla [(3:13)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=193s). Hráč truhlu otevře a truhla mu dá odměnu, to je komunikace oběma směry. A truhla si musí pamatovat, jestli už je otevřená. To je stav a logika a ty ostatní kostky spojují [(4:00)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=240s).
+
+**Rychlopalba příkladů.** Dveře mají všech pět [(4:00)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=240s). Pohyblivá plošina vstup nepotřebuje, může detekovat hráče na sobě a jezdí, a komunikace se stavem tu nejspíš nejsou tolik potřeba [(4:48)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=288s). Tlačítko signálem ovládá dveře nebo pasti a pamatuje si, že je stisknuté. Checkpoint nejspíš nepotřebuje vstup ani transformaci, jen detekci a stav [(5:36)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=336s). NPC má blízko k truhle: vstup, dosah, animaci, komunikaci kvůli obchodu nebo volbě odpovědi a stav, jestli vůbec chce mluvit. Kulka nemá vstup, detekuje zásah, letí vpřed a sdělí damage [(6:22)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=382s). Nepřítel má dvě detekce, kde je hráč a jestli je v dosahu útoku, a má-li víc druhů útoků, stav může rozlišovat lehký a těžký [(7:09)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=429s).
+
+**Pět otázek a grappling hook.** Z popisů vyjde pět otázek, které si autor klade u každé mechaniky, a jsou to přesně kostky ze shrnutí. U komunikace autor jmenuje reference, signály a volání funkcí [(7:09)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=429s) [(7:55)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=475s). Zkouškou je grappling hook. Vstup je tlačítko myši a detekce zásahu zdi funguje jako u kulky. Transformace je tu nejspíš jedna z nejtěžších částí, výpočet letu hráče podle úhlu k bodu zásahu, ale pořád jde jen o změnu pozice [(8:42)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=522s). Stav odděluje chůzi od letu, protože pohyb je v obou úplně jiný. Komunikace vede od hráče k háku, od háku zpět k hráči a od zdi k háku, který potřebuje znát bod zásahu [(9:31)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=571s).
+
+**K čemu to je.** Místo hledání tutoriálu se ptej, jestli věc něco detekuje, jestli se hýbe, jestli potřebuje vstup, s čím mluví a jaká logika ji řídí [(9:31)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=571s). A při hraní cizích her si všímej, které kostky vidíš. Podle autora tak přestaneš potřebovat tutoriál na každou mechaniku.
+
+> **Pozn.:** V Unrealu mají kostky jasné protějšky. Vstup je Enhanced Input, detekce overlap nebo trace jako v [Interakce bez Event Ticku](../praxe/interakce-bez-event-ticku.md#overlap-trigger-misto-trasovani-v-ticku), komunikace interface a dispatchery z [Komunikace blueprintů](../praxe/komunikace-blueprintu.md#tri-kanaly-a-kdy-ktery-cast-interface-event-dispatcher) a stav enum nebo State Tree. V Godotu nesou komunikaci [signály](../godot/signaly.md). To, které kostky chybějí, přitom mechaniku popisuje stejně dobře jako ty, které má. Rámec je hrubší než [pravidla, mechaniky a systémy](#pravidla-mechaniky-systemy-slovnik-s-ostrymi-hranami) na začátku kapitoly: popisuje stavbu objektu, ne prožitek hráče. Toto čtení je naše. Na konci autor zve na svůj Discord [(10:18)](https://www.youtube.com/watch?v=vZkAbeMLcvc&t=618s) a popis videa navíc na komunitu kanálu, jde tedy i o promo.
+
+**Souvislosti:** [Stroj s účelem](#stroj-s-ucelem-kavovar-dela-kavu-horor-dela-strach) · [Interakce bez Event Ticku](../praxe/interakce-bez-event-ticku.md) · [Jak se učit kódovat: aktivní sledování](jak-se-ucit-kodovat.md#aktivni-sledovani-tutorial-je-odrazovy-mustek-ne-recept) *(útěk ze smyčky tutoriálů)* · [Rejstřík: Tutorial hell](../rejstrik.md#tutorial-hell)

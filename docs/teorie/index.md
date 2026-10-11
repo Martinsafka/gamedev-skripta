@@ -19,7 +19,7 @@ Témata a kapitoly:
 **Učení a růst v éře AI**
 
 - **[Učení v éře AI](uceni-v-ere-ai.md)** — odpověď nestačí vlastnit: pomalé učení podle Toma Yeha, čtecí framework ACTOR, surfař vs. divák a čtyři úrovně inženýra.
-- **[Jak se učit kódovat](jak-se-ucit-kodovat.md)** — složitá není řeč, ale zadání: třicet kroků visual novelu, aktivní sledování tutoriálů, ego jako špatný zákazník — a test vlastnictví: když to neumíš vysvětlit, ještě ti to nepatří.
+- **[Jak se učit kódovat](jak-se-ucit-kodovat.md)** — složitá není řeč, ale zadání: třicet kroků visual novelu, aktivní sledování tutoriálů, ego jako špatný zákazník — a test vlastnictví: když to neumíš vysvětlit, ještě ti to nepatří. Nově pět rad z pěti let v Unrealu.
 - **[První projekty](prvni-projekty.md)** — tři hry z univerzitního kurzu: čistý interface (Tamagotchi), čistá akce (shmup bez levelů) a koláž ve dvou z analogových assetů.
 
 **Programátorské myšlení**
@@ -33,7 +33,7 @@ Témata a kapitoly:
 - **[Matematika pro gamedev](matematika-pro-gamedev.md)** — lerp, goniometrie, vektory, dot product a rotace bez strachu; k tomu legendární odmocnina z Quake 3.
 - **[Lineární algebra vizuálně](linearni-algebra-vizualne.md)** — matice jako pohyb teček: od identity přes eigenvektory po SVD, rozklad, který vládne všem.
 - **[Markovovy řetězce a Monte Carlo](markovovy-retezce.md)** — stavy, přechody a memoryless vlastnost: od Puškina přes jadernou bombu po PageRank a LLM.
-- **[Přehled algoritmů](algoritmy-prehled.md)** — nápadník od wave function collapse po boids: algoritmy, které staví světy a pěstují chování.
+- **[Přehled algoritmů](algoritmy-prehled.md)** — nápadník od wave function collapse po boids: algoritmy, které staví světy a pěstují chování, a Game of Life jako tři pravidla s Turingovskou úplností.
 
 **Nápad, scope a plánování**
 
@@ -41,7 +41,7 @@ Témata a kapitoly:
 - **[Scope a malé hry](scope.md)** — malá hra = jedna mechanika; rozpočet pozornosti, design by constraint, omezení s herním alibi; scope v pohybu (creep, pivot, hry z praxe) — a otevřený spor: jak se malá hra doopravdy dělá versus „nedělej malé hry, dělej systémy".
 - **[Prototypování a vertical slice](prototypovani.md)** — tři brány rané fáze vývoje, žánrové standardy vs. inovace, ekonomika na papíře a iterační spirála.
 - **[GDD](gdd.md)** — dokument jako způsob myšlení: minimalistická skica všech oblastí, will/should/could — a muzeum dokumentů od Diabla po Monaco.
-- **[Plánovací nástroje](planovani-nastroje.md)** — kanban pro gamedev: karty s jedním vlastníkem, WIP limit, In Review a backlog; proč je tohle práce producenta — a kompletní sada nástrojů full-time indie vývojáře včetně té jediné položky, která není software.
+- **[Plánovací nástroje](planovani-nastroje.md)** — kanban pro gamedev: karty s jedním vlastníkem, WIP limit, In Review a backlog; proč je tohle práce producenta — a kompletní sada nástrojů full-time indie vývojáře včetně té jediné položky, která není software. Nově i metoda rozpadu: featura po kusech, které jdou dokončit za jedno sezení.
 - **[Playtesting](playtesting.md)** — hra je skutečná až před hráči: moderovaný test a čtení chování, tři vlny, RITE, road test před stress testem.
 
 **Základy designu**
@@ -50,12 +50,12 @@ Témata a kapitoly:
 - **[Zábava a flow](zabava.md)** — zábava jako odměna za učení: flow kanál, obtížnostní křivky, rubber banding — a taxonomie zábavy s design pillars.
 - **[Smyčky a řetězce](smycky-a-retezce.md)** — dva základní tvary herního designu: co smyčka vysvětluje, co už ne, a proč řetězce nesou emoce.
 - **[Game feel a imerze](game-feel.md)** — pohyb nepřátel, svět, který odpovídá, katalog juice detailů, combat jako rytmus — a Celeste rozebraná do snímků: šest na rozjezd, tři na zastavení a hrst tichých úlev.
-- **[Příběh a postavy](pribeh-a-postavy.md)** — příběh jako feature s cenovkou: čtyři typy protagonisty, rejstříky dialogů a hádka o tvůj svět.
+- **[Příběh a postavy](pribeh-a-postavy.md)** — příběh jako feature s cenovkou: čtyři typy protagonisty, rejstříky dialogů a hádka o tvůj svět. Nově šest otázek scenáristy, bez kterých nemáš příběh.
 
 **Design do hloubky**
 
 - **[Obtížnost a výzva](obtiznost.md)** — challenge je co, difficulty je kolik: bariéry hraní, tři cesty ke zvednutí obtížnosti, aspirační vs. průběžná — a Octojump jako obtížnost per level.
-- **[Systémy a mechaniky](systemy-a-mechaniky.md)** — pravidla → mechaniky → systémy, hra jako stroj s účelem, expresivní a kognitivní mechaniky.
+- **[Systémy a mechaniky](systemy-a-mechaniky.md)** — pravidla → mechaniky → systémy, hra jako stroj s účelem, expresivní a kognitivní mechaniky a pět kostek, ze kterých se staví skoro každá mechanika.
 - **[Ludotematický soulad](ludonarativni-soulad.md)** — ludonarativní disonance a kdy vadí, téma jako učitel hry a nůžky na scope, fireball wizard problem.
 - **[Žánry očima designéra](zanry.md)** — pyramida žánr/mód/nálada, subtraktivní design (žánry vzniklé škrtáním) a nekromancie mrtvých žánrů.
 - **[Designing Games (Sylvester)](engineering-experiences.md)** — kniha o inženýrství zážitků: události a anticipace, Yomi a balanc, value curves a strom závislostí.
@@ -74,7 +74,7 @@ Témata a kapitoly:
 **Level design**
 
 - **[Vedení hráče](vedeni-hrace.md)** — scripted events dávkují momenty ve správný čas a recall priming chystá vzpomínky, než budou potřeba.
-- **[Prostor a hranice](prostor-a-hranice.md)** — landmark napřed, blockout s metrikami, navigace světlem — a hranice mapy, kterých si hráč nevšimne.
+- **[Prostor a hranice](prostor-a-hranice.md)** — landmark napřed, blockout s metrikami, navigace světlem — a hranice mapy, kterých si hráč nevšimne. Nově spawn closet: odkud přicházejí posily.
 - **[Level design pro sólo vývojáře](level-design-solo.md)** — gameplay vs. content, jak číst cizí pravidla (a Romerových osm), graybox a beautiful corners, „finish your first level last" — a jak tě tvaruje nástroj.
 - **[Prostor vypráví](prostor-vypravi.md)** — environmentální storytelling: globální nálada vs. „co se stalo tady", indexical storytelling, interaktivita v hlavě a vyprávění na rozpočet.
 
@@ -84,7 +84,7 @@ Témata a kapitoly:
 - **[Steam stránka](steam-stranka.md)** — checklist před zveřejněním: capsule, short description, trailer, screenshoty a mašinerie algoritmu — plus rozbory cizích stránek: test zakrytého názvu a tagy jako vstup do algoritmu.
 - **[První dojem](prvni-dojem.md)** — prvních deset vteřin po spuštění: splash, prázdná bootovací scéna a menu, které žije.
 - **[Devlogy](devlogy.md)** — devlog jako řemeslo: scénář psaný nahlas, showcase vs. story a záběry starých verzí z commit historie.
-- **[Vydání hry](vydani-hry.md)** — demo prodává a prototyp validuje, vertikální vs. horizontální řez, prvních deset recenzí a rytmus slev — a co ti z hrubé tržby reálně zbyde.
+- **[Vydání hry](vydani-hry.md)** — demo prodává a prototyp validuje, vertikální vs. horizontální řez, prvních deset recenzí a rytmus slev — a co ti z hrubé tržby reálně zbyde. Na konci Cyberpunk 2077 jako protipříklad: rozbitý launch a roky oprav.
 
 **Byznys, data a kariéra**
 

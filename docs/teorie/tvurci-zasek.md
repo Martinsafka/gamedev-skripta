@@ -40,4 +40,4 @@ Eskalace metody dostala herní jméno: **god mode** [(7:49)](https://www.youtube
 
 > **Pozn.:** Grail sešit a [TIL.md](programatorske-navyky.md) se nevylučují — TIL je jednořádková kondenzace naučeného (paměť), Grail je sběrna všeho (kreativita). A pro tahle skripta je metoda skoro autoportrét: zápisky vznikají přesně takhle — z revize nasbíraného materiálu, ne z třídění. Miyazakiho metoda z předchozí myšlenky je Grail pro malíře: jeho „sešit" je zeď ateliéru.
 
-**Souvislosti:** [Start projektu: design dokument jako nástěnka](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje) · [Programátorské návyky](programatorske-navyky.md) · [Zápisek: Devlog jako mapa](../zapisky/devlog-jako-mapa.md) · [Nápad](napad.md)
+**Souvislosti:** [Start projektu: design dokument jako nástěnka](jak-zacit.md#design-dokument-ktery-skutecne-otevres-nastenka-misto-eseje) · [Programátorské návyky](programatorske-navyky.md) · [Zápisek: Devlog jako mapa](../zapisky/devlog-jako-mapa.md) · [Nápad](napad.md) · [Šest otázek příběhu](pribeh-a-postavy.md#sest-otazek-bez-kterych-nemas-pribeh) *(psaní po krátkých dávkách a pevná sada dokumentů)*

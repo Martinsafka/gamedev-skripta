@@ -1,6 +1,6 @@
 # Plánovací nástroje: kanban pro gamedev
 
-Jednou přijde bod, kdy „mám to v hlavě" přestane stačit — sólo dřív, než čekáš, v týmu okamžitě. Indie Game Clinic ukazuje na reálném jamovém projektu, jak vede hru přes Trello: nejdřív *co* dělat (karty, sloupce, pravidla), pak *proč* zrovna takhle (kanban jako metodologie, ne jen software). A přidává kariérní poznámku pod čarou: kdo tohle na projektech dělá, dělá práci producenta.
+Jednou přijde bod, kdy „mám to v hlavě" přestane stačit — sólo dřív, než čekáš, v týmu okamžitě. Indie Game Clinic ukazuje na reálném jamovém projektu, jak vede hru přes Trello: nejdřív *co* dělat (karty, sloupce, pravidla), pak *proč* zrovna takhle (kanban jako metodologie, ne jen software). A přidává kariérní poznámku pod čarou: kdo tohle na projektech dělá, dělá práci producenta. Poslední myšlenka jde o krok před board: jak velkou featuru [rozpadnout](#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni), aby se dala dokončit.
 
 ---
 
@@ -69,3 +69,25 @@ K tomu barevné **labels** podle kategorií (zelená art, modrá writing — art
 > **Pozn.:** Video obsahuje **placený segment o projektovém nástroji** (autor to přiznává) a my ho tu vědomě neopakujeme — kanban jako metoda má v této kapitole [vlastní výklad](#kanban-karty-zleva-doprava-a-jeden-vlastnik-na-kartu), který je na konkrétním softwaru nezávislý. Zajímavější je, co z toho přehledu plyne obecně: **skoro celý seznam je zdarma nebo do dvaceti dolarů.** Bariéra vstupu do vývoje her dnes není v nástrojích — a to znamená, že „nemám na software" je výmluva, kterou je potřeba škrtnout ze seznamu. Zbývají dvě reálné bariéry, čas a znalost, a na ty se hodí [pravidlo o konzistenci](jak-se-ucit-kodovat.md#rozbij-to-schvalne-kdy-je-kod-konecne-tvuj). Za zmínku stojí i shoda dvou nezávislých zdrojů na Asepritu — totéž doporučuje [tutoriál na pixel art pro Godot](../godot/2d-svet.md#pixel-art-do-godotu-paleta-silueta-a-jedno-nastaveni).
 
 **Souvislosti:** [Kanban](#kanban-karty-zleva-doprava-a-jeden-vlastnik-na-kartu) · [Organizace projektu: Git v Unrealu](../praxe/organizace-projektu.md#git-v-unrealu-verzovani-z-editoru-a-cesta-zpet-v-case) *(týž nástroj z enginové strany)* · [Godot: pixel art do Godotu](../godot/2d-svet.md#pixel-art-do-godotu-paleta-silueta-a-jedno-nastaveni) · [Devlogy](devlogy.md) *(k čemu je ta marketingová vrstva)* · [Rejstřík: Version control](../rejstrik.md#version-control) · [Rejstřík: Git LFS](../rejstrik.md#git-lfs)
+
+---
+
+## Hora po kamenech: featuru rozpadni, dokud nejde dokončit za jedno sezení
+
+**Zdroj:** [The Breakdown Method: The Secret to Finishing Your Game](https://www.youtube.com/watch?v=wAe6b3IpSh0) · [Unreal University](https://www.youtube.com/channel/UCQv4mwerZLQVe3wPbsMc-qw) · ~8 min, rada
+
+**Shrnutí:** Unreal University vysvětluje, proč se hry nedodělávají. Problém nebývá nápad, ale velikost úkolu a snaha vzít ho celý najednou. Přehlcený vývojář se zasekne a uteče k novému projektu, který zatím nemá žádné nevyřešené problémy, a celé se to opakuje. Lékem je rozpad: featura se dělí tak dlouho, až jde každý kus dokončit za jedno sezení. Háček: nepomůže to projektu, který pořád roste o nové featury. To je podle videa jiný boj.
+
+### Rozpad myšlenky
+
+**Proč se to zasekne.** Začneš zábavnými částmi, postavou a pohybem, a pak zjistíš, kolik ještě zbývá: souboj, UI, ukládání, nepřátelé [(0:02)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=2s) [(0:49)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=49s). Nový nápad láká, protože nemá žádnou zátěž ani nevyřešené problémy. Jenže i ten časem ztěžkne a kolo se točí znovu. Podle videa se nemusí měnit projekt, ale způsob práce [(1:36)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=96s).
+
+**Rozpad.** Nepracuj na hře, ale na nejmenším možném kusu. Dům se staví cihla po cihle a střecha přijde, až je pod ní pevný základ [(2:23)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=143s). Souboj se rozpadne na pohyb hráče, animaci úderu a detekci zásahu a každý kus jde dokončit za jedno sezení. Mozek se přestane vypínat, protože úkol před ním je zvládnutelný. Pomáhají menší kusy a soustředění, ne delší sezení [(3:11)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=191s).
+
+**Příklad s lodí.** Vágní „systém lodi" nejdřív potřebuje přesnou definici: loď, kterou hráč řídí, palivo, a když palivo dojde, vrátí hra hráče na startovní ostrov [(3:11)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=191s). Pak přijde rozpad na čtyři úkoly. Model lodi ve světě, nastoupení a řízení, palivo ubývající za jízdy a kontrola nuly s teleportem zpět [(3:59)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=239s). Když je úkol pořád velký, rozpadne se znovu, třeba na widget s palivem a jeho zobrazení po nastoupení. Ze seznamu pak stačí vybrat nejsnazší úkol, protože když jednou začneš, snáz pokračuješ [(4:45)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=285s).
+
+**Hora.** Po týdnu nebo dvou se podíváš na seznam a začne tě trochu stresovat, kolik zbývá [(5:31)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=331s). Pohled upřený jen na vrchol pokrok zakrývá, a proto se vyplatí dívat se na další krok. Pomáhá otázka na tento týden: jaká jedna smysluplná věc mě posune? Někdo si řekne „dokončím za šest měsíců", jenže podle videa pak šest měsíců uplyne a neudělá nic [(6:17)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=377s). Malé výhry se skládají a z nich je nakonec hotová hra [(7:04)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=424s).
+
+> **Pozn.:** Rozpad je metoda k pravidlu o zrnitosti z [Kanbanu](#kanban-karty-zleva-doprava-a-jeden-vlastnik-na-kartu): karta „udělej celý level design" se nikdy nedokončí, karta „widget s palivem" ano. Na projekt, který pořád bobtná, platí jiná kapitola, [Scope creep](scope.md#scope-creep-napad-zaparkuj-nezabijej). Toto čtení je naše. Video třikrát odkazuje na autorův kurz zdarma [(1:36)](https://www.youtube.com/watch?v=wAe6b3IpSh0&t=96s), takže jde i o promo.
+
+**Souvislosti:** [Kanban: zrnitost karet](#kanban-karty-zleva-doprava-a-jeden-vlastnik-na-kartu) · [Scope: malá hra = jedna mechanika](scope.md#mala-hra-jedna-mechanika-ne-zmenseny-skyrim) · [Rejstřík: Scope creep](../rejstrik.md#scope-creep)

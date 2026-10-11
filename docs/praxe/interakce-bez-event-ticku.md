@@ -25,7 +25,7 @@ Dva nenápadné, ale důležité detaily z videa:
 
 > **Pozn.:** K výkonnostnímu tvrzení videa („významně zlepší performance") je fér dodat nuanci: jeden Line Trace za frame je velmi levná operace a trvalý overlap má vlastní, nenulovou cenu. Skutečný přínos je **architektonický** — event-driven kód se spouští při změnách, škáluje lépe (deset triggerů nestojí 10× tick) a hlavně drží logiku mimo Event Tick, což je v Blueprintech dobrá hygiena bez ohledu na mikrobenchmarky. Kdo potřebuje přesnost paprsku (např. míření na malé cíle), pro toho zůstává trace správný nástroj — jen ať ho spouští event nebo timer, ne Tick.
 
-**Souvislosti:** [Blueprint Interface](#blueprint-interface-volani-bez-castu) níže · [Principy architektury](principy-architektury.md) · [Rejstřík: Event Tick](../rejstrik.md#event-tick) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: collision preset](../rejstrik.md#collision-preset) · [Build, který Event Tick odmítne](mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) *(pojistka proti agentovi)*
+**Souvislosti:** [Blueprint Interface](#blueprint-interface-volani-bez-castu) níže · [Principy architektury](principy-architektury.md) · [Rejstřík: Event Tick](../rejstrik.md#event-tick) · [Rejstřík: Line Trace](../rejstrik.md#line-trace) · [Rejstřík: collision preset](../rejstrik.md#collision-preset) · [Build, který Event Tick odmítne](mcp-v-editoru.md#jak-s-agentem-v-editoru-mluvit-presna-jmena-jeden-ukol-a-kontext-ktery-se-vejde) *(pojistka proti agentovi)* · [Pět kostek každé mechaniky](../teorie/systemy-a-mechaniky.md#pet-kostek-kazde-mechaniky-vstup-detekce-transformace-komunikace-a-stav) *(detekce jako jedna z pěti kostek)*
 
 ---
 

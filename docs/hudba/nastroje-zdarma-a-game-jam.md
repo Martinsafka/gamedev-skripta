@@ -81,7 +81,7 @@ Cílový scénář je jasný: **game jam** (kde na najímání není čas ani pe
 
 **Řetěz má pět kroků** a je pochopitelný i bez konkrétních nástrojů:
 
-1. **Nazpívej to přes akordy** [(0:35)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=35s). Musíš mít aspoň akordy nebo bas, ať máš do čeho zpívat. Autor svůj vlastní pokus komentuje bez příkras: *„je to hrozné, nejsem dobrý zpěvák, ale měl jsem představu, jak to má znít, a snažil jsem se ji trefit."*
+1. **Nazpívej to přes akordy** [(0:34)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=34s). Musíš mít aspoň akordy nebo bas, ať máš do čeho zpívat. Autor svůj vlastní pokus komentuje bez příkras: *„je to hrozné, nejsem dobrý zpěvák, ale měl jsem představu, jak to má znít, a snažil jsem se ji trefit."*
 2. **Vyexportuj a nahraj do generátoru** [(1:47)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=107s), tam zvol funkci **cover**. Ta nechá **tvůj text i tvou melodii** a přezpívá je pořádně — ale **cizím hlasem** a s vlastní instrumentálkou.
 3. **Vytáhni stopu zpěvu** [(2:59)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=179s) přes separaci stem, protože instrumentálku nechceš.
 4. **Přehoď hlas na svůj** [(3:25)](https://www.youtube.com/watch?v=8w97N0rEIS8&t=205s). Klon vlastního hlasu vznikne tak, že **si asi deset minut zazpíváš svoje oblíbené písničky** — *„a nedělej si starosti, zpívat vůbec nemusíš umět. Když jsem to zvládl já, zvládneš to ty."* Existuje i rychlá varianta z patnácti vteřin, méně přesná.

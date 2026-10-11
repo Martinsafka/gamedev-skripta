@@ -458,7 +458,7 @@ Kde se s tím potkáš: [Obtížnost a výzva](teorie/obtiznost.md)
 
 Strom běží na AI controlleru a čte sdílenou tabuli (Blackboard); decoratory hlídají podmínky a s „observer aborts" přerušují běžící větve při změně dat. Vlastní tasky se píší v blueprintu (Receive Execute AI → Finish Execute). Pro nové projekty Epic tlačí State Trees — koncepty se ale přenášejí.
 
-Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Strom jen rozhoduje](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Reakce vedle stromu](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve)
+Kde se s tím potkáš: [Základy AI](praxe/ai-zaklady.md) · [AI vnímání](praxe/ai-vnimani.md) · [AI, která nereaguje](praxe/debugging.md#ai-ktera-nereaguje-gameplay-debugger-a-dve-tiche-priciny) · [Strom jen rozhoduje](praxe/ai-ve-velkem.md#strom-jen-rozhoduje-akce-v-gameplay-abilitach-nepritel-v-datech) · [Reakce vedle stromu](praxe/ai-ve-velkem.md#reakce-vedle-stromu-co-se-muze-stat-v-kazdem-stavu-nepatri-do-zadne-vetve) · [NPC v Cyberpunku a řidší update logiky](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav)
 
 ### Beta
 
@@ -502,7 +502,7 @@ Blockout disciplína: grid/metrické materiály (okamžitě vidíš, že vchod j
 
 Z pohledu environment artu je blockout polovina projektu: rozhoduje o čitelnosti, siluetě a měřítku. Pomáhá test přimhouřených očí a postava ve scéně od prvního dne. Pipeline Naughty Dog ho dotahuje přes průchod hodnot a barvy, ještě než vznikne první materiál.
 
-Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Prototypování](teorie/prototypovani.md) · [Blockout: zastav, omez, porovnej](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Od blockoutu ke kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku)
+Kde se s tím potkáš: [Prostor a hranice](teorie/prostor-a-hranice.md) · [Prototypování](teorie/prototypovani.md) · [Blockout: zastav, omez, porovnej](praxe/blockout.md#zastav-omez-porovnej-blockout-ktery-se-da-precist) · [Hybridní blockout](praxe/blockout.md#hybridni-blockout-hodnoty-a-barva-driv-nez-materialy) · [Od blockoutu ke kitu](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Night City od blockoutu ke kitům](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav)
 
 ### Beautiful corner
 
@@ -542,7 +542,7 @@ Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ti
 
 Každý agent se vyhýbá tlačenici, srovnává směr s okolím a drží se těžiště sousedů; výsledné vzory hejna nikdo nenaprogramoval. Učebnicový příklad emergence: komplexní chování se levněji pěstuje z jednoduchých pravidel, než skriptuje. Základ ptáků, ryb i davů ve hrách.
 
-Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-prehled.md)
+Kde se s tím potkáš: [Algoritmy, které stojí za to znát](teorie/algoritmy-prehled.md) · [Game of Life: tři pravidla](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit)
 
 ### Boolean
 
@@ -674,6 +674,14 @@ Kde se s tím potkáš: [Kamera](teorie/kamera.md)
 
 Kde se s tím potkáš: [Interakce bez Event Ticku](praxe/interakce-bez-event-ticku.md)
 
+### Cellular automaton
+
+**Mřížka buněk, ve které každá buňka krok po kroku mění stav podle jednoduchých pravidel a podle stavu sousedů.**
+
+Nejznámější je Game of Life se dvěma stavy a třemi pravidly. Historicky navazuje na von Neumannovu myšlenku sebereplikujícího stroje s 29 stavy. Ve hrách se celulární automaty hodí třeba na generování jeskyní nebo na šíření ohně a tekutin.
+
+Kde se s tím potkáš: [Emergence a Game of Life](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) · [Rejstřík: Game of Life](#game-of-life)
+
 ### Channel
 
 **V Mesh Terrainu pojmenovaná materiálová vrstva terénu — nástupce landscape layers.**
@@ -733,6 +741,14 @@ Kde se s tím potkáš: [CVD zevnitř](praxe/debugging.md#chaos-visual-debugger-
 Od 5.8 může být posledním sloupcem [pose match](#pose-match-column), tedy motion matching přímo v tabulce, a chooser drží libovolný počet vnitřních pose search databází. Vrácení víc výstupních structů najednou je volba na uzlu Evaluate Chooser.
 
 Kde se s tím potkáš: [MM základy](praxe/mm-zaklady.md) · [Systémy nad MM](praxe/mm-systemy.md) · [Motion matching uvnitř chooseru](praxe/gasp.md#motion-matching-uvnitr-chooseru-pose-match-sloupec-databaze-na-radek-a-blend-space-ve-stacku) · [Výběr vstávání](praxe/ragdoll.md#vstavani-pres-motion-matching-snapshot-pose-history-z-fyziky-a-chooser)
+
+### Chunking
+
+**Rozpad velkého úkolu na kusy tak malé, že každý jde dokončit za jedno sezení.**
+
+Unreal University tomu říká breakdown method: souboj se rozpadne na pohyb, animaci úderu a detekci zásahu, systém lodi na čtyři úkoly a ty případně ještě dál. Pomáhá proti zaseknutí kvůli velikosti úkolu, ne proti projektu, který pořád roste o nové featury.
+
+Kde se s tím potkáš: [Hora po kamenech](teorie/planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni) · [Rejstřík: Kanban](#kanban) · [Rejstřík: Scope creep](#scope-creep)
 
 ### CI/CD
 
@@ -992,6 +1008,14 @@ Rozhoduje se podle toho, které číslo v `stat unit` se blíží k `frame`: **g
 
 Kde se s tím potkáš: [Rozhodovací strom](praxe/profiling.md#rozhodovaci-strom-stat-unit-rekne-kterym-nastrojem-pokracovat) · [Co je v herním vlákně a co v renderovacím](praxe/profiling.md#co-je-v-hernim-vlakne-a-co-v-renderovacim) · [Rejstřík: Herní vlákno](#herni-vlakno)
 
+### Crunch
+
+**Dlouhodobé přesčasy před vydáním, často nařízené, třeba jako šestidenní pracovní týden.**
+
+U Cyberpunku 2077 ho rozbor popisuje jako jeden z projevů ambicí, na které studio nemělo dost lidí ani času. Krátkodobě přidá hodiny, dlouhodobě se platí únavou a chybami. Lidská cena je podle autora rozboru otázka, kterou si má průmysl klást hlavně u velkých produkcí.
+
+Kde se s tím potkáš: [Cyberpunk 2077](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav) · [Rejstřík: Day-one patch](#day-one-patch)
+
 ### Cubemap
 
 **Textura ze šesti čtvercových stěn krychle, která zachytí okolí ze všech směrů.**
@@ -1065,6 +1089,14 @@ Kde se s tím potkáš: [Proč objekty zpomalují](praxe/mass-ecs.md#proc-objekt
 Typické použití: jedna konfigurovatelná třída (pickup) drží jen jméno řádku a zbytek si dohledá v construction scriptu — žádné dítě pro každou položku. Hranice: tabulka je statická, nedá se k ní přidat funkčnost ani z ní dědit; to umí data asset a „třída jako data".
 
 Kde se s tím potkáš: [Kdy dědit a kdy jen konfigurovat](praxe/principy-architektury.md#kdy-dedit-a-kdy-jen-konfigurovat) · [Třída jako data](praxe/principy-architektury.md#trida-jako-data-cdo-misto-instanci) · [Rejstřík: Data asset](#data-asset)
+
+### Day-one patch
+
+**Záplata vydaná v den vydání hry, která opravuje chyby nalezené po uzavření buildu.**
+
+Je to běžná praxe, ale nebezpečná, když nahrazuje testování. U Cyberpunku 2077 měla podle rozboru opravit chyby, na které se kvůli malému testování na konzolích nepřišlo včas, a nestačila.
+
+Kde se s tím potkáš: [Cyberpunk 2077](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav) · [Rejstřík: Crunch](#crunch)
 
 ### Deferred rendering
 
@@ -1226,7 +1258,7 @@ Kde se s tím potkáš: [Devlogy](teorie/devlogy.md) · [Postmortem ShantyTown](
 
 Opakem je klasické UI přes obrazovku. Diegetické menu prodlouží imerzi až do menu a hororu dá atmosféru od první minuty. Cenou je ovládání: paprsek z virtuální myši, kolize, které mu stojí v cestě, a navigace gamepadem, kterou je potřeba vyřešit zvlášť. V UE stojí na [Widget Component](#widget-component) a [Widget Interaction Component](#widget-interaction-component).
 
-Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys) · [Imerze](teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida)
+Kde se s tím potkáš: [Menu jako předmět ve scéně](praxe/ui-ve-svete.md#menu-jako-predmet-ve-scene-widget-na-televizi-a-virtualni-mys) · [Imerze](teorie/game-feel.md#imerze-svet-ktery-na-tebe-odpovida) · [HUD Cyberpunku přes implantáty v očích](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav)
 
 ### Direct Mesh Controls
 
@@ -1403,6 +1435,14 @@ Kde se s tím potkáš: [Prototypování: iterační spirála](teorie/prototypov
 Kombinace selhává dvěma způsoby: redundancí („The Walking Dead meets Day of the Dead" — totéž dvakrát) a nespojitelností (prvky, které hlava neposkládá). Dobrý pitch je teze, kterou zbytek dokumentu obhajuje — Monaco: „mechaniky Pac-Mana oženěné se stealth prvky Hitmana", a pak bod po bodu proč. Srovnej s pitch deckem — pitch je věta, deck je prezentace.
 
 Kde se s tím potkáš: [GDD: Monaco](teorie/gdd.md) · [Nápad](teorie/napad.md)
+
+### Emergence
+
+**Chování celku, které vznikne z jednoduchých pravidel samo, aniž by ho někdo naprogramoval.**
+
+Boids dělají hejno ze tří pravidel a Game of Life z dalších tří i počítač. Pro design z toho plyne, že složité chování se často levněji pěstuje z pravidel, než skriptuje, a že víc pravidel systém spíš svazuje, než obohacuje.
+
+Kde se s tím potkáš: [Emergence, žíhání a kabinet kuriozit](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) · [Systémy a mechaniky](teorie/systemy-a-mechaniky.md) · [Rejstřík: Boids](#boids)
 
 ### Enum
 
@@ -1671,6 +1711,14 @@ Kde se s tím potkáš: [Škálování a pooling](praxe/niagara-vykon.md#skalova
 Klasická podoba (slohová práce v akademickém formátu) u sólo vývojářů umírá nedopsaná a nečtená. Funkční alternativa je vizuální nástěnka: reference s důvody, levely jako sekvence, mechaniky jako GIFy, centrální to-do. Jediná metrika kvality GDD je, jestli je *živý* — forma je vedlejší.
 
 Kde se s tím potkáš: [GDD: dokument jako způsob myšlení](teorie/gdd.md) · [Start projektu](teorie/jak-zacit.md) · [Zápisky: GDD review](zapisky/gdd-review.md)
+
+### Game of Life
+
+**Celulární automat Johna Conwaye z roku 1970: dva stavy, tři pravidla a nekonečná složitost.**
+
+Buňka s přesně třemi živými sousedy ožije, s méně než dvěma nebo s víc než třemi umře a se dvěma nebo třemi přežije. Z toho vznikají stabilní útvary, oscilátory a pohyblivé „lodě" jako glider. Systém je dokazatelně Turingovsky úplný.
+
+Kde se s tím potkáš: [Emergence a Game of Life](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) · [Rejstřík: Cellular automaton](#cellular-automaton) · [Rejstřík: Turing completeness](#turing-completeness)
 
 ### Gameplay Debugger
 
@@ -2294,7 +2342,7 @@ Kde se s tím potkáš: [Game feel a imerze](teorie/game-feel.md) · [Pět potvr
 
 Trello je značka, kanban je systém (jede i v Jira nebo Notionu). Tři nosná pravidla: karty dost malé, aby šly dokončit; jeden vlastník na kartu — když jsou zodpovědní dva, není zodpovědný nikdo; a nejméně karet je uprostřed, protože Doing je deklarace dnešního fokusu, ne evidence ambicí.
 
-Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md)
+Kde se s tím potkáš: [Plánovací nástroje](teorie/planovani-nastroje.md) · [Jak velkou kartu rozpadnout](teorie/planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni)
 
 ### Keep Triangle Percent
 
@@ -2962,7 +3010,7 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Modifikátory 
 
 Kusy sdílejí rozměry, pivoty a materiály, takže zacvaknou k sobě a texturují se sdílenými tilery a trimy. Kit začíná co nejmenším počtem kusů a roste hlavně v konkrétních situacích: opakování, detail, nový prvek, destrukce. Velikost kusu se řídí velikostí prostředí, u města je kusem klidně celé patro. Nevýhodou je hodně objektů a draw callů, proto se kusy na konci produkce někdy slučují. Pevný kit řeší švy, organický snese kusy zabořené do sebe.
 
-Kde se s tím potkáš: [Kit jako lego](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: kit radnice](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Rejstřík: Trim sheet](#trim-sheet) · [Rejstřík: Kitbashing](#kitbashing)
+Kde se s tím potkáš: [Kit jako lego](praxe/modularni-kity.md#kit-jako-lego-co-nejmene-kusu-mrizka-v-metrech-a-zoo-na-zkousku) · [Organický kit a spoje](praxe/modularni-kity.md#organicky-kit-a-spoje-zaborit-nechat-rust-od-zdroje-zakryt-sev) · [Beauclair: kit radnice](praxe/modularni-kity.md#beauclair-500-mb-textur-na-cele-mesto-orientacni-body-clony-a-jeden-shader-na-ctvrt) · [Rejstřík: Trim sheet](#trim-sheet) · [Rejstřík: Kitbashing](#kitbashing) · [Po blockoutu kity v Night City](teorie/vydani-hry.md#cyberpunk-2077-launch-ktery-se-rozbil-a-roky-oprav)
 
 ### Montage section
 
@@ -3110,7 +3158,7 @@ Kde se s tím potkáš: [Mesh Terrain](praxe/mesh-terrain.md) · [Nanite a velik
 
 Pojem posledních ~20 let; zahrnuje volbu typu protagonisty, směr dialogů, rejstříky řeči i vyprávěcí prostředky, které mají jen hry (flavor texty, prostředí, mechaniky). Pro malé týmy začíná třemi branami: kolik implementace vyprávění přinese, jaká je tvá spisovatelská praxe a jaké příběhy ti nabízejí tvoje nástroje.
 
-Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md)
+Kde se s tím potkáš: [Příběh a postavy](teorie/pribeh-a-postavy.md) · [Šest otázek, bez kterých nemáš příběh](teorie/pribeh-a-postavy.md#sest-otazek-bez-kterych-nemas-pribeh)
 
 ### Nav Mesh
 
@@ -4258,7 +4306,7 @@ Kde se s tím potkáš: [Začátky bez zkušeností](teorie/zacatky-bez-zkusenos
 
 Dvojsečná past: někdy je to přesně ten twist, který hře chyběl, častěji fraktální bobtnání (rybaření → pruty → rybářské lodě) nebo míchání žánrů, které vyrobí hru pro nikoho — publikum dvou žánrů je průnik, ne součet. Rozhodovací filtr: sytí nápad účel hry, nebo ho ředí? Obrana: sticky note test na začátku, momentum bar a psaní nápadů do šuplíku během vývoje.
 
-Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Scope: nápad zaparkuj, nezabíjej](teorie/scope.md) · [Nápad](teorie/napad.md) · [Start projektu](teorie/jak-zacit.md)
+Kde se s tím potkáš: [Žrouti času](teorie/produktivita.md) · [Scope: nápad zaparkuj, nezabíjej](teorie/scope.md) · [Nápad](teorie/napad.md) · [Start projektu](teorie/jak-zacit.md) · [Rozpad pomůže, jen když projekt neroste](teorie/planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni)
 
 ### Scrum
 
@@ -4598,6 +4646,14 @@ S Density Filter z něj vznikají přirozené shluky místo čistě náhodného 
 
 Kde se s tím potkáš: [Podlaha, stěny a strop jedním grafem](praxe/pcg-liany.md#podlaha-steny-a-strop-jednim-grafem-volumetric-sampling-misto-mesh-sampleru) · [Les pro otevřený svět](praxe/pcg-vegetace.md#les-pro-otevreny-svet-co-se-nacte-s-levelem-a-co-roste-kolem-hrace)
 
+### Spawn closet
+
+**Místo, odkud posily věrohodně přicházejí, často nepřístupná místnost, aby se nepřátelé nezjevili z ničeho; říká se mu i monster closet.**
+
+Vznikl v Doomu, který neuměl vytvářet nepřátele za hry. Dnes řeší posily po poplachu nebo další vlny v prostoru, který hráč už viděl, a pomáhá dodržet rozpočet aktivních nepřátel. Podoba má sedět k fikci světa: dveře, ventilace, bláto, auto nebo shoz z oběžné dráhy.
+
+Kde se s tím potkáš: [Spawn closet](teorie/prostor-a-hranice.md#spawn-closet-posily-ktere-odnekud-prijdou) · [Rejstřík: Suspension of disbelief](#suspension-of-disbelief)
+
 ### Sphere tracing
 
 **Trasování podél paprsku po skocích dlouhých tolik, kolik říká distance field — bližší povrch tam není, takže se nic nepřeskočí.**
@@ -4797,6 +4853,14 @@ Kde se s tím potkáš: [Lumen: rozpočet a binární hledání](praxe/gpu-pruch
 V gamedevu je obzvlášť silné: postmortemy píšou hlavně ti, komu to vyšlo, a zrušené projekty nemají Steam stránku. Poctivé odhady mluví o tom, že úspěchu ve smyslu udržitelné obživy dosáhne méně než patnáct procent těch, kdo to zkusí. Praktický důsledek: rady od úspěšných vývojářů popisují nutné, ne postačující podmínky.
 
 Kde se s tím potkáš: [Data o úspěchu](teorie/data-o-uspechu.md#krivka-preziti-proc-se-sance-zlepsuji-s-patou-hrou) · [Přežít jako studio](teorie/prezit-jako-studio.md#stesti-dovednost-a-veci-ktere-cisla-neukazou)
+
+### Suspension of disbelief
+
+**Ochota hráče přijmout pravidla fikce, dokud ho z ní hra sama nevytrhne.**
+
+Rozbije ji nepřítel, který se zjeví z ničeho, neviditelná zeď nebo cokoli jiného, co odhalí stroj pod hrou. Level design proto schovává technická omezení do fikce, třeba přes spawn closet nebo přirozené hranice mapy.
+
+Kde se s tím potkáš: [Spawn closet](teorie/prostor-a-hranice.md#spawn-closet-posily-ktere-odnekud-prijdou) · [Hranice mapy](teorie/prostor-a-hranice.md#hranice-mapy-hrac-se-ma-rozhodnout-sam-ze-dal-nepujde)
 
 ### SVD
 
@@ -5064,13 +5128,21 @@ Průmyslový termín; ve velkých studiích existují vyhraněné 3C designérsk
 
 Kde se s tím potkáš: [Žánry očima designéra](teorie/zanry.md)
 
+### Turing completeness
+
+**Vlastnost systému, který dokáže spočítat cokoli, co spočítat jde, pokud má dost času a paměti.**
+
+Mají ji programovací jazyky, ale i nečekané systémy, třeba Game of Life se třemi pravidly. Lekce pro design zní, že výpočetní síla nepotřebuje složitá pravidla.
+
+Kde se s tím potkáš: [Emergence a Game of Life](teorie/algoritmy-prehled.md#emergence-zihani-a-kabinet-kuriozit) · [Rejstřík: Game of Life](#game-of-life)
+
 ### Tutorial hell
 
 **Smyčka „sleduju tutoriály, umím je zopakovat, ale sám nepostavím nic" — nejčastější past učení enginu.**
 
 Sledování není učení. Útěk je vždycky stejný: po každém tutoriálu zavřít video a postavit něco malého vlastního s tím, co ses právě naučil. Mezera mezi následováním kroků a vlastním myšlením se zavírá jen malými dokončenými projekty — dveře, mince, postava s damage.
 
-Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Jak se učit z GASP](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework)
+Kde se s tím potkáš: [Tipy do editoru](praxe/editor-tipy.md) · [Začátky bez zkušeností](teorie/zacatky-bez-zkusenosti.md) · [Jak se učit z GASP](praxe/gasp.md#posledni-update-pro-ue5-sample-ne-framework) · [Pět věcí po pěti letech v Unrealu](teorie/jak-se-ucit-kodovat.md#aktivni-sledovani-tutorial-je-odrazovy-mustek-ne-recept) · [Pět kostek každé mechaniky](teorie/systemy-a-mechaniky.md#pet-kostek-kazde-mechaniky-vstup-detekce-transformace-komunikace-a-stav)
 
 ### Typografie
 

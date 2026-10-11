@@ -39,7 +39,7 @@ Na **oscilátoru** volíš barvu zvuku přes tvar vlny [(2:15)](https://www.yout
 
 ### Rozpad myšlenky
 
-**ADSR** je čtveřice knobů amp obálky [(6:26)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=436s):
+**ADSR** je čtveřice knobů amp obálky [(7:16)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=436s):
 
 - **Attack** — jak dlouho zvuku trvá, než po stisku naběhne (pomalý = pozvolný nástup, rychlý = úder);
 - **Decay** — pokles po náběhu k úrovni sustainu;
@@ -62,7 +62,7 @@ Decay a sustain jsou provázané: decay začne dávat smysl, teprve když sustai
 
 ### Rozpad myšlenky
 
-Úkol obálek a LFO je jediný [(16:43)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=1049s): otáčet knoby. Přetáhneš obálku nebo LFO na knob, který chceš rozhýbat — obálka ho otočí jednou (při každé notě), **LFO** ho otáčí pořád dokola. To je celý rozdíl.
+Úkol obálek a LFO je jediný [(17:17)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=1037s): otáčet knoby. Přetáhneš obálku nebo LFO na knob, který chceš rozhýbat — obálka ho otočí jednou (při každé notě), **LFO** ho otáčí pořád dokola. To je celý rozdíl.
 
 Zvuk, který by měl umět každý [(18:39)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=1119s): vezmi pilu, zavři filtr úplně (ticho), a druhou obálkou otevírej a zavírej cutoff tak rychle, že to vytvoří zvuk — slavný **electro pluck** [(19:27)](https://www.youtube.com/watch?v=p1-WmITJqBk&t=1167s). Trik: nastav modulaci hodně hluboko (zvuk skoro zavřený), abys pak při aranži mohl automatizací cutoff otevřít a nechat zvuk „ožít".
 
@@ -92,7 +92,7 @@ A hlavní pointa celé kapitoly [(21:49)](https://www.youtube.com/watch?v=p1-WmI
 
 **Modulátor nemusí být sinus** [(2:08)](https://www.youtube.com/watch?v=8ruLuZv1ju8&t=128s): jde nastavit i jeho tvar vlny, včetně šumu. Autorka na růžový šum reaguje jednou větou, která říká všechno o tom, na co se FM používá: *„takže teď jsi Porter Robinson."*
 
-**A kam to jde dál** [(3:00)](https://www.youtube.com/watch?v=8ruLuZv1ju8&t=180s): modulátory se dají řetězit — FM2 moduluje FM1, FM3 moduluje FM2 — a v **matici** může kterýkoli modulovat kterýkoli, včetně sebe sama. To je zpětná vazba, u které autorka varuje: *„chceš na to hodně malé číslo, jinak se to začne chovat divoce."*
+**A kam to jde dál** [(2:58)](https://www.youtube.com/watch?v=8ruLuZv1ju8&t=178s): modulátory se dají řetězit — FM2 moduluje FM1, FM3 moduluje FM2 — a v **matici** může kterýkoli modulovat kterýkoli, včetně sebe sama. To je zpětná vazba, u které autorka varuje: *„chceš na to hodně malé číslo, jinak se to začne chovat divoce."*
 
 > **Pozn.:** Zajímavé je, že FM je **výpočetně levné a zvukově drahé** — pár oscilátorů dá barvy, které by subtraktivní řetězec sháněl vrstvením. Přesně proto na tom stála celá éra herního a konzolového zvuku (kdo zná chip zvuky z automatů a raných konzolí, poslouchá FM). Pro dnešní tvorbu je z toho použitelný jeden úzký recept: **sinus + FM + krátká obálka = zvonek nebo perkuse**, což jsou zvuky, které se ze samplů shánějí těžko a v UI hry se používají pořád. Vlastní výhrada: FM je notoricky **neintuitivní na ladění** — malá změna poměru přehodí zvuk na něco úplně jiného, takže se hůř „dolaďuje" a spíš se hledá. Proto se vyplatí naopak než u subtraktivní syntézy: **nejdřív najdi poměr, pak teprve tvaruj obálkou.**
 

@@ -1,6 +1,6 @@
 # Algoritmy, které stojí za to znát
 
-Fireship v deseti minutách proletí deset „divných" algoritmů — od procedurální generace map po kvantové lámání šifer. Pro tahle skripta nejde o katalog k memorování, ale o **nápadník**: tři z těch algoritmů (wave function collapse, marching cubes, boids) jsou přímo herní klasika a zbytek kalibruje intuici, co všechno „algoritmus" umí být. Kapitola je přeskládaná po mechanismech, ne po pořadí videa.
+Fireship v deseti minutách proletí deset „divných" algoritmů — od procedurální generace map po kvantové lámání šifer. Pro tahle skripta nejde o katalog k memorování, ale o **nápadník**: tři z těch algoritmů (wave function collapse, marching cubes, boids) jsou přímo herní klasika a zbytek kalibruje intuici, co všechno „algoritmus" umí být. Kapitola je přeskládaná po mechanismech, ne po pořadí videa, a k emergenci přibyl doplněk o Game of Life.
 
 ---
 
@@ -24,13 +24,16 @@ Fireship v deseti minutách proletí deset „divných" algoritmů — od proced
 
 ## Emergence, žíhání a kabinet kuriozit
 
-**Zdroj:** [10 weird algorithms every developer should know](https://www.youtube.com/watch?v=SmyPTnlqhlk) · [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA) · stejné video, zbytek katalogu
+**Zdroj:** [10 weird algorithms every developer should know](https://www.youtube.com/watch?v=SmyPTnlqhlk) · [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA) · stejné video, zbytek katalogu ·
+[The infinite potential of Conway's Game Of Life](https://www.youtube.com/watch?v=SQitnzjr8tc) · [Ominous Dev](https://www.youtube.com/channel/UChU_I9znif8JlioEaIQpi4Q) · ~6 min, výklad (doplněk)
 
 **Shrnutí:** Druhá půlka výběru učí dvě přenositelné lekce: **boids** ukazují, jak tři primitivní pravidla vyrobí chování, které nikdo nenaprogramoval [(7:47)](https://www.youtube.com/watch?v=SmyPTnlqhlk&t=467s), a **simulated annealing** ukazuje, jak se hledá „dost dobré" řešení v krajině plné lokálních vrcholů [(2:21)](https://www.youtube.com/watch?v=SmyPTnlqhlk&t=141s). Zbytek je kulturní kapitál programátora — od sleep sortu po kvantové hrozby šifrování.
 
 ### Rozpad myšlenky
 
 **Boids** (Craig Reynolds, 1986 [(7:47)](https://www.youtube.com/watch?v=SmyPTnlqhlk&t=467s)): každý „pták" se řídí třemi pravidly — vyhýbej se tlačenici (separation), leť průměrným směrem hejna (alignment), drž se těžiště sousedů (cohesion) — a z jejich součtu **emergují** vzory hejna, které v kódu nikde nejsou. Pro gamedev dvojí lekce: davy, hejna ryb a ptáků máš za tři pravidla; a obecněji — komplexní chování se levněji *pěstuje* z jednoduchých pravidel, než skriptuje. Stejný princip nese steering chování nepřátel v [game feel kapitole](game-feel.md#souboj-dela-zabavnym-pohyb-nepratel-ne-jejich-statistiky) a smyčky–řetězce uvažování o systémech.
+
+**Game of Life** je stejná lekce dovedená do extrému [(0:20)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=20s). John Conway se v roce 1970 inspiroval von Neumannovou ideou sebereplikujícího automatu s 29 stavy a vytvořil střídmější verzi se dvěma stavy a třemi pravidly [(1:09)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=69s). Buňka s přesně třemi živými sousedy ožije, s méně než dvěma nebo s víc než třemi umře a se dvěma nebo třemi přežije [(2:42)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=162s) [(3:29)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=209s). Hráči tu nejsou, jen počáteční rozložení buněk a generace [(1:55)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=115s). Z toho vyrostou stabilní útvary, oscilátory a „lodě", které se posouvají po mřížce. Nejjednodušší z nich je glider, který se pohybuje úhlopříčně. Existují i „děla", která gliders chrlí donekonečna [(4:16)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=256s) [(5:03)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=303s). Hra je dokazatelně Turingovsky úplná, takže teoreticky spočítá cokoli spočitatelného [(0:20)](https://www.youtube.com/watch?v=SQitnzjr8tc&t=20s). Teze videa, že víc pravidel dělá systém restriktivnějším, je užitečná protiváha k pokušení přidávat do hry další mechaniky. Jak z jednoduchých pravidel vznikají systémy, rozebírá kapitola [Systémy a mechaniky](systemy-a-mechaniky.md); toto propojení je naše. Video ukazuje autorovu verzi postavenou v Minecraftu a na začátku děkuje členům kanálu.
 
 **Simulated annealing** [(2:21)](https://www.youtube.com/watch?v=SmyPTnlqhlk&t=141s), vypůjčené z metalurgie (žíhání = ohřát a nechat chladnout): hledáš nejvyšší vrchol v pohoří samých kopečků; prostý hill-climb uvízne na prvním lokálním vrcholu. Řešení: začni s vysokou „teplotou" — ochotou přijímat i horší kroky (explorace) — a postupně chladni k čistému vylepšování (exploatace) [(3:08)](https://www.youtube.com/watch?v=SmyPTnlqhlk&t=188s). Je to tentýž trade-off explore/exploit, na kterém stojí [teorie zábavy](zabava.md#zabava-je-odmena-za-dobre-vyuzity-mozek); tady jako optimalizační nástroj (rozmístění skladu, rozvrh, tuning parametrů).
 

@@ -36,7 +36,7 @@ Užitečnost je přímočará: hromadná úprava vlastností (všechny lucerny �
 
 > **Pozn.:** Praxe-strana toho, co Teorie říká z druhého břehu: [začátky bez zkušeností](../teorie/zacatky-bez-zkusenosti.md) (malé dokončené projekty), [kolik kódu potřebuješ na start](../teorie/co-se-ucit.md) (uč se, co projekt žádá) a [scope](../teorie/scope.md) (malý ≠ míň hodnotný). Bonusová teze videa sedí na celý tenhle projekt skript: problém učení není obtížnost, ale **struktura** — roztroušená videa ve špatném pořadí [(7:45)](https://www.youtube.com/watch?v=BHY46bPmsXY&t=465s). Konvence pojmenování do hloubky řeší [Organizace projektu](organizace-projektu.md).
 
-**Souvislosti:** [Teorie: začátky bez zkušeností](../teorie/zacatky-bez-zkusenosti.md) · [Teorie: kolik kódu na start](../teorie/co-se-ucit.md) · [Organizace projektu](organizace-projektu.md) · [Zápisky: kvízový protokol](../zapisky/kvizovy-protokol.md) *(učení vlastní mezerou: otázky a počítadla chyb)* · [Rejstřík: tutorial hell](../rejstrik.md#tutorial-hell)
+**Souvislosti:** [Teorie: začátky bez zkušeností](../teorie/zacatky-bez-zkusenosti.md) · [Teorie: kolik kódu na start](../teorie/co-se-ucit.md) · [Organizace projektu](organizace-projektu.md) · [Zápisky: kvízový protokol](../zapisky/kvizovy-protokol.md) *(učení vlastní mezerou: otázky a počítadla chyb)* · [Rejstřík: tutorial hell](../rejstrik.md#tutorial-hell) · [Pět dalších rad od téhož autora](../teorie/jak-se-ucit-kodovat.md#aktivni-sledovani-tutorial-je-odrazovy-mustek-ne-recept) *(hloubka před šířkou a pravidelnost)*
 
 ---
 

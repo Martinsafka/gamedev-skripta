@@ -125,7 +125,7 @@ Kategorie se dají rovnou svázat s pilíři z GDD [(7:02)](https://www.youtube.
 
 > **Pozn.:** Tohle je týmová verze BiteMe rady „nápad okamžitě zapiš a zavři do šuplíku" z [testu 300 znaků](napad.md#test-300-znaku-napis-steam-popis-hry-ktera-neexistuje) — stejný mechanismus (zápis vyplaví nápad z hlavy a hra přežije), povýšený na proces s pilíři a kadencí.
 
-**Souvislosti:** [Žrouti času: scope creep](produktivita.md#scope-creep-a-michani-zanru-dvojsecna-past) · [Plánovací nástroje: kanban](planovani-nastroje.md) · [Zábava: taxonomie a pilíře](zabava.md#zabava-neni-jedna-vec-taxonomie-a-pilire) · [Rejstřík: scope creep](../rejstrik.md#scope-creep) · [Rejstřík: backlog](../rejstrik.md#backlog)
+**Souvislosti:** [Žrouti času: scope creep](produktivita.md#scope-creep-a-michani-zanru-dvojsecna-past) · [Plánovací nástroje: kanban](planovani-nastroje.md) · [Zábava: taxonomie a pilíře](zabava.md#zabava-neni-jedna-vec-taxonomie-a-pilire) · [Rejstřík: scope creep](../rejstrik.md#scope-creep) · [Rejstřík: backlog](../rejstrik.md#backlog) · [Hora po kamenech](planovani-nastroje.md#hora-po-kamenech-featuru-rozpadni-dokud-nejde-dokoncit-za-jedno-sezeni) *(rozpad pomůže, jen když projekt neroste)*
 
 ---
 

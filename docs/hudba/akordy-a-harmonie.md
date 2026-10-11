@@ -68,7 +68,7 @@ Na to navazuje **voice leading (vedení hlasů)** [(4:58)](https://www.youtube.c
 
 **Pedal tone (prodleva)** [(6:08)](https://www.youtube.com/watch?v=U5QucXeCiwU&t=368s) je autorův favorit: tón, který zní pod celou progresí a nikdy se nemění. Sjednotí přechody (všechny akordy teď sdílejí aspoň jeden tón) a přidá dojemnost. Když je toho pak moc, postav akordy *kolem* prodlevy — sundej kvinty a nech prodlevu uprostřed [(7:33)](https://www.youtube.com/watch?v=U5QucXeCiwU&t=453s).
 
-Ještě střídmější cesta: **intervaly místo akordů** [(10:24)](https://www.youtube.com/watch?v=U5QucXeCiwU&t=645s). Zahraj jen root a tercii (kvintu vynech), bas posuň o oktávu níž — dostaneš „viby" zvuk s minimem not a maximem prostoru.
+Ještě střídmější cesta: **intervaly místo akordů** [(10:29)](https://www.youtube.com/watch?v=U5QucXeCiwU&t=629s). Zahraj jen root a tercii (kvintu vynech), bas posuň o oktávu níž — dostaneš „viby" zvuk s minimem not a maximem prostoru.
 
 A dvě páky nad notami samotnými:
 
