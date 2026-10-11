@@ -15,28 +15,28 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
-### 2026-10-11 — Údržba: staré časové odkazy (Claude Code, Opus 5.5)
+### 2026-10-11 — Údržba: staré časové odkazy a kontroly ve `scripts/` (Claude Code, Opus 5.5)
 
 **What:** Kontrola časových odkazů přes celý web (8 324 odkazů) hlásila **820 problémů ve 44 kapitolách**, ne jen 79 ve čtyřech, jak uváděly follow-upy dávek 54 a 56. Opraveno **26 odkazů v 8 kapitolách**:
 - 15 popisků v hodinovém formátu („70:43" → „1:10:43") v `zabava`, `napad` a `prezit-jako-studio`.
 - 3 nesoulady popisku a `t=` v `akordy-a-harmonie` a `synteza-zvuku`.
 - 8 zaokrouhlených časů posunutých o 1–3 s na přesný začátek titulku v `live-coding`, `nastroje-zdarma-a-game-jam`, `rytmus`, `synteza-zvuku` a `prezit-jako-studio`.
 
-Zbylých 794 nahlášených odkazů zůstává beze změny. `content_conventions.md` k nim dostal pravidlo platnosti.
+Zbylých 794 nahlášených odkazů zůstává beze změny. `content_conventions.md` k nim dostal pravidlo platnosti. Kontrola je v repu jako **`scripts/check_timestamps.py`** a odkazují na ni `AGENTS.md`, `content_conventions.md` a checklist dávky v `synthesis_guide.md`. Stejně se přesunula kontrola kotev: **`scripts/check_anchors.py`**.
 
-**Why:** Zadání uživatele: „oprav ty staré časové odkazy skriptem". Analýza ukázala, že 803 nahlášených odkazů není rozbitých: míří přesně na začátek titulku (cue) ve zdrojové stopě surového přepisu. Pocházejí ze záznamů psaných v červenci (29 ze 44 kapitol vzniklo 9. 7., zbytek do 31. 7.), většinou ještě před pravidlem „`t=` jen ze začátku bloku" v `synthesis_guide` (18. 7.). Zarovnání na bloky by je posunulo v průměru o 22 s dřív a 257 by ukazovalo na stejný blok jako předchozí odkaz v odstavci. Volba uživatele: opravit jen rozbité, přesné časy ponechat.
+**Why:** Zadání uživatele: „oprav ty staré časové odkazy skriptem". Analýza ukázala, že 803 nahlášených odkazů není rozbitých: míří přesně na začátek titulku (cue) ve zdrojové stopě surového přepisu. Pocházejí ze záznamů psaných v červenci (29 ze 44 kapitol vzniklo 9. 7., zbytek do 31. 7.), většinou ještě před pravidlem „`t=` jen ze začátku bloku" v `synthesis_guide` (18. 7.). Zarovnání na bloky by je posunulo v průměru o 22 s dřív a 257 by ukazovalo na stejný blok jako předchozí odkaz v odstavci. Volba uživatele: opravit jen rozbité, přesné časy ponechat. Přesun kontroly do repa na pokyn uživatele („ano, přesuň kontrolu do scripts/"), potom i kontroly kotev („ano, přesuň i kontrolu kotev do scripts/").
 
 **How:**
 - **Analýza skriptem.** U každého nesedícího odkazu poloha vůči blokům (0–45 s od začátku bloku, zhruba rovnoměrně) a vůči titulkům stopy z hlavičky `# source_file:` (803 přesně, 5 do 1 s, 3 do 3 s). Příčinou tedy není posun bloků, starší záznamy braly čas z titulků.
 - **Tři nesoulady ověřené proti přepisu.** U ADSR je chybný popisek (6:26 → 7:16, `t=436` sedí). U „intervalů místo akordů" (645 → 629) a „úkolu obálek a LFO" (1049 → 1037) vede odkaz na titulek, kde tvrzení začíná. První verze opravy je dala na začátky bloků s chybným zdůvodněním, že kapitoly o hudbě vznikly až podle pravidla o blocích. Vznikly 17. 7., proto přesný titulek.
 - **Zaokrouhlené časy** jdou na nejbližší dřívější titulek do 3 s. U `rytmus` 8:19 leží čas uvnitř titulku [Music] (483–502 s), proto dopředu na začátek řeči 8:22.
-- **Kontrola** (`ts_check.py` ve scratchpadu) bere jako platný začátek bloku i přesný začátek titulku ze stopy z hlavičky a hlídá kanonický formát popisku. Celý web: 8 324 odkazů, 7 514 na blocích, 810 na titulcích, 0 problémů. Žádné dva stejné odkazy těsně vedle sebe.
+- **Kontrola** `scripts/check_timestamps.py` (původně `ts_check.py` ve scratchpadu) bere jako platný začátek bloku i přesný začátek titulku ze stopy z hlavičky a hlídá kanonický formát popisku. Hlásí `soubor:řádek`, při problému končí kódem 1 a bez argumentů projde celé `docs/`. Na testovacím souboru se třemi vadnými odkazy (formát popisku, čas mimo video, neznámé video) dává 3 nálezy a exit 1. Celý web: 8 324 odkazů, 7 514 na blocích, 810 na titulcích, 0 problémů. Žádné dva stejné odkazy těsně vedle sebe.
+- **Kontrola kotev** `scripts/check_anchors.py` (původně `anchor_check.py` ve scratchpadu) ověřuje odkazy `.md#kotva` i `#kotva` proti `id` v postaveném `site/`. Hlásí `soubor:řádek` a důvod (chybí soubor, chybí id, stránka nepostavená, cíl mimo `docs/`), při problému končí kódem 1, bez buildu kódem 2. Na webu 5 102 odkazů (4 144 mezi stránkami, 958 v rámci stránky), 0 problémů, stejně jako původní verze. Testovací strom se čtyřmi vadnými odkazy: 4 nálezy, exit 1; bez `site/` exit 2. Glyph regex už v `synthesis_guide.md` zapsaný je, takže checklist dávky teď na scratchpadu nezávisí.
 - **Gates:** `--strict` bez varování, anchor-check 5 102/0, obojí na finálním stavu.
 
 **Follow-ups:**
-1. Kontrola časů žije jen ve scratchpadu této session. Kandidát na přesun do `scripts/`, aby ji měla i další session.
-2. Až se bude přečišťovat 10 starších přepisů (follow-up z fetche v roadmapě), změní se u nich bloky i zdrojová stopa. Odkazy na ta videa pak znovu projít touto kontrolou.
-3. Follow-upy o starých časech z dávek 54 a 56 jsou tímto vyřízené.
+1. Až se bude přečišťovat 10 starších přepisů (follow-up z fetche v roadmapě), změní se u nich bloky i zdrojová stopa. Odkazy na ta videa pak znovu projít touto kontrolou.
+2. Follow-upy o starých časech z dávek 54 a 56 jsou tímto vyřízené.
 
 ### 2026-10-10 — Phase 13 dávka 56: teorie — příběh, plánování, mechaniky, level design a Cyberpunk (Claude Code, Opus 5.5)
 

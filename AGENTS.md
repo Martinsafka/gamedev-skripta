@@ -25,7 +25,7 @@ Follow the loop in `agent_docs/workflow.md` for **every** assignment: analyze �
 ## Layout
 
 - `agent_docs/` — methodology for agents (this doc set).
-- `scripts/` — `fetch_transcripts.sh` (incremental yt-dlp fetch), `clean_transcripts.py` (SRT/VTT → clean text), `gap_scan.py` (corpus-vs-docs coverage evidence), `fetched.txt` (archive of downloaded ids — **committed**).
+- `scripts/` — `fetch_transcripts.sh` (incremental yt-dlp fetch), `clean_transcripts.py` (SRT/VTT → clean text), `gap_scan.py` (corpus-vs-docs coverage evidence), `check_timestamps.py` (timestamp links vs. local transcripts, run after every batch), `check_anchors.py` (anchor links vs. the built site, run after every build), `fetched.txt` (archive of downloaded ids — **committed**).
 - `transcripts/` — raw subtitle files + `info.json` per video id. **Gitignored.**
 - `transcripts_clean/` — cleaned plain-text transcripts. **Gitignored.**
 - `inbox/` — raw personal material for Zápisky (devlogs, conversation summaries). **Gitignored.**

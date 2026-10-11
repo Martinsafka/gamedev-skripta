@@ -108,7 +108,7 @@ These are established batch routines — details and war stories live in `dev_lo
 4. **Sponsor/promo segments get a Pozn. flag** when the entry synthesizes surrounding content (includes the creator's own paid services and merch, not just third-party sponsors).
 5. **Glyph grep immediately after every large Czech write** — mixed-script typos (Cyrillic/CJK/German) appear reliably when producing tens of thousands of Czech words per day; catch them at write time, then once more before build:
    `grep -rnP '[^\x00-\x7FáčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ„""‚''…–—·×→←↔≈≠≤≥°%€£§±símε†‡′″ ]' <files> | grep -vP '\((\d+:)?\d+:\d+\)'`
-6. **Gates**: `.venv/bin/mkdocs build --strict` (exit 0), anchor check (cross-page `.md#frag` **and** same-page `#frag` against site HTML ids), chapter map regen (`.venv/bin/python scripts/build_chapter_map.py`).
+6. **Gates**: `.venv/bin/mkdocs build --strict` (exit 0), anchor check `.venv/bin/python -I scripts/check_anchors.py` (cross-page `.md#frag` **and** same-page `#frag` against site HTML ids), timestamp check `.venv/bin/python -I scripts/check_timestamps.py <touched chapters>`, chapter map regen (`.venv/bin/python scripts/build_chapter_map.py`).
 7. **Bookkeeping**: processing_index rows → `published` + `· dávka N`; header count; teorie/index.md annotations; nav (témata live only in mkdocs.yml); dev_log entry (What/Why/How/Follow-ups — editorial decisions and garble fixes go in How; unfinished threads in Follow-ups so the next batch inherits them); roadmap tick; commit message proposed to the user (never commit).
 
 ## 10. Voice calibration
@@ -140,7 +140,7 @@ These are established batch routines — details and war stories live in `dev_lo
 3. Chapter intros updated where extended; no stale „budoucí kapitola" placeholders left behind.
 4. ~10 strongest links made bidirectional (backlink edits in old chapters).
 5. Follow-ups from the previous batch's dev_log honored or explicitly deferred.
-6. Glyph grep clean; build --strict exit 0; anchor check 0 problems (both link kinds); chapter map regenerated.
+6. Glyph grep clean; build --strict exit 0; `scripts/check_anchors.py` 0 problems (both link kinds); `scripts/check_timestamps.py` on the touched chapters 0 problems; chapter map regenerated.
 7. rejstrik.md + abbreviations.md both extended; counts reported.
 8. processing_index rows + header updated; teorie/index.md + mkdocs.yml nav updated.
 9. dev_log entry written (What/Why/How/Follow-ups), roadmap ticked.
