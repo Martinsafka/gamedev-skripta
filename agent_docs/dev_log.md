@@ -15,6 +15,22 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-11 — Údržba: přečištění 10 starších přepisů ze zpětného překladu (Claude Code, Opus 5.5)
+
+**What:** 10 starších přepisů je znovu vyčištěných opravenou pipeline, tentokrát z ruční anglické stopy místo strojového zpětného překladu. Jde o `37LVhP15zGw`, `3QKK2o5rWSQ`, `VmNUAX2V8JQ`, `kr7XYXMM7-U`, `yYYtBFSxoCg`, `hbzGO_Qonu0`, `4itMlAQC3LE`, `4w7oA4oJMqs`, `k9cbm5jSOxk` a skip `ExFF5gXVhDU`. Ruční stopa je `en`, u `4itMlAQC3LE` `en-US`; dřív to byl zpětný překlad `en-pl`, `en-es`, `en-ro`, `en-cs`, `en-de`, `en-it` nebo `en-ko`. V šesti dotčených kapitolách jsou opravená tři místa: dva časové odkazy v `teorie/zaklady.md` a jedna citace v `praxe/claude-code-ue.md`. `processing_index.md` má u všech deseti nové počty slov a poznámku o přečištění, `transcript_pipeline.md` větu, že přečištění proběhlo.
+
+**Why:** Follow-up z fetche čtvrté vlny (dev_log 2026-10-10) a bod v roadmapě. Uživatel: „ok pusť se do ovu vyčistit 10 starších přepisů."
+
+**How:**
+- **Přečištění** přes staging ve scratchpadu jen s těmi deseti id (`python3 -I scripts/clean_transcripts.py <staging> <výstup>`). Nové přepisy vznikly nejdřív vedle a porovnaly se se zálohou starých. `transcripts_clean/` není v gitu, takže záloha je jediná cesta zpět. Ruční stopu dostalo všech deset; 72 slov u `4itMlAQC3LE` odpovídá 29sekundovému videu.
+- **Časování:** strojový překlad zachovává časování titulků, takže bloky nových přepisů začínají skoro všude ve stejných časech. Ze 114 odkazů na devět použitých videí zůstalo platných 112. Dva v `zaklady` (video GMTK) jsou ověřené proti přepisu: „Novinky, a hlavně jejich slib" 3:16 → 3:17 (začátek bloku „often it introduces entirely new ideas"), „Výzva" 8:13 → 8:18 (titulek „speaking of difficulty: Another huge motivator is…"). 13 dalších odkazů je teď místo začátku bloku přesným začátkem titulku; vedou na stejné místo a platí.
+- **Termíny a jména:** porovnání starého a nového přepisu po blocích (záměny se jmény a zkratkami) a hledání zkomolených tvarů jen v heslech, která daná videa citují. Zpětný překlad komolil třeba „rigging" na „skeletonization", „weight painting" na „marking", „Escher-esque" na „picturesque" a název knihy „Elemental Magic" na „Elementary…". Náš text má všude správné tvary: rigging, kostra a malování vah, Elemental Magic od Gillanda, Banjo-Kazooie.
+- **Čísla a citace:** čísla v citujících heslech sedí („80 %" má ruční stopa jen slovy). Jediná citace převzatá ze zpětného překladu byla „no affiliation" v `claude-code-ue`; v ručních titulcích autor říká „I'm not affiliated" a text je teď česky. „Tank versus assassin" v `art-pipeline` je naše pojmenování rozporu a video ho popisuje (Shen z League of Legends).
+- **Gates:** `--strict` bez varování, `scripts/check_anchors.py` 5 103/0, `scripts/check_timestamps.py` přes celý web 8 324 odkazů (7 501 na blocích, 823 na titulcích), 0 problémů, `scripts/check_rejstrik.py` 0 problémů.
+
+**Follow-ups:**
+1. Název pluginu „Vibe UE" v `claude-code-ue` zůstává. Ruční titulky píšou „YBE" a popis videa název neuvádí, takže z korpusu ověřit nejde. Ověřit, až bude jiný zdroj.
+
 ### 2026-10-11 — Údržba: abecední pořadí rejstříku a jeho kontrola (Claude Code, Opus 5.5)
 
 **What:** `docs/rejstrik.md` je seřazený abecedně, jak žádá `content_conventions.md` („Alphabetical order within rejstrik.md"). Mimo pořadí stálo **143 hesel** ze 685, na 79 místech pořadí klesalo. Obsah je beze změny: 685 hesel, stejné řádky i počet znaků jako v HEAD, jen v jiném pořadí. Chapter map je přegenerovaná, protože hesla vypisuje v pořadí souboru. Pořadí a soulad obou vrstev teď hlídá **`scripts/check_rejstrik.py`** (`--fix` hesla seřadí). Jediný odkaz podle polohy („viz předchozí heslo" u „Pivot (design)") je nahrazený odkazem na heslo.
