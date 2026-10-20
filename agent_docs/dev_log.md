@@ -15,6 +15,28 @@ Each entry has: a dated title, then **What / Why / How** (and optional **Follow-
 
 <!-- Newest entries below. Add yours on top of the list. -->
 
+### 2026-10-11 — UE skills, krok 1: inventura skills od Epicu (Claude Code, Opus 5.5)
+
+**What:**
+- Nový pracovní brief `agent_docs/ue_skills.md`: cíl, inventura skills od Epicu ve dvou vrstvách, třídění kapitol Praxe podle domén, plán kroků, známá omezení a tři follow-upy k přesnosti kapitol o MCP.
+- `agent_docs/roadmap.md`: nová Phase 14.
+- `.gitignore` a `AGENTS.md`: nová gitignored složka `epic_skills/` pro výpis nativních skills z enginu. Je to obsah pod EULA enginu a do repa nepatří.
+
+**Why:** Uživatel chce skills, které přenesou best practices celé Praxe do vibe codingu s agentem v UE, hlavně přes MCP. Spousta věcí už bude ve skills od Epicu, proto napřed inventura a porovnání. Naše skills doplní jen to, co chybí.
+
+**How:**
+- Plugin Epicu pro Claude Code je veřejný repozitář pod MIT (`EpicGames/unreal-engine-skills-for-claude-code-plugin`, v3.1.1, commit `a6aa73a`). Mělký klon leží jen ve scratchpadu sezení. Přečtené jsou všechny tři skills, jejich reference, hook a README. Jsou to provozní skills (`unreal-mcp`, `unreal-skill`, `create-toolset`) a SessionStart hook, doménové znalosti v pluginu nejsou.
+- Doménové skills Epicu žijí v enginu jako nativní Agent Skills (`ToolsetRegistry`, agent je načte přes toolset pro skills). Python API dokumentace 5.8 dává osm jmen, popis jen u části a instrukce vůbec. Rejstřík tříd v dokumentaci nejde spolehlivě projít a dvě stránky vracejí 404, seznam proto není úplný.
+- Na tomhle Macu UE není: chybí data launcheru a Spotlight nenajde engine ani projekt. Výpis z enginu proto musí přijít ze stroje s UE.
+- Třídění podle domén: 17 kapitol Praxe má ve skills od Epicu možný protějšek (světlo, materiály, blueprinty, PCG, Niagara, Dataflow, ovládání agenta), zbylých 55 žádný.
+
+**Gates:** Žádný soubor v `docs/` se nezměnil, build a kontroly obsahu proto neběžely.
+
+**Follow-ups:**
+- Krok 2: výpis nativních skills z běžícího editoru 5.8 do `epic_skills/` (uživatel na stroji s UE).
+- Krok 3: porovnání po myšlenkách jen v 17 překryvových kapitolách, pak návrh sady skills.
+- Tři možné nepřesnosti v kapitolách o MCP: `claude-code-ue` tvrdí, že nativní MCP neumí Python, `mcp-v-editoru` popisuje přetékání kontextu, které Epic mezitím řeší vyhledáváním nástrojů, a seznam pluginů se liší od README. Podrobnosti v `ue_skills.md`.
+
 ### 2026-10-11 — Údržba: dvě upřesnění ověřená na UE 5.8 a MegaLights v „Malovat světlem" (Claude Code, Opus 5.5)
 
 **What:** Dva follow-upy z dávek 53 a 54, obojí v Praxi.

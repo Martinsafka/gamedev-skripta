@@ -191,6 +191,14 @@ Uživatel do playlistu „ue5 - izba" (= hlavní studijní playlist) uložil 93 
 - [x] **Údržba: staré časové odkazy** _(2026-10-11)_: kontrola přes celý web hlásila 820 problémů ve 44 kapitolách. 803 z nich jsou přesné začátky titulků ze starších záznamů a zůstávají (pravidlo v `content_conventions`). Opraveno 26 skutečně rozbitých: 15 popisků v hodinovém formátu, 3 nesoulady popisku a `t=`, 8 zaokrouhlených časů. Výsledek: 8 324 odkazů, 0 problémů. Kontrola je v `scripts/check_timestamps.py`, kontrola kotev v `scripts/check_anchors.py`.
 - [x] **Údržba: abecední pořadí rejstříku** _(2026-10-11)_: 143 hesel ze 685 stálo mimo pořadí. Seřazeno stejným klíčem, jaký používají skripty pro nová hesla (bez diakritiky, velikosti písmen a interpunkce). Obsah beze změny, kotvy drží, chapter map přegenerovaná. Hlídá ho `scripts/check_rejstrik.py` (`--fix` řadí).
 
+### ▶ Phase 14 (běží) — UE skills jako doplněk ke skills od Epicu _(od 2026-10-11)_
+
+Plán a inventura: `agent_docs/ue_skills.md`. Cíl podle rozhodnutí uživatele z 2026-10-11: skills, které přenesou best practices celé Praxe do vibe codingu s agentem v UE, hlavně přes MCP. Naše skills doplní jen to, co ve skills od Epicu chybí, proto napřed inventura a porovnání.
+
+- [x] **Krok 1: inventura** _(2026-10-11)_: plugin Epicu pro Claude Code (v3.1.1, MIT) obsahuje jen provozní skills (ovládání editoru přes MCP, psaní nativních skills a toolsetů), doménové znalosti žádné. Doménové skills jsou nativní v enginu; z dokumentace známe osm jmen (venkovní světlo, materiály, blueprinty, PCG, tři Niagara, Dataflow). Možný protějšek má 17 kapitol Praxe, zbylých 55 žádný.
+- [ ] **Krok 2: výpis nativních skills** z editoru 5.8 do gitignored `epic_skills/`. Dělá uživatel na stroji s UE, postup v `ue_skills.md`.
+- [ ] **Krok 3: porovnání po myšlenkách** v 17 překryvových kapitolách → matice v `ue_skills.md` → návrh sady skills (rozdělení, forma, pilot).
+
 ### Later / ideas _(vědomě odloženo — todo, neřešíme teď)_
 
 - [ ] Rejstřík-driven quiz export (terms + definitions as spaced-repetition source). _(Odloženo uživatelem 2026-07-11.)_

@@ -6,6 +6,8 @@ inbox/*
 !inbox/.gitkeep
 pilot/
 audits/*
+# Epic's engine-native Agent Skills dumped from a UE install (UE EULA content, see agent_docs/ue_skills.md)
+epic_skills/
 
 # MkDocs build output
 site/

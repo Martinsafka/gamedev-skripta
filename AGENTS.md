@@ -29,6 +29,7 @@ Follow the loop in `agent_docs/workflow.md` for **every** assignment: analyze �
 - `transcripts/` — raw subtitle files + `info.json` per video id. **Gitignored.**
 - `transcripts_clean/` — cleaned plain-text transcripts. **Gitignored.**
 - `inbox/` — raw personal material for Zápisky (devlogs, conversation summaries). **Gitignored.**
+- `epic_skills/` — Epic's engine-native Agent Skills dumped from a UE install, input for `agent_docs/ue_skills.md` (UE EULA content). **Gitignored.**
 - `docs/` — the published content: `teorie/`, `praxe/`, `zapisky/`, `rejstrik.md`, `index.md`.
 - `includes/abbreviations.md` — glossary tooltip definitions (auto-appended to every page).
 - `mkdocs.yml`, `.github/workflows/deploy.yml` — site config + Pages deploy.
@@ -46,6 +47,7 @@ Pull the relevant doc(s) into context **only when the task needs them**:
 - What's been done and why (running log — **append after every task**) → `agent_docs/dev_log.md`.
 - Phases and current status → `agent_docs/roadmap.md`.
 - **What the corpus cannot answer** — topics missing from the playlists, what to search for, what is already closed → `agent_docs/content_gaps.md` (evidence via `scripts/gap_scan.py`). Read before proposing a new fetch.
+- **UE skills for agents** — complement to Epic's skills: inventory, comparison, plan → `agent_docs/ue_skills.md`.
 
 ## Working rules
 
@@ -62,5 +64,5 @@ Pull the relevant doc(s) into context **only when the task needs them**:
 - **Zápisky are anonymized.** Identities are not important for the idea: no names, no identifiable people or organizations, no raw-material republishing. Distilled lessons only. Raw material stays in `inbox/`.
 - **Every entry credits its source** (video title + link, channel + link, timestamp links to key moments).
 - **The glossary never shrinks.** Terms are added/refined, not deleted, unless factually wrong.
-- **`transcripts/`, `transcripts_clean/`, `inbox/` stay gitignored.** Adding them to the repo is never the fix for anything.
+- **`transcripts/`, `transcripts_clean/`, `inbox/`, `epic_skills/` stay gitignored.** Adding them to the repo is never the fix for anything.
 - **Log every task** in `agent_docs/dev_log.md` (what/why/how). Not optional.
